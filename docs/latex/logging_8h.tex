@@ -1,0 +1,37 @@
+\doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/common/logging.h File Reference}
+\hypertarget{logging_8h}{}\label{logging_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/src/common/logging.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/src/common/logging.h}}
+{\ttfamily \#include $<$spdlog/spdlog.\+h$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacevkf}{vkf}}
+\begin{DoxyCompactList}\small\item\em Vulkan framework. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacevkf_1_1logging}{vkf\+::logging}}
+\begin{DoxyCompactList}\small\item\em Collection of logging functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{logging_8h_af8372f79e78eb87dfa2f223ca40ed3b5}\label{logging_8h_af8372f79e78eb87dfa2f223ca40ed3b5} 
+\#define {\bfseries ROOT\+\_\+\+PATH\+\_\+\+SIZE}~0
+\item 
+\Hypertarget{logging_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}\label{logging_8h_a5fccb4fc71e44089a1b1a77fc76c0b68} 
+\#define {\bfseries \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+}~(static\+\_\+cast$<$const char \texorpdfstring{$\ast$}{*}$>$(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+) + ROOT\+\_\+\+PATH\+\_\+\+SIZE)
+\item 
+\Hypertarget{logging_8h_a5512e59d578a380a441a70256af997d0}\label{logging_8h_a5512e59d578a380a441a70256af997d0} 
+\#define {\bfseries LOGI}(...)~spdlog\+::info(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\item 
+\Hypertarget{logging_8h_a07f1b0d507acedeb7550353eba4f6e66}\label{logging_8h_a07f1b0d507acedeb7550353eba4f6e66} 
+\#define {\bfseries LOGW}(...)~spdlog\+::warn(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\item 
+\Hypertarget{logging_8h_ae02538a80ad5fc009caec73487d11a8d}\label{logging_8h_ae02538a80ad5fc009caec73487d11a8d} 
+\#define {\bfseries LOGE}(...)~spdlog\+::error("{}\mbox{[}\{\}\+:\{\}\mbox{]} \{\}"{}, \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, fmt\+::format(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+));
+\item 
+\Hypertarget{logging_8h_aa839997a58e14061861cd634fdb7664d}\label{logging_8h_aa839997a58e14061861cd634fdb7664d} 
+\#define {\bfseries LOGD}(...)~spdlog\+::debug(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespacevkf_1_1logging_a93e6587a47f3fefe0616fde68f6cf2e0}\label{namespacevkf_1_1logging_a93e6587a47f3fefe0616fde68f6cf2e0} 
+void {\bfseries vkf\+::logging\+::init} ()
+\begin{DoxyCompactList}\small\item\em Initiates the spdlog logger and sets it to default. \end{DoxyCompactList}\end{DoxyCompactItemize}

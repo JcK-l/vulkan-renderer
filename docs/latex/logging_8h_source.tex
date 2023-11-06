@@ -1,0 +1,35 @@
+\doxysection{logging.\+h}
+\hypertarget{logging_8h_source}{}\label{logging_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/src/common/logging.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/src/common/logging.h}}
+\mbox{\hyperlink{logging_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Created\ by\ Joshua\ Lowe\ on\ 11/6/2023.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ The\ license\ and\ distribution\ terms\ for\ this\ file\ may\ be\ found\ in\ the\ file\ LICENSE\ in\ this\ distribution}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_LOGGING\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_LOGGING\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <spdlog/spdlog.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Mainly\ for\ IDEs}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ ROOT\_PATH\_SIZE}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#\ \ \ define\ ROOT\_PATH\_SIZE\ 0}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ \_\_FILENAME\_\_\ (static\_cast<const\ char\ *>(\_\_FILE\_\_)\ +\ ROOT\_PATH\_SIZE)}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ LOGI(...)\ spdlog::info(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ LOGW(...)\ spdlog::warn(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ LOGE(...)\ spdlog::error("{}[\{\}:\{\}]\ \{\}"{},\ \_\_FILENAME\_\_,\ \_\_LINE\_\_,\ fmt::format(\_\_VA\_ARGS\_\_));}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LOGD(...)\ spdlog::debug(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1logging}{vkf::logging}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacevkf_1_1logging_a93e6587a47f3fefe0616fde68f6cf2e0}{init}}();}
+\DoxyCodeLine{00030\ \}\ \textcolor{comment}{//\ namespace\ vkf}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_LOGGING\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,56 @@
+\doxysection{vkf\+::Window Class Reference}
+\hypertarget{classvkf_1_1_window}{}\label{classvkf_1_1_window}\index{vkf::Window@{vkf::Window}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvkf_1_1_window_1_1_extent}{Extent}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_window_1_1_extent}{Extent} of the window. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1_window_1_1_properties}{Properties}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classvkf_1_1_window}{Window} properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1_window_a0a15c06e544aa536bffcf4e52ce8bdf9}\label{classvkf_1_1_window_a0a15c06e544aa536bffcf4e52ce8bdf9} 
+enum class \mbox{\hyperlink{classvkf_1_1_window_a0a15c06e544aa536bffcf4e52ce8bdf9}{Vsync}} \{ {\bfseries OFF}
+, {\bfseries ON}
+ \}
+\begin{DoxyCompactList}\small\item\em Vsync option. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1_window_a06a81b655bf07abd90fe805040ae6009}\label{classvkf_1_1_window_a06a81b655bf07abd90fe805040ae6009} 
+enum class \mbox{\hyperlink{classvkf_1_1_window_a06a81b655bf07abd90fe805040ae6009}{Mode}} \{ {\bfseries Fullscreen}
+, {\bfseries Fullscreen\+Borderless}
+, {\bfseries Windowed}
+ \}
+\begin{DoxyCompactList}\small\item\em \doxylink{classvkf_1_1_window}{Window} mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1_window_a6245aaac80ed9f9c3935daf953978f01}\label{classvkf_1_1_window_a6245aaac80ed9f9c3935daf953978f01} 
+{\bfseries Window} (\mbox{\hyperlink{structvkf_1_1_window_1_1_properties}{Properties}})
+\item 
+\Hypertarget{classvkf_1_1_window_adbd12655d330758fa728eb7998ff5b06}\label{classvkf_1_1_window_adbd12655d330758fa728eb7998ff5b06} 
+void {\bfseries on\+Update} ()
+\item 
+\Hypertarget{classvkf_1_1_window_a3b50df6844d9ce648875d1fa66e4686b}\label{classvkf_1_1_window_a3b50df6844d9ce648875d1fa66e4686b} 
+void {\bfseries set\+Event\+Callback} (const std\+::function$<$ void(\mbox{\hyperlink{structvkf_1_1_event}{Event}} \&)$>$ \&callback)
+\item 
+\Hypertarget{classvkf_1_1_window_a0e0c941a12099a9d805b644e860008e3}\label{classvkf_1_1_window_a0e0c941a12099a9d805b644e860008e3} 
+bool {\bfseries is\+Closed} () const
+\item 
+\Hypertarget{classvkf_1_1_window_a2736f362c8bc409ab81ac55efc70bb8f}\label{classvkf_1_1_window_a2736f362c8bc409ab81ac55efc70bb8f} 
+GLFWwindow \texorpdfstring{$\ast$}{*} {\bfseries get\+Handle} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1_window_a019e3fc27ec29515ede446091003c618}\label{classvkf_1_1_window_a019e3fc27ec29515ede446091003c618} 
+\mbox{\hyperlink{structvkf_1_1_window_1_1_properties}{Properties}} {\bfseries window\+Data}
+\item 
+\Hypertarget{classvkf_1_1_window_afbc6702bf9fa9e235eb9d95312123d56}\label{classvkf_1_1_window_afbc6702bf9fa9e235eb9d95312123d56} 
+GLFWwindow \texorpdfstring{$\ast$}{*} {\bfseries handle} \{nullptr\}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/application/\mbox{\hyperlink{_window_8h}{Window.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/application/\mbox{\hyperlink{_window_8cpp}{Window.\+cpp}}\end{DoxyCompactItemize}

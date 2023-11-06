@@ -1,0 +1,130 @@
+\doxysection{vkf\+::core\+::Instance Class Reference}
+\hypertarget{classvkf_1_1core_1_1_instance}{}\label{classvkf_1_1core_1_1_instance}\index{vkf::core::Instance@{vkf::core::Instance}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_afc055d8d4a3c45143d05e8dbb66fa874}\label{classvkf_1_1core_1_1_instance_afc055d8d4a3c45143d05e8dbb66fa874} 
+{\bfseries Instance} (const std\+::string \&, const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&=\{\}, const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&=\{\})
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_a196b25a6a106ab51e502be0687d01d9f}\label{classvkf_1_1core_1_1_instance_a196b25a6a106ab51e502be0687d01d9f} 
+{\bfseries Instance} (const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_a808a17856bff47498864325677a56ec8}\label{classvkf_1_1core_1_1_instance_a808a17856bff47498864325677a56ec8} 
+{\bfseries Instance} (\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_ab64d4f2ee71869b632f5f9a9c952028c}\label{classvkf_1_1core_1_1_instance_ab64d4f2ee71869b632f5f9a9c952028c} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_a1cfd4e87784cc7eceaf7d22d71058faf}\label{classvkf_1_1core_1_1_instance_a1cfd4e87784cc7eceaf7d22d71058faf} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&\&)=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}{enable\+Extension}} (const char \texorpdfstring{$\ast$}{*}required\+Extension\+Name)
+\begin{DoxyCompactList}\small\item\em Enables extension if it is in available\+Extensions. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}{enable\+Layer}} (const char \texorpdfstring{$\ast$}{*}required\+Layer\+Name)
+\begin{DoxyCompactList}\small\item\em Enables layer if it is in available\+Layers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validate\+Extensions}} (const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Extensions)
+\begin{DoxyCompactList}\small\item\em Tries to enable all required extensions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validate\+Layers}} (const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Layers)
+\begin{DoxyCompactList}\small\item\em Tries to enable all required layers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_a5eb82c4df27b7b32cadc38eb7b7eda46}\label{classvkf_1_1core_1_1_instance_a5eb82c4df27b7b32cadc38eb7b7eda46} 
+std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries enabled\+Extensions}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_a590f9b0a66ade0adbca0dabf3068dc7b}\label{classvkf_1_1core_1_1_instance_a590f9b0a66ade0adbca0dabf3068dc7b} 
+std\+::vector$<$ vk\+::\+Extension\+Properties $>$ {\bfseries available\+Extensions}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_a9eb8bfacb7411bb321b873220e4e2c14}\label{classvkf_1_1core_1_1_instance_a9eb8bfacb7411bb321b873220e4e2c14} 
+std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries enabled\+Layers}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_ae59a71fb92a4ee34b8e81aff63ccb9c5}\label{classvkf_1_1core_1_1_instance_ae59a71fb92a4ee34b8e81aff63ccb9c5} 
+std\+::vector$<$ vk\+::\+Layer\+Properties $>$ {\bfseries available\+Layers}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_a5587736c060257ee6d6f8b7cc224ef4b}\label{classvkf_1_1core_1_1_instance_a5587736c060257ee6d6f8b7cc224ef4b} 
+vk\+::raii\+::\+Context {\bfseries context} \{\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_a6658cd0313a307bb61f300e396b7b7c3}\label{classvkf_1_1core_1_1_instance_a6658cd0313a307bb61f300e396b7b7c3} 
+vk\+::raii\+::\+Instance {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_ae501cf4ce03f84c51e83b51c0687d06e}\label{classvkf_1_1core_1_1_instance_ae501cf4ce03f84c51e83b51c0687d06e} 
+vk\+::raii\+::\+Debug\+Utils\+Messenger\+EXT {\bfseries debug\+Messenger} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}\label{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4} 
+\index{vkf::core::Instance@{vkf::core::Instance}!enableExtension@{enableExtension}}
+\index{enableExtension@{enableExtension}!vkf::core::Instance@{vkf::core::Instance}}
+\doxysubsubsection{\texorpdfstring{enableExtension()}{enableExtension()}}
+{\footnotesize\ttfamily bool vkf\+::core\+::\+Instance\+::enable\+Extension (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{required\+Extension\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Enables extension if it is in available\+Extensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em required\+Extension\+Name} & Name of Extension \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Is\+Extension\+Enabled 
+\end{DoxyReturn}
+\Hypertarget{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}\label{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1} 
+\index{vkf::core::Instance@{vkf::core::Instance}!enableLayer@{enableLayer}}
+\index{enableLayer@{enableLayer}!vkf::core::Instance@{vkf::core::Instance}}
+\doxysubsubsection{\texorpdfstring{enableLayer()}{enableLayer()}}
+{\footnotesize\ttfamily bool vkf\+::core\+::\+Instance\+::enable\+Layer (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{required\+Layer\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Enables layer if it is in available\+Layers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em required\+Layer\+Name} & Name of Layer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Is\+Layer\+Enabled 
+\end{DoxyReturn}
+\Hypertarget{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}\label{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448} 
+\index{vkf::core::Instance@{vkf::core::Instance}!validateExtensions@{validateExtensions}}
+\index{validateExtensions@{validateExtensions}!vkf::core::Instance@{vkf::core::Instance}}
+\doxysubsubsection{\texorpdfstring{validateExtensions()}{validateExtensions()}}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Instance\+::validate\+Extensions (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&}]{required\+Extensions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tries to enable all required extensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em required\+Extensions} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}\label{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49} 
+\index{vkf::core::Instance@{vkf::core::Instance}!validateLayers@{validateLayers}}
+\index{validateLayers@{validateLayers}!vkf::core::Instance@{vkf::core::Instance}}
+\doxysubsubsection{\texorpdfstring{validateLayers()}{validateLayers()}}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Instance\+::validate\+Layers (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&}]{required\+Layers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tries to enable all required layers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em required\+Layers} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/core/\mbox{\hyperlink{_instance_8h}{Instance.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/core/\mbox{\hyperlink{_instance_8cpp}{Instance.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,53 @@
+\doxysection{Application.\+h}
+\hypertarget{_application_8h_source}{}\label{_application_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/src/application/Application.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/src/application/Application.h}}
+\mbox{\hyperlink{_application_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Created\ by\ Joshua\ Lowe\ on\ 10/30/2023.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ The\ license\ and\ distribution\ terms\ for\ this\ file\ may\ be\ found\ in\ the\ file\ LICENSE\ in\ this\ distribution}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_APPLICATION\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_APPLICATION\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_window_8h}{Window.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../core/Instance.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf}{vkf}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1_application}{Application}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1_application}{Application}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1_application}{Application}}(\textcolor{keyword}{const}\ std::string\ \&appName);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1_application}{\string~Application}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1_application}{Application}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1_application}{Application}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1_application}{Application}}(\mbox{\hyperlink{classvkf_1_1_application}{Application}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1_application}{Application}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1_application}{Application}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1_application}{Application}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1_application}{Application}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1_application_a321aaa861623588ad503510af2ff2932}{run}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initVulkan();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ onUpdate();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ onEvent(\mbox{\hyperlink{structvkf_1_1_event}{Event}}\ \&event);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::unique\_ptr<Window>\ window;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core::Instance}}\ instance\{\textcolor{stringliteral}{"{}"{}}\};}
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ \}\ \textcolor{comment}{//\ namespace\ vkf}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_APPLICATION\_H}}
+
+\end{DoxyCode}

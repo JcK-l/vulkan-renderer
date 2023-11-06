@@ -1,0 +1,59 @@
+\doxysection{Instance.\+h}
+\hypertarget{_instance_8h_source}{}\label{_instance_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/src/core/Instance.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/src/core/Instance.h}}
+\mbox{\hyperlink{_instance_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Created\ by\ Joshua\ Lowe\ on\ 11/1/2023.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ The\ license\ and\ distribution\ terms\ for\ this\ file\ may\ be\ found\ in\ the\ file\ LICENSE\ in\ this\ distribution}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_INSTANCE\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_INSTANCE\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}(\textcolor{keyword}{const}\ std::string\ \&,\ \textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&\ =\ \{\},}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&\ =\ \{\});}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}(\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{\string~Instance}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}{enableExtension}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredExtensionName);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}{enableLayer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredLayerName);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validateExtensions}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredExtensions);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validateLayers}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredLayers);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ enabledExtensions;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::vector<vk::ExtensionProperties>\ availableExtensions;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ enabledLayers;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::vector<vk::LayerProperties>\ availableLayers;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ vk::raii::Context\ context\{\};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ vk::raii::Instance\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ vk::raii::DebugUtilsMessengerEXT\ debugMessenger\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_INSTANCE\_H}}
+
+\end{DoxyCode}

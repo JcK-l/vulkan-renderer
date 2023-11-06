@@ -1,0 +1,24 @@
+# ninja log v5
+4	3392	7206832081489994	CMakeFiles/VulkanRenderer.dir/src/main.cpp.obj	e360ccd430f80afc
+70	1229	7203048187723349	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/osmesa_context.c.obj	3796d22857b89a40
+44	1311	7203048188550340	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/win32_joystick.c.obj	1a91b1cd4d1b4916
+10	1245	7203048187783459	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/init.c.obj	a1e425135674a66c
+1	1290	7203048188334692	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/context.c.obj	efc76634f5949a4b
+8	3389	7206832081460019	CMakeFiles/VulkanRenderer.dir/src/application/Application.cpp.obj	14ccba282624928a
+17	1256	7203048187803373	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/vulkan.c.obj	98b6583a325731a3
+33	1297	7203048188369867	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/win32_monitor.c.obj	9c500e22b68db899
+21	1272	7203048187923856	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/win32_init.c.obj	80ad1eaed07fe475
+4	1319	7203048188570343	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/monitor.c.obj	a3afbfdbfa910611
+25	1360	7203048189052945	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/window.c.obj	df4dd9325f4b0d63
+7341	7529	7206832122818615	VulkanRenderer.exe	6dc96d55660ed77a
+61	1563	7203048189859205	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/win32_time.c.obj	39ca791db2999cfc
+51	1563	7203048190648486	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/win32_thread.c.obj	47c0b72abcfbed01
+1232	2065	7203048196161185	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/wgl_context.c.obj	abc0582080daf30a
+7	1564	7203048190723623	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/input.c.obj	5e5cf3efe826069c
+55	1616	7203048191668818	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/win32_window.c.obj	e5ace06e6e4fe8e9
+1245	2048	7203048195990894	lib/glfw-3.3.8/src/CMakeFiles/glfw.dir/egl_context.c.obj	d0e3fbbf3b9f6180
+2065	2141	7203048196927652	lib/glfw-3.3.8/src/libglfw3.a	403fdbfa34519246
+1	528	7209516231920483	build.ninja	f665440de888f8e8
+2	6911	7206811354911115	CMakeFiles/VulkanRenderer.dir/cmake_pch.hxx.gch	8b2449f4f822ec3a
+6915	7846	7206811364543846	CMakeFiles/VulkanRenderer.dir/src/application/Window.cpp.obj	69a222599edc0d69
+11	7338	7206832120936203	CMakeFiles/VulkanRenderer.dir/src/core/Instance.cpp.obj	b093354a8c76ac74
