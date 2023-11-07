@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['messenger_0',['Vulkan Instance and Debug Messenger',['../md_updates_2_november__6.html#autotoc_md6',1,'']]],
-  ['mode_1',['Mode',['../classvkf_1_1_window.html#a06a81b655bf07abd90fe805040ae6009',1,'vkf::Window']]],
-  ['mousebutton_2',['MouseButton',['../structvkf_1_1_event_1_1_mouse_button.html',1,'vkf::Event']]],
-  ['mousemove_3',['MouseMove',['../structvkf_1_1_event_1_1_mouse_move.html',1,'vkf::Event']]],
-  ['mousescroll_4',['MouseScroll',['../structvkf_1_1_event_1_1_mouse_scroll.html',1,'vkf::Event']]]
+  ['loader_0',['Dynamic Loader',['../md_updates_2_november__6.html#autotoc_md7',1,'']]],
+  ['logging_1',['Logging',['../md_updates_2_november__6.html#autotoc_md5',1,'']]],
+  ['logging_2ecpp_2',['logging.cpp',['../logging_8cpp.html',1,'']]],
+  ['logging_2eh_3',['logging.h',['../logging_8h.html',1,'']]]
 ];
