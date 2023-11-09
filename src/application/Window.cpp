@@ -15,7 +15,7 @@
 #include "../common/logging.h"
 
 void errorCallback(int error, const char *description) {
-  LOGE("GLFW ({}): {}", error, description);
+  LOG_ERROR("GLFW ({}): {}", error, description);
 }
 
 namespace vkf {
@@ -113,4 +113,29 @@ namespace vkf {
     void Window::onUpdate() {
       glfwPollEvents();
     }
+
+    void Window::setEventCallback(const std::function<void(Event &)> &callback) {
+      windowData.eventCallback = callback;
+    }
+
+    bool Window::isClosed() const {
+      return glfwWindowShouldClose(handle);
+    }
+
+    GLFWwindow *Window::getHandle() const {
+      return handle;
+    }
+
+    std::vector<const char *> Window::getRequiredSurfaceExtensions() {
+      uint32_t glfwExtensionCount{0};
+      const char **names = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
+      return {names, names + glfwExtensionCount};
+    }
+
+    vk::raii::SurfaceKHR Window::createSurface(const core::Instance &instance) {
+      VkSurfaceKHR _surface;
+      glfwCreateWindowSurface(static_cast<VkInstance>( *instance.getHandle()), handle, nullptr, &_surface);
+      vk::raii::SurfaceKHR surface{instance.getHandle(), _surface};
+      return surface;
+    };
 } // namespace vkf

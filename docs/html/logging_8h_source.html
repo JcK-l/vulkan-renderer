@@ -100,14 +100,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define __FILENAME__ (static_cast&lt;const char *&gt;(__FILE__) + ROOT_PATH_SIZE)</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define LOGI(...) spdlog::info(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define LOGW(...) spdlog::warn(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define LOGE(...) spdlog::error(&quot;[{}:{}] {}&quot;, __FILENAME__, __LINE__, fmt::format(__VA_ARGS__));</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define LOGD(...) spdlog::debug(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define LOG_INFO(...) spdlog::info(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define LOG_WARN(...) spdlog::warn(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define LOG_ERROR(...) spdlog::error(&quot;[{}:{}] {}&quot;, __FILENAME__, __LINE__, fmt::format(__VA_ARGS__));</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define LOG_DEBUG(...) spdlog::debug(__VA_ARGS__);</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1logging.html">vkf::logging</a> {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacevkf_1_1logging.html#a93e6587a47f3fefe0616fde68f6cf2e0">init</a>();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} <span class="comment">// namespace vkf</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} <span class="comment">// namespace vkf::logging</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif </span><span class="comment">//VULKANRENDERER_LOGGING_H</span></div>
 <div class="ttc" id="anamespacevkf_1_1logging_html"><div class="ttname"><a href="namespacevkf_1_1logging.html">vkf::logging</a></div><div class="ttdoc">Collection of logging functions.</div><div class="ttdef"><b>Definition</b> logging.cpp:16</div></div>

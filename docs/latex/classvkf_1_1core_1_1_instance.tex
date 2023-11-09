@@ -1,10 +1,19 @@
 \doxysection{vkf\+::core\+::Instance Class Reference}
 \hypertarget{classvkf_1_1core_1_1_instance}{}\label{classvkf_1_1core_1_1_instance}\index{vkf::core::Instance@{vkf::core::Instance}}
+
+
+This is a wrapper class for vk\+::raii\+::instance.  
+
+
+
+
+{\ttfamily \#include $<$Instance.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classvkf_1_1core_1_1_instance_afc055d8d4a3c45143d05e8dbb66fa874}\label{classvkf_1_1core_1_1_instance_afc055d8d4a3c45143d05e8dbb66fa874} 
-{\bfseries Instance} (const std\+::string \&, const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&=\{\}, const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&=\{\})
+\Hypertarget{classvkf_1_1core_1_1_instance_a9e9963ecb7c7db9e50dcca153cad8c32}\label{classvkf_1_1core_1_1_instance_a9e9963ecb7c7db9e50dcca153cad8c32} 
+{\bfseries Instance} (const std\+::string \&app\+Name, const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Extensions=\{\}, const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Layers=\{\})
 \item 
 \Hypertarget{classvkf_1_1core_1_1_instance_a196b25a6a106ab51e502be0687d01d9f}\label{classvkf_1_1core_1_1_instance_a196b25a6a106ab51e502be0687d01d9f} 
 {\bfseries Instance} (const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&)=delete
@@ -17,18 +26,27 @@
 \item 
 \Hypertarget{classvkf_1_1core_1_1_instance_a1cfd4e87784cc7eceaf7d22d71058faf}\label{classvkf_1_1core_1_1_instance_a1cfd4e87784cc7eceaf7d22d71058faf} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_a1afca95927feacae9bc8197226c2ea84}\label{classvkf_1_1core_1_1_instance_a1afca95927feacae9bc8197226c2ea84} 
+\mbox{\hyperlink{class_physical_device}{Physical\+Device}} \& {\bfseries get\+Suitable\+Gpu} (vk\+::raii\+::\+Surface\+KHR \&surface)
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_aaaedbf441b8ff079ee4f5381cac0ae50}\label{classvkf_1_1core_1_1_instance_aaaedbf441b8ff079ee4f5381cac0ae50} 
+const vk\+::raii\+::\+Instance \& {\bfseries get\+Handle} () const
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validate\+Extensions}} (const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Extensions)
+\begin{DoxyCompactList}\small\item\em Tries to enable all required extensions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validate\+Layers}} (const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Layers)
+\begin{DoxyCompactList}\small\item\em Tries to enable all required layers. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}{enable\+Extension}} (const char \texorpdfstring{$\ast$}{*}required\+Extension\+Name)
 \begin{DoxyCompactList}\small\item\em Enables extension if it is in available\+Extensions. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}{enable\+Layer}} (const char \texorpdfstring{$\ast$}{*}required\+Layer\+Name)
 \begin{DoxyCompactList}\small\item\em Enables layer if it is in available\+Layers. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validate\+Extensions}} (const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Extensions)
-\begin{DoxyCompactList}\small\item\em Tries to enable all required extensions. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validate\+Layers}} (const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Layers)
-\begin{DoxyCompactList}\small\item\em Tries to enable all required layers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\Hypertarget{classvkf_1_1core_1_1_instance_aa18431ab955ea538705d10a5e4812bc8}\label{classvkf_1_1core_1_1_instance_aa18431ab955ea538705d10a5e4812bc8} 
+void {\bfseries query\+Gpus} ()
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -52,8 +70,16 @@ vk\+::raii\+::\+Instance {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
 \item 
 \Hypertarget{classvkf_1_1core_1_1_instance_ae501cf4ce03f84c51e83b51c0687d06e}\label{classvkf_1_1core_1_1_instance_ae501cf4ce03f84c51e83b51c0687d06e} 
 vk\+::raii\+::\+Debug\+Utils\+Messenger\+EXT {\bfseries debug\+Messenger} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_a3ee9ad6ee009e30a90560e5300f7385b}\label{classvkf_1_1core_1_1_instance_a3ee9ad6ee009e30a90560e5300f7385b} 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_physical_device}{Physical\+Device}} $>$ $>$ {\bfseries gpus}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+This is a wrapper class for vk\+::raii\+::instance. 
+
+This class also handles the creation of the debug\+Utils\+Messenger and returns a suitable gpu for a given surface 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}\label{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4} 

@@ -9,7 +9,7 @@ In the following sections I'll talk about some of the things that I've implement
 
 This class contains the main loop of the program, which at the moment doesn't include much.
 
-```c++
+```c
 void Application::run() {
     while (!window->isClosed()) {
         onUpdate();
@@ -19,13 +19,13 @@ void Application::run() {
 }
 ```
 
-It calls currently calls to update functions. The window **onUpdate** function just calls **glfwPollEvents** and the
-application **onUpdate** isn't implemented yet.
+It currently calls two update functions. The window onUpdate function just calls glfwPollEvents and the
+application onUpdate isn't implemented yet.
 
 It also features an onEvent function which receives events from the
 GLFWwindow. This function is getting passed as a callback function to the window class.
 
-```c++
+```c
 void Application::onEvent(Event &event) {
   switch (event.type) {
     case Event::Type::Keyboard: {
@@ -68,7 +68,7 @@ the gui, but that can just be a method call from a gui class.
 
 The window class receives a properties struct in its constructor.
 
-```c++
+```c
 struct Properties {
     std::string title;
     Mode mode{Mode::Windowed};
@@ -80,12 +80,13 @@ struct Properties {
 };
 ```
 
-These settings are then used to initialize glfw. Because we're only going to use vulkan, there is no need to abstract
-the window class, as we'll only ever be using glfw.
+These settings are then used to initialize glfw. Because we're only going to use vulkan (and not directX for example),
+there is no need to abstract the window class for different operating systems. Also, we are using glfw which
+is cross-platform already.
 
-This is also where the **eventCallback** gets called. This is one example.
+This is also where the eventCallback gets called. This is one example.
 
-```c++
+```c
 glfwSetWindowSizeCallback(handle, [](GLFWwindow *window, int width, int height) {
   if (auto *data = reinterpret_cast<Properties *>(glfwGetWindowUserPointer(window))) {
     data->extent.width = width;
@@ -97,13 +98,13 @@ glfwSetWindowSizeCallback(handle, [](GLFWwindow *window, int width, int height) 
 });
 ```
 
-It uses **glfwGetWindowUserPointer** to get the windowData and then uses the callback which gets set in the application.
+It uses glfwGetWindowUserPointer to get the windowData and then uses the callback which gets set in the application.
 
 ### Events
 
 Events are currently just a struct with a type and data.
 
-```c++
+```c
 struct Event {
     // more structs...
 
@@ -133,7 +134,7 @@ Sometimes it can be helpful to poll input. Glfw provides functions to do just th
 To make those functions more easily accessible the glfw functions are wrapped in a namespace called input.
 As the need for more functionality arises, more functions will be added.
 
-```c++
+```c
 namespace vkf::input {
     bool isKeyPressed(GLFWwindow *window, int keycode);
 
@@ -153,25 +154,25 @@ This project uses [spdlog](https://github.com/gabime/spdlog). The init function 
 the program. The macros
 can then be called to log relevant information.
 
-```c++
-#define LOGI(...) spdlog::info(__VA_ARGS__);
-#define LOGW(...) spdlog::warn(__VA_ARGS__);
-#define LOGE(...) spdlog::error("[{}:{}] {}", __FILENAME__, __LINE__, fmt::format(__VA_ARGS__));
-#define LOGD(...) spdlog::debug(__VA_ARGS__);
+```c
+#define LOG_INFO(...) spdlog::info(__VA_ARGS__);
+#define LOG_WARN(...) spdlog::warn(__VA_ARGS__);
+#define LOG_ERROR(...) spdlog::error("[{}:{}] {}", __FILENAME__, __LINE__, fmt::format(__VA_ARGS__));
+#define LOG_DEBUG(...) spdlog::debug(__VA_ARGS__);
 
 namespace vkf::logging {
     void init();
-} // namespace vkf
+} // namespace vkf::logging
 ```
 
 ### Vulkan Hpp
 
 This project uses [vulkan.hpp](https://github.com/KhronosGroup/Vulkan-Hpp).
 This means the code will look a bit different to standard Vulkan API. Because this project is compiled using the c++20
-standard, I also use designated initializers. In order to use them you need to **#define VULKAN_HPP_NO_CONSTRUCTORS**.
+standard, I also use designated initializers. In order to use them you need to #define VULKAN_HPP_NO_CONSTRUCTORS.
 This makes the code look cleaner in my opinion. Here an example from the vulkan hpp gitHub.
 
-```c++
+```c
 // initialize the vk::ApplicationInfo structure
 vk::ApplicationInfo applicationInfo{
 .pApplicationName   = AppName,
@@ -189,7 +190,7 @@ vk::InstanceCreateInfo instanceCreateInfo{ .pApplicationInfo = & applicationInfo
 
 I'm using the Dynamic loader that vulkan-hpp provides. In order to use it, a couple of macros have to be defined.
 
-```c++
+```c
 #define VULKAN_HPP_DISPATCH_LOADER_DYNAMIC 1
 #define VULKAN_HPP_NO_CONSTRUCTORS
 
@@ -198,7 +199,7 @@ VULKAN_HPP_DEFAULT_DISPATCH_LOADER_DYNAMIC_STORAGE
 
 To create it there are three steps:
 
-```c++
+```c
 vk::DynamicLoader dl;
 auto vkGetInstanceProcAddr = dl.getProcAddress<PFN_vkGetInstanceProcAddr>("vkGetInstanceProcAddr");
 VULKAN_HPP_DEFAULT_DISPATCHER.init(vkGetInstanceProcAddr);
@@ -222,7 +223,7 @@ There is a detailed explanation in the gitHub README.md
 
 With raii you don't have to worry about cleaning up your vulkan handles. Here an example from the gitHub.
 
-```c++
+```c
 // create a vk::raii::Device, given a vk::raii::PhysicalDevice physicalDevice and a vk::DeviceCreateInfo deviceCreateInfo
 vk::raii::Device device( physicalDevice, deviceCreateInfo );
 ```
@@ -238,14 +239,14 @@ required extensions in the constructor and sets up the debug messenger.
 
 The debug messenger only gets initialized if in debug mode.
 
-```c++
+```c
 #if !defined( NDEBUG )
     debugMessenger = vk::raii::DebugUtilsMessengerEXT{handle,
                                                       common::utils::createDebugMessengerInfo(&debugCallback)};
 #endif
 ```
 
-```c++
+```c
 #if !defined( NDEBUG )
     vk::StructureChain<vk::InstanceCreateInfo, vk::DebugUtilsMessengerCreateInfoEXT> instanceCreateInfo = {
     vk::InstanceCreateInfo{
@@ -270,6 +271,6 @@ instanceCreateInfo. [extension documentation](https://github.com/KhronosGroup/Vu
 
 For this we're using vulkan-hpp structure chains. During instance creation we can get the creatInfo by simply calling
 
-```c++
+```c
 handle = vk::raii::Instance{context, instanceCreateInfo.get<vk::InstanceCreateInfo>()};
 ```

@@ -18,9 +18,9 @@ VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBits
                                              void * /*pUserData*/ ) {
   // Log debug message
   if (messageSeverity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT) {
-    LOGW("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage);
+    LOG_WARN("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage);
   } else if (messageSeverity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT) {
-    LOGE("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage);
+    LOG_ERROR("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage);
   }
   return VK_FALSE;
 }
@@ -29,7 +29,7 @@ VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBits
 
 namespace vkf::core {
 
-    Instance::Instance(const std::string &name, const std::vector<const char *> &requiredExtensions,
+    Instance::Instance(const std::string &appName, const std::vector<const char *> &requiredExtensions,
                        const std::vector<const char *> &requiredLayers) {
       try {
         vk::DynamicLoader dl;
@@ -49,7 +49,7 @@ namespace vkf::core {
 #endif
 
         vk::ApplicationInfo applicationInfo{
-          .pApplicationName = name.c_str(),
+          .pApplicationName = appName.c_str(),
           .applicationVersion = 1,
           .pEngineName = "engine",
           .engineVersion = 1,
@@ -79,14 +79,16 @@ namespace vkf::core {
                                                           common::utils::createDebugMessengerInfo(&debugCallback)};
 #endif
 
+        queryGpus();
+
       } catch (vk::SystemError &err) {
-        LOGE("vk::SystemError: {}", err.what());
+        LOG_ERROR("vk::SystemError: {}", err.what());
         exit(-1);
       } catch (std::exception &err) {
-        LOGE("std::exception: {}", err.what());
+        LOG_ERROR("std::exception: {}", err.what());
         exit(-1);
       } catch (...) {
-        LOGE("unknown error");
+        LOG_ERROR("unknown error");
         exit(-1);
       }
     }
@@ -101,14 +103,14 @@ namespace vkf::core {
           if (it != enabledExtensions.end()) {
             // Extension is already enabled
           } else {
-            LOGI("Extension {} found, enabling it", requiredExtensionName)
+            LOG_INFO("Extension {} found, enabling it", requiredExtensionName)
             enabledExtensions.emplace_back(requiredExtensionName);
           }
           return true;
         }
       }
 
-      LOGI("Extension {} not found", requiredExtensionName)
+      LOG_INFO("Extension {} not found", requiredExtensionName)
       return false;
     }
 
@@ -122,21 +124,21 @@ namespace vkf::core {
           if (it != enabledLayers.end()) {
             // Extension is already enabled
           } else {
-            LOGI("Layer {} found, enabling it", requiredLayerName)
+            LOG_INFO("Layer {} found, enabling it", requiredLayerName)
             enabledLayers.emplace_back(requiredLayerName);
           }
           return true;
         }
       }
 
-      LOGI("Layer {} not found", requiredLayerName)
+      LOG_INFO("Layer {} not found", requiredLayerName)
       return false;
     }
 
     void Instance::validateExtensions(const std::vector<const char *> &requiredExtensions) {
       for (auto extension: requiredExtensions) {
         if (!enableExtension(extension)) {
-          LOGE("Required instance extension {} not available, cannot run", extension)
+          LOG_ERROR("Required instance extension {} not available, cannot run", extension)
           throw std::runtime_error("Required instance extensions are missing.");
         }
       }
@@ -145,9 +147,49 @@ namespace vkf::core {
     void Instance::validateLayers(const std::vector<const char *> &requiredLayers) {
       for (auto layer: requiredLayers) {
         if (!enableLayer(layer)) {
-          LOGE("Required instance layer {} not available, cannot run", layer)
+          LOG_ERROR("Required instance layer {} not available, cannot run", layer)
           throw std::runtime_error("Required instance layers are missing.");
         }
       }
+    }
+
+    void Instance::queryGpus() {
+      // Querying valid physical devices on the machine
+      vk::raii::PhysicalDevices physicalDevices{handle};
+      if (physicalDevices.empty()) {
+        throw std::runtime_error("Couldn't find a physical device that supports Vulkan.");
+      }
+
+      // Create gpus wrapper objects from the vk::PhysicalDevice's
+      for (auto &physicalDevice: physicalDevices) {
+        gpus.push_back(std::make_unique<PhysicalDevice>(physicalDevice));
+      }
+    }
+
+    PhysicalDevice &Instance::getSuitableGpu(vk::raii::SurfaceKHR &surface) {
+      assert(!gpus.empty() && "No physical devices found");
+
+      for (const auto &gpu: gpus) {
+        auto queueFamilyProperties = gpu->getQueueFamilyProperties();
+        auto size = queueFamilyProperties.size();
+
+        // check for discrete gpu
+        if (gpu->getProperties().deviceType == vk::PhysicalDeviceType::eDiscreteGpu) {
+
+          // check if a queue can present
+          for (auto i = 0; i < size; ++i) {
+            if (gpu->getSurfaceSupportKHR(i, *surface)) {
+              LOG_INFO("Picked GPU: {}", gpu->getProperties().deviceName.data());
+              return *gpu;
+            }
+          }
+        }
+      }
+      LOG_WARN("No suitable gpu found. Picking first GPU: {}", gpus[0]->getProperties().deviceName.data());
+      return *gpus[0];
+    }
+
+    const vk::raii::Instance &Instance::getHandle() const {
+      return handle;
     }
 } // namespace vkf::core

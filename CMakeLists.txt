@@ -17,10 +17,13 @@ add_executable(VulkanRenderer src/main.cpp
         src/common/utils.cpp
         src/common/logging.cpp
         src/common/input.cpp
+        src/core/PhysicalDevice.cpp
+        src/core/PhysicalDevice.h
+        src/core/Device.cpp
+        src/core/Device.h
 )
 
 target_precompile_headers(VulkanRenderer PUBLIC src/pch.h)
-
 
 
 find_package(Vulkan REQUIRED)

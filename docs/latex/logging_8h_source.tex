@@ -21,14 +21,14 @@
 \DoxyCodeLine{00018\ }
 \DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ \_\_FILENAME\_\_\ (static\_cast<const\ char\ *>(\_\_FILE\_\_)\ +\ ROOT\_PATH\_SIZE)}}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ LOGI(...)\ spdlog::info(\_\_VA\_ARGS\_\_);}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ LOGW(...)\ spdlog::warn(\_\_VA\_ARGS\_\_);}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ LOGE(...)\ spdlog::error("{}[\{\}:\{\}]\ \{\}"{},\ \_\_FILENAME\_\_,\ \_\_LINE\_\_,\ fmt::format(\_\_VA\_ARGS\_\_));}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LOGD(...)\ spdlog::debug(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ LOG\_INFO(...)\ spdlog::info(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ LOG\_WARN(...)\ spdlog::warn(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ LOG\_ERROR(...)\ spdlog::error("{}[\{\}:\{\}]\ \{\}"{},\ \_\_FILENAME\_\_,\ \_\_LINE\_\_,\ fmt::format(\_\_VA\_ARGS\_\_));}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LOG\_DEBUG(...)\ spdlog::debug(\_\_VA\_ARGS\_\_);}}
 \DoxyCodeLine{00025\ }
 \DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1logging}{vkf::logging}}\ \{}
 \DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacevkf_1_1logging_a93e6587a47f3fefe0616fde68f6cf2e0}{init}}();}
-\DoxyCodeLine{00030\ \}\ \textcolor{comment}{//\ namespace\ vkf}}
+\DoxyCodeLine{00030\ \}\ \textcolor{comment}{//\ namespace\ vkf::logging}}
 \DoxyCodeLine{00031\ }
 \DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_LOGGING\_H}}
 

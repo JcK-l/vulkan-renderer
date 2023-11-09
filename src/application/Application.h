@@ -11,9 +11,11 @@
 
 #include "Window.h"
 #include "../core/Instance.h"
+#include "../core/Device.h"
 
 /// \brief Vulkan framework
 namespace vkf {
+
     class Application {
     public:
         Application() = default;
@@ -35,14 +37,17 @@ namespace vkf {
         void run();
 
     private:
-        void initVulkan();
-
         void onUpdate();
 
         void onEvent(Event &event);
 
         std::unique_ptr<Window> window;
-        core::Instance instance{""};
+        std::unique_ptr<core::Instance> instance;
+        std::unique_ptr<vk::raii::SurfaceKHR> surface;
+        std::unique_ptr<core::Device> device;
+
+        std::vector<const char *> instanceExtensions;
+        std::vector<const char *> deviceExtensions;
     };
 } // namespace vkf
 

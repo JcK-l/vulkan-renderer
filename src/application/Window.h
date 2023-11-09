@@ -11,11 +11,13 @@
 
 #include "GLFW/glfw3.h"
 #include "../common/event.h"
+#include "../core/Instance.h"
 
 namespace vkf {
 
     class Application;
 
+    /// \brief This class provides functionality associated with glfw
     class Window {
 
     public:
@@ -55,12 +57,15 @@ namespace vkf {
 
         void onUpdate();
 
-        inline void
-        setEventCallback(const std::function<void(Event &)> &callback) { windowData.eventCallback = callback; };
+        void setEventCallback(const std::function<void(Event &)> &callback);
 
-        [[nodiscard]] inline bool isClosed() const { return glfwWindowShouldClose(handle); };
+        [[nodiscard]] bool isClosed() const;
 
-        [[nodiscard]] inline GLFWwindow *getHandle() const { return handle; };
+        [[nodiscard]] GLFWwindow *getHandle() const;
+
+        static std::vector<const char *> getRequiredSurfaceExtensions();
+
+        vk::raii::SurfaceKHR createSurface(const core::Instance &instance);
 
     private:
         Properties windowData;

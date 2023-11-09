@@ -17,17 +17,17 @@ namespace \mbox{\hyperlink{namespacevkf_1_1logging}{vkf\+::logging}}
 \Hypertarget{logging_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}\label{logging_8h_a5fccb4fc71e44089a1b1a77fc76c0b68} 
 \#define {\bfseries \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+}~(static\+\_\+cast$<$const char \texorpdfstring{$\ast$}{*}$>$(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+) + ROOT\+\_\+\+PATH\+\_\+\+SIZE)
 \item 
-\Hypertarget{logging_8h_a5512e59d578a380a441a70256af997d0}\label{logging_8h_a5512e59d578a380a441a70256af997d0} 
-\#define {\bfseries LOGI}(...)~spdlog\+::info(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\Hypertarget{logging_8h_a378e28bfcb78d17285210d6bbb70a083}\label{logging_8h_a378e28bfcb78d17285210d6bbb70a083} 
+\#define {\bfseries LOG\+\_\+\+INFO}(...)~spdlog\+::info(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
 \item 
-\Hypertarget{logging_8h_a07f1b0d507acedeb7550353eba4f6e66}\label{logging_8h_a07f1b0d507acedeb7550353eba4f6e66} 
-\#define {\bfseries LOGW}(...)~spdlog\+::warn(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\Hypertarget{logging_8h_add82efa459e0af380b68522c29b9fd44}\label{logging_8h_add82efa459e0af380b68522c29b9fd44} 
+\#define {\bfseries LOG\+\_\+\+WARN}(...)~spdlog\+::warn(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
 \item 
-\Hypertarget{logging_8h_ae02538a80ad5fc009caec73487d11a8d}\label{logging_8h_ae02538a80ad5fc009caec73487d11a8d} 
-\#define {\bfseries LOGE}(...)~spdlog\+::error("{}\mbox{[}\{\}\+:\{\}\mbox{]} \{\}"{}, \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, fmt\+::format(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+));
+\Hypertarget{logging_8h_ad4a9117ce894e3319e903142347a0f63}\label{logging_8h_ad4a9117ce894e3319e903142347a0f63} 
+\#define {\bfseries LOG\+\_\+\+ERROR}(...)~spdlog\+::error("{}\mbox{[}\{\}\+:\{\}\mbox{]} \{\}"{}, \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, fmt\+::format(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+));
 \item 
-\Hypertarget{logging_8h_aa839997a58e14061861cd634fdb7664d}\label{logging_8h_aa839997a58e14061861cd634fdb7664d} 
-\#define {\bfseries LOGD}(...)~spdlog\+::debug(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\Hypertarget{logging_8h_a754b3d074e0af4ad3c7b918dd77ecb2d}\label{logging_8h_a754b3d074e0af4ad3c7b918dd77ecb2d} 
+\#define {\bfseries LOG\+\_\+\+DEBUG}(...)~spdlog\+::debug(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}

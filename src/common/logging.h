@@ -18,15 +18,15 @@
 
 #define __FILENAME__ (static_cast<const char *>(__FILE__) + ROOT_PATH_SIZE)
 
-#define LOGI(...) spdlog::info(__VA_ARGS__);
-#define LOGW(...) spdlog::warn(__VA_ARGS__);
-#define LOGE(...) spdlog::error("[{}:{}] {}", __FILENAME__, __LINE__, fmt::format(__VA_ARGS__));
-#define LOGD(...) spdlog::debug(__VA_ARGS__);
+#define LOG_INFO(...) spdlog::info(__VA_ARGS__);
+#define LOG_WARN(...) spdlog::warn(__VA_ARGS__);
+#define LOG_ERROR(...) spdlog::error("[{}:{}] {}", __FILENAME__, __LINE__, fmt::format(__VA_ARGS__));
+#define LOG_DEBUG(...) spdlog::debug(__VA_ARGS__);
 
 /// \brief Collection of logging functions
 namespace vkf::logging {
     /// \brief Initiates the spdlog logger and sets it to default
     void init();
-} // namespace vkf
+} // namespace vkf::logging
 
 #endif //VULKANRENDERER_LOGGING_H

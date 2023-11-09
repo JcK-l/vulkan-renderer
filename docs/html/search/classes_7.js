@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['resize_0',['Resize',['../structvkf_1_1_event_1_1_resize.html',1,'vkf::Event']]]
+  ['physicaldevice_0',['PhysicalDevice',['../class_physical_device.html',1,'']]],
+  ['properties_1',['Properties',['../structvkf_1_1_window_1_1_properties.html',1,'vkf::Window']]]
 ];

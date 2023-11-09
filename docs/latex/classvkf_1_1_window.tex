@@ -1,5 +1,14 @@
 \doxysection{vkf\+::Window Class Reference}
 \hypertarget{classvkf_1_1_window}{}\label{classvkf_1_1_window}\index{vkf::Window@{vkf::Window}}
+
+
+This class provides functionality associated with glfw.  
+
+
+
+
+{\ttfamily \#include $<$Window.\+h$>$}
+
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,6 +47,15 @@ bool {\bfseries is\+Closed} () const
 \item 
 \Hypertarget{classvkf_1_1_window_a2736f362c8bc409ab81ac55efc70bb8f}\label{classvkf_1_1_window_a2736f362c8bc409ab81ac55efc70bb8f} 
 GLFWwindow \texorpdfstring{$\ast$}{*} {\bfseries get\+Handle} () const
+\item 
+\Hypertarget{classvkf_1_1_window_a21d51b159722fa232e4599a34bceb9f5}\label{classvkf_1_1_window_a21d51b159722fa232e4599a34bceb9f5} 
+vk\+::raii\+::\+Surface\+KHR {\bfseries create\+Surface} (const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} \&instance)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1_window_ae7207b00444d9b36b4ecf008ffc43861}\label{classvkf_1_1_window_ae7207b00444d9b36b4ecf008ffc43861} 
+static std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Required\+Surface\+Extensions} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -49,6 +67,9 @@ GLFWwindow \texorpdfstring{$\ast$}{*} {\bfseries get\+Handle} () const
 GLFWwindow \texorpdfstring{$\ast$}{*} {\bfseries handle} \{nullptr\}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+This class provides functionality associated with glfw. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
