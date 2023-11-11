@@ -30,31 +30,31 @@ void Application::onEvent(Event &event) {
   switch (event.type) {
     case Event::Type::Keyboard: {
       auto data = std::get<Event::Keyboard>(event.data);
-      LOGI("KeyboardEvent: keycode={}, action={}", data.keycode, data.action);
+      LOG_INFO("KeyboardEvent: keycode={}, action={}", data.keycode, data.action);
       break;
     }
     case Event::Type::MouseMove: {
       auto data = std::get<Event::MouseMove>(event.data);
-      LOGI("MouseMoveEvent: x={}, y={}", data.xPos, data.yPos);
+      LOG_INFO("MouseMoveEvent: x={}, y={}", data.xPos, data.yPos);
       break;
     }
     case Event::Type::MouseButton: {
       auto data = std::get<Event::MouseButton>(event.data);
-      LOGI("MouseButtonEvent: button={}, action={}", data.button, data.action);
+      LOG_INFO("MouseButtonEvent: button={}, action={}", data.button, data.action);
       break;
     }
     case Event::Type::MouseScroll: {
       auto data = std::get<Event::MouseScroll>(event.data);
-      LOGI("MouseScrollEvent: x={}, y={}", data.xScroll, data.yScroll);
+      LOG_INFO("MouseScrollEvent: x={}, y={}", data.xScroll, data.yScroll);
       break;
     }
     case Event::Type::Resize: {
       auto data = std::get<Event::Resize>(event.data);
-      LOGI("ResizeEvent: width={}, height={}", data.newWidth, data.newHeight);
+      LOG_INFO("ResizeEvent: width={}, height={}", data.newWidth, data.newHeight);
       break;
     }
     case Event::Type::Close: {
-      LOGI("CloseEvent");
+      LOG_INFO("CloseEvent");
       break;
     }
   }
@@ -87,15 +87,19 @@ is cross-platform already.
 This is also where the eventCallback gets called. This is one example.
 
 ```c
-glfwSetWindowSizeCallback(handle, [](GLFWwindow *window, int width, int height) {
-  if (auto *data = reinterpret_cast<Properties *>(glfwGetWindowUserPointer(window))) {
-    data->extent.width = width;
-    data->extent.height = height;
-    data->resized = true;
-    Event event{Event::Type::Resize, Event::Resize{width, height}};
-    data->eventCallback(event);
-  }
+// ...
+
+glfwSetWindowSizeCallback(handle,[](GLFWwindow *window, int width, int height) {
+if (auto *data = reinterpret_cast<Properties *>(glfwGetWindowUserPointer(window))) {
+data->extent.width = width;
+data->extent.height = height;
+data->resized = true;
+Event event{ Event::Type::Resize, Event::Resize{ width, height }};
+data->eventCallback(event);
+}
 });
+
+// ...
 ```
 
 It uses glfwGetWindowUserPointer to get the windowData and then uses the callback which gets set in the application.
@@ -145,7 +149,7 @@ namespace vkf::input {
     double getMouseX(GLFWwindow *window);
 
     double getMouseY(GLFWwindow *window);
-}
+} // vkf::input
 ```
 
 ### Logging
@@ -168,8 +172,8 @@ namespace vkf::logging {
 ### Vulkan Hpp
 
 This project uses [vulkan.hpp](https://github.com/KhronosGroup/Vulkan-Hpp).
-This means the code will look a bit different to standard Vulkan API. Because this project is compiled using the c++20
-standard, I also use designated initializers. In order to use them you need to #define VULKAN_HPP_NO_CONSTRUCTORS.
+This means the code will look a bit different from the standard Vulkan API. Because this project is compiled using the
+c++20 standard, I also use designated initializers. In order to use them you need to #define VULKAN_HPP_NO_CONSTRUCTORS.
 This makes the code look cleaner in my opinion. Here an example from the vulkan hpp gitHub.
 
 ```c
@@ -217,7 +221,7 @@ vk::Device device = physicalDevices[0].createDevice({}, nullptr);
 VULKAN_HPP_DEFAULT_DISPATCHER.init(device);
 ```
 
-There is a detailed explanation in the gitHub README.md
+There is a detailed explanation in the [vulkan.hpp](https://github.com/KhronosGroup/Vulkan-Hpp) gitHub README.md.
 
 #### Raii
 
@@ -228,9 +232,10 @@ With raii you don't have to worry about cleaning up your vulkan handles. Here an
 vk::raii::Device device( physicalDevice, deviceCreateInfo );
 ```
 
-This device gets destroyed automatically when it leaves scope. There are other benefits, but also some inconveniences.
+This device gets destroyed automatically when it leaves its scope. There are other benefits, but also some
+inconveniences.
 All of this can be found in
-the [programing guide](https://github.com/KhronosGroup/Vulkan-Hpp/blob/main/vk_raii_ProgrammingGuide.mdk).
+the [raii programing guide](https://github.com/KhronosGroup/Vulkan-Hpp/blob/main/vk_raii_ProgrammingGuide.mdk).
 
 ### Vulkan Instance and Debug Messenger
 
@@ -238,6 +243,24 @@ Instance is the first core class that I've implemented. It tries to enable all t
 required extensions in the constructor and sets up the debug messenger.
 
 The debug messenger only gets initialized if in debug mode.
+
+```c
+#if !defined( NDEBUG )
+VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
+                                             VkDebugUtilsMessageTypeFlagsEXT messageTypes,
+                                             VkDebugUtilsMessengerCallbackDataEXT const *callbackData,
+                                             void * /*pUserData*/ ) {
+  // Log debug message
+  if (messageSeverity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT) {
+    LOG_WARN("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage);
+  } else if (messageSeverity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT) {
+    LOG_ERROR("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage);
+  }
+  return VK_FALSE;
+}
+
+#endif
+```
 
 ```c
 #if !defined( NDEBUG )
@@ -274,3 +297,19 @@ For this we're using vulkan-hpp structure chains. During instance creation we ca
 ```c
 handle = vk::raii::Instance{context, instanceCreateInfo.get<vk::InstanceCreateInfo>()};
 ```
+
+### Results
+
+When starting the program, this is the terminal output:
+
+![not showing image](../updates/November_6_images/terminal.png)
+
+The logger gets initialized and the layers/extensions get enabled.
+
+![not showing image](../updates/November_6_images/window.png)
+
+The Window doesn't display anything yet but works like any other window.
+
+![not showing image](../updates/November_6_images/terminal2.png)
+
+Events get outputted in the terminal at the moment, but will be used to interact with the application.

@@ -1,0 +1,65 @@
+\doxysection{vkf\+::core\+::Physical\+Device Class Reference}
+\hypertarget{classvkf_1_1core_1_1_physical_device}{}\label{classvkf_1_1core_1_1_physical_device}\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
+
+
+This is a wrapper class for vk\+::raii\+::\+Physical\+Device.  
+
+
+
+
+{\ttfamily \#include $<$Physical\+Device.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a66a60234119c16a8c739eeb8f7838df2}\label{classvkf_1_1core_1_1_physical_device_a66a60234119c16a8c739eeb8f7838df2} 
+{\bfseries Physical\+Device} (vk\+::raii\+::\+Physical\+Device \&physical\+Device)
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a29bd932380b894b6c26501dd1c0f1cef}\label{classvkf_1_1core_1_1_physical_device_a29bd932380b894b6c26501dd1c0f1cef} 
+{\bfseries Physical\+Device} (const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_ab0fe8c17d13742dd19928180c6e3beb5}\label{classvkf_1_1core_1_1_physical_device_ab0fe8c17d13742dd19928180c6e3beb5} 
+{\bfseries Physical\+Device} (\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a0d52ec57799c23401c19c791735bcfaa}\label{classvkf_1_1core_1_1_physical_device_a0d52ec57799c23401c19c791735bcfaa} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_adcaba58e6c6c608c612aef8b25449e57}\label{classvkf_1_1core_1_1_physical_device_adcaba58e6c6c608c612aef8b25449e57} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a25a1f8806fe133df20324e5afcc77ac1}\label{classvkf_1_1core_1_1_physical_device_a25a1f8806fe133df20324e5afcc77ac1} 
+const vk\+::\+Physical\+Device\+Features \& {\bfseries get\+Features} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a61c041d65faa7c5e6214c0a093872268}\label{classvkf_1_1core_1_1_physical_device_a61c041d65faa7c5e6214c0a093872268} 
+const vk\+::\+Physical\+Device\+Properties \& {\bfseries get\+Properties} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a401e69096f950ed13761e94f86dbf0f0}\label{classvkf_1_1core_1_1_physical_device_a401e69096f950ed13761e94f86dbf0f0} 
+const std\+::vector$<$ vk\+::\+Queue\+Family\+Properties $>$ \& {\bfseries get\+Queue\+Family\+Properties} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a67a12c741135f19ef6454547a62aad45}\label{classvkf_1_1core_1_1_physical_device_a67a12c741135f19ef6454547a62aad45} 
+bool {\bfseries get\+Surface\+Support\+KHR} (uint32\+\_\+t queue\+Family\+Index, vk\+::\+Surface\+KHR surface) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_ad696f444e42a787ce95a32344d6d19de}\label{classvkf_1_1core_1_1_physical_device_ad696f444e42a787ce95a32344d6d19de} 
+vk\+::raii\+::\+Physical\+Device {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a405335837d61b0e72e1a1c9d8a8dac7f}\label{classvkf_1_1core_1_1_physical_device_a405335837d61b0e72e1a1c9d8a8dac7f} 
+vk\+::\+Physical\+Device\+Features {\bfseries features}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a75bc728aa6d3139f3823dcccb8ac4de7}\label{classvkf_1_1core_1_1_physical_device_a75bc728aa6d3139f3823dcccb8ac4de7} 
+vk\+::\+Physical\+Device\+Properties {\bfseries properties}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a4ff46dea9ae3ac7685d9574a5de5d65b}\label{classvkf_1_1core_1_1_physical_device_a4ff46dea9ae3ac7685d9574a5de5d65b} 
+std\+::vector$<$ vk\+::\+Queue\+Family\+Properties $>$ {\bfseries queue\+Family\+Properties}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a wrapper class for vk\+::raii\+::\+Physical\+Device. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/core/\mbox{\hyperlink{_physical_device_8h}{Physical\+Device.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/core/\mbox{\hyperlink{_physical_device_8cpp}{Physical\+Device.\+cpp}}\end{DoxyCompactItemize}

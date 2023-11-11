@@ -30,31 +30,31 @@ It also features an on\+Event function which receives events from the GLFWwindow
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{switch}\ (event.type)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{case}\ Event::Type::Keyboard:\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ data\ =\ std::get<Event::Keyboard>(event.data);}
-\DoxyCodeLine{\ \ \ \ \ \ LOGI(\textcolor{stringliteral}{"{}KeyboardEvent:\ keycode=\{\},\ action=\{\}"{}},\ data.keycode,\ data.action);}
+\DoxyCodeLine{\ \ \ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}KeyboardEvent:\ keycode=\{\},\ action=\{\}"{}},\ data.keycode,\ data.action);}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{case}\ Event::Type::MouseMove:\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ data\ =\ std::get<Event::MouseMove>(event.data);}
-\DoxyCodeLine{\ \ \ \ \ \ LOGI(\textcolor{stringliteral}{"{}MouseMoveEvent:\ x=\{\},\ y=\{\}"{}},\ data.xPos,\ data.yPos);}
+\DoxyCodeLine{\ \ \ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}MouseMoveEvent:\ x=\{\},\ y=\{\}"{}},\ data.xPos,\ data.yPos);}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{case}\ Event::Type::MouseButton:\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ data\ =\ std::get<Event::MouseButton>(event.data);}
-\DoxyCodeLine{\ \ \ \ \ \ LOGI(\textcolor{stringliteral}{"{}MouseButtonEvent:\ button=\{\},\ action=\{\}"{}},\ data.button,\ data.action);}
+\DoxyCodeLine{\ \ \ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}MouseButtonEvent:\ button=\{\},\ action=\{\}"{}},\ data.button,\ data.action);}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{case}\ Event::Type::MouseScroll:\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ data\ =\ std::get<Event::MouseScroll>(event.data);}
-\DoxyCodeLine{\ \ \ \ \ \ LOGI(\textcolor{stringliteral}{"{}MouseScrollEvent:\ x=\{\},\ y=\{\}"{}},\ data.xScroll,\ data.yScroll);}
+\DoxyCodeLine{\ \ \ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}MouseScrollEvent:\ x=\{\},\ y=\{\}"{}},\ data.xScroll,\ data.yScroll);}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{case}\ Event::Type::Resize:\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ data\ =\ std::get<Event::Resize>(event.data);}
-\DoxyCodeLine{\ \ \ \ \ \ LOGI(\textcolor{stringliteral}{"{}ResizeEvent:\ width=\{\},\ height=\{\}"{}},\ data.newWidth,\ data.newHeight);}
+\DoxyCodeLine{\ \ \ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}ResizeEvent:\ width=\{\},\ height=\{\}"{}},\ data.newWidth,\ data.newHeight);}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{case}\ Event::Type::Close:\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ LOGI(\textcolor{stringliteral}{"{}CloseEvent"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}CloseEvent"{}});}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \}}
@@ -87,15 +87,19 @@ This is also where the event\+Callback gets called. This is one example.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{glfwSetWindowSizeCallback(handle,\ [](GLFWwindow\ *window,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ \{}
-\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ *data\ =\ \textcolor{keyword}{reinterpret\_cast<}Properties\ *\textcolor{keyword}{>}(glfwGetWindowUserPointer(window)))\ \{}
-\DoxyCodeLine{\ \ \ \ data-\/>extent.width\ =\ width;}
-\DoxyCodeLine{\ \ \ \ data-\/>extent.height\ =\ height;}
-\DoxyCodeLine{\ \ \ \ data-\/>resized\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\ \ \ \ Event\ \textcolor{keyword}{event}\{Event::Type::Resize,\ Event::Resize\{width,\ height\}\};}
-\DoxyCodeLine{\ \ \ \ data-\/>eventCallback(event);}
-\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\textcolor{comment}{//\ ...}}
+\DoxyCodeLine{}
+\DoxyCodeLine{glfwSetWindowSizeCallback(handle,[](GLFWwindow\ *window,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ \{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ *data\ =\ \textcolor{keyword}{reinterpret\_cast<}Properties\ *\textcolor{keyword}{>}(glfwGetWindowUserPointer(window)))\ \{}
+\DoxyCodeLine{data-\/>extent.width\ =\ width;}
+\DoxyCodeLine{data-\/>extent.height\ =\ height;}
+\DoxyCodeLine{data-\/>resized\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{Event\ \textcolor{keyword}{event}\{\ Event::Type::Resize,\ Event::Resize\{\ width,\ height\ \}\};}
+\DoxyCodeLine{data-\/>eventCallback(event);}
+\DoxyCodeLine{\}}
 \DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ ...}}
 
 \end{DoxyCode}
 
@@ -143,7 +147,7 @@ Sometimes it can be helpful to poll input. Glfw provides functions to do just th
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ getMouseX(GLFWwindow\ *window);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ getMouseY(GLFWwindow\ *window);}
-\DoxyCodeLine{\}}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ vkf::input}}
 
 \end{DoxyCode}
 \hypertarget{md_updates_2_november__6_autotoc_md5}{}\doxysubsection{\texorpdfstring{Logging}{Logging}}\label{md_updates_2_november__6_autotoc_md5}
@@ -162,7 +166,7 @@ This project uses \href{https://github.com/gabime/spdlog}{\texttt{ spdlog}}. The
 
 \end{DoxyCode}
 \hypertarget{md_updates_2_november__6_autotoc_md6}{}\doxysubsection{\texorpdfstring{Vulkan Hpp}{Vulkan Hpp}}\label{md_updates_2_november__6_autotoc_md6}
-This project uses \href{https://github.com/KhronosGroup/Vulkan-Hpp}{\texttt{ vulkan.\+hpp}}. This means the code will look a bit different to standard Vulkan API. Because this project is compiled using the c++20 standard, I also use designated initializers. In order to use them you need to \#define VULKAN\+\_\+\+HPP\+\_\+\+NO\+\_\+\+CONSTRUCTORS. This makes the code look cleaner in my opinion. Here an example from the vulkan hpp git\+Hub.
+This project uses \href{https://github.com/KhronosGroup/Vulkan-Hpp}{\texttt{ vulkan.\+hpp}}. This means the code will look a bit different from the standard Vulkan API. Because this project is compiled using the c++20 standard, I also use designated initializers. In order to use them you need to \#define VULKAN\+\_\+\+HPP\+\_\+\+NO\+\_\+\+CONSTRUCTORS. This makes the code look cleaner in my opinion. Here an example from the vulkan hpp git\+Hub.
 
 
 \begin{DoxyCode}{0}
@@ -215,7 +219,7 @@ To create it there are three steps\+:
 \end{DoxyCode}
 
 
-There is a detailed explanation in the git\+Hub README.\+md\hypertarget{md_updates_2_november__6_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Raii}{Raii}}\label{md_updates_2_november__6_autotoc_md8}
+There is a detailed explanation in the \href{https://github.com/KhronosGroup/Vulkan-Hpp}{\texttt{ vulkan.\+hpp}} git\+Hub README.\+md.\hypertarget{md_updates_2_november__6_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Raii}{Raii}}\label{md_updates_2_november__6_autotoc_md8}
 With raii you don\textquotesingle{}t have to worry about cleaning up your vulkan handles. Here an example from the git\+Hub.
 
 
@@ -226,10 +230,31 @@ With raii you don\textquotesingle{}t have to worry about cleaning up your vulkan
 \end{DoxyCode}
 
 
-This device gets destroyed automatically when it leaves scope. There are other benefits, but also some inconveniences. All of this can be found in the \href{https://github.com/KhronosGroup/Vulkan-Hpp/blob/main/vk_raii_ProgrammingGuide.mdk}{\texttt{ programing guide}}.\hypertarget{md_updates_2_november__6_autotoc_md9}{}\doxysubsection{\texorpdfstring{Vulkan Instance and Debug Messenger}{Vulkan Instance and Debug Messenger}}\label{md_updates_2_november__6_autotoc_md9}
+This device gets destroyed automatically when it leaves its scope. There are other benefits, but also some inconveniences. All of this can be found in the \href{https://github.com/KhronosGroup/Vulkan-Hpp/blob/main/vk_raii_ProgrammingGuide.mdk}{\texttt{ raii programing guide}}.\hypertarget{md_updates_2_november__6_autotoc_md9}{}\doxysubsection{\texorpdfstring{Vulkan Instance and Debug Messenger}{Vulkan Instance and Debug Messenger}}\label{md_updates_2_november__6_autotoc_md9}
 Instance is the first core class that I\textquotesingle{}ve implemented. It tries to enable all the extensions that were passed as required extensions in the constructor and sets up the debug messenger.
 
 The debug messenger only gets initialized if in debug mode.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#if\ !defined(\ NDEBUG\ )}}
+\DoxyCodeLine{VKAPI\_ATTR\ VkBool32\ VKAPI\_CALL\ debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT\ messageSeverity,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VkDebugUtilsMessageTypeFlagsEXT\ messageTypes,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VkDebugUtilsMessengerCallbackDataEXT\ \textcolor{keyword}{const}\ *callbackData,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ \textcolor{comment}{/*pUserData*/}\ )\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Log\ debug\ message}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (messageSeverity\ \&\ VK\_DEBUG\_UTILS\_MESSAGE\_SEVERITY\_WARNING\_BIT\_EXT)\ \{}
+\DoxyCodeLine{\ \ \ \ LOG\_WARN(\textcolor{stringliteral}{"{}\{\}\ -\/\ \{\}:\ \{\}"{}},\ callbackData-\/>messageIdNumber,\ callbackData-\/>pMessageIdName,\ callbackData-\/>pMessage);}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (messageSeverity\ \&\ VK\_DEBUG\_UTILS\_MESSAGE\_SEVERITY\_ERROR\_BIT\_EXT)\ \{}
+\DoxyCodeLine{\ \ \ \ LOG\_ERROR(\textcolor{stringliteral}{"{}\{\}\ -\/\ \{\}:\ \{\}"{}},\ callbackData-\/>messageIdNumber,\ callbackData-\/>pMessageIdName,\ callbackData-\/>pMessage);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ VK\_FALSE;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
+
 
 
 \begin{DoxyCode}{0}
@@ -272,4 +297,17 @@ For this we\textquotesingle{}re using vulkan-\/hpp structure chains. During inst
 \DoxyCodeLine{handle\ =\ vk::raii::Instance\{context,\ instanceCreateInfo.get<vk::InstanceCreateInfo>()\};}
 
 \end{DoxyCode}
- 
+\hypertarget{md_updates_2_november__6_autotoc_md10}{}\doxysubsection{\texorpdfstring{Results}{Results}}\label{md_updates_2_november__6_autotoc_md10}
+When starting the program, this is the terminal output\+:
+
+
+
+The logger gets initialized and the layers/extensions get enabled.
+
+
+
+The Window doesn\textquotesingle{}t display anything yet but works like any other window.
+
+
+
+Events get outputted in the terminal at the moment, but will be used to interact with the application. 

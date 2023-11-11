@@ -37,4 +37,4 @@ namespace vkf::input {
       auto [x, y] = getMousePosition(window);
       return y;
     }
-}
+} // vkf::input

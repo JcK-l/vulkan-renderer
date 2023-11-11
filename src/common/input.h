@@ -22,6 +22,6 @@ namespace vkf::input {
     double getMouseX(GLFWwindow *window);
 
     double getMouseY(GLFWwindow *window);
-}
+} // vkf::input
 
 #endif //VULKANRENDERER_INPUT_H

@@ -90,31 +90,31 @@ Application</h2>
 <div class="line">  <span class="keywordflow">switch</span> (event.type) {</div>
 <div class="line">    <span class="keywordflow">case</span> Event::Type::Keyboard: {</div>
 <div class="line">      <span class="keyword">auto</span> data = std::get&lt;Event::Keyboard&gt;(event.data);</div>
-<div class="line">      LOGI(<span class="stringliteral">&quot;KeyboardEvent: keycode={}, action={}&quot;</span>, data.keycode, data.action);</div>
+<div class="line">      LOG_INFO(<span class="stringliteral">&quot;KeyboardEvent: keycode={}, action={}&quot;</span>, data.keycode, data.action);</div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">case</span> Event::Type::MouseMove: {</div>
 <div class="line">      <span class="keyword">auto</span> data = std::get&lt;Event::MouseMove&gt;(event.data);</div>
-<div class="line">      LOGI(<span class="stringliteral">&quot;MouseMoveEvent: x={}, y={}&quot;</span>, data.xPos, data.yPos);</div>
+<div class="line">      LOG_INFO(<span class="stringliteral">&quot;MouseMoveEvent: x={}, y={}&quot;</span>, data.xPos, data.yPos);</div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">case</span> Event::Type::MouseButton: {</div>
 <div class="line">      <span class="keyword">auto</span> data = std::get&lt;Event::MouseButton&gt;(event.data);</div>
-<div class="line">      LOGI(<span class="stringliteral">&quot;MouseButtonEvent: button={}, action={}&quot;</span>, data.button, data.action);</div>
+<div class="line">      LOG_INFO(<span class="stringliteral">&quot;MouseButtonEvent: button={}, action={}&quot;</span>, data.button, data.action);</div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">case</span> Event::Type::MouseScroll: {</div>
 <div class="line">      <span class="keyword">auto</span> data = std::get&lt;Event::MouseScroll&gt;(event.data);</div>
-<div class="line">      LOGI(<span class="stringliteral">&quot;MouseScrollEvent: x={}, y={}&quot;</span>, data.xScroll, data.yScroll);</div>
+<div class="line">      LOG_INFO(<span class="stringliteral">&quot;MouseScrollEvent: x={}, y={}&quot;</span>, data.xScroll, data.yScroll);</div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">case</span> Event::Type::Resize: {</div>
 <div class="line">      <span class="keyword">auto</span> data = std::get&lt;Event::Resize&gt;(event.data);</div>
-<div class="line">      LOGI(<span class="stringliteral">&quot;ResizeEvent: width={}, height={}&quot;</span>, data.newWidth, data.newHeight);</div>
+<div class="line">      LOG_INFO(<span class="stringliteral">&quot;ResizeEvent: width={}, height={}&quot;</span>, data.newWidth, data.newHeight);</div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">case</span> Event::Type::Close: {</div>
-<div class="line">      LOGI(<span class="stringliteral">&quot;CloseEvent&quot;</span>);</div>
+<div class="line">      LOG_INFO(<span class="stringliteral">&quot;CloseEvent&quot;</span>);</div>
 <div class="line">      <span class="keywordflow">break</span>;</div>
 <div class="line">    }</div>
 <div class="line">  }</div>
@@ -134,15 +134,19 @@ Window</h2>
 <div class="line">};</div>
 </div><!-- fragment --><p>These settings are then used to initialize glfw. Because we're only going to use vulkan (and not directX for example), there is no need to abstract the window class for different operating systems. Also, we are using glfw which is cross-platform already.</p>
 <p>This is also where the eventCallback gets called. This is one example.</p>
-<div class="fragment"><div class="line">glfwSetWindowSizeCallback(handle, [](GLFWwindow *window, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) {</div>
-<div class="line">  <span class="keywordflow">if</span> (<span class="keyword">auto</span> *data = <span class="keyword">reinterpret_cast&lt;</span>Properties *<span class="keyword">&gt;</span>(glfwGetWindowUserPointer(window))) {</div>
-<div class="line">    data-&gt;extent.width = width;</div>
-<div class="line">    data-&gt;extent.height = height;</div>
-<div class="line">    data-&gt;resized = <span class="keyword">true</span>;</div>
-<div class="line">    Event <span class="keyword">event</span>{Event::Type::Resize, Event::Resize{width, height}};</div>
-<div class="line">    data-&gt;eventCallback(event);</div>
-<div class="line">  }</div>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"> </div>
+<div class="line">glfwSetWindowSizeCallback(handle,[](GLFWwindow *window, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) {</div>
+<div class="line"><span class="keywordflow">if</span> (<span class="keyword">auto</span> *data = <span class="keyword">reinterpret_cast&lt;</span>Properties *<span class="keyword">&gt;</span>(glfwGetWindowUserPointer(window))) {</div>
+<div class="line">data-&gt;extent.width = width;</div>
+<div class="line">data-&gt;extent.height = height;</div>
+<div class="line">data-&gt;resized = <span class="keyword">true</span>;</div>
+<div class="line">Event <span class="keyword">event</span>{ Event::Type::Resize, Event::Resize{ width, height }};</div>
+<div class="line">data-&gt;eventCallback(event);</div>
+<div class="line">}</div>
 <div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ...</span></div>
 </div><!-- fragment --><p>It uses glfwGetWindowUserPointer to get the windowData and then uses the callback which gets set in the application.</p>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Events</h2>
@@ -180,7 +184,7 @@ Input Polling</h2>
 <div class="line">    <span class="keywordtype">double</span> getMouseX(GLFWwindow *window);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">double</span> getMouseY(GLFWwindow *window);</div>
-<div class="line">}</div>
+<div class="line">} <span class="comment">// vkf::input</span></div>
 <div class="ttc" id="anamespacevkf_1_1input_html"><div class="ttname"><a href="namespacevkf_1_1input.html">vkf::input</a></div><div class="ttdoc">Collection of input functions.</div><div class="ttdef"><b>Definition</b> input.cpp:13</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
 Logging</h2>
@@ -197,7 +201,7 @@ Logging</h2>
 <div class="ttc" id="anamespacevkf_1_1logging_html_a93e6587a47f3fefe0616fde68f6cf2e0"><div class="ttname"><a href="namespacevkf_1_1logging.html#a93e6587a47f3fefe0616fde68f6cf2e0">vkf::logging::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Initiates the spdlog logger and sets it to default.</div><div class="ttdef"><b>Definition</b> logging.cpp:17</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
 Vulkan Hpp</h2>
-<p>This project uses <a href="https://github.com/KhronosGroup/Vulkan-Hpp">vulkan.hpp</a>. This means the code will look a bit different to standard Vulkan API. Because this project is compiled using the c++20 standard, I also use designated initializers. In order to use them you need to #define VULKAN_HPP_NO_CONSTRUCTORS. This makes the code look cleaner in my opinion. Here an example from the vulkan hpp gitHub.</p>
+<p>This project uses <a href="https://github.com/KhronosGroup/Vulkan-Hpp">vulkan.hpp</a>. This means the code will look a bit different from the standard Vulkan API. Because this project is compiled using the c++20 standard, I also use designated initializers. In order to use them you need to #define VULKAN_HPP_NO_CONSTRUCTORS. This makes the code look cleaner in my opinion. Here an example from the vulkan hpp gitHub.</p>
 <div class="fragment"><div class="line"><span class="comment">// initialize the vk::ApplicationInfo structure</span></div>
 <div class="line">vk::ApplicationInfo applicationInfo{</div>
 <div class="line">.pApplicationName   = AppName,</div>
@@ -232,18 +236,33 @@ Dynamic Loader</h3>
 <div class="line">assert(!physicalDevices.empty());</div>
 <div class="line">vk::Device device = physicalDevices[0].createDevice({}, <span class="keyword">nullptr</span>);</div>
 <div class="line">VULKAN_HPP_DEFAULT_DISPATCHER.init(device);</div>
-</div><!-- fragment --><p>There is a detailed explanation in the gitHub README.md</p>
+</div><!-- fragment --><p>There is a detailed explanation in the <a href="https://github.com/KhronosGroup/Vulkan-Hpp">vulkan.hpp</a> gitHub README.md.</p>
 <h3><a class="anchor" id="autotoc_md8"></a>
 Raii</h3>
 <p>With raii you don't have to worry about cleaning up your vulkan handles. Here an example from the gitHub.</p>
 <div class="fragment"><div class="line"><span class="comment">// create a vk::raii::Device, given a vk::raii::PhysicalDevice physicalDevice and a vk::DeviceCreateInfo deviceCreateInfo</span></div>
 <div class="line">vk::raii::Device device( physicalDevice, deviceCreateInfo );</div>
-</div><!-- fragment --><p>This device gets destroyed automatically when it leaves scope. There are other benefits, but also some inconveniences. All of this can be found in the <a href="https://github.com/KhronosGroup/Vulkan-Hpp/blob/main/vk_raii_ProgrammingGuide.mdk">programing guide</a>.</p>
+</div><!-- fragment --><p>This device gets destroyed automatically when it leaves its scope. There are other benefits, but also some inconveniences. All of this can be found in the <a href="https://github.com/KhronosGroup/Vulkan-Hpp/blob/main/vk_raii_ProgrammingGuide.mdk">raii programing guide</a>.</p>
 <h2><a class="anchor" id="autotoc_md9"></a>
 Vulkan Instance and Debug Messenger</h2>
 <p>Instance is the first core class that I've implemented. It tries to enable all the extensions that were passed as required extensions in the constructor and sets up the debug messenger.</p>
 <p>The debug messenger only gets initialized if in debug mode.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#if !defined( NDEBUG )</span></div>
+<div class="line">VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,</div>
+<div class="line">                                             VkDebugUtilsMessageTypeFlagsEXT messageTypes,</div>
+<div class="line">                                             VkDebugUtilsMessengerCallbackDataEXT <span class="keyword">const</span> *callbackData,</div>
+<div class="line">                                             <span class="keywordtype">void</span> * <span class="comment">/*pUserData*/</span> ) {</div>
+<div class="line">  <span class="comment">// Log debug message</span></div>
+<div class="line">  <span class="keywordflow">if</span> (messageSeverity &amp; VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT) {</div>
+<div class="line">    LOG_WARN(<span class="stringliteral">&quot;{} - {}: {}&quot;</span>, callbackData-&gt;messageIdNumber, callbackData-&gt;pMessageIdName, callbackData-&gt;pMessage);</div>
+<div class="line">  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (messageSeverity &amp; VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT) {</div>
+<div class="line">    LOG_ERROR(<span class="stringliteral">&quot;{} - {}: {}&quot;</span>, callbackData-&gt;messageIdNumber, callbackData-&gt;pMessageIdName, callbackData-&gt;pMessage);</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordflow">return</span> VK_FALSE;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="preprocessor">#if !defined( NDEBUG )</span></div>
 <div class="line">    debugMessenger = vk::raii::DebugUtilsMessengerEXT{handle,</div>
 <div class="line">                                                      common::utils::createDebugMessengerInfo(&amp;debugCallback)};</div>
 <div class="line"><span class="preprocessor">#endif</span></div>
@@ -266,7 +285,16 @@ Vulkan Instance and Debug Messenger</h2>
 </div><!-- fragment --><p>In order to track issues that can arise during instance creation or destruction, we pass the debugUtilsCreateInfo to the pNext extensions field of instanceCreateInfo. <a href="https://github.com/KhronosGroup/Vulkan-Docs/blob/main/appendices/VK_EXT_debug_utils.adoc#examples">extension documentation</a></p>
 <p>For this we're using vulkan-hpp structure chains. During instance creation we can get the creatInfo by simply calling</p>
 <div class="fragment"><div class="line">handle = vk::raii::Instance{context, instanceCreateInfo.get&lt;vk::InstanceCreateInfo&gt;()};</div>
-</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
+Results</h2>
+<p>When starting the program, this is the terminal output:</p>
+<p><img src="../updates/November_6_images/terminal.png" alt="not showing image" class="inline"/></p>
+<p>The logger gets initialized and the layers/extensions get enabled.</p>
+<p><img src="../updates/November_6_images/window.png" alt="not showing image" class="inline"/></p>
+<p>The Window doesn't display anything yet but works like any other window.</p>
+<p><img src="../updates/November_6_images/terminal2.png" alt="not showing image" class="inline"/></p>
+<p>Events get outputted in the terminal at the moment, but will be used to interact with the application. </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
