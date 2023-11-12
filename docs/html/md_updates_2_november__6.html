@@ -72,9 +72,9 @@ $(function() {
   <div class="headertitle"><div class="title">November 6 - first commit</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> This is the first update report. I've written a couple of classes that make up the base of this project. From here on out I'll start writing more vulkan code. Next up is device and surface creation.</p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md3"></a> This is the first update report. I've written a couple of classes that make up the base of this project. From here on out I'll start writing more vulkan code. Next up is device and surface creation.</p>
 <p>In the following sections I'll talk about some of the things that I've implemented.</p>
-<h2><a class="anchor" id="autotoc_md1"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Application</h2>
 <p>This class contains the main loop of the program, which at the moment doesn't include much.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> Application::run() {</div>
@@ -120,7 +120,7 @@ Application</h2>
 <div class="line">  }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>This simple system will probably work fine for everything we need. In the future we might need to forward the events to the gui, but that can just be a method call from a gui class.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Window</h2>
 <p>The window class receives a properties struct in its constructor.</p>
 <div class="fragment"><div class="line"><span class="keyword">struct </span>Properties {</div>
@@ -148,7 +148,7 @@ Window</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// ...</span></div>
 </div><!-- fragment --><p>It uses glfwGetWindowUserPointer to get the windowData and then uses the callback which gets set in the application.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Events</h2>
 <p>Events are currently just a struct with a type and data.</p>
 <div class="fragment"><div class="line"><span class="keyword">struct </span>Event {</div>
@@ -171,7 +171,7 @@ Events</h2>
 <div class="line">    Data data;</div>
 <div class="line">};</div>
 </div><!-- fragment --><p>The type can then be checked in switch statement and the data can be accessed.</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Input Polling</h2>
 <p>Sometimes it can be helpful to poll input. Glfw provides functions to do just that. To make those functions more easily accessible the glfw functions are wrapped in a namespace called input. As the need for more functionality arises, more functions will be added.</p>
 <div class="fragment"><div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1input.html">vkf::input</a> {</div>
@@ -186,7 +186,7 @@ Input Polling</h2>
 <div class="line">    <span class="keywordtype">double</span> getMouseY(GLFWwindow *window);</div>
 <div class="line">} <span class="comment">// vkf::input</span></div>
 <div class="ttc" id="anamespacevkf_1_1input_html"><div class="ttname"><a href="namespacevkf_1_1input.html">vkf::input</a></div><div class="ttdoc">Collection of input functions.</div><div class="ttdef"><b>Definition</b> input.cpp:13</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 Logging</h2>
 <p>This project uses <a href="https://github.com/gabime/spdlog">spdlog</a>. The init function gets called in the main entry point of the program. The macros can then be called to log relevant information.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define LOG_INFO(...) spdlog::info(__VA_ARGS__);</span></div>
@@ -197,7 +197,7 @@ Logging</h2>
 <div class="line"><span class="keyword">namespace </span>vkf::logging {</div>
 <div class="line">    <span class="keywordtype">void</span> init();</div>
 <div class="line">} <span class="comment">// namespace vkf::logging</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
 Vulkan Hpp</h2>
 <p>This project uses <a href="https://github.com/KhronosGroup/Vulkan-Hpp">vulkan.hpp</a>. This means the code will look a bit different from the standard Vulkan API. Because this project is compiled using the c++20 standard, I also use designated initializers. In order to use them you need to #define VULKAN_HPP_NO_CONSTRUCTORS. This makes the code look cleaner in my opinion. Here an example from the vulkan hpp gitHub.</p>
 <div class="fragment"><div class="line"><span class="comment">// initialize the vk::ApplicationInfo structure</span></div>
@@ -211,7 +211,7 @@ Vulkan Hpp</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// initialize the vk::InstanceCreateInfo</span></div>
 <div class="line">vk::InstanceCreateInfo instanceCreateInfo{ .pApplicationInfo = &amp; applicationInfo };</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md10"></a>
 Dynamic Loader</h3>
 <p>I'm using the Dynamic loader that vulkan-hpp provides. In order to use it, a couple of macros have to be defined.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define VULKAN_HPP_DISPATCH_LOADER_DYNAMIC 1</span></div>
@@ -235,13 +235,13 @@ Dynamic Loader</h3>
 <div class="line">vk::Device device = physicalDevices[0].createDevice({}, <span class="keyword">nullptr</span>);</div>
 <div class="line">VULKAN_HPP_DEFAULT_DISPATCHER.init(device);</div>
 </div><!-- fragment --><p>There is a detailed explanation in the <a href="https://github.com/KhronosGroup/Vulkan-Hpp">vulkan.hpp</a> gitHub README.md.</p>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="autotoc_md11"></a>
 Raii</h3>
 <p>With raii you don't have to worry about cleaning up your vulkan handles. Here an example from the gitHub.</p>
 <div class="fragment"><div class="line"><span class="comment">// create a vk::raii::Device, given a vk::raii::PhysicalDevice physicalDevice and a vk::DeviceCreateInfo deviceCreateInfo</span></div>
 <div class="line">vk::raii::Device device( physicalDevice, deviceCreateInfo );</div>
 </div><!-- fragment --><p>This device gets destroyed automatically when it leaves its scope. There are other benefits, but also some inconveniences. All of this can be found in the <a href="https://github.com/KhronosGroup/Vulkan-Hpp/blob/main/vk_raii_ProgrammingGuide.mdk">raii programing guide</a>.</p>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 Vulkan Instance and Debug Messenger</h2>
 <p>Instance is the first core class that I've implemented. It tries to enable all the extensions that were passed as required extensions in the constructor and sets up the debug messenger.</p>
 <p>The debug messenger only gets initialized if in debug mode.</p>
@@ -283,7 +283,7 @@ Vulkan Instance and Debug Messenger</h2>
 </div><!-- fragment --><p>In order to track issues that can arise during instance creation or destruction, we pass the debugUtilsCreateInfo to the pNext extensions field of instanceCreateInfo. <a href="https://github.com/KhronosGroup/Vulkan-Docs/blob/main/appendices/VK_EXT_debug_utils.adoc#examples">extension documentation</a></p>
 <p>For this we're using vulkan-hpp structure chains. During instance creation we can get the creatInfo by simply calling</p>
 <div class="fragment"><div class="line">handle = vk::raii::Instance{context, instanceCreateInfo.get&lt;vk::InstanceCreateInfo&gt;()};</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md13"></a>
 Results</h2>
 <p>When starting the program, this is the terminal output:</p>
 <p><img src="../updates/November_6_images/terminal.png" alt="not showing image" class="inline"/></p>
