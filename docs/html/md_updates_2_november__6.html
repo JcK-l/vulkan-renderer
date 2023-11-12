@@ -194,11 +194,9 @@ Logging</h2>
 <div class="line"><span class="preprocessor">#define LOG_ERROR(...) spdlog::error(&quot;[{}:{}] {}&quot;, __FILENAME__, __LINE__, fmt::format(__VA_ARGS__));</span></div>
 <div class="line"><span class="preprocessor">#define LOG_DEBUG(...) spdlog::debug(__VA_ARGS__);</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1logging.html">vkf::logging</a> {</div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacevkf_1_1logging.html#a93e6587a47f3fefe0616fde68f6cf2e0">init</a>();</div>
+<div class="line"><span class="keyword">namespace </span>vkf::logging {</div>
+<div class="line">    <span class="keywordtype">void</span> init();</div>
 <div class="line">} <span class="comment">// namespace vkf::logging</span></div>
-<div class="ttc" id="anamespacevkf_1_1logging_html"><div class="ttname"><a href="namespacevkf_1_1logging.html">vkf::logging</a></div><div class="ttdoc">Collection of logging functions.</div><div class="ttdef"><b>Definition</b> logging.cpp:16</div></div>
-<div class="ttc" id="anamespacevkf_1_1logging_html_a93e6587a47f3fefe0616fde68f6cf2e0"><div class="ttname"><a href="namespacevkf_1_1logging.html#a93e6587a47f3fefe0616fde68f6cf2e0">vkf::logging::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Initiates the spdlog logger and sets it to default.</div><div class="ttdef"><b>Definition</b> logging.cpp:17</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
 Vulkan Hpp</h2>
 <p>This project uses <a href="https://github.com/KhronosGroup/Vulkan-Hpp">vulkan.hpp</a>. This means the code will look a bit different from the standard Vulkan API. Because this project is compiled using the c++20 standard, I also use designated initializers. In order to use them you need to #define VULKAN_HPP_NO_CONSTRUCTORS. This makes the code look cleaner in my opinion. Here an example from the vulkan hpp gitHub.</p>

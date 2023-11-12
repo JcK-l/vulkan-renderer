@@ -36,17 +36,19 @@
 \DoxyCodeLine{00034\ }
 \DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ getSurfaceSupportKHR(uint32\_t\ queueFamilyIndex,\ vk::SurfaceKHR\ surface)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::PhysicalDevice\ \&getHandle()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ vk::raii::PhysicalDevice\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ vk::PhysicalDeviceFeatures\ features;}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ vk::PhysicalDeviceProperties\ properties;}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ std::vector<vk::QueueFamilyProperties>\ queueFamilyProperties;}
-\DoxyCodeLine{00044\ \ \ \ \ \};}
-\DoxyCodeLine{00045\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_PHYSICALDEVICE\_H}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ vk::raii::PhysicalDevice\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ vk::PhysicalDeviceFeatures\ features;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ vk::PhysicalDeviceProperties\ properties;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::vector<vk::QueueFamilyProperties>\ queueFamilyProperties;}
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_PHYSICALDEVICE\_H}}
 
 \end{DoxyCode}

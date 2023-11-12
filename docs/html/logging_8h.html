@@ -74,9 +74,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">logging.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -84,15 +82,6 @@ $(function() {
 </div>
 <p><a href="logging_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacevkf" id="r_namespacevkf"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html">vkf</a></td></tr>
-<tr class="memdesc:namespacevkf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vulkan framework. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacevkf_1_1logging" id="r_namespacevkf_1_1logging"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1logging.html">vkf::logging</a></td></tr>
-<tr class="memdesc:namespacevkf_1_1logging"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of logging functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af8372f79e78eb87dfa2f223ca40ed3b5" id="r_af8372f79e78eb87dfa2f223ca40ed3b5"><td class="memItemLeft" align="right" valign="top"><a id="af8372f79e78eb87dfa2f223ca40ed3b5" name="af8372f79e78eb87dfa2f223ca40ed3b5"></a>
@@ -102,24 +91,17 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>__FILENAME__</b>&#160;&#160;&#160;(static_cast&lt;const char *&gt;(__FILE__) + ROOT_PATH_SIZE)</td></tr>
 <tr class="separator:a5fccb4fc71e44089a1b1a77fc76c0b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a378e28bfcb78d17285210d6bbb70a083" id="r_a378e28bfcb78d17285210d6bbb70a083"><td class="memItemLeft" align="right" valign="top"><a id="a378e28bfcb78d17285210d6bbb70a083" name="a378e28bfcb78d17285210d6bbb70a083"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_INFO</b>(...)&#160;&#160;&#160;spdlog::info(__VA_ARGS__);</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_INFO</b>(...)</td></tr>
 <tr class="separator:a378e28bfcb78d17285210d6bbb70a083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add82efa459e0af380b68522c29b9fd44" id="r_add82efa459e0af380b68522c29b9fd44"><td class="memItemLeft" align="right" valign="top"><a id="add82efa459e0af380b68522c29b9fd44" name="add82efa459e0af380b68522c29b9fd44"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_WARN</b>(...)&#160;&#160;&#160;spdlog::warn(__VA_ARGS__);</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_WARN</b>(...)</td></tr>
 <tr class="separator:add82efa459e0af380b68522c29b9fd44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4a9117ce894e3319e903142347a0f63" id="r_ad4a9117ce894e3319e903142347a0f63"><td class="memItemLeft" align="right" valign="top"><a id="ad4a9117ce894e3319e903142347a0f63" name="ad4a9117ce894e3319e903142347a0f63"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_ERROR</b>(...)&#160;&#160;&#160;spdlog::error(&quot;[{}:{}] {}&quot;, __FILENAME__, __LINE__, fmt::format(__VA_ARGS__));</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_ERROR</b>(...)</td></tr>
 <tr class="separator:ad4a9117ce894e3319e903142347a0f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a754b3d074e0af4ad3c7b918dd77ecb2d" id="r_a754b3d074e0af4ad3c7b918dd77ecb2d"><td class="memItemLeft" align="right" valign="top"><a id="a754b3d074e0af4ad3c7b918dd77ecb2d" name="a754b3d074e0af4ad3c7b918dd77ecb2d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_DEBUG</b>(...)&#160;&#160;&#160;spdlog::debug(__VA_ARGS__);</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_DEBUG</b>(...)</td></tr>
 <tr class="separator:a754b3d074e0af4ad3c7b918dd77ecb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a93e6587a47f3fefe0616fde68f6cf2e0" id="r_a93e6587a47f3fefe0616fde68f6cf2e0"><td class="memItemLeft" align="right" valign="top"><a id="a93e6587a47f3fefe0616fde68f6cf2e0" name="a93e6587a47f3fefe0616fde68f6cf2e0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>vkf::logging::init</b> ()</td></tr>
-<tr class="memdesc:a93e6587a47f3fefe0616fde68f6cf2e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the spdlog logger and sets it to default. <br /></td></tr>
-<tr class="separator:a93e6587a47f3fefe0616fde68f6cf2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

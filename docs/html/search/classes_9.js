@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['window_0',['Window',['../classvkf_1_1_window.html',1,'vkf']]]
+  ['resize_0',['Resize',['../structvkf_1_1_event_1_1_resize.html',1,'vkf::Event']]]
 ];

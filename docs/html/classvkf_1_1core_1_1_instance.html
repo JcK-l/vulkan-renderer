@@ -110,17 +110,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaaedbf441b8ff079ee4f5381cac0ae50" id="r_aaaedbf441b8ff079ee4f5381cac0ae50"><td class="memItemLeft" align="right" valign="top"><a id="aaaedbf441b8ff079ee4f5381cac0ae50" name="aaaedbf441b8ff079ee4f5381cac0ae50"></a>
 const vk::raii::Instance &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getHandle</b> () const</td></tr>
 <tr class="separator:aaaedbf441b8ff079ee4f5381cac0ae50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3fd9477e18884e35e514c13b403fcee" id="r_ac3fd9477e18884e35e514c13b403fcee"><td class="memItemLeft" align="right" valign="top"><a id="ac3fd9477e18884e35e514c13b403fcee" name="ac3fd9477e18884e35e514c13b403fcee"></a>
+const vk::raii::Context &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getContext</b> () const</td></tr>
+<tr class="separator:ac3fd9477e18884e35e514c13b403fcee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a7b00c7968b62d552f6b0750829f09448" id="r_a7b00c7968b62d552f6b0750829f09448"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_instance.html#a7b00c7968b62d552f6b0750829f09448">validateExtensions</a> (const std::vector&lt; const char * &gt; &amp;requiredExtensions)</td></tr>
-<tr class="memdesc:a7b00c7968b62d552f6b0750829f09448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to enable all required extensions.  <br /></td></tr>
+<tr class="memdesc:a7b00c7968b62d552f6b0750829f09448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to enable all required instance extensions.  <br /></td></tr>
 <tr class="separator:a7b00c7968b62d552f6b0750829f09448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98512794aa941862cc068480e5ba7c49" id="r_a98512794aa941862cc068480e5ba7c49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_instance.html#a98512794aa941862cc068480e5ba7c49">validateLayers</a> (const std::vector&lt; const char * &gt; &amp;requiredLayers)</td></tr>
 <tr class="memdesc:a98512794aa941862cc068480e5ba7c49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to enable all required layers.  <br /></td></tr>
 <tr class="separator:a98512794aa941862cc068480e5ba7c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7de51356c4c1393e38429298357fbd4" id="r_ab7de51356c4c1393e38429298357fbd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_instance.html#ab7de51356c4c1393e38429298357fbd4">enableExtension</a> (const char *requiredExtensionName)</td></tr>
-<tr class="memdesc:ab7de51356c4c1393e38429298357fbd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables extension if it is in availableExtensions.  <br /></td></tr>
+<tr class="memdesc:ab7de51356c4c1393e38429298357fbd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables instance extension if it is in availableExtensions.  <br /></td></tr>
 <tr class="separator:ab7de51356c4c1393e38429298357fbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf646e9e7b701233a6bbf5304a64e5b1" id="r_acf646e9e7b701233a6bbf5304a64e5b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_instance.html#acf646e9e7b701233a6bbf5304a64e5b1">enableLayer</a> (const char *requiredLayerName)</td></tr>
 <tr class="memdesc:acf646e9e7b701233a6bbf5304a64e5b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables layer if it is in availableLayers.  <br /></td></tr>
@@ -184,10 +187,10 @@ std::vector&lt; std::unique_ptr&lt; <a class="el" href="classvkf_1_1core_1_1_phy
 </table>
 </div><div class="memdoc">
 
-<p>Enables extension if it is in availableExtensions. </p>
+<p>Enables instance extension if it is in availableExtensions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">requiredExtensionName</td><td>Name of Extension </td></tr>
+    <tr><td class="paramname">requiredExtensionName</td><td>Name of extension </td></tr>
   </table>
   </dd>
 </dl>
@@ -254,7 +257,7 @@ std::vector&lt; std::unique_ptr&lt; <a class="el" href="classvkf_1_1core_1_1_phy
 </table>
 </div><div class="memdoc">
 
-<p>Tries to enable all required extensions. </p>
+<p>Tries to enable all required instance extensions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">requiredExtensions</td><td></td></tr>

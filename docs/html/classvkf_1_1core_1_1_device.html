@@ -73,11 +73,139 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classvkf_1_1core_1_1_device-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">vkf::core::Device Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<hr/>The documentation for this class was generated from the following file:<ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:adcd0f9f6565d69d76b9b920e90b56cd1" id="r_adcd0f9f6565d69d76b9b920e90b56cd1"><td class="memItemLeft" align="right" valign="top"><a id="adcd0f9f6565d69d76b9b920e90b56cd1" name="adcd0f9f6565d69d76b9b920e90b56cd1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Device</b> (<a class="el" href="classvkf_1_1core_1_1_instance.html">Instance</a> &amp;instance, vk::raii::SurfaceKHR &amp;surface, const std::vector&lt; const char * &gt; &amp;requiredExtensions={})</td></tr>
+<tr class="separator:adcd0f9f6565d69d76b9b920e90b56cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af043b8bb36f544cb5baa188cabaff817" id="r_af043b8bb36f544cb5baa188cabaff817"><td class="memItemLeft" align="right" valign="top"><a id="af043b8bb36f544cb5baa188cabaff817" name="af043b8bb36f544cb5baa188cabaff817"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Device</b> (const <a class="el" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;)=delete</td></tr>
+<tr class="separator:af043b8bb36f544cb5baa188cabaff817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fbbddd3a17dd44fe4b78f743c715a07" id="r_a3fbbddd3a17dd44fe4b78f743c715a07"><td class="memItemLeft" align="right" valign="top"><a id="a3fbbddd3a17dd44fe4b78f743c715a07" name="a3fbbddd3a17dd44fe4b78f743c715a07"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Device</b> (<a class="el" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:a3fbbddd3a17dd44fe4b78f743c715a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0099596233b38a7c642bdba0f31e4093" id="r_a0099596233b38a7c642bdba0f31e4093"><td class="memItemLeft" align="right" valign="top"><a id="a0099596233b38a7c642bdba0f31e4093" name="a0099596233b38a7c642bdba0f31e4093"></a>
+<a class="el" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;)=delete</td></tr>
+<tr class="separator:a0099596233b38a7c642bdba0f31e4093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8d2837c208dd7d0694457adf615d94" id="r_aef8d2837c208dd7d0694457adf615d94"><td class="memItemLeft" align="right" valign="top"><a id="aef8d2837c208dd7d0694457adf615d94" name="aef8d2837c208dd7d0694457adf615d94"></a>
+<a class="el" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:aef8d2837c208dd7d0694457adf615d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a29ebbca33574fee17cfefbde7ebd485f" id="r_a29ebbca33574fee17cfefbde7ebd485f"><td class="memItemLeft" align="right" valign="top"><a id="a29ebbca33574fee17cfefbde7ebd485f" name="a29ebbca33574fee17cfefbde7ebd485f"></a>
+std::vector&lt; vk::DeviceQueueCreateInfo &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>createQueues</b> (const <a class="el" href="classvkf_1_1core_1_1_physical_device.html">PhysicalDevice</a> &amp;gpu, const vk::raii::SurfaceKHR &amp;surface)</td></tr>
+<tr class="separator:a29ebbca33574fee17cfefbde7ebd485f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33b9b10ed67ecc45b8e0b1f50339c573" id="r_a33b9b10ed67ecc45b8e0b1f50339c573"><td class="memItemLeft" align="right" valign="top"><a id="a33b9b10ed67ecc45b8e0b1f50339c573" name="a33b9b10ed67ecc45b8e0b1f50339c573"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createVmaAllocator</b> (const <a class="el" href="classvkf_1_1core_1_1_instance.html">Instance</a> &amp;instance, const <a class="el" href="classvkf_1_1core_1_1_physical_device.html">PhysicalDevice</a> &amp;gpu)</td></tr>
+<tr class="separator:a33b9b10ed67ecc45b8e0b1f50339c573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf116fb0c80b39c53405d3a066cb1313" id="r_acf116fb0c80b39c53405d3a066cb1313"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_device.html#acf116fb0c80b39c53405d3a066cb1313">validateExtensions</a> (const std::vector&lt; const char * &gt; &amp;requiredExtensions)</td></tr>
+<tr class="memdesc:acf116fb0c80b39c53405d3a066cb1313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to enable all required device extensions.  <br /></td></tr>
+<tr class="separator:acf116fb0c80b39c53405d3a066cb1313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a254f9627cf6168295c9d1d71abb276a2" id="r_a254f9627cf6168295c9d1d71abb276a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_device.html#a254f9627cf6168295c9d1d71abb276a2">enableExtension</a> (const char *requiredExtensionName)</td></tr>
+<tr class="memdesc:a254f9627cf6168295c9d1d71abb276a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables device extension if it is in availableExtensions.  <br /></td></tr>
+<tr class="separator:a254f9627cf6168295c9d1d71abb276a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:afd63446d113b46d638fc28624ff0934a" id="r_afd63446d113b46d638fc28624ff0934a"><td class="memItemLeft" align="right" valign="top"><a id="afd63446d113b46d638fc28624ff0934a" name="afd63446d113b46d638fc28624ff0934a"></a>
+std::vector&lt; const char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>enabledExtensions</b></td></tr>
+<tr class="separator:afd63446d113b46d638fc28624ff0934a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c5365cf4155d5cc8d40bd7d5099c9cf" id="r_a6c5365cf4155d5cc8d40bd7d5099c9cf"><td class="memItemLeft" align="right" valign="top"><a id="a6c5365cf4155d5cc8d40bd7d5099c9cf" name="a6c5365cf4155d5cc8d40bd7d5099c9cf"></a>
+std::vector&lt; vk::ExtensionProperties &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>availableExtensions</b></td></tr>
+<tr class="separator:a6c5365cf4155d5cc8d40bd7d5099c9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4989b9f660661a1ea51d7ee2d9a608e1" id="r_a4989b9f660661a1ea51d7ee2d9a608e1"><td class="memItemLeft" align="right" valign="top"><a id="a4989b9f660661a1ea51d7ee2d9a608e1" name="a4989b9f660661a1ea51d7ee2d9a608e1"></a>
+vk::raii::Device&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b> {VK_NULL_HANDLE}</td></tr>
+<tr class="separator:a4989b9f660661a1ea51d7ee2d9a608e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accaf43b08ea6517082229e4f60f41e0b" id="r_accaf43b08ea6517082229e4f60f41e0b"><td class="memItemLeft" align="right" valign="top"><a id="accaf43b08ea6517082229e4f60f41e0b" name="accaf43b08ea6517082229e4f60f41e0b"></a>
+VmaAllocator&#160;</td><td class="memItemRight" valign="bottom"><b>vmaAllocator</b> {VK_NULL_HANDLE}</td></tr>
+<tr class="separator:accaf43b08ea6517082229e4f60f41e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f991e4b0286eee113c63b6e018f1773" id="r_a3f991e4b0286eee113c63b6e018f1773"><td class="memItemLeft" align="right" valign="top"><a id="a3f991e4b0286eee113c63b6e018f1773" name="a3f991e4b0286eee113c63b6e018f1773"></a>
+std::vector&lt; std::vector&lt; <a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>queues</b></td></tr>
+<tr class="separator:a3f991e4b0286eee113c63b6e018f1773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a254f9627cf6168295c9d1d71abb276a2" name="a254f9627cf6168295c9d1d71abb276a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a254f9627cf6168295c9d1d71abb276a2">&#9670;&#160;</a></span>enableExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool vkf::core::Device::enableExtension </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>requiredExtensionName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enables device extension if it is in availableExtensions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">requiredExtensionName</td><td>Name of extension </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>IsExtensionEnabled </dd></dl>
+
+</div>
+</div>
+<a id="acf116fb0c80b39c53405d3a066cb1313" name="acf116fb0c80b39c53405d3a066cb1313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf116fb0c80b39c53405d3a066cb1313">&#9670;&#160;</a></span>validateExtensions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void vkf::core::Device::validateExtensions </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; const char * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>requiredExtensions</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tries to enable all required device extensions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">requiredExtensions</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Joshu/CLionProjects/vulkan-renderer/src/core/<a class="el" href="_device_8h_source.html">Device.h</a></li>
+<li>C:/Users/Joshu/CLionProjects/vulkan-renderer/src/core/<a class="el" href="_device_8cpp.html">Device.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

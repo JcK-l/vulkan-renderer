@@ -32,16 +32,19 @@ This is a wrapper class for vk\+::raii\+::instance.
 \item 
 \Hypertarget{classvkf_1_1core_1_1_instance_aaaedbf441b8ff079ee4f5381cac0ae50}\label{classvkf_1_1core_1_1_instance_aaaedbf441b8ff079ee4f5381cac0ae50} 
 const vk\+::raii\+::\+Instance \& {\bfseries get\+Handle} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_instance_ac3fd9477e18884e35e514c13b403fcee}\label{classvkf_1_1core_1_1_instance_ac3fd9477e18884e35e514c13b403fcee} 
+const vk\+::raii\+::\+Context \& {\bfseries get\+Context} () const
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validate\+Extensions}} (const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Extensions)
-\begin{DoxyCompactList}\small\item\em Tries to enable all required extensions. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Tries to enable all required instance extensions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validate\+Layers}} (const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Layers)
 \begin{DoxyCompactList}\small\item\em Tries to enable all required layers. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}{enable\+Extension}} (const char \texorpdfstring{$\ast$}{*}required\+Extension\+Name)
-\begin{DoxyCompactList}\small\item\em Enables extension if it is in available\+Extensions. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Enables instance extension if it is in available\+Extensions. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}{enable\+Layer}} (const char \texorpdfstring{$\ast$}{*}required\+Layer\+Name)
 \begin{DoxyCompactList}\small\item\em Enables layer if it is in available\+Layers. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_instance_aa18431ab955ea538705d10a5e4812bc8}\label{classvkf_1_1core_1_1_instance_aa18431ab955ea538705d10a5e4812bc8} 
@@ -90,11 +93,11 @@ This class also handles the creation of the debug\+Utils\+Messenger and returns 
 
 
 
-Enables extension if it is in available\+Extensions. 
+Enables instance extension if it is in available\+Extensions. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em required\+Extension\+Name} & Name of Extension \\
+{\em required\+Extension\+Name} & Name of extension \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -126,7 +129,7 @@ Is\+Layer\+Enabled
 
 
 
-Tries to enable all required extensions. 
+Tries to enable all required instance extensions. 
 
 
 \begin{DoxyParams}{Parameters}

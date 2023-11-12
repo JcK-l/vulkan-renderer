@@ -35,34 +35,36 @@
 \DoxyCodeLine{00036\ }
 \DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Instance\ \&getHandle()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Context\ \&getContext()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validateExtensions}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredExtensions);}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validateLayers}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredLayers);}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}{enableExtension}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredExtensionName);}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}{enableLayer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredLayerName);}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ queryGpus();}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validateExtensions}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredExtensions);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validateLayers}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredLayers);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}{enableExtension}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredExtensionName);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}{enableLayer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredLayerName);}
 \DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ enabledExtensions;}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::vector\ <vk::ExtensionProperties>\ availableExtensions;}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ enabledLayers;}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::vector\ <vk::LayerProperties>\ availableLayers;}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ vk::raii::Context\ context\{\};}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ vk::raii::Instance\ handle\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ vk::raii::DebugUtilsMessengerEXT\ debugMessenger\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ std::vector\ <std::unique\_ptr<PhysicalDevice>>\ gpus;}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \};}
-\DoxyCodeLine{00073\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ queryGpus();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ enabledExtensions;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::vector<vk::ExtensionProperties>\ availableExtensions;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ enabledLayers;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::vector<vk::LayerProperties>\ availableLayers;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ vk::raii::Context\ context\{\};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ vk::raii::Instance\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ vk::raii::DebugUtilsMessengerEXT\ debugMessenger\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<PhysicalDevice>>\ gpus;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \};}
+\DoxyCodeLine{00075\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
 \DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_INSTANCE\_H}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_INSTANCE\_H}}
 
 \end{DoxyCode}

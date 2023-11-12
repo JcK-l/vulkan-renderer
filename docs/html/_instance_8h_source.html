@@ -115,44 +115,46 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        [[nodiscard]] <span class="keyword">const</span> vk::raii::Instance &amp;getHandle() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        [[nodiscard]] <span class="keyword">const</span> vk::raii::Context &amp;getContext() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classvkf_1_1core_1_1_instance.html#a7b00c7968b62d552f6b0750829f09448">validateExtensions</a>(<span class="keyword">const</span> std::vector&lt;const char *&gt; &amp;requiredExtensions);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classvkf_1_1core_1_1_instance.html#a98512794aa941862cc068480e5ba7c49">validateLayers</a>(<span class="keyword">const</span> std::vector&lt;const char *&gt; &amp;requiredLayers);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classvkf_1_1core_1_1_instance.html#ab7de51356c4c1393e38429298357fbd4">enableExtension</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *requiredExtensionName);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classvkf_1_1core_1_1_instance.html#acf646e9e7b701233a6bbf5304a64e5b1">enableLayer</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *requiredLayerName);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordtype">void</span> queryGpus();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classvkf_1_1core_1_1_instance.html#a7b00c7968b62d552f6b0750829f09448">validateExtensions</a>(<span class="keyword">const</span> std::vector&lt;const char *&gt; &amp;requiredExtensions);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classvkf_1_1core_1_1_instance.html#a98512794aa941862cc068480e5ba7c49">validateLayers</a>(<span class="keyword">const</span> std::vector&lt;const char *&gt; &amp;requiredLayers);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classvkf_1_1core_1_1_instance.html#ab7de51356c4c1393e38429298357fbd4">enableExtension</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *requiredExtensionName);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classvkf_1_1core_1_1_instance.html#acf646e9e7b701233a6bbf5304a64e5b1">enableLayer</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *requiredLayerName);</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        std::vector&lt;const char *&gt; enabledExtensions;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        std::vector &lt;vk::ExtensionProperties&gt; availableExtensions;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        std::vector&lt;const char *&gt; enabledLayers;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        std::vector &lt;vk::LayerProperties&gt; availableLayers;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        vk::raii::Context context{};</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        vk::raii::Instance handle{VK_NULL_HANDLE};</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        vk::raii::DebugUtilsMessengerEXT debugMessenger{VK_NULL_HANDLE};</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        std::vector &lt;std::unique_ptr&lt;PhysicalDevice&gt;&gt; gpus;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    };</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordtype">void</span> queryGpus();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        std::vector&lt;const char *&gt; enabledExtensions;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        std::vector&lt;vk::ExtensionProperties&gt; availableExtensions;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        std::vector&lt;const char *&gt; enabledLayers;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        std::vector&lt;vk::LayerProperties&gt; availableLayers;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        vk::raii::Context context{};</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        vk::raii::Instance handle{VK_NULL_HANDLE};</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        vk::raii::DebugUtilsMessengerEXT debugMessenger{VK_NULL_HANDLE};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        std::vector&lt;std::unique_ptr&lt;PhysicalDevice&gt;&gt; gpus;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    };</div>
 </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>} <span class="comment">// namespace vkf::core</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>} <span class="comment">// namespace vkf::core</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#endif </span><span class="comment">//VULKANRENDERER_INSTANCE_H</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#endif </span><span class="comment">//VULKANRENDERER_INSTANCE_H</span></div>
 <div class="ttc" id="a_physical_device_8h_html"><div class="ttname"><a href="_physical_device_8h.html">PhysicalDevice.h</a></div></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_instance_html"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html">vkf::core::Instance</a></div><div class="ttdoc">This is a wrapper class for vk::raii::instance.</div><div class="ttdef"><b>Definition</b> Instance.h:20</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_instance_html_a7b00c7968b62d552f6b0750829f09448"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html#a7b00c7968b62d552f6b0750829f09448">vkf::core::Instance::validateExtensions</a></div><div class="ttdeci">void validateExtensions(const std::vector&lt; const char * &gt; &amp;requiredExtensions)</div><div class="ttdoc">Tries to enable all required extensions.</div><div class="ttdef"><b>Definition</b> Instance.cpp:138</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_instance_html_a98512794aa941862cc068480e5ba7c49"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html#a98512794aa941862cc068480e5ba7c49">vkf::core::Instance::validateLayers</a></div><div class="ttdeci">void validateLayers(const std::vector&lt; const char * &gt; &amp;requiredLayers)</div><div class="ttdoc">Tries to enable all required layers.</div><div class="ttdef"><b>Definition</b> Instance.cpp:147</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_instance_html_ab7de51356c4c1393e38429298357fbd4"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html#ab7de51356c4c1393e38429298357fbd4">vkf::core::Instance::enableExtension</a></div><div class="ttdeci">bool enableExtension(const char *requiredExtensionName)</div><div class="ttdoc">Enables extension if it is in availableExtensions.</div><div class="ttdef"><b>Definition</b> Instance.cpp:96</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_instance_html_acf646e9e7b701233a6bbf5304a64e5b1"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html#acf646e9e7b701233a6bbf5304a64e5b1">vkf::core::Instance::enableLayer</a></div><div class="ttdeci">bool enableLayer(const char *requiredLayerName)</div><div class="ttdoc">Enables layer if it is in availableLayers.</div><div class="ttdef"><b>Definition</b> Instance.cpp:117</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_instance_html_a7b00c7968b62d552f6b0750829f09448"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html#a7b00c7968b62d552f6b0750829f09448">vkf::core::Instance::validateExtensions</a></div><div class="ttdeci">void validateExtensions(const std::vector&lt; const char * &gt; &amp;requiredExtensions)</div><div class="ttdoc">Tries to enable all required instance extensions.</div><div class="ttdef"><b>Definition</b> Instance.cpp:158</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_instance_html_a98512794aa941862cc068480e5ba7c49"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html#a98512794aa941862cc068480e5ba7c49">vkf::core::Instance::validateLayers</a></div><div class="ttdeci">void validateLayers(const std::vector&lt; const char * &gt; &amp;requiredLayers)</div><div class="ttdoc">Tries to enable all required layers.</div><div class="ttdef"><b>Definition</b> Instance.cpp:167</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_instance_html_ab7de51356c4c1393e38429298357fbd4"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html#ab7de51356c4c1393e38429298357fbd4">vkf::core::Instance::enableExtension</a></div><div class="ttdeci">bool enableExtension(const char *requiredExtensionName)</div><div class="ttdoc">Enables instance extension if it is in availableExtensions.</div><div class="ttdef"><b>Definition</b> Instance.cpp:116</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_instance_html_acf646e9e7b701233a6bbf5304a64e5b1"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html#acf646e9e7b701233a6bbf5304a64e5b1">vkf::core::Instance::enableLayer</a></div><div class="ttdeci">bool enableLayer(const char *requiredLayerName)</div><div class="ttdoc">Enables layer if it is in availableLayers.</div><div class="ttdef"><b>Definition</b> Instance.cpp:137</div></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_physical_device_html"><div class="ttname"><a href="classvkf_1_1core_1_1_physical_device.html">vkf::core::PhysicalDevice</a></div><div class="ttdoc">This is a wrapper class for vk::raii::PhysicalDevice.</div><div class="ttdef"><b>Definition</b> PhysicalDevice.h:15</div></div>
-<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">Collection of core functionality.</div><div class="ttdef"><b>Definition</b> Device.cpp:11</div></div>
+<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">Collection of core functionality.</div><div class="ttdef"><b>Definition</b> Device.cpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

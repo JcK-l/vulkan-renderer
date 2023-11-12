@@ -116,21 +116,23 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        [[nodiscard]] <span class="keywordtype">bool</span> getSurfaceSupportKHR(uint32_t queueFamilyIndex, vk::SurfaceKHR surface) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        [[nodiscard]] <span class="keyword">const</span> vk::raii::PhysicalDevice &amp;getHandle() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        vk::raii::PhysicalDevice handle{VK_NULL_HANDLE};</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        vk::PhysicalDeviceFeatures features;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        vk::PhysicalDeviceProperties properties;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        std::vector&lt;vk::QueueFamilyProperties&gt; queueFamilyProperties;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    };</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        vk::raii::PhysicalDevice handle{VK_NULL_HANDLE};</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        vk::PhysicalDeviceFeatures features;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        vk::PhysicalDeviceProperties properties;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        std::vector&lt;vk::QueueFamilyProperties&gt; queueFamilyProperties;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
 </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>} <span class="comment">// namespace vkf::core</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif </span><span class="comment">//VULKANRENDERER_PHYSICALDEVICE_H</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>} <span class="comment">// namespace vkf::core</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif </span><span class="comment">//VULKANRENDERER_PHYSICALDEVICE_H</span></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_physical_device_html"><div class="ttname"><a href="classvkf_1_1core_1_1_physical_device.html">vkf::core::PhysicalDevice</a></div><div class="ttdoc">This is a wrapper class for vk::raii::PhysicalDevice.</div><div class="ttdef"><b>Definition</b> PhysicalDevice.h:15</div></div>
-<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">Collection of core functionality.</div><div class="ttdef"><b>Definition</b> Device.cpp:11</div></div>
+<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">Collection of core functionality.</div><div class="ttdef"><b>Definition</b> Device.cpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
