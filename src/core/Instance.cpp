@@ -8,7 +8,7 @@
 
 #include "../pch.h"
 #include "Instance.h"
-#include "../common/utils.h"
+//#include "../common/utils.h"
 #include "../common/logging.h"
 
 #if !defined( NDEBUG )
@@ -63,7 +63,17 @@ namespace vkf::core {
             .ppEnabledLayerNames = enabledLayers.data(),
             .enabledExtensionCount = static_cast<uint32_t>(enabledExtensions.size()),
             .ppEnabledExtensionNames = enabledExtensions.data()},
-          common::utils::createDebugMessengerInfo(&debugCallback)
+          vk::DebugUtilsMessengerCreateInfoEXT{
+            .messageSeverity =
+            vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning |
+            vk::DebugUtilsMessageSeverityFlagBitsEXT::eError,
+            .messageType =
+            vk::DebugUtilsMessageTypeFlagBitsEXT::eGeneral |
+            vk::DebugUtilsMessageTypeFlagBitsEXT::ePerformance |
+            vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation,
+            .pfnUserCallback = &debugCallback,
+          }
+//          common::utils::createDebugMessengerInfo(&debugCallback)
         };
 #else
         vk::StructureChain<vk::InstanceCreateInfo> instanceCreateInfo = {
@@ -76,7 +86,17 @@ namespace vkf::core {
 
 #if !defined( NDEBUG )
         debugMessenger = vk::raii::DebugUtilsMessengerEXT{handle,
-                                                          common::utils::createDebugMessengerInfo(&debugCallback)};
+                                                          vk::DebugUtilsMessengerCreateInfoEXT{
+                                                            .messageSeverity =
+                                                            vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning |
+                                                            vk::DebugUtilsMessageSeverityFlagBitsEXT::eError,
+                                                            .messageType =
+                                                            vk::DebugUtilsMessageTypeFlagBitsEXT::eGeneral |
+                                                            vk::DebugUtilsMessageTypeFlagBitsEXT::ePerformance |
+                                                            vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation,
+                                                            .pfnUserCallback = &debugCallback,
+                                                          }};
+//                                                          common::utils::createDebugMessengerInfo(&debugCallback)};
 #endif
 
         queryGpus();
@@ -103,14 +123,14 @@ namespace vkf::core {
           if (it != enabledExtensions.end()) {
             // Extension is already enabled
           } else {
-            LOG_INFO("Extension {} found, enabling it", requiredExtensionName)
+            LOG_INFO("Instance extension {} found, enabling it", requiredExtensionName)
             enabledExtensions.emplace_back(requiredExtensionName);
           }
           return true;
         }
       }
 
-      LOG_INFO("Extension {} not found", requiredExtensionName)
+      LOG_INFO("Instance extension {} not found", requiredExtensionName)
       return false;
     }
 
@@ -179,7 +199,6 @@ namespace vkf::core {
           // check if a queue can present
           for (auto i = 0; i < size; ++i) {
             if (gpu->getSurfaceSupportKHR(i, *surface)) {
-              LOG_INFO("Picked GPU: {}", gpu->getProperties().deviceName.data());
               return *gpu;
             }
           }
@@ -191,5 +210,9 @@ namespace vkf::core {
 
     const vk::raii::Instance &Instance::getHandle() const {
       return handle;
+    }
+
+    const vk::raii::Context &Instance::getContext() const {
+      return context;
     }
 } // namespace vkf::core

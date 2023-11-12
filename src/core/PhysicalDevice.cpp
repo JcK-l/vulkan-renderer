@@ -33,4 +33,8 @@ namespace vkf::core {
     bool PhysicalDevice::getSurfaceSupportKHR(uint32_t queueFamilyIndex, vk::SurfaceKHR surface) const {
       return handle.getSurfaceSupportKHR(queueFamilyIndex, surface);
     }
+
+    const vk::raii::PhysicalDevice &PhysicalDevice::getHandle() const {
+      return handle;
+    }
 } // namespace vkf::core

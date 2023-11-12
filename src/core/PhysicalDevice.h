@@ -34,6 +34,8 @@ namespace vkf::core {
 
         [[nodiscard]] bool getSurfaceSupportKHR(uint32_t queueFamilyIndex, vk::SurfaceKHR surface) const;
 
+        [[nodiscard]] const vk::raii::PhysicalDevice &getHandle() const;
+
     private:
 
         vk::raii::PhysicalDevice handle{VK_NULL_HANDLE};

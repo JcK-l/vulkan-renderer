@@ -5,26 +5,15 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(VulkanRenderer src/main.cpp
         src/application/Application.cpp
-        src/application/Application.h
         src/application/Window.cpp
-        src/application/Window.h
-        src/common/utils.h
         src/core/Instance.cpp
-        src/core/Instance.h
-        src/common/event.h
-        src/common/input.h
-        src/common/logging.h
-        src/common/utils.cpp
-        src/common/logging.cpp
         src/common/input.cpp
         src/core/PhysicalDevice.cpp
-        src/core/PhysicalDevice.h
         src/core/Device.cpp
-        src/core/Device.h
+        src/core/Queue.cpp
 )
 
 target_precompile_headers(VulkanRenderer PUBLIC src/pch.h)
-
 
 find_package(Vulkan REQUIRED)
 target_include_directories(${PROJECT_NAME} PUBLIC ${Vulkan_INCLUDE_DIRS})
@@ -42,3 +31,4 @@ set(spdlog_DIR ${CMAKE_SOURCE_DIR}/lib/spdlog/build)
 find_package(spdlog REQUIRED)
 target_link_libraries(${PROJECT_NAME} spdlog::spdlog)
 
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)

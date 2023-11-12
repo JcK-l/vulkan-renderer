@@ -36,9 +36,7 @@ namespace vkf {
         throw std::runtime_error("Failed to create window surface.");
       }
 
-      auto &gpu = instance->getSuitableGpu(*surface);
-
-//      device = std::make_unique<core::Device>(gpu, surface, std::move(debug_utils), get_device_extensions());
+      device = std::make_unique<core::Device>(*instance, *surface);
     }
 
     void Application::run() {

@@ -36,9 +36,11 @@ namespace vkf::core {
 
         [[nodiscard]] const vk::raii::Instance &getHandle() const;
 
+        [[nodiscard]] const vk::raii::Context &getContext() const;
+
     private:
 
-        /// \brief Tries to enable all required extensions
+        /// \brief Tries to enable all required instance extensions
         /// \param requiredExtensions
         void validateExtensions(const std::vector<const char *> &requiredExtensions);
 
@@ -46,8 +48,8 @@ namespace vkf::core {
         /// \param requiredLayers
         void validateLayers(const std::vector<const char *> &requiredLayers);
 
-        /// \brief Enables extension if it is in availableExtensions
-        /// \param requiredExtensionName Name of Extension
+        /// \brief Enables instance extension if it is in availableExtensions
+        /// \param requiredExtensionName Name of extension
         /// \return IsExtensionEnabled
         bool enableExtension(const char *requiredExtensionName);
 
@@ -59,15 +61,15 @@ namespace vkf::core {
         void queryGpus();
 
         std::vector<const char *> enabledExtensions;
-        std::vector <vk::ExtensionProperties> availableExtensions;
+        std::vector<vk::ExtensionProperties> availableExtensions;
 
         std::vector<const char *> enabledLayers;
-        std::vector <vk::LayerProperties> availableLayers;
+        std::vector<vk::LayerProperties> availableLayers;
 
         vk::raii::Context context{};
         vk::raii::Instance handle{VK_NULL_HANDLE};
         vk::raii::DebugUtilsMessengerEXT debugMessenger{VK_NULL_HANDLE};
-        std::vector <std::unique_ptr<PhysicalDevice>> gpus;
+        std::vector<std::unique_ptr<PhysicalDevice>> gpus;
 
     };
 } // namespace vkf::core
