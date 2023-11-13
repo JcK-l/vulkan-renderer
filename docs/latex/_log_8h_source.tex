@@ -19,20 +19,19 @@
 \DoxyCodeLine{00016\ }
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ \_\_FILENAME\_\_\ (static\_cast<const\ char\ *>(\_\_FILE\_\_)\ +\ ROOT\_PATH\_SIZE)}}
 \DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <spdlog/spdlog.h>}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#if\ !defined(\ NDEBUG\ )}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ LOG\_INFO(...)\ spdlog::info(\_\_VA\_ARGS\_\_);}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ LOG\_WARN(...)\ spdlog::warn(\_\_VA\_ARGS\_\_);}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LOG\_ERROR(...)\ spdlog::error("{}[\{\}:\{\}]\ \{\}"{},\ \_\_FILENAME\_\_,\ \_\_LINE\_\_,\ fmt::format(\_\_VA\_ARGS\_\_));}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ LOG\_DEBUG(...)\ spdlog::debug(\_\_VA\_ARGS\_\_);}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ LOG\_INFO(...)}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ LOG\_WARN(...)}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LOG\_ERROR(...)}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ LOG\_DEBUG(...)}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_LOG\_H}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#if\ !defined(\ NDEBUG\ )}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ LOG\_INFO(...)\ spdlog::info(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ LOG\_WARN(...)\ spdlog::warn(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ LOG\_ERROR(...)\ spdlog::error("{}[\{\}:\{\}]\ \{\}"{},\ \_\_FILENAME\_\_,\ \_\_LINE\_\_,\ fmt::format(\_\_VA\_ARGS\_\_));}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LOG\_DEBUG(...)\ spdlog::debug(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ LOG\_INFO(...)\ spdlog::info(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ LOG\_WARN(...)\ spdlog::warn(\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ LOG\_ERROR(...)\ spdlog::error("{}[\{\}:\{\}]\ \{\}"{},\ \_\_FILENAME\_\_,\ \_\_LINE\_\_,\ fmt::format(\_\_VA\_ARGS\_\_));}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LOG\_DEBUG(...)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_LOG\_H}}
 
 \end{DoxyCode}

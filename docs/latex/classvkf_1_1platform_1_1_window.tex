@@ -5,6 +5,10 @@
 This class provides functionality associated with glfw.  
 
 
+
+
+{\ttfamily \#include $<$Window.\+h$>$}
+
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,12 +20,12 @@ struct \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Propert
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}\label{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f} 
-enum class {\bfseries Vsync} \{ {\bfseries OFF}
+enum class \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}{Vsync}} \{ {\bfseries OFF}
 , {\bfseries ON}
  \}
 \begin{DoxyCompactList}\small\item\em Vsync option. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}\label{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0} 
-enum class {\bfseries Mode} \{ {\bfseries Fullscreen}
+enum class \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}{Mode}} \{ {\bfseries Fullscreen}
 , {\bfseries Fullscreen\+Borderless}
 , {\bfseries Windowed}
  \}
@@ -35,8 +39,8 @@ enum class {\bfseries Mode} \{ {\bfseries Fullscreen}
 \Hypertarget{classvkf_1_1platform_1_1_window_ac6067d940c92908ff9eb369aafa92c19}\label{classvkf_1_1platform_1_1_window_ac6067d940c92908ff9eb369aafa92c19} 
 void {\bfseries on\+Update} ()
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_window_a19fbf445c23f030be0bd10192b1287ea}\label{classvkf_1_1platform_1_1_window_a19fbf445c23f030be0bd10192b1287ea} 
-void {\bfseries set\+Event\+Callback} (const std\+::function$<$ void(\mbox{\hyperlink{structvkf_1_1common_1_1_event}{common\+::\+Event}} \&)$>$ \&callback)
+\Hypertarget{classvkf_1_1platform_1_1_window_a7a8f9a09ec90e972d3a23e78cbff6639}\label{classvkf_1_1platform_1_1_window_a7a8f9a09ec90e972d3a23e78cbff6639} 
+void {\bfseries set\+Event\+Callback} (const std\+::function$<$ void(\mbox{\hyperlink{structvkf_1_1_event}{Event}} \&)$>$ \&callback)
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_window_ad714f99baf300c58648a67921d7a1b56}\label{classvkf_1_1platform_1_1_window_ad714f99baf300c58648a67921d7a1b56} 
 bool {\bfseries is\+Closed} () const
@@ -44,14 +48,11 @@ bool {\bfseries is\+Closed} () const
 \Hypertarget{classvkf_1_1platform_1_1_window_abbe720acf94af1c4e22a9f630407d2b6}\label{classvkf_1_1platform_1_1_window_abbe720acf94af1c4e22a9f630407d2b6} 
 GLFWwindow \texorpdfstring{$\ast$}{*} {\bfseries get\+Handle} () const
 \item 
+\Hypertarget{classvkf_1_1platform_1_1_window_acf84a4ac6b274fe5e386a69a42bd7998}\label{classvkf_1_1platform_1_1_window_acf84a4ac6b274fe5e386a69a42bd7998} 
+std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Required\+Surface\+Extensions} ()
+\item 
 \Hypertarget{classvkf_1_1platform_1_1_window_a67d0e045e326c236651bde00769fe334}\label{classvkf_1_1platform_1_1_window_a67d0e045e326c236651bde00769fe334} 
 vk\+::raii\+::\+Surface\+KHR {\bfseries create\+Surface} (const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} \&instance)
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{classvkf_1_1platform_1_1_window_acf84a4ac6b274fe5e386a69a42bd7998}\label{classvkf_1_1platform_1_1_window_acf84a4ac6b274fe5e386a69a42bd7998} 
-static std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Required\+Surface\+Extensions} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -69,5 +70,5 @@ This class provides functionality associated with glfw.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/platform/\mbox{\hyperlink{vkf_8platform_8_window_8ixx}{vkf.\+platform.\+Window.\+ixx}}\item 
-C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/platform/\mbox{\hyperlink{vkf_8platform_8_window_8cpp}{vkf.\+platform.\+Window.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/platform/\mbox{\hyperlink{_window_8h}{Window.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/platform/\mbox{\hyperlink{_window_8cpp}{Window.\+cpp}}\end{DoxyCompactItemize}
