@@ -1,0 +1,60 @@
+\doxysection{vkf\+::common\+::Event Struct Reference}
+\hypertarget{structvkf_1_1common_1_1_event}{}\label{structvkf_1_1common_1_1_event}\index{vkf::common::Event@{vkf::common::Event}}
+
+
+Object containing Event\+Type and Event\+Data.  
+
+
+
+
+{\ttfamily \#include $<$Event.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_close}{Close}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1common_1_1_event}{Event} with no data. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_keyboard}{Keyboard}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1common_1_1_event}{Event} with keycode and action values. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_mouse_button}{Mouse\+Button}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1common_1_1_event}{Event} with button and action values. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_mouse_move}{Mouse\+Move}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1common_1_1_event}{Event} with x and y position values. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_mouse_scroll}{Mouse\+Scroll}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1common_1_1_event}{Event} with x and y scroll values. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_resize}{Resize}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1common_1_1_event}{Event} with height and width values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structvkf_1_1common_1_1_event_aac1a23d42f41e6dbf56b270bb90f32fc}\label{structvkf_1_1common_1_1_event_aac1a23d42f41e6dbf56b270bb90f32fc} 
+enum class {\bfseries Type} \{ \newline
+{\bfseries Keyboard}
+, {\bfseries Mouse\+Move}
+, {\bfseries Mouse\+Button}
+, {\bfseries Mouse\+Scroll}
+, \newline
+{\bfseries Resize}
+, {\bfseries Close}
+ \}
+\item 
+\Hypertarget{structvkf_1_1common_1_1_event_a3e3be67ed5bc84397787f147b6ba3196}\label{structvkf_1_1common_1_1_event_a3e3be67ed5bc84397787f147b6ba3196} 
+using {\bfseries Data} = std\+::variant$<$ \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_keyboard}{Keyboard}}, \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_mouse_move}{Mouse\+Move}}, \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_mouse_button}{Mouse\+Button}}, \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_mouse_scroll}{Mouse\+Scroll}}, \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_resize}{Resize}}, \mbox{\hyperlink{structvkf_1_1common_1_1_event_1_1_close}{Close}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structvkf_1_1common_1_1_event_a7560a4f60e61936ff1d0005f98c12311}\label{structvkf_1_1common_1_1_event_a7560a4f60e61936ff1d0005f98c12311} 
+Type {\bfseries type}
+\item 
+\Hypertarget{structvkf_1_1common_1_1_event_a94241a25857225a1447ddb8ca4150f97}\label{structvkf_1_1common_1_1_event_a94241a25857225a1447ddb8ca4150f97} 
+Data {\bfseries data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object containing Event\+Type and Event\+Data. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/common/\mbox{\hyperlink{_event_8h}{Event.\+h}}\end{DoxyCompactItemize}

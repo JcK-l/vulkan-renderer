@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Vulkan Renderer: C:/Users/Joshu/CLionProjects/vulkan-renderer/src/application/Window.h Source File</title>
+<title>Vulkan Renderer: C:/Users/Joshu/CLionProjects/vulkan-renderer/vkf/platform/Window.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -74,7 +74,7 @@ $(document).ready(function() { init_codefold(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_844f6ab5c2ae79211596f3dcdd81adb7.html">application</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_31cbb18c2a7cc701357a4ebab4098c74.html">vkf</a></li><li class="navelem"><a class="el" href="dir_dbe2982d232ef66273b06d1afa6f50e5.html">platform</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -95,30 +95,30 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;../common/event.h&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;../core/Instance.h&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf.html">vkf</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1platform.html">vkf::platform</a> {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">class </span>Application;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classvkf_1_1_window.html">   21</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classvkf_1_1_window.html">Window</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classvkf_1_1platform_1_1_window.html">   21</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classvkf_1_1platform_1_1_window.html">Window</a> {</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structvkf_1_1_window_1_1_extent.html">   25</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structvkf_1_1_window_1_1_extent.html">Extent</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structvkf_1_1platform_1_1_window_1_1_extent.html">   25</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structvkf_1_1platform_1_1_window_1_1_extent.html">Extent</a> {</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            uint32_t width;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            uint32_t height;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        };</div>
 </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classvkf_1_1_window.html#a0a15c06e544aa536bffcf4e52ce8bdf9">   31</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classvkf_1_1_window.html#a0a15c06e544aa536bffcf4e52ce8bdf9">Vsync</a> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802f">   31</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802f">Vsync</a> {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            OFF,</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            ON</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        };</div>
 </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classvkf_1_1_window.html#a06a81b655bf07abd90fe805040ae6009">   37</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classvkf_1_1_window.html#a06a81b655bf07abd90fe805040ae6009">Mode</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0">   37</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0">Mode</a> {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            Fullscreen,</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            FullscreenBorderless,</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            Windowed</div>
@@ -126,20 +126,20 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structvkf_1_1_window_1_1_properties.html">   44</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structvkf_1_1_window_1_1_properties.html">Properties</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structvkf_1_1platform_1_1_window_1_1_properties.html">   44</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structvkf_1_1platform_1_1_window_1_1_properties.html">Properties</a> {</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            std::string title;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <a class="code hl_enumeration" href="classvkf_1_1_window.html#a06a81b655bf07abd90fe805040ae6009">Mode</a> mode{Mode::Windowed};</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <a class="code hl_enumeration" href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0">Mode</a> mode{Mode::Windowed};</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordtype">bool</span> resizeable{<span class="keyword">false</span>};</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="keywordtype">bool</span> resized{<span class="keyword">false</span>};</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <a class="code hl_enumeration" href="classvkf_1_1_window.html#a0a15c06e544aa536bffcf4e52ce8bdf9">Vsync</a> vsync{Vsync::ON};</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <a class="code hl_struct" href="structvkf_1_1_window_1_1_extent.html">Extent</a> extent{800, 600};</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <a class="code hl_enumeration" href="classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802f">Vsync</a> vsync{Vsync::ON};</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <a class="code hl_struct" href="structvkf_1_1platform_1_1_window_1_1_extent.html">Extent</a> extent{800, 600};</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            std::function&lt;void(<a class="code hl_struct" href="structvkf_1_1_event.html">Event</a> &amp;)&gt; eventCallback;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        };</div>
 </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">explicit</span> <a class="code hl_class" href="classvkf_1_1_window.html">Window</a>(<a class="code hl_struct" href="structvkf_1_1_window_1_1_properties.html">Properties</a>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">explicit</span> <a class="code hl_class" href="classvkf_1_1platform_1_1_window.html">Window</a>(<a class="code hl_struct" href="structvkf_1_1platform_1_1_window_1_1_properties.html">Properties</a>);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_class" href="classvkf_1_1_window.html">~Window</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_class" href="classvkf_1_1platform_1_1_window.html">~Window</a>();</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordtype">void</span> onUpdate();</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
@@ -149,28 +149,29 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        [[nodiscard]] GLFWwindow *getHandle() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keyword">static</span> std::vector&lt;const char *&gt; getRequiredSurfaceExtensions();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        std::vector&lt;const char *&gt; getRequiredSurfaceExtensions();</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        vk::raii::SurfaceKHR createSurface(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_instance.html">core::Instance</a> &amp;instance);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_struct" href="structvkf_1_1_window_1_1_properties.html">Properties</a> windowData;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_struct" href="structvkf_1_1platform_1_1_window_1_1_properties.html">Properties</a> windowData;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        GLFWwindow *handle{<span class="keyword">nullptr</span>};</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    };</div>
 </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>} <span class="comment">// namespace vkf</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>} <span class="comment">// namespace vkf::platform</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif </span><span class="comment">//VULKANRENDERER_WINDOW_H</span></div>
-<div class="ttc" id="aclassvkf_1_1_window_html"><div class="ttname"><a href="classvkf_1_1_window.html">vkf::Window</a></div><div class="ttdoc">This class provides functionality associated with glfw.</div><div class="ttdef"><b>Definition</b> Window.h:21</div></div>
-<div class="ttc" id="aclassvkf_1_1_window_html_a06a81b655bf07abd90fe805040ae6009"><div class="ttname"><a href="classvkf_1_1_window.html#a06a81b655bf07abd90fe805040ae6009">vkf::Window::Mode</a></div><div class="ttdeci">Mode</div><div class="ttdoc">Window mode.</div><div class="ttdef"><b>Definition</b> Window.h:37</div></div>
-<div class="ttc" id="aclassvkf_1_1_window_html_a0a15c06e544aa536bffcf4e52ce8bdf9"><div class="ttname"><a href="classvkf_1_1_window.html#a0a15c06e544aa536bffcf4e52ce8bdf9">vkf::Window::Vsync</a></div><div class="ttdeci">Vsync</div><div class="ttdoc">Vsync option.</div><div class="ttdef"><b>Definition</b> Window.h:31</div></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#endif </span><span class="comment">//VULKANRENDERER_WINDOW_H</span></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_instance_html"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html">vkf::core::Instance</a></div><div class="ttdoc">This is a wrapper class for vk::raii::instance.</div><div class="ttdef"><b>Definition</b> Instance.h:20</div></div>
-<div class="ttc" id="anamespacevkf_html"><div class="ttname"><a href="namespacevkf.html">vkf</a></div><div class="ttdoc">Vulkan framework.</div><div class="ttdef"><b>Definition</b> Application.cpp:17</div></div>
-<div class="ttc" id="astructvkf_1_1_event_html"><div class="ttname"><a href="structvkf_1_1_event.html">vkf::Event</a></div><div class="ttdoc">Object containing EventType and EventData.</div><div class="ttdef"><b>Definition</b> event.h:16</div></div>
-<div class="ttc" id="astructvkf_1_1_window_1_1_extent_html"><div class="ttname"><a href="structvkf_1_1_window_1_1_extent.html">vkf::Window::Extent</a></div><div class="ttdoc">Extent of the window.</div><div class="ttdef"><b>Definition</b> Window.h:25</div></div>
-<div class="ttc" id="astructvkf_1_1_window_1_1_properties_html"><div class="ttname"><a href="structvkf_1_1_window_1_1_properties.html">vkf::Window::Properties</a></div><div class="ttdoc">Window properties.</div><div class="ttdef"><b>Definition</b> Window.h:44</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_window_html"><div class="ttname"><a href="classvkf_1_1platform_1_1_window.html">vkf::platform::Window</a></div><div class="ttdoc">This class provides functionality associated with glfw.</div><div class="ttdef"><b>Definition</b> Window.h:21</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_window_html_aab0d1d3c8da9699bdbe700415889802f"><div class="ttname"><a href="classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802f">vkf::platform::Window::Vsync</a></div><div class="ttdeci">Vsync</div><div class="ttdoc">Vsync option.</div><div class="ttdef"><b>Definition</b> Window.h:31</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_window_html_abe12df63cfc71d34a52b071adad432f0"><div class="ttname"><a href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0">vkf::platform::Window::Mode</a></div><div class="ttdeci">Mode</div><div class="ttdoc">Window mode.</div><div class="ttdef"><b>Definition</b> Window.h:37</div></div>
+<div class="ttc" id="anamespacevkf_1_1platform_html"><div class="ttname"><a href="namespacevkf_1_1platform.html">vkf::platform</a></div><div class="ttdoc">Vulkan framework.</div><div class="ttdef"><b>Definition</b> Application.cpp:14</div></div>
+<div class="ttc" id="astructvkf_1_1_event_html"><div class="ttname"><a href="structvkf_1_1_event.html">vkf::Event</a></div><div class="ttdoc">Object containing EventType and EventData.</div><div class="ttdef"><b>Definition</b> Event.h:14</div></div>
+<div class="ttc" id="astructvkf_1_1platform_1_1_window_1_1_extent_html"><div class="ttname"><a href="structvkf_1_1platform_1_1_window_1_1_extent.html">vkf::platform::Window::Extent</a></div><div class="ttdoc">Extent of the window.</div><div class="ttdef"><b>Definition</b> Window.h:25</div></div>
+<div class="ttc" id="astructvkf_1_1platform_1_1_window_1_1_properties_html"><div class="ttname"><a href="structvkf_1_1platform_1_1_window_1_1_properties.html">vkf::platform::Window::Properties</a></div><div class="ttdoc">Window properties.</div><div class="ttdef"><b>Definition</b> Window.h:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

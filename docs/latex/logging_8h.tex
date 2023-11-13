@@ -1,5 +1,5 @@
-\doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/common/logging.h File Reference}
-\hypertarget{logging_8h}{}\label{logging_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/src/common/logging.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/src/common/logging.h}}
+\doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/common/logging.h File Reference}
+\hypertarget{logging_8h}{}\label{logging_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/common/logging.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/common/logging.h}}
 {\ttfamily \#include $<$spdlog/spdlog.\+h$>$}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
@@ -11,14 +11,14 @@
 \#define {\bfseries \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+}~(static\+\_\+cast$<$const char \texorpdfstring{$\ast$}{*}$>$(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+) + ROOT\+\_\+\+PATH\+\_\+\+SIZE)
 \item 
 \Hypertarget{logging_8h_a378e28bfcb78d17285210d6bbb70a083}\label{logging_8h_a378e28bfcb78d17285210d6bbb70a083} 
-\#define {\bfseries LOG\+\_\+\+INFO}(...)
+\#define {\bfseries LOG\+\_\+\+INFO}(...)~spdlog\+::info(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
 \item 
 \Hypertarget{logging_8h_add82efa459e0af380b68522c29b9fd44}\label{logging_8h_add82efa459e0af380b68522c29b9fd44} 
-\#define {\bfseries LOG\+\_\+\+WARN}(...)
+\#define {\bfseries LOG\+\_\+\+WARN}(...)~spdlog\+::warn(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
 \item 
 \Hypertarget{logging_8h_ad4a9117ce894e3319e903142347a0f63}\label{logging_8h_ad4a9117ce894e3319e903142347a0f63} 
-\#define {\bfseries LOG\+\_\+\+ERROR}(...)
+\#define {\bfseries LOG\+\_\+\+ERROR}(...)~spdlog\+::error("{}\mbox{[}\{\}\+:\{\}\mbox{]} \{\}"{}, \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, fmt\+::format(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+));
 \item 
 \Hypertarget{logging_8h_a754b3d074e0af4ad3c7b918dd77ecb2d}\label{logging_8h_a754b3d074e0af4ad3c7b918dd77ecb2d} 
-\#define {\bfseries LOG\+\_\+\+DEBUG}(...)
+\#define {\bfseries LOG\+\_\+\+DEBUG}(...)~spdlog\+::debug(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
 \end{DoxyCompactItemize}

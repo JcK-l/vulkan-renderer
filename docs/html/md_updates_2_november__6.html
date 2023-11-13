@@ -174,7 +174,7 @@ Events</h2>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Input Polling</h2>
 <p>Sometimes it can be helpful to poll input. Glfw provides functions to do just that. To make those functions more easily accessible the glfw functions are wrapped in a namespace called input. As the need for more functionality arises, more functions will be added.</p>
-<div class="fragment"><div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1input.html">vkf::input</a> {</div>
+<div class="fragment"><div class="line"><span class="keyword">namespace </span>vkf::input {</div>
 <div class="line">    <span class="keywordtype">bool</span> isKeyPressed(GLFWwindow *window, <span class="keywordtype">int</span> keycode);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> isMouseButtonPressed(GLFWwindow *window, <span class="keywordtype">int</span> button);</div>
@@ -185,7 +185,6 @@ Input Polling</h2>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">double</span> getMouseY(GLFWwindow *window);</div>
 <div class="line">} <span class="comment">// vkf::input</span></div>
-<div class="ttc" id="anamespacevkf_1_1input_html"><div class="ttname"><a href="namespacevkf_1_1input.html">vkf::input</a></div><div class="ttdoc">Collection of input functions.</div><div class="ttdef"><b>Definition</b> input.cpp:13</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 Logging</h2>
 <p>This project uses <a href="https://github.com/gabime/spdlog">spdlog</a>. The init function gets called in the main entry point of the program. The macros can then be called to log relevant information.</p>

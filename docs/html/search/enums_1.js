@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vsync_0',['Vsync',['../classvkf_1_1_window.html#a0a15c06e544aa536bffcf4e52ce8bdf9',1,'vkf::Window']]]
+  ['vsync_0',['Vsync',['../classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802f',1,'vkf::platform::Window']]]
 ];
