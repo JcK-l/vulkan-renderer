@@ -9,9 +9,7 @@
 #ifndef VULKANRENDERER_EVENT_H
 #define VULKANRENDERER_EVENT_H
 
-#include <variant>
-
-namespace vkf::common {
+namespace vkf {
     /// \brief Object containing EventType and EventData
     struct Event {
         /// \brief Event with keycode and action values
@@ -56,6 +54,6 @@ namespace vkf::common {
         Type type;
         Data data;
     };
-} // namespace vkf::common
+} // namespace vkf::
 
 #endif //VULKANRENDERER_EVENT_H

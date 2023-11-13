@@ -2,35 +2,13 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/13/2023.
+// Created by Joshua Lowe on 11/6/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
 
-module;
-
+#include "input.h"
 #include "GLFW/glfw3.h"
-#include <utility>
-//#include "../../src/pch.h"
-
-
-export module vkf.common.input;
-
-/// \brief Collection of input functions
-namespace vkf::common::input {
-    bool isKeyPressed(GLFWwindow *window, int keycode);
-
-    bool isMouseButtonPressed(GLFWwindow *window, int button);
-
-    std::pair<double, double> getMousePosition(GLFWwindow *window);
-
-    double getMouseX(GLFWwindow *window);
-
-    double getMouseY(GLFWwindow *window);
-} // vkf::common::input
-
-//@formatter:off
-module : private;
-//@formatter:on
+#include "../pch.h"
 
 namespace vkf::common::input {
     bool isKeyPressed(GLFWwindow *window, int keycode) {

@@ -22,6 +22,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include <spdlog/spdlog.h>
+
 #include <vulkan/vulkan.hpp>
 #include <vulkan/vulkan_raii.hpp>
 

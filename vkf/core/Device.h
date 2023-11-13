@@ -2,24 +2,21 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/12/2023.
+// Created by Joshua Lowe on 11/9/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
 
-module;
+#ifndef VULKANRENDERER_DEVICE_H
+#define VULKANRENDERER_DEVICE_H
 
-#include <vulkan/vulkan.hpp>
-#include <vulkan/vulkan_raii.hpp>
-#include <vector>
+
+#include "PhysicalDevice.h"
+#include "Instance.h"
+
 #include <vk_mem_alloc.h>
+#include "Queue.h"
 
-export module vkf.core.Device;
-
-import vkf.core.PhysicalDevice;
-import vkf.core.Instance;
-import vkf.core.Queue;
-
-export namespace vkf::core {
+namespace vkf::core {
     class Device {
     public:
         Device(Instance &instance, vk::raii::SurfaceKHR &surface,
@@ -57,7 +54,5 @@ export namespace vkf::core {
     };
 } // namespace vkf::core
 
-//@formatter:off
-//module : private;
-//@formatter:on
 
+#endif //VULKANRENDERER_DEVICE_H

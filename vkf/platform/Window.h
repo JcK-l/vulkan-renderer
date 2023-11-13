@@ -2,24 +2,20 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/12/2023.
+// Created by Joshua Lowe on 10/31/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
 
-module;
+#ifndef VULKANRENDERER_WINDOW_H
+#define VULKANRENDERER_WINDOW_H
 
 #include "GLFW/glfw3.h"
-#include "../common/Event.h"
+#include "../common/event.h"
+#include "../core/Instance.h"
 
-#include <string>
-#include <functional>
-#include <vulkan/vulkan_raii.hpp>
+namespace vkf::platform {
 
-export module vkf.platform.Window;
-
-import vkf.core.Instance;
-
-export namespace vkf::platform {
+    class Application;
 
     /// \brief This class provides functionality associated with glfw
     class Window {
@@ -52,7 +48,7 @@ export namespace vkf::platform {
             bool resized{false};
             Vsync vsync{Vsync::ON};
             Extent extent{800, 600};
-            std::function<void(common::Event &)> eventCallback;
+            std::function<void(Event &)> eventCallback;
         };
 
         explicit Window(Properties);
@@ -61,13 +57,13 @@ export namespace vkf::platform {
 
         void onUpdate();
 
-        void setEventCallback(const std::function<void(common::Event &)> &callback);
+        void setEventCallback(const std::function<void(Event &)> &callback);
 
         [[nodiscard]] bool isClosed() const;
 
         [[nodiscard]] GLFWwindow *getHandle() const;
 
-        static std::vector<const char *> getRequiredSurfaceExtensions();
+        std::vector<const char *> getRequiredSurfaceExtensions();
 
         vk::raii::SurfaceKHR createSurface(const core::Instance &instance);
 
@@ -78,8 +74,6 @@ export namespace vkf::platform {
     };
 } // namespace vkf::platform
 
-//@formatter:off
-//module : private;
-//@formatter:on
 
 
+#endif //VULKANRENDERER_WINDOW_H

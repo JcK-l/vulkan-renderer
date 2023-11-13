@@ -2,14 +2,11 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/13/2023.
+// Created by Joshua Lowe on 11/11/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
-module;
 
-#include <vulkan/vulkan.hpp>
-
-module vkf.core.Queue;
+#include "Queue.h"
 
 namespace vkf::core {
 

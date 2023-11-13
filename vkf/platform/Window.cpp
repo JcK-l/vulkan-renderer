@@ -2,25 +2,16 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/13/2023.
+// Created by Joshua Lowe on 10/31/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
 
-module;
-
-#include "GLFW/glfw3.h"
-#include "../common/Event.h"
+#include "Window.h"
 
 #include <utility>
-#include <vector>
-#include <functional>
+#include "GLFW/glfw3.h"
+#include "Application.h"
 #include "../common/Log.h"
-#include <vulkan/vulkan.hpp>
-#include <vulkan/vulkan_raii.hpp>
-
-module vkf.platform.Window;
-
-import vkf.core.Instance;
 
 void errorCallback(int error, const char *description) {
   LOG_ERROR("GLFW ({}): {}", error, description);
@@ -71,14 +62,14 @@ namespace vkf::platform {
             data->extent.width = width;
             data->extent.height = height;
             data->resized = true;
-            common::Event event{common::Event::Type::Resize, common::Event::Resize{width, height}};
+            Event event{Event::Type::Resize, Event::Resize{width, height}};
             data->eventCallback(event);
           }
       });
 
       glfwSetWindowCloseCallback(handle, [](GLFWwindow *window) {
           if (auto *data = reinterpret_cast<Properties *>(glfwGetWindowUserPointer(window))) {
-            common::Event event{common::Event::Type::Close, common::Event::Close{}};
+            Event event{Event::Type::Close, Event::Close{}};
             data->eventCallback(event);
           }
           glfwSetWindowShouldClose(window, GLFW_TRUE);
@@ -86,28 +77,28 @@ namespace vkf::platform {
 
       glfwSetKeyCallback(handle, [](GLFWwindow *window, int key, int /*scancode*/, int action, int /*mods*/) {
           if (auto *data = reinterpret_cast<Properties *>(glfwGetWindowUserPointer(window))) {
-            common::Event event{common::Event::Type::Keyboard, common::Event::Keyboard{key, action}};
+            Event event{Event::Type::Keyboard, Event::Keyboard{key, action}};
             data->eventCallback(event);
           }
       });
 
       glfwSetCursorPosCallback(handle, [](GLFWwindow *window, double xPos, double yPos) {
           if (auto *data = reinterpret_cast<Properties *>(glfwGetWindowUserPointer(window))) {
-            common::Event event{common::Event::Type::MouseMove, common::Event::MouseMove{xPos, yPos}};
+            Event event{Event::Type::MouseMove, Event::MouseMove{xPos, yPos}};
             data->eventCallback(event);
           }
       });
 
       glfwSetMouseButtonCallback(handle, [](GLFWwindow *window, int button, int action, int /*mods*/) {
           if (auto *data = reinterpret_cast<Properties *>(glfwGetWindowUserPointer(window))) {
-            common::Event event{common::Event::Type::MouseButton, common::Event::MouseButton{button, action}};
+            Event event{Event::Type::MouseButton, Event::MouseButton{button, action}};
             data->eventCallback(event);
           }
       });
 
       glfwSetScrollCallback(handle, [](GLFWwindow *window, double xScroll, double yScroll) {
           if (auto *data = reinterpret_cast<Properties *>(glfwGetWindowUserPointer(window))) {
-            common::Event event{common::Event::Type::MouseScroll, common::Event::MouseScroll{xScroll, yScroll}};
+            Event event{Event::Type::MouseScroll, Event::MouseScroll{xScroll, yScroll}};
             data->eventCallback(event);
           }
       });
@@ -122,7 +113,7 @@ namespace vkf::platform {
       glfwPollEvents();
     }
 
-    void Window::setEventCallback(const std::function<void(common::Event &)> &callback) {
+    void Window::setEventCallback(const std::function<void(Event &)> &callback) {
       windowData.eventCallback = callback;
     }
 
@@ -137,7 +128,6 @@ namespace vkf::platform {
     std::vector<const char *> Window::getRequiredSurfaceExtensions() {
       uint32_t glfwExtensionCount{0};
       const char **names = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
-      std::vector<const char *> extensions{names, names + glfwExtensionCount};
       return {names, names + glfwExtensionCount};
     }
 

@@ -2,26 +2,20 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/12/2023.
+// Created by Joshua Lowe on 10/30/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
 
-module;
 
-#include <memory>
-#include "../common/Event.h"
-#include <string>
-#include <vulkan/vulkan.hpp>
-#include <vulkan/vulkan_raii.hpp>
+#ifndef VULKANRENDERER_APPLICATION_H
+#define VULKANRENDERER_APPLICATION_H
 
-export module vkf.platform.Application;
-
-import vkf.core.Instance;
-import vkf.core.Device;
-import vkf.platform.Window;
+#include "Window.h"
+#include "../core/Instance.h"
+#include "../core/Device.h"
 
 /// \brief Vulkan framework
-export namespace vkf::platform {
+namespace vkf::platform {
 
     class Application {
     public:
@@ -46,7 +40,7 @@ export namespace vkf::platform {
     private:
         void onUpdate();
 
-        void onEvent(common::Event &event);
+        void onEvent(Event &event);
 
         std::unique_ptr<Window> window;
         std::unique_ptr<core::Instance> instance;
@@ -58,7 +52,5 @@ export namespace vkf::platform {
     };
 } // namespace vkf::platform
 
-//@formatter:off
-//module : private;
-//@formatter:on
 
+#endif //VULKANRENDERER_APPLICATION_H

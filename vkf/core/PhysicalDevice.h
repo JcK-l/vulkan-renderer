@@ -2,18 +2,15 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/12/2023.
+// Created by Joshua Lowe on 11/8/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
 
-module;
 
-#include <vulkan/vulkan.hpp>
-#include <vulkan/vulkan_raii.hpp>
+#ifndef VULKANRENDERER_PHYSICALDEVICE_H
+#define VULKANRENDERER_PHYSICALDEVICE_H
 
-export module vkf.core.PhysicalDevice;
-
-export namespace vkf::core {
+namespace vkf::core {
 
 /// \brief This is a wrapper class for vk::raii::PhysicalDevice
     class PhysicalDevice {
@@ -34,7 +31,7 @@ export namespace vkf::core {
 
         [[nodiscard]] const vk::PhysicalDeviceProperties &getProperties() const;
 
-        [[nodiscard]] const std::vector<vk::QueueFamilyProperties> &getQueueFamilyProperties() const;
+        [[nodiscard]] const std::vector <vk::QueueFamilyProperties> &getQueueFamilyProperties() const;
 
         [[nodiscard]] bool getSurfaceSupportKHR(uint32_t queueFamilyIndex, vk::SurfaceKHR surface) const;
 
@@ -46,10 +43,10 @@ export namespace vkf::core {
 
         vk::PhysicalDeviceFeatures features;
         vk::PhysicalDeviceProperties properties;
-        std::vector<vk::QueueFamilyProperties> queueFamilyProperties;
+        std::vector <vk::QueueFamilyProperties> queueFamilyProperties;
     };
 } // namespace vkf::core
 
-//@formatter:off
-//module : private;
-//@formatter:on
+
+
+#endif //VULKANRENDERER_PHYSICALDEVICE_H

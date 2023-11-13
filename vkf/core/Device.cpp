@@ -2,24 +2,20 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/13/2023.
+// Created by Joshua Lowe on 11/9/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
 
-module;
-
+#include "Device.h"
+#include "PhysicalDevice.h"
 #include "../common/Log.h"
 
-#include <vulkan/vulkan.hpp>
-#include <vulkan/vulkan_raii.hpp>
-#include <vector>
+#define VMA_IMPLEMENTATION
+#define VMA_STATIC_VULKAN_FUNCTIONS 0
+#define VMA_DYNAMIC_VULKAN_FUNCTIONS 1
+
 #include <vk_mem_alloc.h>
 
-module vkf.core.Device;
-
-import vkf.core.PhysicalDevice;
-import vkf.core.Instance;
-import vkf.core.Queue;
 
 namespace vkf::core {
     Device::Device(Instance &instance, vk::raii::SurfaceKHR &surface,

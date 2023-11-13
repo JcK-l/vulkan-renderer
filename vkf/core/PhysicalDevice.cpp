@@ -2,21 +2,15 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/13/2023.
+// Created by Joshua Lowe on 11/8/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
 
-module;
-
+#include "PhysicalDevice.h"
 #include "../common/Log.h"
 
-#include <vulkan/vulkan.hpp>
-#include <vulkan/vulkan_raii.hpp>
-
-module vkf.core.PhysicalDevice;
 
 namespace vkf::core {
-
     PhysicalDevice::PhysicalDevice(vk::raii::PhysicalDevice &physicalDevice) : handle(physicalDevice) {
       features = physicalDevice.getFeatures();
       properties = physicalDevice.getProperties();

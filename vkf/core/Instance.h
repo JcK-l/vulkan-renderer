@@ -2,24 +2,17 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/12/2023.
+// Created by Joshua Lowe on 11/1/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
 
-module;
+#ifndef VULKANRENDERER_INSTANCE_H
+#define VULKANRENDERER_INSTANCE_H
 
-#include <vector>
-#include <string>
-
-#include <vulkan/vulkan.hpp>
-#include <vulkan/vulkan_raii.hpp>
-
-export module vkf.core.Instance;
-
-import vkf.core.PhysicalDevice;
+#include "PhysicalDevice.h"
 
 /// \brief Collection of core functionality
-export namespace vkf::core {
+namespace vkf::core {
 
     /// \brief This is a wrapper class for vk::raii::instance
     ///
@@ -81,7 +74,4 @@ export namespace vkf::core {
     };
 } // namespace vkf::core
 
-//@formatter:off
-//module : private;
-//@formatter:on
-
+#endif //VULKANRENDERER_INSTANCE_H

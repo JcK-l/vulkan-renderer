@@ -2,24 +2,14 @@
 /// \brief
 
 //
-// Created by Joshua Lowe on 11/13/2023.
+// Created by Joshua Lowe on 11/1/2023.
 // The license and distribution terms for this file may be found in the file LICENSE in this distribution
 //
 
-module;
-
+#include "../pch.h"
+#include "Instance.h"
+//#include "../common/utils.h"
 #include "../common/Log.h"
-#include <vector>
-#include <string>
-
-#include <vulkan/vulkan.hpp>
-#include <vulkan/vulkan_raii.hpp>
-
-module vkf.core.Instance;
-
-import vkf.core.PhysicalDevice;
-
-VULKAN_HPP_DEFAULT_DISPATCH_LOADER_DYNAMIC_STORAGE
 
 #if !defined( NDEBUG )
 VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
@@ -37,9 +27,9 @@ VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBits
 
 #endif
 
+VULKAN_HPP_DEFAULT_DISPATCH_LOADER_DYNAMIC_STORAGE
 
 namespace vkf::core {
-
 
     Instance::Instance(const std::string &appName, const std::vector<const char *> &requiredExtensions,
                        const std::vector<const char *> &requiredLayers) {
@@ -85,13 +75,16 @@ namespace vkf::core {
             vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation,
             .pfnUserCallback = &debugCallback,
           }
-//          common::utils::createDebugMessengerInfo(&debugCallback)
         };
 #else
         vk::StructureChain<vk::InstanceCreateInfo> instanceCreateInfo = {
-      vk::InstanceCreateInfo{
-        .pApplicationInfo = &applicationInfo},
-    };
+          vk::InstanceCreateInfo{
+            .pApplicationInfo = &applicationInfo,
+            .enabledLayerCount = static_cast<uint32_t>(enabledLayers.size()),
+            .ppEnabledLayerNames = enabledLayers.data(),
+            .enabledExtensionCount = static_cast<uint32_t>(enabledExtensions.size()),
+            .ppEnabledExtensionNames = enabledExtensions.data()}
+        };
 #endif
         handle = vk::raii::Instance{context, instanceCreateInfo.get<vk::InstanceCreateInfo>()};
         VULKAN_HPP_DEFAULT_DISPATCHER.init(*handle);
@@ -108,7 +101,6 @@ namespace vkf::core {
                                                             vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation,
                                                             .pfnUserCallback = &debugCallback,
                                                           }};
-//                                                          common::utils::createDebugMessengerInfo(&debugCallback)};
 #endif
 
         queryGpus();
