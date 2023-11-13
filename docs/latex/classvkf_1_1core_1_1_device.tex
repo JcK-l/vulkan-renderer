@@ -21,9 +21,6 @@
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classvkf_1_1core_1_1_device_a29ebbca33574fee17cfefbde7ebd485f}\label{classvkf_1_1core_1_1_device_a29ebbca33574fee17cfefbde7ebd485f} 
-std\+::vector$<$ vk\+::\+Device\+Queue\+Create\+Info $>$ {\bfseries create\+Queues} (const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&gpu, const vk\+::raii\+::\+Surface\+KHR \&surface)
-\item 
 \Hypertarget{classvkf_1_1core_1_1_device_a33b9b10ed67ecc45b8e0b1f50339c573}\label{classvkf_1_1core_1_1_device_a33b9b10ed67ecc45b8e0b1f50339c573} 
 void {\bfseries create\+Vma\+Allocator} (const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&instance, const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&gpu)
 \item 
@@ -56,7 +53,7 @@ std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Q
 \index{vkf::core::Device@{vkf::core::Device}!enableExtension@{enableExtension}}
 \index{enableExtension@{enableExtension}!vkf::core::Device@{vkf::core::Device}}
 \doxysubsubsection{\texorpdfstring{enableExtension()}{enableExtension()}}
-{\footnotesize\ttfamily bool vkf\+::core\+::\+Device\+::enable\+Extension (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{required\+Extension\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily bool vkf\+::core\+::\+Device\+::enable\+Extension (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{required\+Extension\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [export]}, {\ttfamily [private]}}
 
 
 
@@ -74,7 +71,7 @@ Is\+Extension\+Enabled
 \index{vkf::core::Device@{vkf::core::Device}!validateExtensions@{validateExtensions}}
 \index{validateExtensions@{validateExtensions}!vkf::core::Device@{vkf::core::Device}}
 \doxysubsubsection{\texorpdfstring{validateExtensions()}{validateExtensions()}}
-{\footnotesize\ttfamily void vkf\+::core\+::\+Device\+::validate\+Extensions (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&}]{required\+Extensions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Device\+::validate\+Extensions (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&}]{required\+Extensions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [export]}, {\ttfamily [private]}}
 
 
 
@@ -89,5 +86,5 @@ Tries to enable all required device extensions.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/core/\mbox{\hyperlink{_device_8h}{Device.\+h}}\item 
-C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/core/\mbox{\hyperlink{_device_8cpp}{Device.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{vkf_8core_8_device_8ixx}{vkf.\+core.\+Device.\+ixx}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{vkf_8core_8_device_8cpp}{vkf.\+core.\+Device.\+cpp}}\end{DoxyCompactItemize}

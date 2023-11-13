@@ -1,0 +1,59 @@
+\doxysection{vkf\+::platform\+::Application Class Reference}
+\hypertarget{classvkf_1_1platform_1_1_application}{}\label{classvkf_1_1platform_1_1_application}\index{vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_a527fb4a2dba19854fd33645ec7b66128}\label{classvkf_1_1platform_1_1_application_a527fb4a2dba19854fd33645ec7b66128} 
+{\bfseries Application} (const std\+::string \&app\+Name)
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_aa3a849e45abe81581934f4ac79a16d8f}\label{classvkf_1_1platform_1_1_application_aa3a849e45abe81581934f4ac79a16d8f} 
+{\bfseries Application} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_aeab04e7106ba677a44802f5d581cf837}\label{classvkf_1_1platform_1_1_application_aeab04e7106ba677a44802f5d581cf837} 
+{\bfseries Application} (\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_a0bb15b5a054bc51d3270b8650100beee}\label{classvkf_1_1platform_1_1_application_a0bb15b5a054bc51d3270b8650100beee} 
+\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_a157628aba9e57305dbf3986682b0053e}\label{classvkf_1_1platform_1_1_application_a157628aba9e57305dbf3986682b0053e} 
+\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_af4b98411febf1469fe42b075d878c562}\label{classvkf_1_1platform_1_1_application_af4b98411febf1469fe42b075d878c562} 
+void {\bfseries run} ()
+\begin{DoxyCompactList}\small\item\em Main loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_ae483967e6fdd99e39ea194f96edb72c9}\label{classvkf_1_1platform_1_1_application_ae483967e6fdd99e39ea194f96edb72c9} 
+void {\bfseries on\+Update} ()
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_acabf85785da6d8c9257eba328ecb342c}\label{classvkf_1_1platform_1_1_application_acabf85785da6d8c9257eba328ecb342c} 
+void {\bfseries on\+Event} (\mbox{\hyperlink{structvkf_1_1common_1_1_event}{common\+::\+Event}} \&event)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_aff8c6f6492f904ee897722886cb76e15}\label{classvkf_1_1platform_1_1_application_aff8c6f6492f904ee897722886cb76e15} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} $>$ {\bfseries window}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_a0de3874208849c02b7cac0b05411aff0}\label{classvkf_1_1platform_1_1_application_a0de3874208849c02b7cac0b05411aff0} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} $>$ {\bfseries instance}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_adea3d52242adff1a2dd640ddbf12a666}\label{classvkf_1_1platform_1_1_application_adea3d52242adff1a2dd640ddbf12a666} 
+std\+::unique\+\_\+ptr$<$ vk\+::raii\+::\+Surface\+KHR $>$ {\bfseries surface}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_a9d4802328792ea3b2fa564832dfba9dd}\label{classvkf_1_1platform_1_1_application_a9d4802328792ea3b2fa564832dfba9dd} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} $>$ {\bfseries device}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_a6ee5f4eefbb96fa32f417c18b34fcc86}\label{classvkf_1_1platform_1_1_application_a6ee5f4eefbb96fa32f417c18b34fcc86} 
+std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries instance\+Extensions}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_a99a83e52d35ca64a70b8ed79479bfca2}\label{classvkf_1_1platform_1_1_application_a99a83e52d35ca64a70b8ed79479bfca2} 
+std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries device\+Extensions}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/platform/\mbox{\hyperlink{vkf_8platform_8_application_8ixx}{vkf.\+platform.\+Application.\+ixx}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/platform/\mbox{\hyperlink{vkf_8platform_8_application_8cpp}{vkf.\+platform.\+Application.\+cpp}}\end{DoxyCompactItemize}

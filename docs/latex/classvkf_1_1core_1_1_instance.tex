@@ -5,10 +5,6 @@
 This is a wrapper class for vk\+::raii\+::instance.  
 
 
-
-
-{\ttfamily \#include $<$Instance.\+h$>$}
-
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -89,7 +85,7 @@ This class also handles the creation of the debug\+Utils\+Messenger and returns 
 \index{vkf::core::Instance@{vkf::core::Instance}!enableExtension@{enableExtension}}
 \index{enableExtension@{enableExtension}!vkf::core::Instance@{vkf::core::Instance}}
 \doxysubsubsection{\texorpdfstring{enableExtension()}{enableExtension()}}
-{\footnotesize\ttfamily bool vkf\+::core\+::\+Instance\+::enable\+Extension (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{required\+Extension\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily bool vkf\+::core\+::\+Instance\+::enable\+Extension (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{required\+Extension\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [export]}, {\ttfamily [private]}}
 
 
 
@@ -107,7 +103,7 @@ Is\+Extension\+Enabled
 \index{vkf::core::Instance@{vkf::core::Instance}!enableLayer@{enableLayer}}
 \index{enableLayer@{enableLayer}!vkf::core::Instance@{vkf::core::Instance}}
 \doxysubsubsection{\texorpdfstring{enableLayer()}{enableLayer()}}
-{\footnotesize\ttfamily bool vkf\+::core\+::\+Instance\+::enable\+Layer (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{required\+Layer\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily bool vkf\+::core\+::\+Instance\+::enable\+Layer (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{required\+Layer\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [export]}, {\ttfamily [private]}}
 
 
 
@@ -125,7 +121,7 @@ Is\+Layer\+Enabled
 \index{vkf::core::Instance@{vkf::core::Instance}!validateExtensions@{validateExtensions}}
 \index{validateExtensions@{validateExtensions}!vkf::core::Instance@{vkf::core::Instance}}
 \doxysubsubsection{\texorpdfstring{validateExtensions()}{validateExtensions()}}
-{\footnotesize\ttfamily void vkf\+::core\+::\+Instance\+::validate\+Extensions (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&}]{required\+Extensions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Instance\+::validate\+Extensions (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&}]{required\+Extensions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [export]}, {\ttfamily [private]}}
 
 
 
@@ -140,7 +136,7 @@ Tries to enable all required instance extensions.
 \index{vkf::core::Instance@{vkf::core::Instance}!validateLayers@{validateLayers}}
 \index{validateLayers@{validateLayers}!vkf::core::Instance@{vkf::core::Instance}}
 \doxysubsubsection{\texorpdfstring{validateLayers()}{validateLayers()}}
-{\footnotesize\ttfamily void vkf\+::core\+::\+Instance\+::validate\+Layers (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&}]{required\+Layers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Instance\+::validate\+Layers (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&}]{required\+Layers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [export]}, {\ttfamily [private]}}
 
 
 
@@ -155,5 +151,5 @@ Tries to enable all required layers.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/core/\mbox{\hyperlink{_instance_8h}{Instance.\+h}}\item 
-C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/src/core/\mbox{\hyperlink{_instance_8cpp}{Instance.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{vkf_8core_8_instance_8ixx}{vkf.\+core.\+Instance.\+ixx}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{vkf_8core_8_instance_8cpp}{vkf.\+core.\+Instance.\+cpp}}\end{DoxyCompactItemize}
