@@ -10,7 +10,7 @@
 #include "GLFW/glfw3.h"
 #include "../pch.h"
 
-namespace vkf::common::input {
+namespace vkf {
     bool isKeyPressed(GLFWwindow *window, int keycode) {
       auto state = glfwGetKey(window, keycode);
       return state == GLFW_PRESS || state == GLFW_REPEAT;
@@ -37,4 +37,4 @@ namespace vkf::common::input {
       auto [x, y] = getMousePosition(window);
       return y;
     }
-} // vkf::common::input
+} // vkf

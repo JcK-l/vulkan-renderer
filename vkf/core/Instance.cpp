@@ -88,6 +88,7 @@ namespace vkf::core {
 #endif
         handle = vk::raii::Instance{context, instanceCreateInfo.get<vk::InstanceCreateInfo>()};
         VULKAN_HPP_DEFAULT_DISPATCHER.init(*handle);
+        LOG_INFO("Created instance");
 
 #if !defined( NDEBUG )
         debugMessenger = vk::raii::DebugUtilsMessengerEXT{handle,
@@ -101,6 +102,7 @@ namespace vkf::core {
                                                             vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation,
                                                             .pfnUserCallback = &debugCallback,
                                                           }};
+        LOG_DEBUG("Created debug messenger");
 #endif
 
         queryGpus();
@@ -125,9 +127,9 @@ namespace vkf::core {
                                      return strcmp(enabledExtensionName, requiredExtensionName) == 0;
                                  });
           if (it != enabledExtensions.end()) {
-            // Extension is already enabled
+            LOG_INFO("Instance extension {} is already enabled", requiredExtensionName)
           } else {
-            LOG_INFO("Instance extension {} found, enabling it", requiredExtensionName)
+            LOG_INFO("Enabling instance extension: {}", requiredExtensionName)
             enabledExtensions.emplace_back(requiredExtensionName);
           }
           return true;
@@ -146,23 +148,23 @@ namespace vkf::core {
                                      return strcmp(enabledLayerName, requiredLayerName) == 0;
                                  });
           if (it != enabledLayers.end()) {
-            // Extension is already enabled
+            LOG_INFO("Instance layer {} is already enabled", requiredLayerName)
           } else {
-            LOG_INFO("Layer {} found, enabling it", requiredLayerName)
+            LOG_INFO("Enabling instance layer: {}", requiredLayerName)
             enabledLayers.emplace_back(requiredLayerName);
           }
           return true;
         }
       }
 
-      LOG_INFO("Layer {} not found", requiredLayerName)
+      LOG_INFO("Instance layer {} not found", requiredLayerName)
       return false;
     }
 
     void Instance::validateExtensions(const std::vector<const char *> &requiredExtensions) {
       for (auto extension: requiredExtensions) {
         if (!enableExtension(extension)) {
-          LOG_ERROR("Required instance extension {} not available, cannot run", extension)
+          LOG_ERROR("Required instance extension {} is not available", extension)
           throw std::runtime_error("Required instance extensions are missing.");
         }
       }
@@ -171,7 +173,7 @@ namespace vkf::core {
     void Instance::validateLayers(const std::vector<const char *> &requiredLayers) {
       for (auto layer: requiredLayers) {
         if (!enableLayer(layer)) {
-          LOG_ERROR("Required instance layer {} not available, cannot run", layer)
+          LOG_ERROR("Required instance layer {} is not available", layer)
           throw std::runtime_error("Required instance layers are missing.");
         }
       }

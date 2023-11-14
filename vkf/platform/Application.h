@@ -14,9 +14,9 @@
 #include "../core/Instance.h"
 #include "../core/Device.h"
 
-/// \brief Vulkan framework
 namespace vkf::platform {
 
+    /// \brief Main application class
     class Application {
     public:
         Application() = default;
@@ -36,6 +36,8 @@ namespace vkf::platform {
 
         /// \brief Main loop
         void run();
+
+        static void initLogger();
 
     private:
         void onUpdate();

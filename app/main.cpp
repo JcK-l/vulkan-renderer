@@ -3,7 +3,7 @@
 
 int main() {
 
-//  vkf::common::log::init();
+  vkf::platform::Application::initLogger();
   vkf::platform::Application app{"VulkanRenderer"};
   app.run();
 

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['validateextensions_0',['validateextensions',['../classvkf_1_1core_1_1_device.html#acf116fb0c80b39c53405d3a066cb1313',1,'vkf::core::Device::validateExtensions()'],['../classvkf_1_1core_1_1_instance.html#a7b00c7968b62d552f6b0750829f09448',1,'vkf::core::Instance::validateExtensions(const std::vector&lt; const char * &gt; &amp;requiredExtensions)']]],
-  ['validatelayers_1',['validateLayers',['../classvkf_1_1core_1_1_instance.html#a98512794aa941862cc068480e5ba7c49',1,'vkf::core::Instance']]]
+  ['enableextension_0',['enableextension',['../classvkf_1_1core_1_1_device.html#a254f9627cf6168295c9d1d71abb276a2',1,'vkf::core::Device::enableExtension()'],['../classvkf_1_1core_1_1_instance.html#ab7de51356c4c1393e38429298357fbd4',1,'vkf::core::Instance::enableExtension(const char *requiredExtensionName)']]],
+  ['enablelayer_1',['enableLayer',['../classvkf_1_1core_1_1_instance.html#acf646e9e7b701233a6bbf5304a64e5b1',1,'vkf::core::Instance']]],
+  ['errorcallback_2',['errorCallback',['../_window_8cpp.html#a4e8175390ee624e61977e1ab6006f903',1,'Window.cpp']]]
 ];

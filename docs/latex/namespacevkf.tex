@@ -2,7 +2,7 @@
 \hypertarget{namespacevkf}{}\label{namespacevkf}\index{vkf@{vkf}}
 
 
-Vulkan framework.  
+Vulkan Framework.  
 
 
 \doxysubsubsection*{Namespaces}
@@ -10,18 +10,61 @@ Vulkan framework.
 \item 
 namespace \mbox{\hyperlink{namespacevkf_1_1core}{core}}
 \begin{DoxyCompactList}\small\item\em Collection of core functionality. \end{DoxyCompactList}\item 
-namespace \mbox{\hyperlink{namespacevkf_1_1input}{input}}
-\begin{DoxyCompactList}\small\item\em Collection of input functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+namespace \mbox{\hyperlink{namespacevkf_1_1platform}{platform}}
+\begin{DoxyCompactList}\small\item\em Collection of platform specific functionality. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classvkf_1_1_application}{Application}}
-\item 
 struct \mbox{\hyperlink{structvkf_1_1_event}{Event}}
-\begin{DoxyCompactList}\small\item\em Object containing Event\+Type and Event\+Data. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvkf_1_1_window}{Window}}
-\begin{DoxyCompactList}\small\item\em This class provides functionality associated with glfw. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Object containing Event\+Type and Event\+Data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacevkf_adb939442c221e95776abd89e0c67a504}{is\+Key\+Pressed}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int keycode)
+\item 
+bool \mbox{\hyperlink{namespacevkf_a004611c0016cf49bf5d5c6ffc5bc2006}{is\+Mouse\+Button\+Pressed}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int button)
+\item 
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{namespacevkf_a2e15829989495263456acf65047fefc8}{get\+Mouse\+Position}} (GLFWwindow \texorpdfstring{$\ast$}{*}window)
+\item 
+double \mbox{\hyperlink{namespacevkf_a4eeefe3a5f001c93dcfcbe12a7f90018}{get\+MouseX}} (GLFWwindow \texorpdfstring{$\ast$}{*}window)
+\item 
+double \mbox{\hyperlink{namespacevkf_a20e522db2c4b0430e2b305141c08801f}{get\+MouseY}} (GLFWwindow \texorpdfstring{$\ast$}{*}window)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Vulkan framework. 
+Vulkan Framework. 
+
+Collection of input functions. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacevkf_a2e15829989495263456acf65047fefc8}\label{namespacevkf_a2e15829989495263456acf65047fefc8} 
+\index{vkf@{vkf}!getMousePosition@{getMousePosition}}
+\index{getMousePosition@{getMousePosition}!vkf@{vkf}}
+\doxysubsubsection{\texorpdfstring{getMousePosition()}{getMousePosition()}}
+{\footnotesize\ttfamily std\+::pair$<$ double, double $>$ vkf\+::get\+Mouse\+Position (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacevkf_a4eeefe3a5f001c93dcfcbe12a7f90018}\label{namespacevkf_a4eeefe3a5f001c93dcfcbe12a7f90018} 
+\index{vkf@{vkf}!getMouseX@{getMouseX}}
+\index{getMouseX@{getMouseX}!vkf@{vkf}}
+\doxysubsubsection{\texorpdfstring{getMouseX()}{getMouseX()}}
+{\footnotesize\ttfamily double vkf\+::get\+MouseX (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacevkf_a20e522db2c4b0430e2b305141c08801f}\label{namespacevkf_a20e522db2c4b0430e2b305141c08801f} 
+\index{vkf@{vkf}!getMouseY@{getMouseY}}
+\index{getMouseY@{getMouseY}!vkf@{vkf}}
+\doxysubsubsection{\texorpdfstring{getMouseY()}{getMouseY()}}
+{\footnotesize\ttfamily double vkf\+::get\+MouseY (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacevkf_adb939442c221e95776abd89e0c67a504}\label{namespacevkf_adb939442c221e95776abd89e0c67a504} 
+\index{vkf@{vkf}!isKeyPressed@{isKeyPressed}}
+\index{isKeyPressed@{isKeyPressed}!vkf@{vkf}}
+\doxysubsubsection{\texorpdfstring{isKeyPressed()}{isKeyPressed()}}
+{\footnotesize\ttfamily bool vkf\+::is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window,  }\item[{int}]{keycode }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacevkf_a004611c0016cf49bf5d5c6ffc5bc2006}\label{namespacevkf_a004611c0016cf49bf5d5c6ffc5bc2006} 
+\index{vkf@{vkf}!isMouseButtonPressed@{isMouseButtonPressed}}
+\index{isMouseButtonPressed@{isMouseButtonPressed}!vkf@{vkf}}
+\doxysubsubsection{\texorpdfstring{isMouseButtonPressed()}{isMouseButtonPressed()}}
+{\footnotesize\ttfamily bool vkf\+::is\+Mouse\+Button\+Pressed (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window,  }\item[{int}]{button }\end{DoxyParamCaption})}
+

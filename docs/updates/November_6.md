@@ -1,4 +1,4 @@
-## November 6 - first commit
+## November 6 - First Commit
 
 This is the first update report. I've written a couple of classes that make up the base of this project.
 From here on out I'll start writing more vulkan code. Next up is device and surface creation.

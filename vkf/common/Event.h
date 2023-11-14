@@ -9,6 +9,7 @@
 #ifndef VULKANRENDERER_EVENT_H
 #define VULKANRENDERER_EVENT_H
 
+/// \brief Vulkan Framework
 namespace vkf {
     /// \brief Object containing EventType and EventData
     struct Event {
@@ -46,14 +47,17 @@ namespace vkf {
         struct Close {
         };
 
+        /// \brief Enum of event types
         enum class Type {
             Keyboard, MouseMove, MouseButton, MouseScroll, Resize, Close
         };
+
+        /// \brief Union of event data
         using Data = std::variant<Keyboard, MouseMove, MouseButton, MouseScroll, Resize, Close>;
 
         Type type;
         Data data;
     };
-} // namespace vkf::
+} // namespace vkf
 
 #endif //VULKANRENDERER_EVENT_H

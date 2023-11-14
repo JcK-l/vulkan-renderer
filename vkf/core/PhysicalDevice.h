@@ -31,7 +31,7 @@ namespace vkf::core {
 
         [[nodiscard]] const vk::PhysicalDeviceProperties &getProperties() const;
 
-        [[nodiscard]] const std::vector <vk::QueueFamilyProperties> &getQueueFamilyProperties() const;
+        [[nodiscard]] const std::vector<vk::QueueFamilyProperties> &getQueueFamilyProperties() const;
 
         [[nodiscard]] bool getSurfaceSupportKHR(uint32_t queueFamilyIndex, vk::SurfaceKHR surface) const;
 
@@ -43,7 +43,7 @@ namespace vkf::core {
 
         vk::PhysicalDeviceFeatures features;
         vk::PhysicalDeviceProperties properties;
-        std::vector <vk::QueueFamilyProperties> queueFamilyProperties;
+        std::vector<vk::QueueFamilyProperties> queueFamilyProperties;
     };
 } // namespace vkf::core
 

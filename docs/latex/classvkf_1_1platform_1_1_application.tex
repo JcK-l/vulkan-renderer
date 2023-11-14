@@ -1,56 +1,178 @@
 \doxysection{vkf\+::platform\+::Application Class Reference}
 \hypertarget{classvkf_1_1platform_1_1_application}{}\label{classvkf_1_1platform_1_1_application}\index{vkf::platform::Application@{vkf::platform::Application}}
+
+
+Main application class.  
+
+
+
+
+{\ttfamily \#include $<$Application.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_a527fb4a2dba19854fd33645ec7b66128}\label{classvkf_1_1platform_1_1_application_a527fb4a2dba19854fd33645ec7b66128} 
-{\bfseries Application} (const std\+::string \&app\+Name)
+\mbox{\hyperlink{classvkf_1_1platform_1_1_application_aaf539676d3ad08910a0b88007265141d}{Application}} ()=default
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_aa3a849e45abe81581934f4ac79a16d8f}\label{classvkf_1_1platform_1_1_application_aa3a849e45abe81581934f4ac79a16d8f} 
-{\bfseries Application} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&)=delete
+\mbox{\hyperlink{classvkf_1_1platform_1_1_application_a527fb4a2dba19854fd33645ec7b66128}{Application}} (const std\+::string \&app\+Name)
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_aeab04e7106ba677a44802f5d581cf837}\label{classvkf_1_1platform_1_1_application_aeab04e7106ba677a44802f5d581cf837} 
-{\bfseries Application} (\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&\&)=delete
+\mbox{\hyperlink{classvkf_1_1platform_1_1_application_a17e31b401a46f9fbbcca9093e3dcefe8}{\texorpdfstring{$\sim$}{\string~}\+Application}} ()=default
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_a0bb15b5a054bc51d3270b8650100beee}\label{classvkf_1_1platform_1_1_application_a0bb15b5a054bc51d3270b8650100beee} 
-\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&)=delete
+\mbox{\hyperlink{classvkf_1_1platform_1_1_application_aa3a849e45abe81581934f4ac79a16d8f}{Application}} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&)=delete
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_a157628aba9e57305dbf3986682b0053e}\label{classvkf_1_1platform_1_1_application_a157628aba9e57305dbf3986682b0053e} 
-\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&\&)=delete
+\mbox{\hyperlink{classvkf_1_1platform_1_1_application_aeab04e7106ba677a44802f5d581cf837}{Application}} (\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&\&)=delete
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_af4b98411febf1469fe42b075d878c562}\label{classvkf_1_1platform_1_1_application_af4b98411febf1469fe42b075d878c562} 
-void {\bfseries run} ()
+\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \& \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a0bb15b5a054bc51d3270b8650100beee}{operator=}} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&)=delete
+\item 
+\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \& \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a157628aba9e57305dbf3986682b0053e}{operator=}} (\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&\&)=delete
+\item 
+void \mbox{\hyperlink{classvkf_1_1platform_1_1_application_af4b98411febf1469fe42b075d878c562}{run}} ()
 \begin{DoxyCompactList}\small\item\em Main loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a1d0875ced160ef56438ce83fbca3cd17}{init\+Logger}} ()
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_ae483967e6fdd99e39ea194f96edb72c9}\label{classvkf_1_1platform_1_1_application_ae483967e6fdd99e39ea194f96edb72c9} 
-void {\bfseries on\+Update} ()
+void \mbox{\hyperlink{classvkf_1_1platform_1_1_application_ae483967e6fdd99e39ea194f96edb72c9}{on\+Update}} ()
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_a56dc8713d8989fcae42ecee7071862c6}\label{classvkf_1_1platform_1_1_application_a56dc8713d8989fcae42ecee7071862c6} 
-void {\bfseries on\+Event} (\mbox{\hyperlink{structvkf_1_1_event}{Event}} \&event)
+void \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a56dc8713d8989fcae42ecee7071862c6}{on\+Event}} (\mbox{\hyperlink{structvkf_1_1_event}{Event}} \&event)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_aff8c6f6492f904ee897722886cb76e15}\label{classvkf_1_1platform_1_1_application_aff8c6f6492f904ee897722886cb76e15} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} $>$ {\bfseries window}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} $>$ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_aff8c6f6492f904ee897722886cb76e15}{window}}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_a0de3874208849c02b7cac0b05411aff0}\label{classvkf_1_1platform_1_1_application_a0de3874208849c02b7cac0b05411aff0} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} $>$ {\bfseries instance}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} $>$ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a0de3874208849c02b7cac0b05411aff0}{instance}}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_adea3d52242adff1a2dd640ddbf12a666}\label{classvkf_1_1platform_1_1_application_adea3d52242adff1a2dd640ddbf12a666} 
-std\+::unique\+\_\+ptr$<$ vk\+::raii\+::\+Surface\+KHR $>$ {\bfseries surface}
+std\+::unique\+\_\+ptr$<$ vk\+::raii\+::\+Surface\+KHR $>$ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_adea3d52242adff1a2dd640ddbf12a666}{surface}}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_a9d4802328792ea3b2fa564832dfba9dd}\label{classvkf_1_1platform_1_1_application_a9d4802328792ea3b2fa564832dfba9dd} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} $>$ {\bfseries device}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} $>$ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a9d4802328792ea3b2fa564832dfba9dd}{device}}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_a6ee5f4eefbb96fa32f417c18b34fcc86}\label{classvkf_1_1platform_1_1_application_a6ee5f4eefbb96fa32f417c18b34fcc86} 
-std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries instance\+Extensions}
+std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a6ee5f4eefbb96fa32f417c18b34fcc86}{instance\+Extensions}}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_a99a83e52d35ca64a70b8ed79479bfca2}\label{classvkf_1_1platform_1_1_application_a99a83e52d35ca64a70b8ed79479bfca2} 
-std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries device\+Extensions}
+std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a99a83e52d35ca64a70b8ed79479bfca2}{device\+Extensions}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main application class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1platform_1_1_application_aaf539676d3ad08910a0b88007265141d}\label{classvkf_1_1platform_1_1_application_aaf539676d3ad08910a0b88007265141d} 
+\index{vkf::platform::Application@{vkf::platform::Application}!Application@{Application}}
+\index{Application@{Application}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{Application()}{Application()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily vkf\+::platform\+::\+Application\+::\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_a527fb4a2dba19854fd33645ec7b66128}\label{classvkf_1_1platform_1_1_application_a527fb4a2dba19854fd33645ec7b66128} 
+\index{vkf::platform::Application@{vkf::platform::Application}!Application@{Application}}
+\index{Application@{Application}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{Application()}{Application()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily vkf\+::platform\+::\+Application\+::\+Application (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{app\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_a17e31b401a46f9fbbcca9093e3dcefe8}\label{classvkf_1_1platform_1_1_application_a17e31b401a46f9fbbcca9093e3dcefe8} 
+\index{vkf::platform::Application@{vkf::platform::Application}!````~Application@{\texorpdfstring{$\sim$}{\string~}Application}}
+\index{````~Application@{\texorpdfstring{$\sim$}{\string~}Application}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Application()}{\string~Application()}}
+{\footnotesize\ttfamily vkf\+::platform\+::\+Application\+::\texorpdfstring{$\sim$}{\string~}\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_aa3a849e45abe81581934f4ac79a16d8f}\label{classvkf_1_1platform_1_1_application_aa3a849e45abe81581934f4ac79a16d8f} 
+\index{vkf::platform::Application@{vkf::platform::Application}!Application@{Application}}
+\index{Application@{Application}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{Application()}{Application()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily vkf\+::platform\+::\+Application\+::\+Application (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_aeab04e7106ba677a44802f5d581cf837}\label{classvkf_1_1platform_1_1_application_aeab04e7106ba677a44802f5d581cf837} 
+\index{vkf::platform::Application@{vkf::platform::Application}!Application@{Application}}
+\index{Application@{Application}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{Application()}{Application()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily vkf\+::platform\+::\+Application\+::\+Application (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1platform_1_1_application_a1d0875ced160ef56438ce83fbca3cd17}\label{classvkf_1_1platform_1_1_application_a1d0875ced160ef56438ce83fbca3cd17} 
+\index{vkf::platform::Application@{vkf::platform::Application}!initLogger@{initLogger}}
+\index{initLogger@{initLogger}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{initLogger()}{initLogger()}}
+{\footnotesize\ttfamily void vkf\+::platform\+::\+Application\+::init\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_a56dc8713d8989fcae42ecee7071862c6}\label{classvkf_1_1platform_1_1_application_a56dc8713d8989fcae42ecee7071862c6} 
+\index{vkf::platform::Application@{vkf::platform::Application}!onEvent@{onEvent}}
+\index{onEvent@{onEvent}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{onEvent()}{onEvent()}}
+{\footnotesize\ttfamily void vkf\+::platform\+::\+Application\+::on\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvkf_1_1_event}{Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_ae483967e6fdd99e39ea194f96edb72c9}\label{classvkf_1_1platform_1_1_application_ae483967e6fdd99e39ea194f96edb72c9} 
+\index{vkf::platform::Application@{vkf::platform::Application}!onUpdate@{onUpdate}}
+\index{onUpdate@{onUpdate}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{onUpdate()}{onUpdate()}}
+{\footnotesize\ttfamily void vkf\+::platform\+::\+Application\+::on\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_a157628aba9e57305dbf3986682b0053e}\label{classvkf_1_1platform_1_1_application_a157628aba9e57305dbf3986682b0053e} 
+\index{vkf::platform::Application@{vkf::platform::Application}!operator=@{operator=}}
+\index{operator=@{operator=}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \& vkf\+::platform\+::\+Application\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_a0bb15b5a054bc51d3270b8650100beee}\label{classvkf_1_1platform_1_1_application_a0bb15b5a054bc51d3270b8650100beee} 
+\index{vkf::platform::Application@{vkf::platform::Application}!operator=@{operator=}}
+\index{operator=@{operator=}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \& vkf\+::platform\+::\+Application\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_af4b98411febf1469fe42b075d878c562}\label{classvkf_1_1platform_1_1_application_af4b98411febf1469fe42b075d878c562} 
+\index{vkf::platform::Application@{vkf::platform::Application}!run@{run}}
+\index{run@{run}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void vkf\+::platform\+::\+Application\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main loop. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classvkf_1_1platform_1_1_application_a9d4802328792ea3b2fa564832dfba9dd}\label{classvkf_1_1platform_1_1_application_a9d4802328792ea3b2fa564832dfba9dd} 
+\index{vkf::platform::Application@{vkf::platform::Application}!device@{device}}
+\index{device@{device}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{device}{device}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}}$>$ vkf\+::platform\+::\+Application\+::device\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_a99a83e52d35ca64a70b8ed79479bfca2}\label{classvkf_1_1platform_1_1_application_a99a83e52d35ca64a70b8ed79479bfca2} 
+\index{vkf::platform::Application@{vkf::platform::Application}!deviceExtensions@{deviceExtensions}}
+\index{deviceExtensions@{deviceExtensions}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{deviceExtensions}{deviceExtensions}}
+{\footnotesize\ttfamily std\+::vector$<$const char \texorpdfstring{$\ast$}{*}$>$ vkf\+::platform\+::\+Application\+::device\+Extensions\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_a0de3874208849c02b7cac0b05411aff0}\label{classvkf_1_1platform_1_1_application_a0de3874208849c02b7cac0b05411aff0} 
+\index{vkf::platform::Application@{vkf::platform::Application}!instance@{instance}}
+\index{instance@{instance}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{instance}{instance}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}}$>$ vkf\+::platform\+::\+Application\+::instance\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_a6ee5f4eefbb96fa32f417c18b34fcc86}\label{classvkf_1_1platform_1_1_application_a6ee5f4eefbb96fa32f417c18b34fcc86} 
+\index{vkf::platform::Application@{vkf::platform::Application}!instanceExtensions@{instanceExtensions}}
+\index{instanceExtensions@{instanceExtensions}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{instanceExtensions}{instanceExtensions}}
+{\footnotesize\ttfamily std\+::vector$<$const char \texorpdfstring{$\ast$}{*}$>$ vkf\+::platform\+::\+Application\+::instance\+Extensions\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_adea3d52242adff1a2dd640ddbf12a666}\label{classvkf_1_1platform_1_1_application_adea3d52242adff1a2dd640ddbf12a666} 
+\index{vkf::platform::Application@{vkf::platform::Application}!surface@{surface}}
+\index{surface@{surface}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{surface}{surface}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$vk\+::raii\+::\+Surface\+KHR$>$ vkf\+::platform\+::\+Application\+::surface\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classvkf_1_1platform_1_1_application_aff8c6f6492f904ee897722886cb76e15}\label{classvkf_1_1platform_1_1_application_aff8c6f6492f904ee897722886cb76e15} 
+\index{vkf::platform::Application@{vkf::platform::Application}!window@{window}}
+\index{window@{window}!vkf::platform::Application@{vkf::platform::Application}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}$>$ vkf\+::platform\+::\+Application\+::window\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

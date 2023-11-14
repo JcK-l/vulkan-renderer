@@ -48,6 +48,7 @@ namespace vkf::core {
 
         vk::Bool32 presentSupported = gpu.getHandle().getSurfaceSupportKHR(familyIndex, *surface);
 
+        LOG_INFO("Found queue family with index: {} and {} queues", familyIndex, queueFamilyProperty.queueCount);
         for (uint32_t queueIndex = 0; queueIndex < queueFamilyProperty.queueCount; ++queueIndex) {
           queues[familyIndex].emplace_back(familyIndex, queueFamilyProperty, presentSupported,
                                            queueIndex);
@@ -62,6 +63,8 @@ namespace vkf::core {
       };
 
       handle = vk::raii::Device{gpu.getHandle(), createInfo};
+      VULKAN_HPP_DEFAULT_DISPATCHER.init(*handle);
+      LOG_INFO("Created logical device");
 
       createVmaAllocator(instance, gpu);
     }
@@ -69,7 +72,7 @@ namespace vkf::core {
     void Device::validateExtensions(const std::vector<const char *> &requiredExtensions) {
       for (auto extension: requiredExtensions) {
         if (!enableExtension(extension)) {
-          LOG_ERROR("Required device extension {} not available, cannot run", extension)
+          LOG_ERROR("Required device extension {} is not available", extension)
           throw std::runtime_error("Required device extensions are missing.");
         }
       }
@@ -83,9 +86,9 @@ namespace vkf::core {
                                      return strcmp(enabledExtensionName, requiredExtensionName) == 0;
                                  });
           if (it != enabledExtensions.end()) {
-            // Extension is already enabled
+            LOG_INFO("Device extension {} is already enabled", requiredExtensionName)
           } else {
-            LOG_INFO("Device extension {} found, enabling it", requiredExtensionName)
+            LOG_INFO("Enabling device extension: {}", requiredExtensionName)
             enabledExtensions.emplace_back(requiredExtensionName);
           }
           return true;
@@ -130,5 +133,6 @@ namespace vkf::core {
 
       // Create VMA allocator
       vmaCreateAllocator(&vmaCreteInfo, &vmaAllocator);
+      LOG_INFO("Created VMA allocator");
     }
 } // namespace vkf::core

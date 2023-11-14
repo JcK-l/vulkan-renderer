@@ -13,6 +13,7 @@
 #include "../common/event.h"
 #include "../core/Instance.h"
 
+/// \brief Collection of platform specific functionality
 namespace vkf::platform {
 
     class Application;

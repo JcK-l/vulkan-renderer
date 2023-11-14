@@ -11,6 +11,8 @@
 #define VULKANRENDERER_QUEUE_H
 
 namespace vkf::core {
+
+    /// \brief This class provides access to queue properties
     class Queue {
     public:
         Queue(uint32_t familyIndex, vk::QueueFamilyProperties properties, vk::Bool32 canPresent,

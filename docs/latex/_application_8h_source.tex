@@ -17,43 +17,45 @@
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../core/Instance.h"{}}}
 \DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}../core/Device.h"{}}}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1platform}{vkf::platform}}\ \{}
-\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1platform}{vkf::platform}}\ \{}
+\DoxyCodeLine{00018\ }
 \DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \{}
 \DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_aaf539676d3ad08910a0b88007265141d}{Application}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}(\textcolor{keyword}{const}\ std::string\ \&appName);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_aaf539676d3ad08910a0b88007265141d}{Application}}(\textcolor{keyword}{const}\ std::string\ \&appName);}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{\string~Application}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a17e31b401a46f9fbbcca9093e3dcefe8}{\string~Application}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_aa3a849e45abe81581934f4ac79a16d8f}{Application}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}(\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_aeab04e7106ba677a44802f5d581cf837}{Application}}(\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&\mbox{\hyperlink{classvkf_1_1platform_1_1_application_a0bb15b5a054bc51d3270b8650100beee}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&\mbox{\hyperlink{classvkf_1_1platform_1_1_application_a157628aba9e57305dbf3986682b0053e}{operator=}}(\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ }
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_af4b98411febf1469fe42b075d878c562}{run}}();}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ onUpdate();}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ onEvent(\mbox{\hyperlink{structvkf_1_1_event}{Event}}\ \&event);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a1d0875ced160ef56438ce83fbca3cd17}{initLogger}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_ae483967e6fdd99e39ea194f96edb72c9}{onUpdate}}();}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::unique\_ptr<Window>\ window;}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ std::unique\_ptr<core::Instance>\ instance;}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::unique\_ptr<vk::raii::SurfaceKHR>\ surface;}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::unique\_ptr<core::Device>\ device;}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ instanceExtensions;}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ deviceExtensions;}
-\DoxyCodeLine{00052\ \ \ \ \ \};}
-\DoxyCodeLine{00053\ \}\ \textcolor{comment}{//\ namespace\ vkf::platform}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_APPLICATION\_H}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a56dc8713d8989fcae42ecee7071862c6}{onEvent}}(\mbox{\hyperlink{structvkf_1_1_event}{Event}}\ \&event);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::unique\_ptr<Window>\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_aff8c6f6492f904ee897722886cb76e15}{window}};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::unique\_ptr<core::Instance>\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a0de3874208849c02b7cac0b05411aff0}{instance}};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ std::unique\_ptr<vk::raii::SurfaceKHR>\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_adea3d52242adff1a2dd640ddbf12a666}{surface}};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::unique\_ptr<core::Device>\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a9d4802328792ea3b2fa564832dfba9dd}{device}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a6ee5f4eefbb96fa32f417c18b34fcc86}{instanceExtensions}};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ \mbox{\hyperlink{classvkf_1_1platform_1_1_application_a99a83e52d35ca64a70b8ed79479bfca2}{deviceExtensions}};}
+\DoxyCodeLine{00054\ \ \ \ \ \};}
+\DoxyCodeLine{00055\ \}\ \textcolor{comment}{//\ namespace\ vkf::platform}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_APPLICATION\_H}}
 
 \end{DoxyCode}

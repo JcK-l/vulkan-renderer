@@ -17,6 +17,8 @@
 #include "Queue.h"
 
 namespace vkf::core {
+
+    /// \brief This class provides access to device properties. It also creates a VmaAllocator
     class Device {
     public:
         Device(Instance &instance, vk::raii::SurfaceKHR &surface,

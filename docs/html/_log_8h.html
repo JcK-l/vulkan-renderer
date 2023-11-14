@@ -83,25 +83,120 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:af8372f79e78eb87dfa2f223ca40ed3b5" id="r_af8372f79e78eb87dfa2f223ca40ed3b5"><td class="memItemLeft" align="right" valign="top"><a id="af8372f79e78eb87dfa2f223ca40ed3b5" name="af8372f79e78eb87dfa2f223ca40ed3b5"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>ROOT_PATH_SIZE</b>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:af8372f79e78eb87dfa2f223ca40ed3b5" id="r_af8372f79e78eb87dfa2f223ca40ed3b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_log_8h.html#af8372f79e78eb87dfa2f223ca40ed3b5">ROOT_PATH_SIZE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:af8372f79e78eb87dfa2f223ca40ed3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fccb4fc71e44089a1b1a77fc76c0b68" id="r_a5fccb4fc71e44089a1b1a77fc76c0b68"><td class="memItemLeft" align="right" valign="top"><a id="a5fccb4fc71e44089a1b1a77fc76c0b68" name="a5fccb4fc71e44089a1b1a77fc76c0b68"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>__FILENAME__</b>&#160;&#160;&#160;(static_cast&lt;const char *&gt;(__FILE__) + ROOT_PATH_SIZE)</td></tr>
+<tr class="memitem:a5fccb4fc71e44089a1b1a77fc76c0b68" id="r_a5fccb4fc71e44089a1b1a77fc76c0b68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_log_8h.html#a5fccb4fc71e44089a1b1a77fc76c0b68">__FILENAME__</a>&#160;&#160;&#160;(static_cast&lt;const char *&gt;(__FILE__) + <a class="el" href="_log_8h.html#af8372f79e78eb87dfa2f223ca40ed3b5">ROOT_PATH_SIZE</a>)</td></tr>
 <tr class="separator:a5fccb4fc71e44089a1b1a77fc76c0b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a378e28bfcb78d17285210d6bbb70a083" id="r_a378e28bfcb78d17285210d6bbb70a083"><td class="memItemLeft" align="right" valign="top"><a id="a378e28bfcb78d17285210d6bbb70a083" name="a378e28bfcb78d17285210d6bbb70a083"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_INFO</b>(...)&#160;&#160;&#160;spdlog::info(__VA_ARGS__);</td></tr>
+<tr class="memitem:a378e28bfcb78d17285210d6bbb70a083" id="r_a378e28bfcb78d17285210d6bbb70a083"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(...)&#160;&#160;&#160;spdlog::info(__VA_ARGS__);</td></tr>
 <tr class="separator:a378e28bfcb78d17285210d6bbb70a083"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add82efa459e0af380b68522c29b9fd44" id="r_add82efa459e0af380b68522c29b9fd44"><td class="memItemLeft" align="right" valign="top"><a id="add82efa459e0af380b68522c29b9fd44" name="add82efa459e0af380b68522c29b9fd44"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_WARN</b>(...)&#160;&#160;&#160;spdlog::warn(__VA_ARGS__);</td></tr>
+<tr class="memitem:add82efa459e0af380b68522c29b9fd44" id="r_add82efa459e0af380b68522c29b9fd44"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_log_8h.html#add82efa459e0af380b68522c29b9fd44">LOG_WARN</a>(...)&#160;&#160;&#160;spdlog::warn(__VA_ARGS__);</td></tr>
 <tr class="separator:add82efa459e0af380b68522c29b9fd44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4a9117ce894e3319e903142347a0f63" id="r_ad4a9117ce894e3319e903142347a0f63"><td class="memItemLeft" align="right" valign="top"><a id="ad4a9117ce894e3319e903142347a0f63" name="ad4a9117ce894e3319e903142347a0f63"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_ERROR</b>(...)&#160;&#160;&#160;spdlog::error(&quot;[{}:{}] {}&quot;, __FILENAME__, __LINE__, fmt::format(__VA_ARGS__));</td></tr>
+<tr class="memitem:ad4a9117ce894e3319e903142347a0f63" id="r_ad4a9117ce894e3319e903142347a0f63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(...)&#160;&#160;&#160;spdlog::error(&quot;[{}:{}] {}&quot;, <a class="el" href="_log_8h.html#a5fccb4fc71e44089a1b1a77fc76c0b68">__FILENAME__</a>, __LINE__, fmt::format(__VA_ARGS__));</td></tr>
 <tr class="separator:ad4a9117ce894e3319e903142347a0f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a754b3d074e0af4ad3c7b918dd77ecb2d" id="r_a754b3d074e0af4ad3c7b918dd77ecb2d"><td class="memItemLeft" align="right" valign="top"><a id="a754b3d074e0af4ad3c7b918dd77ecb2d" name="a754b3d074e0af4ad3c7b918dd77ecb2d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LOG_DEBUG</b>(...)&#160;&#160;&#160;spdlog::debug(__VA_ARGS__);</td></tr>
+<tr class="memitem:a754b3d074e0af4ad3c7b918dd77ecb2d" id="r_a754b3d074e0af4ad3c7b918dd77ecb2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_log_8h.html#a754b3d074e0af4ad3c7b918dd77ecb2d">LOG_DEBUG</a>(...)&#160;&#160;&#160;spdlog::debug(__VA_ARGS__);</td></tr>
 <tr class="separator:a754b3d074e0af4ad3c7b918dd77ecb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a5fccb4fc71e44089a1b1a77fc76c0b68" name="a5fccb4fc71e44089a1b1a77fc76c0b68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fccb4fc71e44089a1b1a77fc76c0b68">&#9670;&#160;</a></span>__FILENAME__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __FILENAME__&#160;&#160;&#160;(static_cast&lt;const char *&gt;(__FILE__) + <a class="el" href="_log_8h.html#af8372f79e78eb87dfa2f223ca40ed3b5">ROOT_PATH_SIZE</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a754b3d074e0af4ad3c7b918dd77ecb2d" name="a754b3d074e0af4ad3c7b918dd77ecb2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a754b3d074e0af4ad3c7b918dd77ecb2d">&#9670;&#160;</a></span>LOG_DEBUG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_DEBUG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;spdlog::debug(__VA_ARGS__);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4a9117ce894e3319e903142347a0f63" name="ad4a9117ce894e3319e903142347a0f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4a9117ce894e3319e903142347a0f63">&#9670;&#160;</a></span>LOG_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_ERROR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;spdlog::error(&quot;[{}:{}] {}&quot;, <a class="el" href="_log_8h.html#a5fccb4fc71e44089a1b1a77fc76c0b68">__FILENAME__</a>, __LINE__, fmt::format(__VA_ARGS__));</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a378e28bfcb78d17285210d6bbb70a083" name="a378e28bfcb78d17285210d6bbb70a083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a378e28bfcb78d17285210d6bbb70a083">&#9670;&#160;</a></span>LOG_INFO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_INFO</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;spdlog::info(__VA_ARGS__);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add82efa459e0af380b68522c29b9fd44" name="add82efa459e0af380b68522c29b9fd44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add82efa459e0af380b68522c29b9fd44">&#9670;&#160;</a></span>LOG_WARN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_WARN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td>&#160;&#160;&#160;spdlog::warn(__VA_ARGS__);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af8372f79e78eb87dfa2f223ca40ed3b5" name="af8372f79e78eb87dfa2f223ca40ed3b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8372f79e78eb87dfa2f223ca40ed3b5">&#9670;&#160;</a></span>ROOT_PATH_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOT_PATH_SIZE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

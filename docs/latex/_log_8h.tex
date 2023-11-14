@@ -3,21 +3,54 @@
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{_log_8h_af8372f79e78eb87dfa2f223ca40ed3b5}\label{_log_8h_af8372f79e78eb87dfa2f223ca40ed3b5} 
-\#define {\bfseries ROOT\+\_\+\+PATH\+\_\+\+SIZE}~0
+\#define \mbox{\hyperlink{_log_8h_af8372f79e78eb87dfa2f223ca40ed3b5}{ROOT\+\_\+\+PATH\+\_\+\+SIZE}}~0
 \item 
-\Hypertarget{_log_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}\label{_log_8h_a5fccb4fc71e44089a1b1a77fc76c0b68} 
-\#define {\bfseries \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+}~(static\+\_\+cast$<$const char \texorpdfstring{$\ast$}{*}$>$(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+) + ROOT\+\_\+\+PATH\+\_\+\+SIZE)
+\#define \mbox{\hyperlink{_log_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}{\+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+}}~(static\+\_\+cast$<$const char \texorpdfstring{$\ast$}{*}$>$(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+) + \mbox{\hyperlink{_log_8h_af8372f79e78eb87dfa2f223ca40ed3b5}{ROOT\+\_\+\+PATH\+\_\+\+SIZE}})
 \item 
-\Hypertarget{_log_8h_a378e28bfcb78d17285210d6bbb70a083}\label{_log_8h_a378e28bfcb78d17285210d6bbb70a083} 
-\#define {\bfseries LOG\+\_\+\+INFO}(...)~spdlog\+::info(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\#define \mbox{\hyperlink{_log_8h_a378e28bfcb78d17285210d6bbb70a083}{LOG\+\_\+\+INFO}}(...)~spdlog\+::info(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
 \item 
-\Hypertarget{_log_8h_add82efa459e0af380b68522c29b9fd44}\label{_log_8h_add82efa459e0af380b68522c29b9fd44} 
-\#define {\bfseries LOG\+\_\+\+WARN}(...)~spdlog\+::warn(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\#define \mbox{\hyperlink{_log_8h_add82efa459e0af380b68522c29b9fd44}{LOG\+\_\+\+WARN}}(...)~spdlog\+::warn(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
 \item 
-\Hypertarget{_log_8h_ad4a9117ce894e3319e903142347a0f63}\label{_log_8h_ad4a9117ce894e3319e903142347a0f63} 
-\#define {\bfseries LOG\+\_\+\+ERROR}(...)~spdlog\+::error("{}\mbox{[}\{\}\+:\{\}\mbox{]} \{\}"{}, \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, fmt\+::format(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+));
+\#define \mbox{\hyperlink{_log_8h_ad4a9117ce894e3319e903142347a0f63}{LOG\+\_\+\+ERROR}}(...)~spdlog\+::error("{}\mbox{[}\{\}\+:\{\}\mbox{]} \{\}"{}, \mbox{\hyperlink{_log_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}{\+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, fmt\+::format(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+));
 \item 
-\Hypertarget{_log_8h_a754b3d074e0af4ad3c7b918dd77ecb2d}\label{_log_8h_a754b3d074e0af4ad3c7b918dd77ecb2d} 
-\#define {\bfseries LOG\+\_\+\+DEBUG}(...)~spdlog\+::debug(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\#define \mbox{\hyperlink{_log_8h_a754b3d074e0af4ad3c7b918dd77ecb2d}{LOG\+\_\+\+DEBUG}}(...)~spdlog\+::debug(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_log_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}\label{_log_8h_a5fccb4fc71e44089a1b1a77fc76c0b68} 
+\index{Log.h@{Log.h}!\_\_FILENAME\_\_@{\_\_FILENAME\_\_}}
+\index{\_\_FILENAME\_\_@{\_\_FILENAME\_\_}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{\_\_FILENAME\_\_}{\_\_FILENAME\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+~(static\+\_\+cast$<$const char \texorpdfstring{$\ast$}{*}$>$(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+) + \mbox{\hyperlink{_log_8h_af8372f79e78eb87dfa2f223ca40ed3b5}{ROOT\+\_\+\+PATH\+\_\+\+SIZE}})}
+
+\Hypertarget{_log_8h_a754b3d074e0af4ad3c7b918dd77ecb2d}\label{_log_8h_a754b3d074e0af4ad3c7b918dd77ecb2d} 
+\index{Log.h@{Log.h}!LOG\_DEBUG@{LOG\_DEBUG}}
+\index{LOG\_DEBUG@{LOG\_DEBUG}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_DEBUG}{LOG\_DEBUG}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+DEBUG(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~spdlog\+::debug(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);}
+
+\Hypertarget{_log_8h_ad4a9117ce894e3319e903142347a0f63}\label{_log_8h_ad4a9117ce894e3319e903142347a0f63} 
+\index{Log.h@{Log.h}!LOG\_ERROR@{LOG\_ERROR}}
+\index{LOG\_ERROR@{LOG\_ERROR}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_ERROR}{LOG\_ERROR}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~spdlog\+::error("{}\mbox{[}\{\}\+:\{\}\mbox{]} \{\}"{}, \mbox{\hyperlink{_log_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}{\+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+}}, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, fmt\+::format(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+));}
+
+\Hypertarget{_log_8h_a378e28bfcb78d17285210d6bbb70a083}\label{_log_8h_a378e28bfcb78d17285210d6bbb70a083} 
+\index{Log.h@{Log.h}!LOG\_INFO@{LOG\_INFO}}
+\index{LOG\_INFO@{LOG\_INFO}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_INFO}{LOG\_INFO}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~spdlog\+::info(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);}
+
+\Hypertarget{_log_8h_add82efa459e0af380b68522c29b9fd44}\label{_log_8h_add82efa459e0af380b68522c29b9fd44} 
+\index{Log.h@{Log.h}!LOG\_WARN@{LOG\_WARN}}
+\index{LOG\_WARN@{LOG\_WARN}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_WARN}{LOG\_WARN}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+WARN(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~spdlog\+::warn(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);}
+
+\Hypertarget{_log_8h_af8372f79e78eb87dfa2f223ca40ed3b5}\label{_log_8h_af8372f79e78eb87dfa2f223ca40ed3b5} 
+\index{Log.h@{Log.h}!ROOT\_PATH\_SIZE@{ROOT\_PATH\_SIZE}}
+\index{ROOT\_PATH\_SIZE@{ROOT\_PATH\_SIZE}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{ROOT\_PATH\_SIZE}{ROOT\_PATH\_SIZE}}
+{\footnotesize\ttfamily \#define ROOT\+\_\+\+PATH\+\_\+\+SIZE~0}
+

@@ -7,13 +7,13 @@
 //
 
 #include "Queue.h"
+#include "../common/Log.h"
 
 namespace vkf::core {
 
     Queue::Queue(uint32_t familyIndex, vk::QueueFamilyProperties properties, vk::Bool32 canPresent,
                  uint32_t queueIndex) : familyIndex{familyIndex}, properties{properties}, canPresent{canPresent},
                                         queueIndex{queueIndex} {
-
     }
 
     Queue::Queue(Queue &&other) noexcept: familyIndex{other.familyIndex}, properties{other.properties},

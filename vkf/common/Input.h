@@ -12,7 +12,7 @@
 class GLFWwindow;
 
 /// \brief Collection of input functions
-namespace vkf::common::input {
+namespace vkf {
     bool isKeyPressed(GLFWwindow *window, int keycode);
 
     bool isMouseButtonPressed(GLFWwindow *window, int button);
@@ -22,6 +22,6 @@ namespace vkf::common::input {
     double getMouseX(GLFWwindow *window);
 
     double getMouseY(GLFWwindow *window);
-} // vkf::common::input
+} // vkf
 
 #endif //VULKANRENDERER_INPUT_H

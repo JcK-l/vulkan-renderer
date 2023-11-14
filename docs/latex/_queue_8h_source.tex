@@ -14,27 +14,28 @@
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_QUEUE\_H}}
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \{}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}(uint32\_t\ familyIndex,\ vk::QueueFamilyProperties\ properties,\ vk::Bool32\ canPresent,}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ queueIndex);}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}(uint32\_t\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a5a768b205fdcdc1a9b6c7deea4f6ef9a}{familyIndex}},\ vk::QueueFamilyProperties\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a6ec15806ac2c1c74c8ffd6f002aa55a8}{properties}},\ vk::Bool32\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_ad4d77b14b5ef6ad32cd2a30d5e074610}{canPresent}},}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a9ab19e7397a4598297b67641fa6d83e8}{queueIndex}});}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}(\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&\&other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a80f0aaf9463e15eb45b0307afe4b1ed5}{Queue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&)\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}(\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&\&other)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_queue_ae5f8044ee4687c72aed0dfa6c49d0c88}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ uint32\_t\ familyIndex;}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ vk::QueueFamilyProperties\ properties;}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ vk::Bool32\ canPresent;}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ uint32\_t\ queueIndex;}
-\DoxyCodeLine{00032\ \ \ \ \ \};}
-\DoxyCodeLine{00033\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_QUEUE\_H}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_queue_ab938f96a88d1bacb0d32126ea8fb4ee2}{operator=}}(\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a5a768b205fdcdc1a9b6c7deea4f6ef9a}{familyIndex}};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ vk::QueueFamilyProperties\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a6ec15806ac2c1c74c8ffd6f002aa55a8}{properties}};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ vk::Bool32\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_ad4d77b14b5ef6ad32cd2a30d5e074610}{canPresent}};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a9ab19e7397a4598297b67641fa6d83e8}{queueIndex}};}
+\DoxyCodeLine{00034\ \ \ \ \ \};}
+\DoxyCodeLine{00035\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_QUEUE\_H}}
 
 \end{DoxyCode}
