@@ -11,9 +11,11 @@ target_sources(${PROJECT_NAME}
         core/Instance.cpp
         core/PhysicalDevice.cpp
         core/Queue.cpp
+        core/Swapchain.cpp
         platform/Application.cpp
         platform/Window.cpp
         common/Input.cpp
+        common/Utility.cpp
 )
 
 

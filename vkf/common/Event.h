@@ -10,54 +10,68 @@
 #define VULKANRENDERER_EVENT_H
 
 /// \brief Vulkan Framework
-namespace vkf {
-    /// \brief Object containing EventType and EventData
-    struct Event {
-        /// \brief Event with keycode and action values
-        struct Keyboard {
-            int keycode;
-            int action;
-        };
-
-        /// \brief Event with button and action values
-        struct MouseButton {
-            int button;
-            int action;
-        };
-
-        /// \brief Event with x and y position values
-        struct MouseMove {
-            double xPos;
-            double yPos;
-        };
-
-        /// \brief Event with x and y scroll values
-        struct MouseScroll {
-            double xScroll;
-            double yScroll;
-        };
-
-        /// \brief Event with height and width values
-        struct Resize {
-            int newWidth;
-            int newHeight;
-        };
-
-        /// \brief Event with no data
-        struct Close {
-        };
-
-        /// \brief Enum of event types
-        enum class Type {
-            Keyboard, MouseMove, MouseButton, MouseScroll, Resize, Close
-        };
-
-        /// \brief Union of event data
-        using Data = std::variant<Keyboard, MouseMove, MouseButton, MouseScroll, Resize, Close>;
-
-        Type type;
-        Data data;
+namespace vkf
+{
+/// \brief Object containing EventType and EventData
+struct Event
+{
+    /// \brief Event with keycode and action values
+    struct Keyboard
+    {
+        int keycode;
+        int action;
     };
+
+    /// \brief Event with button and action values
+    struct MouseButton
+    {
+        int button;
+        int action;
+    };
+
+    /// \brief Event with x and y position values
+    struct MouseMove
+    {
+        double xPos;
+        double yPos;
+    };
+
+    /// \brief Event with x and y scroll values
+    struct MouseScroll
+    {
+        double xScroll;
+        double yScroll;
+    };
+
+    /// \brief Event with height and width values
+    struct Resize
+    {
+        int newWidth;
+        int newHeight;
+    };
+
+    /// \brief Event with no data
+    struct Close
+    {
+    };
+
+    /// \brief Enum of event types
+    enum class Type
+    {
+        Keyboard,
+        MouseMove,
+        MouseButton,
+        MouseScroll,
+        Resize,
+        Close
+    };
+
+    /// \brief Union of event data
+    using Data = std::variant<Keyboard, MouseMove, MouseButton, MouseScroll, Resize, Close>;
+
+    Type type;
+    Data data;
+};
 } // namespace vkf
 
-#endif //VULKANRENDERER_EVENT_H
+#endif // VULKANRENDERER_EVENT_H

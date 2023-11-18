@@ -11,17 +11,17 @@
 
 class GLFWwindow;
 
-/// \brief Collection of input functions
-namespace vkf {
-    bool isKeyPressed(GLFWwindow *window, int keycode);
+namespace vkf
+{
+bool isKeyPressed(GLFWwindow *window, int keycode);
 
-    bool isMouseButtonPressed(GLFWwindow *window, int button);
+bool isMouseButtonPressed(GLFWwindow *window, int button);
 
-    std::pair<double, double> getMousePosition(GLFWwindow *window);
+std::pair<double, double> getMousePosition(GLFWwindow *window);
 
-    double getMouseX(GLFWwindow *window);
+double getMouseX(GLFWwindow *window);
 
-    double getMouseY(GLFWwindow *window);
-} // vkf
+double getMouseY(GLFWwindow *window);
+} // namespace vkf
 
-#endif //VULKANRENDERER_INPUT_H
+#endif // VULKANRENDERER_INPUT_H
