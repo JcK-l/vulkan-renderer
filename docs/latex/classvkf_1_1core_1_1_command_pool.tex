@@ -1,0 +1,107 @@
+\doxysection{vkf\+::core\+::Command\+Pool Class Reference}
+\hypertarget{classvkf_1_1core_1_1_command_pool}{}\label{classvkf_1_1core_1_1_command_pool}\index{vkf::core::CommandPool@{vkf::core::CommandPool}}
+
+
+This class manages Vulkan command pools.  
+
+
+
+
+{\ttfamily \#include $<$Command\+Pool.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool_a4755df1676fe7686e5375d709ae3a96c}{Command\+Pool}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device, vk\+::\+Command\+Pool\+Create\+Info create\+Info)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1core_1_1_command_pool}{Command\+Pool} class. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_command_pool_a0fc12afc4213c47e5d68b8d99c59cf03}\label{classvkf_1_1core_1_1_command_pool_a0fc12afc4213c47e5d68b8d99c59cf03} 
+{\bfseries Command\+Pool} (const \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{Command\+Pool}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_command_pool_a3234edf590612008c62b6c2b4f13e12c}\label{classvkf_1_1core_1_1_command_pool_a3234edf590612008c62b6c2b4f13e12c} 
+{\bfseries Command\+Pool} (\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{Command\+Pool}} \&\&) noexcept=default
+\item 
+\Hypertarget{classvkf_1_1core_1_1_command_pool_ac46fee84194c9b20fe4ccf605b196346}\label{classvkf_1_1core_1_1_command_pool_ac46fee84194c9b20fe4ccf605b196346} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{Command\+Pool}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{Command\+Pool}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_command_pool_a2e9644a0516a9a19699c8bd13ca92c70}\label{classvkf_1_1core_1_1_command_pool_a2e9644a0516a9a19699c8bd13ca92c70} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{Command\+Pool}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{Command\+Pool}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_command_pool_ad8b69ef89dfade78e6f55256c4967e40}\label{classvkf_1_1core_1_1_command_pool_ad8b69ef89dfade78e6f55256c4967e40} 
+const vk\+::raii\+::\+Command\+Pool \& {\bfseries get\+Handle} () const
+\item 
+std\+::pair$<$ uint32\+\_\+t, vk\+::raii\+::\+Command\+Buffers \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool_a56aec497f74ac33bdc030fb9fc4e047b}{request\+Command\+Buffers}} (vk\+::\+Command\+Buffer\+Level level, uint32\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Request command buffers. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_command_pool_a72f78e7c205ba8bf7e957c0409672e85}\label{classvkf_1_1core_1_1_command_pool_a72f78e7c205ba8bf7e957c0409672e85} 
+std\+::optional$<$ vk\+::raii\+::\+Command\+Buffers \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Command\+Buffers} (uint32\+\_\+t key) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_command_pool_aba1a09f63ccd7e9c202ccc03b51c881d}\label{classvkf_1_1core_1_1_command_pool_aba1a09f63ccd7e9c202ccc03b51c881d} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& {\bfseries device}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_command_pool_adfa5fe6407735a97286f5ef18d376891}\label{classvkf_1_1core_1_1_command_pool_adfa5fe6407735a97286f5ef18d376891} 
+vk\+::raii\+::\+Command\+Pool {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_command_pool_a6449e82265eb41ce991940d3e3b9b7d8}\label{classvkf_1_1core_1_1_command_pool_a6449e82265eb41ce991940d3e3b9b7d8} 
+uint32\+\_\+t {\bfseries allocations} \{0\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_command_pool_a930c37d22f6f8a60cdf05bf777d28a68}\label{classvkf_1_1core_1_1_command_pool_a930c37d22f6f8a60cdf05bf777d28a68} 
+std\+::unordered\+\_\+map$<$ uint32\+\_\+t, std\+::unique\+\_\+ptr$<$ vk\+::raii\+::\+Command\+Buffers $>$ $>$ {\bfseries command\+Buffers\+Map}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages Vulkan command pools. 
+
+It provides functionality to get the handle to the command pool and request command buffers. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1core_1_1_command_pool_a4755df1676fe7686e5375d709ae3a96c}\label{classvkf_1_1core_1_1_command_pool_a4755df1676fe7686e5375d709ae3a96c} 
+\index{vkf::core::CommandPool@{vkf::core::CommandPool}!CommandPool@{CommandPool}}
+\index{CommandPool@{CommandPool}!vkf::core::CommandPool@{vkf::core::CommandPool}}
+\doxysubsubsection{\texorpdfstring{CommandPool()}{CommandPool()}}
+{\footnotesize\ttfamily vkf\+::core\+::\+Command\+Pool\+::\+Command\+Pool (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{device,  }\item[{vk\+::\+Command\+Pool\+Create\+Info}]{create\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for the \doxylink{classvkf_1_1core_1_1_command_pool}{Command\+Pool} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The Vulkan device. \\
+\hline
+{\em create\+Info} & The information for creating a command pool. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1core_1_1_command_pool_a56aec497f74ac33bdc030fb9fc4e047b}\label{classvkf_1_1core_1_1_command_pool_a56aec497f74ac33bdc030fb9fc4e047b} 
+\index{vkf::core::CommandPool@{vkf::core::CommandPool}!requestCommandBuffers@{requestCommandBuffers}}
+\index{requestCommandBuffers@{requestCommandBuffers}!vkf::core::CommandPool@{vkf::core::CommandPool}}
+\doxysubsubsection{\texorpdfstring{requestCommandBuffers()}{requestCommandBuffers()}}
+{\footnotesize\ttfamily std\+::pair$<$ uint32\+\_\+t, vk\+::raii\+::\+Command\+Buffers \texorpdfstring{$\ast$}{*} $>$ vkf\+::core\+::\+Command\+Pool\+::request\+Command\+Buffers (\begin{DoxyParamCaption}\item[{vk\+::\+Command\+Buffer\+Level}]{level,  }\item[{uint32\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+
+
+Request command buffers. 
+
+This function requests command buffers from the command pool and stores them in an unordered map for later reference and automatic cleanup. see \href{https://github.com/KhronosGroup/Vulkan-Hpp/blob/main/vk_raii_ProgrammingGuide.md}{\texttt{ https\+://github.\+com/\+Khronos\+Group/\+Vulkan-\/\+Hpp/blob/main/vk\+\_\+raii\+\_\+\+Programming\+Guide.\+md}} section 4 for more info.
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & The level of the command buffers. \\
+\hline
+{\em count} & The number of command buffers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair containing the key and a raw pointer to command buffers. Ownership is not transferred! 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_command_pool_8h}{Command\+Pool.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_command_pool_8cpp}{Command\+Pool.\+cpp}}\end{DoxyCompactItemize}

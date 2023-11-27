@@ -3,56 +3,66 @@
 \mbox{\hyperlink{_event_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{comment}{//}}
-\DoxyCodeLine{00005\ \textcolor{comment}{//\ Created\ by\ Joshua\ Lowe\ on\ 11/5/2023.}}
-\DoxyCodeLine{00006\ \textcolor{comment}{//\ The\ license\ and\ distribution\ terms\ for\ this\ file\ may\ be\ found\ in\ the\ file\ LICENSE\ in\ this\ distribution}}
-\DoxyCodeLine{00007\ \textcolor{comment}{//}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_EVENT\_H}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_EVENT\_H}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf}{vkf}}\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event}{Event}}\ \{}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard}{Keyboard}}\ \{}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard_acd49104f7b047905b8acbb9da9c5146f}{keycode}};}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard_a55259ac0c65149cb8d72988d8d20c949}{action}};}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button}{MouseButton}}\ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button_ac1d277353f68b036d826d989011033cc}{button}};}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button_a1c80d75a2912cbd617f17cc359d643c4}{action}};}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move}{MouseMove}}\ \{}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move_adcbe046f519adb7300579c470e82be90}{xPos}};}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move_a098f2ae65a5625394f8311a58f869d05}{yPos}};}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll}{MouseScroll}}\ \{}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll_a1e7f7472848dc597840411d0eeb1833b}{xScroll}};}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll_af9e1c488512a51ef413cf1cc0854a426}{yScroll}};}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_resize}{Resize}}\ \{}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_resize_afb7b924d269283817faad8e5a4811999}{newWidth}};}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_resize_ae4491a9af4fb145f41bb7311b8e4d01b}{newHeight}};}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_close}{Close}}\ \{}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6}{Type}}\ \{}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard}{Keyboard}},\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move}{MouseMove}},\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button}{MouseButton}},\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll}{MouseScroll}},\ \mbox{\hyperlink{structvkf_1_1_event_1_1_resize}{Resize}},\ \mbox{\hyperlink{structvkf_1_1_event_1_1_close}{Close}}}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structvkf_1_1_event_aa1802c9480ca3298aa4724c28d345f1b}{Data}}\ =\ std::variant<Keyboard,\ MouseMove,\ MouseButton,\ MouseScroll,\ Resize,\ Close>;}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6}{Type}}\ \mbox{\hyperlink{structvkf_1_1_event_a3a9260026f5181813e8cb931e1574b23}{type}};}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_aa1802c9480ca3298aa4724c28d345f1b}{Data}}\ \mbox{\hyperlink{structvkf_1_1_event_a7ecb61c9b6f088855859115bf989c4f2}{data}};}
-\DoxyCodeLine{00060\ \ \ \ \ \};}
-\DoxyCodeLine{00061\ \}\ \textcolor{comment}{//\ namespace\ vkf}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_EVENT\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_EVENT\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_EVENT\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf}{vkf}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event}{Event}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard}{Keyboard}}}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard_acd49104f7b047905b8acbb9da9c5146f}{keycode}};\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard_a55259ac0c65149cb8d72988d8d20c949}{action}};\ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button}{MouseButton}}}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button_ac1d277353f68b036d826d989011033cc}{button}};\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button_a1c80d75a2912cbd617f17cc359d643c4}{action}};\ }
+\DoxyCodeLine{00054\ \ \ \ \ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move}{MouseMove}}}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move_adcbe046f519adb7300579c470e82be90}{xPos}};\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move_a098f2ae65a5625394f8311a58f869d05}{yPos}};\ }
+\DoxyCodeLine{00066\ \ \ \ \ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll}{MouseScroll}}}
+\DoxyCodeLine{00075\ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll_a1e7f7472848dc597840411d0eeb1833b}{xScroll}};\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll_af9e1c488512a51ef413cf1cc0854a426}{yScroll}};\ }
+\DoxyCodeLine{00078\ \ \ \ \ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_resize}{Resize}}}
+\DoxyCodeLine{00087\ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_resize_afb7b924d269283817faad8e5a4811999}{newWidth}};\ \ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvkf_1_1_event_1_1_resize_ae4491a9af4fb145f41bb7311b8e4d01b}{newHeight}};\ }
+\DoxyCodeLine{00090\ \ \ \ \ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1_event_1_1_close}{Close}}}
+\DoxyCodeLine{00097\ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6}{Type}}}
+\DoxyCodeLine{00105\ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard}{Keyboard}},\ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move}{MouseMove}},\ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button}{MouseButton}},\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll}{MouseScroll}},\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_1_1_resize}{Resize}},\ \ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_1_1_close}{Close}}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structvkf_1_1_event_a6191b9b2f0170fb45d3da48fa72a4425}{Data}}\ =\ std::variant<Keyboard,\ MouseMove,\ MouseButton,\ MouseScroll,\ Resize,\ Close>;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6}{Type}}\ \mbox{\hyperlink{structvkf_1_1_event_a3a9260026f5181813e8cb931e1574b23}{type}};\ }
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{structvkf_1_1_event_a6191b9b2f0170fb45d3da48fa72a4425}{Data}}\ \mbox{\hyperlink{structvkf_1_1_event_a7ecb61c9b6f088855859115bf989c4f2}{data}};\ }
+\DoxyCodeLine{00122\ \};}
+\DoxyCodeLine{00123\ \}\ \textcolor{comment}{//\ namespace\ vkf}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_EVENT\_H}}
 
 \end{DoxyCode}

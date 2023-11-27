@@ -79,28 +79,40 @@ $(function() {
   <div class="headertitle"><div class="title">Application.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_window_8h_source.html">Window.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_instance_8h_source.html">../core/Instance.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_device_8h_source.html">../core/Device.h</a>&quot;</code><br />
-</div>
+
+<p>This file declares the Application class which is used for managing the main application.  
+<a href="#details">More...</a></p>
+
 <p><a href="_application_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_application.html">vkf::platform::Application</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main application class.  <a href="classvkf_1_1platform_1_1_application.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class manages the main application.  <a href="classvkf_1_1platform_1_1_application.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacevkf" id="r_namespacevkf"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html">vkf</a></td></tr>
-<tr class="memdesc:namespacevkf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vulkan Framework. <br /></td></tr>
+<tr class="memdesc:namespacevkf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The top-level namespace for the Vulkan Framework (vkf). <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacevkf_1_1core" id="r_namespacevkf_1_1core"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1core.html">vkf::core</a></td></tr>
+<tr class="memdesc:namespacevkf_1_1core"><td class="mdescLeft">&#160;</td><td class="mdescRight">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacevkf_1_1rendering" id="r_namespacevkf_1_1rendering"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1rendering.html">vkf::rendering</a></td></tr>
+<tr class="memdesc:namespacevkf_1_1rendering"><td class="mdescLeft">&#160;</td><td class="mdescRight">The rendering namespace contains classes and functions for rendering operations. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacevkf_1_1platform" id="r_namespacevkf_1_1platform"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1platform.html">vkf::platform</a></td></tr>
-<tr class="memdesc:namespacevkf_1_1platform"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of platform specific functionality. <br /></td></tr>
+<tr class="memdesc:namespacevkf_1_1platform"><td class="mdescLeft">&#160;</td><td class="mdescRight">The platform namespace includes platform-specific classes and functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file declares the Application class which is used for managing the main application. </p>
+<p>The Application class is part of the <a class="el" href="namespacevkf_1_1platform.html" title="The platform namespace includes platform-specific classes and functions.">vkf::platform</a> namespace. It provides an interface for interacting with the main application, including running the main loop, initializing the logger, and creating the window, instance, surface, and device. It also provides methods for enabling instance extensions, instance layers, and device extensions.</p>
+<dl class="section author"><dt>Author</dt><dd>Joshua Lowe </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>10/30/2023</dd></dl>
+<p>The license and distribution terms for this file may be found in the file LICENSE in this distribution </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

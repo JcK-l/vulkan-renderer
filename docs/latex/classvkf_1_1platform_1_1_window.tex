@@ -2,7 +2,7 @@
 \hypertarget{classvkf_1_1platform_1_1_window}{}\label{classvkf_1_1platform_1_1_window}\index{vkf::platform::Window@{vkf::platform::Window}}
 
 
-This class provides functionality associated with glfw.  
+This class manages GLFW windows.  
 
 
 
@@ -13,166 +13,104 @@ This class provides functionality associated with glfw.
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_extent}{Extent}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1platform_1_1_window_1_1_extent}{Extent} of the window. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This struct represents the extent of the window. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}}
-\begin{DoxyCompactList}\small\item\em \doxylink{classvkf_1_1platform_1_1_window}{Window} properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This struct represents the properties of the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum class \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}{Vsync}} \{ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802fa88559a0cfd8250c9d65970cc145c92d4}{OFF}}
-, \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802fa90651ebea9a35ec4e018c8157492e17c}{ON}}
+\Hypertarget{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}\label{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f} 
+enum class \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}{Vsync}} \{ {\bfseries OFF}
+, {\bfseries ON}
  \}
-\begin{DoxyCompactList}\small\item\em Vsync option. \end{DoxyCompactList}\item 
-enum class \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}{Mode}} \{ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0a0829ea6734059d66e6bf87096b215dc1}{Fullscreen}}
-, \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0a5a805befe579fd1668bd4a32e5be1310}{Fullscreen\+Borderless}}
-, \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0ab13311ab51c4c34757f67f26580018dd}{Windowed}}
+\begin{DoxyCompactList}\small\item\em This enum represents the Vsync option. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}\label{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0} 
+enum class \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}{Mode}} \{ {\bfseries Fullscreen}
+, {\bfseries Fullscreen\+Borderless}
+, {\bfseries Windowed}
  \}
-\begin{DoxyCompactList}\small\item\em \doxylink{classvkf_1_1platform_1_1_window}{Window} mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This enum represents the window mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1platform_1_1_window_a6ce686ddd2c5c9c6228e5af6faacf8f1}{Window}} (\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}})
+\mbox{\hyperlink{classvkf_1_1platform_1_1_window_a30413ba1a98265c59fd5388d0e7784ea}{Window}} (\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}} properties)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1platform_1_1_window}{Window} object. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1platform_1_1_window_a51c44a404ce91b58706b16f640b2f5db}\label{classvkf_1_1platform_1_1_window_a51c44a404ce91b58706b16f640b2f5db} 
+{\bfseries Window} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} \&)=delete
 \item 
-\mbox{\hyperlink{classvkf_1_1platform_1_1_window_a1631aa084aab2848fa6f53d20fd96d9a}{\texorpdfstring{$\sim$}{\string~}\+Window}} ()
+\Hypertarget{classvkf_1_1platform_1_1_window_a79ad5d1c4e5651fcc54068dbfc9a61e1}\label{classvkf_1_1platform_1_1_window_a79ad5d1c4e5651fcc54068dbfc9a61e1} 
+{\bfseries Window} (\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} \&\&) noexcept=default
 \item 
-void \mbox{\hyperlink{classvkf_1_1platform_1_1_window_ac6067d940c92908ff9eb369aafa92c19}{on\+Update}} ()
+\Hypertarget{classvkf_1_1platform_1_1_window_a234472ef1be8406537c0468c3eef8676}\label{classvkf_1_1platform_1_1_window_a234472ef1be8406537c0468c3eef8676} 
+\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} \&)=delete
 \item 
-void \mbox{\hyperlink{classvkf_1_1platform_1_1_window_a7a8f9a09ec90e972d3a23e78cbff6639}{set\+Event\+Callback}} (const std\+::function$<$ void(\mbox{\hyperlink{structvkf_1_1_event}{Event}} \&)$>$ \&callback)
+\Hypertarget{classvkf_1_1platform_1_1_window_a2aef356c0b1fbeb6dc0810468d002983}\label{classvkf_1_1platform_1_1_window_a2aef356c0b1fbeb6dc0810468d002983} 
+\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} \&\&)=delete
 \item 
-bool \mbox{\hyperlink{classvkf_1_1platform_1_1_window_ad714f99baf300c58648a67921d7a1b56}{is\+Closed}} () const
+\Hypertarget{classvkf_1_1platform_1_1_window_ac6067d940c92908ff9eb369aafa92c19}\label{classvkf_1_1platform_1_1_window_ac6067d940c92908ff9eb369aafa92c19} 
+void {\bfseries on\+Update} ()
 \item 
-GLFWwindow \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abbe720acf94af1c4e22a9f630407d2b6}{get\+Handle}} () const
+\Hypertarget{classvkf_1_1platform_1_1_window_a7a8f9a09ec90e972d3a23e78cbff6639}\label{classvkf_1_1platform_1_1_window_a7a8f9a09ec90e972d3a23e78cbff6639} 
+void {\bfseries set\+Event\+Callback} (const std\+::function$<$ void(\mbox{\hyperlink{structvkf_1_1_event}{Event}} \&)$>$ \&callback)
 \item 
-std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_acf84a4ac6b274fe5e386a69a42bd7998}{get\+Required\+Surface\+Extensions}} ()
+\Hypertarget{classvkf_1_1platform_1_1_window_ad714f99baf300c58648a67921d7a1b56}\label{classvkf_1_1platform_1_1_window_ad714f99baf300c58648a67921d7a1b56} 
+bool {\bfseries is\+Closed} () const
 \item 
-vk\+::raii\+::\+Surface\+KHR \mbox{\hyperlink{classvkf_1_1platform_1_1_window_a67d0e045e326c236651bde00769fe334}{create\+Surface}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} \&instance)
+\Hypertarget{classvkf_1_1platform_1_1_window_abbe720acf94af1c4e22a9f630407d2b6}\label{classvkf_1_1platform_1_1_window_abbe720acf94af1c4e22a9f630407d2b6} 
+GLFWwindow \texorpdfstring{$\ast$}{*} {\bfseries get\+Handle} () const
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_window_acf84a4ac6b274fe5e386a69a42bd7998}\label{classvkf_1_1platform_1_1_window_acf84a4ac6b274fe5e386a69a42bd7998} 
+std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Required\+Surface\+Extensions} ()
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_window_a8c5287aea2fedc6346d50257cbc7c43f}\label{classvkf_1_1platform_1_1_window_a8c5287aea2fedc6346d50257cbc7c43f} 
+std\+::pair$<$ uint32\+\_\+t, uint32\+\_\+t $>$ {\bfseries get\+Framebuffer\+Size} () const
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_window_a67d0e045e326c236651bde00769fe334}\label{classvkf_1_1platform_1_1_window_a67d0e045e326c236651bde00769fe334} 
+vk\+::raii\+::\+Surface\+KHR {\bfseries create\+Surface} (const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} \&instance)
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_window_a782203fc12f7e7fbfa4086a7fc414423}\label{classvkf_1_1platform_1_1_window_a782203fc12f7e7fbfa4086a7fc414423} 
+void {\bfseries wait\+Events} () const
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_window_a3165078ab11e0755d3beba01851f355d}\label{classvkf_1_1platform_1_1_window_a3165078ab11e0755d3beba01851f355d} 
+bool {\bfseries is\+Resized} () const
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_window_a302643baeb125e7400b60d4bf4174f91}\label{classvkf_1_1platform_1_1_window_a302643baeb125e7400b60d4bf4174f91} 
+void {\bfseries set\+Resized} (bool is\+Resized)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}} \mbox{\hyperlink{classvkf_1_1platform_1_1_window_ae7d368fbe429c85d3de15e5e1fd358bc}{window\+Data}}
+\Hypertarget{classvkf_1_1platform_1_1_window_ae7d368fbe429c85d3de15e5e1fd358bc}\label{classvkf_1_1platform_1_1_window_ae7d368fbe429c85d3de15e5e1fd358bc} 
+\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}} {\bfseries window\+Data}
 \item 
-GLFWwindow \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classvkf_1_1platform_1_1_window_a30da22c1f6ba625c89a27b451f1368b7}{handle}} \{nullptr\}
+\Hypertarget{classvkf_1_1platform_1_1_window_a30da22c1f6ba625c89a27b451f1368b7}\label{classvkf_1_1platform_1_1_window_a30da22c1f6ba625c89a27b451f1368b7} 
+GLFWwindow \texorpdfstring{$\ast$}{*} {\bfseries handle} \{nullptr\}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This class provides functionality associated with glfw. 
+This class manages GLFW windows. 
 
-\doxysubsection{Member Enumeration Documentation}
-\Hypertarget{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}\label{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0} 
-\index{vkf::platform::Window@{vkf::platform::Window}!Mode@{Mode}}
-\index{Mode@{Mode}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{Mode}{Mode}}
-{\footnotesize\ttfamily enum class \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}{vkf\+::platform\+::\+Window\+::\+Mode}}\hspace{0.3cm}{\ttfamily [strong]}}
-
-
-
-\doxylink{classvkf_1_1platform_1_1_window}{Window} mode. 
-
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Fullscreen@{Fullscreen}!vkf::platform::Window@{vkf::platform::Window}}\index{vkf::platform::Window@{vkf::platform::Window}!Fullscreen@{Fullscreen}}}\Hypertarget{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0a0829ea6734059d66e6bf87096b215dc1}\label{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0a0829ea6734059d66e6bf87096b215dc1} 
-Fullscreen&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{FullscreenBorderless@{FullscreenBorderless}!vkf::platform::Window@{vkf::platform::Window}}\index{vkf::platform::Window@{vkf::platform::Window}!FullscreenBorderless@{FullscreenBorderless}}}\Hypertarget{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0a5a805befe579fd1668bd4a32e5be1310}\label{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0a5a805befe579fd1668bd4a32e5be1310} 
-Fullscreen\+Borderless&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Windowed@{Windowed}!vkf::platform::Window@{vkf::platform::Window}}\index{vkf::platform::Window@{vkf::platform::Window}!Windowed@{Windowed}}}\Hypertarget{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0ab13311ab51c4c34757f67f26580018dd}\label{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0ab13311ab51c4c34757f67f26580018dd} 
-Windowed&\\
-\hline
-
-\end{DoxyEnumFields}
-\Hypertarget{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}\label{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f} 
-\index{vkf::platform::Window@{vkf::platform::Window}!Vsync@{Vsync}}
-\index{Vsync@{Vsync}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{Vsync}{Vsync}}
-{\footnotesize\ttfamily enum class \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}{vkf\+::platform\+::\+Window\+::\+Vsync}}\hspace{0.3cm}{\ttfamily [strong]}}
-
-
-
-Vsync option. 
-
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{OFF@{OFF}!vkf::platform::Window@{vkf::platform::Window}}\index{vkf::platform::Window@{vkf::platform::Window}!OFF@{OFF}}}\Hypertarget{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802fa88559a0cfd8250c9d65970cc145c92d4}\label{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802fa88559a0cfd8250c9d65970cc145c92d4} 
-OFF&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ON@{ON}!vkf::platform::Window@{vkf::platform::Window}}\index{vkf::platform::Window@{vkf::platform::Window}!ON@{ON}}}\Hypertarget{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802fa90651ebea9a35ec4e018c8157492e17c}\label{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802fa90651ebea9a35ec4e018c8157492e17c} 
-ON&\\
-\hline
-
-\end{DoxyEnumFields}
-
+It provides an interface for interacting with a GLFW window, including creating a surface, getting required surface extensions, setting event callbacks, and updating the window. It also provides methods for querying window properties such as whether the window is closed, its framebuffer size, and its handle. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1platform_1_1_window_a6ce686ddd2c5c9c6228e5af6faacf8f1}\label{classvkf_1_1platform_1_1_window_a6ce686ddd2c5c9c6228e5af6faacf8f1} 
+\Hypertarget{classvkf_1_1platform_1_1_window_a30413ba1a98265c59fd5388d0e7784ea}\label{classvkf_1_1platform_1_1_window_a30413ba1a98265c59fd5388d0e7784ea} 
 \index{vkf::platform::Window@{vkf::platform::Window}!Window@{Window}}
 \index{Window@{Window}!vkf::platform::Window@{vkf::platform::Window}}
 \doxysubsubsection{\texorpdfstring{Window()}{Window()}}
 {\footnotesize\ttfamily vkf\+::platform\+::\+Window\+::\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Window\+::\+Properties}}}]{properties }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
-\Hypertarget{classvkf_1_1platform_1_1_window_a1631aa084aab2848fa6f53d20fd96d9a}\label{classvkf_1_1platform_1_1_window_a1631aa084aab2848fa6f53d20fd96d9a} 
-\index{vkf::platform::Window@{vkf::platform::Window}!````~Window@{\texorpdfstring{$\sim$}{\string~}Window}}
-\index{````~Window@{\texorpdfstring{$\sim$}{\string~}Window}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Window()}{\string~Window()}}
-{\footnotesize\ttfamily vkf\+::platform\+::\+Window\+::\texorpdfstring{$\sim$}{\string~}\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
+Constructs a \doxylink{classvkf_1_1platform_1_1_window}{Window} object. 
 
-\doxysubsection{Member Function Documentation}
-\Hypertarget{classvkf_1_1platform_1_1_window_a67d0e045e326c236651bde00769fe334}\label{classvkf_1_1platform_1_1_window_a67d0e045e326c236651bde00769fe334} 
-\index{vkf::platform::Window@{vkf::platform::Window}!createSurface@{createSurface}}
-\index{createSurface@{createSurface}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{createSurface()}{createSurface()}}
-{\footnotesize\ttfamily vk\+::raii\+::\+Surface\+KHR vkf\+::platform\+::\+Window\+::create\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} \&}]{instance }\end{DoxyParamCaption})}
-
-\Hypertarget{classvkf_1_1platform_1_1_window_abbe720acf94af1c4e22a9f630407d2b6}\label{classvkf_1_1platform_1_1_window_abbe720acf94af1c4e22a9f630407d2b6} 
-\index{vkf::platform::Window@{vkf::platform::Window}!getHandle@{getHandle}}
-\index{getHandle@{getHandle}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{getHandle()}{getHandle()}}
-{\footnotesize\ttfamily GLFWwindow \texorpdfstring{$\ast$}{*} vkf\+::platform\+::\+Window\+::get\+Handle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-\Hypertarget{classvkf_1_1platform_1_1_window_acf84a4ac6b274fe5e386a69a42bd7998}\label{classvkf_1_1platform_1_1_window_acf84a4ac6b274fe5e386a69a42bd7998} 
-\index{vkf::platform::Window@{vkf::platform::Window}!getRequiredSurfaceExtensions@{getRequiredSurfaceExtensions}}
-\index{getRequiredSurfaceExtensions@{getRequiredSurfaceExtensions}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{getRequiredSurfaceExtensions()}{getRequiredSurfaceExtensions()}}
-{\footnotesize\ttfamily std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ vkf\+::platform\+::\+Window\+::get\+Required\+Surface\+Extensions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\Hypertarget{classvkf_1_1platform_1_1_window_ad714f99baf300c58648a67921d7a1b56}\label{classvkf_1_1platform_1_1_window_ad714f99baf300c58648a67921d7a1b56} 
-\index{vkf::platform::Window@{vkf::platform::Window}!isClosed@{isClosed}}
-\index{isClosed@{isClosed}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{isClosed()}{isClosed()}}
-{\footnotesize\ttfamily bool vkf\+::platform\+::\+Window\+::is\+Closed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-\Hypertarget{classvkf_1_1platform_1_1_window_ac6067d940c92908ff9eb369aafa92c19}\label{classvkf_1_1platform_1_1_window_ac6067d940c92908ff9eb369aafa92c19} 
-\index{vkf::platform::Window@{vkf::platform::Window}!onUpdate@{onUpdate}}
-\index{onUpdate@{onUpdate}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{onUpdate()}{onUpdate()}}
-{\footnotesize\ttfamily void vkf\+::platform\+::\+Window\+::on\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\Hypertarget{classvkf_1_1platform_1_1_window_a7a8f9a09ec90e972d3a23e78cbff6639}\label{classvkf_1_1platform_1_1_window_a7a8f9a09ec90e972d3a23e78cbff6639} 
-\index{vkf::platform::Window@{vkf::platform::Window}!setEventCallback@{setEventCallback}}
-\index{setEventCallback@{setEventCallback}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{setEventCallback()}{setEventCallback()}}
-{\footnotesize\ttfamily void vkf\+::platform\+::\+Window\+::set\+Event\+Callback (\begin{DoxyParamCaption}\item[{const std\+::function$<$ void(\mbox{\hyperlink{structvkf_1_1_event}{Event}} \&)$>$ \&}]{callback }\end{DoxyParamCaption})}
+This constructor creates a GLFW window using the provided properties.
 
 
-
-\doxysubsection{Member Data Documentation}
-\Hypertarget{classvkf_1_1platform_1_1_window_a30da22c1f6ba625c89a27b451f1368b7}\label{classvkf_1_1platform_1_1_window_a30da22c1f6ba625c89a27b451f1368b7} 
-\index{vkf::platform::Window@{vkf::platform::Window}!handle@{handle}}
-\index{handle@{handle}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{handle}{handle}}
-{\footnotesize\ttfamily GLFWwindow\texorpdfstring{$\ast$}{*} vkf\+::platform\+::\+Window\+::handle \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classvkf_1_1platform_1_1_window_ae7d368fbe429c85d3de15e5e1fd358bc}\label{classvkf_1_1platform_1_1_window_ae7d368fbe429c85d3de15e5e1fd358bc} 
-\index{vkf::platform::Window@{vkf::platform::Window}!windowData@{windowData}}
-\index{windowData@{windowData}!vkf::platform::Window@{vkf::platform::Window}}
-\doxysubsubsection{\texorpdfstring{windowData}{windowData}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}} vkf\+::platform\+::\+Window\+::window\+Data\hspace{0.3cm}{\ttfamily [private]}}
-
+\begin{DoxyParams}{Parameters}
+{\em properties} & The properties of the window. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

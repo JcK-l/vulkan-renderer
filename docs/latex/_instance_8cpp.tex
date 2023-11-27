@@ -1,26 +1,37 @@
 \doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\+Instance.cpp File Reference}
 \hypertarget{_instance_8cpp}{}\label{_instance_8cpp}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Instance.cpp@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Instance.cpp}}
-{\ttfamily \#include "{}../pch.\+h"{}}\newline
+
+
+This file implements the Instance class which is used to manage Vulkan instances.  
+
+
 {\ttfamily \#include "{}Instance.\+h"{}}\newline
 {\ttfamily \#include "{}../common/\+Log.\+h"{}}\newline
+{\ttfamily \#include "{}Physical\+Device.\+h"{}}\newline
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacevkf}{vkf}}
-\begin{DoxyCompactList}\small\item\em Vulkan Framework. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespacevkf_1_1core}{vkf\+::core}}
-\begin{DoxyCompactList}\small\item\em Collection of core functionality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-VKAPI\+\_\+\+ATTR Vk\+Bool32 VKAPI\+\_\+\+CALL \mbox{\hyperlink{_instance_8cpp_aaa67e6807538d044fbbb5c1d97349ffd}{debug\+Callback}} (Vk\+Debug\+Utils\+Message\+Severity\+Flag\+Bits\+EXT message\+Severity, Vk\+Debug\+Utils\+Message\+Type\+Flags\+EXT message\+Types, Vk\+Debug\+Utils\+Messenger\+Callback\+Data\+EXT const \texorpdfstring{$\ast$}{*}callback\+Data, void \texorpdfstring{$\ast$}{*})
+\Hypertarget{_instance_8cpp_aaa67e6807538d044fbbb5c1d97349ffd}\label{_instance_8cpp_aaa67e6807538d044fbbb5c1d97349ffd} 
+VKAPI\+\_\+\+ATTR Vk\+Bool32 VKAPI\+\_\+\+CALL {\bfseries debug\+Callback} (Vk\+Debug\+Utils\+Message\+Severity\+Flag\+Bits\+EXT message\+Severity, Vk\+Debug\+Utils\+Message\+Type\+Flags\+EXT message\+Types, Vk\+Debug\+Utils\+Messenger\+Callback\+Data\+EXT const \texorpdfstring{$\ast$}{*}callback\+Data, void \texorpdfstring{$\ast$}{*})
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Function Documentation}
-\Hypertarget{_instance_8cpp_aaa67e6807538d044fbbb5c1d97349ffd}\label{_instance_8cpp_aaa67e6807538d044fbbb5c1d97349ffd} 
-\index{Instance.cpp@{Instance.cpp}!debugCallback@{debugCallback}}
-\index{debugCallback@{debugCallback}!Instance.cpp@{Instance.cpp}}
-\doxysubsubsection{\texorpdfstring{debugCallback()}{debugCallback()}}
-{\footnotesize\ttfamily VKAPI\+\_\+\+ATTR Vk\+Bool32 VKAPI\+\_\+\+CALL debug\+Callback (\begin{DoxyParamCaption}\item[{Vk\+Debug\+Utils\+Message\+Severity\+Flag\+Bits\+EXT}]{message\+Severity,  }\item[{Vk\+Debug\+Utils\+Message\+Type\+Flags\+EXT}]{message\+Types,  }\item[{Vk\+Debug\+Utils\+Messenger\+Callback\+Data\+EXT const \texorpdfstring{$\ast$}{*}}]{callback\+Data,  }\item[{void \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})}
+\doxysubsection{Detailed Description}
+This file implements the Instance class which is used to manage Vulkan instances. 
 
+The Instance class is part of the \doxylink{namespacevkf_1_1core}{vkf\+::core} namespace. It provides methods for creating a Vulkan instance, validating extensions and layers, and querying GPUs. In debug build mode, it also creates a debug messenger.
+
+\begin{DoxyAuthor}{Author}
+Joshua Lowe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11/1/2023
+\end{DoxyDate}
+The license and distribution terms for this file may be found in the file LICENSE in this distribution 

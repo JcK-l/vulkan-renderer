@@ -3,66 +3,58 @@
 \mbox{\hyperlink{_instance_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{comment}{//}}
-\DoxyCodeLine{00005\ \textcolor{comment}{//\ Created\ by\ Joshua\ Lowe\ on\ 11/1/2023.}}
-\DoxyCodeLine{00006\ \textcolor{comment}{//\ The\ license\ and\ distribution\ terms\ for\ this\ file\ may\ be\ found\ in\ the\ file\ LICENSE\ in\ this\ distribution}}
-\DoxyCodeLine{00007\ \textcolor{comment}{//}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_INSTANCE\_H}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_INSTANCE\_H}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_physical_device_8h}{PhysicalDevice.h}}"{}}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_INSTANCE\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_INSTANCE\_H}}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \{}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}(\textcolor{keyword}{const}\ std::string\ \&appName,\ \textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredExtensions\ =\ \{\},}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredLayers\ =\ \{\});}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a196b25a6a106ab51e502be0687d01d9f}{Instance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a808a17856bff47498864325677a56ec8}{Instance}}(\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab79d2644e96dcc6bfa88a8bf8332f442}{\string~Instance}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab64d4f2ee71869b632f5f9a9c952028c}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_instance_a1cfd4e87784cc7eceaf7d22d71058faf}{operator=}}(\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_instance_a1afca95927feacae9bc8197226c2ea84}{getSuitableGpu}}(vk::raii::SurfaceKHR\ \&surface);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Instance\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_instance_aaaedbf441b8ff079ee4f5381cac0ae50}{getHandle}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Context\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_instance_ac3fd9477e18884e35e514c13b403fcee}{getContext}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validateExtensions}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredExtensions);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validateLayers}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredLayers);}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}{enableExtension}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredExtensionName);}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}{enableLayer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredLayerName);}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_aa18431ab955ea538705d10a5e4812bc8}{queryGpus}}();}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a5eb82c4df27b7b32cadc38eb7b7eda46}{enabledExtensions}};}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::vector<vk::ExtensionProperties>\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a590f9b0a66ade0adbca0dabf3068dc7b}{availableExtensions}};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }PhysicalDevice;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}(\textcolor{keyword}{const}\ std::string\ \&appName,\ \textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredExtensions\ =\ \{\},}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredLayers\ =\ \{\});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}(\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{\string~Instance}}();\ \textcolor{comment}{//\ Implementation\ in\ Instance.cpp\ because\ of\ std::unique\_ptr\ forward\ declaration}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_instance_a1afca95927feacae9bc8197226c2ea84}{getSuitableGpu}}(vk::raii::SurfaceKHR\ \&surface);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Instance\ \&getHandle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Context\ \&getContext()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a9eb8bfacb7411bb321b873220e4e2c14}{enabledLayers}};}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::vector<vk::LayerProperties>\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ae59a71fb92a4ee34b8e81aff63ccb9c5}{availableLayers}};}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ vk::raii::Context\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a5587736c060257ee6d6f8b7cc224ef4b}{context}}\{\};}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ vk::raii::Instance\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a6658cd0313a307bb61f300e396b7b7c3}{handle}}\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ vk::raii::DebugUtilsMessengerEXT\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ae501cf4ce03f84c51e83b51c0687d06e}{debugMessenger}}\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::vector<std::unique\_ptr<PhysicalDevice>>\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a3ee9ad6ee009e30a90560e5300f7385b}{gpus}};}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \ \ \};}
-\DoxyCodeLine{00075\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_INSTANCE\_H}}
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validateExtensions}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredExtensions);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validateLayers}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredLayers);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}{enableExtension}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredExtensionName);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}{enableLayer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredLayerName);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_aa18431ab955ea538705d10a5e4812bc8}{queryGpus}}();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ std::vector<const\ char\ *>\ enabledExtensions;}
+\DoxyCodeLine{00109\ \ \ \ \ std::vector<vk::ExtensionProperties>\ availableExtensions;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ std::vector<const\ char\ *>\ enabledLayers;}
+\DoxyCodeLine{00112\ \ \ \ \ std::vector<vk::LayerProperties>\ availableLayers;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ vk::raii::Context\ context\{\};}
+\DoxyCodeLine{00115\ \ \ \ \ vk::raii::Instance\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00116\ \ \ \ \ vk::raii::DebugUtilsMessengerEXT\ debugMessenger\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00117\ \ \ \ \ std::vector<std::unique\_ptr<PhysicalDevice>>\ gpus;}
+\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00119\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_INSTANCE\_H}}
 
 \end{DoxyCode}

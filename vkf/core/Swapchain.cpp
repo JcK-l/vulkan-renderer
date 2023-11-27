@@ -1,58 +1,36 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 11/16/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Swapchain.cpp
+/// \brief This file implements the Swapchain class which is used for managing Vulkan swapchains.
+///
+/// The Swapchain class is part of the vkf::core namespace. It provides an interface for interacting with a Vulkan
+/// swapchain, including getting the handle to the swapchain, the image views, and acquiring the next image. It also
+/// provides a method for recreating the swapchain.
+///
+/// \author Joshua Lowe
+/// \date 11/16/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Swapchain.h"
 #include "../common/Log.h"
 #include "../platform/Window.h"
+#include "Device.h"
+#include "PhysicalDevice.h"
 
 namespace vkf::core
 {
 
-Swapchain::Swapchain(Device &device, vk::raii::SurfaceKHR &surface, const platform::Window &window)
-    : device{device}, surface{surface}, window{window}
+Swapchain::Swapchain(const Device &device, const vk::raii::SurfaceKHR &surface, const platform::Window &window)
+    : device{device}, gpu{device.getPhysicalDevice()}, surface{surface}, window{window}
 {
-    try
-    {
-        auto &gpu = device.getPhysicalDevice();
-        supportDetails.formats = gpu.getHandle().getSurfaceFormatsKHR(*surface);
-        supportDetails.presentModes = gpu.getHandle().getSurfacePresentModesKHR(*surface);
-        supportDetails.capabilities = gpu.getHandle().getSurfaceCapabilitiesKHR(*surface);
-
-        createSwapchain();
-        LOG_INFO("Created swapchain");
-        createImageViews();
-        LOG_INFO("Created {} swapchain image views", imageViews.size());
-    }
-    catch (vk::SystemError &err)
-    {
-        LOG_ERROR("vk::SystemError: {}", err.what());
-        exit(-1);
-    }
-    catch (std::exception &err)
-    {
-        LOG_ERROR("std::exception: {}", err.what());
-        exit(-1);
-    }
-    catch (...)
-    {
-        LOG_ERROR("unknown error");
-        exit(-1);
-    }
+    createSwapchain();
+    LOG_INFO("Created Swapchain")
 }
 
 const vk::raii::SwapchainKHR &Swapchain::getHandle() const
 {
     return handle;
-}
-
-const std::vector<vk::raii::ImageView> &Swapchain::getImageViews() const
-{
-    return imageViews;
 }
 
 void Swapchain::recreate()
@@ -66,16 +44,19 @@ void Swapchain::recreate()
     device.getHandle().waitIdle();
 
     createSwapchain(*handle);
-    LOG_INFO("Recreated swapchain");
-    createImageViews();
-    LOG_INFO("Recreated {} swapchain image views", imageViews.size());
+    LOG_INFO("Recreated Swapchain")
 }
 
 void Swapchain::createSwapchain(vk::SwapchainKHR oldSwapchain)
 {
+
+    supportDetails.formats = gpu.getHandle().getSurfaceFormatsKHR(*surface);
+    supportDetails.presentModes = gpu.getHandle().getSurfacePresentModesKHR(*surface);
+    supportDetails.capabilities = gpu.getHandle().getSurfaceCapabilitiesKHR(*surface);
+
     auto surfaceFormat = selectSwapSurfaceFormat();
     auto presentMode = selectSwapPresentMode();
-    auto extent = selectSwapExtent();
+    extent = selectSwapExtent();
 
     auto preTransform = (supportDetails.capabilities.supportedTransforms & vk::SurfaceTransformFlagBitsKHR::eIdentity)
                             ? vk::SurfaceTransformFlagBitsKHR::eIdentity
@@ -120,15 +101,14 @@ void Swapchain::createSwapchain(vk::SwapchainKHR oldSwapchain)
     };
 
     handle = vk::raii::SwapchainKHR{device.getHandle(), createInfo};
+    images = handle.getImages();
 }
 
-void Swapchain::createImageViews()
+vk::raii::ImageView Swapchain::createImageView(uint32_t index) const
 {
     auto surfaceFormat = selectSwapSurfaceFormat();
-    images = handle.getImages();
-    imageViews.clear();
-    imageViews.reserve(images.size());
-    vk::ImageViewCreateInfo createInfo{.viewType = vk::ImageViewType::e2D,
+    vk::ImageViewCreateInfo createInfo{.image = images[index],
+                                       .viewType = vk::ImageViewType::e2D,
                                        .format = surfaceFormat.format,
                                        .subresourceRange = {
                                            .aspectMask = vk::ImageAspectFlagBits::eColor,
@@ -137,19 +117,11 @@ void Swapchain::createImageViews()
                                            .baseArrayLayer = 0,
                                            .layerCount = 1,
                                        }};
-    for (const auto &image : images)
-    {
-        createInfo.image = image;
-        imageViews.emplace_back(device.getHandle(), createInfo);
-    }
+
+    return {device.getHandle(), createInfo};
 }
 
-void Swapchain::cleanup()
-{
-    imageViews.clear();
-}
-
-vk::SurfaceFormatKHR Swapchain::selectSwapSurfaceFormat()
+vk::SurfaceFormatKHR Swapchain::selectSwapSurfaceFormat() const
 {
     for (const auto &availableFormat : supportDetails.formats)
     {
@@ -162,7 +134,7 @@ vk::SurfaceFormatKHR Swapchain::selectSwapSurfaceFormat()
     return supportDetails.formats[0];
 }
 
-vk::PresentModeKHR Swapchain::selectSwapPresentMode()
+vk::PresentModeKHR Swapchain::selectSwapPresentMode() const
 {
     for (const auto &availablePresentMode : supportDetails.presentModes)
     {
@@ -174,7 +146,7 @@ vk::PresentModeKHR Swapchain::selectSwapPresentMode()
     return vk::PresentModeKHR::eFifo;
 }
 
-vk::Extent2D Swapchain::selectSwapExtent()
+vk::Extent2D Swapchain::selectSwapExtent() const
 {
     if (supportDetails.capabilities.currentExtent.width != std::numeric_limits<uint32_t>::max())
     {
@@ -192,4 +164,21 @@ vk::Extent2D Swapchain::selectSwapExtent()
         return actualExtent;
     }
 }
+
+std::pair<vk::Result, uint32_t> Swapchain::acquireNextImage(const vk::raii::Semaphore &imageAvailableSemaphore,
+                                                            uint64_t timeout)
+{
+    return handle.acquireNextImage(timeout, *imageAvailableSemaphore);
+}
+
+vk::Extent2D Swapchain::getExtent() const
+{
+    return extent;
+}
+
+uint32_t Swapchain::getImageCount() const
+{
+    return images.size();
+}
+
 } // namespace vkf::core

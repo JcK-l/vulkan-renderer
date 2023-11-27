@@ -1,15 +1,19 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 11/1/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Instance.cpp
+/// \brief This file implements the Instance class which is used to manage Vulkan instances.
+///
+/// The Instance class is part of the vkf::core namespace. It provides methods for creating a Vulkan instance,
+/// validating extensions and layers, and querying GPUs. In debug build mode, it also creates a debug messenger.
+///
+/// \author Joshua Lowe
+/// \date 11/1/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Instance.h"
-#include "../pch.h"
-// #include "../common/utils.h"
 #include "../common/Log.h"
+#include "PhysicalDevice.h"
 
 #if !defined(NDEBUG)
 VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
@@ -17,14 +21,13 @@ VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBits
                                              VkDebugUtilsMessengerCallbackDataEXT const *callbackData,
                                              void * /*pUserData*/)
 {
-    // Log debug message
     if (messageSeverity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT)
     {
-        LOG_WARN("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage);
+        LOG_WARN("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage)
     }
     else if (messageSeverity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT)
     {
-        LOG_ERROR("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage);
+        LOG_ERROR("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage)
     }
     return VK_FALSE;
 }
@@ -39,81 +42,65 @@ namespace vkf::core
 Instance::Instance(const std::string &appName, const std::vector<const char *> &requiredExtensions,
                    const std::vector<const char *> &requiredLayers)
 {
-    try
-    {
-        vk::DynamicLoader dl;
-        auto vkGetInstanceProcAddr = dl.getProcAddress<PFN_vkGetInstanceProcAddr>("vkGetInstanceProcAddr");
-        VULKAN_HPP_DEFAULT_DISPATCHER.init(vkGetInstanceProcAddr);
+    vk::DynamicLoader dl;
+    auto vkGetInstanceProcAddr = dl.getProcAddress<PFN_vkGetInstanceProcAddr>("vkGetInstanceProcAddr");
+    VULKAN_HPP_DEFAULT_DISPATCHER.init(vkGetInstanceProcAddr);
 
-        availableExtensions = context.enumerateInstanceExtensionProperties();
-        validateExtensions(requiredExtensions);
+    availableExtensions = context.enumerateInstanceExtensionProperties();
+    validateExtensions(requiredExtensions);
 
-        availableLayers = context.enumerateInstanceLayerProperties();
-        validateLayers(requiredLayers);
+    availableLayers = context.enumerateInstanceLayerProperties();
+    validateLayers(requiredLayers);
 
-        vk::ApplicationInfo applicationInfo{.pApplicationName = appName.c_str(),
-                                            .applicationVersion = 1,
-                                            .pEngineName = "engine",
-                                            .engineVersion = 1,
-                                            .apiVersion = VK_API_VERSION_1_3};
+    vk::ApplicationInfo applicationInfo{.pApplicationName = appName.c_str(),
+                                        .applicationVersion = 1,
+                                        .pEngineName = "engine",
+                                        .engineVersion = 1,
+                                        .apiVersion = VK_API_VERSION_1_3};
 
 #if !defined(NDEBUG)
-        vk::StructureChain<vk::InstanceCreateInfo, vk::DebugUtilsMessengerCreateInfoEXT> instanceCreateInfo = {
-            vk::InstanceCreateInfo{.pApplicationInfo = &applicationInfo,
-                                   .enabledLayerCount = static_cast<uint32_t>(enabledLayers.size()),
-                                   .ppEnabledLayerNames = enabledLayers.data(),
-                                   .enabledExtensionCount = static_cast<uint32_t>(enabledExtensions.size()),
-                                   .ppEnabledExtensionNames = enabledExtensions.data()},
-            vk::DebugUtilsMessengerCreateInfoEXT{
-                .messageSeverity = vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning |
-                                   vk::DebugUtilsMessageSeverityFlagBitsEXT::eError,
-                .messageType = vk::DebugUtilsMessageTypeFlagBitsEXT::eGeneral |
-                               vk::DebugUtilsMessageTypeFlagBitsEXT::ePerformance |
-                               vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation,
-                .pfnUserCallback = &debugCallback,
-            }};
+    vk::StructureChain<vk::InstanceCreateInfo, vk::DebugUtilsMessengerCreateInfoEXT> instanceCreateInfo = {
+        vk::InstanceCreateInfo{.pApplicationInfo = &applicationInfo,
+                               .enabledLayerCount = static_cast<uint32_t>(enabledLayers.size()),
+                               .ppEnabledLayerNames = enabledLayers.data(),
+                               .enabledExtensionCount = static_cast<uint32_t>(enabledExtensions.size()),
+                               .ppEnabledExtensionNames = enabledExtensions.data()},
+        vk::DebugUtilsMessengerCreateInfoEXT{
+            .messageSeverity =
+                vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning | vk::DebugUtilsMessageSeverityFlagBitsEXT::eError,
+            .messageType = vk::DebugUtilsMessageTypeFlagBitsEXT::eGeneral |
+                           vk::DebugUtilsMessageTypeFlagBitsEXT::ePerformance |
+                           vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation,
+            .pfnUserCallback = &debugCallback,
+        }};
 #else
-        vk::StructureChain<vk::InstanceCreateInfo> instanceCreateInfo = {
-            vk::InstanceCreateInfo{.pApplicationInfo = &applicationInfo,
-                                   .enabledLayerCount = static_cast<uint32_t>(enabledLayers.size()),
-                                   .ppEnabledLayerNames = enabledLayers.data(),
-                                   .enabledExtensionCount = static_cast<uint32_t>(enabledExtensions.size()),
-                                   .ppEnabledExtensionNames = enabledExtensions.data()}};
+    vk::StructureChain<vk::InstanceCreateInfo> instanceCreateInfo = {
+        vk::InstanceCreateInfo{.pApplicationInfo = &applicationInfo,
+                               .enabledLayerCount = static_cast<uint32_t>(enabledLayers.size()),
+                               .ppEnabledLayerNames = enabledLayers.data(),
+                               .enabledExtensionCount = static_cast<uint32_t>(enabledExtensions.size()),
+                               .ppEnabledExtensionNames = enabledExtensions.data()}};
 #endif
-        handle = vk::raii::Instance{context, instanceCreateInfo.get<vk::InstanceCreateInfo>()};
-        VULKAN_HPP_DEFAULT_DISPATCHER.init(*handle);
-        LOG_INFO("Created instance");
+    handle = vk::raii::Instance{context, instanceCreateInfo.get<vk::InstanceCreateInfo>()};
+    VULKAN_HPP_DEFAULT_DISPATCHER.init(*handle);
+    LOG_INFO("Created Instance")
 
 #if !defined(NDEBUG)
-        debugMessenger = vk::raii::DebugUtilsMessengerEXT{
-            handle, vk::DebugUtilsMessengerCreateInfoEXT{
-                        .messageSeverity = vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning |
-                                           vk::DebugUtilsMessageSeverityFlagBitsEXT::eError,
-                        .messageType = vk::DebugUtilsMessageTypeFlagBitsEXT::eGeneral |
-                                       vk::DebugUtilsMessageTypeFlagBitsEXT::ePerformance |
-                                       vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation,
-                        .pfnUserCallback = &debugCallback,
-                    }};
-        LOG_DEBUG("Created debug messenger");
+    debugMessenger = vk::raii::DebugUtilsMessengerEXT{
+        handle, vk::DebugUtilsMessengerCreateInfoEXT{
+                    .messageSeverity = vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning |
+                                       vk::DebugUtilsMessageSeverityFlagBitsEXT::eError,
+                    .messageType = vk::DebugUtilsMessageTypeFlagBitsEXT::eGeneral |
+                                   vk::DebugUtilsMessageTypeFlagBitsEXT::ePerformance |
+                                   vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation,
+                    .pfnUserCallback = &debugCallback,
+                }};
+    LOG_DEBUG("Created DebugMessenger")
 #endif
-        queryGpus();
-    }
-    catch (vk::SystemError &err)
-    {
-        LOG_ERROR("vk::SystemError: {}", err.what());
-        exit(-1);
-    }
-    catch (std::exception &err)
-    {
-        LOG_ERROR("std::exception: {}", err.what());
-        exit(-1);
-    }
-    catch (...)
-    {
-        LOG_ERROR("unknown error");
-        exit(-1);
-    }
+    queryGpus();
 }
+
+Instance::~Instance() = default;
 
 bool Instance::enableExtension(const char *requiredExtensionName)
 {
@@ -202,14 +189,13 @@ void Instance::validateLayers(const std::vector<const char *> &requiredLayers)
 
 void Instance::queryGpus()
 {
-    // Querying valid physical devices on the machine
     vk::raii::PhysicalDevices physicalDevices{handle};
     if (physicalDevices.empty())
     {
         throw std::runtime_error("Couldn't find a physical device that supports Vulkan.");
     }
 
-    // Create gpus wrapper objects from the vk::PhysicalDevice's
+    // Create GPUs wrapper objects from the vk::raii::PhysicalDevice's
     for (auto &physicalDevice : physicalDevices)
     {
         gpus.push_back(std::make_unique<PhysicalDevice>(physicalDevice));
@@ -225,11 +211,9 @@ PhysicalDevice &Instance::getSuitableGpu(vk::raii::SurfaceKHR &surface)
         auto queueFamilyProperties = gpu->getQueueFamilyProperties();
         auto size = queueFamilyProperties.size();
 
-        // check for discrete gpu
         if (gpu->getProperties().deviceType == vk::PhysicalDeviceType::eDiscreteGpu)
         {
 
-            // check if a queue can present
             for (auto i = 0; i < size; ++i)
             {
                 if (gpu->getSurfaceSupportKHR(i, *surface))
@@ -239,7 +223,7 @@ PhysicalDevice &Instance::getSuitableGpu(vk::raii::SurfaceKHR &surface)
             }
         }
     }
-    LOG_WARN("No suitable gpu found. Picking first GPU: {}", gpus[0]->getProperties().deviceName.data());
+    LOG_WARN("No suitable gpu found. Picking first GPU: {}", gpus[0]->getProperties().deviceName.data())
     return *gpus[0];
 }
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mode_0',['mode',['../structvkf_1_1platform_1_1_window_1_1_properties.html#abd13c19c136342e0d5d427f510937e58',1,'vkf::platform::Window::Properties']]]
+  ['loadop_0',['loadOp',['../structvkf_1_1rendering_1_1_attachment.html#a3cc526784460d3982707a5961f8e96ba',1,'vkf::rendering::Attachment']]]
 ];

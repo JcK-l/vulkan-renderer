@@ -1,34 +1,47 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 11/8/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file PhysicalDevice.h
+/// \brief This file declares the PhysicalDevice class which is used for managing Vulkan physical devices.
+///
+/// The PhysicalDevice class is part of the vkf::core namespace. It provides methods for interacting with a Vulkan
+/// physical device, including getting device features and properties, querying queue family properties, checking
+/// surface support, and requesting extension features.
+///
+/// \author Joshua Lowe
+/// \date 11/8/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef VULKANRENDERER_PHYSICALDEVICE_H
 #define VULKANRENDERER_PHYSICALDEVICE_H
 
-#include "../common/Log.h"
-
 namespace vkf::core
 {
 
-/// \brief This is a wrapper class for vk::raii::PhysicalDevice
+///
+/// \class PhysicalDevice
+/// \brief This class manages Vulkan physical devices.
+///
+/// It provides methods for interacting with a Vulkan physical device, including getting device features and properties,
+/// querying queue family properties, checking surface support, and requesting extension features.
+///
 class PhysicalDevice
 {
   public:
-    explicit PhysicalDevice(vk::raii::PhysicalDevice &physicalDevice);
+    ///
+    /// \brief Constructor for the PhysicalDevice class.
+    ///
+    /// This constructor creates a Vulkan physical device using the provided physical device.
+    ///
+    /// \param physicalDevice The Vulkan physical device.
+    ///
+    explicit PhysicalDevice(vk::raii::PhysicalDevice physicalDevice);
 
-    PhysicalDevice(const PhysicalDevice &) = delete;
-
-    PhysicalDevice(PhysicalDevice &&) = delete;
-
-    ~PhysicalDevice() = default;
-
-    PhysicalDevice &operator=(const PhysicalDevice &) = delete;
-
-    PhysicalDevice &operator=(PhysicalDevice &&) = delete;
+    PhysicalDevice(const PhysicalDevice &) = delete;            // Deleted copy constructor
+    PhysicalDevice(PhysicalDevice &&) noexcept = default;       // Default move constructor
+    PhysicalDevice &operator=(const PhysicalDevice &) = delete; // Deleted copy assignment operator
+    PhysicalDevice &operator=(PhysicalDevice &&) = delete;      // Deleted move assignment operator
+    ~PhysicalDevice() = default;                                // Default destructor
 
     [[nodiscard]] const vk::PhysicalDeviceFeatures &getPhysicalDeviceFeatures() const;
 
@@ -40,8 +53,21 @@ class PhysicalDevice
 
     [[nodiscard]] const vk::raii::PhysicalDevice &getHandle() const;
 
+    ///
+    /// \brief Get the head of the extension features chain.
+    ///
+    /// \return A pointer to the head of the extension features.
+    ///
     [[nodiscard]] void *getExtensionFeaturesHead() const;
 
+    ///
+    /// \brief Request extension features.
+    ///
+    /// This function requests extension features for the physical device and stores them in a map for later reference.
+    ///
+    /// \tparam Structure The structure of the extension feature.
+    /// \return A reference to the requested extension feature.
+    ///
     template <typename Structure> Structure &requestExtensionFeatures()
     {
 
@@ -69,7 +95,8 @@ class PhysicalDevice
             featurePointer->pNext = extensionFeaturesHead;
         }
         extensionFeaturesHead = featurePointer;
-        LOG_INFO("Enabled extension feature: {}", vk::to_string(structureType));
+        // I don't want to include Log.h here, so I'll just comment this out for now
+        // LOG_INFO("Enabled extension feature: {}", vk::to_string(structureType));
 
         return *featurePointer;
     }
@@ -77,7 +104,7 @@ class PhysicalDevice
   private:
     vk::raii::PhysicalDevice handle{VK_NULL_HANDLE};
 
-    std::map<vk::StructureType, std::shared_ptr<void>> enabledExtensionFeatures;
+    std::unordered_map<vk::StructureType, std::shared_ptr<void>> enabledExtensionFeatures;
     void *extensionFeaturesHead{nullptr};
 
     vk::PhysicalDeviceFeatures physicalDeviceFeatures;

@@ -1,0 +1,86 @@
+\doxysection{vkf\+::core\+::Render\+Pass Class Reference}
+\hypertarget{classvkf_1_1core_1_1_render_pass}{}\label{classvkf_1_1core_1_1_render_pass}\index{vkf::core::RenderPass@{vkf::core::RenderPass}}
+
+
+This class manages Vulkan render passes.  
+
+
+
+
+{\ttfamily \#include $<$Render\+Pass.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass_a7536da50b8a67f35c94e83d09f7c3b3a}{Render\+Pass}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, const \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{rendering\+::\+Render\+Target}} \&render\+Target, const std\+::vector$<$ vk\+::\+Subpass\+Description $>$ \&subpass\+Descriptions, const std\+::vector$<$ vk\+::\+Subpass\+Dependency $>$ \&subpass\+Dependencies)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1core_1_1_render_pass}{Render\+Pass} object. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_a837d9e9738a60b787c2158a55ca09057}\label{classvkf_1_1core_1_1_render_pass_a837d9e9738a60b787c2158a55ca09057} 
+{\bfseries Render\+Pass} (const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_a561a7a880d7f9eba5ea009c9e47a6490}\label{classvkf_1_1core_1_1_render_pass_a561a7a880d7f9eba5ea009c9e47a6490} 
+{\bfseries Render\+Pass} (\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&\&) noexcept=default
+\item 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_aee1a70d6b52255eb2aa29dfbf253ae41}\label{classvkf_1_1core_1_1_render_pass_aee1a70d6b52255eb2aa29dfbf253ae41} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_aeaaf6cf15b01cfa6b4e517734106f539}\label{classvkf_1_1core_1_1_render_pass_aeaaf6cf15b01cfa6b4e517734106f539} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_a89bf0348f839cd64844df40449584eb0}\label{classvkf_1_1core_1_1_render_pass_a89bf0348f839cd64844df40449584eb0} 
+const vk\+::raii\+::\+Render\+Pass \& {\bfseries get\+Handle} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_ad1983c332992f63b7ba14524990c3867}\label{classvkf_1_1core_1_1_render_pass_ad1983c332992f63b7ba14524990c3867} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \& {\bfseries device}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_a135ec67a92b76ce75e66d8f3db96acee}\label{classvkf_1_1core_1_1_render_pass_a135ec67a92b76ce75e66d8f3db96acee} 
+vk\+::raii\+::\+Render\+Pass {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_a2678694d590c263bf85c6aeb909f6f43}\label{classvkf_1_1core_1_1_render_pass_a2678694d590c263bf85c6aeb909f6f43} 
+std\+::vector$<$ vk\+::\+Attachment\+Description $>$ {\bfseries attachment\+Descriptions} \{\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_a6635160860cb696b22c03dd98f83ea94}\label{classvkf_1_1core_1_1_render_pass_a6635160860cb696b22c03dd98f83ea94} 
+std\+::vector$<$ vk\+::\+Subpass\+Description $>$ {\bfseries subpass\+Descriptions} \{\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_a2a442b0ab6084f8ce87d34123ac63f13}\label{classvkf_1_1core_1_1_render_pass_a2a442b0ab6084f8ce87d34123ac63f13} 
+std\+::vector$<$ vk\+::\+Subpass\+Dependency $>$ {\bfseries subpass\+Dependencies} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages Vulkan render passes. 
+
+It provides an interface for interacting with a Vulkan render pass, including getting the handle to the render pass. It also provides methods for creating a render pass with subpass information and dependencies. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1core_1_1_render_pass_a7536da50b8a67f35c94e83d09f7c3b3a}\label{classvkf_1_1core_1_1_render_pass_a7536da50b8a67f35c94e83d09f7c3b3a} 
+\index{vkf::core::RenderPass@{vkf::core::RenderPass}!RenderPass@{RenderPass}}
+\index{RenderPass@{RenderPass}!vkf::core::RenderPass@{vkf::core::RenderPass}}
+\doxysubsubsection{\texorpdfstring{RenderPass()}{RenderPass()}}
+{\footnotesize\ttfamily vkf\+::core\+::\+Render\+Pass\+::\+Render\+Pass (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{const \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{rendering\+::\+Render\+Target}} \&}]{render\+Target,  }\item[{const std\+::vector$<$ vk\+::\+Subpass\+Description $>$ \&}]{subpass\+Descriptions,  }\item[{const std\+::vector$<$ vk\+::\+Subpass\+Dependency $>$ \&}]{subpass\+Dependencies }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{classvkf_1_1core_1_1_render_pass}{Render\+Pass} object. 
+
+This constructor creates a Vulkan render pass using the provided device, render target, subpass information, and dependencies.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The Vulkan device to use for creating the render pass. \\
+\hline
+{\em render\+Target} & The render target to use for creating the render pass. \\
+\hline
+{\em subpass\+Descriptions} & The subpass information to use for creating the render pass. \\
+\hline
+{\em subpass\+Dependencies} & The dependencies to use for creating the render pass. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_render_pass_8h}{Render\+Pass.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_render_pass_8cpp}{Render\+Pass.\+cpp}}\end{DoxyCompactItemize}

@@ -79,34 +79,45 @@ $(function() {
   <div class="headertitle"><div class="title">Window.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;GLFW/glfw3.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="_event_8h_source.html">../common/event.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_instance_8h_source.html">../core/Instance.h</a>&quot;</code><br />
+
+<p>This file declares the Window class which is used for managing GLFW windows.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_event_8h_source.html">../common/Event.h</a>&quot;</code><br />
+<code>#include &quot;GLFW/glfw3.h&quot;</code><br />
 </div>
 <p><a href="_window_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html">vkf::platform::Window</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides functionality associated with glfw.  <a href="classvkf_1_1platform_1_1_window.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class manages GLFW windows.  <a href="classvkf_1_1platform_1_1_window.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvkf_1_1platform_1_1_window_1_1_extent.html">vkf::platform::Window::Extent</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structvkf_1_1platform_1_1_window_1_1_extent.html" title="Extent of the window.">Extent</a> of the window.  <a href="structvkf_1_1platform_1_1_window_1_1_extent.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct represents the extent of the window.  <a href="structvkf_1_1platform_1_1_window_1_1_extent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvkf_1_1platform_1_1_window_1_1_properties.html">vkf::platform::Window::Properties</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classvkf_1_1platform_1_1_window.html" title="This class provides functionality associated with glfw.">Window</a> properties.  <a href="structvkf_1_1platform_1_1_window_1_1_properties.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct represents the properties of the window.  <a href="structvkf_1_1platform_1_1_window_1_1_properties.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacevkf" id="r_namespacevkf"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html">vkf</a></td></tr>
-<tr class="memdesc:namespacevkf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vulkan Framework. <br /></td></tr>
+<tr class="memdesc:namespacevkf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The top-level namespace for the Vulkan Framework (vkf). <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacevkf_1_1core" id="r_namespacevkf_1_1core"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1core.html">vkf::core</a></td></tr>
+<tr class="memdesc:namespacevkf_1_1core"><td class="mdescLeft">&#160;</td><td class="mdescRight">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacevkf_1_1platform" id="r_namespacevkf_1_1platform"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1platform.html">vkf::platform</a></td></tr>
-<tr class="memdesc:namespacevkf_1_1platform"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of platform specific functionality. <br /></td></tr>
+<tr class="memdesc:namespacevkf_1_1platform"><td class="mdescLeft">&#160;</td><td class="mdescRight">The platform namespace includes platform-specific classes and functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file declares the Window class which is used for managing GLFW windows. </p>
+<p>The Window class is part of the <a class="el" href="namespacevkf_1_1platform.html" title="The platform namespace includes platform-specific classes and functions.">vkf::platform</a> namespace. It provides an interface for interacting with a GLFW window, including creating a surface, getting required surface extensions, setting event callbacks, and updating the window. It also provides methods for querying window properties such as whether the window is closed, its framebuffer size, and its handle.</p>
+<dl class="section author"><dt>Author</dt><dd>Joshua Lowe </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>10/31/2023</dd></dl>
+<p>The license and distribution terms for this file may be found in the file LICENSE in this distribution </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

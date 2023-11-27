@@ -1,44 +1,68 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 10/31/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Window.h
+/// \brief This file declares the Window class which is used for managing GLFW windows.
+///
+/// The Window class is part of the vkf::platform namespace. It provides an interface for interacting with a GLFW
+/// window, including creating a surface, getting required surface extensions, setting event callbacks, and updating the
+/// window. It also provides methods for querying window properties such as whether the window is closed, its
+/// framebuffer size, and its handle.
+///
+/// \author Joshua Lowe
+/// \date 10/31/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef VULKANRENDERER_WINDOW_H
 #define VULKANRENDERER_WINDOW_H
 
-#include "../common/event.h"
-#include "../core/Instance.h"
+#include "../common/Event.h"
 #include "GLFW/glfw3.h"
 
-/// \brief Collection of platform specific functionality
+namespace vkf::core // Forward declarations
+{
+class Instance;
+} // namespace vkf::core
+
 namespace vkf::platform
 {
 
-class Application;
-
-/// \brief This class provides functionality associated with glfw
+///
+/// \class Window
+/// \brief This class manages GLFW windows.
+///
+/// It provides an interface for interacting with a GLFW window, including creating a surface, getting required surface
+/// extensions, setting event callbacks, and updating the window. It also provides methods for querying window
+/// properties such as whether the window is closed, its framebuffer size, and its handle.
+///
 class Window
 {
 
   public:
-    /// \brief Extent of the window
+    ///
+    /// \struct Extent
+    /// \brief This struct represents the extent of the window.
+    ///
     struct Extent
     {
         uint32_t width;
         uint32_t height;
     };
 
-    /// \brief Vsync option
+    ///
+    /// \enum Vsync
+    /// \brief This enum represents the Vsync option.
+    ///
     enum class Vsync
     {
         OFF,
         ON
     };
 
-    /// \brief Window mode
+    ///
+    /// \enum Mode
+    /// \brief This enum represents the window mode.
+    ///
     enum class Mode
     {
         Fullscreen,
@@ -46,7 +70,10 @@ class Window
         Windowed
     };
 
-    /// \brief Window properties
+    ///
+    /// \struct Properties
+    /// \brief This struct represents the properties of the window.
+    ///
     struct Properties
     {
         std::string title;
@@ -58,9 +85,20 @@ class Window
         std::function<void(Event &)> eventCallback;
     };
 
-    explicit Window(Properties);
+    ///
+    /// \brief Constructs a Window object.
+    ///
+    /// This constructor creates a GLFW window using the provided properties.
+    ///
+    /// \param properties The properties of the window.
+    ///
+    explicit Window(Properties properties);
 
-    ~Window();
+    Window(const Window &) = delete;            // Deleted copy constructor
+    Window(Window &&) noexcept = default;       // Default move constructor
+    Window &operator=(const Window &) = delete; // Deleted copy assignment operator
+    Window &operator=(Window &&) = delete;      // Deleted move assignment operator
+    ~Window();                                  // Implementation in Window.cpp
 
     void onUpdate();
 
@@ -77,6 +115,9 @@ class Window
     vk::raii::SurfaceKHR createSurface(const core::Instance &instance);
 
     void waitEvents() const;
+
+    [[nodiscard]] bool isResized() const;
+    void setResized(bool isResized);
 
   private:
     Properties windowData;

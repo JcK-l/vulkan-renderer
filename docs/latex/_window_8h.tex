@@ -1,21 +1,41 @@
 \doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/platform/\+Window.h File Reference}
 \hypertarget{_window_8h}{}\label{_window_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/platform/Window.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/platform/Window.h}}
+
+
+This file declares the Window class which is used for managing GLFW windows.  
+
+
+{\ttfamily \#include "{}../common/\+Event.\+h"{}}\newline
 {\ttfamily \#include "{}GLFW/glfw3.\+h"{}}\newline
-{\ttfamily \#include "{}../common/event.\+h"{}}\newline
-{\ttfamily \#include "{}../core/\+Instance.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{vkf\+::platform\+::\+Window}}
-\begin{DoxyCompactList}\small\item\em This class provides functionality associated with glfw. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This class manages GLFW windows. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_extent}{vkf\+::platform\+::\+Window\+::\+Extent}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1platform_1_1_window_1_1_extent}{Extent} of the window. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This struct represents the extent of the window. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{vkf\+::platform\+::\+Window\+::\+Properties}}
-\begin{DoxyCompactList}\small\item\em \doxylink{classvkf_1_1platform_1_1_window}{Window} properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This struct represents the properties of the window. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacevkf}{vkf}}
-\begin{DoxyCompactList}\small\item\em Vulkan Framework. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacevkf_1_1core}{vkf\+::core}}
+\begin{DoxyCompactList}\small\item\em The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespacevkf_1_1platform}{vkf\+::platform}}
-\begin{DoxyCompactList}\small\item\em Collection of platform specific functionality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The platform namespace includes platform-\/specific classes and functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file declares the Window class which is used for managing GLFW windows. 
+
+The Window class is part of the \doxylink{namespacevkf_1_1platform}{vkf\+::platform} namespace. It provides an interface for interacting with a GLFW window, including creating a surface, getting required surface extensions, setting event callbacks, and updating the window. It also provides methods for querying window properties such as whether the window is closed, its framebuffer size, and its handle.
+
+\begin{DoxyAuthor}{Author}
+Joshua Lowe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10/31/2023
+\end{DoxyDate}
+The license and distribution terms for this file may be found in the file LICENSE in this distribution 

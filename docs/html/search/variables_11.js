@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['vmaallocator_0',['vmaAllocator',['../classvkf_1_1core_1_1_device.html#accaf43b08ea6517082229e4f60f41e0b',1,'vkf::core::Device']]],
-  ['vsync_1',['vsync',['../structvkf_1_1platform_1_1_window_1_1_properties.html#a918f5b8a1cf3c66139b1fba656677dec',1,'vkf::platform::Window::Properties']]]
+  ['title_0',['title',['../structvkf_1_1platform_1_1_window_1_1_properties.html#afdd76f8335fd3e47bd687cf298b4b72e',1,'vkf::platform::Window::Properties']]],
+  ['type_1',['type',['../structvkf_1_1_event.html#a3a9260026f5181813e8cb931e1574b23',1,'vkf::Event']]]
 ];

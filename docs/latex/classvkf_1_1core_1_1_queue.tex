@@ -2,7 +2,7 @@
 \hypertarget{classvkf_1_1core_1_1_queue}{}\label{classvkf_1_1core_1_1_queue}\index{vkf::core::Queue@{vkf::core::Queue}}
 
 
-This class provides access to queue properties.  
+This class manages Vulkan queues.  
 
 
 
@@ -12,93 +12,86 @@ This class provides access to queue properties.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_queue_a4b17779015de3d592b785b5bc8845bfe}{Queue}} (uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a5a768b205fdcdc1a9b6c7deea4f6ef9a}{family\+Index}}, vk\+::\+Queue\+Family\+Properties \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a6ec15806ac2c1c74c8ffd6f002aa55a8}{properties}}, vk\+::\+Bool32 \mbox{\hyperlink{classvkf_1_1core_1_1_queue_ad4d77b14b5ef6ad32cd2a30d5e074610}{can\+Present}}, uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a9ab19e7397a4598297b67641fa6d83e8}{queue\+Index}})
+\mbox{\hyperlink{classvkf_1_1core_1_1_queue_add8f0c856c0e167074a55c74fd7b6976}{Queue}} (vk\+::raii\+::\+Queue queue, uint32\+\_\+t family\+Index, vk\+::\+Queue\+Family\+Properties properties, vk\+::\+Bool32 can\+Present, uint32\+\_\+t queue\+Index)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1core_1_1_queue}{Queue} object. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_queue_a1bdb3790ea1589d1feba13696848e4b9}\label{classvkf_1_1core_1_1_queue_a1bdb3790ea1589d1feba13696848e4b9} 
+{\bfseries Queue} (const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&)=delete
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_queue_a80f0aaf9463e15eb45b0307afe4b1ed5}{Queue}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&)=default
+\Hypertarget{classvkf_1_1core_1_1_queue_a2a01d0c8e496f52e6588c075b4640a20}\label{classvkf_1_1core_1_1_queue_a2a01d0c8e496f52e6588c075b4640a20} 
+{\bfseries Queue} (\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&\&) noexcept=default
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_queue_ac1197ec9d63cf222c31936f1e100cd73}{Queue}} (\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&\&other) noexcept
+\Hypertarget{classvkf_1_1core_1_1_queue_ae5f8044ee4687c72aed0dfa6c49d0c88}\label{classvkf_1_1core_1_1_queue_ae5f8044ee4687c72aed0dfa6c49d0c88} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&)=delete
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_queue_ae5f8044ee4687c72aed0dfa6c49d0c88}{operator=}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&)=delete
+\Hypertarget{classvkf_1_1core_1_1_queue_ab938f96a88d1bacb0d32126ea8fb4ee2}\label{classvkf_1_1core_1_1_queue_ab938f96a88d1bacb0d32126ea8fb4ee2} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&\&)=delete
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_queue_ab938f96a88d1bacb0d32126ea8fb4ee2}{operator=}} (\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&\&)=delete
+\Hypertarget{classvkf_1_1core_1_1_queue_a6d91439256eed425900c7db93a2940bc}\label{classvkf_1_1core_1_1_queue_a6d91439256eed425900c7db93a2940bc} 
+const vk\+::raii\+::\+Queue \& {\bfseries get\+Handle} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_queue_ae5b62fe4a702ae3bba09e0d6f41873ed}\label{classvkf_1_1core_1_1_queue_ae5b62fe4a702ae3bba09e0d6f41873ed} 
+uint32\+\_\+t {\bfseries get\+Family\+Index} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_queue_a03a152ec4217496256c8e7d489c4c1a7}\label{classvkf_1_1core_1_1_queue_a03a152ec4217496256c8e7d489c4c1a7} 
+const vk\+::\+Queue\+Family\+Properties \& {\bfseries get\+Properties} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_queue_a416e96639e2c8f7880f52bfffdd10255}\label{classvkf_1_1core_1_1_queue_a416e96639e2c8f7880f52bfffdd10255} 
+vk\+::\+Bool32 {\bfseries can\+Present} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_queue_ac2f36213ab717a98b6b387973a7de373}\label{classvkf_1_1core_1_1_queue_ac2f36213ab717a98b6b387973a7de373} 
+uint32\+\_\+t {\bfseries get\+Queue\+Index} () const
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a5a768b205fdcdc1a9b6c7deea4f6ef9a}{family\+Index}}
+\Hypertarget{classvkf_1_1core_1_1_queue_a34c1626e8d9ea7367746ca264a237365}\label{classvkf_1_1core_1_1_queue_a34c1626e8d9ea7367746ca264a237365} 
+vk\+::raii\+::\+Queue {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
 \item 
-vk\+::\+Queue\+Family\+Properties \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a6ec15806ac2c1c74c8ffd6f002aa55a8}{properties}}
+\Hypertarget{classvkf_1_1core_1_1_queue_a5a768b205fdcdc1a9b6c7deea4f6ef9a}\label{classvkf_1_1core_1_1_queue_a5a768b205fdcdc1a9b6c7deea4f6ef9a} 
+uint32\+\_\+t {\bfseries family\+Index}
 \item 
-vk\+::\+Bool32 \mbox{\hyperlink{classvkf_1_1core_1_1_queue_ad4d77b14b5ef6ad32cd2a30d5e074610}{can\+Present}}
+\Hypertarget{classvkf_1_1core_1_1_queue_a6ec15806ac2c1c74c8ffd6f002aa55a8}\label{classvkf_1_1core_1_1_queue_a6ec15806ac2c1c74c8ffd6f002aa55a8} 
+vk\+::\+Queue\+Family\+Properties {\bfseries properties}
 \item 
-uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a9ab19e7397a4598297b67641fa6d83e8}{queue\+Index}}
+\Hypertarget{classvkf_1_1core_1_1_queue_af53fe502e0ee5297102270b1aabc02fb}\label{classvkf_1_1core_1_1_queue_af53fe502e0ee5297102270b1aabc02fb} 
+vk\+::\+Bool32 {\bfseries supports\+Present}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_queue_a9ab19e7397a4598297b67641fa6d83e8}\label{classvkf_1_1core_1_1_queue_a9ab19e7397a4598297b67641fa6d83e8} 
+uint32\+\_\+t {\bfseries queue\+Index}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This class provides access to queue properties. 
+This class manages Vulkan queues. 
+
+It provides an interface for interacting with a Vulkan queue, including getting the handle to the queue, the family index, the queue properties, and the queue index. It also provides a method to check if the queue can present. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1core_1_1_queue_a4b17779015de3d592b785b5bc8845bfe}\label{classvkf_1_1core_1_1_queue_a4b17779015de3d592b785b5bc8845bfe} 
+\Hypertarget{classvkf_1_1core_1_1_queue_add8f0c856c0e167074a55c74fd7b6976}\label{classvkf_1_1core_1_1_queue_add8f0c856c0e167074a55c74fd7b6976} 
 \index{vkf::core::Queue@{vkf::core::Queue}!Queue@{Queue}}
 \index{Queue@{Queue}!vkf::core::Queue@{vkf::core::Queue}}
-\doxysubsubsection{\texorpdfstring{Queue()}{Queue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Queue\+::\+Queue (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{family\+Index,  }\item[{vk\+::\+Queue\+Family\+Properties}]{properties,  }\item[{vk\+::\+Bool32}]{can\+Present,  }\item[{uint32\+\_\+t}]{queue\+Index }\end{DoxyParamCaption})}
-
-\Hypertarget{classvkf_1_1core_1_1_queue_a80f0aaf9463e15eb45b0307afe4b1ed5}\label{classvkf_1_1core_1_1_queue_a80f0aaf9463e15eb45b0307afe4b1ed5} 
-\index{vkf::core::Queue@{vkf::core::Queue}!Queue@{Queue}}
-\index{Queue@{Queue}!vkf::core::Queue@{vkf::core::Queue}}
-\doxysubsubsection{\texorpdfstring{Queue()}{Queue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Queue\+::\+Queue (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
-
-\Hypertarget{classvkf_1_1core_1_1_queue_ac1197ec9d63cf222c31936f1e100cd73}\label{classvkf_1_1core_1_1_queue_ac1197ec9d63cf222c31936f1e100cd73} 
-\index{vkf::core::Queue@{vkf::core::Queue}!Queue@{Queue}}
-\index{Queue@{Queue}!vkf::core::Queue@{vkf::core::Queue}}
-\doxysubsubsection{\texorpdfstring{Queue()}{Queue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Queue\+::\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+\doxysubsubsection{\texorpdfstring{Queue()}{Queue()}}
+{\footnotesize\ttfamily vkf\+::core\+::\+Queue\+::\+Queue (\begin{DoxyParamCaption}\item[{vk\+::raii\+::\+Queue}]{queue,  }\item[{uint32\+\_\+t}]{family\+Index,  }\item[{vk\+::\+Queue\+Family\+Properties}]{properties,  }\item[{vk\+::\+Bool32}]{can\+Present,  }\item[{uint32\+\_\+t}]{queue\+Index }\end{DoxyParamCaption})}
 
 
 
-\doxysubsection{Member Function Documentation}
-\Hypertarget{classvkf_1_1core_1_1_queue_ae5f8044ee4687c72aed0dfa6c49d0c88}\label{classvkf_1_1core_1_1_queue_ae5f8044ee4687c72aed0dfa6c49d0c88} 
-\index{vkf::core::Queue@{vkf::core::Queue}!operator=@{operator=}}
-\index{operator=@{operator=}!vkf::core::Queue@{vkf::core::Queue}}
-\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& vkf\+::core\+::\+Queue\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+Constructs a \doxylink{classvkf_1_1core_1_1_queue}{Queue} object. 
 
-\Hypertarget{classvkf_1_1core_1_1_queue_ab938f96a88d1bacb0d32126ea8fb4ee2}\label{classvkf_1_1core_1_1_queue_ab938f96a88d1bacb0d32126ea8fb4ee2} 
-\index{vkf::core::Queue@{vkf::core::Queue}!operator=@{operator=}}
-\index{operator=@{operator=}!vkf::core::Queue@{vkf::core::Queue}}
-\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& vkf\+::core\+::\+Queue\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+This constructor creates a Vulkan queue using the provided queue, family index, queue properties, present support, and queue index.
 
 
-
-\doxysubsection{Member Data Documentation}
-\Hypertarget{classvkf_1_1core_1_1_queue_ad4d77b14b5ef6ad32cd2a30d5e074610}\label{classvkf_1_1core_1_1_queue_ad4d77b14b5ef6ad32cd2a30d5e074610} 
-\index{vkf::core::Queue@{vkf::core::Queue}!canPresent@{canPresent}}
-\index{canPresent@{canPresent}!vkf::core::Queue@{vkf::core::Queue}}
-\doxysubsubsection{\texorpdfstring{canPresent}{canPresent}}
-{\footnotesize\ttfamily vk\+::\+Bool32 vkf\+::core\+::\+Queue\+::can\+Present\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classvkf_1_1core_1_1_queue_a5a768b205fdcdc1a9b6c7deea4f6ef9a}\label{classvkf_1_1core_1_1_queue_a5a768b205fdcdc1a9b6c7deea4f6ef9a} 
-\index{vkf::core::Queue@{vkf::core::Queue}!familyIndex@{familyIndex}}
-\index{familyIndex@{familyIndex}!vkf::core::Queue@{vkf::core::Queue}}
-\doxysubsubsection{\texorpdfstring{familyIndex}{familyIndex}}
-{\footnotesize\ttfamily uint32\+\_\+t vkf\+::core\+::\+Queue\+::family\+Index\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classvkf_1_1core_1_1_queue_a6ec15806ac2c1c74c8ffd6f002aa55a8}\label{classvkf_1_1core_1_1_queue_a6ec15806ac2c1c74c8ffd6f002aa55a8} 
-\index{vkf::core::Queue@{vkf::core::Queue}!properties@{properties}}
-\index{properties@{properties}!vkf::core::Queue@{vkf::core::Queue}}
-\doxysubsubsection{\texorpdfstring{properties}{properties}}
-{\footnotesize\ttfamily vk\+::\+Queue\+Family\+Properties vkf\+::core\+::\+Queue\+::properties\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classvkf_1_1core_1_1_queue_a9ab19e7397a4598297b67641fa6d83e8}\label{classvkf_1_1core_1_1_queue_a9ab19e7397a4598297b67641fa6d83e8} 
-\index{vkf::core::Queue@{vkf::core::Queue}!queueIndex@{queueIndex}}
-\index{queueIndex@{queueIndex}!vkf::core::Queue@{vkf::core::Queue}}
-\doxysubsubsection{\texorpdfstring{queueIndex}{queueIndex}}
-{\footnotesize\ttfamily uint32\+\_\+t vkf\+::core\+::\+Queue\+::queue\+Index\hspace{0.3cm}{\ttfamily [private]}}
-
+\begin{DoxyParams}{Parameters}
+{\em queue} & The Vulkan queue. \\
+\hline
+{\em family\+Index} & The family index of the queue. \\
+\hline
+{\em properties} & The properties of the queue. \\
+\hline
+{\em can\+Present} & A boolean indicating if the queue can present. \\
+\hline
+{\em queue\+Index} & The index of the queue. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

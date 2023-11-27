@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>This class provides functionality associated with glfw.  
+<p>This class manages GLFW windows.  
  <a href="classvkf_1_1platform_1_1_window.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_window_8h_source.html">Window.h</a>&gt;</code></p>
@@ -91,115 +91,89 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvkf_1_1platform_1_1_window_1_1_extent.html">Extent</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structvkf_1_1platform_1_1_window_1_1_extent.html" title="Extent of the window.">Extent</a> of the window.  <a href="structvkf_1_1platform_1_1_window_1_1_extent.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct represents the extent of the window.  <a href="structvkf_1_1platform_1_1_window_1_1_extent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvkf_1_1platform_1_1_window_1_1_properties.html">Properties</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classvkf_1_1platform_1_1_window.html" title="This class provides functionality associated with glfw.">Window</a> properties.  <a href="structvkf_1_1platform_1_1_window_1_1_properties.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct represents the properties of the window.  <a href="structvkf_1_1platform_1_1_window_1_1_properties.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aab0d1d3c8da9699bdbe700415889802f" id="r_aab0d1d3c8da9699bdbe700415889802f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802f">Vsync</a> { <a class="el" href="classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802fa88559a0cfd8250c9d65970cc145c92d4">OFF</a>
-, <a class="el" href="classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802fa90651ebea9a35ec4e018c8157492e17c">ON</a>
+<tr class="memitem:aab0d1d3c8da9699bdbe700415889802f" id="r_aab0d1d3c8da9699bdbe700415889802f"><td class="memItemLeft" align="right" valign="top"><a id="aab0d1d3c8da9699bdbe700415889802f" name="aab0d1d3c8da9699bdbe700415889802f"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802f">Vsync</a> { <b>OFF</b>
+, <b>ON</b>
  }</td></tr>
-<tr class="memdesc:aab0d1d3c8da9699bdbe700415889802f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vsync option.  <a href="classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802f">More...</a><br /></td></tr>
+<tr class="memdesc:aab0d1d3c8da9699bdbe700415889802f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This enum represents the Vsync option. <br /></td></tr>
 <tr class="separator:aab0d1d3c8da9699bdbe700415889802f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe12df63cfc71d34a52b071adad432f0" id="r_abe12df63cfc71d34a52b071adad432f0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0">Mode</a> { <a class="el" href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0a0829ea6734059d66e6bf87096b215dc1">Fullscreen</a>
-, <a class="el" href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0a5a805befe579fd1668bd4a32e5be1310">FullscreenBorderless</a>
-, <a class="el" href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0ab13311ab51c4c34757f67f26580018dd">Windowed</a>
+<tr class="memitem:abe12df63cfc71d34a52b071adad432f0" id="r_abe12df63cfc71d34a52b071adad432f0"><td class="memItemLeft" align="right" valign="top"><a id="abe12df63cfc71d34a52b071adad432f0" name="abe12df63cfc71d34a52b071adad432f0"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0">Mode</a> { <b>Fullscreen</b>
+, <b>FullscreenBorderless</b>
+, <b>Windowed</b>
  }</td></tr>
-<tr class="memdesc:abe12df63cfc71d34a52b071adad432f0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classvkf_1_1platform_1_1_window.html" title="This class provides functionality associated with glfw.">Window</a> mode.  <a href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0">More...</a><br /></td></tr>
+<tr class="memdesc:abe12df63cfc71d34a52b071adad432f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This enum represents the window mode. <br /></td></tr>
 <tr class="separator:abe12df63cfc71d34a52b071adad432f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6ce686ddd2c5c9c6228e5af6faacf8f1" id="r_a6ce686ddd2c5c9c6228e5af6faacf8f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#a6ce686ddd2c5c9c6228e5af6faacf8f1">Window</a> (<a class="el" href="structvkf_1_1platform_1_1_window_1_1_properties.html">Properties</a>)</td></tr>
-<tr class="separator:a6ce686ddd2c5c9c6228e5af6faacf8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1631aa084aab2848fa6f53d20fd96d9a" id="r_a1631aa084aab2848fa6f53d20fd96d9a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#a1631aa084aab2848fa6f53d20fd96d9a">~Window</a> ()</td></tr>
-<tr class="separator:a1631aa084aab2848fa6f53d20fd96d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6067d940c92908ff9eb369aafa92c19" id="r_ac6067d940c92908ff9eb369aafa92c19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#ac6067d940c92908ff9eb369aafa92c19">onUpdate</a> ()</td></tr>
+<tr class="memitem:a30413ba1a98265c59fd5388d0e7784ea" id="r_a30413ba1a98265c59fd5388d0e7784ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#a30413ba1a98265c59fd5388d0e7784ea">Window</a> (<a class="el" href="structvkf_1_1platform_1_1_window_1_1_properties.html">Properties</a> properties)</td></tr>
+<tr class="memdesc:a30413ba1a98265c59fd5388d0e7784ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classvkf_1_1platform_1_1_window.html" title="This class manages GLFW windows.">Window</a> object.  <br /></td></tr>
+<tr class="separator:a30413ba1a98265c59fd5388d0e7784ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51c44a404ce91b58706b16f640b2f5db" id="r_a51c44a404ce91b58706b16f640b2f5db"><td class="memItemLeft" align="right" valign="top"><a id="a51c44a404ce91b58706b16f640b2f5db" name="a51c44a404ce91b58706b16f640b2f5db"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Window</b> (const <a class="el" href="classvkf_1_1platform_1_1_window.html">Window</a> &amp;)=delete</td></tr>
+<tr class="separator:a51c44a404ce91b58706b16f640b2f5db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79ad5d1c4e5651fcc54068dbfc9a61e1" id="r_a79ad5d1c4e5651fcc54068dbfc9a61e1"><td class="memItemLeft" align="right" valign="top"><a id="a79ad5d1c4e5651fcc54068dbfc9a61e1" name="a79ad5d1c4e5651fcc54068dbfc9a61e1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Window</b> (<a class="el" href="classvkf_1_1platform_1_1_window.html">Window</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a79ad5d1c4e5651fcc54068dbfc9a61e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a234472ef1be8406537c0468c3eef8676" id="r_a234472ef1be8406537c0468c3eef8676"><td class="memItemLeft" align="right" valign="top"><a id="a234472ef1be8406537c0468c3eef8676" name="a234472ef1be8406537c0468c3eef8676"></a>
+<a class="el" href="classvkf_1_1platform_1_1_window.html">Window</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classvkf_1_1platform_1_1_window.html">Window</a> &amp;)=delete</td></tr>
+<tr class="separator:a234472ef1be8406537c0468c3eef8676"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aef356c0b1fbeb6dc0810468d002983" id="r_a2aef356c0b1fbeb6dc0810468d002983"><td class="memItemLeft" align="right" valign="top"><a id="a2aef356c0b1fbeb6dc0810468d002983" name="a2aef356c0b1fbeb6dc0810468d002983"></a>
+<a class="el" href="classvkf_1_1platform_1_1_window.html">Window</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classvkf_1_1platform_1_1_window.html">Window</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:a2aef356c0b1fbeb6dc0810468d002983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6067d940c92908ff9eb369aafa92c19" id="r_ac6067d940c92908ff9eb369aafa92c19"><td class="memItemLeft" align="right" valign="top"><a id="ac6067d940c92908ff9eb369aafa92c19" name="ac6067d940c92908ff9eb369aafa92c19"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdate</b> ()</td></tr>
 <tr class="separator:ac6067d940c92908ff9eb369aafa92c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a8f9a09ec90e972d3a23e78cbff6639" id="r_a7a8f9a09ec90e972d3a23e78cbff6639"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#a7a8f9a09ec90e972d3a23e78cbff6639">setEventCallback</a> (const std::function&lt; void(<a class="el" href="structvkf_1_1_event.html">Event</a> &amp;)&gt; &amp;callback)</td></tr>
+<tr class="memitem:a7a8f9a09ec90e972d3a23e78cbff6639" id="r_a7a8f9a09ec90e972d3a23e78cbff6639"><td class="memItemLeft" align="right" valign="top"><a id="a7a8f9a09ec90e972d3a23e78cbff6639" name="a7a8f9a09ec90e972d3a23e78cbff6639"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setEventCallback</b> (const std::function&lt; void(<a class="el" href="structvkf_1_1_event.html">Event</a> &amp;)&gt; &amp;callback)</td></tr>
 <tr class="separator:a7a8f9a09ec90e972d3a23e78cbff6639"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad714f99baf300c58648a67921d7a1b56" id="r_ad714f99baf300c58648a67921d7a1b56"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#ad714f99baf300c58648a67921d7a1b56">isClosed</a> () const</td></tr>
+<tr class="memitem:ad714f99baf300c58648a67921d7a1b56" id="r_ad714f99baf300c58648a67921d7a1b56"><td class="memItemLeft" align="right" valign="top"><a id="ad714f99baf300c58648a67921d7a1b56" name="ad714f99baf300c58648a67921d7a1b56"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isClosed</b> () const</td></tr>
 <tr class="separator:ad714f99baf300c58648a67921d7a1b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbe720acf94af1c4e22a9f630407d2b6" id="r_abbe720acf94af1c4e22a9f630407d2b6"><td class="memItemLeft" align="right" valign="top">GLFWwindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#abbe720acf94af1c4e22a9f630407d2b6">getHandle</a> () const</td></tr>
+<tr class="memitem:abbe720acf94af1c4e22a9f630407d2b6" id="r_abbe720acf94af1c4e22a9f630407d2b6"><td class="memItemLeft" align="right" valign="top"><a id="abbe720acf94af1c4e22a9f630407d2b6" name="abbe720acf94af1c4e22a9f630407d2b6"></a>
+GLFWwindow *&#160;</td><td class="memItemRight" valign="bottom"><b>getHandle</b> () const</td></tr>
 <tr class="separator:abbe720acf94af1c4e22a9f630407d2b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf84a4ac6b274fe5e386a69a42bd7998" id="r_acf84a4ac6b274fe5e386a69a42bd7998"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#acf84a4ac6b274fe5e386a69a42bd7998">getRequiredSurfaceExtensions</a> ()</td></tr>
+<tr class="memitem:acf84a4ac6b274fe5e386a69a42bd7998" id="r_acf84a4ac6b274fe5e386a69a42bd7998"><td class="memItemLeft" align="right" valign="top"><a id="acf84a4ac6b274fe5e386a69a42bd7998" name="acf84a4ac6b274fe5e386a69a42bd7998"></a>
+std::vector&lt; const char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getRequiredSurfaceExtensions</b> ()</td></tr>
 <tr class="separator:acf84a4ac6b274fe5e386a69a42bd7998"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67d0e045e326c236651bde00769fe334" id="r_a67d0e045e326c236651bde00769fe334"><td class="memItemLeft" align="right" valign="top">vk::raii::SurfaceKHR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#a67d0e045e326c236651bde00769fe334">createSurface</a> (const <a class="el" href="classvkf_1_1core_1_1_instance.html">core::Instance</a> &amp;instance)</td></tr>
+<tr class="memitem:a8c5287aea2fedc6346d50257cbc7c43f" id="r_a8c5287aea2fedc6346d50257cbc7c43f"><td class="memItemLeft" align="right" valign="top"><a id="a8c5287aea2fedc6346d50257cbc7c43f" name="a8c5287aea2fedc6346d50257cbc7c43f"></a>
+std::pair&lt; uint32_t, uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getFramebufferSize</b> () const</td></tr>
+<tr class="separator:a8c5287aea2fedc6346d50257cbc7c43f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67d0e045e326c236651bde00769fe334" id="r_a67d0e045e326c236651bde00769fe334"><td class="memItemLeft" align="right" valign="top"><a id="a67d0e045e326c236651bde00769fe334" name="a67d0e045e326c236651bde00769fe334"></a>
+vk::raii::SurfaceKHR&#160;</td><td class="memItemRight" valign="bottom"><b>createSurface</b> (const <a class="el" href="classvkf_1_1core_1_1_instance.html">core::Instance</a> &amp;instance)</td></tr>
 <tr class="separator:a67d0e045e326c236651bde00769fe334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a782203fc12f7e7fbfa4086a7fc414423" id="r_a782203fc12f7e7fbfa4086a7fc414423"><td class="memItemLeft" align="right" valign="top"><a id="a782203fc12f7e7fbfa4086a7fc414423" name="a782203fc12f7e7fbfa4086a7fc414423"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>waitEvents</b> () const</td></tr>
+<tr class="separator:a782203fc12f7e7fbfa4086a7fc414423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3165078ab11e0755d3beba01851f355d" id="r_a3165078ab11e0755d3beba01851f355d"><td class="memItemLeft" align="right" valign="top"><a id="a3165078ab11e0755d3beba01851f355d" name="a3165078ab11e0755d3beba01851f355d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isResized</b> () const</td></tr>
+<tr class="separator:a3165078ab11e0755d3beba01851f355d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a302643baeb125e7400b60d4bf4174f91" id="r_a302643baeb125e7400b60d4bf4174f91"><td class="memItemLeft" align="right" valign="top"><a id="a302643baeb125e7400b60d4bf4174f91" name="a302643baeb125e7400b60d4bf4174f91"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setResized</b> (bool isResized)</td></tr>
+<tr class="separator:a302643baeb125e7400b60d4bf4174f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ae7d368fbe429c85d3de15e5e1fd358bc" id="r_ae7d368fbe429c85d3de15e5e1fd358bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvkf_1_1platform_1_1_window_1_1_properties.html">Properties</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#ae7d368fbe429c85d3de15e5e1fd358bc">windowData</a></td></tr>
+<tr class="memitem:ae7d368fbe429c85d3de15e5e1fd358bc" id="r_ae7d368fbe429c85d3de15e5e1fd358bc"><td class="memItemLeft" align="right" valign="top"><a id="ae7d368fbe429c85d3de15e5e1fd358bc" name="ae7d368fbe429c85d3de15e5e1fd358bc"></a>
+<a class="el" href="structvkf_1_1platform_1_1_window_1_1_properties.html">Properties</a>&#160;</td><td class="memItemRight" valign="bottom"><b>windowData</b></td></tr>
 <tr class="separator:ae7d368fbe429c85d3de15e5e1fd358bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30da22c1f6ba625c89a27b451f1368b7" id="r_a30da22c1f6ba625c89a27b451f1368b7"><td class="memItemLeft" align="right" valign="top">GLFWwindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1platform_1_1_window.html#a30da22c1f6ba625c89a27b451f1368b7">handle</a> {nullptr}</td></tr>
+<tr class="memitem:a30da22c1f6ba625c89a27b451f1368b7" id="r_a30da22c1f6ba625c89a27b451f1368b7"><td class="memItemLeft" align="right" valign="top"><a id="a30da22c1f6ba625c89a27b451f1368b7" name="a30da22c1f6ba625c89a27b451f1368b7"></a>
+GLFWwindow *&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b> {nullptr}</td></tr>
 <tr class="separator:a30da22c1f6ba625c89a27b451f1368b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class provides functionality associated with glfw. </p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="abe12df63cfc71d34a52b071adad432f0" name="abe12df63cfc71d34a52b071adad432f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe12df63cfc71d34a52b071adad432f0">&#9670;&#160;</a></span>Mode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="classvkf_1_1platform_1_1_window.html#abe12df63cfc71d34a52b071adad432f0">vkf::platform::Window::Mode</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="classvkf_1_1platform_1_1_window.html" title="This class provides functionality associated with glfw.">Window</a> mode. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abe12df63cfc71d34a52b071adad432f0a0829ea6734059d66e6bf87096b215dc1" name="abe12df63cfc71d34a52b071adad432f0a0829ea6734059d66e6bf87096b215dc1"></a>Fullscreen&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="abe12df63cfc71d34a52b071adad432f0a5a805befe579fd1668bd4a32e5be1310" name="abe12df63cfc71d34a52b071adad432f0a5a805befe579fd1668bd4a32e5be1310"></a>FullscreenBorderless&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="abe12df63cfc71d34a52b071adad432f0ab13311ab51c4c34757f67f26580018dd" name="abe12df63cfc71d34a52b071adad432f0ab13311ab51c4c34757f67f26580018dd"></a>Windowed&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<a id="aab0d1d3c8da9699bdbe700415889802f" name="aab0d1d3c8da9699bdbe700415889802f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab0d1d3c8da9699bdbe700415889802f">&#9670;&#160;</a></span>Vsync</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802f">vkf::platform::Window::Vsync</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Vsync option. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aab0d1d3c8da9699bdbe700415889802fa88559a0cfd8250c9d65970cc145c92d4" name="aab0d1d3c8da9699bdbe700415889802fa88559a0cfd8250c9d65970cc145c92d4"></a>OFF&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aab0d1d3c8da9699bdbe700415889802fa90651ebea9a35ec4e018c8157492e17c" name="aab0d1d3c8da9699bdbe700415889802fa90651ebea9a35ec4e018c8157492e17c"></a>ON&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6ce686ddd2c5c9c6228e5af6faacf8f1" name="a6ce686ddd2c5c9c6228e5af6faacf8f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ce686ddd2c5c9c6228e5af6faacf8f1">&#9670;&#160;</a></span>Window()</h2>
+<div class="textblock"><p>This class manages GLFW windows. </p>
+<p>It provides an interface for interacting with a GLFW window, including creating a surface, getting required surface extensions, setting event callbacks, and updating the window. It also provides methods for querying window properties such as whether the window is closed, its framebuffer size, and its handle. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a30413ba1a98265c59fd5388d0e7784ea" name="a30413ba1a98265c59fd5388d0e7784ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30413ba1a98265c59fd5388d0e7784ea">&#9670;&#160;</a></span>Window()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,172 +196,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a1631aa084aab2848fa6f53d20fd96d9a" name="a1631aa084aab2848fa6f53d20fd96d9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1631aa084aab2848fa6f53d20fd96d9a">&#9670;&#160;</a></span>~Window()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">vkf::platform::Window::~Window </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a67d0e045e326c236651bde00769fe334" name="a67d0e045e326c236651bde00769fe334"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67d0e045e326c236651bde00769fe334">&#9670;&#160;</a></span>createSurface()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">vk::raii::SurfaceKHR vkf::platform::Window::createSurface </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvkf_1_1core_1_1_instance.html">core::Instance</a> &amp;&#160;</td>
-          <td class="paramname"><em>instance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abbe720acf94af1c4e22a9f630407d2b6" name="abbe720acf94af1c4e22a9f630407d2b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbe720acf94af1c4e22a9f630407d2b6">&#9670;&#160;</a></span>getHandle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLFWwindow * vkf::platform::Window::getHandle </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acf84a4ac6b274fe5e386a69a42bd7998" name="acf84a4ac6b274fe5e386a69a42bd7998"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf84a4ac6b274fe5e386a69a42bd7998">&#9670;&#160;</a></span>getRequiredSurfaceExtensions()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; const char * &gt; vkf::platform::Window::getRequiredSurfaceExtensions </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad714f99baf300c58648a67921d7a1b56" name="ad714f99baf300c58648a67921d7a1b56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad714f99baf300c58648a67921d7a1b56">&#9670;&#160;</a></span>isClosed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool vkf::platform::Window::isClosed </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac6067d940c92908ff9eb369aafa92c19" name="ac6067d940c92908ff9eb369aafa92c19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6067d940c92908ff9eb369aafa92c19">&#9670;&#160;</a></span>onUpdate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vkf::platform::Window::onUpdate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7a8f9a09ec90e972d3a23e78cbff6639" name="a7a8f9a09ec90e972d3a23e78cbff6639"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a8f9a09ec90e972d3a23e78cbff6639">&#9670;&#160;</a></span>setEventCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vkf::platform::Window::setEventCallback </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; void(<a class="el" href="structvkf_1_1_event.html">Event</a> &amp;)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>callback</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a30da22c1f6ba625c89a27b451f1368b7" name="a30da22c1f6ba625c89a27b451f1368b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30da22c1f6ba625c89a27b451f1368b7">&#9670;&#160;</a></span>handle</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLFWwindow* vkf::platform::Window::handle {nullptr}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae7d368fbe429c85d3de15e5e1fd358bc" name="ae7d368fbe429c85d3de15e5e1fd358bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7d368fbe429c85d3de15e5e1fd358bc">&#9670;&#160;</a></span>windowData</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structvkf_1_1platform_1_1_window_1_1_properties.html">Properties</a> vkf::platform::Window::windowData</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Constructs a <a class="el" href="classvkf_1_1platform_1_1_window.html" title="This class manages GLFW windows.">Window</a> object. </p>
+<p>This constructor creates a GLFW window using the provided properties.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">properties</td><td>The properties of the window. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

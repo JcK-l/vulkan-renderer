@@ -1,11 +1,30 @@
 \doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\+Queue.cpp File Reference}
 \hypertarget{_queue_8cpp}{}\label{_queue_8cpp}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Queue.cpp@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Queue.cpp}}
+
+
+This file implements the Queue class which is used for managing Vulkan queues.  
+
+
 {\ttfamily \#include "{}Queue.\+h"{}}\newline
 {\ttfamily \#include "{}../common/\+Log.\+h"{}}\newline
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacevkf}{vkf}}
-\begin{DoxyCompactList}\small\item\em Vulkan Framework. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespacevkf_1_1core}{vkf\+::core}}
-\begin{DoxyCompactList}\small\item\em Collection of core functionality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file implements the Queue class which is used for managing Vulkan queues. 
+
+The Queue class is part of the \doxylink{namespacevkf_1_1core}{vkf\+::core} namespace. It provides an interface for interacting with a Vulkan queue, including getting the handle to the queue, the family index, the queue properties, and the queue index. It also provides a method to check if the queue can present.
+
+\begin{DoxyAuthor}{Author}
+Joshua Lowe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11/11/2023
+\end{DoxyDate}
+The license and distribution terms for this file may be found in the file LICENSE in this distribution 

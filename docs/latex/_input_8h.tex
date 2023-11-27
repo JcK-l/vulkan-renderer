@@ -1,20 +1,44 @@
 \doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/common/\+Input.h File Reference}
 \hypertarget{_input_8h}{}\label{_input_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/common/Input.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/common/Input.h}}
+
+
+This file declares functions for handling input events.  
+
+
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacevkf}{vkf}}
-\begin{DoxyCompactList}\small\item\em Vulkan Framework. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \mbox{\hyperlink{namespacevkf_adb939442c221e95776abd89e0c67a504}{vkf\+::is\+Key\+Pressed}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int keycode)
+\Hypertarget{namespacevkf_adb939442c221e95776abd89e0c67a504}\label{namespacevkf_adb939442c221e95776abd89e0c67a504} 
+bool {\bfseries vkf\+::is\+Key\+Pressed} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int keycode)
 \item 
-bool \mbox{\hyperlink{namespacevkf_a004611c0016cf49bf5d5c6ffc5bc2006}{vkf\+::is\+Mouse\+Button\+Pressed}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int button)
+\Hypertarget{namespacevkf_a004611c0016cf49bf5d5c6ffc5bc2006}\label{namespacevkf_a004611c0016cf49bf5d5c6ffc5bc2006} 
+bool {\bfseries vkf\+::is\+Mouse\+Button\+Pressed} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int button)
 \item 
-std\+::pair$<$ double, double $>$ \mbox{\hyperlink{namespacevkf_a2e15829989495263456acf65047fefc8}{vkf\+::get\+Mouse\+Position}} (GLFWwindow \texorpdfstring{$\ast$}{*}window)
+\Hypertarget{namespacevkf_a2e15829989495263456acf65047fefc8}\label{namespacevkf_a2e15829989495263456acf65047fefc8} 
+std\+::pair$<$ double, double $>$ {\bfseries vkf\+::get\+Mouse\+Position} (GLFWwindow \texorpdfstring{$\ast$}{*}window)
 \item 
-double \mbox{\hyperlink{namespacevkf_a4eeefe3a5f001c93dcfcbe12a7f90018}{vkf\+::get\+MouseX}} (GLFWwindow \texorpdfstring{$\ast$}{*}window)
+\Hypertarget{namespacevkf_a4eeefe3a5f001c93dcfcbe12a7f90018}\label{namespacevkf_a4eeefe3a5f001c93dcfcbe12a7f90018} 
+double {\bfseries vkf\+::get\+MouseX} (GLFWwindow \texorpdfstring{$\ast$}{*}window)
 \item 
-double \mbox{\hyperlink{namespacevkf_a20e522db2c4b0430e2b305141c08801f}{vkf\+::get\+MouseY}} (GLFWwindow \texorpdfstring{$\ast$}{*}window)
+\Hypertarget{namespacevkf_a20e522db2c4b0430e2b305141c08801f}\label{namespacevkf_a20e522db2c4b0430e2b305141c08801f} 
+double {\bfseries vkf\+::get\+MouseY} (GLFWwindow \texorpdfstring{$\ast$}{*}window)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file declares functions for handling input events. 
+
+The functions in this file are part of the vkf namespace. They provide an interface for checking the state of keyboard and mouse input.
+
+\begin{DoxyAuthor}{Author}
+Joshua Lowe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11/6/2023
+\end{DoxyDate}
+The license and distribution terms for this file may be found in the file LICENSE in this distribution 

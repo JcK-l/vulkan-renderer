@@ -1,0 +1,128 @@
+\doxysection{vkf\+::core\+::Swapchain Class Reference}
+\hypertarget{classvkf_1_1core_1_1_swapchain}{}\label{classvkf_1_1core_1_1_swapchain}\index{vkf::core::Swapchain@{vkf::core::Swapchain}}
+
+
+This class manages Vulkan swapchains.  
+
+
+
+
+{\ttfamily \#include $<$Swapchain.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvkf_1_1core_1_1_swapchain_1_1_swap_chain_support_details}{Swap\+Chain\+Support\+Details}}
+\begin{DoxyCompactList}\small\item\em This struct stores the capabilities, formats, and present modes of the swapchain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_acfc22a0e9e09d2d9086ad623cb56987e}{Swapchain}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device, const vk\+::raii\+::\+Surface\+KHR \&surface, const \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform\+::\+Window}} \&window)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1core_1_1_swapchain}{Swapchain} object. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a764484c722611cb8fd9985e4c014aa10}\label{classvkf_1_1core_1_1_swapchain_a764484c722611cb8fd9985e4c014aa10} 
+{\bfseries Swapchain} (const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a2d60829b2cf44d922789d601022aaaac}\label{classvkf_1_1core_1_1_swapchain_a2d60829b2cf44d922789d601022aaaac} 
+{\bfseries Swapchain} (\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \&\&) noexcept=default
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a7759f393d0de5e666792e4f812084aad}\label{classvkf_1_1core_1_1_swapchain_a7759f393d0de5e666792e4f812084aad} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_abb5c951b559ad2d6243f7031e08ed4e2}\label{classvkf_1_1core_1_1_swapchain_abb5c951b559ad2d6243f7031e08ed4e2} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_abdd77b32f5a712c6f12563c4c977256a}\label{classvkf_1_1core_1_1_swapchain_abdd77b32f5a712c6f12563c4c977256a} 
+const vk\+::raii\+::\+Swapchain\+KHR \& {\bfseries get\+Handle} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_abb4c2d9b89758eb279009c8764756254}\label{classvkf_1_1core_1_1_swapchain_abb4c2d9b89758eb279009c8764756254} 
+vk\+::raii\+::\+Image\+View {\bfseries create\+Image\+View} (uint32\+\_\+t index) const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a1812eabf4d851038005d4ce6a21e4917}\label{classvkf_1_1core_1_1_swapchain_a1812eabf4d851038005d4ce6a21e4917} 
+void {\bfseries recreate} ()
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_aef2897df3da299aceb6c58db1fd9208c}\label{classvkf_1_1core_1_1_swapchain_aef2897df3da299aceb6c58db1fd9208c} 
+std\+::pair$<$ vk\+::\+Result, uint32\+\_\+t $>$ {\bfseries acquire\+Next\+Image} (const vk\+::raii\+::\+Semaphore \&image\+Available\+Semaphore, uint64\+\_\+t timeout=std\+::numeric\+\_\+limits$<$ uint64\+\_\+t $>$\+::max())
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a75a7c9c30a8113f26651356a2a006447}\label{classvkf_1_1core_1_1_swapchain_a75a7c9c30a8113f26651356a2a006447} 
+vk\+::\+Extent2D {\bfseries get\+Extent} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a74e0ea64aace79ff714b187af4b6ebba}\label{classvkf_1_1core_1_1_swapchain_a74e0ea64aace79ff714b187af4b6ebba} 
+uint32\+\_\+t {\bfseries get\+Image\+Count} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a2e174dab860446d05820a2b5714b635f}\label{classvkf_1_1core_1_1_swapchain_a2e174dab860446d05820a2b5714b635f} 
+vk\+::\+Surface\+Format\+KHR {\bfseries select\+Swap\+Surface\+Format} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a2236343088539f9fb29e2bb087197613}\label{classvkf_1_1core_1_1_swapchain_a2236343088539f9fb29e2bb087197613} 
+vk\+::\+Present\+Mode\+KHR {\bfseries select\+Swap\+Present\+Mode} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_ab2440c612fd3cf0e77bfb587884f136b}\label{classvkf_1_1core_1_1_swapchain_ab2440c612fd3cf0e77bfb587884f136b} 
+vk\+::\+Extent2D {\bfseries select\+Swap\+Extent} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_afa84824ad0cae81e784ffbb4d50e2eb2}\label{classvkf_1_1core_1_1_swapchain_afa84824ad0cae81e784ffbb4d50e2eb2} 
+void {\bfseries create\+Swapchain} (vk\+::\+Swapchain\+KHR old\+Swapchain=VK\+\_\+\+NULL\+\_\+\+HANDLE)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a90bda297c6d9ea2916627b322d8e4128}\label{classvkf_1_1core_1_1_swapchain_a90bda297c6d9ea2916627b322d8e4128} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& {\bfseries device}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_aa6d77b4cf8ff72dbf35be69b27446741}\label{classvkf_1_1core_1_1_swapchain_aa6d77b4cf8ff72dbf35be69b27446741} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& {\bfseries gpu}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a9a5f67dcc3f82b0240a52a4fba6f26dd}\label{classvkf_1_1core_1_1_swapchain_a9a5f67dcc3f82b0240a52a4fba6f26dd} 
+const vk\+::raii\+::\+Surface\+KHR \& {\bfseries surface}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a51ccfd4fcf89555560c3477db920b98f}\label{classvkf_1_1core_1_1_swapchain_a51ccfd4fcf89555560c3477db920b98f} 
+const \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform\+::\+Window}} \& {\bfseries window}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a5838e05082ad4ece38d0e398638e4bc1}\label{classvkf_1_1core_1_1_swapchain_a5838e05082ad4ece38d0e398638e4bc1} 
+vk\+::raii\+::\+Swapchain\+KHR {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a3ea7f4fcc49f719bd27a7e3e80d00dd3}\label{classvkf_1_1core_1_1_swapchain_a3ea7f4fcc49f719bd27a7e3e80d00dd3} 
+\mbox{\hyperlink{structvkf_1_1core_1_1_swapchain_1_1_swap_chain_support_details}{Swap\+Chain\+Support\+Details}} {\bfseries support\+Details}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a175c8521eba04a3166a5c9ffeed07d7d}\label{classvkf_1_1core_1_1_swapchain_a175c8521eba04a3166a5c9ffeed07d7d} 
+vk\+::\+Extent2D {\bfseries extent}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a331dc733608782133eaa953e76ad8014}\label{classvkf_1_1core_1_1_swapchain_a331dc733608782133eaa953e76ad8014} 
+std\+::vector$<$ vk\+::\+Image $>$ {\bfseries images}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages Vulkan swapchains. 
+
+It provides an interface for interacting with a Vulkan swapchain, including getting the handle to the swapchain, the image views, and acquiring the next image. It also provides a method for recreating the swapchain. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1core_1_1_swapchain_acfc22a0e9e09d2d9086ad623cb56987e}\label{classvkf_1_1core_1_1_swapchain_acfc22a0e9e09d2d9086ad623cb56987e} 
+\index{vkf::core::Swapchain@{vkf::core::Swapchain}!Swapchain@{Swapchain}}
+\index{Swapchain@{Swapchain}!vkf::core::Swapchain@{vkf::core::Swapchain}}
+\doxysubsubsection{\texorpdfstring{Swapchain()}{Swapchain()}}
+{\footnotesize\ttfamily vkf\+::core\+::\+Swapchain\+::\+Swapchain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{device,  }\item[{const vk\+::raii\+::\+Surface\+KHR \&}]{surface,  }\item[{const \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform\+::\+Window}} \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{classvkf_1_1core_1_1_swapchain}{Swapchain} object. 
+
+This constructor creates a Vulkan swapchain using the provided device, surface, and window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The Vulkan device to use for creating the swapchain. \\
+\hline
+{\em surface} & The Vulkan surface to use for creating the swapchain. \\
+\hline
+{\em window} & The window to use for creating the swapchain. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_swapchain_8h}{Swapchain.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_swapchain_8cpp}{Swapchain.\+cpp}}\end{DoxyCompactItemize}

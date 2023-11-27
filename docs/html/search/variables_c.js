@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['properties_0',['properties',['../classvkf_1_1core_1_1_physical_device.html#a75bc728aa6d3139f3823dcccb8ac4de7',1,'vkf::core::PhysicalDevice::properties'],['../classvkf_1_1core_1_1_queue.html#a6ec15806ac2c1c74c8ffd6f002aa55a8',1,'vkf::core::Queue::properties']]]
+  ['newheight_0',['newHeight',['../structvkf_1_1_event_1_1_resize.html#ae4491a9af4fb145f41bb7311b8e4d01b',1,'vkf::Event::Resize']]],
+  ['newwidth_1',['newWidth',['../structvkf_1_1_event_1_1_resize.html#afb7b924d269283817faad8e5a4811999',1,'vkf::Event::Resize']]]
 ];

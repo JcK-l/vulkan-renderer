@@ -1,15 +1,33 @@
 \doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\+Instance.h File Reference}
 \hypertarget{_instance_8h}{}\label{_instance_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Instance.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Instance.h}}
-{\ttfamily \#include "{}Physical\+Device.\+h"{}}\newline
+
+
+This file declares the Instance class which is used for managing Vulkan instances.  
+
+
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{vkf\+::core\+::\+Instance}}
-\begin{DoxyCompactList}\small\item\em This is a wrapper class for vk\+::raii\+::instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This class manages Vulkan instances. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacevkf}{vkf}}
-\begin{DoxyCompactList}\small\item\em Vulkan Framework. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespacevkf_1_1core}{vkf\+::core}}
-\begin{DoxyCompactList}\small\item\em Collection of core functionality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file declares the Instance class which is used for managing Vulkan instances. 
+
+The Instance class is part of the \doxylink{namespacevkf_1_1core}{vkf\+::core} namespace. It provides methods for creating a Vulkan instance, validating extensions and layers, and querying GPUs. In debug build mode, it also creates a debug messenger.
+
+\begin{DoxyAuthor}{Author}
+Joshua Lowe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11/1/2023
+\end{DoxyDate}
+The license and distribution terms for this file may be found in the file LICENSE in this distribution 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gpus_0',['gpus',['../classvkf_1_1core_1_1_instance.html#a3ee9ad6ee009e30a90560e5300f7385b',1,'vkf::core::Instance']]]
+  ['xpos_0',['xPos',['../structvkf_1_1_event_1_1_mouse_move.html#adcbe046f519adb7300579c470e82be90',1,'vkf::Event::MouseMove']]],
+  ['xscroll_1',['xScroll',['../structvkf_1_1_event_1_1_mouse_scroll.html#a1e7f7472848dc597840411d0eeb1833b',1,'vkf::Event::MouseScroll']]]
 ];

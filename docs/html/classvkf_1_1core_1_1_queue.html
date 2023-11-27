@@ -81,40 +81,68 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>This class provides access to queue properties.  
+<p>This class manages Vulkan queues.  
  <a href="classvkf_1_1core_1_1_queue.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_queue_8h_source.html">Queue.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4b17779015de3d592b785b5bc8845bfe" id="r_a4b17779015de3d592b785b5bc8845bfe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_queue.html#a4b17779015de3d592b785b5bc8845bfe">Queue</a> (uint32_t <a class="el" href="classvkf_1_1core_1_1_queue.html#a5a768b205fdcdc1a9b6c7deea4f6ef9a">familyIndex</a>, vk::QueueFamilyProperties <a class="el" href="classvkf_1_1core_1_1_queue.html#a6ec15806ac2c1c74c8ffd6f002aa55a8">properties</a>, vk::Bool32 <a class="el" href="classvkf_1_1core_1_1_queue.html#ad4d77b14b5ef6ad32cd2a30d5e074610">canPresent</a>, uint32_t <a class="el" href="classvkf_1_1core_1_1_queue.html#a9ab19e7397a4598297b67641fa6d83e8">queueIndex</a>)</td></tr>
-<tr class="separator:a4b17779015de3d592b785b5bc8845bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80f0aaf9463e15eb45b0307afe4b1ed5" id="r_a80f0aaf9463e15eb45b0307afe4b1ed5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_queue.html#a80f0aaf9463e15eb45b0307afe4b1ed5">Queue</a> (const <a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;)=default</td></tr>
-<tr class="separator:a80f0aaf9463e15eb45b0307afe4b1ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1197ec9d63cf222c31936f1e100cd73" id="r_ac1197ec9d63cf222c31936f1e100cd73"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_queue.html#ac1197ec9d63cf222c31936f1e100cd73">Queue</a> (<a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&amp;other) noexcept</td></tr>
-<tr class="separator:ac1197ec9d63cf222c31936f1e100cd73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5f8044ee4687c72aed0dfa6c49d0c88" id="r_ae5f8044ee4687c72aed0dfa6c49d0c88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_queue.html#ae5f8044ee4687c72aed0dfa6c49d0c88">operator=</a> (const <a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;)=delete</td></tr>
+<tr class="memitem:add8f0c856c0e167074a55c74fd7b6976" id="r_add8f0c856c0e167074a55c74fd7b6976"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_queue.html#add8f0c856c0e167074a55c74fd7b6976">Queue</a> (vk::raii::Queue queue, uint32_t familyIndex, vk::QueueFamilyProperties properties, vk::Bool32 canPresent, uint32_t queueIndex)</td></tr>
+<tr class="memdesc:add8f0c856c0e167074a55c74fd7b6976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classvkf_1_1core_1_1_queue.html" title="This class manages Vulkan queues.">Queue</a> object.  <br /></td></tr>
+<tr class="separator:add8f0c856c0e167074a55c74fd7b6976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bdb3790ea1589d1feba13696848e4b9" id="r_a1bdb3790ea1589d1feba13696848e4b9"><td class="memItemLeft" align="right" valign="top"><a id="a1bdb3790ea1589d1feba13696848e4b9" name="a1bdb3790ea1589d1feba13696848e4b9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Queue</b> (const <a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;)=delete</td></tr>
+<tr class="separator:a1bdb3790ea1589d1feba13696848e4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a01d0c8e496f52e6588c075b4640a20" id="r_a2a01d0c8e496f52e6588c075b4640a20"><td class="memItemLeft" align="right" valign="top"><a id="a2a01d0c8e496f52e6588c075b4640a20" name="a2a01d0c8e496f52e6588c075b4640a20"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Queue</b> (<a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a2a01d0c8e496f52e6588c075b4640a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5f8044ee4687c72aed0dfa6c49d0c88" id="r_ae5f8044ee4687c72aed0dfa6c49d0c88"><td class="memItemLeft" align="right" valign="top"><a id="ae5f8044ee4687c72aed0dfa6c49d0c88" name="ae5f8044ee4687c72aed0dfa6c49d0c88"></a>
+<a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;)=delete</td></tr>
 <tr class="separator:ae5f8044ee4687c72aed0dfa6c49d0c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab938f96a88d1bacb0d32126ea8fb4ee2" id="r_ab938f96a88d1bacb0d32126ea8fb4ee2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_queue.html#ab938f96a88d1bacb0d32126ea8fb4ee2">operator=</a> (<a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&amp;)=delete</td></tr>
+<tr class="memitem:ab938f96a88d1bacb0d32126ea8fb4ee2" id="r_ab938f96a88d1bacb0d32126ea8fb4ee2"><td class="memItemLeft" align="right" valign="top"><a id="ab938f96a88d1bacb0d32126ea8fb4ee2" name="ab938f96a88d1bacb0d32126ea8fb4ee2"></a>
+<a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:ab938f96a88d1bacb0d32126ea8fb4ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d91439256eed425900c7db93a2940bc" id="r_a6d91439256eed425900c7db93a2940bc"><td class="memItemLeft" align="right" valign="top"><a id="a6d91439256eed425900c7db93a2940bc" name="a6d91439256eed425900c7db93a2940bc"></a>
+const vk::raii::Queue &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getHandle</b> () const</td></tr>
+<tr class="separator:a6d91439256eed425900c7db93a2940bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5b62fe4a702ae3bba09e0d6f41873ed" id="r_ae5b62fe4a702ae3bba09e0d6f41873ed"><td class="memItemLeft" align="right" valign="top"><a id="ae5b62fe4a702ae3bba09e0d6f41873ed" name="ae5b62fe4a702ae3bba09e0d6f41873ed"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getFamilyIndex</b> () const</td></tr>
+<tr class="separator:ae5b62fe4a702ae3bba09e0d6f41873ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03a152ec4217496256c8e7d489c4c1a7" id="r_a03a152ec4217496256c8e7d489c4c1a7"><td class="memItemLeft" align="right" valign="top"><a id="a03a152ec4217496256c8e7d489c4c1a7" name="a03a152ec4217496256c8e7d489c4c1a7"></a>
+const vk::QueueFamilyProperties &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getProperties</b> () const</td></tr>
+<tr class="separator:a03a152ec4217496256c8e7d489c4c1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a416e96639e2c8f7880f52bfffdd10255" id="r_a416e96639e2c8f7880f52bfffdd10255"><td class="memItemLeft" align="right" valign="top"><a id="a416e96639e2c8f7880f52bfffdd10255" name="a416e96639e2c8f7880f52bfffdd10255"></a>
+vk::Bool32&#160;</td><td class="memItemRight" valign="bottom"><b>canPresent</b> () const</td></tr>
+<tr class="separator:a416e96639e2c8f7880f52bfffdd10255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2f36213ab717a98b6b387973a7de373" id="r_ac2f36213ab717a98b6b387973a7de373"><td class="memItemLeft" align="right" valign="top"><a id="ac2f36213ab717a98b6b387973a7de373" name="ac2f36213ab717a98b6b387973a7de373"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getQueueIndex</b> () const</td></tr>
+<tr class="separator:ac2f36213ab717a98b6b387973a7de373"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a5a768b205fdcdc1a9b6c7deea4f6ef9a" id="r_a5a768b205fdcdc1a9b6c7deea4f6ef9a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_queue.html#a5a768b205fdcdc1a9b6c7deea4f6ef9a">familyIndex</a></td></tr>
+<tr class="memitem:a34c1626e8d9ea7367746ca264a237365" id="r_a34c1626e8d9ea7367746ca264a237365"><td class="memItemLeft" align="right" valign="top"><a id="a34c1626e8d9ea7367746ca264a237365" name="a34c1626e8d9ea7367746ca264a237365"></a>
+vk::raii::Queue&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b> {VK_NULL_HANDLE}</td></tr>
+<tr class="separator:a34c1626e8d9ea7367746ca264a237365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a768b205fdcdc1a9b6c7deea4f6ef9a" id="r_a5a768b205fdcdc1a9b6c7deea4f6ef9a"><td class="memItemLeft" align="right" valign="top"><a id="a5a768b205fdcdc1a9b6c7deea4f6ef9a" name="a5a768b205fdcdc1a9b6c7deea4f6ef9a"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>familyIndex</b></td></tr>
 <tr class="separator:a5a768b205fdcdc1a9b6c7deea4f6ef9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ec15806ac2c1c74c8ffd6f002aa55a8" id="r_a6ec15806ac2c1c74c8ffd6f002aa55a8"><td class="memItemLeft" align="right" valign="top">vk::QueueFamilyProperties&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_queue.html#a6ec15806ac2c1c74c8ffd6f002aa55a8">properties</a></td></tr>
+<tr class="memitem:a6ec15806ac2c1c74c8ffd6f002aa55a8" id="r_a6ec15806ac2c1c74c8ffd6f002aa55a8"><td class="memItemLeft" align="right" valign="top"><a id="a6ec15806ac2c1c74c8ffd6f002aa55a8" name="a6ec15806ac2c1c74c8ffd6f002aa55a8"></a>
+vk::QueueFamilyProperties&#160;</td><td class="memItemRight" valign="bottom"><b>properties</b></td></tr>
 <tr class="separator:a6ec15806ac2c1c74c8ffd6f002aa55a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4d77b14b5ef6ad32cd2a30d5e074610" id="r_ad4d77b14b5ef6ad32cd2a30d5e074610"><td class="memItemLeft" align="right" valign="top">vk::Bool32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_queue.html#ad4d77b14b5ef6ad32cd2a30d5e074610">canPresent</a></td></tr>
-<tr class="separator:ad4d77b14b5ef6ad32cd2a30d5e074610"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ab19e7397a4598297b67641fa6d83e8" id="r_a9ab19e7397a4598297b67641fa6d83e8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_queue.html#a9ab19e7397a4598297b67641fa6d83e8">queueIndex</a></td></tr>
+<tr class="memitem:af53fe502e0ee5297102270b1aabc02fb" id="r_af53fe502e0ee5297102270b1aabc02fb"><td class="memItemLeft" align="right" valign="top"><a id="af53fe502e0ee5297102270b1aabc02fb" name="af53fe502e0ee5297102270b1aabc02fb"></a>
+vk::Bool32&#160;</td><td class="memItemRight" valign="bottom"><b>supportsPresent</b></td></tr>
+<tr class="separator:af53fe502e0ee5297102270b1aabc02fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ab19e7397a4598297b67641fa6d83e8" id="r_a9ab19e7397a4598297b67641fa6d83e8"><td class="memItemLeft" align="right" valign="top"><a id="a9ab19e7397a4598297b67641fa6d83e8" name="a9ab19e7397a4598297b67641fa6d83e8"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>queueIndex</b></td></tr>
 <tr class="separator:a9ab19e7397a4598297b67641fa6d83e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class provides access to queue properties. </p>
+<div class="textblock"><p>This class manages Vulkan queues. </p>
+<p>It provides an interface for interacting with a Vulkan queue, including getting the handle to the queue, the family index, the queue properties, and the queue index. It also provides a method to check if the queue can present. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4b17779015de3d592b785b5bc8845bfe" name="a4b17779015de3d592b785b5bc8845bfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b17779015de3d592b785b5bc8845bfe">&#9670;&#160;</a></span>Queue() <span class="overload">[1/3]</span></h2>
+<a id="add8f0c856c0e167074a55c74fd7b6976" name="add8f0c856c0e167074a55c74fd7b6976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add8f0c856c0e167074a55c74fd7b6976">&#9670;&#160;</a></span>Queue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,6 +150,12 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">vkf::core::Queue::Queue </td>
           <td>(</td>
+          <td class="paramtype">vk::raii::Queue&#160;</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>familyIndex</em>, </td>
         </tr>
@@ -151,199 +185,18 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a80f0aaf9463e15eb45b0307afe4b1ed5" name="a80f0aaf9463e15eb45b0307afe4b1ed5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80f0aaf9463e15eb45b0307afe4b1ed5">&#9670;&#160;</a></span>Queue() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vkf::core::Queue::Queue </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac1197ec9d63cf222c31936f1e100cd73" name="ac1197ec9d63cf222c31936f1e100cd73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1197ec9d63cf222c31936f1e100cd73">&#9670;&#160;</a></span>Queue() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vkf::core::Queue::Queue </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae5f8044ee4687c72aed0dfa6c49d0c88" name="ae5f8044ee4687c72aed0dfa6c49d0c88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5f8044ee4687c72aed0dfa6c49d0c88">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp; vkf::core::Queue::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab938f96a88d1bacb0d32126ea8fb4ee2" name="ab938f96a88d1bacb0d32126ea8fb4ee2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab938f96a88d1bacb0d32126ea8fb4ee2">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp; vkf::core::Queue::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classvkf_1_1core_1_1_queue.html">Queue</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad4d77b14b5ef6ad32cd2a30d5e074610" name="ad4d77b14b5ef6ad32cd2a30d5e074610"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4d77b14b5ef6ad32cd2a30d5e074610">&#9670;&#160;</a></span>canPresent</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vk::Bool32 vkf::core::Queue::canPresent</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5a768b205fdcdc1a9b6c7deea4f6ef9a" name="a5a768b205fdcdc1a9b6c7deea4f6ef9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a768b205fdcdc1a9b6c7deea4f6ef9a">&#9670;&#160;</a></span>familyIndex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t vkf::core::Queue::familyIndex</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6ec15806ac2c1c74c8ffd6f002aa55a8" name="a6ec15806ac2c1c74c8ffd6f002aa55a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ec15806ac2c1c74c8ffd6f002aa55a8">&#9670;&#160;</a></span>properties</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vk::QueueFamilyProperties vkf::core::Queue::properties</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9ab19e7397a4598297b67641fa6d83e8" name="a9ab19e7397a4598297b67641fa6d83e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ab19e7397a4598297b67641fa6d83e8">&#9670;&#160;</a></span>queueIndex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t vkf::core::Queue::queueIndex</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Constructs a <a class="el" href="classvkf_1_1core_1_1_queue.html" title="This class manages Vulkan queues.">Queue</a> object. </p>
+<p>This constructor creates a Vulkan queue using the provided queue, family index, queue properties, present support, and queue index.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>The Vulkan queue. </td></tr>
+    <tr><td class="paramname">familyIndex</td><td>The family index of the queue. </td></tr>
+    <tr><td class="paramname">properties</td><td>The properties of the queue. </td></tr>
+    <tr><td class="paramname">canPresent</td><td>A boolean indicating if the queue can present. </td></tr>
+    <tr><td class="paramname">queueIndex</td><td>The index of the queue. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

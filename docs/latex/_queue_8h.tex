@@ -1,14 +1,33 @@
 \doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\+Queue.h File Reference}
 \hypertarget{_queue_8h}{}\label{_queue_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Queue.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Queue.h}}
+
+
+This file declares the Queue class which is used for managing Vulkan queues.  
+
+
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{vkf\+::core\+::\+Queue}}
-\begin{DoxyCompactList}\small\item\em This class provides access to queue properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This class manages Vulkan queues. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacevkf}{vkf}}
-\begin{DoxyCompactList}\small\item\em Vulkan Framework. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespacevkf_1_1core}{vkf\+::core}}
-\begin{DoxyCompactList}\small\item\em Collection of core functionality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file declares the Queue class which is used for managing Vulkan queues. 
+
+The Queue class is part of the \doxylink{namespacevkf_1_1core}{vkf\+::core} namespace. It provides an interface for interacting with a Vulkan queue, including getting the handle to the queue, the family index, the queue properties, and the queue index. It also provides a method to check if the queue can present.
+
+\begin{DoxyAuthor}{Author}
+Joshua Lowe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11/11/2023
+\end{DoxyDate}
+The license and distribution terms for this file may be found in the file LICENSE in this distribution 

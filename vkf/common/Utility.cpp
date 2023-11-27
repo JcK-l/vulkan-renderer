@@ -1,10 +1,15 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 11/16/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Utility.cpp
+/// \brief This file implements utility functions for the Vulkan Framework (vkf).
+///
+/// The functions in this file are part of the vkf namespace. They provide utility operations that are used throughout
+/// the Vulkan Framework. Currently, it includes a function to convert Vulkan queue flags to a string representation.
+///
+/// \author Joshua Lowe
+/// \date 11/16/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Utility.h"
 

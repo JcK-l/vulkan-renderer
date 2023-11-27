@@ -2,7 +2,7 @@
 \hypertarget{structvkf_1_1_event}{}\label{structvkf_1_1_event}\index{vkf::Event@{vkf::Event}}
 
 
-Object containing Event\+Type and Event\+Data.  
+A struct that encapsulates various types of events.  
 
 
 
@@ -13,17 +13,17 @@ Object containing Event\+Type and Event\+Data.
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_close}{Close}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with no data. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a window close event. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard}{Keyboard}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with keycode and action values. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a keyboard event. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button}{Mouse\+Button}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with button and action values. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a mouse button event. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move}{Mouse\+Move}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with x and y position values. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a mouse movement event. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll}{Mouse\+Scroll}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with x and y scroll values. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a mouse scroll event. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_resize}{Resize}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with height and width values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a window resize event. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,33 +36,25 @@ enum class \mbox{\hyperlink{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f
 \mbox{\hyperlink{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6a9d723d04c40bfd81835c0766a698cf63}{Resize}}
 , \mbox{\hyperlink{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6ad3d2e617335f08df83599665eef8a418}{Close}}
  \}
-\begin{DoxyCompactList}\small\item\em Enum of event types. \end{DoxyCompactList}\item 
-using \mbox{\hyperlink{structvkf_1_1_event_aa1802c9480ca3298aa4724c28d345f1b}{Data}} = std\+::variant$<$ \mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard}{Keyboard}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move}{Mouse\+Move}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button}{Mouse\+Button}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll}{Mouse\+Scroll}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_resize}{Resize}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_close}{Close}} $>$
-\begin{DoxyCompactList}\small\item\em Union of event data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em An enum that defines the different types of events. \end{DoxyCompactList}\item 
+\Hypertarget{structvkf_1_1_event_a6191b9b2f0170fb45d3da48fa72a4425}\label{structvkf_1_1_event_a6191b9b2f0170fb45d3da48fa72a4425} 
+using {\bfseries Data} = std\+::variant$<$ \mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard}{Keyboard}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move}{Mouse\+Move}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button}{Mouse\+Button}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll}{Mouse\+Scroll}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_resize}{Resize}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_close}{Close}} $>$
+\begin{DoxyCompactList}\small\item\em A variant that can hold any type of event data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6}{Type}} \mbox{\hyperlink{structvkf_1_1_event_a3a9260026f5181813e8cb931e1574b23}{type}}
-\item 
-\mbox{\hyperlink{structvkf_1_1_event_aa1802c9480ca3298aa4724c28d345f1b}{Data}} \mbox{\hyperlink{structvkf_1_1_event_a7ecb61c9b6f088855859115bf989c4f2}{data}}
-\end{DoxyCompactItemize}
+\Hypertarget{structvkf_1_1_event_a3a9260026f5181813e8cb931e1574b23}\label{structvkf_1_1_event_a3a9260026f5181813e8cb931e1574b23} 
+\mbox{\hyperlink{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6}{Type}} {\bfseries type}
+\begin{DoxyCompactList}\small\item\em The type of the event. \end{DoxyCompactList}\item 
+\Hypertarget{structvkf_1_1_event_a7ecb61c9b6f088855859115bf989c4f2}\label{structvkf_1_1_event_a7ecb61c9b6f088855859115bf989c4f2} 
+\mbox{\hyperlink{structvkf_1_1_event_a6191b9b2f0170fb45d3da48fa72a4425}{Data}} {\bfseries data}
+\begin{DoxyCompactList}\small\item\em The data associated with the event. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Object containing Event\+Type and Event\+Data. 
+A struct that encapsulates various types of events. 
 
-\doxysubsection{Member Typedef Documentation}
-\Hypertarget{structvkf_1_1_event_aa1802c9480ca3298aa4724c28d345f1b}\label{structvkf_1_1_event_aa1802c9480ca3298aa4724c28d345f1b} 
-\index{vkf::Event@{vkf::Event}!Data@{Data}}
-\index{Data@{Data}!vkf::Event@{vkf::Event}}
-\doxysubsubsection{\texorpdfstring{Data}{Data}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{structvkf_1_1_event_aa1802c9480ca3298aa4724c28d345f1b}{vkf\+::\+Event\+::\+Data}} =  std\+::variant$<$\mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard}{Keyboard}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move}{Mouse\+Move}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button}{Mouse\+Button}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll}{Mouse\+Scroll}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_resize}{Resize}}, \mbox{\hyperlink{structvkf_1_1_event_1_1_close}{Close}}$>$}
-
-
-
-Union of event data. 
-
-
+This struct provides a unified interface for handling different types of events, such as keyboard input, mouse movement, mouse button input, mouse scroll, window resize, and window close events. 
 
 \doxysubsection{Member Enumeration Documentation}
 \Hypertarget{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6}\label{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6} 
@@ -73,49 +65,34 @@ Union of event data.
 
 
 
-Enum of event types. 
+An enum that defines the different types of events. 
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Keyboard@{Keyboard}!vkf::Event@{vkf::Event}}\index{vkf::Event@{vkf::Event}!Keyboard@{Keyboard}}}\Hypertarget{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6a6ce4d85a628a88bbdb3ac24a8e5a9c2e}\label{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6a6ce4d85a628a88bbdb3ac24a8e5a9c2e} 
-Keyboard&\\
+Keyboard&A keyboard event. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{MouseMove@{MouseMove}!vkf::Event@{vkf::Event}}\index{vkf::Event@{vkf::Event}!MouseMove@{MouseMove}}}\Hypertarget{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6afd060c0c157323f1e43e0704d4f3ffc8}\label{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6afd060c0c157323f1e43e0704d4f3ffc8} 
-Mouse\+Move&\\
+Mouse\+Move&A mouse movement event. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{MouseButton@{MouseButton}!vkf::Event@{vkf::Event}}\index{vkf::Event@{vkf::Event}!MouseButton@{MouseButton}}}\Hypertarget{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6a49dabe49d62a3521f7c10400138c38d5}\label{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6a49dabe49d62a3521f7c10400138c38d5} 
-Mouse\+Button&\\
+Mouse\+Button&A mouse button event. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{MouseScroll@{MouseScroll}!vkf::Event@{vkf::Event}}\index{vkf::Event@{vkf::Event}!MouseScroll@{MouseScroll}}}\Hypertarget{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6ab4efa1e1d0671dddbd78735a0bd24274}\label{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6ab4efa1e1d0671dddbd78735a0bd24274} 
-Mouse\+Scroll&\\
+Mouse\+Scroll&A mouse scroll event. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Resize@{Resize}!vkf::Event@{vkf::Event}}\index{vkf::Event@{vkf::Event}!Resize@{Resize}}}\Hypertarget{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6a9d723d04c40bfd81835c0766a698cf63}\label{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6a9d723d04c40bfd81835c0766a698cf63} 
-Resize&\\
+Resize&A window resize event. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Close@{Close}!vkf::Event@{vkf::Event}}\index{vkf::Event@{vkf::Event}!Close@{Close}}}\Hypertarget{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6ad3d2e617335f08df83599665eef8a418}\label{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6ad3d2e617335f08df83599665eef8a418} 
-Close&\\
+Close&A window close event. \\
 \hline
 
 \end{DoxyEnumFields}
-
-
-\doxysubsection{Member Data Documentation}
-\Hypertarget{structvkf_1_1_event_a7ecb61c9b6f088855859115bf989c4f2}\label{structvkf_1_1_event_a7ecb61c9b6f088855859115bf989c4f2} 
-\index{vkf::Event@{vkf::Event}!data@{data}}
-\index{data@{data}!vkf::Event@{vkf::Event}}
-\doxysubsubsection{\texorpdfstring{data}{data}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structvkf_1_1_event_aa1802c9480ca3298aa4724c28d345f1b}{Data}} vkf\+::\+Event\+::data}
-
-\Hypertarget{structvkf_1_1_event_a3a9260026f5181813e8cb931e1574b23}\label{structvkf_1_1_event_a3a9260026f5181813e8cb931e1574b23} 
-\index{vkf::Event@{vkf::Event}!type@{type}}
-\index{type@{type}!vkf::Event@{vkf::Event}}
-\doxysubsubsection{\texorpdfstring{type}{type}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structvkf_1_1_event_afa9ad9a597587c5835c44d526d32a5f6}{Type}} vkf\+::\+Event\+::type}
-
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}

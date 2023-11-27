@@ -3,54 +3,81 @@
 \mbox{\hyperlink{_physical_device_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{comment}{//}}
-\DoxyCodeLine{00005\ \textcolor{comment}{//\ Created\ by\ Joshua\ Lowe\ on\ 11/8/2023.}}
-\DoxyCodeLine{00006\ \textcolor{comment}{//\ The\ license\ and\ distribution\ terms\ for\ this\ file\ may\ be\ found\ in\ the\ file\ LICENSE\ in\ this\ distribution}}
-\DoxyCodeLine{00007\ \textcolor{comment}{//}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_PHYSICALDEVICE\_H}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_PHYSICALDEVICE\_H}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \{}
 \DoxyCodeLine{00014\ }
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \{}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}(vk::raii::PhysicalDevice\ \&physicalDevice);}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a29bd932380b894b6c26501dd1c0f1cef}{PhysicalDevice}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_ab0fe8c17d13742dd19928180c6e3beb5}{PhysicalDevice}}(\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_aa3fb0c6b49aad08bddff7c3e0c47e9de}{\string~PhysicalDevice}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a0d52ec57799c23401c19c791735bcfaa}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_adcaba58e6c6c608c612aef8b25449e57}{operator=}}(\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::PhysicalDeviceFeatures\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a25a1f8806fe133df20324e5afcc77ac1}{getFeatures}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::PhysicalDeviceProperties\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a61c041d65faa7c5e6214c0a093872268}{getProperties}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ std::vector<vk::QueueFamilyProperties>\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a401e69096f950ed13761e94f86dbf0f0}{getQueueFamilyProperties}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a67a12c741135f19ef6454547a62aad45}{getSurfaceSupportKHR}}(uint32\_t\ queueFamilyIndex,\ vk::SurfaceKHR\ surface)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::PhysicalDevice\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a39e2a88bc1d7b2edc5544fc57a1479a5}{getHandle}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_PHYSICALDEVICE\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_PHYSICALDEVICE\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}(vk::raii::PhysicalDevice\ physicalDevice);}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ vk::raii::PhysicalDevice\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_ad696f444e42a787ce95a32344d6d19de}{handle}}\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ vk::PhysicalDeviceFeatures\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a405335837d61b0e72e1a1c9d8a8dac7f}{features}};}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ vk::PhysicalDeviceProperties\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a75bc728aa6d3139f3823dcccb8ac4de7}{properties}};}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ std::vector<vk::QueueFamilyProperties>\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a4ff46dea9ae3ac7685d9574a5de5d65b}{queueFamilyProperties}};}
-\DoxyCodeLine{00047\ \ \ \ \ \};}
-\DoxyCodeLine{00048\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}(\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{\string~PhysicalDevice}}()\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ destructor}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::PhysicalDeviceFeatures\ \&getPhysicalDeviceFeatures()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::PhysicalDeviceProperties\ \&getProperties()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00050\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ std::vector<vk::QueueFamilyProperties>\ \&getQueueFamilyProperties()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_PHYSICALDEVICE\_H}}
+\DoxyCodeLine{00052\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ getSurfaceSupportKHR(uint32\_t\ queueFamilyIndex,\ vk::SurfaceKHR\ surface)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::PhysicalDevice\ \&getHandle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00061\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a245d65e359fad274bcbf8cb1343f711b}{getExtensionFeaturesHead}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Structure>\ Structure\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a757032fde40caf3ee5973851e960aceb}{requestExtensionFeatures}}()}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ extension\ feature\ has\ already\ been\ requested}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ vk::StructureType\ structureType\ =\ Structure::structureType;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ featuresIt\ =\ enabledExtensionFeatures.find(structureType);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (featuresIt\ !=\ enabledExtensionFeatures.end())}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{static\_cast<}Structure\ *\textcolor{keyword}{>}(featuresIt-\/>second.get());}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ a\ new\ feature\ chain\ with\ the\ extension\ feature}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ vk::StructureChain<vk::PhysicalDeviceFeatures2KHR,\ Structure>\ featureChain\ =}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ handle.getFeatures2KHR<vk::PhysicalDeviceFeatures2KHR,\ Structure>();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ enabledExtensionFeatures.insert(}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \{structureType,\ std::make\_shared<Structure>(featureChain.template\ get<Structure>())\});}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ the\ pointer\ to\ the\ extension\ feature}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ *featurePointer\ =\ \textcolor{keyword}{static\_cast<}Structure\ *\textcolor{keyword}{>}(enabledExtensionFeatures.find(structureType)-\/>second.get());}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ the\ feature\ is\ added\ to\ the\ head\ of\ the\ feature\ chain}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (extensionFeaturesHead)}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ featurePointer-\/>pNext\ =\ extensionFeaturesHead;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ extensionFeaturesHead\ =\ featurePointer;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ I\ don't\ want\ to\ include\ Log.h\ here,\ so\ I'll\ just\ comment\ this\ out\ for\ now}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ LOG\_INFO("{}Enabled\ extension\ feature:\ \{\}"{},\ vk::to\_string(structureType));}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *featurePointer;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00105\ \ \ \ \ vk::raii::PhysicalDevice\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ std::unordered\_map<vk::StructureType,\ std::shared\_ptr<void>>\ enabledExtensionFeatures;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ *extensionFeaturesHead\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ vk::PhysicalDeviceFeatures\ physicalDeviceFeatures;}
+\DoxyCodeLine{00111\ \ \ \ \ vk::PhysicalDeviceProperties\ properties;}
+\DoxyCodeLine{00112\ \ \ \ \ std::vector<vk::QueueFamilyProperties>\ queueFamilyProperties;}
+\DoxyCodeLine{00113\ \};}
+\DoxyCodeLine{00114\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_PHYSICALDEVICE\_H}}
 
 \end{DoxyCode}

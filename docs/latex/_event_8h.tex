@@ -1,24 +1,43 @@
 \doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/common/\+Event.h File Reference}
 \hypertarget{_event_8h}{}\label{_event_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/common/Event.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/common/Event.h}}
+
+
+This file declares the Event struct, which encapsulates various types of events.  
+
+
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structvkf_1_1_event}{vkf\+::\+Event}}
-\begin{DoxyCompactList}\small\item\em Object containing Event\+Type and Event\+Data. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates various types of events. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_keyboard}{vkf\+::\+Event\+::\+Keyboard}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with keycode and action values. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a keyboard event. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_button}{vkf\+::\+Event\+::\+Mouse\+Button}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with button and action values. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a mouse button event. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_move}{vkf\+::\+Event\+::\+Mouse\+Move}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with x and y position values. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a mouse movement event. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_mouse_scroll}{vkf\+::\+Event\+::\+Mouse\+Scroll}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with x and y scroll values. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a mouse scroll event. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_resize}{vkf\+::\+Event\+::\+Resize}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with height and width values. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a window resize event. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1_event_1_1_close}{vkf\+::\+Event\+::\+Close}}
-\begin{DoxyCompactList}\small\item\em \doxylink{structvkf_1_1_event}{Event} with no data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A struct that encapsulates a window close event. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacevkf}{vkf}}
-\begin{DoxyCompactList}\small\item\em Vulkan Framework. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file declares the Event struct, which encapsulates various types of events. 
+
+The Event struct is part of the vkf namespace. It provides a unified interface for handling different types of events, such as keyboard input, mouse movement, mouse button input, mouse scroll, window resize, and window close events.
+
+\begin{DoxyAuthor}{Author}
+Joshua Lowe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11/5/2023
+\end{DoxyDate}
+The license and distribution terms for this file may be found in the file LICENSE in this distribution 

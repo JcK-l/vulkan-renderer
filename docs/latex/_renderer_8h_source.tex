@@ -1,0 +1,72 @@
+\doxysection{Renderer.\+h}
+\hypertarget{_renderer_8h_source}{}\label{_renderer_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/rendering/Renderer.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/rendering/Renderer.h}}
+\mbox{\hyperlink{_renderer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_RENDERER\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_RENDERER\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }Swapchain;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }RenderPass;}
+\DoxyCodeLine{00022\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }RenderSubstage;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{RenderTarget}}}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ vk::Extent2D\ extent;}
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<vk::raii::ImageView>\ imageViews;}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<vk::AttachmentDescription>\ attachments;}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{RenderOptions}}}
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ vk::ClearValue\ clearValue;}
+\DoxyCodeLine{00052\ \ \ \ \ uint32\_t\ numSubpasses;}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}}
+\DoxyCodeLine{00063\ \{}
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device,\ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core::Swapchain}}\ *swapchain,\ \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{RenderOptions}}\ renderOptions);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{\string~Renderer}}();\ \textcolor{comment}{//\ Implementation\ in\ Renderer.cpp\ because\ of\ std::unique\_ptr\ forward\ declaration}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core::RenderPass}}\ *getRenderPass()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ \ \ \ \ [[nodiscard]]\ vk::ClearValue\ *getClearValue()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{RenderTarget}}\ \&getRenderTarget(uint32\_t\ index);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ draw(vk::CommandBuffer\ *cmd);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ updateRenderTargets();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ createRenderTargets();}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ createRenderSubstages();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ std::unique\_ptr<core::RenderPass>\ renderPass;}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core::Swapchain}}\ *swapchain;}
+\DoxyCodeLine{00098\ \ \ \ \ std::unique\_ptr<RenderOptions>\ renderOptions;}
+\DoxyCodeLine{00099\ \ \ \ \ std::vector<std::unique\_ptr<RenderTarget>>\ renderTargets;}
+\DoxyCodeLine{00100\ \ \ \ \ std::vector<std::unique\_ptr<RenderSubstage>>\ renderSubstages;}
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_RENDERER\_H}}
+
+\end{DoxyCode}

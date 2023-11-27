@@ -1,31 +1,66 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 10/30/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Application.cpp
+/// \brief This file implements the Application class which is used for managing the main application.
+///
+/// The Application class is part of the vkf::platform namespace. It provides an interface for interacting with the main
+/// application, including running the main loop, initializing the logger, and creating the window, instance, surface,
+/// and device. It also provides methods for enabling instance extensions, instance layers, and device extensions.
+///
+/// \author Joshua Lowe
+/// \date 10/30/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Application.h"
+
 #include "../common/Log.h"
 #include "../common/Utility.h"
+#include "../core/Device.h"
+#include "../core/Framebuffer.h"
 #include "../core/Instance.h"
+#include "../core/PhysicalDevice.h"
+#include "../core/RenderPass.h"
+#include "../core/Swapchain.h"
+#include "../rendering/FrameData.h"
+#include "../rendering/RenderManager.h"
+#include "../rendering/RenderSubstage.h"
+#include "../rendering/Renderer.h"
 #include "Window.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+#include <utility>
 
 namespace vkf::platform
 {
 
-Application::Application(const std::string &appName) : appName{appName}
+Application::Application(std::string appName) : appName{std::move(appName)}
 {
-    createWindow();
-    createInstance();
-    createSurface();
-    createDevice();
-
-    swapchain = std::make_unique<core::Swapchain>(*device, *surface, *window);
-    swapchain->recreate();
+    try
+    {
+        createWindow();
+        createInstance();
+        createSurface();
+        createDevice();
+        createRenderManager();
+    }
+    catch (vk::SystemError &err)
+    {
+        LOG_ERROR("vk::SystemError: {}", err.what())
+        exit(-1);
+    }
+    catch (std::exception &err)
+    {
+        LOG_ERROR("std::exception: {}", err.what())
+        exit(-1);
+    }
+    catch (...)
+    {
+        LOG_ERROR("unknown error")
+        exit(-1);
+    }
 }
+
+Application::~Application() = default;
 
 void Application::run()
 {
@@ -35,6 +70,7 @@ void Application::run()
         window->onUpdate();
         //    drawFrame();
     }
+    device->getHandle().waitIdle();
 }
 
 void Application::onEvent(Event &event)
@@ -43,31 +79,31 @@ void Application::onEvent(Event &event)
     {
     case Event::Type::Keyboard: {
         auto data = std::get<Event::Keyboard>(event.data);
-        LOG_DEBUG("KeyboardEvent: keycode={}, action={}", data.keycode, data.action);
+        //        LOG_DEBUG("KeyboardEvent: keycode={}, action={}", data.keycode, data.action)
         break;
     }
     case Event::Type::MouseMove: {
         auto data = std::get<Event::MouseMove>(event.data);
-        LOG_DEBUG("MouseMoveEvent: x={}, y={}", data.xPos, data.yPos);
+        //        LOG_DEBUG("MouseMoveEvent: x={}, y={}", data.xPos, data.yPos)
         break;
     }
     case Event::Type::MouseButton: {
         auto data = std::get<Event::MouseButton>(event.data);
-        LOG_DEBUG("MouseButtonEvent: button={}, action={}", data.button, data.action);
+        //        LOG_DEBUG("MouseButtonEvent: button={}, action={}", data.button, data.action)
         break;
     }
     case Event::Type::MouseScroll: {
         auto data = std::get<Event::MouseScroll>(event.data);
-        LOG_DEBUG("MouseScrollEvent: x={}, y={}", data.xScroll, data.yScroll);
+        //        LOG_DEBUG("MouseScrollEvent: x={}, y={}", data.xScroll, data.yScroll)
         break;
     }
     case Event::Type::Resize: {
         auto data = std::get<Event::Resize>(event.data);
-        LOG_DEBUG("ResizeEvent: width={}, height={}", data.newWidth, data.newHeight);
+        //        LOG_DEBUG("ResizeEvent: width={}, height={}", data.newWidth, data.newHeight)
         break;
     }
     case Event::Type::Close: {
-        LOG_DEBUG("CloseEvent");
+        //        LOG_DEBUG("CloseEvent")
         break;
     }
     }
@@ -75,6 +111,13 @@ void Application::onEvent(Event &event)
 
 void Application::onUpdate()
 {
+    renderManager->beginFrame();
+    renderManager->beginRenderPass();
+
+    renderManager->draw();
+
+    renderManager->endRenderPass();
+    renderManager->endFrame();
 }
 
 void Application::initLogger()
@@ -139,6 +182,20 @@ void Application::createDevice()
 {
     enableDeviceExtension(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
     device = std::make_unique<core::Device>(*instance, *surface, deviceExtensions);
+}
+
+void Application::createRenderManager()
+{
+
+    auto swapchain = std::make_unique<core::Swapchain>(*device, *surface, *window);
+
+    rendering::RenderOptions renderOptions{.clearValue = {std::array<float, 4>{0.53f, 0.81f, 0.92f, 1.0f}},
+                                           .numSubpasses = 1};
+
+    auto renderer = std::make_unique<rendering::Renderer>(*device, swapchain.get(), renderOptions);
+
+    renderManager =
+        std::make_unique<rendering::RenderManager>(*device, *window, std::move(swapchain), std::move(renderer));
 }
 
 void Application::enableInstanceExtension(const char *extensionName)

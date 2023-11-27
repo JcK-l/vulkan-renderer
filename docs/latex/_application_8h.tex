@@ -1,17 +1,37 @@
 \doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/platform/\+Application.h File Reference}
 \hypertarget{_application_8h}{}\label{_application_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/platform/Application.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/platform/Application.h}}
-{\ttfamily \#include "{}Window.\+h"{}}\newline
-{\ttfamily \#include "{}../core/\+Instance.\+h"{}}\newline
-{\ttfamily \#include "{}../core/\+Device.\+h"{}}\newline
+
+
+This file declares the Application class which is used for managing the main application.  
+
+
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{vkf\+::platform\+::\+Application}}
-\begin{DoxyCompactList}\small\item\em Main application class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This class manages the main application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacevkf}{vkf}}
-\begin{DoxyCompactList}\small\item\em Vulkan Framework. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacevkf_1_1core}{vkf\+::core}}
+\begin{DoxyCompactList}\small\item\em The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacevkf_1_1rendering}{vkf\+::rendering}}
+\begin{DoxyCompactList}\small\item\em The rendering namespace contains classes and functions for rendering operations. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespacevkf_1_1platform}{vkf\+::platform}}
-\begin{DoxyCompactList}\small\item\em Collection of platform specific functionality. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The platform namespace includes platform-\/specific classes and functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file declares the Application class which is used for managing the main application. 
+
+The Application class is part of the \doxylink{namespacevkf_1_1platform}{vkf\+::platform} namespace. It provides an interface for interacting with the main application, including running the main loop, initializing the logger, and creating the window, instance, surface, and device. It also provides methods for enabling instance extensions, instance layers, and device extensions.
+
+\begin{DoxyAuthor}{Author}
+Joshua Lowe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10/30/2023
+\end{DoxyDate}
+The license and distribution terms for this file may be found in the file LICENSE in this distribution 

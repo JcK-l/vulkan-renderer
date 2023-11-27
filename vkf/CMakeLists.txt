@@ -12,10 +12,17 @@ target_sources(${PROJECT_NAME}
         core/PhysicalDevice.cpp
         core/Queue.cpp
         core/Swapchain.cpp
+        core/Framebuffer.cpp
+        core/RenderPass.cpp
+        core/CommandPool.cpp
         platform/Application.cpp
         platform/Window.cpp
         common/Input.cpp
         common/Utility.cpp
+        rendering/RenderManager.cpp
+        rendering/FrameData.cpp
+        rendering/Renderer.cpp
+        rendering/RenderSubstage.cpp
 )
 
 

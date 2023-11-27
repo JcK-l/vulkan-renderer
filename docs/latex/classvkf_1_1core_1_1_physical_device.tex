@@ -2,7 +2,7 @@
 \hypertarget{classvkf_1_1core_1_1_physical_device}{}\label{classvkf_1_1core_1_1_physical_device}\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
 
 
-This is a wrapper class for vk\+::raii\+::\+Physical\+Device.  
+This class manages Vulkan physical devices.  
 
 
 
@@ -12,141 +12,122 @@ This is a wrapper class for vk\+::raii\+::\+Physical\+Device.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a66a60234119c16a8c739eeb8f7838df2}{Physical\+Device}} (vk\+::raii\+::\+Physical\+Device \&physical\+Device)
+\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a29216254be63c3cc1740ad5ecadea80d}{Physical\+Device}} (vk\+::raii\+::\+Physical\+Device physical\+Device)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1core_1_1_physical_device}{Physical\+Device} class. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a29bd932380b894b6c26501dd1c0f1cef}\label{classvkf_1_1core_1_1_physical_device_a29bd932380b894b6c26501dd1c0f1cef} 
+{\bfseries Physical\+Device} (const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&)=delete
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a29bd932380b894b6c26501dd1c0f1cef}{Physical\+Device}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&)=delete
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a87ef0c1759a75a929f2cd8916f03a593}\label{classvkf_1_1core_1_1_physical_device_a87ef0c1759a75a929f2cd8916f03a593} 
+{\bfseries Physical\+Device} (\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&\&) noexcept=default
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_ab0fe8c17d13742dd19928180c6e3beb5}{Physical\+Device}} (\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&\&)=delete
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a0d52ec57799c23401c19c791735bcfaa}\label{classvkf_1_1core_1_1_physical_device_a0d52ec57799c23401c19c791735bcfaa} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&)=delete
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_aa3fb0c6b49aad08bddff7c3e0c47e9de}{\texorpdfstring{$\sim$}{\string~}\+Physical\+Device}} ()=default
+\Hypertarget{classvkf_1_1core_1_1_physical_device_adcaba58e6c6c608c612aef8b25449e57}\label{classvkf_1_1core_1_1_physical_device_adcaba58e6c6c608c612aef8b25449e57} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&\&)=delete
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a0d52ec57799c23401c19c791735bcfaa}{operator=}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&)=delete
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a3957667fecc3a65871936d1cc8a1ef40}\label{classvkf_1_1core_1_1_physical_device_a3957667fecc3a65871936d1cc8a1ef40} 
+const vk\+::\+Physical\+Device\+Features \& {\bfseries get\+Physical\+Device\+Features} () const
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_adcaba58e6c6c608c612aef8b25449e57}{operator=}} (\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&\&)=delete
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a61c041d65faa7c5e6214c0a093872268}\label{classvkf_1_1core_1_1_physical_device_a61c041d65faa7c5e6214c0a093872268} 
+const vk\+::\+Physical\+Device\+Properties \& {\bfseries get\+Properties} () const
 \item 
-const vk\+::\+Physical\+Device\+Features \& \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a25a1f8806fe133df20324e5afcc77ac1}{get\+Features}} () const
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a401e69096f950ed13761e94f86dbf0f0}\label{classvkf_1_1core_1_1_physical_device_a401e69096f950ed13761e94f86dbf0f0} 
+const std\+::vector$<$ vk\+::\+Queue\+Family\+Properties $>$ \& {\bfseries get\+Queue\+Family\+Properties} () const
 \item 
-const vk\+::\+Physical\+Device\+Properties \& \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a61c041d65faa7c5e6214c0a093872268}{get\+Properties}} () const
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a67a12c741135f19ef6454547a62aad45}\label{classvkf_1_1core_1_1_physical_device_a67a12c741135f19ef6454547a62aad45} 
+bool {\bfseries get\+Surface\+Support\+KHR} (uint32\+\_\+t queue\+Family\+Index, vk\+::\+Surface\+KHR surface) const
 \item 
-const std\+::vector$<$ vk\+::\+Queue\+Family\+Properties $>$ \& \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a401e69096f950ed13761e94f86dbf0f0}{get\+Queue\+Family\+Properties}} () const
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a39e2a88bc1d7b2edc5544fc57a1479a5}\label{classvkf_1_1core_1_1_physical_device_a39e2a88bc1d7b2edc5544fc57a1479a5} 
+const vk\+::raii\+::\+Physical\+Device \& {\bfseries get\+Handle} () const
 \item 
-bool \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a67a12c741135f19ef6454547a62aad45}{get\+Surface\+Support\+KHR}} (uint32\+\_\+t queue\+Family\+Index, vk\+::\+Surface\+KHR surface) const
-\item 
-const vk\+::raii\+::\+Physical\+Device \& \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a39e2a88bc1d7b2edc5544fc57a1479a5}{get\+Handle}} () const
-\end{DoxyCompactItemize}
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a245d65e359fad274bcbf8cb1343f711b}{get\+Extension\+Features\+Head}} () const
+\begin{DoxyCompactList}\small\item\em Get the head of the extension features chain. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Structure $>$ }\\Structure \& \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a757032fde40caf3ee5973851e960aceb}{request\+Extension\+Features}} ()
+\begin{DoxyCompactList}\small\item\em Request extension features. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-vk\+::raii\+::\+Physical\+Device \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_ad696f444e42a787ce95a32344d6d19de}{handle}} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\Hypertarget{classvkf_1_1core_1_1_physical_device_ad696f444e42a787ce95a32344d6d19de}\label{classvkf_1_1core_1_1_physical_device_ad696f444e42a787ce95a32344d6d19de} 
+vk\+::raii\+::\+Physical\+Device {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
 \item 
-vk\+::\+Physical\+Device\+Features \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a405335837d61b0e72e1a1c9d8a8dac7f}{features}}
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a880aa0d7ed0d40935f4d5651b32db1ef}\label{classvkf_1_1core_1_1_physical_device_a880aa0d7ed0d40935f4d5651b32db1ef} 
+std\+::unordered\+\_\+map$<$ vk\+::\+Structure\+Type, std\+::shared\+\_\+ptr$<$ void $>$ $>$ {\bfseries enabled\+Extension\+Features}
 \item 
-vk\+::\+Physical\+Device\+Properties \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a75bc728aa6d3139f3823dcccb8ac4de7}{properties}}
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a9492c769ce843b20afbe90653569b032}\label{classvkf_1_1core_1_1_physical_device_a9492c769ce843b20afbe90653569b032} 
+void \texorpdfstring{$\ast$}{*} {\bfseries extension\+Features\+Head} \{nullptr\}
 \item 
-std\+::vector$<$ vk\+::\+Queue\+Family\+Properties $>$ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device_a4ff46dea9ae3ac7685d9574a5de5d65b}{queue\+Family\+Properties}}
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a80a5f6a04e009494ee3908f1fd6cef35}\label{classvkf_1_1core_1_1_physical_device_a80a5f6a04e009494ee3908f1fd6cef35} 
+vk\+::\+Physical\+Device\+Features {\bfseries physical\+Device\+Features}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a75bc728aa6d3139f3823dcccb8ac4de7}\label{classvkf_1_1core_1_1_physical_device_a75bc728aa6d3139f3823dcccb8ac4de7} 
+vk\+::\+Physical\+Device\+Properties {\bfseries properties}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a4ff46dea9ae3ac7685d9574a5de5d65b}\label{classvkf_1_1core_1_1_physical_device_a4ff46dea9ae3ac7685d9574a5de5d65b} 
+std\+::vector$<$ vk\+::\+Queue\+Family\+Properties $>$ {\bfseries queue\+Family\+Properties}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This is a wrapper class for vk\+::raii\+::\+Physical\+Device. 
+This class manages Vulkan physical devices. 
+
+It provides methods for interacting with a Vulkan physical device, including getting device features and properties, querying queue family properties, checking surface support, and requesting extension features. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a66a60234119c16a8c739eeb8f7838df2}\label{classvkf_1_1core_1_1_physical_device_a66a60234119c16a8c739eeb8f7838df2} 
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a29216254be63c3cc1740ad5ecadea80d}\label{classvkf_1_1core_1_1_physical_device_a29216254be63c3cc1740ad5ecadea80d} 
 \index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!PhysicalDevice@{PhysicalDevice}}
 \index{PhysicalDevice@{PhysicalDevice}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{PhysicalDevice()}{PhysicalDevice()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Physical\+Device\+::\+Physical\+Device (\begin{DoxyParamCaption}\item[{vk\+::raii\+::\+Physical\+Device \&}]{physical\+Device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+\doxysubsubsection{\texorpdfstring{PhysicalDevice()}{PhysicalDevice()}}
+{\footnotesize\ttfamily vkf\+::core\+::\+Physical\+Device\+::\+Physical\+Device (\begin{DoxyParamCaption}\item[{vk\+::raii\+::\+Physical\+Device}]{physical\+Device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a29bd932380b894b6c26501dd1c0f1cef}\label{classvkf_1_1core_1_1_physical_device_a29bd932380b894b6c26501dd1c0f1cef} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!PhysicalDevice@{PhysicalDevice}}
-\index{PhysicalDevice@{PhysicalDevice}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{PhysicalDevice()}{PhysicalDevice()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Physical\+Device\+::\+Physical\+Device (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
-\Hypertarget{classvkf_1_1core_1_1_physical_device_ab0fe8c17d13742dd19928180c6e3beb5}\label{classvkf_1_1core_1_1_physical_device_ab0fe8c17d13742dd19928180c6e3beb5} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!PhysicalDevice@{PhysicalDevice}}
-\index{PhysicalDevice@{PhysicalDevice}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{PhysicalDevice()}{PhysicalDevice()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Physical\+Device\+::\+Physical\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
-\Hypertarget{classvkf_1_1core_1_1_physical_device_aa3fb0c6b49aad08bddff7c3e0c47e9de}\label{classvkf_1_1core_1_1_physical_device_aa3fb0c6b49aad08bddff7c3e0c47e9de} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!````~PhysicalDevice@{\texorpdfstring{$\sim$}{\string~}PhysicalDevice}}
-\index{````~PhysicalDevice@{\texorpdfstring{$\sim$}{\string~}PhysicalDevice}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PhysicalDevice()}{\string~PhysicalDevice()}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Physical\+Device\+::\texorpdfstring{$\sim$}{\string~}\+Physical\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+Constructor for the \doxylink{classvkf_1_1core_1_1_physical_device}{Physical\+Device} class. 
 
+This constructor creates a Vulkan physical device using the provided physical device.
+
+
+\begin{DoxyParams}{Parameters}
+{\em physical\+Device} & The Vulkan physical device. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a25a1f8806fe133df20324e5afcc77ac1}\label{classvkf_1_1core_1_1_physical_device_a25a1f8806fe133df20324e5afcc77ac1} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!getFeatures@{getFeatures}}
-\index{getFeatures@{getFeatures}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{getFeatures()}{getFeatures()}}
-{\footnotesize\ttfamily const vk\+::\+Physical\+Device\+Features \& vkf\+::core\+::\+Physical\+Device\+::get\+Features (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a39e2a88bc1d7b2edc5544fc57a1479a5}\label{classvkf_1_1core_1_1_physical_device_a39e2a88bc1d7b2edc5544fc57a1479a5} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!getHandle@{getHandle}}
-\index{getHandle@{getHandle}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{getHandle()}{getHandle()}}
-{\footnotesize\ttfamily const vk\+::raii\+::\+Physical\+Device \& vkf\+::core\+::\+Physical\+Device\+::get\+Handle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a61c041d65faa7c5e6214c0a093872268}\label{classvkf_1_1core_1_1_physical_device_a61c041d65faa7c5e6214c0a093872268} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!getProperties@{getProperties}}
-\index{getProperties@{getProperties}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{getProperties()}{getProperties()}}
-{\footnotesize\ttfamily const vk\+::\+Physical\+Device\+Properties \& vkf\+::core\+::\+Physical\+Device\+::get\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a401e69096f950ed13761e94f86dbf0f0}\label{classvkf_1_1core_1_1_physical_device_a401e69096f950ed13761e94f86dbf0f0} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!getQueueFamilyProperties@{getQueueFamilyProperties}}
-\index{getQueueFamilyProperties@{getQueueFamilyProperties}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{getQueueFamilyProperties()}{getQueueFamilyProperties()}}
-{\footnotesize\ttfamily const std\+::vector$<$ vk\+::\+Queue\+Family\+Properties $>$ \& vkf\+::core\+::\+Physical\+Device\+::get\+Queue\+Family\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a67a12c741135f19ef6454547a62aad45}\label{classvkf_1_1core_1_1_physical_device_a67a12c741135f19ef6454547a62aad45} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!getSurfaceSupportKHR@{getSurfaceSupportKHR}}
-\index{getSurfaceSupportKHR@{getSurfaceSupportKHR}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{getSurfaceSupportKHR()}{getSurfaceSupportKHR()}}
-{\footnotesize\ttfamily bool vkf\+::core\+::\+Physical\+Device\+::get\+Surface\+Support\+KHR (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{queue\+Family\+Index,  }\item[{vk\+::\+Surface\+KHR}]{surface }\end{DoxyParamCaption}) const}
-
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a0d52ec57799c23401c19c791735bcfaa}\label{classvkf_1_1core_1_1_physical_device_a0d52ec57799c23401c19c791735bcfaa} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!operator=@{operator=}}
-\index{operator=@{operator=}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& vkf\+::core\+::\+Physical\+Device\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
-
-\Hypertarget{classvkf_1_1core_1_1_physical_device_adcaba58e6c6c608c612aef8b25449e57}\label{classvkf_1_1core_1_1_physical_device_adcaba58e6c6c608c612aef8b25449e57} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!operator=@{operator=}}
-\index{operator=@{operator=}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& vkf\+::core\+::\+Physical\+Device\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a245d65e359fad274bcbf8cb1343f711b}\label{classvkf_1_1core_1_1_physical_device_a245d65e359fad274bcbf8cb1343f711b} 
+\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!getExtensionFeaturesHead@{getExtensionFeaturesHead}}
+\index{getExtensionFeaturesHead@{getExtensionFeaturesHead}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
+\doxysubsubsection{\texorpdfstring{getExtensionFeaturesHead()}{getExtensionFeaturesHead()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} vkf\+::core\+::\+Physical\+Device\+::get\+Extension\+Features\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
-\doxysubsection{Member Data Documentation}
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a405335837d61b0e72e1a1c9d8a8dac7f}\label{classvkf_1_1core_1_1_physical_device_a405335837d61b0e72e1a1c9d8a8dac7f} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!features@{features}}
-\index{features@{features}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{features}{features}}
-{\footnotesize\ttfamily vk\+::\+Physical\+Device\+Features vkf\+::core\+::\+Physical\+Device\+::features\hspace{0.3cm}{\ttfamily [private]}}
+Get the head of the extension features chain. 
 
-\Hypertarget{classvkf_1_1core_1_1_physical_device_ad696f444e42a787ce95a32344d6d19de}\label{classvkf_1_1core_1_1_physical_device_ad696f444e42a787ce95a32344d6d19de} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!handle@{handle}}
-\index{handle@{handle}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{handle}{handle}}
-{\footnotesize\ttfamily vk\+::raii\+::\+Physical\+Device vkf\+::core\+::\+Physical\+Device\+::handle \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}\hspace{0.3cm}{\ttfamily [private]}}
+\begin{DoxyReturn}{Returns}
+A pointer to the head of the extension features. 
+\end{DoxyReturn}
+\Hypertarget{classvkf_1_1core_1_1_physical_device_a757032fde40caf3ee5973851e960aceb}\label{classvkf_1_1core_1_1_physical_device_a757032fde40caf3ee5973851e960aceb} 
+\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!requestExtensionFeatures@{requestExtensionFeatures}}
+\index{requestExtensionFeatures@{requestExtensionFeatures}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
+\doxysubsubsection{\texorpdfstring{requestExtensionFeatures()}{requestExtensionFeatures()}}
+{\footnotesize\ttfamily template$<$typename Structure $>$ \\
+Structure \& vkf\+::core\+::\+Physical\+Device\+::request\+Extension\+Features (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a75bc728aa6d3139f3823dcccb8ac4de7}\label{classvkf_1_1core_1_1_physical_device_a75bc728aa6d3139f3823dcccb8ac4de7} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!properties@{properties}}
-\index{properties@{properties}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{properties}{properties}}
-{\footnotesize\ttfamily vk\+::\+Physical\+Device\+Properties vkf\+::core\+::\+Physical\+Device\+::properties\hspace{0.3cm}{\ttfamily [private]}}
 
-\Hypertarget{classvkf_1_1core_1_1_physical_device_a4ff46dea9ae3ac7685d9574a5de5d65b}\label{classvkf_1_1core_1_1_physical_device_a4ff46dea9ae3ac7685d9574a5de5d65b} 
-\index{vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}!queueFamilyProperties@{queueFamilyProperties}}
-\index{queueFamilyProperties@{queueFamilyProperties}!vkf::core::PhysicalDevice@{vkf::core::PhysicalDevice}}
-\doxysubsubsection{\texorpdfstring{queueFamilyProperties}{queueFamilyProperties}}
-{\footnotesize\ttfamily std\+::vector$<$vk\+::\+Queue\+Family\+Properties$>$ vkf\+::core\+::\+Physical\+Device\+::queue\+Family\+Properties\hspace{0.3cm}{\ttfamily [private]}}
 
+Request extension features. 
+
+This function requests extension features for the physical device and stores them in a map for later reference.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Structure} & The structure of the extension feature. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+A reference to the requested extension feature. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['physicaldevice_0',['physicaldevice',['../classvkf_1_1core_1_1_physical_device.html#a66a60234119c16a8c739eeb8f7838df2',1,'vkf::core::PhysicalDevice::PhysicalDevice(vk::raii::PhysicalDevice &amp;physicalDevice)'],['../classvkf_1_1core_1_1_physical_device.html#a29bd932380b894b6c26501dd1c0f1cef',1,'vkf::core::PhysicalDevice::PhysicalDevice(const PhysicalDevice &amp;)=delete'],['../classvkf_1_1core_1_1_physical_device.html#ab0fe8c17d13742dd19928180c6e3beb5',1,'vkf::core::PhysicalDevice::PhysicalDevice(PhysicalDevice &amp;&amp;)=delete']]]
+  ['initlogger_0',['initLogger',['../classvkf_1_1platform_1_1_application.html#a1d0875ced160ef56438ce83fbca3cd17',1,'vkf::platform::Application']]],
+  ['instance_1',['Instance',['../classvkf_1_1core_1_1_instance.html#a9e9963ecb7c7db9e50dcca153cad8c32',1,'vkf::core::Instance']]]
 ];

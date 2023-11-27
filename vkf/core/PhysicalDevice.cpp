@@ -1,23 +1,30 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 11/8/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file PhysicalDevice.cpp
+/// \brief This file implements the PhysicalDevice class which is used to manage Vulkan physical
+/// devices.
+///
+/// The PhysicalDevice class is part of the vkf::core namespace. It provides methods for interacting with a Vulkan
+/// physical device, including getting device features and properties, querying queue family properties, checking
+/// surface support, and requesting extension features.
+///
+/// \author Joshua Lowe
+/// \date 11/8/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "PhysicalDevice.h"
 #include "../common/Log.h"
 
 namespace vkf::core
 {
-PhysicalDevice::PhysicalDevice(vk::raii::PhysicalDevice &physicalDevice) : handle(physicalDevice)
+PhysicalDevice::PhysicalDevice(vk::raii::PhysicalDevice physicalDevice) : handle{std::move(physicalDevice)}
 {
-    physicalDeviceFeatures = physicalDevice.getFeatures();
-    properties = physicalDevice.getProperties();
-    queueFamilyProperties = physicalDevice.getQueueFamilyProperties();
+    physicalDeviceFeatures = handle.getFeatures();
+    properties = handle.getProperties();
+    queueFamilyProperties = handle.getQueueFamilyProperties();
 
-    LOG_INFO("Found GPU: {}", properties.deviceName.data());
+    LOG_INFO("Found GPU: {}", properties.deviceName.data())
 }
 
 const vk::PhysicalDeviceFeatures &PhysicalDevice::getPhysicalDeviceFeatures() const

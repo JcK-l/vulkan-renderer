@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['newheight_0',['newHeight',['../structvkf_1_1_event_1_1_resize.html#ae4491a9af4fb145f41bb7311b8e4d01b',1,'vkf::Event::Resize']]],
-  ['newwidth_1',['newWidth',['../structvkf_1_1_event_1_1_resize.html#afb7b924d269283817faad8e5a4811999',1,'vkf::Event::Resize']]],
-  ['november_2012_20vulkan_20setup_2',['November 12 - Vulkan Setup',['../md_updates_2_november__12.html',1,'']]],
-  ['november_2013_20c_20modules_20and_20cmake_3',['November 13 - C++ Modules and Cmake',['../md_updates_2_november__13.html',1,'']]],
-  ['november_206_20first_20commit_4',['November 6 - First Commit',['../md_updates_2_november__6.html',1,'']]],
-  ['november_5f12_2emd_5',['November_12.md',['../_november__12_8md.html',1,'']]],
-  ['november_5f13_2emd_6',['November_13.md',['../_november__13_8md.html',1,'']]],
-  ['november_5f6_2emd_7',['November_6.md',['../_november__6_8md.html',1,'']]]
+  ['loader_0',['Dynamic Loader',['../md_updates_23__11__06.html#autotoc_md26',1,'']]],
+  ['log_2eh_1',['Log.h',['../_log_8h.html',1,'']]],
+  ['logging_2',['Logging',['../md_updates_23__11__06.html#autotoc_md24',1,'']]],
+  ['logical_20device_3',['Logical Device',['../md_updates_22__11__12.html#autotoc_md16',1,'']]],
+  ['loop_4',['Render loop',['../md_updates_21__11__25.html#autotoc_md10',1,'']]]
 ];

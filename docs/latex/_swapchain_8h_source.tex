@@ -1,0 +1,75 @@
+\doxysection{Swapchain.\+h}
+\hypertarget{_swapchain_8h_source}{}\label{_swapchain_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Swapchain.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Swapchain.h}}
+\mbox{\hyperlink{_swapchain_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_SWAPCHAIN\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_SWAPCHAIN\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1platform}{vkf::platform}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}};}
+\DoxyCodeLine{00021\ \}\ \textcolor{comment}{//\ namespace\ vkf::platform}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }PhysicalDevice;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1core_1_1_swapchain_1_1_swap_chain_support_details}{SwapChainSupportDetails}}}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ vk::SurfaceCapabilitiesKHR\ capabilities;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::vector<vk::SurfaceFormatKHR>\ formats;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::vector<vk::PresentModeKHR>\ presentModes;}
+\DoxyCodeLine{00049\ \ \ \ \ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ \textcolor{keyword}{const}\ vk::raii::SurfaceKHR\ \&surface,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform::Window}}\ \&window);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}(\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}\ \&)\ =\ delete;\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}\ \&\&)\ =\ delete;\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
+\DoxyCodeLine{00066\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ destructor}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ [[nodiscard]]\ const\ vk::raii::SwapchainKHR\ \&getHandle()\ const;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ [[nodiscard]]\ vk::raii::ImageView\ createImageView(uint32\_t\ index)\ const;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ recreate();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ std::pair<vk::Result,\ uint32\_t>\ acquireNextImage(const\ vk::raii::Semaphore\ \&imageAvailableSemaphore,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ timeout\ =\ std::numeric\_limits<uint64\_t>::max());}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ [[nodiscard]]\ vk::Extent2D\ getExtent()\ const;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ [[nodiscard]]\ uint32\_t\ getImageCount()\ const;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ private:}
+\DoxyCodeLine{00082\ \ \ \ \ [[nodiscard]]\ vk::SurfaceFormatKHR\ selectSwapSurfaceFormat()\ const;}
+\DoxyCodeLine{00083\ \ \ \ \ [[nodiscard]]\ vk::PresentModeKHR\ selectSwapPresentMode()\ const;}
+\DoxyCodeLine{00084\ \ \ \ \ [[nodiscard]]\ vk::Extent2D\ selectSwapExtent()\ const;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ createSwapchain(vk::SwapchainKHR\ oldSwapchain\ =\ VK\_NULL\_HANDLE);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ const\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
+\DoxyCodeLine{00089\ \ \ \ \ const\ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&gpu;}
+\DoxyCodeLine{00090\ \ \ \ \ const\ vk::raii::SurfaceKHR\ \&surface;}
+\DoxyCodeLine{00091\ \ \ \ \ const\ platform::Window\ \&window;}
+\DoxyCodeLine{00092\ \ \ \ \ vk::raii::SwapchainKHR\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ SwapChainSupportDetails\ supportDetails;}
+\DoxyCodeLine{00095\ \ \ \ \ vk::Extent2D\ extent;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ std::vector<vk::Image>\ images;}
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_SWAPCHAIN\_H}}
+
+\end{DoxyCode}

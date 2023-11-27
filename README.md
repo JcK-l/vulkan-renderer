@@ -1,10 +1,14 @@
-vulkan-renderer
+Bachelor's Thesis Project: Rendering Met.3D Actors with Vulkan
 ===============
 
-This project is part of my bachelor's thesis. It is a proof of concept which uses vulkan to
-render [Met.3D](https://collaboration.cen.uni-hamburg.de/display/Met3D/Welcome+to+Met.3D) actors.
+This repository contains the code for my bachelor's thesis project. The goal of this project is to create a proof of
+concept demonstrating the use of the Vulkan graphics API to render Met.3D actors.
 
-The documentation and progress updates can be found [here](https://JcK-l.github.io/vulkan-renderer/).
+### Documentation and Progress Updates
+
+Detailed documentation for this project, as well as regular progress updates, can be
+found [here](https://JcK-l.github.io/vulkan-renderer/).
+The documentation includes a comprehensive overview of the project and a record of the project's development over time.
 
 [//]: # (## Building)
 

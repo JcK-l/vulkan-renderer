@@ -2,7 +2,7 @@
 \hypertarget{classvkf_1_1core_1_1_device}{}\label{classvkf_1_1core_1_1_device}\index{vkf::core::Device@{vkf::core::Device}}
 
 
-This class provides access to device properties. It also creates a Vma\+Allocator.  
+This class is used to manage Vulkan devices.  
 
 
 
@@ -13,78 +13,112 @@ This class provides access to device properties. It also creates a Vma\+Allocato
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classvkf_1_1core_1_1_device_adcd0f9f6565d69d76b9b920e90b56cd1}{Device}} (\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&instance, vk\+::raii\+::\+Surface\+KHR \&surface, const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Extensions=\{\})
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1core_1_1_device}{Device} class. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_device_af043b8bb36f544cb5baa188cabaff817}\label{classvkf_1_1core_1_1_device_af043b8bb36f544cb5baa188cabaff817} 
+{\bfseries Device} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&)=delete
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_device_af043b8bb36f544cb5baa188cabaff817}{Device}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&)=delete
+\Hypertarget{classvkf_1_1core_1_1_device_af8579dcfb263e4bc537dad7d99c2fa94}\label{classvkf_1_1core_1_1_device_af8579dcfb263e4bc537dad7d99c2fa94} 
+{\bfseries Device} (\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&\&) noexcept=default
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_device_a3fbbddd3a17dd44fe4b78f743c715a07}{Device}} (\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&\&)=delete
+\Hypertarget{classvkf_1_1core_1_1_device_a0099596233b38a7c642bdba0f31e4093}\label{classvkf_1_1core_1_1_device_a0099596233b38a7c642bdba0f31e4093} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&)=delete
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_device_ae162d75e0ac76391ba927cce8744ed55}{\texorpdfstring{$\sim$}{\string~}\+Device}} ()=default
+\Hypertarget{classvkf_1_1core_1_1_device_aef8d2837c208dd7d0694457adf615d94}\label{classvkf_1_1core_1_1_device_aef8d2837c208dd7d0694457adf615d94} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&\&)=delete
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_device_a0099596233b38a7c642bdba0f31e4093}{operator=}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&)=delete
+const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_device_a7028758f532e426ae8543a1262c446a6}{get\+Queue}} (uint32\+\_\+t queue\+Index, uint32\+\_\+t family\+Index) const
+\begin{DoxyCompactList}\small\item\em Getter for a queue. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_device_a24b379de691e7662da4870df2cff0133}{get\+Queue\+With\+Flags}} (uint32\+\_\+t queue\+Index, vk\+::\+Queue\+Flags include\+Flags, vk\+::\+Queue\+Flags exclude\+Flags=vk\+::\+Queue\+Flags()) const
+\begin{DoxyCompactList}\small\item\em Getter for a queue with flags. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_device_a21065bee6e614443a4783bfb8b8f42e0}{get\+Queue\+With\+Present}} (uint32\+\_\+t queue\+Index, vk\+::\+Queue\+Flags exclude\+Flags=vk\+::\+Queue\+Flags()) const
+\begin{DoxyCompactList}\small\item\em Getter for a queue with present support. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classvkf_1_1core_1_1_device_aa12591690c383665dd83a0d3468fef24}{has\+Queue}} (uint32\+\_\+t queue\+Index, uint32\+\_\+t family\+Index) const
+\begin{DoxyCompactList}\small\item\em Checks if a queue exists. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classvkf_1_1core_1_1_device_afd824265b6bca19e05269b9bddbdcd57}{has\+Queue\+With\+Flags}} (uint32\+\_\+t queue\+Index, vk\+::\+Queue\+Flags include\+Flags, vk\+::\+Queue\+Flags exclude\+Flags=vk\+::\+Queue\+Flags()) const
+\begin{DoxyCompactList}\small\item\em Checks if a queue with flags exists. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classvkf_1_1core_1_1_device_a1ac7e25a61832062fd70d9d0564c9f4f}{has\+Queue\+With\+Present}} (uint32\+\_\+t queue\+Index, vk\+::\+Queue\+Flags exclude\+Flags=vk\+::\+Queue\+Flags()) const
+\begin{DoxyCompactList}\small\item\em Checks if a queue with present support exists. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_device_a94c00babe9aae22d03ee2e9a943fdb3b}\label{classvkf_1_1core_1_1_device_a94c00babe9aae22d03ee2e9a943fdb3b} 
+Vma\+Allocator \& {\bfseries get\+Vma\+Allocator} ()
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_device_aef8d2837c208dd7d0694457adf615d94}{operator=}} (\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&\&)=delete
+\Hypertarget{classvkf_1_1core_1_1_device_ae884228eacae407b226ff5465aecd3eb}\label{classvkf_1_1core_1_1_device_ae884228eacae407b226ff5465aecd3eb} 
+const vk\+::raii\+::\+Device \& {\bfseries get\+Handle} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_device_a2e1fde76820c95c522797a3cbf44e919}\label{classvkf_1_1core_1_1_device_a2e1fde76820c95c522797a3cbf44e919} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& {\bfseries get\+Physical\+Device} () const
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classvkf_1_1core_1_1_device_a33b9b10ed67ecc45b8e0b1f50339c573}{create\+Vma\+Allocator}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&instance, const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&gpu)
+\Hypertarget{classvkf_1_1core_1_1_device_afb50e014320819e10764753ad2b3c886}\label{classvkf_1_1core_1_1_device_afb50e014320819e10764753ad2b3c886} 
+std\+::vector$<$ vk\+::\+Device\+Queue\+Create\+Info $>$ {\bfseries create\+Queues\+Infos} ()
+\item 
+\Hypertarget{classvkf_1_1core_1_1_device_a2c15c6a534a59822a4821d70fbf54da2}\label{classvkf_1_1core_1_1_device_a2c15c6a534a59822a4821d70fbf54da2} 
+void {\bfseries create\+Queues} ()
+\item 
+\Hypertarget{classvkf_1_1core_1_1_device_a33b9b10ed67ecc45b8e0b1f50339c573}\label{classvkf_1_1core_1_1_device_a33b9b10ed67ecc45b8e0b1f50339c573} 
+void {\bfseries create\+Vma\+Allocator} (const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&instance, const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&gpu)
 \item 
 void \mbox{\hyperlink{classvkf_1_1core_1_1_device_acf116fb0c80b39c53405d3a066cb1313}{validate\+Extensions}} (const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&required\+Extensions)
-\begin{DoxyCompactList}\small\item\em Tries to enable all required device extensions. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Validates the required extensions. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classvkf_1_1core_1_1_device_a254f9627cf6168295c9d1d71abb276a2}{enable\+Extension}} (const char \texorpdfstring{$\ast$}{*}required\+Extension\+Name)
-\begin{DoxyCompactList}\small\item\em Enables device extension if it is in available\+Extensions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Enables an extension. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classvkf_1_1core_1_1_device_afd63446d113b46d638fc28624ff0934a}{enabled\+Extensions}}
+\Hypertarget{classvkf_1_1core_1_1_device_afd63446d113b46d638fc28624ff0934a}\label{classvkf_1_1core_1_1_device_afd63446d113b46d638fc28624ff0934a} 
+std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries enabled\+Extensions}
 \item 
-std\+::vector$<$ vk\+::\+Extension\+Properties $>$ \mbox{\hyperlink{classvkf_1_1core_1_1_device_a6c5365cf4155d5cc8d40bd7d5099c9cf}{available\+Extensions}}
+\Hypertarget{classvkf_1_1core_1_1_device_a6c5365cf4155d5cc8d40bd7d5099c9cf}\label{classvkf_1_1core_1_1_device_a6c5365cf4155d5cc8d40bd7d5099c9cf} 
+std\+::vector$<$ vk\+::\+Extension\+Properties $>$ {\bfseries available\+Extensions}
 \item 
-vk\+::raii\+::\+Device \mbox{\hyperlink{classvkf_1_1core_1_1_device_a4989b9f660661a1ea51d7ee2d9a608e1}{handle}} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\Hypertarget{classvkf_1_1core_1_1_device_a4989b9f660661a1ea51d7ee2d9a608e1}\label{classvkf_1_1core_1_1_device_a4989b9f660661a1ea51d7ee2d9a608e1} 
+vk\+::raii\+::\+Device {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
 \item 
-Vma\+Allocator \mbox{\hyperlink{classvkf_1_1core_1_1_device_accaf43b08ea6517082229e4f60f41e0b}{vma\+Allocator}} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\Hypertarget{classvkf_1_1core_1_1_device_a3d748c68dba88070866e78ccf0ce9300}\label{classvkf_1_1core_1_1_device_a3d748c68dba88070866e78ccf0ce9300} 
+vk\+::raii\+::\+Surface\+KHR \& {\bfseries surface}
 \item 
-std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} $>$ $>$ \mbox{\hyperlink{classvkf_1_1core_1_1_device_a3f991e4b0286eee113c63b6e018f1773}{queues}}
+\Hypertarget{classvkf_1_1core_1_1_device_a333f6f46c0c7527576451997161df787}\label{classvkf_1_1core_1_1_device_a333f6f46c0c7527576451997161df787} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& {\bfseries gpu}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_device_accaf43b08ea6517082229e4f60f41e0b}\label{classvkf_1_1core_1_1_device_accaf43b08ea6517082229e4f60f41e0b} 
+Vma\+Allocator {\bfseries vma\+Allocator} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_device_a3f991e4b0286eee113c63b6e018f1773}\label{classvkf_1_1core_1_1_device_a3f991e4b0286eee113c63b6e018f1773} 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} $>$ $>$ {\bfseries queues}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This class provides access to device properties. It also creates a Vma\+Allocator. 
+This class is used to manage Vulkan devices. 
+
+This class provides functionality to get queues and handle to the device. It also provides methods to check if a queue exists and to get the VMA allocator. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classvkf_1_1core_1_1_device_adcd0f9f6565d69d76b9b920e90b56cd1}\label{classvkf_1_1core_1_1_device_adcd0f9f6565d69d76b9b920e90b56cd1} 
 \index{vkf::core::Device@{vkf::core::Device}!Device@{Device}}
 \index{Device@{Device}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{Device()}{Device()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\doxysubsubsection{\texorpdfstring{Device()}{Device()}}
 {\footnotesize\ttfamily vkf\+::core\+::\+Device\+::\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&}]{instance,  }\item[{vk\+::raii\+::\+Surface\+KHR \&}]{surface,  }\item[{const std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \&}]{required\+Extensions = {\ttfamily \{\}} }\end{DoxyParamCaption})}
 
-\Hypertarget{classvkf_1_1core_1_1_device_af043b8bb36f544cb5baa188cabaff817}\label{classvkf_1_1core_1_1_device_af043b8bb36f544cb5baa188cabaff817} 
-\index{vkf::core::Device@{vkf::core::Device}!Device@{Device}}
-\index{Device@{Device}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{Device()}{Device()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Device\+::\+Device (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
-\Hypertarget{classvkf_1_1core_1_1_device_a3fbbddd3a17dd44fe4b78f743c715a07}\label{classvkf_1_1core_1_1_device_a3fbbddd3a17dd44fe4b78f743c715a07} 
-\index{vkf::core::Device@{vkf::core::Device}!Device@{Device}}
-\index{Device@{Device}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{Device()}{Device()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Device\+::\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
-\Hypertarget{classvkf_1_1core_1_1_device_ae162d75e0ac76391ba927cce8744ed55}\label{classvkf_1_1core_1_1_device_ae162d75e0ac76391ba927cce8744ed55} 
-\index{vkf::core::Device@{vkf::core::Device}!````~Device@{\texorpdfstring{$\sim$}{\string~}Device}}
-\index{````~Device@{\texorpdfstring{$\sim$}{\string~}Device}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Device()}{\string~Device()}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Device\+::\texorpdfstring{$\sim$}{\string~}\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+Constructor for the \doxylink{classvkf_1_1core_1_1_device}{Device} class. 
 
+This constructor creates a Vulkan device using the provided instance, surface, and required extensions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & The Vulkan instance. \\
+\hline
+{\em surface} & The Vulkan surface. \\
+\hline
+{\em required\+Extensions} & A vector of required extensions (optional). \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classvkf_1_1core_1_1_device_a33b9b10ed67ecc45b8e0b1f50339c573}\label{classvkf_1_1core_1_1_device_a33b9b10ed67ecc45b8e0b1f50339c573} 
-\index{vkf::core::Device@{vkf::core::Device}!createVmaAllocator@{createVmaAllocator}}
-\index{createVmaAllocator@{createVmaAllocator}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{createVmaAllocator()}{createVmaAllocator()}}
-{\footnotesize\ttfamily void vkf\+::core\+::\+Device\+::create\+Vma\+Allocator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}} \&}]{instance,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \&}]{gpu }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
 \Hypertarget{classvkf_1_1core_1_1_device_a254f9627cf6168295c9d1d71abb276a2}\label{classvkf_1_1core_1_1_device_a254f9627cf6168295c9d1d71abb276a2} 
 \index{vkf::core::Device@{vkf::core::Device}!enableExtension@{enableExtension}}
 \index{enableExtension@{enableExtension}!vkf::core::Device@{vkf::core::Device}}
@@ -93,28 +127,154 @@ This class provides access to device properties. It also creates a Vma\+Allocato
 
 
 
-Enables device extension if it is in available\+Extensions. 
+Enables an extension. 
+
+This function enables an extension by adding it to the enabled\+Extensions vector. If the extension is not available, it is not added to the vector and the function returns false.
 
 
 \begin{DoxyParams}{Parameters}
-{\em required\+Extension\+Name} & Name of extension \\
+{\em required\+Extension\+Name} & The name of the extension to enable. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Is\+Extension\+Enabled 
+True if the extension was enabled, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classvkf_1_1core_1_1_device_a0099596233b38a7c642bdba0f31e4093}\label{classvkf_1_1core_1_1_device_a0099596233b38a7c642bdba0f31e4093} 
-\index{vkf::core::Device@{vkf::core::Device}!operator=@{operator=}}
-\index{operator=@{operator=}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& vkf\+::core\+::\+Device\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+\Hypertarget{classvkf_1_1core_1_1_device_a7028758f532e426ae8543a1262c446a6}\label{classvkf_1_1core_1_1_device_a7028758f532e426ae8543a1262c446a6} 
+\index{vkf::core::Device@{vkf::core::Device}!getQueue@{getQueue}}
+\index{getQueue@{getQueue}!vkf::core::Device@{vkf::core::Device}}
+\doxysubsubsection{\texorpdfstring{getQueue()}{getQueue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} const  \& vkf\+::core\+::\+Device\+::get\+Queue (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{queue\+Index,  }\item[{uint32\+\_\+t}]{family\+Index }\end{DoxyParamCaption}) const}
 
-\Hypertarget{classvkf_1_1core_1_1_device_aef8d2837c208dd7d0694457adf615d94}\label{classvkf_1_1core_1_1_device_aef8d2837c208dd7d0694457adf615d94} 
-\index{vkf::core::Device@{vkf::core::Device}!operator=@{operator=}}
-\index{operator=@{operator=}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& vkf\+::core\+::\+Device\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
+
+Getter for a queue. 
+
+This function returns a queue with the given queue index and family index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue\+Index} & The index of the queue. \\
+\hline
+{\em family\+Index} & The family index of the queue. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A const reference to the queue. 
+\end{DoxyReturn}
+\Hypertarget{classvkf_1_1core_1_1_device_a24b379de691e7662da4870df2cff0133}\label{classvkf_1_1core_1_1_device_a24b379de691e7662da4870df2cff0133} 
+\index{vkf::core::Device@{vkf::core::Device}!getQueueWithFlags@{getQueueWithFlags}}
+\index{getQueueWithFlags@{getQueueWithFlags}!vkf::core::Device@{vkf::core::Device}}
+\doxysubsubsection{\texorpdfstring{getQueueWithFlags()}{getQueueWithFlags()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} const  \& vkf\+::core\+::\+Device\+::get\+Queue\+With\+Flags (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{queue\+Index,  }\item[{vk\+::\+Queue\+Flags}]{include\+Flags,  }\item[{vk\+::\+Queue\+Flags}]{exclude\+Flags = {\ttfamily vk\+:\+:QueueFlags()} }\end{DoxyParamCaption}) const}
+
+
+
+Getter for a queue with flags. 
+
+This function returns a queue with the given queue index that includes the specified flags and excludes the specified flags.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue\+Index} & The index of the queue. \\
+\hline
+{\em include\+Flags} & The flags that the queue must include. \\
+\hline
+{\em exclude\+Flags} & The flags that the queue must not include (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A const reference to the queue. 
+\end{DoxyReturn}
+\Hypertarget{classvkf_1_1core_1_1_device_a21065bee6e614443a4783bfb8b8f42e0}\label{classvkf_1_1core_1_1_device_a21065bee6e614443a4783bfb8b8f42e0} 
+\index{vkf::core::Device@{vkf::core::Device}!getQueueWithPresent@{getQueueWithPresent}}
+\index{getQueueWithPresent@{getQueueWithPresent}!vkf::core::Device@{vkf::core::Device}}
+\doxysubsubsection{\texorpdfstring{getQueueWithPresent()}{getQueueWithPresent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} const  \& vkf\+::core\+::\+Device\+::get\+Queue\+With\+Present (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{queue\+Index,  }\item[{vk\+::\+Queue\+Flags}]{exclude\+Flags = {\ttfamily vk\+:\+:QueueFlags()} }\end{DoxyParamCaption}) const}
+
+
+
+Getter for a queue with present support. 
+
+This function returns a queue with the given queue index that supports presentation and excludes the specified flags.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue\+Index} & The index of the queue. \\
+\hline
+{\em exclude\+Flags} & The flags that the queue must not include (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A const reference to the queue. 
+\end{DoxyReturn}
+\Hypertarget{classvkf_1_1core_1_1_device_aa12591690c383665dd83a0d3468fef24}\label{classvkf_1_1core_1_1_device_aa12591690c383665dd83a0d3468fef24} 
+\index{vkf::core::Device@{vkf::core::Device}!hasQueue@{hasQueue}}
+\index{hasQueue@{hasQueue}!vkf::core::Device@{vkf::core::Device}}
+\doxysubsubsection{\texorpdfstring{hasQueue()}{hasQueue()}}
+{\footnotesize\ttfamily bool vkf\+::core\+::\+Device\+::has\+Queue (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{queue\+Index,  }\item[{uint32\+\_\+t}]{family\+Index }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a queue exists. 
+
+This function checks if a queue with the given queue index and family index exists.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue\+Index} & The index of the queue. \\
+\hline
+{\em family\+Index} & The family index of the queue. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the queue exists, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classvkf_1_1core_1_1_device_afd824265b6bca19e05269b9bddbdcd57}\label{classvkf_1_1core_1_1_device_afd824265b6bca19e05269b9bddbdcd57} 
+\index{vkf::core::Device@{vkf::core::Device}!hasQueueWithFlags@{hasQueueWithFlags}}
+\index{hasQueueWithFlags@{hasQueueWithFlags}!vkf::core::Device@{vkf::core::Device}}
+\doxysubsubsection{\texorpdfstring{hasQueueWithFlags()}{hasQueueWithFlags()}}
+{\footnotesize\ttfamily bool vkf\+::core\+::\+Device\+::has\+Queue\+With\+Flags (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{queue\+Index,  }\item[{vk\+::\+Queue\+Flags}]{include\+Flags,  }\item[{vk\+::\+Queue\+Flags}]{exclude\+Flags = {\ttfamily vk\+:\+:QueueFlags()} }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a queue with flags exists. 
+
+This function checks if a queue with the given queue index that includes the specified flags and excludes the specified flags exists.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue\+Index} & The index of the queue. \\
+\hline
+{\em include\+Flags} & The flags that the queue must include. \\
+\hline
+{\em exclude\+Flags} & The flags that the queue must not include (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the queue exists, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classvkf_1_1core_1_1_device_a1ac7e25a61832062fd70d9d0564c9f4f}\label{classvkf_1_1core_1_1_device_a1ac7e25a61832062fd70d9d0564c9f4f} 
+\index{vkf::core::Device@{vkf::core::Device}!hasQueueWithPresent@{hasQueueWithPresent}}
+\index{hasQueueWithPresent@{hasQueueWithPresent}!vkf::core::Device@{vkf::core::Device}}
+\doxysubsubsection{\texorpdfstring{hasQueueWithPresent()}{hasQueueWithPresent()}}
+{\footnotesize\ttfamily bool vkf\+::core\+::\+Device\+::has\+Queue\+With\+Present (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{queue\+Index,  }\item[{vk\+::\+Queue\+Flags}]{exclude\+Flags = {\ttfamily vk\+:\+:QueueFlags()} }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a queue with present support exists. 
+
+This function checks if a queue with the given queue index that supports presentation and excludes the specified flags exists.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue\+Index} & The index of the queue. \\
+\hline
+{\em exclude\+Flags} & The flags that the queue must not include (optional). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the queue exists, false otherwise. 
+\end{DoxyReturn}
 \Hypertarget{classvkf_1_1core_1_1_device_acf116fb0c80b39c53405d3a066cb1313}\label{classvkf_1_1core_1_1_device_acf116fb0c80b39c53405d3a066cb1313} 
 \index{vkf::core::Device@{vkf::core::Device}!validateExtensions@{validateExtensions}}
 \index{validateExtensions@{validateExtensions}!vkf::core::Device@{vkf::core::Device}}
@@ -123,46 +283,15 @@ Is\+Extension\+Enabled
 
 
 
-Tries to enable all required device extensions. 
+Validates the required extensions. 
+
+This function validates the required extensions by checking if they are available. If a required extension is not available, a runtime\+\_\+error is thrown.
 
 
 \begin{DoxyParams}{Parameters}
-{\em required\+Extensions} & \\
+{\em required\+Extensions} & A vector of required extensions. \\
 \hline
 \end{DoxyParams}
-
-
-\doxysubsection{Member Data Documentation}
-\Hypertarget{classvkf_1_1core_1_1_device_a6c5365cf4155d5cc8d40bd7d5099c9cf}\label{classvkf_1_1core_1_1_device_a6c5365cf4155d5cc8d40bd7d5099c9cf} 
-\index{vkf::core::Device@{vkf::core::Device}!availableExtensions@{availableExtensions}}
-\index{availableExtensions@{availableExtensions}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{availableExtensions}{availableExtensions}}
-{\footnotesize\ttfamily std\+::vector$<$vk\+::\+Extension\+Properties$>$ vkf\+::core\+::\+Device\+::available\+Extensions\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classvkf_1_1core_1_1_device_afd63446d113b46d638fc28624ff0934a}\label{classvkf_1_1core_1_1_device_afd63446d113b46d638fc28624ff0934a} 
-\index{vkf::core::Device@{vkf::core::Device}!enabledExtensions@{enabledExtensions}}
-\index{enabledExtensions@{enabledExtensions}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{enabledExtensions}{enabledExtensions}}
-{\footnotesize\ttfamily std\+::vector$<$const char \texorpdfstring{$\ast$}{*}$>$ vkf\+::core\+::\+Device\+::enabled\+Extensions\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classvkf_1_1core_1_1_device_a4989b9f660661a1ea51d7ee2d9a608e1}\label{classvkf_1_1core_1_1_device_a4989b9f660661a1ea51d7ee2d9a608e1} 
-\index{vkf::core::Device@{vkf::core::Device}!handle@{handle}}
-\index{handle@{handle}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{handle}{handle}}
-{\footnotesize\ttfamily vk\+::raii\+::\+Device vkf\+::core\+::\+Device\+::handle \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classvkf_1_1core_1_1_device_a3f991e4b0286eee113c63b6e018f1773}\label{classvkf_1_1core_1_1_device_a3f991e4b0286eee113c63b6e018f1773} 
-\index{vkf::core::Device@{vkf::core::Device}!queues@{queues}}
-\index{queues@{queues}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{queues}{queues}}
-{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}$>$ $>$ vkf\+::core\+::\+Device\+::queues\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classvkf_1_1core_1_1_device_accaf43b08ea6517082229e4f60f41e0b}\label{classvkf_1_1core_1_1_device_accaf43b08ea6517082229e4f60f41e0b} 
-\index{vkf::core::Device@{vkf::core::Device}!vmaAllocator@{vmaAllocator}}
-\index{vmaAllocator@{vmaAllocator}!vkf::core::Device@{vkf::core::Device}}
-\doxysubsubsection{\texorpdfstring{vmaAllocator}{vmaAllocator}}
-{\footnotesize\ttfamily Vma\+Allocator vkf\+::core\+::\+Device\+::vma\+Allocator \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}\hspace{0.3cm}{\ttfamily [private]}}
-
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -3,77 +3,89 @@
 \mbox{\hyperlink{_window_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{comment}{//}}
-\DoxyCodeLine{00005\ \textcolor{comment}{//\ Created\ by\ Joshua\ Lowe\ on\ 10/31/2023.}}
-\DoxyCodeLine{00006\ \textcolor{comment}{//\ The\ license\ and\ distribution\ terms\ for\ this\ file\ may\ be\ found\ in\ the\ file\ LICENSE\ in\ this\ distribution}}
-\DoxyCodeLine{00007\ \textcolor{comment}{//}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_WINDOW\_H}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_WINDOW\_H}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}GLFW/glfw3.h"{}}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../common/event.h"{}}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../core/Instance.h"{}}}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1platform}{vkf::platform}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_WINDOW\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_WINDOW\_H}}
 \DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{class\ }Application;}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}\ \{}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_extent}{Extent}}\ \{}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_extent_ae7b1aaab2e682e4d903d531ac07e976d}{width}};}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_extent_a2b4da3c3b359e78c5064cadde406078b}{height}};}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}{Vsync}}\ \{}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802fa88559a0cfd8250c9d65970cc145c92d4}{OFF}},}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802fa90651ebea9a35ec4e018c8157492e17c}{ON}}}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}{Mode}}\ \{}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0a0829ea6734059d66e6bf87096b215dc1}{Fullscreen}},}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0a5a805befe579fd1668bd4a32e5be1310}{FullscreenBorderless}},}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0ab13311ab51c4c34757f67f26580018dd}{Windowed}}}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}}\ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties_afdd76f8335fd3e47bd687cf298b4b72e}{title}};}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}{Mode}}\ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties_abd13c19c136342e0d5d427f510937e58}{mode}}\{\mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0ab13311ab51c4c34757f67f26580018dd}{Mode::Windowed}}\};}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties_acc224e05c8a5a6d41243dd252a9b6e25}{resizeable}}\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties_a93a5ca2c836b370ef0330f14668ea53f}{resized}}\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}{Vsync}}\ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties_a918f5b8a1cf3c66139b1fba656677dec}{vsync}}\{\mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802fa90651ebea9a35ec4e018c8157492e17c}{Vsync::ON}}\};}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_extent}{Extent}}\ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties_af00b2d88ce54ea5f3975c3327d9357fa}{extent}}\{800,\ 600\};}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ std::function<void(\mbox{\hyperlink{structvkf_1_1_event}{Event}}\ \&)>\ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties_a3e407be2987d4f225ae2ac82a302bfcf}{eventCallback}};}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}(\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}});}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_a1631aa084aab2848fa6f53d20fd96d9a}{\string~Window}}();}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_ac6067d940c92908ff9eb369aafa92c19}{onUpdate}}();}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_a7a8f9a09ec90e972d3a23e78cbff6639}{setEventCallback}}(\textcolor{keyword}{const}\ std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{structvkf_1_1_event}{Event}}\ \&)>\ \&callback);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_ad714f99baf300c58648a67921d7a1b56}{isClosed}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ [[nodiscard]]\ GLFWwindow\ *\mbox{\hyperlink{classvkf_1_1platform_1_1_window_abbe720acf94af1c4e22a9f630407d2b6}{getHandle}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::vector<const\ char\ *>\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_acf84a4ac6b274fe5e386a69a42bd7998}{getRequiredSurfaceExtensions}}();}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ vk::raii::SurfaceKHR\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_a67d0e045e326c236651bde00769fe334}{createSurface}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core::Instance}}\ \&instance);}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_ae7d368fbe429c85d3de15e5e1fd358bc}{windowData}};}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ GLFWwindow\ *\mbox{\hyperlink{classvkf_1_1platform_1_1_window_a30da22c1f6ba625c89a27b451f1368b7}{handle}}\{\textcolor{keyword}{nullptr}\};}
-\DoxyCodeLine{00075\ \ \ \ \ \};}
-\DoxyCodeLine{00076\ \}\ \textcolor{comment}{//\ namespace\ vkf::platform}}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//VULKANRENDERER\_WINDOW\_H}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}../common/Event.h"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}GLFW/glfw3.h"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }Instance;}
+\DoxyCodeLine{00025\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1platform}{vkf::platform}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_extent}{Extent}}}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ uint32\_t\ width;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ uint32\_t\ height;}
+\DoxyCodeLine{00050\ \ \ \ \ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}{Vsync}}}
+\DoxyCodeLine{00057\ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ OFF,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ ON}
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}{Mode}}}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ Fullscreen,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ FullscreenBorderless,}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ Windowed}
+\DoxyCodeLine{00071\ \ \ \ \ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}}}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ std::string\ title;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_abe12df63cfc71d34a52b071adad432f0}{Mode}}\ mode\{Mode::Windowed\};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ resizeable\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ resized\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window_aab0d1d3c8da9699bdbe700415889802f}{Vsync}}\ vsync\{Vsync::ON\};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_extent}{Extent}}\ extent\{800,\ 600\};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ std::function<void(\mbox{\hyperlink{structvkf_1_1_event}{Event}}\ \&)>\ eventCallback;}
+\DoxyCodeLine{00086\ \ \ \ \ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}(\mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}}\ properties);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}(\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}\ \&)\ =\ delete;\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}\ \&\&)\ =\ delete;\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
+\DoxyCodeLine{00101\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Implementation\ in\ Window.cpp}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ onUpdate();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ setEventCallback(const\ std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{structvkf_1_1_event}{Event}}\ \&)>\ \&callback);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ isClosed()\ const;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ [[nodiscard]]\ GLFWwindow\ *getHandle()\ const;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ std::vector<const\ \textcolor{keywordtype}{char}\ *>\ getRequiredSurfaceExtensions();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ [[nodiscard]]\ std::pair<uint32\_t,\ uint32\_t>\ getFramebufferSize()\ const;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ vk::raii::SurfaceKHR\ createSurface(const\ core::Instance\ \&instance);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ waitEvents()\ const;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ isResized()\ const;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ setResized(\textcolor{keywordtype}{bool}\ isResized);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ private:}
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{structvkf_1_1platform_1_1_window_1_1_properties}{Properties}}\ windowData;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ GLFWwindow\ *handle\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00126\ \};}
+\DoxyCodeLine{00127\ \}\ \textcolor{comment}{//\ namespace\ vkf::platform}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_WINDOW\_H}}
 
 \end{DoxyCode}

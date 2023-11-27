@@ -79,66 +79,35 @@ $(function() {
   <div class="headertitle"><div class="title">Instance.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="pch_8h_source.html">../pch.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_instance_8h_source.html">Instance.h</a>&quot;</code><br />
+
+<p>This file implements the Instance class which is used to manage Vulkan instances.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_instance_8h_source.html">Instance.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_log_8h_source.html">../common/Log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_physical_device_8h_source.html">PhysicalDevice.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacevkf" id="r_namespacevkf"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html">vkf</a></td></tr>
-<tr class="memdesc:namespacevkf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vulkan Framework. <br /></td></tr>
+<tr class="memdesc:namespacevkf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The top-level namespace for the Vulkan Framework (vkf). <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacevkf_1_1core" id="r_namespacevkf_1_1core"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1core.html">vkf::core</a></td></tr>
-<tr class="memdesc:namespacevkf_1_1core"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of core functionality. <br /></td></tr>
+<tr class="memdesc:namespacevkf_1_1core"><td class="mdescLeft">&#160;</td><td class="mdescRight">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aaa67e6807538d044fbbb5c1d97349ffd" id="r_aaa67e6807538d044fbbb5c1d97349ffd"><td class="memItemLeft" align="right" valign="top">VKAPI_ATTR VkBool32 VKAPI_CALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_instance_8cpp.html#aaa67e6807538d044fbbb5c1d97349ffd">debugCallback</a> (VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT const *callbackData, void *)</td></tr>
+<tr class="memitem:aaa67e6807538d044fbbb5c1d97349ffd" id="r_aaa67e6807538d044fbbb5c1d97349ffd"><td class="memItemLeft" align="right" valign="top"><a id="aaa67e6807538d044fbbb5c1d97349ffd" name="aaa67e6807538d044fbbb5c1d97349ffd"></a>
+VKAPI_ATTR VkBool32 VKAPI_CALL&#160;</td><td class="memItemRight" valign="bottom"><b>debugCallback</b> (VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT const *callbackData, void *)</td></tr>
 <tr class="separator:aaa67e6807538d044fbbb5c1d97349ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="aaa67e6807538d044fbbb5c1d97349ffd" name="aaa67e6807538d044fbbb5c1d97349ffd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa67e6807538d044fbbb5c1d97349ffd">&#9670;&#160;</a></span>debugCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback </td>
-          <td>(</td>
-          <td class="paramtype">VkDebugUtilsMessageSeverityFlagBitsEXT&#160;</td>
-          <td class="paramname"><em>messageSeverity</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">VkDebugUtilsMessageTypeFlagsEXT&#160;</td>
-          <td class="paramname"><em>messageTypes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">VkDebugUtilsMessengerCallbackDataEXT const *&#160;</td>
-          <td class="paramname"><em>callbackData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file implements the Instance class which is used to manage Vulkan instances. </p>
+<p>The Instance class is part of the <a class="el" href="namespacevkf_1_1core.html" title="The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...">vkf::core</a> namespace. It provides methods for creating a Vulkan instance, validating extensions and layers, and querying GPUs. In debug build mode, it also creates a debug messenger.</p>
+<dl class="section author"><dt>Author</dt><dd>Joshua Lowe </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11/1/2023</dd></dl>
+<p>The license and distribution terms for this file may be found in the file LICENSE in this distribution </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

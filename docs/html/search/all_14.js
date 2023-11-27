@@ -1,6 +1,27 @@
 var searchData=
 [
-  ['seteventcallback_0',['setEventCallback',['../classvkf_1_1platform_1_1_window.html#a7a8f9a09ec90e972d3a23e78cbff6639',1,'vkf::platform::Window']]],
-  ['setup_1',['November 12 - Vulkan Setup',['../md_updates_2_november__12.html',1,'']]],
-  ['surface_2',['surface',['../classvkf_1_1platform_1_1_application.html#adea3d52242adff1a2dd640ddbf12a666',1,'vkf::platform::Application']]]
+  ['raii_0',['Raii',['../md_updates_23__11__06.html#autotoc_md27',1,'']]],
+  ['render_20loop_1',['Render loop',['../md_updates_21__11__25.html#autotoc_md10',1,'']]],
+  ['renderer_2',['renderer',['../classvkf_1_1rendering_1_1_renderer.html',1,'vkf::rendering::Renderer'],['../classvkf_1_1rendering_1_1_renderer.html#ad5ac4db9596cbac3f888d7656999064d',1,'vkf::rendering::Renderer::Renderer()'],['../md_updates_21__11__25.html#autotoc_md6',1,'Renderer']]],
+  ['renderer_2ecpp_3',['Renderer.cpp',['../_renderer_8cpp.html',1,'']]],
+  ['renderer_2eh_4',['Renderer.h',['../_renderer_8h.html',1,'']]],
+  ['rendering_20met_203d_20actors_20with_20vulkan_5',['Bachelor&apos;s Thesis Project: Rendering Met.3D Actors with Vulkan',['../index.html',1,'']]],
+  ['rendermanager_6',['rendermanager',['../classvkf_1_1rendering_1_1_render_manager.html',1,'vkf::rendering::RenderManager'],['../classvkf_1_1rendering_1_1_render_manager.html#a9bc468b9039373359e80387290fb0309',1,'vkf::rendering::RenderManager::RenderManager()']]],
+  ['rendermanager_2ecpp_7',['RenderManager.cpp',['../_render_manager_8cpp.html',1,'']]],
+  ['rendermanager_2eh_8',['RenderManager.h',['../_render_manager_8h.html',1,'']]],
+  ['rendermanger_9',['November 25 - RenderManger',['../md_updates_21__11__25.html',1,'']]],
+  ['renderoptions_10',['RenderOptions',['../structvkf_1_1rendering_1_1_render_options.html',1,'vkf::rendering']]],
+  ['renderpass_11',['renderpass',['../classvkf_1_1core_1_1_render_pass.html',1,'vkf::core::RenderPass'],['../classvkf_1_1core_1_1_render_pass.html#a7536da50b8a67f35c94e83d09f7c3b3a',1,'vkf::core::RenderPass::RenderPass()'],['../md_updates_21__11__25.html#autotoc_md7',1,'RenderPass']]],
+  ['renderpass_2ecpp_12',['RenderPass.cpp',['../_render_pass_8cpp.html',1,'']]],
+  ['renderpass_2eh_13',['RenderPass.h',['../_render_pass_8h.html',1,'']]],
+  ['rendersubstage_14',['rendersubstage',['../classvkf_1_1rendering_1_1_render_substage.html',1,'vkf::rendering::RenderSubstage'],['../md_updates_21__11__25.html#autotoc_md9',1,'RenderSubstage']]],
+  ['rendersubstage_2ecpp_15',['RenderSubstage.cpp',['../_render_substage_8cpp.html',1,'']]],
+  ['rendersubstage_2eh_16',['RenderSubstage.h',['../_render_substage_8h.html',1,'']]],
+  ['rendertarget_17',['rendertarget',['../structvkf_1_1rendering_1_1_render_target.html',1,'vkf::rendering::RenderTarget'],['../md_updates_21__11__25.html#autotoc_md8',1,'RenderTarget']]],
+  ['requestcommandbuffers_18',['requestCommandBuffers',['../classvkf_1_1core_1_1_command_pool.html#a56aec497f74ac33bdc030fb9fc4e047b',1,'vkf::core::CommandPool']]],
+  ['requestextensionfeatures_19',['requestExtensionFeatures',['../classvkf_1_1core_1_1_physical_device.html#a757032fde40caf3ee5973851e960aceb',1,'vkf::core::PhysicalDevice']]],
+  ['resize_20',['resize',['../structvkf_1_1_event_1_1_resize.html',1,'vkf::Event::Resize'],['../structvkf_1_1_event.html#afa9ad9a597587c5835c44d526d32a5f6a9d723d04c40bfd81835c0766a698cf63',1,'vkf::Event::Resize']]],
+  ['results_21',['results',['../md_updates_21__11__25.html#autotoc_md11',1,'Results'],['../md_updates_23__11__06.html#autotoc_md30',1,'Results']]],
+  ['root_5fpath_5fsize_22',['ROOT_PATH_SIZE',['../_log_8h.html#af8372f79e78eb87dfa2f223ca40ed3b5',1,'Log.h']]],
+  ['run_23',['run',['../classvkf_1_1platform_1_1_application.html#af4b98411febf1469fe42b075d878c562',1,'vkf::platform::Application']]]
 ];

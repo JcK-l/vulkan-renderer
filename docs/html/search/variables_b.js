@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['newheight_0',['newHeight',['../structvkf_1_1_event_1_1_resize.html#ae4491a9af4fb145f41bb7311b8e4d01b',1,'vkf::Event::Resize']]],
-  ['newwidth_1',['newWidth',['../structvkf_1_1_event_1_1_resize.html#afb7b924d269283817faad8e5a4811999',1,'vkf::Event::Resize']]]
+  ['mode_0',['mode',['../structvkf_1_1platform_1_1_window_1_1_properties.html#abd13c19c136342e0d5d427f510937e58',1,'vkf::platform::Window::Properties']]]
 ];

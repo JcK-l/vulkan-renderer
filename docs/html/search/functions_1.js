@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['createsurface_0',['createSurface',['../classvkf_1_1platform_1_1_window.html#a67d0e045e326c236651bde00769fe334',1,'vkf::platform::Window']]],
-  ['createvmaallocator_1',['createVmaAllocator',['../classvkf_1_1core_1_1_device.html#a33b9b10ed67ecc45b8e0b1f50339c573',1,'vkf::core::Device']]]
+  ['commandpool_0',['CommandPool',['../classvkf_1_1core_1_1_command_pool.html#a4755df1676fe7686e5375d709ae3a96c',1,'vkf::core::CommandPool']]]
 ];

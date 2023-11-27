@@ -77,148 +77,76 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Vulkan Framework.  
+<p>The top-level namespace for the Vulkan Framework (vkf).  
 <a href="namespacevkf.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacevkf_1_1core" id="r_namespacevkf_1_1core"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1core.html">core</a></td></tr>
-<tr class="memdesc:namespacevkf_1_1core"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of core functionality. <br /></td></tr>
+<tr class="memdesc:namespacevkf_1_1core"><td class="mdescLeft">&#160;</td><td class="mdescRight">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacevkf_1_1platform" id="r_namespacevkf_1_1platform"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1platform.html">platform</a></td></tr>
-<tr class="memdesc:namespacevkf_1_1platform"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of platform specific functionality. <br /></td></tr>
+<tr class="memdesc:namespacevkf_1_1platform"><td class="mdescLeft">&#160;</td><td class="mdescRight">The platform namespace includes platform-specific classes and functions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacevkf_1_1rendering" id="r_namespacevkf_1_1rendering"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1rendering.html">rendering</a></td></tr>
+<tr class="memdesc:namespacevkf_1_1rendering"><td class="mdescLeft">&#160;</td><td class="mdescRight">The rendering namespace contains classes and functions for rendering operations. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvkf_1_1_event.html">Event</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object containing EventType and EventData.  <a href="structvkf_1_1_event.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct that encapsulates various types of events.  <a href="structvkf_1_1_event.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adb939442c221e95776abd89e0c67a504" id="r_adb939442c221e95776abd89e0c67a504"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html#adb939442c221e95776abd89e0c67a504">isKeyPressed</a> (GLFWwindow *window, int keycode)</td></tr>
+<tr class="memitem:adb939442c221e95776abd89e0c67a504" id="r_adb939442c221e95776abd89e0c67a504"><td class="memItemLeft" align="right" valign="top"><a id="adb939442c221e95776abd89e0c67a504" name="adb939442c221e95776abd89e0c67a504"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isKeyPressed</b> (GLFWwindow *window, int keycode)</td></tr>
 <tr class="separator:adb939442c221e95776abd89e0c67a504"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a004611c0016cf49bf5d5c6ffc5bc2006" id="r_a004611c0016cf49bf5d5c6ffc5bc2006"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html#a004611c0016cf49bf5d5c6ffc5bc2006">isMouseButtonPressed</a> (GLFWwindow *window, int button)</td></tr>
+<tr class="memitem:a004611c0016cf49bf5d5c6ffc5bc2006" id="r_a004611c0016cf49bf5d5c6ffc5bc2006"><td class="memItemLeft" align="right" valign="top"><a id="a004611c0016cf49bf5d5c6ffc5bc2006" name="a004611c0016cf49bf5d5c6ffc5bc2006"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isMouseButtonPressed</b> (GLFWwindow *window, int button)</td></tr>
 <tr class="separator:a004611c0016cf49bf5d5c6ffc5bc2006"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e15829989495263456acf65047fefc8" id="r_a2e15829989495263456acf65047fefc8"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html#a2e15829989495263456acf65047fefc8">getMousePosition</a> (GLFWwindow *window)</td></tr>
+<tr class="memitem:a2e15829989495263456acf65047fefc8" id="r_a2e15829989495263456acf65047fefc8"><td class="memItemLeft" align="right" valign="top"><a id="a2e15829989495263456acf65047fefc8" name="a2e15829989495263456acf65047fefc8"></a>
+std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getMousePosition</b> (GLFWwindow *window)</td></tr>
 <tr class="separator:a2e15829989495263456acf65047fefc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4eeefe3a5f001c93dcfcbe12a7f90018" id="r_a4eeefe3a5f001c93dcfcbe12a7f90018"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html#a4eeefe3a5f001c93dcfcbe12a7f90018">getMouseX</a> (GLFWwindow *window)</td></tr>
+<tr class="memitem:a4eeefe3a5f001c93dcfcbe12a7f90018" id="r_a4eeefe3a5f001c93dcfcbe12a7f90018"><td class="memItemLeft" align="right" valign="top"><a id="a4eeefe3a5f001c93dcfcbe12a7f90018" name="a4eeefe3a5f001c93dcfcbe12a7f90018"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getMouseX</b> (GLFWwindow *window)</td></tr>
 <tr class="separator:a4eeefe3a5f001c93dcfcbe12a7f90018"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20e522db2c4b0430e2b305141c08801f" id="r_a20e522db2c4b0430e2b305141c08801f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html#a20e522db2c4b0430e2b305141c08801f">getMouseY</a> (GLFWwindow *window)</td></tr>
+<tr class="memitem:a20e522db2c4b0430e2b305141c08801f" id="r_a20e522db2c4b0430e2b305141c08801f"><td class="memItemLeft" align="right" valign="top"><a id="a20e522db2c4b0430e2b305141c08801f" name="a20e522db2c4b0430e2b305141c08801f"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getMouseY</b> (GLFWwindow *window)</td></tr>
 <tr class="separator:a20e522db2c4b0430e2b305141c08801f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3089ed0c5c9b54b7716ceaead798d58" id="r_ad3089ed0c5c9b54b7716ceaead798d58"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html#ad3089ed0c5c9b54b7716ceaead798d58">getQueueFlagsString</a> (vk::QueueFlags flags)</td></tr>
+<tr class="memdesc:ad3089ed0c5c9b54b7716ceaead798d58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts Vulkan queue flags to a string.  <br /></td></tr>
+<tr class="separator:ad3089ed0c5c9b54b7716ceaead798d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Vulkan Framework. </p>
-<p>Collection of input functions. </p>
+<div class="textblock"><p>The top-level namespace for the Vulkan Framework (vkf). </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a2e15829989495263456acf65047fefc8" name="a2e15829989495263456acf65047fefc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e15829989495263456acf65047fefc8">&#9670;&#160;</a></span>getMousePosition()</h2>
+<a id="ad3089ed0c5c9b54b7716ceaead798d58" name="ad3089ed0c5c9b54b7716ceaead798d58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3089ed0c5c9b54b7716ceaead798d58">&#9670;&#160;</a></span>getQueueFlagsString()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::pair&lt; double, double &gt; vkf::getMousePosition </td>
+          <td class="memname">std::string vkf::getQueueFlagsString </td>
           <td>(</td>
-          <td class="paramtype">GLFWwindow *&#160;</td>
-          <td class="paramname"><em>window</em></td><td>)</td>
+          <td class="paramtype">vk::QueueFlags&#160;</td>
+          <td class="paramname"><em>flags</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a4eeefe3a5f001c93dcfcbe12a7f90018" name="a4eeefe3a5f001c93dcfcbe12a7f90018"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4eeefe3a5f001c93dcfcbe12a7f90018">&#9670;&#160;</a></span>getMouseX()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double vkf::getMouseX </td>
-          <td>(</td>
-          <td class="paramtype">GLFWwindow *&#160;</td>
-          <td class="paramname"><em>window</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a20e522db2c4b0430e2b305141c08801f" name="a20e522db2c4b0430e2b305141c08801f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20e522db2c4b0430e2b305141c08801f">&#9670;&#160;</a></span>getMouseY()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double vkf::getMouseY </td>
-          <td>(</td>
-          <td class="paramtype">GLFWwindow *&#160;</td>
-          <td class="paramname"><em>window</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adb939442c221e95776abd89e0c67a504" name="adb939442c221e95776abd89e0c67a504"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb939442c221e95776abd89e0c67a504">&#9670;&#160;</a></span>isKeyPressed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool vkf::isKeyPressed </td>
-          <td>(</td>
-          <td class="paramtype">GLFWwindow *&#160;</td>
-          <td class="paramname"><em>window</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>keycode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a004611c0016cf49bf5d5c6ffc5bc2006" name="a004611c0016cf49bf5d5c6ffc5bc2006"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a004611c0016cf49bf5d5c6ffc5bc2006">&#9670;&#160;</a></span>isMouseButtonPressed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool vkf::isMouseButtonPressed </td>
-          <td>(</td>
-          <td class="paramtype">GLFWwindow *&#160;</td>
-          <td class="paramname"><em>window</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>button</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Converts Vulkan queue flags to a string. </p>
+<p>This function takes a vk::QueueFlags value and returns a string representation of it. This can be useful for logging or debugging.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flags</td><td>The Vulkan queue flags to convert to a string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A string representation of the Vulkan queue flags. </dd></dl>
 
 </div>
 </div>

@@ -1,13 +1,19 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 11/9/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Device.cpp
+/// \brief This file implements the Device class which is used to manage Vulkan devices.
+///
+/// The Device class is part of the vkf::core namespace. It provides functionality to get queues and handle to the
+/// device. It also provides methods to check if a queue exists and to get the VMA allocator.
+///
+/// \author Joshua Lowe
+/// \date 11/9/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Device.h"
 #include "../common/Log.h"
+#include "Instance.h"
 #include "PhysicalDevice.h"
 
 #define VMA_IMPLEMENTATION
@@ -22,42 +28,26 @@ namespace vkf::core
 Device::Device(Instance &instance, vk::raii::SurfaceKHR &surface, const std::vector<const char *> &requiredExtensions)
     : surface{surface}, gpu{instance.getSuitableGpu(surface)}
 {
-    try
-    {
-        LOG_INFO("Picked GPU: {}", gpu.getProperties().deviceName.data());
+    LOG_INFO("Picked GPU: {}", gpu.getProperties().deviceName.data())
 
-        availableExtensions = gpu.getHandle().enumerateDeviceExtensionProperties();
-        validateExtensions(requiredExtensions);
+    availableExtensions = gpu.getHandle().enumerateDeviceExtensionProperties();
+    validateExtensions(requiredExtensions);
 
-        auto queueCreateInfos = createQueues();
-        vk::DeviceCreateInfo createInfo{.pNext = gpu.getExtensionFeaturesHead(),
-                                        .queueCreateInfoCount = static_cast<uint32_t>(queueCreateInfos.size()),
-                                        .pQueueCreateInfos = queueCreateInfos.data(),
-                                        .enabledExtensionCount = static_cast<uint32_t>(enabledExtensions.size()),
-                                        .ppEnabledExtensionNames = enabledExtensions.data(),
-                                        .pEnabledFeatures = &gpu.getPhysicalDeviceFeatures()};
+    auto queueCreateInfos = createQueuesInfos();
+    vk::DeviceCreateInfo createInfo{.pNext = gpu.getExtensionFeaturesHead(),
+                                    .queueCreateInfoCount = static_cast<uint32_t>(queueCreateInfos.size()),
+                                    .pQueueCreateInfos = queueCreateInfos.data(),
+                                    .enabledExtensionCount = static_cast<uint32_t>(enabledExtensions.size()),
+                                    .ppEnabledExtensionNames = enabledExtensions.data(),
+                                    .pEnabledFeatures = &gpu.getPhysicalDeviceFeatures()};
 
-        handle = vk::raii::Device{gpu.getHandle(), createInfo};
-        VULKAN_HPP_DEFAULT_DISPATCHER.init(*handle);
-        LOG_INFO("Created logical device");
+    handle = vk::raii::Device{gpu.getHandle(), createInfo};
+    VULKAN_HPP_DEFAULT_DISPATCHER.init(*handle);
+    LOG_INFO("Created Device")
 
-        createVmaAllocator(instance, gpu);
-    }
-    catch (vk::SystemError &err)
-    {
-        LOG_ERROR("vk::SystemError: {}", err.what());
-        exit(-1);
-    }
-    catch (std::exception &err)
-    {
-        LOG_ERROR("std::exception: {}", err.what());
-        exit(-1);
-    }
-    catch (...)
-    {
-        LOG_ERROR("unknown error");
-        exit(-1);
-    }
+    createQueues();
+
+    createVmaAllocator(instance, gpu);
 }
 
 void Device::validateExtensions(const std::vector<const char *> &requiredExtensions)
@@ -103,35 +93,48 @@ bool Device::enableExtension(const char *requiredExtensionName)
     return false;
 }
 
-std::vector<vk::DeviceQueueCreateInfo> Device::createQueues()
+std::vector<vk::DeviceQueueCreateInfo> Device::createQueuesInfos()
 {
-    std::vector<vk::QueueFamilyProperties> queueFamilyProperties = gpu.getQueueFamilyProperties();
+    auto queueFamilyProperties = gpu.getQueueFamilyProperties();
     std::vector<vk::DeviceQueueCreateInfo> queueCreateInfos(queueFamilyProperties.size());
     std::vector<std::vector<float>> queuePriorities(queueFamilyProperties.size());
 
     queues.resize(queueFamilyProperties.size());
 
-    for (uint32_t familyIndex = 0; familyIndex < queueFamilyProperties.size(); ++familyIndex)
-    {
-        const vk::QueueFamilyProperties &queueFamilyProperty = queueFamilyProperties[familyIndex];
+    uint32_t familyIndex = 0;
+    std::for_each(queueFamilyProperties.begin(), queueFamilyProperties.end(),
+                  [&](const vk::QueueFamilyProperties &queueFamilyProperty) {
+                      queuePriorities[familyIndex].resize(queueFamilyProperty.queueCount, 0.5f);
 
-        queuePriorities[familyIndex].resize(queueFamilyProperty.queueCount, 0.5f);
+                      vk::DeviceQueueCreateInfo &queueCreateInfo = queueCreateInfos[familyIndex];
+                      queueCreateInfo.queueFamilyIndex = familyIndex;
+                      queueCreateInfo.queueCount = queueFamilyProperty.queueCount;
+                      queueCreateInfo.pQueuePriorities = queuePriorities[familyIndex].data();
 
-        vk::DeviceQueueCreateInfo &queueCreateInfo = queueCreateInfos[familyIndex];
-
-        queueCreateInfo.queueFamilyIndex = familyIndex;
-        queueCreateInfo.queueCount = queueFamilyProperty.queueCount;
-        queueCreateInfo.pQueuePriorities = queuePriorities[familyIndex].data();
-
-        vk::Bool32 presentSupported = gpu.getHandle().getSurfaceSupportKHR(familyIndex, *surface);
-
-        LOG_INFO("Found queue family {}: {}", familyIndex, getQueueFlagsString(queueFamilyProperty.queueFlags));
-        for (uint32_t queueIndex = 0; queueIndex < queueFamilyProperty.queueCount; ++queueIndex)
-        {
-            queues[familyIndex].emplace_back(familyIndex, queueFamilyProperty, presentSupported, queueIndex);
-        }
-    }
+                      ++familyIndex;
+                  });
     return queueCreateInfos;
+}
+
+void Device::createQueues()
+{
+    auto queueFamilyProperties = gpu.getQueueFamilyProperties();
+    queues.resize(queueFamilyProperties.size());
+
+    uint32_t familyIndex = 0;
+    std::for_each(queueFamilyProperties.begin(), queueFamilyProperties.end(),
+                  [&](const vk::QueueFamilyProperties &queueFamilyProperty) {
+                      auto presentSupported = gpu.getHandle().getSurfaceSupportKHR(familyIndex, *surface);
+
+                      LOG_INFO("Found queue family {}: {}", familyIndex,
+                               getQueueFlagsString(queueFamilyProperty.queueFlags))
+                      for (uint32_t queueIndex = 0; queueIndex < queueFamilyProperty.queueCount; ++queueIndex)
+                      {
+                          queues[familyIndex].emplace_back(handle.getQueue(familyIndex, queueIndex), familyIndex,
+                                                           queueFamilyProperty, presentSupported, queueIndex);
+                      }
+                      ++familyIndex;
+                  });
 }
 
 void Device::createVmaAllocator(const Instance &instance, const PhysicalDevice &gpu)
@@ -168,8 +171,12 @@ void Device::createVmaAllocator(const Instance &instance, const PhysicalDevice &
     vmaCreteInfo.flags = VMA_ALLOCATOR_CREATE_EXT_MEMORY_BUDGET_BIT;
 
     // Create VMA allocator
-    vmaCreateAllocator(&vmaCreteInfo, &vmaAllocator);
-    LOG_INFO("Created VMA allocator");
+    VkResult result = vmaCreateAllocator(&vmaCreteInfo, &vmaAllocator);
+    if (result != VK_SUCCESS)
+    {
+        throw std::runtime_error("Failed to create VMA allocator");
+    }
+    LOG_INFO("Created VMA allocator")
 }
 
 VmaAllocator &Device::getVmaAllocator()
@@ -210,13 +217,13 @@ Queue const &Device::getQueueWithFlags(uint32_t queueIndex, vk::QueueFlags inclu
     if (excludeFlags == vk::QueueFlags())
     {
         LOG_ERROR("Queue not found with queue index: {}, include flags: {}", queueIndex,
-                  getQueueFlagsString(includeFlags));
+                  getQueueFlagsString(includeFlags))
     }
     else
     {
         LOG_ERROR("Queue not found with queue index: {}, include flags: {}, exclude "
                   "flags: {}",
-                  queueIndex, getQueueFlagsString(includeFlags), getQueueFlagsString(excludeFlags));
+                  queueIndex, getQueueFlagsString(includeFlags), getQueueFlagsString(excludeFlags))
     }
     throw std::runtime_error("Queue not found");
 }
@@ -237,12 +244,12 @@ Queue const &Device::getQueueWithPresent(uint32_t queueIndex, vk::QueueFlags exc
     }
     if (excludeFlags == vk::QueueFlags())
     {
-        LOG_ERROR("Queue not found with queue index: {}", queueIndex);
+        LOG_ERROR("Queue not found with queue index: {}", queueIndex)
     }
     else
     {
         LOG_ERROR("Queue not found with queue index: {}, exclude flags: {}", queueIndex,
-                  getQueueFlagsString(excludeFlags));
+                  getQueueFlagsString(excludeFlags))
     }
     throw std::runtime_error("Queue not found");
 }

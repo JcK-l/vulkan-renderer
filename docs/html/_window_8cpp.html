@@ -79,56 +79,37 @@ $(function() {
   <div class="headertitle"><div class="title">Window.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This file implements the Window class which is used for managing GLFW windows.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_window_8h_source.html">Window.h</a>&quot;</code><br />
-<code>#include &lt;utility&gt;</code><br />
-<code>#include &quot;GLFW/glfw3.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="_application_8h_source.html">Application.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_log_8h_source.html">../common/Log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_instance_8h_source.html">../core/Instance.h</a>&quot;</code><br />
+<code>#include &quot;GLFW/glfw3.h&quot;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacevkf" id="r_namespacevkf"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf.html">vkf</a></td></tr>
-<tr class="memdesc:namespacevkf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vulkan Framework. <br /></td></tr>
+<tr class="memdesc:namespacevkf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The top-level namespace for the Vulkan Framework (vkf). <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacevkf_1_1platform" id="r_namespacevkf_1_1platform"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevkf_1_1platform.html">vkf::platform</a></td></tr>
-<tr class="memdesc:namespacevkf_1_1platform"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of platform specific functionality. <br /></td></tr>
+<tr class="memdesc:namespacevkf_1_1platform"><td class="mdescLeft">&#160;</td><td class="mdescRight">The platform namespace includes platform-specific classes and functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4e8175390ee624e61977e1ab6006f903" id="r_a4e8175390ee624e61977e1ab6006f903"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_window_8cpp.html#a4e8175390ee624e61977e1ab6006f903">errorCallback</a> (int error, const char *description)</td></tr>
+<tr class="memitem:a4e8175390ee624e61977e1ab6006f903" id="r_a4e8175390ee624e61977e1ab6006f903"><td class="memItemLeft" align="right" valign="top"><a id="a4e8175390ee624e61977e1ab6006f903" name="a4e8175390ee624e61977e1ab6006f903"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>errorCallback</b> (int error, const char *description)</td></tr>
 <tr class="separator:a4e8175390ee624e61977e1ab6006f903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a4e8175390ee624e61977e1ab6006f903" name="a4e8175390ee624e61977e1ab6006f903"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e8175390ee624e61977e1ab6006f903">&#9670;&#160;</a></span>errorCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void errorCallback </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>error</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>description</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file implements the Window class which is used for managing GLFW windows. </p>
+<p>The Window class is part of the <a class="el" href="namespacevkf_1_1platform.html" title="The platform namespace includes platform-specific classes and functions.">vkf::platform</a> namespace. It provides an interface for interacting with a GLFW window, including creating a surface, getting required surface extensions, setting event callbacks, and updating the window. It also provides methods for querying window properties such as whether the window is closed, its framebuffer size, and its handle.</p>
+<dl class="section author"><dt>Author</dt><dd>Joshua Lowe </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>10/31/2023</dd></dl>
+<p>The license and distribution terms for this file may be found in the file LICENSE in this distribution </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

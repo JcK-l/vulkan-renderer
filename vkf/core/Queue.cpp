@@ -1,10 +1,16 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 11/11/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Queue.cpp
+/// \brief This file implements the Queue class which is used for managing Vulkan queues.
+///
+/// The Queue class is part of the vkf::core namespace. It provides an interface for interacting with a Vulkan queue,
+/// including getting the handle to the queue, the family index, the queue properties, and the queue index. It also
+/// provides a method to check if the queue can present.
+///
+/// \author Joshua Lowe
+/// \date 11/11/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Queue.h"
 #include "../common/Log.h"
@@ -12,21 +18,16 @@
 namespace vkf::core
 {
 
-Queue::Queue(uint32_t familyIndex, vk::QueueFamilyProperties properties, vk::Bool32 supportsPresent,
-             uint32_t queueIndex)
-    : familyIndex{familyIndex}, properties{properties}, supportsPresent{supportsPresent}, queueIndex{queueIndex}
+Queue::Queue(vk::raii::Queue queue, uint32_t familyIndex, vk::QueueFamilyProperties properties,
+             vk::Bool32 supportsPresent, uint32_t queueIndex)
+    : handle{std::move(queue)}, familyIndex{familyIndex}, properties{properties}, supportsPresent{supportsPresent},
+      queueIndex{queueIndex}
 {
 }
 
-Queue::Queue(Queue &&other) noexcept
-    : familyIndex{other.familyIndex}, properties{other.properties}, supportsPresent{other.supportsPresent},
-      queueIndex{other.queueIndex}
+const vk::raii::Queue &Queue::getHandle() const
 {
-
-    other.familyIndex = {};
-    other.properties = vk::QueueFamilyProperties{};
-    other.supportsPresent = VK_FALSE;
-    other.queueIndex = 0;
+    return handle;
 }
 
 uint32_t Queue::getFamilyIndex() const

@@ -1,10 +1,15 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 11/6/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Input.h
+/// \brief This file declares functions for handling input events.
+///
+/// The functions in this file are part of the vkf namespace. They provide an interface for checking the state of
+/// keyboard and mouse input.
+///
+/// \author Joshua Lowe
+/// \date 11/6/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef VULKANRENDERER_INPUT_H
 #define VULKANRENDERER_INPUT_H
