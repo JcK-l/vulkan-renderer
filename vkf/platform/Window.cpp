@@ -1,21 +1,28 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 10/31/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Window.cpp
+/// \brief This file implements the Window class which is used for managing GLFW windows.
+///
+/// The Window class is part of the vkf::platform namespace. It provides an interface for interacting with a GLFW
+/// window, including creating a surface, getting required surface extensions, setting event callbacks, and updating the
+/// window. It also provides methods for querying window properties such as whether the window is closed, its
+/// framebuffer size, and its handle.
+///
+/// \author Joshua Lowe
+/// \date 10/31/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Window.h"
 
 #include "../common/Log.h"
-#include "Application.h"
+#include "../core/Instance.h"
 #include "GLFW/glfw3.h"
 #include <utility>
 
 void errorCallback(int error, const char *description)
 {
-    LOG_ERROR("GLFW ({}): {}", error, description);
+    LOG_ERROR("GLFW ({}): {}", error, description)
 }
 
 namespace vkf::platform
@@ -150,9 +157,9 @@ std::vector<const char *> Window::getRequiredSurfaceExtensions()
 
 vk::raii::SurfaceKHR Window::createSurface(const core::Instance &instance)
 {
-    VkSurfaceKHR _surface;
-    glfwCreateWindowSurface(static_cast<VkInstance>(*instance.getHandle()), handle, nullptr, &_surface);
-    vk::raii::SurfaceKHR surface{instance.getHandle(), _surface};
+    VkSurfaceKHR surfaceTemp;
+    glfwCreateWindowSurface(static_cast<VkInstance>(*instance.getHandle()), handle, nullptr, &surfaceTemp);
+    vk::raii::SurfaceKHR surface{instance.getHandle(), surfaceTemp};
     return surface;
 }
 
@@ -166,5 +173,16 @@ std::pair<uint32_t, uint32_t> Window::getFramebufferSize() const
 void Window::waitEvents() const
 {
     glfwWaitEvents();
+}
+
+bool Window::isResized() const
+{
+    return windowData.resized;
+}
+
+void Window::setResized(bool isResized)
+{
+    windowData.resized = isResized;
 };
+
 } // namespace vkf::platform
