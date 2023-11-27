@@ -60,7 +60,8 @@ Instance::Instance(const std::string &appName, const std::vector<const char *> &
 
 #if !defined(NDEBUG)
     vk::StructureChain<vk::InstanceCreateInfo, vk::DebugUtilsMessengerCreateInfoEXT> instanceCreateInfo = {
-        vk::InstanceCreateInfo{.pApplicationInfo = &applicationInfo,
+        vk::InstanceCreateInfo{.flags = vk::InstanceCreateFlagBits::eEnumeratePortabilityKHR,
+                               .pApplicationInfo = &applicationInfo,
                                .enabledLayerCount = static_cast<uint32_t>(enabledLayers.size()),
                                .ppEnabledLayerNames = enabledLayers.data(),
                                .enabledExtensionCount = static_cast<uint32_t>(enabledExtensions.size()),
@@ -75,7 +76,8 @@ Instance::Instance(const std::string &appName, const std::vector<const char *> &
         }};
 #else
     vk::StructureChain<vk::InstanceCreateInfo> instanceCreateInfo = {
-        vk::InstanceCreateInfo{.pApplicationInfo = &applicationInfo,
+        vk::InstanceCreateInfo{.flags = vk::InstanceCreateFlagBits::eEnumeratePortabilityKHR,
+                               .pApplicationInfo = &applicationInfo,
                                .enabledLayerCount = static_cast<uint32_t>(enabledLayers.size()),
                                .ppEnabledLayerNames = enabledLayers.data(),
                                .enabledExtensionCount = static_cast<uint32_t>(enabledExtensions.size()),

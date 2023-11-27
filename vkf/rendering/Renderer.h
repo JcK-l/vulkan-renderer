@@ -38,6 +38,12 @@ struct RenderTarget
     vk::Extent2D extent;
     std::vector<vk::raii::ImageView> imageViews;
     std::vector<vk::AttachmentDescription> attachments;
+
+    RenderTarget(vk::Extent2D extent, std::vector<vk::raii::ImageView> imageViews,
+                 std::vector<vk::AttachmentDescription> attachments)
+        : extent(extent), imageViews(std::move(imageViews)), attachments(std::move(attachments))
+    {
+    }
 };
 
 ///

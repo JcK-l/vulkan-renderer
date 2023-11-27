@@ -159,10 +159,13 @@ void Application::createInstance()
     }
     enableInstanceExtension(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
 
+    // For macOS
+    enableInstanceExtension(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME);
+
 #if !defined(NDEBUG)
     enableInstanceExtension(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
     enableInstanceLayer("VK_LAYER_KHRONOS_validation");
-    enableInstanceLayer("VK_LAYER_LUNARG_monitor");
+//    enableInstanceLayer("VK_LAYER_LUNARG_monitor");
 #endif
 
     instance = std::make_unique<core::Instance>(appName, instanceExtensions, instanceLayers);
@@ -181,6 +184,7 @@ void Application::createSurface()
 void Application::createDevice()
 {
     enableDeviceExtension(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
+    enableDeviceExtension("VK_KHR_portability_subset");
     device = std::make_unique<core::Device>(*instance, *surface, deviceExtensions);
 }
 
