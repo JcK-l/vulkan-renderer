@@ -1,0 +1,108 @@
+\doxysection{vkf\+::rendering\+::Renderer Class Reference}
+\hypertarget{classvkf_1_1rendering_1_1_renderer}{}\label{classvkf_1_1rendering_1_1_renderer}\index{vkf::rendering::Renderer@{vkf::rendering::Renderer}}
+
+
+This class manages Vulkan rendering operations.  
+
+
+
+
+{\ttfamily \#include $<$Renderer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer_ad5ac4db9596cbac3f888d7656999064d}{Renderer}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \texorpdfstring{$\ast$}{*}swapchain, \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{Render\+Options}} render\+Options)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1rendering_1_1_renderer}{Renderer} class. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a72cf080b8ee38aeecaf87ae883d6a155}\label{classvkf_1_1rendering_1_1_renderer_a72cf080b8ee38aeecaf87ae883d6a155} 
+{\bfseries Renderer} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_aa4f1745e07770ad05e0b74caff97daa7}\label{classvkf_1_1rendering_1_1_renderer_aa4f1745e07770ad05e0b74caff97daa7} 
+{\bfseries Renderer} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \&\&) noexcept=default
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a6f0ff1494c815755d467cd3af94c4b6e}\label{classvkf_1_1rendering_1_1_renderer_a6f0ff1494c815755d467cd3af94c4b6e} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a0edc9a0d6fb025e74204cd23b9ae530a}\label{classvkf_1_1rendering_1_1_renderer_a0edc9a0d6fb025e74204cd23b9ae530a} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a7552108728683d8ef1a6d1c4308fd106}\label{classvkf_1_1rendering_1_1_renderer_a7552108728683d8ef1a6d1c4308fd106} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Render\+Pass} () const
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a42708610ee2ebe9730c2e7b27b89530a}\label{classvkf_1_1rendering_1_1_renderer_a42708610ee2ebe9730c2e7b27b89530a} 
+vk\+::\+Clear\+Value \texorpdfstring{$\ast$}{*} {\bfseries get\+Clear\+Value} () const
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a29f03f5a1c20d721d27665763572ccfb}\label{classvkf_1_1rendering_1_1_renderer_a29f03f5a1c20d721d27665763572ccfb} 
+const \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{Render\+Target}} \& {\bfseries get\+Render\+Target} (uint32\+\_\+t index)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a3506c3a4e2d56caec3fd8c66b26b41b8}\label{classvkf_1_1rendering_1_1_renderer_a3506c3a4e2d56caec3fd8c66b26b41b8} 
+void {\bfseries draw} (vk\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}cmd)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a7bc0db032a69ad62aa1e699ae78c9144}\label{classvkf_1_1rendering_1_1_renderer_a7bc0db032a69ad62aa1e699ae78c9144} 
+void {\bfseries update\+Render\+Targets} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_af263ff176982b7e7f61b7f3a63698c86}\label{classvkf_1_1rendering_1_1_renderer_af263ff176982b7e7f61b7f3a63698c86} 
+void {\bfseries create\+Render\+Targets} ()
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a450b81fda5c4ec191717822e877a6abe}\label{classvkf_1_1rendering_1_1_renderer_a450b81fda5c4ec191717822e877a6abe} 
+void {\bfseries create\+Render\+Substages} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a60f09d8ef0ca12925b71c768446fd682}\label{classvkf_1_1rendering_1_1_renderer_a60f09d8ef0ca12925b71c768446fd682} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \& {\bfseries device}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_afcc6f3be1f96a7b071968c849176c7d1}\label{classvkf_1_1rendering_1_1_renderer_afcc6f3be1f96a7b071968c849176c7d1} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} $>$ {\bfseries render\+Pass}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a12b707d1a0b06d990be114a458c740f4}\label{classvkf_1_1rendering_1_1_renderer_a12b707d1a0b06d990be114a458c740f4} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \texorpdfstring{$\ast$}{*} {\bfseries swapchain}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a131749a9b949e2890f95132b8ac3fa89}\label{classvkf_1_1rendering_1_1_renderer_a131749a9b949e2890f95132b8ac3fa89} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{Render\+Options}} $>$ {\bfseries render\+Options}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_ac4a434ecddb82b512455028215459ed9}\label{classvkf_1_1rendering_1_1_renderer_ac4a434ecddb82b512455028215459ed9} 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{Render\+Target}} $>$ $>$ {\bfseries render\+Targets}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a07976c4fcc13bd4c1892fcee5450c161}\label{classvkf_1_1rendering_1_1_renderer_a07976c4fcc13bd4c1892fcee5450c161} 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} $>$ $>$ {\bfseries render\+Substages}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages Vulkan rendering operations. 
+
+It provides an interface for interacting with Vulkan rendering operations. It includes methods for getting the render pass, clear value, and render target, as well as methods updating render targets and drawing. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_ad5ac4db9596cbac3f888d7656999064d}\label{classvkf_1_1rendering_1_1_renderer_ad5ac4db9596cbac3f888d7656999064d} 
+\index{vkf::rendering::Renderer@{vkf::rendering::Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!vkf::rendering::Renderer@{vkf::rendering::Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}}
+{\footnotesize\ttfamily vkf\+::rendering\+::\+Renderer\+::\+Renderer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \texorpdfstring{$\ast$}{*}}]{swapchain,  }\item[{\mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{Render\+Options}}}]{render\+Options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for the \doxylink{classvkf_1_1rendering_1_1_renderer}{Renderer} class. 
+
+This constructor creates a Vulkan renderer using the provided device, swapchain, and render options.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The Vulkan device. \\
+\hline
+{\em swapchain} & The Vulkan swapchain. \\
+\hline
+{\em render\+Options} & The render options. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_renderer_8h}{Renderer.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_renderer_8cpp}{Renderer.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,414 @@
+\chapter{November 25 -\/ Render\+Manger}
+\hypertarget{md_updates_21__11__25}{}\label{md_updates_21__11__25}\index{November 25 -\/ RenderManger@{November 25 -\/ RenderManger}}
+\label{md_updates_21__11__25_autotoc_md1}%
+\Hypertarget{md_updates_21__11__25_autotoc_md1}%
+ In this update I will be going over the new {\ttfamily Render\+Manager} class and how it is used to manage the rendering of the application.\hypertarget{md_updates_21__11__25_autotoc_md2}{}\doxysubsection{\texorpdfstring{Swapchain}{Swapchain}}\label{md_updates_21__11__25_autotoc_md2}
+First off, the {\ttfamily Swapchain} class. It handles the creation and recreation of the swapchain. A bunch of default values are set in the create\+Info struct
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{supportDetails.formats\ =\ gpu.getHandle().getSurfaceFormatsKHR(*surface);}
+\DoxyCodeLine{supportDetails.presentModes\ =\ gpu.getHandle().getSurfacePresentModesKHR(*surface);}
+\DoxyCodeLine{supportDetails.capabilities\ =\ gpu.getHandle().getSurfaceCapabilitiesKHR(*surface);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ surfaceFormat\ =\ selectSwapSurfaceFormat();}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ presentMode\ =\ selectSwapPresentMode();}
+\DoxyCodeLine{extent\ =\ selectSwapExtent();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ preTransform\ =\ (supportDetails.capabilities.supportedTransforms\ \&\ vk::SurfaceTransformFlagBitsKHR::eIdentity)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ vk::SurfaceTransformFlagBitsKHR::eIdentity}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ supportDetails.capabilities.currentTransform;}
+\DoxyCodeLine{}
+\DoxyCodeLine{uint32\_t\ minImageCount\ =}
+\DoxyCodeLine{\ \ \ \ std::clamp(3u,\ supportDetails.capabilities.minImageCount,\ supportDetails.capabilities.maxImageCount);}
+\DoxyCodeLine{}
+\DoxyCodeLine{vk::CompositeAlphaFlagBitsKHR\ compositeAlpha;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (supportDetails.capabilities.supportedCompositeAlpha\ \&\ vk::CompositeAlphaFlagBitsKHR::ePreMultiplied)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ compositeAlpha\ =\ vk::CompositeAlphaFlagBitsKHR::ePreMultiplied;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (supportDetails.capabilities.supportedCompositeAlpha\ \&\ vk::CompositeAlphaFlagBitsKHR::ePostMultiplied)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ compositeAlpha\ =\ vk::CompositeAlphaFlagBitsKHR::ePostMultiplied;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (supportDetails.capabilities.supportedCompositeAlpha\ \&\ vk::CompositeAlphaFlagBitsKHR::eInherit)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ compositeAlpha\ =\ vk::CompositeAlphaFlagBitsKHR::eInherit;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ compositeAlpha\ =\ vk::CompositeAlphaFlagBitsKHR::eOpaque;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{vk::SwapchainCreateInfoKHR\ createInfo\{}
+\DoxyCodeLine{\ \ \ \ .surface\ =\ *surface,}
+\DoxyCodeLine{\ \ \ \ .minImageCount\ =\ minImageCount,}
+\DoxyCodeLine{\ \ \ \ .imageFormat\ =\ surfaceFormat.format,}
+\DoxyCodeLine{\ \ \ \ .imageColorSpace\ =\ surfaceFormat.colorSpace,}
+\DoxyCodeLine{\ \ \ \ .imageExtent\ =\ extent,}
+\DoxyCodeLine{\ \ \ \ .imageArrayLayers\ =\ 1,}
+\DoxyCodeLine{\ \ \ \ .imageUsage\ =\ vk::ImageUsageFlagBits::eColorAttachment,}
+\DoxyCodeLine{\ \ \ \ .imageSharingMode\ =\ vk::SharingMode::eExclusive,}
+\DoxyCodeLine{\ \ \ \ .preTransform\ =\ preTransform,}
+\DoxyCodeLine{\ \ \ \ .compositeAlpha\ =\ compositeAlpha,}
+\DoxyCodeLine{\ \ \ \ .presentMode\ =\ presentMode,}
+\DoxyCodeLine{\ \ \ \ .clipped\ =\ VK\_TRUE,}
+\DoxyCodeLine{\ \ \ \ .oldSwapchain\ =\ oldSwapchain,}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{handle\ =\ vk::raii::SwapchainKHR\{device.getHandle(),\ createInfo\};}
+
+\end{DoxyCode}
+
+
+Some of these might get changed later on, but for now they are fine. The {\ttfamily Swapchain} class also has a {\ttfamily recreate} method, which gets called when the window is resized. It will then recreate the swapchain with the new extent.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Swapchain::recreate()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ [width,\ height]\ =\ window.getFramebufferSize();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (width\ ==\ 0\ ||\ height\ ==\ 0)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::tie(width,\ height)\ =\ window.getFramebufferSize();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ window.waitEvents();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ device.getHandle().waitIdle();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ createSwapchain(*handle);}
+\DoxyCodeLine{\ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}Recreated\ Swapchain"{}})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ createSwapchain(vk::SwapchainKHR\ oldSwapchain\ =\ VK\_NULL\_HANDLE);}
+
+\end{DoxyCode}
+
+
+The {\ttfamily create\+Swapchain} method can take an optional {\ttfamily old\+Swapchain} parameter, which is used when recreating the swapchain.\hypertarget{md_updates_21__11__25_autotoc_md3}{}\doxysubsection{\texorpdfstring{Frame\+Data}{FrameData}}\label{md_updates_21__11__25_autotoc_md3}
+Each frame has its own {\ttfamily Frame\+Data} object. This object contains the {\ttfamily Command\+Buffer}, {\ttfamily Fence} and {\ttfamily Semaphores} for the frame.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{vk::raii::CommandBuffer\ *getCommandBuffer();}
+\DoxyCodeLine{}
+\DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Semaphore\ \&getSemaphore(uint32\_t\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Fence\ \&getFence()\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+These then get used in the {\ttfamily Render\+Manager} class to get the necessary data for the current frame.\hypertarget{md_updates_21__11__25_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Command\+Pool}{CommandPool}}\label{md_updates_21__11__25_autotoc_md4}
+When the vk\+::raii\+::\+Command\+Pool gets destroyed, it will automatically free all the command buffers that were allocated. This does not include the vk\+::raii\+::\+Command\+Buffer objects that were created from the pool. These need to be freed manually. \href{https://github.com/KhronosGroup/Vulkan-Hpp/blob/main/vk_raii_ProgrammingGuide.md}{\texttt{ vk\+\_\+raii\+\_\+\+Programming\+Guide}}
+
+The Command\+Pool can allocate multiple command buffers at once, but to allow more requests after the first allocation, the {\ttfamily Command\+Pool} class stores the vk\+::raii\+::\+Command\+Buffers in an unordered map. A pointer to the vk\+::raii\+:\+: Command\+Buffers can then be retrieved with the {\ttfamily get\+Command\+Buffers} method.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::optional<vk::raii::CommandBuffers\ *>\ getCommandBuffers(uint32\_t\ key)\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+The unordered map might not be the best solution, but it works for now.\hypertarget{md_updates_21__11__25_autotoc_md5}{}\doxysubsection{\texorpdfstring{Framebuffer}{Framebuffer}}\label{md_updates_21__11__25_autotoc_md5}
+A framebuffer is a collection of attachments used for rendering. The {\ttfamily Framebuffer} constructor takes a {\ttfamily Render\+Target}, which contains all the Image\+Views(attachments) that will be used in the framebuffer.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Framebuffer::Framebuffer(\textcolor{keyword}{const}\ Device\ \&device,\ \textcolor{keyword}{const}\ RenderPass\ \&renderPass,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ rendering::RenderTarget\ \&renderTarget)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ std::vector<vk::ImageView>\ imageViews;}
+\DoxyCodeLine{\ \ \ \ imageViews.reserve(renderTarget.imageViews.size());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&imageView\ :\ renderTarget.imageViews)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ imageViews.emplace\_back(*imageView);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ handle\ =\ vk::raii::Framebuffer\{device.getHandle(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vk::FramebufferCreateInfo\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .flags\ =\ vk::FramebufferCreateFlags\{\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .renderPass\ =\ *renderPass.getHandle(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .attachmentCount\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(renderTarget.imageViews.size()),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pAttachments\ =\ imageViews.data(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .width\ =\ renderTarget.extent.width,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .height\ =\ renderTarget.extent.height,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .layers\ =\ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The vk\+::raii\+::\+Framebuffer only accepts an array of vk\+::\+Image\+Views, so the vk\+::raii\+::\+Image\+Views need to be converted to vk\+::\+Image\+Views.\hypertarget{md_updates_21__11__25_autotoc_md6}{}\doxysubsection{\texorpdfstring{Renderer}{Renderer}}\label{md_updates_21__11__25_autotoc_md6}
+The {\ttfamily Renderer} is responsible for creating drawing the scene. It takes a {\ttfamily Render\+Options} struct as a parameter in its constructor. This struct currently holds the clear\+Value and the number of subpasses. With this information a {\ttfamily Render\+Pass} with a compatible {\ttfamily Render\+Target} can be created.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Renderer::Renderer(\textcolor{keyword}{const}\ core::Device\ \&device,\ core::Swapchain\ *swapchain,\ RenderOptions\ renderOptions)}
+\DoxyCodeLine{\ \ \ \ :\ device\{device\},\ swapchain\{swapchain\},\ renderOptions\{std::make\_unique<RenderOptions>(renderOptions)\}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ createRenderTargets();}
+\DoxyCodeLine{\ \ \ \ createRenderSubstages();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::vector<vk::SubpassDescription>\ subpassDescriptions(renderOptions.numSubpasses);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::vector<vk::AttachmentReference>\ attachments(renderOptions.numSubpasses);}
+\DoxyCodeLine{\ \ \ \ attachments[0]\ =\ vk::AttachmentReference\{0,\ vk::ImageLayout::eColorAttachmentOptimal\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0u;\ i\ <\ renderOptions.numSubpasses;\ ++i)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ subpassDescriptions[i].colorAttachmentCount\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ subpassDescriptions[i].pColorAttachments\ =\ attachments.data();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ subpassDescriptions[i].pDepthStencilAttachment\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ subpassDescriptions[i].pInputAttachments\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ subpassDescriptions[i].pPreserveAttachments\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ subpassDescriptions[i].pResolveAttachments\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ subpassDescriptions[i].pipelineBindPoint\ =\ vk::PipelineBindPoint::eGraphics;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ subpassDescriptions[i].flags\ =\ \{\};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ std::vector<vk::SubpassDependency>\ dependencies(renderOptions.numSubpasses\ -\/\ 1);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ 0u;\ i\ <\ renderOptions.numSubpasses\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ dependencies[i].srcSubpass\ =\ i;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ dependencies[i].dstSubpass\ =\ i\ +\ 1;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ dependencies[i].srcStageMask\ =\ vk::PipelineStageFlagBits::eColorAttachmentOutput;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ dependencies[i].dstStageMask\ =\ vk::PipelineStageFlagBits::eColorAttachmentOutput;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ dependencies[i].srcAccessMask\ =\ vk::AccessFlagBits::eColorAttachmentWrite;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ dependencies[i].dstAccessMask\ =\ vk::AccessFlagBits::eColorAttachmentWrite;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ dependencies[i].dependencyFlags\ =\ \{\};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ renderPass\ =\ std::make\_unique<core::RenderPass>(device,\ *renderTargets[0],\ subpassDescriptions,\ dependencies);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}Created\ Renderer"{}})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_updates_21__11__25_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Render\+Pass}{RenderPass}}\label{md_updates_21__11__25_autotoc_md7}
+Open\+Gl has no concept of a render pass. It is possible to ommit the render pass in Vulkan using dynamic rendering, but for this project I will be using a render pass.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RenderPass::RenderPass(\textcolor{keyword}{const}\ core::Device\ \&device,\ \textcolor{keyword}{const}\ rendering::RenderTarget\ \&renderTarget,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<vk::SubpassDescription>\ \&subpassDescriptions,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<vk::SubpassDependency>\ \&subpassDependencies)}
+\DoxyCodeLine{\ \ \ \ :\ device\{device\}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ createInfo\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ vk::RenderPassCreateInfo\{.flags\ =\ vk::RenderPassCreateFlags\{\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .attachmentCount\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(renderTarget.attachments.size()),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pAttachments\ =\ renderTarget.attachments.data(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .subpassCount\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(subpassDescriptions.size()),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pSubpasses\ =\ subpassDescriptions.data(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .dependencyCount\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(subpassDependencies.size()),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pDependencies\ =\ subpassDependencies.data()\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ handle\ =\ vk::raii::RenderPass\{device.getHandle(),\ createInfo\};}
+\DoxyCodeLine{\ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}Created\ RenderPass"{}})}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The {\ttfamily Render\+Pass} class receives all the necessary create info from the {\ttfamily Renderer} class. This includes descriptions of all attachments that will be used, the subpass descriptions and the subpass dependencies.\hypertarget{md_updates_21__11__25_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Render\+Target}{RenderTarget}}\label{md_updates_21__11__25_autotoc_md8}
+The {\ttfamily Render\+Target} is a struct that contains the extent, the image\+Views and attachment\+Descriptions.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }RenderTarget}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ vk::Extent2D\ extent;}
+\DoxyCodeLine{\ \ \ \ std::vector<vk::raii::ImageView>\ imageViews;}
+\DoxyCodeLine{\ \ \ \ std::vector<vk::AttachmentDescription>\ attachments;}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+This information gets used when creating the {\ttfamily Framebuffer} and {\ttfamily Render\+Pass}.\hypertarget{md_updates_21__11__25_autotoc_md9}{}\doxysubsubsection{\texorpdfstring{Render\+Substage}{RenderSubstage}}\label{md_updates_21__11__25_autotoc_md9}
+The Render\+Substage is not doing anything at the moment. It represents a subpass that needs to be drawn. When the {\ttfamily draw} method of the {\ttfamily Renderer} is called, it will iterate over all the {\ttfamily Render\+Substages} and call their {\ttfamily draw} in turn.\hypertarget{md_updates_21__11__25_autotoc_md10}{}\doxysubsection{\texorpdfstring{Render loop}{Render loop}}\label{md_updates_21__11__25_autotoc_md10}
+Every Frame the {\ttfamily Render\+Manager} will call the methods {\ttfamily begin\+Frame}, {\ttfamily begin\+Render\+Pass} ,{\ttfamily draw}, {\ttfamily end\+Render\+Pass} and {\ttfamily end\+Frame}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ RenderManager::beginFrame()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ device.getHandle().waitForFences(*frameData[activeFrame]-\/>getFence(),\ VK\_TRUE,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<uint64\_t>::max());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ [result,\ value]\ =\ swapchain-\/>acquireNextImage(frameData[activeFrame]-\/>getSemaphore(0));}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{switch}\ (result)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{case}\ vk::Result::eSuccess:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ LOG\_DEBUG("{}Acquired\ next\ image:\ \{\}"{},\ value)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{case}\ vk::Result::eSuboptimalKHR:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ LOG\_DEBUG(\textcolor{stringliteral}{"{}Acquired\ next\ image:\ \{\}\ (suboptimal)"{}},\ value)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (recreateSwapchain())}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ value\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ swapchain-\/>acquireNextImage(vk::raii::Semaphore\{device.getHandle(),\ vk::SemaphoreCreateInfo\{\}\}).second;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ LOG\_ERROR(\textcolor{stringliteral}{"{}Acquired\ next\ image:\ \{\}\ (error)"{}},\ value)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error\{\textcolor{stringliteral}{"{}Failed\ to\ acquire\ next\ image"{}}\};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ imageIndex\ =\ value;}
+\DoxyCodeLine{\ \ \ \ activeCommandBuffer\ =\ frameData[activeFrame]-\/>getCommandBuffer();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ frameActive\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ device.getHandle().resetFences(*frameData[activeFrame]-\/>getFence());}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\ttfamily begin\+Frame} will first wait for the fence to be signaled. This fence gets signaled when the frame is finished. It will then acquire the next image from the swapchain. If the swapchain is suboptimal, it will recreate the swapchain. Finally, it will reset the fence and set the {\ttfamily frame\+Active} flag to true.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ RenderManager::endFrame()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ assert(frameActive\ \&\&\ \textcolor{stringliteral}{"{}Frame\ not\ active"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ presentQueue\ =\ device.getQueueWithFlags(0,\ vk::QueueFlagBits::eGraphics).getHandle();}
+\DoxyCodeLine{\ \ \ \ vk::PipelineStageFlags\ waitStages[]\ =\ \{vk::PipelineStageFlagBits::eColorAttachmentOutput\};}
+\DoxyCodeLine{\ \ \ \ presentQueue.submit(vk::SubmitInfo\{.waitSemaphoreCount\ =\ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pWaitSemaphores\ =\ \&*frameData[activeFrame]-\/>getSemaphore(0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pWaitDstStageMask\ =\ waitStages,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .commandBufferCount\ =\ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pCommandBuffers\ =\ \&*(*activeCommandBuffer),\ \textcolor{comment}{//\ What\ the\ hell}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .signalSemaphoreCount\ =\ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pSignalSemaphores\ =\ \&*frameData[activeFrame]-\/>getSemaphore(1)\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *frameData[activeFrame]-\/>getFence());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ result\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ presentQueue.presentKHR(vk::PresentInfoKHR\{.waitSemaphoreCount\ =\ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pWaitSemaphores\ =\ \&*frameData[activeFrame]-\/>getSemaphore(1),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .swapchainCount\ =\ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pSwapchains\ =\ \&*swapchain-\/>getHandle(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pImageIndices\ =\ \&imageIndex,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pResults\ =\ \textcolor{keyword}{nullptr}\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (window.isResized())}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ recreateSwapchain();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (result)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ vk::Result::eSuccess:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ LOG\_DEBUG("{}Presented\ image:\ \{\}"{},\ value)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ vk::Result::eSuboptimalKHR:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LOG\_DEBUG(\textcolor{stringliteral}{"{}Presented\ image:\ \{\}\ (suboptimal)"{}},\ activeFrame)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ recreateSwapchain();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ vk::Result::eErrorOutOfDateKHR:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LOG\_DEBUG(\textcolor{stringliteral}{"{}Presented\ image:\ \{\}\ (out\ of\ date)"{}},\ activeFrame)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ recreateSwapchain();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LOG\_ERROR(\textcolor{stringliteral}{"{}Presented\ image:\ \{\}\ (error)"{}},\ activeFrame)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error\{\textcolor{stringliteral}{"{}Failed\ to\ present\ image"{}}\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ frameActive\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ activeFrame\ =\ activeFrame++\ \%\ framesInFlight;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\ttfamily end\+Frame} will first submit the command buffer to the queue. It will then present the image to the swapchain.
+
+At the end of the frame, the {\ttfamily frame\+Active} flag is set to false and the {\ttfamily active\+Frame} is incremented. Active frame is the index of the frame\+Data that is currently being used. This index is used to get the correct frame\+Data object. This is seperate from the image\+Index, which is the index of the image in the swapchain.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ RenderManager::beginRenderPass()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ assert(frameActive\ \&\&\ \textcolor{stringliteral}{"{}Frame\ not\ active"{}});}
+\DoxyCodeLine{\ \ \ \ activeCommandBuffer-\/>reset(vk::CommandBufferResetFlagBits::eReleaseResources);}
+\DoxyCodeLine{\ \ \ \ activeCommandBuffer-\/>begin(vk::CommandBufferBeginInfo\{.flags\ =\ vk::CommandBufferUsageFlagBits::eOneTimeSubmit\});}
+\DoxyCodeLine{\ \ \ \ vk::RenderPassBeginInfo\ renderPassBeginInfo\{.renderPass\ =\ *renderPass-\/>getHandle(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .framebuffer\ =\ *framebuffers[imageIndex]-\/>getHandle(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .renderArea\ =\ vk::Rect2D\{\{0,\ 0\},\ swapchain-\/>getExtent()\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .clearValueCount\ =\ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pClearValues\ =\ renderer-\/>getClearValue()\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ activeCommandBuffer-\/>beginRenderPass(renderPassBeginInfo,\ vk::SubpassContents::eInline);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ RenderManager::endRenderPass()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ assert(frameActive\ \&\&\ \textcolor{stringliteral}{"{}Frame\ not\ active"{}});}
+\DoxyCodeLine{\ \ \ \ activeCommandBuffer-\/>endRenderPass();}
+\DoxyCodeLine{\ \ \ \ activeCommandBuffer-\/>end();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ RenderManager::draw()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ assert(frameActive\ \&\&\ \textcolor{stringliteral}{"{}Frame\ not\ active"{}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+begin and end render pass are pretty self-\/explanatory. The {\ttfamily draw} method is empty for now, but it will be used to draw the scene.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ RenderManager::recreateSwapchain()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ swapchain-\/>recreate();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ renderer-\/>updateRenderTargets();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ createFramebuffers();}
+\DoxyCodeLine{\ \ \ \ window.setResized(\textcolor{keyword}{false});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Recreating the swapchain also means recreating the framebuffers. This is done in the {\ttfamily recreate\+Swapchain} method.
+
+The final loop looks like this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Application::onUpdate()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ renderManager-\/>beginFrame();}
+\DoxyCodeLine{\ \ \ \ renderManager-\/>beginRenderPass();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ renderManager-\/>draw();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ renderManager-\/>endRenderPass();}
+\DoxyCodeLine{\ \ \ \ renderManager-\/>endFrame();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+In {\ttfamily draw} the scene will be drawn. This will be done in the next update.\hypertarget{md_updates_21__11__25_autotoc_md11}{}\doxysubsection{\texorpdfstring{Results}{Results}}\label{md_updates_21__11__25_autotoc_md11}
+The application is now blue. The clear color is set to blue in the {\ttfamily Render\+Options} struct.
+
+
+
+Logging also correctly shows the swapchain being recreated when the window is resized.
+
+ 
