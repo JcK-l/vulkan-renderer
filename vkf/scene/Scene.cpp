@@ -26,4 +26,9 @@ entt::entity Scene::createEntity(const std::string &name)
     return entity;
 }
 
+entt::registry &Scene::getRegistry()
+{
+    return registry;
+}
+
 } // namespace vkf::scene

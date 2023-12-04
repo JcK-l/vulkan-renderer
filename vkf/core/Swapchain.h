@@ -80,8 +80,9 @@ class Swapchain : public rendering::RenderSource
     std::pair<vk::Result, uint32_t> acquireNextImage(const vk::raii::Semaphore &imageAvailableSemaphore,
                                                      uint64_t timeout = std::numeric_limits<uint64_t>::max());
 
-  private:
     [[nodiscard]] vk::SurfaceFormatKHR selectSwapSurfaceFormat() const;
+
+  private:
     [[nodiscard]] vk::PresentModeKHR selectSwapPresentMode() const;
     [[nodiscard]] vk::Extent2D selectSwapExtent() const;
 

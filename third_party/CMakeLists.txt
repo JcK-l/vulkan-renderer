@@ -8,7 +8,7 @@ set(SPIRV_WERROR OFF)
 ##set(ALLOW_EXTERNAL_SPIRV_TOOLS ON)
 set(ENABLE_OPT 0)
 add_subdirectory(glslang)
-#add_subdirectory(SPIRV-Headers)
+add_subdirectory(SPIRV-Headers)
 add_subdirectory(SPIRV-Tools)
 
 # VulkanMemoryAllocator

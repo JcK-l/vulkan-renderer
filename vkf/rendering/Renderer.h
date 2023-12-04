@@ -15,6 +15,7 @@
 #define VULKANRENDERER_RENDERER_H
 
 #include "RenderSource.h"
+#include "RenderSubstage.h"
 
 // Forward declarations for classes in the vkf::core namespace
 namespace vkf::core
@@ -28,7 +29,6 @@ namespace vkf::rendering
 {
 
 // Forward declarations for classes in the vkf::rendering namespace
-class RenderSubstage;
 class FrameData;
 
 ///

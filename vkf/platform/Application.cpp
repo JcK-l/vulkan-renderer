@@ -200,14 +200,14 @@ void Application::createRenderManager()
 
     std::vector<vk::AttachmentDescription> guiAttachments;
     guiAttachments.emplace_back(vk::AttachmentDescription{
-        .format = vk::Format::eR8G8B8A8Srgb,                // Assuming the swapchain image format is R8G8B8A8 srgb
-        .samples = vk::SampleCountFlagBits::e1,             // Single sample, as multi-sampling is not used
-        .loadOp = vk::AttachmentLoadOp::eClear,             // Clear the image at the start
-        .storeOp = vk::AttachmentStoreOp::eStore,           // Store the image to memory after rendering
-        .stencilLoadOp = vk::AttachmentLoadOp::eDontCare,   // We don't care about stencil
-        .stencilStoreOp = vk::AttachmentStoreOp::eDontCare, // We don't care about stencil
-        .initialLayout = vk::ImageLayout::eUndefined,       // We don't care about the initial layout
-        .finalLayout = vk::ImageLayout::ePresentSrcKHR      // Image will be used as source for presentation
+        .format = swapchain->selectSwapSurfaceFormat().format, // Getting the image format from the swapchain
+        .samples = vk::SampleCountFlagBits::e1,                // Single sample, as multi-sampling is not used
+        .loadOp = vk::AttachmentLoadOp::eClear,                // Clear the image at the start
+        .storeOp = vk::AttachmentStoreOp::eStore,              // Store the image to memory after rendering
+        .stencilLoadOp = vk::AttachmentLoadOp::eDontCare,      // We don't care about stencil
+        .stencilStoreOp = vk::AttachmentStoreOp::eDontCare,    // We don't care about stencil
+        .initialLayout = vk::ImageLayout::eUndefined,          // We don't care about the initial layout
+        .finalLayout = vk::ImageLayout::ePresentSrcKHR         // Image will be used as source for presentation
     });
 
     rendering::RenderOptions guiRenderOptions{
