@@ -10,62 +10,61 @@
 \DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1platform}{vkf::platform}}\ \textcolor{comment}{//\ Forward\ declarations}}
 \DoxyCodeLine{00019\ \{}
 \DoxyCodeLine{00020\ \textcolor{keyword}{class\ }Window;}
-\DoxyCodeLine{00021\ \}\ \textcolor{comment}{//\ namespace\ vkf::platform}}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \textcolor{comment}{//\ Forward\ declarations}}
-\DoxyCodeLine{00024\ \{}
-\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }Swapchain;}
-\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }RenderPass;}
-\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }Framebuffer;}
-\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }Device;}
-\DoxyCodeLine{00029\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}}
-\DoxyCodeLine{00032\ \{}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{comment}{//\ Forward\ declarations}}
-\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }FrameData;}
-\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }Renderer;}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}}
-\DoxyCodeLine{00046\ \{}
-\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device,\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform::Window}}\ \&window,\ std::unique\_ptr<core::Swapchain>\ inputSwapchain,}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<Renderer>\ inputRenderer);}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
-\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
-\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
-\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{\string~RenderManager}}();\ \textcolor{comment}{//\ Implementation\ in\ RenderManager.cpp\ because\ of\ std::unique\_ptr\ forward\ declaration}}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ beginFrame();}
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ endFrame();}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ beginRenderPass();}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ endRenderPass();}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ draw();}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ framesInFlight\{3\};}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ createFrameData();}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ createFramebuffers();}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ recreateSwapchain();}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device;}
-\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform::Window}}\ \&window;}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ std::unique\_ptr<Renderer>\ renderer;}
-\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core::RenderPass}}\ *renderPass;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }Gui;}
+\DoxyCodeLine{00022\ \}\ \textcolor{comment}{//\ namespace\ vkf::platform}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }Swapchain;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }RenderPass;}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }Framebuffer;}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00030\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }FrameData;}
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }Renderer;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device,\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform::Window}}\ \&window,\ std::shared\_ptr<core::Swapchain>\ inputSwapchain,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<platform::Gui>\ inputGui,\ std::vector<std::unique\_ptr<Renderer>>\ inputRenderers);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{RenderManager}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{\string~RenderManager}}();\ \textcolor{comment}{//\ Implementation\ in\ RenderManager.cpp\ because\ of\ std::unique\_ptr\ forward\ declaration}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ beginFrame();}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ endFrame();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ render();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ framesInFlight\{3\};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ beginRenderPass(\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}\ \&renderer,\ uint32\_t\ currentRenderPass);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ endRenderPass(uint32\_t\ currentRenderPass);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ createFrameData();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ recreateSwapchain();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device;}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform::Window}}\ \&window;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ std::vector<std::unique\_ptr<Renderer>>\ renderers;}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \ std::unique\_ptr<core::Swapchain>\ swapchain;}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \ \ std::vector<std::unique\_ptr<FrameData>>\ frameData;}
-\DoxyCodeLine{00092\ \ \ \ \ std::vector<std::unique\_ptr<core::Framebuffer>>\ framebuffers;}
-\DoxyCodeLine{00093\ \ \ \ \ vk::raii::CommandBuffer\ *activeCommandBuffer\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00089\ \ \ \ \ std::shared\_ptr<core::Swapchain>\ swapchain;}
+\DoxyCodeLine{00090\ \ \ \ \ std::shared\_ptr<platform::Gui>\ gui;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ std::vector<std::unique\_ptr<FrameData>>\ frameData;}
+\DoxyCodeLine{00093\ \ \ \ \ vk::raii::CommandBuffers\ *activeCommandBuffers\{\textcolor{keyword}{nullptr}\};}
 \DoxyCodeLine{00094\ }
 \DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{bool}\ frameActive\{\textcolor{keyword}{false}\};}
 \DoxyCodeLine{00096\ }

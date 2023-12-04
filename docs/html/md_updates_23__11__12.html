@@ -72,20 +72,209 @@ $(function() {
   <div class="headertitle"><div class="title">November 12 - Vulkan Setup</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md15"></a> will be updated soon...</p>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md13"></a> This update sets up basic Physical device selction and Logical device creation. All this functionality is needed for future updates.</p>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Physical Device</h2>
-<h3><a class="anchor" id="autotoc_md17"></a>
+<p>The Physical device is the GPU that will be used for rendering. It is selected in the <code>Instance</code> class.</p>
+<h3><a class="anchor" id="autotoc_md15"></a>
 Physical Device Selection</h3>
-<h3><a class="anchor" id="autotoc_md18"></a>
+<p>First all available GPUs are queried from the instance constructor. Then the GPUs are wrapped in a <code>PhysicalDevice</code> class and stored in a vector. The <code>PhysicalDevice</code> class is a wrapper around the vk::raii::PhysicalDevice.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> Instance::queryGpus()</div>
+<div class="line">{</div>
+<div class="line">    vk::raii::PhysicalDevices physicalDevices{handle};</div>
+<div class="line">    <span class="keywordflow">if</span> (physicalDevices.empty())</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Couldn&#39;t find a physical device that supports Vulkan.&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Create GPUs wrapper objects from the vk::raii::PhysicalDevice&#39;s</span></div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;physicalDevice : physicalDevices)</div>
+<div class="line">    {</div>
+<div class="line">        gpus.push_back(std::make_unique&lt;PhysicalDevice&gt;(physicalDevice));</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>After this a suitable GPU is selected by looping through the PhysicalDevice vector and checking if the GPU can present to the given window surface.</p>
+<div class="fragment"><div class="line">PhysicalDevice &amp;Instance::getSuitableGpu(vk::raii::SurfaceKHR &amp;surface)</div>
+<div class="line">{</div>
+<div class="line">    assert(!gpus.empty() &amp;&amp; <span class="stringliteral">&quot;No physical devices found&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;gpu : gpus)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">auto</span> queueFamilyProperties = gpu-&gt;getQueueFamilyProperties();</div>
+<div class="line">        <span class="keyword">auto</span> size = queueFamilyProperties.size();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (gpu-&gt;getProperties().deviceType == vk::PhysicalDeviceType::eDiscreteGpu)</div>
+<div class="line">        {</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; size; ++i)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">if</span> (gpu-&gt;getSurfaceSupportKHR(i, *surface))</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keywordflow">return</span> *gpu;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    LOG_WARN(<span class="stringliteral">&quot;No suitable gpu found. Picking first GPU: {}&quot;</span>, gpus[0]-&gt;getProperties().deviceName.data())</div>
+<div class="line">    return *gpus[0];</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>The surface gets created in the <code>Window</code> class like this</p>
+<div class="fragment"><div class="line">vk::raii::SurfaceKHR Window::createSurface(<span class="keyword">const</span> core::Instance &amp;instance)</div>
+<div class="line">{</div>
+<div class="line">    VkSurfaceKHR surfaceTemp;</div>
+<div class="line">    glfwCreateWindowSurface(<span class="keyword">static_cast&lt;</span>VkInstance<span class="keyword">&gt;</span>(*instance.getHandle()), handle, <span class="keyword">nullptr</span>, &amp;surfaceTemp);</div>
+<div class="line">    vk::raii::SurfaceKHR surface{instance.getHandle(), surfaceTemp};</div>
+<div class="line">    <span class="keywordflow">return</span> surface;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md16"></a>
 Physical Device Features</h3>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<p>The <code>PhysicalDevice</code> class also has a function to request extension features. This is needed for some extensions.</p>
+<div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Structure&gt; Structure &amp;requestExtensionFeatures()</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Check if the extension feature has already been requested</span></div>
+<div class="line">    vk::StructureType structureType = Structure::structureType;</div>
+<div class="line">    <span class="keyword">auto</span> featuresIt = enabledExtensionFeatures.find(structureType);</div>
+<div class="line">    <span class="keywordflow">if</span> (featuresIt != enabledExtensionFeatures.end())</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> *<span class="keyword">static_cast&lt;</span>Structure *<span class="keyword">&gt;</span>(featuresIt-&gt;second.get());</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Create a new feature chain with the extension feature</span></div>
+<div class="line">    vk::StructureChain&lt;vk::PhysicalDeviceFeatures2KHR, Structure&gt; featureChain =</div>
+<div class="line">        handle.getFeatures2KHR&lt;vk::PhysicalDeviceFeatures2KHR, Structure&gt;();</div>
+<div class="line"> </div>
+<div class="line">    enabledExtensionFeatures.insert(</div>
+<div class="line">        {structureType, std::make_shared&lt;Structure&gt;(featureChain.template get&lt;Structure&gt;())});</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Get the pointer to the extension feature</span></div>
+<div class="line">    <span class="keyword">auto</span> *featurePointer = <span class="keyword">static_cast&lt;</span>Structure *<span class="keyword">&gt;</span>(enabledExtensionFeatures.find(structureType)-&gt;second.get());</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Make sure the feature is added to the head of the feature chain</span></div>
+<div class="line">    <span class="keywordflow">if</span> (extensionFeaturesHead)</div>
+<div class="line">    {</div>
+<div class="line">        featurePointer-&gt;pNext = extensionFeaturesHead;</div>
+<div class="line">    }</div>
+<div class="line">    extensionFeaturesHead = featurePointer;</div>
+<div class="line">    <span class="comment">// I don&#39;t want to include Log.h here, so I&#39;ll just comment this out for now</span></div>
+<div class="line">    <span class="comment">// LOG_INFO(&quot;Enabled extension feature: {}&quot;, vk::to_string(structureType));</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> *featurePointer;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>A pNext chain can be supplied at LogicalDevice creation to enable those features.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> *PhysicalDevice::getExtensionFeaturesHead()<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordflow">return</span> extensionFeaturesHead;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
 Logical Device</h2>
-<h3><a class="anchor" id="autotoc_md20"></a>
+<p>The Logical device is the interface with the GPU therefore it gets used for almost everything. Device extensions get enabled like they do in the <code>Instance</code> class.</p>
+<h3><a class="anchor" id="autotoc_md18"></a>
 Queues</h3>
-<h3><a class="anchor" id="autotoc_md21"></a>
+<p>Queues are used to submit commands to the GPU. They are created in the <code>Device</code> class. First a DeviceQueueCreateInfo struct gets created and passed to the DeviceCreationInfo struct.</p>
+<div class="fragment"><div class="line">std::vector&lt;vk::DeviceQueueCreateInfo&gt; Device::createQueuesInfos()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">auto</span> queueFamilyProperties = gpu.getQueueFamilyProperties();</div>
+<div class="line">    std::vector&lt;vk::DeviceQueueCreateInfo&gt; queueCreateInfos(queueFamilyProperties.size());</div>
+<div class="line">    std::vector&lt;std::vector&lt;float&gt;&gt; queuePriorities(queueFamilyProperties.size());</div>
+<div class="line"> </div>
+<div class="line">    queues.resize(queueFamilyProperties.size());</div>
+<div class="line"> </div>
+<div class="line">    uint32_t familyIndex = 0;</div>
+<div class="line">    std::for_each(queueFamilyProperties.begin(), queueFamilyProperties.end(),</div>
+<div class="line">                  [&amp;](<span class="keyword">const</span> vk::QueueFamilyProperties &amp;queueFamilyProperty) {</div>
+<div class="line">                      queuePriorities[familyIndex].resize(queueFamilyProperty.queueCount, 0.5f);</div>
+<div class="line"> </div>
+<div class="line">                      vk::DeviceQueueCreateInfo &amp;queueCreateInfo = queueCreateInfos[familyIndex];</div>
+<div class="line">                      queueCreateInfo.queueFamilyIndex = familyIndex;</div>
+<div class="line">                      queueCreateInfo.queueCount = queueFamilyProperty.queueCount;</div>
+<div class="line">                      queueCreateInfo.pQueuePriorities = queuePriorities[familyIndex].data();</div>
+<div class="line"> </div>
+<div class="line">                      ++familyIndex;</div>
+<div class="line">                  });</div>
+<div class="line">    <span class="keywordflow">return</span> queueCreateInfos;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>To access the queues a vector of core::Queue is created. The <code>Queue</code> class is a wrapper around the vk::raii::Queue.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> Device::createQueues()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">auto</span> queueFamilyProperties = gpu.getQueueFamilyProperties();</div>
+<div class="line">    queues.resize(queueFamilyProperties.size());</div>
+<div class="line"> </div>
+<div class="line">    uint32_t familyIndex = 0;</div>
+<div class="line">    std::for_each(queueFamilyProperties.begin(), queueFamilyProperties.end(),</div>
+<div class="line">                  [&amp;](<span class="keyword">const</span> vk::QueueFamilyProperties &amp;queueFamilyProperty) {</div>
+<div class="line">                      auto presentSupported = gpu.getHandle().getSurfaceSupportKHR(familyIndex, *surface);</div>
+<div class="line"> </div>
+<div class="line">                      LOG_INFO(<span class="stringliteral">&quot;Found queue family {}: {}&quot;</span>, familyIndex,</div>
+<div class="line">                               getQueueFlagsString(queueFamilyProperty.queueFlags))</div>
+<div class="line">                      for (uint32_t queueIndex = 0; queueIndex &lt; queueFamilyProperty.queueCount; ++queueIndex)</div>
+<div class="line">                      {</div>
+<div class="line">                          queues[familyIndex].emplace_back(handle.getQueue(familyIndex, queueIndex), familyIndex,</div>
+<div class="line">                                                           queueFamilyProperty, presentSupported, queueIndex);</div>
+<div class="line">                      }</div>
+<div class="line">                      ++familyIndex;</div>
+<div class="line">                  });</div>
+<div class="line">}</div>
+</div><!-- fragment --><div class="fragment"><div class="line">[[nodiscard]] <span class="keyword">const</span> Queue &amp;getQueue(uint32_t queueIndex, uint32_t familyIndex) <span class="keyword">const</span>;</div>
+<div class="line"> </div>
+<div class="line">[[nodiscard]] <span class="keyword">const</span> Queue &amp;getQueueWithFlags(uint32_t queueIndex, vk::QueueFlags includeFlags,</div>
+<div class="line">                                             vk::QueueFlags excludeFlags = vk::QueueFlags()) <span class="keyword">const</span>;</div>
+<div class="line"> </div>
+<div class="line">[[nodiscard]] <span class="keyword">const</span> Queue &amp;getQueueWithPresent(uint32_t queueIndex,</div>
+<div class="line">                                               vk::QueueFlags excludeFlags = vk::QueueFlags()) <span class="keyword">const</span>;</div>
+<div class="line"> </div>
+<div class="line">[[nodiscard]] <span class="keywordtype">bool</span> hasQueue(uint32_t queueIndex, uint32_t familyIndex) <span class="keyword">const</span>;</div>
+<div class="line"> </div>
+<div class="line">[[nodiscard]] <span class="keywordtype">bool</span> hasQueueWithFlags(uint32_t queueIndex, vk::QueueFlags includeFlags,</div>
+<div class="line">                                     vk::QueueFlags excludeFlags = vk::QueueFlags()) <span class="keyword">const</span>;</div>
+<div class="line"> </div>
+<div class="line">[[nodiscard]] <span class="keywordtype">bool</span> hasQueueWithPresent(uint32_t queueIndex, vk::QueueFlags excludeFlags = vk::QueueFlags()) <span class="keyword">const</span>;</div>
+</div><!-- fragment --><p>The Device supports different ways to get a queue. The first uses the queue index and family index. If the need for a queue with a specific flag arises, the second function can be used. The third function returns a queue that supports presenting to a window surface. Exclude flags can also be specified. The last three functions query instead of returning a Queue.</p>
+<h3><a class="anchor" id="autotoc_md19"></a>
 VmaAllocator</h3>
-</div></div><!-- contents -->
+<p>VmaAllocator is a library that manages memory for Vulkan. It is used to allocate memory for buffers and images. I will not be writing a custom allocator as that is just an exercise in writing malloc.</p>
+<p>This is how the VmaAllocator is created.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> Device::createVmaAllocator(<span class="keyword">const</span> Instance &amp;instance, <span class="keyword">const</span> PhysicalDevice &amp;gpu)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Get pointers to required Vulkan methods</span></div>
+<div class="line">    VmaVulkanFunctions vulkanFunctions{};</div>
+<div class="line">    vulkanFunctions.vkGetInstanceProcAddr = vkGetInstanceProcAddr;</div>
+<div class="line">    vulkanFunctions.vkGetDeviceProcAddr = vkGetDeviceProcAddr;</div>
+<div class="line">    vulkanFunctions.vkAllocateMemory = vkAllocateMemory;</div>
+<div class="line">    vulkanFunctions.vkBindBufferMemory = vkBindBufferMemory;</div>
+<div class="line">    vulkanFunctions.vkBindImageMemory = vkBindImageMemory;</div>
+<div class="line">    vulkanFunctions.vkCreateBuffer = vkCreateBuffer;</div>
+<div class="line">    vulkanFunctions.vkCreateImage = vkCreateImage;</div>
+<div class="line">    vulkanFunctions.vkDestroyBuffer = vkDestroyBuffer;</div>
+<div class="line">    vulkanFunctions.vkDestroyImage = vkDestroyImage;</div>
+<div class="line">    vulkanFunctions.vkFlushMappedMemoryRanges = vkFlushMappedMemoryRanges;</div>
+<div class="line">    vulkanFunctions.vkFreeMemory = vkFreeMemory;</div>
+<div class="line">    vulkanFunctions.vkGetBufferMemoryRequirements = vkGetBufferMemoryRequirements;</div>
+<div class="line">    vulkanFunctions.vkGetImageMemoryRequirements = vkGetImageMemoryRequirements;</div>
+<div class="line">    vulkanFunctions.vkGetPhysicalDeviceMemoryProperties = vkGetPhysicalDeviceMemoryProperties;</div>
+<div class="line">    vulkanFunctions.vkGetPhysicalDeviceProperties = vkGetPhysicalDeviceProperties;</div>
+<div class="line">    vulkanFunctions.vkInvalidateMappedMemoryRanges = vkInvalidateMappedMemoryRanges;</div>
+<div class="line">    vulkanFunctions.vkMapMemory = vkMapMemory;</div>
+<div class="line">    vulkanFunctions.vkUnmapMemory = vkUnmapMemory;</div>
+<div class="line">    vulkanFunctions.vkCmdCopyBuffer = vkCmdCopyBuffer;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Set up VMA creation info</span></div>
+<div class="line">    VmaAllocatorCreateInfo vmaCreteInfo{};</div>
+<div class="line">    vmaCreteInfo.instance = *instance.getHandle();</div>
+<div class="line">    vmaCreteInfo.physicalDevice = *gpu.getHandle();</div>
+<div class="line">    vmaCreteInfo.device = *handle;</div>
+<div class="line">    vmaCreteInfo.vulkanApiVersion = VK_API_VERSION_1_3;</div>
+<div class="line">    vmaCreteInfo.pVulkanFunctions = &amp;vulkanFunctions;</div>
+<div class="line">    vmaCreteInfo.flags = VMA_ALLOCATOR_CREATE_EXT_MEMORY_BUDGET_BIT;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Create VMA allocator</span></div>
+<div class="line">    VkResult result = vmaCreateAllocator(&amp;vmaCreteInfo, &amp;vmaAllocator);</div>
+<div class="line">    <span class="keywordflow">if</span> (result != VK_SUCCESS)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Failed to create VMA allocator&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">    LOG_INFO(<span class="stringliteral">&quot;Created VMA allocator&quot;</span>)</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

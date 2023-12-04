@@ -62,7 +62,7 @@ void Swapchain::createSwapchain(vk::SwapchainKHR oldSwapchain)
                             ? vk::SurfaceTransformFlagBitsKHR::eIdentity
                             : supportDetails.capabilities.currentTransform;
 
-    uint32_t minImageCount =
+    minImageCount =
         std::clamp(3u, supportDetails.capabilities.minImageCount, supportDetails.capabilities.maxImageCount);
 
     vk::CompositeAlphaFlagBitsKHR compositeAlpha;
@@ -102,23 +102,40 @@ void Swapchain::createSwapchain(vk::SwapchainKHR oldSwapchain)
 
     handle = vk::raii::SwapchainKHR{device.getHandle(), createInfo};
     images = handle.getImages();
+    createImageViews();
 }
 
-vk::raii::ImageView Swapchain::createImageView(uint32_t index) const
+std::vector<vk::ImageView> Swapchain::getImageViews() const
 {
-    auto surfaceFormat = selectSwapSurfaceFormat();
-    vk::ImageViewCreateInfo createInfo{.image = images[index],
-                                       .viewType = vk::ImageViewType::e2D,
-                                       .format = surfaceFormat.format,
-                                       .subresourceRange = {
-                                           .aspectMask = vk::ImageAspectFlagBits::eColor,
-                                           .baseMipLevel = 0,
-                                           .levelCount = 1,
-                                           .baseArrayLayer = 0,
-                                           .layerCount = 1,
-                                       }};
+    std::vector<vk::ImageView> result;
+    result.reserve(imageViews.size());
+    for (auto i = 0u; i < images.size(); ++i)
+    {
+        result.emplace_back(*imageViews[i]);
+    }
+    return result;
+}
 
-    return {device.getHandle(), createInfo};
+void Swapchain::createImageViews()
+{
+    imageViews.clear();
+    imageViews.reserve(images.size());
+    for (auto &image : images)
+    {
+        auto surfaceFormat = selectSwapSurfaceFormat();
+        vk::ImageViewCreateInfo createInfo{.image = image,
+                                           .viewType = vk::ImageViewType::e2D,
+                                           .format = surfaceFormat.format,
+                                           .subresourceRange = {
+                                               .aspectMask = vk::ImageAspectFlagBits::eColor,
+                                               .baseMipLevel = 0,
+                                               .levelCount = 1,
+                                               .baseArrayLayer = 0,
+                                               .layerCount = 1,
+                                           }};
+
+        imageViews.emplace_back(device.getHandle(), createInfo);
+    }
 }
 
 vk::SurfaceFormatKHR Swapchain::selectSwapSurfaceFormat() const
@@ -179,6 +196,10 @@ vk::Extent2D Swapchain::getExtent() const
 uint32_t Swapchain::getImageCount() const
 {
     return images.size();
+}
+uint32_t Swapchain::getMinImageCount() const
+{
+    return minImageCount;
 }
 
 } // namespace vkf::core

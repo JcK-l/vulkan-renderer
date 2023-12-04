@@ -90,9 +90,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9bc468b9039373359e80387290fb0309" id="r_a9bc468b9039373359e80387290fb0309"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_manager.html#a9bc468b9039373359e80387290fb0309">RenderManager</a> (const <a class="el" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device, <a class="el" href="classvkf_1_1platform_1_1_window.html">platform::Window</a> &amp;window, std::unique_ptr&lt; <a class="el" href="classvkf_1_1core_1_1_swapchain.html">core::Swapchain</a> &gt; inputSwapchain, std::unique_ptr&lt; <a class="el" href="classvkf_1_1rendering_1_1_renderer.html">Renderer</a> &gt; inputRenderer)</td></tr>
-<tr class="memdesc:a9bc468b9039373359e80387290fb0309"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classvkf_1_1rendering_1_1_render_manager.html" title="This class manages Vulkan rendering operations.">RenderManager</a> object.  <br /></td></tr>
-<tr class="separator:a9bc468b9039373359e80387290fb0309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0b0baab342699657739b9c101ff71f7" id="r_ab0b0baab342699657739b9c101ff71f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_manager.html#ab0b0baab342699657739b9c101ff71f7">RenderManager</a> (const <a class="el" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device, <a class="el" href="classvkf_1_1platform_1_1_window.html">platform::Window</a> &amp;window, std::shared_ptr&lt; <a class="el" href="classvkf_1_1core_1_1_swapchain.html">core::Swapchain</a> &gt; inputSwapchain, std::shared_ptr&lt; <a class="el" href="classvkf_1_1platform_1_1_gui.html">platform::Gui</a> &gt; inputGui, std::vector&lt; std::unique_ptr&lt; <a class="el" href="classvkf_1_1rendering_1_1_renderer.html">Renderer</a> &gt; &gt; inputRenderers)</td></tr>
+<tr class="memdesc:ab0b0baab342699657739b9c101ff71f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classvkf_1_1rendering_1_1_render_manager.html" title="This class manages Vulkan rendering operations.">RenderManager</a> object.  <br /></td></tr>
+<tr class="separator:ab0b0baab342699657739b9c101ff71f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6faf9c0f68f56ae4eed5357d8d887b97" id="r_a6faf9c0f68f56ae4eed5357d8d887b97"><td class="memItemLeft" align="right" valign="top"><a id="a6faf9c0f68f56ae4eed5357d8d887b97" name="a6faf9c0f68f56ae4eed5357d8d887b97"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>RenderManager</b> (const <a class="el" href="classvkf_1_1rendering_1_1_render_manager.html">RenderManager</a> &amp;)=delete</td></tr>
 <tr class="separator:a6faf9c0f68f56ae4eed5357d8d887b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,15 +111,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>beginFrame</b> ()</td
 <tr class="memitem:a2e21839cfc57c691b7450c401c8dc7dc" id="r_a2e21839cfc57c691b7450c401c8dc7dc"><td class="memItemLeft" align="right" valign="top"><a id="a2e21839cfc57c691b7450c401c8dc7dc" name="a2e21839cfc57c691b7450c401c8dc7dc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>endFrame</b> ()</td></tr>
 <tr class="separator:a2e21839cfc57c691b7450c401c8dc7dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa912bd732e8c76e3b2f770fc3903c4d4" id="r_aa912bd732e8c76e3b2f770fc3903c4d4"><td class="memItemLeft" align="right" valign="top"><a id="aa912bd732e8c76e3b2f770fc3903c4d4" name="aa912bd732e8c76e3b2f770fc3903c4d4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>beginRenderPass</b> ()</td></tr>
-<tr class="separator:aa912bd732e8c76e3b2f770fc3903c4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c4362b0a6a82f4ad27fd624a573badb" id="r_a8c4362b0a6a82f4ad27fd624a573badb"><td class="memItemLeft" align="right" valign="top"><a id="a8c4362b0a6a82f4ad27fd624a573badb" name="a8c4362b0a6a82f4ad27fd624a573badb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>endRenderPass</b> ()</td></tr>
-<tr class="separator:a8c4362b0a6a82f4ad27fd624a573badb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dcb1b93759c9d600ab3e748103cea2d" id="r_a2dcb1b93759c9d600ab3e748103cea2d"><td class="memItemLeft" align="right" valign="top"><a id="a2dcb1b93759c9d600ab3e748103cea2d" name="a2dcb1b93759c9d600ab3e748103cea2d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> ()</td></tr>
-<tr class="separator:a2dcb1b93759c9d600ab3e748103cea2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19c8be937ee768551669193acae259fe" id="r_a19c8be937ee768551669193acae259fe"><td class="memItemLeft" align="right" valign="top"><a id="a19c8be937ee768551669193acae259fe" name="a19c8be937ee768551669193acae259fe"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> ()</td></tr>
+<tr class="separator:a19c8be937ee768551669193acae259fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -129,12 +123,15 @@ static constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:aec2c8b0b8b4f2f3c359b8966a0d9ce8a" id="r_aec2c8b0b8b4f2f3c359b8966a0d9ce8a"><td class="memItemLeft" align="right" valign="top"><a id="aec2c8b0b8b4f2f3c359b8966a0d9ce8a" name="aec2c8b0b8b4f2f3c359b8966a0d9ce8a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>beginRenderPass</b> (<a class="el" href="classvkf_1_1rendering_1_1_renderer.html">Renderer</a> &amp;renderer, uint32_t currentRenderPass)</td></tr>
+<tr class="separator:aec2c8b0b8b4f2f3c359b8966a0d9ce8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9859aa87c1377cd6c35abd14faf05953" id="r_a9859aa87c1377cd6c35abd14faf05953"><td class="memItemLeft" align="right" valign="top"><a id="a9859aa87c1377cd6c35abd14faf05953" name="a9859aa87c1377cd6c35abd14faf05953"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>endRenderPass</b> (uint32_t currentRenderPass)</td></tr>
+<tr class="separator:a9859aa87c1377cd6c35abd14faf05953"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d9bf9fe0e398c66df698002a1e07efd" id="r_a2d9bf9fe0e398c66df698002a1e07efd"><td class="memItemLeft" align="right" valign="top"><a id="a2d9bf9fe0e398c66df698002a1e07efd" name="a2d9bf9fe0e398c66df698002a1e07efd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>createFrameData</b> ()</td></tr>
 <tr class="separator:a2d9bf9fe0e398c66df698002a1e07efd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb6e1f0c403bb6e70e6abc81d17c0422" id="r_abb6e1f0c403bb6e70e6abc81d17c0422"><td class="memItemLeft" align="right" valign="top"><a id="abb6e1f0c403bb6e70e6abc81d17c0422" name="abb6e1f0c403bb6e70e6abc81d17c0422"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>createFramebuffers</b> ()</td></tr>
-<tr class="separator:abb6e1f0c403bb6e70e6abc81d17c0422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd4e949c306a64023de6bb7bf57c718c" id="r_afd4e949c306a64023de6bb7bf57c718c"><td class="memItemLeft" align="right" valign="top"><a id="afd4e949c306a64023de6bb7bf57c718c" name="afd4e949c306a64023de6bb7bf57c718c"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>recreateSwapchain</b> ()</td></tr>
 <tr class="separator:afd4e949c306a64023de6bb7bf57c718c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,24 +144,21 @@ const <a class="el" href="classvkf_1_1core_1_1_device.html">core::Device</a> &am
 <tr class="memitem:a5c2390d2511c64236ea1cb031f3a6ca1" id="r_a5c2390d2511c64236ea1cb031f3a6ca1"><td class="memItemLeft" align="right" valign="top"><a id="a5c2390d2511c64236ea1cb031f3a6ca1" name="a5c2390d2511c64236ea1cb031f3a6ca1"></a>
 <a class="el" href="classvkf_1_1platform_1_1_window.html">platform::Window</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>window</b></td></tr>
 <tr class="separator:a5c2390d2511c64236ea1cb031f3a6ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe3c08b79767ceafe61d2e898e50e96b" id="r_afe3c08b79767ceafe61d2e898e50e96b"><td class="memItemLeft" align="right" valign="top"><a id="afe3c08b79767ceafe61d2e898e50e96b" name="afe3c08b79767ceafe61d2e898e50e96b"></a>
-std::unique_ptr&lt; <a class="el" href="classvkf_1_1rendering_1_1_renderer.html">Renderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b></td></tr>
-<tr class="separator:afe3c08b79767ceafe61d2e898e50e96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ae8d7dbe0f03280575f74c1a90fe93" id="r_a18ae8d7dbe0f03280575f74c1a90fe93"><td class="memItemLeft" align="right" valign="top"><a id="a18ae8d7dbe0f03280575f74c1a90fe93" name="a18ae8d7dbe0f03280575f74c1a90fe93"></a>
-<a class="el" href="classvkf_1_1core_1_1_render_pass.html">core::RenderPass</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>renderPass</b></td></tr>
-<tr class="separator:a18ae8d7dbe0f03280575f74c1a90fe93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08474451b7c4ec37f4f4297021e8dd10" id="r_a08474451b7c4ec37f4f4297021e8dd10"><td class="memItemLeft" align="right" valign="top"><a id="a08474451b7c4ec37f4f4297021e8dd10" name="a08474451b7c4ec37f4f4297021e8dd10"></a>
-std::unique_ptr&lt; <a class="el" href="classvkf_1_1core_1_1_swapchain.html">core::Swapchain</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>swapchain</b></td></tr>
-<tr class="separator:a08474451b7c4ec37f4f4297021e8dd10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3be56ce730a4fde923c103f268753b3c" id="r_a3be56ce730a4fde923c103f268753b3c"><td class="memItemLeft" align="right" valign="top"><a id="a3be56ce730a4fde923c103f268753b3c" name="a3be56ce730a4fde923c103f268753b3c"></a>
+std::vector&lt; std::unique_ptr&lt; <a class="el" href="classvkf_1_1rendering_1_1_renderer.html">Renderer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>renderers</b></td></tr>
+<tr class="separator:a3be56ce730a4fde923c103f268753b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f3d5c2b74faa390547703992041db44" id="r_a9f3d5c2b74faa390547703992041db44"><td class="memItemLeft" align="right" valign="top"><a id="a9f3d5c2b74faa390547703992041db44" name="a9f3d5c2b74faa390547703992041db44"></a>
+std::shared_ptr&lt; <a class="el" href="classvkf_1_1core_1_1_swapchain.html">core::Swapchain</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>swapchain</b></td></tr>
+<tr class="separator:a9f3d5c2b74faa390547703992041db44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8292967cdc91e99fda7fb7f5d975dd8d" id="r_a8292967cdc91e99fda7fb7f5d975dd8d"><td class="memItemLeft" align="right" valign="top"><a id="a8292967cdc91e99fda7fb7f5d975dd8d" name="a8292967cdc91e99fda7fb7f5d975dd8d"></a>
+std::shared_ptr&lt; <a class="el" href="classvkf_1_1platform_1_1_gui.html">platform::Gui</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>gui</b></td></tr>
+<tr class="separator:a8292967cdc91e99fda7fb7f5d975dd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac80abb38854982e9f173cd9df6da7bc4" id="r_ac80abb38854982e9f173cd9df6da7bc4"><td class="memItemLeft" align="right" valign="top"><a id="ac80abb38854982e9f173cd9df6da7bc4" name="ac80abb38854982e9f173cd9df6da7bc4"></a>
 std::vector&lt; std::unique_ptr&lt; <a class="el" href="classvkf_1_1rendering_1_1_frame_data.html">FrameData</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>frameData</b></td></tr>
 <tr class="separator:ac80abb38854982e9f173cd9df6da7bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b75b043376a52a0eeb3ba8780a197b9" id="r_a6b75b043376a52a0eeb3ba8780a197b9"><td class="memItemLeft" align="right" valign="top"><a id="a6b75b043376a52a0eeb3ba8780a197b9" name="a6b75b043376a52a0eeb3ba8780a197b9"></a>
-std::vector&lt; std::unique_ptr&lt; <a class="el" href="classvkf_1_1core_1_1_framebuffer.html">core::Framebuffer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>framebuffers</b></td></tr>
-<tr class="separator:a6b75b043376a52a0eeb3ba8780a197b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acae0f9f88fc8fe9a449636d3e701c333" id="r_acae0f9f88fc8fe9a449636d3e701c333"><td class="memItemLeft" align="right" valign="top"><a id="acae0f9f88fc8fe9a449636d3e701c333" name="acae0f9f88fc8fe9a449636d3e701c333"></a>
-vk::raii::CommandBuffer *&#160;</td><td class="memItemRight" valign="bottom"><b>activeCommandBuffer</b> {nullptr}</td></tr>
-<tr class="separator:acae0f9f88fc8fe9a449636d3e701c333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1a3a7b7035a1b560912ec4058c3903" id="r_afe1a3a7b7035a1b560912ec4058c3903"><td class="memItemLeft" align="right" valign="top"><a id="afe1a3a7b7035a1b560912ec4058c3903" name="afe1a3a7b7035a1b560912ec4058c3903"></a>
+vk::raii::CommandBuffers *&#160;</td><td class="memItemRight" valign="bottom"><b>activeCommandBuffers</b> {nullptr}</td></tr>
+<tr class="separator:afe1a3a7b7035a1b560912ec4058c3903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dab351a283297bf1917264595597542" id="r_a5dab351a283297bf1917264595597542"><td class="memItemLeft" align="right" valign="top"><a id="a5dab351a283297bf1917264595597542" name="a5dab351a283297bf1917264595597542"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>frameActive</b> {false}</td></tr>
 <tr class="separator:a5dab351a283297bf1917264595597542"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,8 +173,8 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>imageIndex</b> {0
 <div class="textblock"><p>This class manages Vulkan rendering operations. </p>
 <p>It provides an interface for interacting with Vulkan rendering operations, including beginning and ending frames and render passes, drawing, and managing the lifecycle of a <a class="el" href="classvkf_1_1rendering_1_1_renderer.html" title="This class manages Vulkan rendering operations.">Renderer</a> object. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9bc468b9039373359e80387290fb0309" name="a9bc468b9039373359e80387290fb0309"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bc468b9039373359e80387290fb0309">&#9670;&#160;</a></span>RenderManager()</h2>
+<a id="ab0b0baab342699657739b9c101ff71f7" name="ab0b0baab342699657739b9c101ff71f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0b0baab342699657739b9c101ff71f7">&#9670;&#160;</a></span>RenderManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,14 +194,20 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>imageIndex</b> {0
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classvkf_1_1core_1_1_swapchain.html">core::Swapchain</a> &gt;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classvkf_1_1core_1_1_swapchain.html">core::Swapchain</a> &gt;&#160;</td>
           <td class="paramname"><em>inputSwapchain</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classvkf_1_1rendering_1_1_renderer.html">Renderer</a> &gt;&#160;</td>
-          <td class="paramname"><em>inputRenderer</em>&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classvkf_1_1platform_1_1_gui.html">platform::Gui</a> &gt;&#160;</td>
+          <td class="paramname"><em>inputGui</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classvkf_1_1rendering_1_1_renderer.html">Renderer</a> &gt; &gt;&#160;</td>
+          <td class="paramname"><em>inputRenderers</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -222,9 +222,10 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>imageIndex</b> {0
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">device</td><td>The Vulkan device to use for creating the <a class="el" href="classvkf_1_1rendering_1_1_render_manager.html" title="This class manages Vulkan rendering operations.">RenderManager</a>. </td></tr>
-    <tr><td class="paramname">renderer</td><td>The <a class="el" href="classvkf_1_1rendering_1_1_renderer.html" title="This class manages Vulkan rendering operations.">Renderer</a> to use for creating the <a class="el" href="classvkf_1_1rendering_1_1_render_manager.html" title="This class manages Vulkan rendering operations.">RenderManager</a>. </td></tr>
-    <tr><td class="paramname">surface</td><td>The Vulkan surface to use for creating the <a class="el" href="classvkf_1_1rendering_1_1_render_manager.html" title="This class manages Vulkan rendering operations.">RenderManager</a>. </td></tr>
     <tr><td class="paramname">window</td><td>The window to use for creating the <a class="el" href="classvkf_1_1rendering_1_1_render_manager.html" title="This class manages Vulkan rendering operations.">RenderManager</a>. </td></tr>
+    <tr><td class="paramname">inputSwapchain</td><td>The swapchain to use for creating the <a class="el" href="classvkf_1_1rendering_1_1_render_manager.html" title="This class manages Vulkan rendering operations.">RenderManager</a>. </td></tr>
+    <tr><td class="paramname">inputGui</td><td>The GUI to use for creating the <a class="el" href="classvkf_1_1rendering_1_1_render_manager.html" title="This class manages Vulkan rendering operations.">RenderManager</a>. </td></tr>
+    <tr><td class="paramname">inputRenderers</td><td>The renderers to use for creating the <a class="el" href="classvkf_1_1rendering_1_1_render_manager.html" title="This class manages Vulkan rendering operations.">RenderManager</a>. </td></tr>
   </table>
   </dd>
 </dl>

@@ -12,7 +12,7 @@ This class manages Vulkan rendering operations.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager_a9bc468b9039373359e80387290fb0309}{Render\+Manager}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform\+::\+Window}} \&window, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} $>$ input\+Swapchain, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} $>$ input\+Renderer)
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager_ab0b0baab342699657739b9c101ff71f7}{Render\+Manager}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform\+::\+Window}} \&window, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} $>$ input\+Swapchain, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform\+::\+Gui}} $>$ input\+Gui, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} $>$ $>$ input\+Renderers)
 \begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1rendering_1_1_render_manager}{Render\+Manager} object. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_render_manager_a6faf9c0f68f56ae4eed5357d8d887b97}\label{classvkf_1_1rendering_1_1_render_manager_a6faf9c0f68f56ae4eed5357d8d887b97} 
 {\bfseries Render\+Manager} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{Render\+Manager}} \&)=delete
@@ -32,14 +32,8 @@ void {\bfseries begin\+Frame} ()
 \Hypertarget{classvkf_1_1rendering_1_1_render_manager_a2e21839cfc57c691b7450c401c8dc7dc}\label{classvkf_1_1rendering_1_1_render_manager_a2e21839cfc57c691b7450c401c8dc7dc} 
 void {\bfseries end\+Frame} ()
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_manager_aa912bd732e8c76e3b2f770fc3903c4d4}\label{classvkf_1_1rendering_1_1_render_manager_aa912bd732e8c76e3b2f770fc3903c4d4} 
-void {\bfseries begin\+Render\+Pass} ()
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a8c4362b0a6a82f4ad27fd624a573badb}\label{classvkf_1_1rendering_1_1_render_manager_a8c4362b0a6a82f4ad27fd624a573badb} 
-void {\bfseries end\+Render\+Pass} ()
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a2dcb1b93759c9d600ab3e748103cea2d}\label{classvkf_1_1rendering_1_1_render_manager_a2dcb1b93759c9d600ab3e748103cea2d} 
-void {\bfseries draw} ()
+\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a19c8be937ee768551669193acae259fe}\label{classvkf_1_1rendering_1_1_render_manager_a19c8be937ee768551669193acae259fe} 
+void {\bfseries render} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -50,11 +44,14 @@ static constexpr uint32\+\_\+t {\bfseries frames\+In\+Flight} \{3\}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{classvkf_1_1rendering_1_1_render_manager_aec2c8b0b8b4f2f3c359b8966a0d9ce8a}\label{classvkf_1_1rendering_1_1_render_manager_aec2c8b0b8b4f2f3c359b8966a0d9ce8a} 
+void {\bfseries begin\+Render\+Pass} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \&renderer, uint32\+\_\+t current\+Render\+Pass)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a9859aa87c1377cd6c35abd14faf05953}\label{classvkf_1_1rendering_1_1_render_manager_a9859aa87c1377cd6c35abd14faf05953} 
+void {\bfseries end\+Render\+Pass} (uint32\+\_\+t current\+Render\+Pass)
+\item 
 \Hypertarget{classvkf_1_1rendering_1_1_render_manager_a2d9bf9fe0e398c66df698002a1e07efd}\label{classvkf_1_1rendering_1_1_render_manager_a2d9bf9fe0e398c66df698002a1e07efd} 
 void {\bfseries create\+Frame\+Data} ()
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_manager_abb6e1f0c403bb6e70e6abc81d17c0422}\label{classvkf_1_1rendering_1_1_render_manager_abb6e1f0c403bb6e70e6abc81d17c0422} 
-void {\bfseries create\+Framebuffers} ()
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_render_manager_afd4e949c306a64023de6bb7bf57c718c}\label{classvkf_1_1rendering_1_1_render_manager_afd4e949c306a64023de6bb7bf57c718c} 
 bool {\bfseries recreate\+Swapchain} ()
@@ -68,23 +65,20 @@ const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \& {\bfse
 \Hypertarget{classvkf_1_1rendering_1_1_render_manager_a5c2390d2511c64236ea1cb031f3a6ca1}\label{classvkf_1_1rendering_1_1_render_manager_a5c2390d2511c64236ea1cb031f3a6ca1} 
 \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform\+::\+Window}} \& {\bfseries window}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_manager_afe3c08b79767ceafe61d2e898e50e96b}\label{classvkf_1_1rendering_1_1_render_manager_afe3c08b79767ceafe61d2e898e50e96b} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} $>$ {\bfseries renderer}
+\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a3be56ce730a4fde923c103f268753b3c}\label{classvkf_1_1rendering_1_1_render_manager_a3be56ce730a4fde923c103f268753b3c} 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} $>$ $>$ {\bfseries renderers}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a18ae8d7dbe0f03280575f74c1a90fe93}\label{classvkf_1_1rendering_1_1_render_manager_a18ae8d7dbe0f03280575f74c1a90fe93} 
-\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \texorpdfstring{$\ast$}{*} {\bfseries render\+Pass}
+\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a9f3d5c2b74faa390547703992041db44}\label{classvkf_1_1rendering_1_1_render_manager_a9f3d5c2b74faa390547703992041db44} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} $>$ {\bfseries swapchain}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a08474451b7c4ec37f4f4297021e8dd10}\label{classvkf_1_1rendering_1_1_render_manager_a08474451b7c4ec37f4f4297021e8dd10} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} $>$ {\bfseries swapchain}
+\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a8292967cdc91e99fda7fb7f5d975dd8d}\label{classvkf_1_1rendering_1_1_render_manager_a8292967cdc91e99fda7fb7f5d975dd8d} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform\+::\+Gui}} $>$ {\bfseries gui}
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_render_manager_ac80abb38854982e9f173cd9df6da7bc4}\label{classvkf_1_1rendering_1_1_render_manager_ac80abb38854982e9f173cd9df6da7bc4} 
 std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} $>$ $>$ {\bfseries frame\+Data}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a6b75b043376a52a0eeb3ba8780a197b9}\label{classvkf_1_1rendering_1_1_render_manager_a6b75b043376a52a0eeb3ba8780a197b9} 
-std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{core\+::\+Framebuffer}} $>$ $>$ {\bfseries framebuffers}
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_manager_acae0f9f88fc8fe9a449636d3e701c333}\label{classvkf_1_1rendering_1_1_render_manager_acae0f9f88fc8fe9a449636d3e701c333} 
-vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*} {\bfseries active\+Command\+Buffer} \{nullptr\}
+\Hypertarget{classvkf_1_1rendering_1_1_render_manager_afe1a3a7b7035a1b560912ec4058c3903}\label{classvkf_1_1rendering_1_1_render_manager_afe1a3a7b7035a1b560912ec4058c3903} 
+vk\+::raii\+::\+Command\+Buffers \texorpdfstring{$\ast$}{*} {\bfseries active\+Command\+Buffers} \{nullptr\}
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_render_manager_a5dab351a283297bf1917264595597542}\label{classvkf_1_1rendering_1_1_render_manager_a5dab351a283297bf1917264595597542} 
 bool {\bfseries frame\+Active} \{false\}
@@ -103,11 +97,11 @@ This class manages Vulkan rendering operations.
 It provides an interface for interacting with Vulkan rendering operations, including beginning and ending frames and render passes, drawing, and managing the lifecycle of a \doxylink{classvkf_1_1rendering_1_1_renderer}{Renderer} object. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1rendering_1_1_render_manager_a9bc468b9039373359e80387290fb0309}\label{classvkf_1_1rendering_1_1_render_manager_a9bc468b9039373359e80387290fb0309} 
+\Hypertarget{classvkf_1_1rendering_1_1_render_manager_ab0b0baab342699657739b9c101ff71f7}\label{classvkf_1_1rendering_1_1_render_manager_ab0b0baab342699657739b9c101ff71f7} 
 \index{vkf::rendering::RenderManager@{vkf::rendering::RenderManager}!RenderManager@{RenderManager}}
 \index{RenderManager@{RenderManager}!vkf::rendering::RenderManager@{vkf::rendering::RenderManager}}
 \doxysubsubsection{\texorpdfstring{RenderManager()}{RenderManager()}}
-{\footnotesize\ttfamily vkf\+::rendering\+::\+Render\+Manager\+::\+Render\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform\+::\+Window}} \&}]{window,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} $>$}]{input\+Swapchain,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} $>$}]{input\+Renderer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vkf\+::rendering\+::\+Render\+Manager\+::\+Render\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform\+::\+Window}} \&}]{window,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} $>$}]{input\+Swapchain,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform\+::\+Gui}} $>$}]{input\+Gui,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} $>$ $>$}]{input\+Renderers }\end{DoxyParamCaption})}
 
 
 
@@ -119,11 +113,13 @@ This constructor creates a \doxylink{classvkf_1_1rendering_1_1_render_manager}{R
 \begin{DoxyParams}{Parameters}
 {\em device} & The Vulkan device to use for creating the \doxylink{classvkf_1_1rendering_1_1_render_manager}{Render\+Manager}. \\
 \hline
-{\em renderer} & The \doxylink{classvkf_1_1rendering_1_1_renderer}{Renderer} to use for creating the \doxylink{classvkf_1_1rendering_1_1_render_manager}{Render\+Manager}. \\
-\hline
-{\em surface} & The Vulkan surface to use for creating the \doxylink{classvkf_1_1rendering_1_1_render_manager}{Render\+Manager}. \\
-\hline
 {\em window} & The window to use for creating the \doxylink{classvkf_1_1rendering_1_1_render_manager}{Render\+Manager}. \\
+\hline
+{\em input\+Swapchain} & The swapchain to use for creating the \doxylink{classvkf_1_1rendering_1_1_render_manager}{Render\+Manager}. \\
+\hline
+{\em input\+Gui} & The GUI to use for creating the \doxylink{classvkf_1_1rendering_1_1_render_manager}{Render\+Manager}. \\
+\hline
+{\em input\+Renderers} & The renderers to use for creating the \doxylink{classvkf_1_1rendering_1_1_render_manager}{Render\+Manager}. \\
 \hline
 \end{DoxyParams}
 

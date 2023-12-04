@@ -88,9 +88,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7536da50b8a67f35c94e83d09f7c3b3a" id="r_a7536da50b8a67f35c94e83d09f7c3b3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_render_pass.html#a7536da50b8a67f35c94e83d09f7c3b3a">RenderPass</a> (const <a class="el" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device, const <a class="el" href="structvkf_1_1rendering_1_1_render_target.html">rendering::RenderTarget</a> &amp;renderTarget, const std::vector&lt; vk::SubpassDescription &gt; &amp;subpassDescriptions, const std::vector&lt; vk::SubpassDependency &gt; &amp;subpassDependencies)</td></tr>
-<tr class="memdesc:a7536da50b8a67f35c94e83d09f7c3b3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classvkf_1_1core_1_1_render_pass.html" title="This class manages Vulkan render passes.">RenderPass</a> object.  <br /></td></tr>
-<tr class="separator:a7536da50b8a67f35c94e83d09f7c3b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a732009d199e18ae4ddd45609f6a15ba0" id="r_a732009d199e18ae4ddd45609f6a15ba0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_render_pass.html#a732009d199e18ae4ddd45609f6a15ba0">RenderPass</a> (const <a class="el" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device, const std::vector&lt; vk::AttachmentDescription &gt; &amp;attachments, const std::vector&lt; vk::SubpassDescription &gt; &amp;subpassDescriptions, const std::vector&lt; vk::SubpassDependency &gt; &amp;subpassDependencies)</td></tr>
+<tr class="memdesc:a732009d199e18ae4ddd45609f6a15ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classvkf_1_1core_1_1_render_pass.html" title="This class manages Vulkan render passes.">RenderPass</a> object.  <br /></td></tr>
+<tr class="separator:a732009d199e18ae4ddd45609f6a15ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a837d9e9738a60b787c2158a55ca09057" id="r_a837d9e9738a60b787c2158a55ca09057"><td class="memItemLeft" align="right" valign="top"><a id="a837d9e9738a60b787c2158a55ca09057" name="a837d9e9738a60b787c2158a55ca09057"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>RenderPass</b> (const <a class="el" href="classvkf_1_1core_1_1_render_pass.html">RenderPass</a> &amp;)=delete</td></tr>
 <tr class="separator:a837d9e9738a60b787c2158a55ca09057"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,8 +129,8 @@ std::vector&lt; vk::SubpassDependency &gt;&#160;</td><td class="memItemRight" va
 <div class="textblock"><p>This class manages Vulkan render passes. </p>
 <p>It provides an interface for interacting with a Vulkan render pass, including getting the handle to the render pass. It also provides methods for creating a render pass with subpass information and dependencies. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7536da50b8a67f35c94e83d09f7c3b3a" name="a7536da50b8a67f35c94e83d09f7c3b3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7536da50b8a67f35c94e83d09f7c3b3a">&#9670;&#160;</a></span>RenderPass()</h2>
+<a id="a732009d199e18ae4ddd45609f6a15ba0" name="a732009d199e18ae4ddd45609f6a15ba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a732009d199e18ae4ddd45609f6a15ba0">&#9670;&#160;</a></span>RenderPass()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,8 +144,8 @@ std::vector&lt; vk::SubpassDependency &gt;&#160;</td><td class="memItemRight" va
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structvkf_1_1rendering_1_1_render_target.html">rendering::RenderTarget</a> &amp;&#160;</td>
-          <td class="paramname"><em>renderTarget</em>, </td>
+          <td class="paramtype">const std::vector&lt; vk::AttachmentDescription &gt; &amp;&#160;</td>
+          <td class="paramname"><em>attachments</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -168,11 +168,11 @@ std::vector&lt; vk::SubpassDependency &gt;&#160;</td><td class="memItemRight" va
 </div><div class="memdoc">
 
 <p>Constructs a <a class="el" href="classvkf_1_1core_1_1_render_pass.html" title="This class manages Vulkan render passes.">RenderPass</a> object. </p>
-<p>This constructor creates a Vulkan render pass using the provided device, render target, subpass information, and dependencies.</p>
+<p>This constructor creates a Vulkan render pass using the provided device, attachment descriptions, subpass information and dependencies.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">device</td><td>The Vulkan device to use for creating the render pass. </td></tr>
-    <tr><td class="paramname">renderTarget</td><td>The render target to use for creating the render pass. </td></tr>
+    <tr><td class="paramname">attachments</td><td>The attachment descriptions to use for creating the render pass. </td></tr>
     <tr><td class="paramname">subpassDescriptions</td><td>The subpass information to use for creating the render pass. </td></tr>
     <tr><td class="paramname">subpassDependencies</td><td>The dependencies to use for creating the render pass. </td></tr>
   </table>

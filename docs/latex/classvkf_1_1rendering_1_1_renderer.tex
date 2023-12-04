@@ -12,7 +12,7 @@ This class manages Vulkan rendering operations.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer_ad5ac4db9596cbac3f888d7656999064d}{Renderer}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \texorpdfstring{$\ast$}{*}swapchain, \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{Render\+Options}} render\+Options)
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer_a235a41535c9d6cc61a3a5c40748be891}{Renderer}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{Render\+Options}} input\+Render\+Options, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{Render\+Source}} $>$ render\+Source)
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1rendering_1_1_renderer}{Renderer} class. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_a72cf080b8ee38aeecaf87ae883d6a155}\label{classvkf_1_1rendering_1_1_renderer_a72cf080b8ee38aeecaf87ae883d6a155} 
 {\bfseries Renderer} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \&)=delete
@@ -29,26 +29,32 @@ This class manages Vulkan rendering operations.
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_a7552108728683d8ef1a6d1c4308fd106}\label{classvkf_1_1rendering_1_1_renderer_a7552108728683d8ef1a6d1c4308fd106} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Render\+Pass} () const
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_a42708610ee2ebe9730c2e7b27b89530a}\label{classvkf_1_1rendering_1_1_renderer_a42708610ee2ebe9730c2e7b27b89530a} 
-vk\+::\+Clear\+Value \texorpdfstring{$\ast$}{*} {\bfseries get\+Clear\+Value} () const
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a9acfc37b9311ceb2559b2b1b0fc99014}\label{classvkf_1_1rendering_1_1_renderer_a9acfc37b9311ceb2559b2b1b0fc99014} 
+vk\+::\+Render\+Pass\+Begin\+Info {\bfseries get\+Render\+Pass\+Begin\+Info} (uint32\+\_\+t image\+Index) const
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_a29f03f5a1c20d721d27665763572ccfb}\label{classvkf_1_1rendering_1_1_renderer_a29f03f5a1c20d721d27665763572ccfb} 
-const \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{Render\+Target}} \& {\bfseries get\+Render\+Target} (uint32\+\_\+t index)
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_accc9ea4b5572e32f84b60f820a7188f0}\label{classvkf_1_1rendering_1_1_renderer_accc9ea4b5572e32f84b60f820a7188f0} 
+vk\+::\+Extent2D {\bfseries get\+Framebuffer\+Extent} () const
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_a3506c3a4e2d56caec3fd8c66b26b41b8}\label{classvkf_1_1rendering_1_1_renderer_a3506c3a4e2d56caec3fd8c66b26b41b8} 
-void {\bfseries draw} (vk\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}cmd)
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_af8fc84d1e587a8db2f4c4bf48d6aa3bd}\label{classvkf_1_1rendering_1_1_renderer_af8fc84d1e587a8db2f4c4bf48d6aa3bd} 
+void {\bfseries add\+Render\+Substage} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} $>$ render\+Substage)
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_a7bc0db032a69ad62aa1e699ae78c9144}\label{classvkf_1_1rendering_1_1_renderer_a7bc0db032a69ad62aa1e699ae78c9144} 
-void {\bfseries update\+Render\+Targets} ()
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a9ac0fd1bb6341a181d44e5d14ece03b5}\label{classvkf_1_1rendering_1_1_renderer_a9ac0fd1bb6341a181d44e5d14ece03b5} 
+void {\bfseries sync\+Frame\+Data} ()
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_af5602189c23dd887729a15da18b2061e}\label{classvkf_1_1rendering_1_1_renderer_af5602189c23dd887729a15da18b2061e} 
+void {\bfseries update\+Framebuffers} ()
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a36fe0b511c67cbc72cbb29dc76edc9e1}\label{classvkf_1_1rendering_1_1_renderer_a36fe0b511c67cbc72cbb29dc76edc9e1} 
+void {\bfseries set\+Frame\+Data} (std\+::vector$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \texorpdfstring{$\ast$}{*} $>$ frame\+Data)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a4bc88dd96a899f906519f617f85f517d}\label{classvkf_1_1rendering_1_1_renderer_a4bc88dd96a899f906519f617f85f517d} 
+void {\bfseries draw} (vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}cmd)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_af263ff176982b7e7f61b7f3a63698c86}\label{classvkf_1_1rendering_1_1_renderer_af263ff176982b7e7f61b7f3a63698c86} 
-void {\bfseries create\+Render\+Targets} ()
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_a450b81fda5c4ec191717822e877a6abe}\label{classvkf_1_1rendering_1_1_renderer_a450b81fda5c4ec191717822e877a6abe} 
-void {\bfseries create\+Render\+Substages} ()
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a30ac562e0c18816bade1ee0018247471}\label{classvkf_1_1rendering_1_1_renderer_a30ac562e0c18816bade1ee0018247471} 
+void {\bfseries create\+Framebuffers} (std\+::vector$<$ vk\+::\+Image\+View $>$ image\+Views)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -59,31 +65,37 @@ const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \& {\bfse
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_afcc6f3be1f96a7b071968c849176c7d1}\label{classvkf_1_1rendering_1_1_renderer_afcc6f3be1f96a7b071968c849176c7d1} 
 std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} $>$ {\bfseries render\+Pass}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_a12b707d1a0b06d990be114a458c740f4}\label{classvkf_1_1rendering_1_1_renderer_a12b707d1a0b06d990be114a458c740f4} 
-\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \texorpdfstring{$\ast$}{*} {\bfseries swapchain}
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a4bb099140d92fd6a356515ab6de56380}\label{classvkf_1_1rendering_1_1_renderer_a4bb099140d92fd6a356515ab6de56380} 
+\mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{Render\+Options}} {\bfseries render\+Options}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_a131749a9b949e2890f95132b8ac3fa89}\label{classvkf_1_1rendering_1_1_renderer_a131749a9b949e2890f95132b8ac3fa89} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{Render\+Options}} $>$ {\bfseries render\+Options}
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_ac4a434ecddb82b512455028215459ed9}\label{classvkf_1_1rendering_1_1_renderer_ac4a434ecddb82b512455028215459ed9} 
-std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{Render\+Target}} $>$ $>$ {\bfseries render\+Targets}
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a8ad1e726092958412572a9c361325fe4}\label{classvkf_1_1rendering_1_1_renderer_a8ad1e726092958412572a9c361325fe4} 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{core\+::\+Framebuffer}} $>$ $>$ {\bfseries framebuffers}
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_a07976c4fcc13bd4c1892fcee5450c161}\label{classvkf_1_1rendering_1_1_renderer_a07976c4fcc13bd4c1892fcee5450c161} 
-std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} $>$ $>$ {\bfseries render\+Substages}
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} $>$ $>$ {\bfseries render\+Substages} \{\}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a54f760d0a68df31e104f78edae154ebe}\label{classvkf_1_1rendering_1_1_renderer_a54f760d0a68df31e104f78edae154ebe} 
+std\+::vector$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries frame\+Data} \{\}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_aa8df22b7bf46bbfc4b53319e31dfaf19}\label{classvkf_1_1rendering_1_1_renderer_aa8df22b7bf46bbfc4b53319e31dfaf19} 
+vk\+::\+Extent2D {\bfseries framebuffer\+Extent}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_ab402b0936b20edf0627864df6538bef7}\label{classvkf_1_1rendering_1_1_renderer_ab402b0936b20edf0627864df6538bef7} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{Render\+Source}} $>$ {\bfseries render\+Source}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 This class manages Vulkan rendering operations. 
 
-It provides an interface for interacting with Vulkan rendering operations. It includes methods for getting the render pass, clear value, and render target, as well as methods updating render targets and drawing. 
+It provides an interface for interacting with Vulkan rendering operations. It includes methods for getting the render pass and clear value, as well as methods for updating framebuffers and drawing. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_ad5ac4db9596cbac3f888d7656999064d}\label{classvkf_1_1rendering_1_1_renderer_ad5ac4db9596cbac3f888d7656999064d} 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a235a41535c9d6cc61a3a5c40748be891}\label{classvkf_1_1rendering_1_1_renderer_a235a41535c9d6cc61a3a5c40748be891} 
 \index{vkf::rendering::Renderer@{vkf::rendering::Renderer}!Renderer@{Renderer}}
 \index{Renderer@{Renderer}!vkf::rendering::Renderer@{vkf::rendering::Renderer}}
 \doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}}
-{\footnotesize\ttfamily vkf\+::rendering\+::\+Renderer\+::\+Renderer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \texorpdfstring{$\ast$}{*}}]{swapchain,  }\item[{\mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{Render\+Options}}}]{render\+Options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily vkf\+::rendering\+::\+Renderer\+::\+Renderer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{structvkf_1_1rendering_1_1_render_options}{Render\+Options}}}]{input\+Render\+Options,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{Render\+Source}} $>$}]{render\+Source }\end{DoxyParamCaption})}
 
 
 
@@ -95,9 +107,9 @@ This constructor creates a Vulkan renderer using the provided device, swapchain,
 \begin{DoxyParams}{Parameters}
 {\em device} & The Vulkan device. \\
 \hline
-{\em swapchain} & The Vulkan swapchain. \\
-\hline
 {\em render\+Options} & The render options. \\
+\hline
+{\em render\+Source} & The render source. \\
 \hline
 \end{DoxyParams}
 

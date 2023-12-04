@@ -12,7 +12,7 @@ This class manages per frame data.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data_a709000a1f315adcf50cfcedf7987bd4e}{Frame\+Data}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device)
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data_ad42ef00eb1faa22adb6f3ee3fbc37063}{Frame\+Data}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, uint32\+\_\+t num\+Render\+Passes)
 \begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data} object. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_frame_data_a4ec2ad1a49d2855045bd21772f71432a}\label{classvkf_1_1rendering_1_1_frame_data_a4ec2ad1a49d2855045bd21772f71432a} 
 {\bfseries Frame\+Data} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \&)=delete
@@ -26,14 +26,17 @@ This class manages per frame data.
 \Hypertarget{classvkf_1_1rendering_1_1_frame_data_a48fcec17300660415f032652ed564a2d}\label{classvkf_1_1rendering_1_1_frame_data_a48fcec17300660415f032652ed564a2d} 
 \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \&\&)=delete
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_frame_data_ab32be7ba381395210fb862317dc1112a}\label{classvkf_1_1rendering_1_1_frame_data_ab32be7ba381395210fb862317dc1112a} 
-vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*} {\bfseries get\+Command\+Buffer} ()
+\Hypertarget{classvkf_1_1rendering_1_1_frame_data_a1ebb6df2f2eb80fa30171afdee88f38a}\label{classvkf_1_1rendering_1_1_frame_data_a1ebb6df2f2eb80fa30171afdee88f38a} 
+vk\+::raii\+::\+Command\+Buffers \texorpdfstring{$\ast$}{*} {\bfseries get\+Command\+Buffers} ()
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_frame_data_a1459fe10b41368c8f306ac24d887a10c}\label{classvkf_1_1rendering_1_1_frame_data_a1459fe10b41368c8f306ac24d887a10c} 
 const vk\+::raii\+::\+Semaphore \& {\bfseries get\+Semaphore} (uint32\+\_\+t index) const
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_frame_data_aa06fa8d533ccf7d5baeb4d69ccdb43d8}\label{classvkf_1_1rendering_1_1_frame_data_aa06fa8d533ccf7d5baeb4d69ccdb43d8} 
-const vk\+::raii\+::\+Fence \& {\bfseries get\+Fence} () const
+\Hypertarget{classvkf_1_1rendering_1_1_frame_data_aad4b0e3dd3b709be8251bba9e4c483be}\label{classvkf_1_1rendering_1_1_frame_data_aad4b0e3dd3b709be8251bba9e4c483be} 
+const vk\+::raii\+::\+Semaphore \& {\bfseries get\+Last\+Semaphore} () const
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_frame_data_aaabac0a9062e68afdbccc723d658a4fa}\label{classvkf_1_1rendering_1_1_frame_data_aaabac0a9062e68afdbccc723d658a4fa} 
+std\+::vector$<$ vk\+::\+Fence $>$ {\bfseries get\+Fences} () const
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -47,11 +50,11 @@ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{co
 \Hypertarget{classvkf_1_1rendering_1_1_frame_data_a1fe4ecf020b9199b98839830a6638993}\label{classvkf_1_1rendering_1_1_frame_data_a1fe4ecf020b9199b98839830a6638993} 
 std\+::unordered\+\_\+map$<$ uint32\+\_\+t, vk\+::raii\+::\+Command\+Buffers \texorpdfstring{$\ast$}{*} $>$ {\bfseries command\+Buffers\+Map}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_frame_data_a82a209515004e306701b6e905dcecb03}\label{classvkf_1_1rendering_1_1_frame_data_a82a209515004e306701b6e905dcecb03} 
-std\+::array$<$ vk\+::raii\+::\+Semaphore, 2 $>$ {\bfseries semaphore} \{VK\+\_\+\+NULL\+\_\+\+HANDLE, VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\Hypertarget{classvkf_1_1rendering_1_1_frame_data_adbc611e17bc473bfd8cdd499a8638133}\label{classvkf_1_1rendering_1_1_frame_data_adbc611e17bc473bfd8cdd499a8638133} 
+std\+::vector$<$ vk\+::raii\+::\+Semaphore $>$ {\bfseries semaphore}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_frame_data_ae3f9a10b837af24e8d1e5c60a1ec5166}\label{classvkf_1_1rendering_1_1_frame_data_ae3f9a10b837af24e8d1e5c60a1ec5166} 
-vk\+::raii\+::\+Fence {\bfseries fence} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\Hypertarget{classvkf_1_1rendering_1_1_frame_data_a3bfa0e17e44de106346d770bbd8075f1}\label{classvkf_1_1rendering_1_1_frame_data_a3bfa0e17e44de106346d770bbd8075f1} 
+std\+::vector$<$ vk\+::raii\+::\+Fence $>$ {\bfseries fences}
 \end{DoxyCompactItemize}
 
 
@@ -61,11 +64,11 @@ This class manages per frame data.
 It provides an interface for interacting with frame data, including getting the command buffer. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1rendering_1_1_frame_data_a709000a1f315adcf50cfcedf7987bd4e}\label{classvkf_1_1rendering_1_1_frame_data_a709000a1f315adcf50cfcedf7987bd4e} 
+\Hypertarget{classvkf_1_1rendering_1_1_frame_data_ad42ef00eb1faa22adb6f3ee3fbc37063}\label{classvkf_1_1rendering_1_1_frame_data_ad42ef00eb1faa22adb6f3ee3fbc37063} 
 \index{vkf::rendering::FrameData@{vkf::rendering::FrameData}!FrameData@{FrameData}}
 \index{FrameData@{FrameData}!vkf::rendering::FrameData@{vkf::rendering::FrameData}}
 \doxysubsubsection{\texorpdfstring{FrameData()}{FrameData()}}
-{\footnotesize\ttfamily vkf\+::rendering\+::\+Frame\+Data\+::\+Frame\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vkf\+::rendering\+::\+Frame\+Data\+::\+Frame\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{uint32\+\_\+t}]{num\+Render\+Passes }\end{DoxyParamCaption})}
 
 
 

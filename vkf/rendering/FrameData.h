@@ -40,7 +40,7 @@ class FrameData
     ///
     /// \param device The Vulkan device to use for creating the frame data.
     ///
-    FrameData(const core::Device &device);
+    FrameData(const core::Device &device, uint32_t numRenderPasses);
 
     FrameData(const FrameData &) = delete;            // Deleted copy constructor
     FrameData(FrameData &&) noexcept = default;       // Default move constructor
@@ -48,10 +48,11 @@ class FrameData
     FrameData &operator=(FrameData &&) = delete;      // Deleted move assignment operator
     ~FrameData(); // Implementation in FrameData.cpp because of std::unique_ptr forward declaration
 
-    vk::raii::CommandBuffer *getCommandBuffer();
+    vk::raii::CommandBuffers *getCommandBuffers();
 
     [[nodiscard]] const vk::raii::Semaphore &getSemaphore(uint32_t index) const;
-    [[nodiscard]] const vk::raii::Fence &getFence() const;
+    [[nodiscard]] const vk::raii::Semaphore &getLastSemaphore() const;
+    [[nodiscard]] std::vector<vk::Fence> getFences() const;
 
   private:
     const core::Device &device;
@@ -59,8 +60,8 @@ class FrameData
     std::unique_ptr<core::CommandPool> commandPool;
     std::unordered_map<uint32_t, vk::raii::CommandBuffers *> commandBuffersMap;
 
-    std::array<vk::raii::Semaphore, 2> semaphore{VK_NULL_HANDLE, VK_NULL_HANDLE};
-    vk::raii::Fence fence{VK_NULL_HANDLE};
+    std::vector<vk::raii::Semaphore> semaphore;
+    std::vector<vk::raii::Fence> fences;
 };
 
 } // namespace vkf::rendering

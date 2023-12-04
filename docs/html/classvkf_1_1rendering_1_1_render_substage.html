@@ -76,31 +76,106 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classvkf_1_1rendering_1_1_render_substage-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">vkf::rendering::RenderSubstage Class Reference</div></div>
+  <div class="headertitle"><div class="title">vkf::rendering::RenderSubstage Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This abstract class provides an interface for managing Vulkan rendering sub-stages.  
+ <a href="classvkf_1_1rendering_1_1_render_substage.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_render_substage_8h_source.html">RenderSubstage.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for vkf::rendering::RenderSubstage:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classvkf_1_1rendering_1_1_render_substage.png" usemap="#vkf::rendering::RenderSubstage_map" alt=""/>
+  <map id="vkf::rendering::RenderSubstage_map" name="vkf::rendering::RenderSubstage_map">
+<area href="classvkf_1_1rendering_1_1_forward_substage.html" title="This class manages Vulkan rendering operations." alt="vkf::rendering::ForwardSubstage" shape="rect" coords="0,56,196,80"/>
+<area href="classvkf_1_1rendering_1_1_gui_substage.html" title="This class manages Vulkan rendering operations." alt="vkf::rendering::GuiSubstage" shape="rect" coords="206,56,402,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab2b7c1caba5a9d300c6243a699959fd5" id="r_ab2b7c1caba5a9d300c6243a699959fd5"><td class="memItemLeft" align="right" valign="top"><a id="ab2b7c1caba5a9d300c6243a699959fd5" name="ab2b7c1caba5a9d300c6243a699959fd5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RenderSubstage</b> (const <a class="el" href="classvkf_1_1rendering_1_1_render_substage.html">RenderSubstage</a> &amp;)=delete</td></tr>
-<tr class="separator:ab2b7c1caba5a9d300c6243a699959fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0b4d300156206739b495a446c275dff" id="r_aa0b4d300156206739b495a446c275dff"><td class="memItemLeft" align="right" valign="top"><a id="aa0b4d300156206739b495a446c275dff" name="aa0b4d300156206739b495a446c275dff"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RenderSubstage</b> (<a class="el" href="classvkf_1_1rendering_1_1_render_substage.html">RenderSubstage</a> &amp;&amp;) noexcept=default</td></tr>
-<tr class="separator:aa0b4d300156206739b495a446c275dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9f2b660ad48bf572bde5e67984c0482" id="r_ac9f2b660ad48bf572bde5e67984c0482"><td class="memItemLeft" align="right" valign="top"><a id="ac9f2b660ad48bf572bde5e67984c0482" name="ac9f2b660ad48bf572bde5e67984c0482"></a>
-<a class="el" href="classvkf_1_1rendering_1_1_render_substage.html">RenderSubstage</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classvkf_1_1rendering_1_1_render_substage.html">RenderSubstage</a> &amp;)=delete</td></tr>
-<tr class="separator:ac9f2b660ad48bf572bde5e67984c0482"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2aa23b462dbc386ce9da6bfa35c4378" id="r_af2aa23b462dbc386ce9da6bfa35c4378"><td class="memItemLeft" align="right" valign="top"><a id="af2aa23b462dbc386ce9da6bfa35c4378" name="af2aa23b462dbc386ce9da6bfa35c4378"></a>
-<a class="el" href="classvkf_1_1rendering_1_1_render_substage.html">RenderSubstage</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classvkf_1_1rendering_1_1_render_substage.html">RenderSubstage</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:af2aa23b462dbc386ce9da6bfa35c4378"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66b42318669c386c0dde1b455cf73683" id="r_a66b42318669c386c0dde1b455cf73683"><td class="memItemLeft" align="right" valign="top"><a id="a66b42318669c386c0dde1b455cf73683" name="a66b42318669c386c0dde1b455cf73683"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (vk::CommandBuffer *cmd)</td></tr>
-<tr class="separator:a66b42318669c386c0dde1b455cf73683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8f442689c543461c50c47c7e07ed03" id="r_a8f8f442689c543461c50c47c7e07ed03"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_substage.html#a8f8f442689c543461c50c47c7e07ed03">~RenderSubstage</a> ()=default</td></tr>
+<tr class="memdesc:a8f8f442689c543461c50c47c7e07ed03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classvkf_1_1rendering_1_1_render_substage.html" title="This abstract class provides an interface for managing Vulkan rendering sub-stages.">RenderSubstage</a> class.  <br /></td></tr>
+<tr class="separator:a8f8f442689c543461c50c47c7e07ed03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7b92441fdd13e7564571443ad16b815" id="r_aa7b92441fdd13e7564571443ad16b815"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_substage.html#aa7b92441fdd13e7564571443ad16b815">draw</a> (vk::raii::CommandBuffer *cmd)=0</td></tr>
+<tr class="memdesc:aa7b92441fdd13e7564571443ad16b815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to draw.  <br /></td></tr>
+<tr class="separator:aa7b92441fdd13e7564571443ad16b815"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This abstract class provides an interface for managing Vulkan rendering sub-stages. </p>
+<p>This class is intended to be subclassed by specific types of rendering substages. Each subclass should provide an implementation for the draw method, which is used to perform the actual rendering operation. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8f8f442689c543461c50c47c7e07ed03" name="a8f8f442689c543461c50c47c7e07ed03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f8f442689c543461c50c47c7e07ed03">&#9670;&#160;</a></span>~RenderSubstage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual vkf::rendering::RenderSubstage::~RenderSubstage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor for the <a class="el" href="classvkf_1_1rendering_1_1_render_substage.html" title="This abstract class provides an interface for managing Vulkan rendering sub-stages.">RenderSubstage</a> class. </p>
+<p>This is the default destructor. It is declared as virtual to ensure correct destruction of subclasses. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa7b92441fdd13e7564571443ad16b815" name="aa7b92441fdd13e7564571443ad16b815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7b92441fdd13e7564571443ad16b815">&#9670;&#160;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void vkf::rendering::RenderSubstage::draw </td>
+          <td>(</td>
+          <td class="paramtype">vk::raii::CommandBuffer *&#160;</td>
+          <td class="paramname"><em>cmd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pure virtual method to draw. </p>
+<p>This method is intended to be overridden by subclasses to perform the actual rendering operation. It takes a command buffer as an argument, which is used to record the rendering commands.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmd</td><td>The command buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classvkf_1_1rendering_1_1_forward_substage.html#a5e20ad8a40a76830037fe2e47d834b2d">vkf::rendering::ForwardSubstage</a>, and <a class="el" href="classvkf_1_1rendering_1_1_gui_substage.html#a4f4ae9019d9c5cd57b3ffe166982c017">vkf::rendering::GuiSubstage</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>C:/Users/Joshu/CLionProjects/vulkan-renderer/vkf/rendering/<a class="el" href="_render_substage_8h_source.html">RenderSubstage.h</a></li>
-<li>C:/Users/Joshu/CLionProjects/vulkan-renderer/vkf/rendering/<a class="el" href="_render_substage_8cpp.html">RenderSubstage.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

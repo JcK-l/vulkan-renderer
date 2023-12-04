@@ -12,7 +12,7 @@ This class manages Vulkan render passes.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass_a7536da50b8a67f35c94e83d09f7c3b3a}{Render\+Pass}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, const \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{rendering\+::\+Render\+Target}} \&render\+Target, const std\+::vector$<$ vk\+::\+Subpass\+Description $>$ \&subpass\+Descriptions, const std\+::vector$<$ vk\+::\+Subpass\+Dependency $>$ \&subpass\+Dependencies)
+\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass_a732009d199e18ae4ddd45609f6a15ba0}{Render\+Pass}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, const std\+::vector$<$ vk\+::\+Attachment\+Description $>$ \&attachments, const std\+::vector$<$ vk\+::\+Subpass\+Description $>$ \&subpass\+Descriptions, const std\+::vector$<$ vk\+::\+Subpass\+Dependency $>$ \&subpass\+Dependencies)
 \begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1core_1_1_render_pass}{Render\+Pass} object. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_render_pass_a837d9e9738a60b787c2158a55ca09057}\label{classvkf_1_1core_1_1_render_pass_a837d9e9738a60b787c2158a55ca09057} 
 {\bfseries Render\+Pass} (const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&)=delete
@@ -55,23 +55,23 @@ This class manages Vulkan render passes.
 It provides an interface for interacting with a Vulkan render pass, including getting the handle to the render pass. It also provides methods for creating a render pass with subpass information and dependencies. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1core_1_1_render_pass_a7536da50b8a67f35c94e83d09f7c3b3a}\label{classvkf_1_1core_1_1_render_pass_a7536da50b8a67f35c94e83d09f7c3b3a} 
+\Hypertarget{classvkf_1_1core_1_1_render_pass_a732009d199e18ae4ddd45609f6a15ba0}\label{classvkf_1_1core_1_1_render_pass_a732009d199e18ae4ddd45609f6a15ba0} 
 \index{vkf::core::RenderPass@{vkf::core::RenderPass}!RenderPass@{RenderPass}}
 \index{RenderPass@{RenderPass}!vkf::core::RenderPass@{vkf::core::RenderPass}}
 \doxysubsubsection{\texorpdfstring{RenderPass()}{RenderPass()}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Render\+Pass\+::\+Render\+Pass (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{const \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{rendering\+::\+Render\+Target}} \&}]{render\+Target,  }\item[{const std\+::vector$<$ vk\+::\+Subpass\+Description $>$ \&}]{subpass\+Descriptions,  }\item[{const std\+::vector$<$ vk\+::\+Subpass\+Dependency $>$ \&}]{subpass\+Dependencies }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vkf\+::core\+::\+Render\+Pass\+::\+Render\+Pass (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{const std\+::vector$<$ vk\+::\+Attachment\+Description $>$ \&}]{attachments,  }\item[{const std\+::vector$<$ vk\+::\+Subpass\+Description $>$ \&}]{subpass\+Descriptions,  }\item[{const std\+::vector$<$ vk\+::\+Subpass\+Dependency $>$ \&}]{subpass\+Dependencies }\end{DoxyParamCaption})}
 
 
 
 Constructs a \doxylink{classvkf_1_1core_1_1_render_pass}{Render\+Pass} object. 
 
-This constructor creates a Vulkan render pass using the provided device, render target, subpass information, and dependencies.
+This constructor creates a Vulkan render pass using the provided device, attachment descriptions, subpass information and dependencies.
 
 
 \begin{DoxyParams}{Parameters}
 {\em device} & The Vulkan device to use for creating the render pass. \\
 \hline
-{\em render\+Target} & The render target to use for creating the render pass. \\
+{\em attachments} & The attachment descriptions to use for creating the render pass. \\
 \hline
 {\em subpass\+Descriptions} & The subpass information to use for creating the render pass. \\
 \hline

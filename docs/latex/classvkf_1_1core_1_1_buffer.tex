@@ -1,0 +1,99 @@
+\doxysection{vkf\+::core\+::Buffer Class Reference}
+\hypertarget{classvkf_1_1core_1_1_buffer}{}\label{classvkf_1_1core_1_1_buffer}\index{vkf::core::Buffer@{vkf::core::Buffer}}
+
+
+This class manages Vulkan buffers.  
+
+
+
+
+{\ttfamily \#include $<$Buffer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1core_1_1_buffer_ad6409aeb39c3d235e596bd792eb4bf7a}{Buffer}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device, vk\+::\+Buffer\+Create\+Info create\+Info, Vma\+Memory\+Usage memory\+Usage)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1core_1_1_buffer}{Buffer} class. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a944483f6fccaad2467f2e98e6d8d8306}\label{classvkf_1_1core_1_1_buffer_a944483f6fccaad2467f2e98e6d8d8306} 
+{\bfseries Buffer} (const \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_aa43edbe69eef1737b3c6c0c4dee8da9a}\label{classvkf_1_1core_1_1_buffer_aa43edbe69eef1737b3c6c0c4dee8da9a} 
+{\bfseries Buffer} (\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&\&) noexcept=default
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_ad794ebd2badb5a50ebb971b9a5c3bbfb}\label{classvkf_1_1core_1_1_buffer_ad794ebd2badb5a50ebb971b9a5c3bbfb} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a7bded0b1776c770ace79da5f6044f3ce}\label{classvkf_1_1core_1_1_buffer_a7bded0b1776c770ace79da5f6044f3ce} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a902852d743b3b1359ed5d7ca1e4c3435}\label{classvkf_1_1core_1_1_buffer_a902852d743b3b1359ed5d7ca1e4c3435} 
+const vk\+::raii\+::\+Buffer \& {\bfseries get\+Handle} () const
+\item 
+void \mbox{\hyperlink{classvkf_1_1core_1_1_buffer_a6ebee15f4ce776d1b13e1b73018a9442}{map\+Memory}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Map memory to the buffer. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_ac690743dd11156280b1328a5565c968b}\label{classvkf_1_1core_1_1_buffer_ac690743dd11156280b1328a5565c968b} 
+void {\bfseries unmap\+Memory} ()
+\begin{DoxyCompactList}\small\item\em Unmap memory from the buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_af28562d8bd794bb1d10bde937b302532}\label{classvkf_1_1core_1_1_buffer_af28562d8bd794bb1d10bde937b302532} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& {\bfseries device}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a8332be0bb030722ed6fb0db26c60aa00}\label{classvkf_1_1core_1_1_buffer_a8332be0bb030722ed6fb0db26c60aa00} 
+Vma\+Allocation {\bfseries allocation} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a081ea9496331f6ae36c403407b79c550}\label{classvkf_1_1core_1_1_buffer_a081ea9496331f6ae36c403407b79c550} 
+vk\+::raii\+::\+Buffer {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages Vulkan buffers. 
+
+It provides functionality to get the handle to the buffer, map memory to the buffer, and unmap memory from the buffer. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1core_1_1_buffer_ad6409aeb39c3d235e596bd792eb4bf7a}\label{classvkf_1_1core_1_1_buffer_ad6409aeb39c3d235e596bd792eb4bf7a} 
+\index{vkf::core::Buffer@{vkf::core::Buffer}!Buffer@{Buffer}}
+\index{Buffer@{Buffer}!vkf::core::Buffer@{vkf::core::Buffer}}
+\doxysubsubsection{\texorpdfstring{Buffer()}{Buffer()}}
+{\footnotesize\ttfamily vkf\+::core\+::\+Buffer\+::\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{device,  }\item[{vk\+::\+Buffer\+Create\+Info}]{create\+Info,  }\item[{Vma\+Memory\+Usage}]{memory\+Usage }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{classvkf_1_1core_1_1_buffer}{Buffer} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The Vulkan device. \\
+\hline
+{\em create\+Info} & The information for creating a buffer. \\
+\hline
+{\em memory\+Usage} & The intended usage of the memory. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1core_1_1_buffer_a6ebee15f4ce776d1b13e1b73018a9442}\label{classvkf_1_1core_1_1_buffer_a6ebee15f4ce776d1b13e1b73018a9442} 
+\index{vkf::core::Buffer@{vkf::core::Buffer}!mapMemory@{mapMemory}}
+\index{mapMemory@{mapMemory}!vkf::core::Buffer@{vkf::core::Buffer}}
+\doxysubsubsection{\texorpdfstring{mapMemory()}{mapMemory()}}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Buffer\+::map\+Memory (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Map memory to the buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A pointer to the data to be mapped. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_buffer_8h}{Buffer.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_buffer_8cpp}{Buffer.\+cpp}}\end{DoxyCompactItemize}

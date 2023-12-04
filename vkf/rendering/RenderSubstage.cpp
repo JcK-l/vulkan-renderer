@@ -3,7 +3,8 @@
 /// \brief This file implements the RenderSubstage class which is used for managing Vulkan rendering substages.
 ///
 /// The RenderSubstage class is part of the vkf::rendering namespace. It provides an interface for interacting with
-/// Vulkan rendering sub-stages, including a method for drawing using a provided command buffer.
+/// Vulkan rendering sub-stages. As the RenderSubstage class is an abstract class, this file does not contain any method
+/// implementations.
 ///
 /// \author Joshua Lowe
 /// \date 11/21/2023
@@ -16,12 +17,7 @@
 namespace vkf::rendering
 {
 
-RenderSubstage::RenderSubstage()
-{
-}
-
-void RenderSubstage::draw(vk::CommandBuffer *cmd)
-{
-}
+// The RenderSubstage class is an abstract class and does not have any method implementations in this file.
+// The destructor is implicitly defined and does not require an explicit definition in this file.
 
 } // namespace vkf::rendering

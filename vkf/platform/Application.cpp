@@ -15,17 +15,19 @@
 #include "Application.h"
 
 #include "../common/Log.h"
-#include "../common/Utility.h"
 #include "../core/Device.h"
 #include "../core/Framebuffer.h"
 #include "../core/Instance.h"
 #include "../core/PhysicalDevice.h"
+#include "../core/Pipeline.h"
 #include "../core/RenderPass.h"
 #include "../core/Swapchain.h"
+#include "../rendering/ForwardSubstage.h"
 #include "../rendering/FrameData.h"
+#include "../rendering/GuiSubstage.h"
 #include "../rendering/RenderManager.h"
-#include "../rendering/RenderSubstage.h"
 #include "../rendering/Renderer.h"
+#include "../scene/Scene.h"
 #include "Window.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include <utility>
@@ -41,6 +43,7 @@ Application::Application(std::string appName) : appName{std::move(appName)}
         createInstance();
         createSurface();
         createDevice();
+        createScene();
         createRenderManager();
     }
     catch (vk::SystemError &err)
@@ -68,7 +71,6 @@ void Application::run()
     {
         onUpdate();
         window->onUpdate();
-        //    drawFrame();
     }
     device->getHandle().waitIdle();
 }
@@ -112,11 +114,7 @@ void Application::onEvent(Event &event)
 void Application::onUpdate()
 {
     renderManager->beginFrame();
-    renderManager->beginRenderPass();
-
-    renderManager->draw();
-
-    renderManager->endRenderPass();
+    renderManager->render();
     renderManager->endFrame();
 }
 
@@ -184,22 +182,67 @@ void Application::createSurface()
 void Application::createDevice()
 {
     enableDeviceExtension(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
-    enableDeviceExtension("VK_KHR_portability_subset");
     device = std::make_unique<core::Device>(*instance, *surface, deviceExtensions);
+}
+
+void Application::createScene()
+{
+    scene = std::make_unique<scene::Scene>();
+    scene->createEntity("Invisible Cube");
+    scene->createEntity("Invisible Sphere");
+    scene->createEntity("Invisible Pyramid");
 }
 
 void Application::createRenderManager()
 {
 
-    auto swapchain = std::make_unique<core::Swapchain>(*device, *surface, *window);
+    auto swapchain = std::make_shared<core::Swapchain>(*device, *surface, *window);
 
-    rendering::RenderOptions renderOptions{.clearValue = {std::array<float, 4>{0.53f, 0.81f, 0.92f, 1.0f}},
-                                           .numSubpasses = 1};
+    std::vector<vk::AttachmentDescription> guiAttachments;
+    guiAttachments.emplace_back(vk::AttachmentDescription{
+        .format = vk::Format::eR8G8B8A8Srgb,                // Assuming the swapchain image format is R8G8B8A8 srgb
+        .samples = vk::SampleCountFlagBits::e1,             // Single sample, as multi-sampling is not used
+        .loadOp = vk::AttachmentLoadOp::eClear,             // Clear the image at the start
+        .storeOp = vk::AttachmentStoreOp::eStore,           // Store the image to memory after rendering
+        .stencilLoadOp = vk::AttachmentLoadOp::eDontCare,   // We don't care about stencil
+        .stencilStoreOp = vk::AttachmentStoreOp::eDontCare, // We don't care about stencil
+        .initialLayout = vk::ImageLayout::eUndefined,       // We don't care about the initial layout
+        .finalLayout = vk::ImageLayout::ePresentSrcKHR      // Image will be used as source for presentation
+    });
 
-    auto renderer = std::make_unique<rendering::Renderer>(*device, swapchain.get(), renderOptions);
+    rendering::RenderOptions guiRenderOptions{
+        .clearValue = {std::array<float, 4>{0.0f, 0.0f, 0.0f, 1.0f}}, .numSubpasses = 1, .attachments = guiAttachments};
 
-    renderManager =
-        std::make_unique<rendering::RenderManager>(*device, *window, std::move(swapchain), std::move(renderer));
+    auto guiRenderer = std::make_unique<rendering::Renderer>(*device, std::move(guiRenderOptions), swapchain);
+    auto gui = std::make_shared<Gui>(*window, *instance, *device, *guiRenderer->getRenderPass(), *swapchain, *scene);
+    guiRenderer->addRenderSubstage(std::make_unique<rendering::GuiSubstage>(gui.get()));
+    guiRenderer->updateFramebuffers();
+
+    std::vector<vk::AttachmentDescription> sceneAttachments;
+    sceneAttachments.emplace_back(vk::AttachmentDescription{
+        .format = vk::Format::eR8G8B8A8Srgb,                   // Assuming the image format is R8G8B8A8 srgb
+        .samples = vk::SampleCountFlagBits::e1,                // Single sample, as multi-sampling is not used
+        .loadOp = vk::AttachmentLoadOp::eClear,                // Clear the image at the start
+        .storeOp = vk::AttachmentStoreOp::eStore,              // Store the image to memory after rendering
+        .stencilLoadOp = vk::AttachmentLoadOp::eDontCare,      // We don't care about stencil
+        .stencilStoreOp = vk::AttachmentStoreOp::eDontCare,    // We don't care about stencil
+        .initialLayout = vk::ImageLayout::eUndefined,          // We don't care about the initial layout
+        .finalLayout = vk::ImageLayout::eShaderReadOnlyOptimal // Image will be used as source for ImGui
+    });
+
+    rendering::RenderOptions sceneRenderOptions{.clearValue = {std::array<float, 4>{0.05f, 0.05f, 0.05f, 1.0f}},
+                                                .numSubpasses = 1,
+                                                .attachments = sceneAttachments};
+
+    auto sceneRenderer = std::make_unique<rendering::Renderer>(*device, std::move(sceneRenderOptions), gui);
+    pipeline = std::make_unique<core::Pipeline>(*device, *sceneRenderer->getRenderPass());
+    sceneRenderer->addRenderSubstage(std::make_unique<rendering::ForwardSubstage>(*pipeline, gui.get()));
+
+    std::vector<std::unique_ptr<rendering::Renderer>> renderers;
+    renderers.push_back(std::move(sceneRenderer));
+    renderers.push_back(std::move(guiRenderer));
+
+    renderManager = std::make_unique<rendering::RenderManager>(*device, *window, swapchain, gui, std::move(renderers));
 }
 
 void Application::enableInstanceExtension(const char *extensionName)

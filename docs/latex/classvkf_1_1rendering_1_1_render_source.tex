@@ -1,0 +1,111 @@
+\doxysection{vkf\+::rendering\+::Render\+Source Class Reference}
+\hypertarget{classvkf_1_1rendering_1_1_render_source}{}\label{classvkf_1_1rendering_1_1_render_source}\index{vkf::rendering::RenderSource@{vkf::rendering::RenderSource}}
+
+
+This abstract class provides an interface for managing Vulkan rendering operations.  
+
+
+
+
+{\ttfamily \#include $<$Render\+Source.\+h$>$}
+
+Inheritance diagram for vkf\+::rendering\+::Render\+Source\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvkf_1_1rendering_1_1_render_source}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a623406819493af0cb8a5191f16d1dd49}{\texorpdfstring{$\sim$}{\string~}\+Render\+Source}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classvkf_1_1rendering_1_1_render_source}{Render\+Source} class. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ vk\+::\+Image\+View $>$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a0bab8473e4fe89b408a33afcd0611d22}{get\+Image\+Views}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to get the image views. \end{DoxyCompactList}\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa80a3fc362a63a72597924d5534c41f5}{get\+Image\+Count}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to get the image count. \end{DoxyCompactList}\item 
+virtual vk\+::\+Extent2D \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa9b1ade53ea2036ee100c0cc6c8b56ca}{get\+Extent}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This abstract class provides an interface for managing Vulkan rendering operations. 
+
+This class is intended to be subclassed by specific types of rendering sources. Each subclass should provide an implementation for the get\+Image\+Views, get\+Image\+Count, and get\+Extent methods. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1rendering_1_1_render_source_a623406819493af0cb8a5191f16d1dd49}\label{classvkf_1_1rendering_1_1_render_source_a623406819493af0cb8a5191f16d1dd49} 
+\index{vkf::rendering::RenderSource@{vkf::rendering::RenderSource}!````~RenderSource@{\texorpdfstring{$\sim$}{\string~}RenderSource}}
+\index{````~RenderSource@{\texorpdfstring{$\sim$}{\string~}RenderSource}!vkf::rendering::RenderSource@{vkf::rendering::RenderSource}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RenderSource()}{\string~RenderSource()}}
+{\footnotesize\ttfamily virtual vkf\+::rendering\+::\+Render\+Source\+::\texorpdfstring{$\sim$}{\string~}\+Render\+Source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destructor for the \doxylink{classvkf_1_1rendering_1_1_render_source}{Render\+Source} class. 
+
+This is the default destructor. It is declared as virtual to ensure correct destruction of subclasses. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1rendering_1_1_render_source_aa9b1ade53ea2036ee100c0cc6c8b56ca}\label{classvkf_1_1rendering_1_1_render_source_aa9b1ade53ea2036ee100c0cc6c8b56ca} 
+\index{vkf::rendering::RenderSource@{vkf::rendering::RenderSource}!getExtent@{getExtent}}
+\index{getExtent@{getExtent}!vkf::rendering::RenderSource@{vkf::rendering::RenderSource}}
+\doxysubsubsection{\texorpdfstring{getExtent()}{getExtent()}}
+{\footnotesize\ttfamily virtual vk\+::\+Extent2D vkf\+::rendering\+::\+Render\+Source\+::get\+Extent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to get the extent. 
+
+This method is intended to be overridden by subclasses to return the extent.
+
+\begin{DoxyReturn}{Returns}
+The extent. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a871c746bee950535fa517cf8cc8a9054}{vkf\+::core\+::\+Swapchain}}, and \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a8f2b0f035d9f21a99fa77a00026e7bf0}{vkf\+::platform\+::\+Gui}}.
+
+\Hypertarget{classvkf_1_1rendering_1_1_render_source_aa80a3fc362a63a72597924d5534c41f5}\label{classvkf_1_1rendering_1_1_render_source_aa80a3fc362a63a72597924d5534c41f5} 
+\index{vkf::rendering::RenderSource@{vkf::rendering::RenderSource}!getImageCount@{getImageCount}}
+\index{getImageCount@{getImageCount}!vkf::rendering::RenderSource@{vkf::rendering::RenderSource}}
+\doxysubsubsection{\texorpdfstring{getImageCount()}{getImageCount()}}
+{\footnotesize\ttfamily virtual uint32\+\_\+t vkf\+::rendering\+::\+Render\+Source\+::get\+Image\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to get the image count. 
+
+This method is intended to be overridden by subclasses to return the image count.
+
+\begin{DoxyReturn}{Returns}
+The image count. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a21e68e05c5139066180c1c3481038f6b}{vkf\+::core\+::\+Swapchain}}, and \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_afbb146ad89919d6f62e88ecf7395e613}{vkf\+::platform\+::\+Gui}}.
+
+\Hypertarget{classvkf_1_1rendering_1_1_render_source_a0bab8473e4fe89b408a33afcd0611d22}\label{classvkf_1_1rendering_1_1_render_source_a0bab8473e4fe89b408a33afcd0611d22} 
+\index{vkf::rendering::RenderSource@{vkf::rendering::RenderSource}!getImageViews@{getImageViews}}
+\index{getImageViews@{getImageViews}!vkf::rendering::RenderSource@{vkf::rendering::RenderSource}}
+\doxysubsubsection{\texorpdfstring{getImageViews()}{getImageViews()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ vk\+::\+Image\+View $>$ vkf\+::rendering\+::\+Render\+Source\+::get\+Image\+Views (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to get the image views. 
+
+This method is intended to be overridden by subclasses to return a vector of image views.
+
+\begin{DoxyReturn}{Returns}
+A vector of image views. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a11706d634bc9f6358839c4402846c96a}{vkf\+::core\+::\+Swapchain}}, and \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a196cf80a8c1411ff1c53824ab5847210}{vkf\+::platform\+::\+Gui}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_render_source_8h}{Render\+Source.\+h}}\end{DoxyCompactItemize}

@@ -15,6 +15,8 @@
 #ifndef VULKANRENDERER_APPLICATION_H
 #define VULKANRENDERER_APPLICATION_H
 
+#include "Gui.h"
+
 namespace vkf // Forward declarations
 {
 struct Event;
@@ -25,12 +27,18 @@ namespace vkf::core // Forward declarations
 class Instance;
 class Device;
 class Swapchain;
+class Pipeline;
 } // namespace vkf::core
 
 namespace vkf::rendering // Forward declarations
 {
 class RenderManager;
 } // namespace vkf::rendering
+
+namespace vkf::scene // Forward declarations
+{
+class Scene;
+} // namespace vkf::scene
 
 namespace vkf::platform
 {
@@ -81,6 +89,7 @@ class Application
     void createInstance();
     void createSurface();
     void createDevice();
+    void createScene();
     void createRenderManager();
 
     void enableInstanceExtension(const char *extensionName);
@@ -91,6 +100,8 @@ class Application
     std::unique_ptr<core::Instance> instance;
     std::unique_ptr<vk::raii::SurfaceKHR> surface;
     std::unique_ptr<core::Device> device;
+    std::unique_ptr<scene::Scene> scene;
+    std::unique_ptr<core::Pipeline> pipeline;
     std::unique_ptr<rendering::RenderManager> renderManager;
 
     std::vector<const char *> instanceExtensions;

@@ -32,6 +32,7 @@ Device::Device(Instance &instance, vk::raii::SurfaceKHR &surface, const std::vec
 
     availableExtensions = gpu.getHandle().enumerateDeviceExtensionProperties();
     validateExtensions(requiredExtensions);
+    enableExtension("VK_KHR_portability_subset"); // only necessary for macOS and MoltenVK
 
     auto queueCreateInfos = createQueuesInfos();
     vk::DeviceCreateInfo createInfo{.pNext = gpu.getExtensionFeaturesHead(),
@@ -87,6 +88,13 @@ bool Device::enableExtension(const char *requiredExtensionName)
             enabledExtensions.emplace_back(requiredExtensionName);
         }
         return true;
+    }
+
+    // VK_KHR_portability_subset not found means that the implementation is fully Vulkan conformant
+    if (strcmp(requiredExtensionName, "VK_KHR_portability_subset") == 0)
+    {
+        LOG_INFO("Vulkan implementation on the GPU is fully conformant")
+        return false;
     }
 
     LOG_WARN("Device extension {} not found", requiredExtensionName)
@@ -179,7 +187,7 @@ void Device::createVmaAllocator(const Instance &instance, const PhysicalDevice &
     LOG_INFO("Created VMA allocator")
 }
 
-VmaAllocator &Device::getVmaAllocator()
+const VmaAllocator &Device::getVmaAllocator() const
 {
     return vmaAllocator;
 }

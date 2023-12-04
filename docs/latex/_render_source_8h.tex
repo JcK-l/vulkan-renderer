@@ -1,0 +1,33 @@
+\doxysection{C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\+Render\+Source.h File Reference}
+\hypertarget{_render_source_8h}{}\label{_render_source_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/rendering/RenderSource.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/rendering/RenderSource.h}}
+
+
+This file declares the abstract Render\+Source class which is used for managing Vulkan rendering operations.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}
+\begin{DoxyCompactList}\small\item\em This abstract class provides an interface for managing Vulkan rendering operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacevkf}{vkf}}
+\begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacevkf_1_1rendering}{vkf\+::rendering}}
+\begin{DoxyCompactList}\small\item\em The rendering namespace contains classes and functions for rendering operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file declares the abstract Render\+Source class which is used for managing Vulkan rendering operations. 
+
+The Render\+Source class is part of the \doxylink{namespacevkf_1_1rendering}{vkf\+::rendering} namespace. It provides an abstract interface for interacting with Vulkan rendering operations. This class is intended to be subclassed by specific types of rendering sources. Each subclass should provide an implementation for the get\+Image\+Views, get\+Image\+Count, and get\+Extent methods.
+
+\begin{DoxyAuthor}{Author}
+Joshua Lowe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/3/2023
+\end{DoxyDate}
+The license and distribution terms for this file may be found in the file LICENSE in this distribution 

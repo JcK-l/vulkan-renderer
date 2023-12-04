@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['waitevents_0',['waitEvents',['../classvkf_1_1platform_1_1_window.html#a782203fc12f7e7fbfa4086a7fc414423',1,'vkf::platform::Window']]],
-  ['window_1',['Window',['../classvkf_1_1platform_1_1_window.html#a30413ba1a98265c59fd5388d0e7784ea',1,'vkf::platform::Window']]]
+  ['unmapmemory_0',['unmapmemory',['../classvkf_1_1core_1_1_buffer.html#ac690743dd11156280b1328a5565c968b',1,'vkf::core::Buffer::unmapMemory()'],['../classvkf_1_1core_1_1_image.html#a7f00ed62e8fb50d2b2306a9cf86a041f',1,'vkf::core::Image::unmapMemory()']]]
 ];

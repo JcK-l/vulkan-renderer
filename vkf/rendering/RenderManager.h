@@ -18,6 +18,7 @@
 namespace vkf::platform // Forward declarations
 {
 class Window;
+class Gui;
 } // namespace vkf::platform
 
 namespace vkf::core // Forward declarations
@@ -51,12 +52,13 @@ class RenderManager
     /// This constructor creates a RenderManager using the provided device, renderer, surface, and window.
     ///
     /// \param device The Vulkan device to use for creating the RenderManager.
-    /// \param renderer The Renderer to use for creating the RenderManager.
-    /// \param surface The Vulkan surface to use for creating the RenderManager.
     /// \param window The window to use for creating the RenderManager.
+    /// \param inputSwapchain The swapchain to use for creating the RenderManager.
+    /// \param inputGui The GUI to use for creating the RenderManager.
+    /// \param inputRenderers The renderers to use for creating the RenderManager.
     ///
-    RenderManager(const core::Device &device, platform::Window &window, std::unique_ptr<core::Swapchain> inputSwapchain,
-                  std::unique_ptr<Renderer> inputRenderer);
+    RenderManager(const core::Device &device, platform::Window &window, std::shared_ptr<core::Swapchain> inputSwapchain,
+                  std::shared_ptr<platform::Gui> inputGui, std::vector<std::unique_ptr<Renderer>> inputRenderers);
 
     RenderManager(const RenderManager &) = delete;            // Deleted copy constructor
     RenderManager(RenderManager &&) noexcept = default;       // Default move constructor
@@ -67,30 +69,28 @@ class RenderManager
     void beginFrame();
     void endFrame();
 
-    void beginRenderPass();
-    void endRenderPass();
-
-    void draw();
+    void render();
 
     static constexpr uint32_t framesInFlight{3};
 
   private:
+    void beginRenderPass(Renderer &renderer, uint32_t currentRenderPass);
+    void endRenderPass(uint32_t currentRenderPass);
+
     void createFrameData();
-    void createFramebuffers();
 
     bool recreateSwapchain();
 
     const core::Device &device;
     platform::Window &window;
 
-    std::unique_ptr<Renderer> renderer;
-    core::RenderPass *renderPass;
+    std::vector<std::unique_ptr<Renderer>> renderers;
 
-    std::unique_ptr<core::Swapchain> swapchain;
+    std::shared_ptr<core::Swapchain> swapchain;
+    std::shared_ptr<platform::Gui> gui;
 
     std::vector<std::unique_ptr<FrameData>> frameData;
-    std::vector<std::unique_ptr<core::Framebuffer>> framebuffers;
-    vk::raii::CommandBuffer *activeCommandBuffer{nullptr};
+    vk::raii::CommandBuffers *activeCommandBuffers{nullptr};
 
     bool frameActive{false};
 

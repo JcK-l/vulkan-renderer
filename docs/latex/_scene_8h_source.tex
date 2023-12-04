@@ -1,0 +1,44 @@
+\doxysection{Scene.\+h}
+\hypertarget{_scene_8h_source}{}\label{_scene_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/Scene.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/Scene.h}}
+\mbox{\hyperlink{_scene_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_SCENE\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_SCENE\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}entt/entt.hpp"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1scene}{vkf::scene}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1scene_1_1_tag_component}{TagComponent}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ tag;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{structvkf_1_1scene_1_1_tag_component}{TagComponent}}(std::string\ tag)\ :\ tag\{std::move(tag)\}}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{Scene}}}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_scene_ad8bb5707a0bd29cc469c27188ae14c28}{Scene}}();}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{\string~Scene}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00065\ \ \ \ \ entt::entity\ \mbox{\hyperlink{classvkf_1_1scene_1_1_scene_a09cba27f35a39aa1d6c9667c9ff7bdcd}{createEntity}}(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ entt::registry\ \&getRegistry();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ \ \ entt::registry\ registry;}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_SCENE\_H}}
+
+\end{DoxyCode}

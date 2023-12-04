@@ -1,0 +1,33 @@
+\doxysection{Pipeline.\+h}
+\hypertarget{_pipeline_8h_source}{}\label{_pipeline_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Pipeline.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Pipeline.h}}
+\mbox{\hyperlink{_pipeline_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_PIPELINE\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_PIPELINE\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }RenderPass;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&renderPass);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Pipeline\ \&getHandle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ vk::raii::PipelineLayout\ pipelineLayout\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00046\ \ \ \ \ vk::raii::Pipeline\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_PIPELINE\_H}}
+
+\end{DoxyCode}

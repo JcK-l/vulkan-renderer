@@ -1,0 +1,102 @@
+\doxysection{vkf\+::core\+::Image Class Reference}
+\hypertarget{classvkf_1_1core_1_1_image}{}\label{classvkf_1_1core_1_1_image}\index{vkf::core::Image@{vkf::core::Image}}
+
+
+This class manages Vulkan images.  
+
+
+
+
+{\ttfamily \#include $<$Image.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1core_1_1_image_aa2fdbc4b2fbd27994dcc32e2481b0011}{Image}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device, vk\+::\+Image\+Create\+Info create\+Info, Vma\+Allocation\+Create\+Flag\+Bits allocation\+Flags)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1core_1_1_image}{Image} class. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a30a69b118bc705885580614c80b1acdb}\label{classvkf_1_1core_1_1_image_a30a69b118bc705885580614c80b1acdb} 
+{\bfseries Image} (const \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a97a3d4ed24b39efdb5999ea96d41c2aa}\label{classvkf_1_1core_1_1_image_a97a3d4ed24b39efdb5999ea96d41c2aa} 
+{\bfseries Image} (\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \&\&) noexcept=default
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_af2627cda18c036c15a9a98e8cb90ec6a}\label{classvkf_1_1core_1_1_image_af2627cda18c036c15a9a98e8cb90ec6a} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_aeb0e543b9f86a549fb238c7f1c663534}\label{classvkf_1_1core_1_1_image_aeb0e543b9f86a549fb238c7f1c663534} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \&\&)=delete
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a0156adad929b9d2103f26cafef3ddff7}\label{classvkf_1_1core_1_1_image_a0156adad929b9d2103f26cafef3ddff7} 
+vk\+::raii\+::\+Image\+View {\bfseries create\+Image\+View} () const
+\item 
+void \mbox{\hyperlink{classvkf_1_1core_1_1_image_a67a35e2eaf66c4d3f8d6d1ff02e7cff6}{map\+Memory}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Map memory to the image. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a7f00ed62e8fb50d2b2306a9cf86a041f}\label{classvkf_1_1core_1_1_image_a7f00ed62e8fb50d2b2306a9cf86a041f} 
+void {\bfseries unmap\+Memory} ()
+\begin{DoxyCompactList}\small\item\em Unmap memory from the image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a94b074070d217f99dd7c9174c19695a5}\label{classvkf_1_1core_1_1_image_a94b074070d217f99dd7c9174c19695a5} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& {\bfseries device}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a718099cb2b7d755f728814b0e5e488f6}\label{classvkf_1_1core_1_1_image_a718099cb2b7d755f728814b0e5e488f6} 
+vk\+::\+Image\+Create\+Info {\bfseries create\+Info}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a92bb126cabf02c1ff6c934e147b74d9e}\label{classvkf_1_1core_1_1_image_a92bb126cabf02c1ff6c934e147b74d9e} 
+Vma\+Allocation {\bfseries allocation} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a0ae5a13df7b64613f86de1318044a9e1}\label{classvkf_1_1core_1_1_image_a0ae5a13df7b64613f86de1318044a9e1} 
+Vk\+Image {\bfseries handle}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages Vulkan images. 
+
+It provides functionality to get the handle to the image, map memory to the image, and unmap memory from the image. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1core_1_1_image_aa2fdbc4b2fbd27994dcc32e2481b0011}\label{classvkf_1_1core_1_1_image_aa2fdbc4b2fbd27994dcc32e2481b0011} 
+\index{vkf::core::Image@{vkf::core::Image}!Image@{Image}}
+\index{Image@{Image}!vkf::core::Image@{vkf::core::Image}}
+\doxysubsubsection{\texorpdfstring{Image()}{Image()}}
+{\footnotesize\ttfamily vkf\+::core\+::\+Image\+::\+Image (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{device,  }\item[{vk\+::\+Image\+Create\+Info}]{create\+Info,  }\item[{Vma\+Allocation\+Create\+Flag\+Bits}]{allocation\+Flags }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{classvkf_1_1core_1_1_image}{Image} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The Vulkan device. \\
+\hline
+{\em create\+Info} & The information for creating an image. \\
+\hline
+{\em allocation\+Flags} & The flags for memory allocation. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1core_1_1_image_a67a35e2eaf66c4d3f8d6d1ff02e7cff6}\label{classvkf_1_1core_1_1_image_a67a35e2eaf66c4d3f8d6d1ff02e7cff6} 
+\index{vkf::core::Image@{vkf::core::Image}!mapMemory@{mapMemory}}
+\index{mapMemory@{mapMemory}!vkf::core::Image@{vkf::core::Image}}
+\doxysubsubsection{\texorpdfstring{mapMemory()}{mapMemory()}}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Image\+::map\+Memory (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Map memory to the image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A pointer to the data to be mapped. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_image_8h}{Image.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_image_8cpp}{Image.\+cpp}}\end{DoxyCompactItemize}

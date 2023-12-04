@@ -126,7 +126,7 @@ class Device
     ///
     [[nodiscard]] bool hasQueueWithPresent(uint32_t queueIndex, vk::QueueFlags excludeFlags = vk::QueueFlags()) const;
 
-    [[nodiscard]] VmaAllocator &getVmaAllocator();
+    [[nodiscard]] const VmaAllocator &getVmaAllocator() const;
     [[nodiscard]] const vk::raii::Device &getHandle() const;
     [[nodiscard]] const PhysicalDevice &getPhysicalDevice() const;
 

@@ -12,7 +12,7 @@ This class manages Vulkan framebuffers.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer_a5b71b81a1453fbc59991a90101682a51}{Framebuffer}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&render\+Pass, const \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{rendering\+::\+Render\+Target}} \&render\+Target)
+\mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer_a1f64692d39d965abe255770c518e5d55}{Framebuffer}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&render\+Pass, const std\+::vector$<$ vk\+::\+Image\+View $>$ \&attachments, const vk\+::\+Extent2D \&extent)
 \begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1core_1_1_framebuffer}{Framebuffer} object. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_framebuffer_a9deb3de9df7464429e52993d4be9bcc7}\label{classvkf_1_1core_1_1_framebuffer_a9deb3de9df7464429e52993d4be9bcc7} 
 {\bfseries Framebuffer} (const \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}} \&)=delete
@@ -43,17 +43,17 @@ This class manages Vulkan framebuffers.
 This class provides an interface for creating and managing a Vulkan framebuffer. A framebuffer in Vulkan is a collection of specific attachments (images) that a render pass instance uses. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1core_1_1_framebuffer_a5b71b81a1453fbc59991a90101682a51}\label{classvkf_1_1core_1_1_framebuffer_a5b71b81a1453fbc59991a90101682a51} 
+\Hypertarget{classvkf_1_1core_1_1_framebuffer_a1f64692d39d965abe255770c518e5d55}\label{classvkf_1_1core_1_1_framebuffer_a1f64692d39d965abe255770c518e5d55} 
 \index{vkf::core::Framebuffer@{vkf::core::Framebuffer}!Framebuffer@{Framebuffer}}
 \index{Framebuffer@{Framebuffer}!vkf::core::Framebuffer@{vkf::core::Framebuffer}}
 \doxysubsubsection{\texorpdfstring{Framebuffer()}{Framebuffer()}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Framebuffer\+::\+Framebuffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{device,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&}]{render\+Pass,  }\item[{const \mbox{\hyperlink{structvkf_1_1rendering_1_1_render_target}{rendering\+::\+Render\+Target}} \&}]{render\+Target }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vkf\+::core\+::\+Framebuffer\+::\+Framebuffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{device,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&}]{render\+Pass,  }\item[{const std\+::vector$<$ vk\+::\+Image\+View $>$ \&}]{attachments,  }\item[{const vk\+::\+Extent2D \&}]{extent }\end{DoxyParamCaption})}
 
 
 
 Constructs a \doxylink{classvkf_1_1core_1_1_framebuffer}{Framebuffer} object. 
 
-This constructor creates a Vulkan framebuffer using the provided device, render pass, and render target.
+This constructor creates a Vulkan framebuffer using the provided device, render pass, attachments and extent.
 
 
 \begin{DoxyParams}{Parameters}
@@ -61,7 +61,9 @@ This constructor creates a Vulkan framebuffer using the provided device, render 
 \hline
 {\em render\+Pass} & The render pass to use for creating the framebuffer. \\
 \hline
-{\em render\+Target} & The render target that contains the images to use as attachments. \\
+{\em attachments} & The attachments to use for creating the framebuffer. \\
+\hline
+{\em extent} & The extent of the framebuffer. \\
 \hline
 \end{DoxyParams}
 

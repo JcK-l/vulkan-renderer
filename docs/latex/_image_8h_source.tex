@@ -1,0 +1,49 @@
+\doxysection{Image.\+h}
+\hypertarget{_image_8h_source}{}\label{_image_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Image.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Image.h}}
+\mbox{\hyperlink{_image_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_IMAGE\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_IMAGE\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}vk\_mem\_alloc.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }Queue;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ vk::ImageCreateInfo\ createInfo,\ VmaAllocationCreateFlagBits\ allocationFlags);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}(\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{\string~Image}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ [[nodiscard]]\ vk::raii::ImageView\ createImageView()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image_a67a35e2eaf66c4d3f8d6d1ff02e7cff6}{mapMemory}}(\textcolor{keywordtype}{void}\ **data);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image_a7f00ed62e8fb50d2b2306a9cf86a041f}{unmapMemory}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ vk::ImageCreateInfo\ createInfo;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ VmaAllocation\ allocation\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00070\ \ \ \ \ VkImage\ handle;}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_IMAGE\_H}}
+
+\end{DoxyCode}

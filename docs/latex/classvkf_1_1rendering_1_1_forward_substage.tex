@@ -1,0 +1,107 @@
+\doxysection{vkf\+::rendering\+::Forward\+Substage Class Reference}
+\hypertarget{classvkf_1_1rendering_1_1_forward_substage}{}\label{classvkf_1_1rendering_1_1_forward_substage}\index{vkf::rendering::ForwardSubstage@{vkf::rendering::ForwardSubstage}}
+
+
+This class manages Vulkan rendering operations.  
+
+
+
+
+{\ttfamily \#include $<$Forward\+Substage.\+h$>$}
+
+Inheritance diagram for vkf\+::rendering\+::Forward\+Substage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvkf_1_1rendering_1_1_forward_substage}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage_a84922ba663aecc1cd401786a3fba9927}{Forward\+Substage}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \&input\+Pipeline, \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform\+::\+Gui}} \texorpdfstring{$\ast$}{*}input\+Gui)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1rendering_1_1_forward_substage}{Forward\+Substage} class. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_forward_substage_ad72a95ed3d0725ba4eba385b31b675fd}\label{classvkf_1_1rendering_1_1_forward_substage_ad72a95ed3d0725ba4eba385b31b675fd} 
+{\bfseries Forward\+Substage} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{Forward\+Substage}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_forward_substage_a657d01fd85d77e69fe6d1f149ba503bf}\label{classvkf_1_1rendering_1_1_forward_substage_a657d01fd85d77e69fe6d1f149ba503bf} 
+{\bfseries Forward\+Substage} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{Forward\+Substage}} \&\&) noexcept=default
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_forward_substage_a4551abcf10b0f7bef799464a890e3ba3}\label{classvkf_1_1rendering_1_1_forward_substage_a4551abcf10b0f7bef799464a890e3ba3} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{Forward\+Substage}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{Forward\+Substage}} \&)=delete
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_forward_substage_acc550c1793c655a340b414b290654152}\label{classvkf_1_1rendering_1_1_forward_substage_acc550c1793c655a340b414b290654152} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{Forward\+Substage}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{Forward\+Substage}} \&\&)=delete
+\item 
+void \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage_a5e20ad8a40a76830037fe2e47d834b2d}{draw}} (vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}cmd) override
+\begin{DoxyCompactList}\small\item\em Pure virtual method to draw. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{vkf\+::rendering\+::\+Render\+Substage}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage_a8f8f442689c543461c50c47c7e07ed03}{\texorpdfstring{$\sim$}{\string~}\+Render\+Substage}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_forward_substage_a1e91317d673743de8e148317a53e3277}\label{classvkf_1_1rendering_1_1_forward_substage_a1e91317d673743de8e148317a53e3277} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \& {\bfseries pipeline}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_forward_substage_a4080a8da31783aedf1a7b349a5f86a50}\label{classvkf_1_1rendering_1_1_forward_substage_a4080a8da31783aedf1a7b349a5f86a50} 
+\mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform\+::\+Gui}} \texorpdfstring{$\ast$}{*} {\bfseries gui}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages Vulkan rendering operations. 
+
+It provides an interface for interacting with Vulkan rendering operations. It includes methods for drawing. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1rendering_1_1_forward_substage_a84922ba663aecc1cd401786a3fba9927}\label{classvkf_1_1rendering_1_1_forward_substage_a84922ba663aecc1cd401786a3fba9927} 
+\index{vkf::rendering::ForwardSubstage@{vkf::rendering::ForwardSubstage}!ForwardSubstage@{ForwardSubstage}}
+\index{ForwardSubstage@{ForwardSubstage}!vkf::rendering::ForwardSubstage@{vkf::rendering::ForwardSubstage}}
+\doxysubsubsection{\texorpdfstring{ForwardSubstage()}{ForwardSubstage()}}
+{\footnotesize\ttfamily vkf\+::rendering\+::\+Forward\+Substage\+::\+Forward\+Substage (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \&}]{input\+Pipeline,  }\item[{\mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform\+::\+Gui}} \texorpdfstring{$\ast$}{*}}]{input\+Gui }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{classvkf_1_1rendering_1_1_forward_substage}{Forward\+Substage} class. 
+
+This constructor creates a \doxylink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage} using the provided pipeline and GUI.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Pipeline} & The Vulkan pipeline. \\
+\hline
+{\em input\+Gui} & The GUI. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1rendering_1_1_forward_substage_a5e20ad8a40a76830037fe2e47d834b2d}\label{classvkf_1_1rendering_1_1_forward_substage_a5e20ad8a40a76830037fe2e47d834b2d} 
+\index{vkf::rendering::ForwardSubstage@{vkf::rendering::ForwardSubstage}!draw@{draw}}
+\index{draw@{draw}!vkf::rendering::ForwardSubstage@{vkf::rendering::ForwardSubstage}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void vkf\+::rendering\+::\+Forward\+Substage\+::draw (\begin{DoxyParamCaption}\item[{vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pure virtual method to draw. 
+
+This method is intended to be overridden by subclasses to perform the actual rendering operation. It takes a command buffer as an argument, which is used to record the rendering commands.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & The command buffer. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage_aa7b92441fdd13e7564571443ad16b815}{vkf\+::rendering\+::\+Render\+Substage}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_forward_substage_8h}{Forward\+Substage.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_forward_substage_8cpp}{Forward\+Substage.\+cpp}}\end{DoxyCompactItemize}

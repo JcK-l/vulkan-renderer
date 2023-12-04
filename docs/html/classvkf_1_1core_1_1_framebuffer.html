@@ -88,9 +88,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5b71b81a1453fbc59991a90101682a51" id="r_a5b71b81a1453fbc59991a90101682a51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_framebuffer.html#a5b71b81a1453fbc59991a90101682a51">Framebuffer</a> (const <a class="el" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;device, const <a class="el" href="classvkf_1_1core_1_1_render_pass.html">RenderPass</a> &amp;renderPass, const <a class="el" href="structvkf_1_1rendering_1_1_render_target.html">rendering::RenderTarget</a> &amp;renderTarget)</td></tr>
-<tr class="memdesc:a5b71b81a1453fbc59991a90101682a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classvkf_1_1core_1_1_framebuffer.html" title="This class manages Vulkan framebuffers.">Framebuffer</a> object.  <br /></td></tr>
-<tr class="separator:a5b71b81a1453fbc59991a90101682a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f64692d39d965abe255770c518e5d55" id="r_a1f64692d39d965abe255770c518e5d55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_framebuffer.html#a1f64692d39d965abe255770c518e5d55">Framebuffer</a> (const <a class="el" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;device, const <a class="el" href="classvkf_1_1core_1_1_render_pass.html">RenderPass</a> &amp;renderPass, const std::vector&lt; vk::ImageView &gt; &amp;attachments, const vk::Extent2D &amp;extent)</td></tr>
+<tr class="memdesc:a1f64692d39d965abe255770c518e5d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classvkf_1_1core_1_1_framebuffer.html" title="This class manages Vulkan framebuffers.">Framebuffer</a> object.  <br /></td></tr>
+<tr class="separator:a1f64692d39d965abe255770c518e5d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9deb3de9df7464429e52993d4be9bcc7" id="r_a9deb3de9df7464429e52993d4be9bcc7"><td class="memItemLeft" align="right" valign="top"><a id="a9deb3de9df7464429e52993d4be9bcc7" name="a9deb3de9df7464429e52993d4be9bcc7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Framebuffer</b> (const <a class="el" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;)=delete</td></tr>
 <tr class="separator:a9deb3de9df7464429e52993d4be9bcc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,8 +117,8 @@ vk::raii::Framebuffer&#160;</td><td class="memItemRight" valign="bottom"><b>hand
 <div class="textblock"><p>This class manages Vulkan framebuffers. </p>
 <p>This class provides an interface for creating and managing a Vulkan framebuffer. A framebuffer in Vulkan is a collection of specific attachments (images) that a render pass instance uses. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5b71b81a1453fbc59991a90101682a51" name="a5b71b81a1453fbc59991a90101682a51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b71b81a1453fbc59991a90101682a51">&#9670;&#160;</a></span>Framebuffer()</h2>
+<a id="a1f64692d39d965abe255770c518e5d55" name="a1f64692d39d965abe255770c518e5d55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f64692d39d965abe255770c518e5d55">&#9670;&#160;</a></span>Framebuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -138,8 +138,14 @@ vk::raii::Framebuffer&#160;</td><td class="memItemRight" valign="bottom"><b>hand
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structvkf_1_1rendering_1_1_render_target.html">rendering::RenderTarget</a> &amp;&#160;</td>
-          <td class="paramname"><em>renderTarget</em>&#160;</td>
+          <td class="paramtype">const std::vector&lt; vk::ImageView &gt; &amp;&#160;</td>
+          <td class="paramname"><em>attachments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vk::Extent2D &amp;&#160;</td>
+          <td class="paramname"><em>extent</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -150,12 +156,13 @@ vk::raii::Framebuffer&#160;</td><td class="memItemRight" valign="bottom"><b>hand
 </div><div class="memdoc">
 
 <p>Constructs a <a class="el" href="classvkf_1_1core_1_1_framebuffer.html" title="This class manages Vulkan framebuffers.">Framebuffer</a> object. </p>
-<p>This constructor creates a Vulkan framebuffer using the provided device, render pass, and render target.</p>
+<p>This constructor creates a Vulkan framebuffer using the provided device, render pass, attachments and extent.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">device</td><td>The Vulkan device to use for creating the framebuffer. </td></tr>
     <tr><td class="paramname">renderPass</td><td>The render pass to use for creating the framebuffer. </td></tr>
-    <tr><td class="paramname">renderTarget</td><td>The render target that contains the images to use as attachments. </td></tr>
+    <tr><td class="paramname">attachments</td><td>The attachments to use for creating the framebuffer. </td></tr>
+    <tr><td class="paramname">extent</td><td>The extent of the framebuffer. </td></tr>
   </table>
   </dd>
 </dl>

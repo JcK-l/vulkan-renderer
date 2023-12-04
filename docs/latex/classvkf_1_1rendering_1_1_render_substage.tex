@@ -1,26 +1,71 @@
 \doxysection{vkf\+::rendering\+::Render\+Substage Class Reference}
 \hypertarget{classvkf_1_1rendering_1_1_render_substage}{}\label{classvkf_1_1rendering_1_1_render_substage}\index{vkf::rendering::RenderSubstage@{vkf::rendering::RenderSubstage}}
+
+
+This abstract class provides an interface for managing Vulkan rendering sub-\/stages.  
+
+
+
+
+{\ttfamily \#include $<$Render\+Substage.\+h$>$}
+
+Inheritance diagram for vkf\+::rendering\+::Render\+Substage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvkf_1_1rendering_1_1_render_substage}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_substage_ab2b7c1caba5a9d300c6243a699959fd5}\label{classvkf_1_1rendering_1_1_render_substage_ab2b7c1caba5a9d300c6243a699959fd5} 
-{\bfseries Render\+Substage} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} \&)=delete
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_substage_aa0b4d300156206739b495a446c275dff}\label{classvkf_1_1rendering_1_1_render_substage_aa0b4d300156206739b495a446c275dff} 
-{\bfseries Render\+Substage} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} \&\&) noexcept=default
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_substage_ac9f2b660ad48bf572bde5e67984c0482}\label{classvkf_1_1rendering_1_1_render_substage_ac9f2b660ad48bf572bde5e67984c0482} 
-\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} \&)=delete
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_substage_af2aa23b462dbc386ce9da6bfa35c4378}\label{classvkf_1_1rendering_1_1_render_substage_af2aa23b462dbc386ce9da6bfa35c4378} 
-\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} \&\&)=delete
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_render_substage_a66b42318669c386c0dde1b455cf73683}\label{classvkf_1_1rendering_1_1_render_substage_a66b42318669c386c0dde1b455cf73683} 
-void {\bfseries draw} (vk\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}cmd)
-\end{DoxyCompactItemize}
+virtual \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage_a8f8f442689c543461c50c47c7e07ed03}{\texorpdfstring{$\sim$}{\string~}\+Render\+Substage}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage_aa7b92441fdd13e7564571443ad16b815}{draw}} (vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}cmd)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to draw. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\doxysubsection{Detailed Description}
+This abstract class provides an interface for managing Vulkan rendering sub-\/stages. 
+
+This class is intended to be subclassed by specific types of rendering substages. Each subclass should provide an implementation for the draw method, which is used to perform the actual rendering operation. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1rendering_1_1_render_substage_a8f8f442689c543461c50c47c7e07ed03}\label{classvkf_1_1rendering_1_1_render_substage_a8f8f442689c543461c50c47c7e07ed03} 
+\index{vkf::rendering::RenderSubstage@{vkf::rendering::RenderSubstage}!````~RenderSubstage@{\texorpdfstring{$\sim$}{\string~}RenderSubstage}}
+\index{````~RenderSubstage@{\texorpdfstring{$\sim$}{\string~}RenderSubstage}!vkf::rendering::RenderSubstage@{vkf::rendering::RenderSubstage}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RenderSubstage()}{\string~RenderSubstage()}}
+{\footnotesize\ttfamily virtual vkf\+::rendering\+::\+Render\+Substage\+::\texorpdfstring{$\sim$}{\string~}\+Render\+Substage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destructor for the \doxylink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage} class. 
+
+This is the default destructor. It is declared as virtual to ensure correct destruction of subclasses. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1rendering_1_1_render_substage_aa7b92441fdd13e7564571443ad16b815}\label{classvkf_1_1rendering_1_1_render_substage_aa7b92441fdd13e7564571443ad16b815} 
+\index{vkf::rendering::RenderSubstage@{vkf::rendering::RenderSubstage}!draw@{draw}}
+\index{draw@{draw}!vkf::rendering::RenderSubstage@{vkf::rendering::RenderSubstage}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily virtual void vkf\+::rendering\+::\+Render\+Substage\+::draw (\begin{DoxyParamCaption}\item[{vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to draw. 
+
+This method is intended to be overridden by subclasses to perform the actual rendering operation. It takes a command buffer as an argument, which is used to record the rendering commands.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & The command buffer. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage_a5e20ad8a40a76830037fe2e47d834b2d}{vkf\+::rendering\+::\+Forward\+Substage}}, and \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage_a4f4ae9019d9c5cd57b3ffe166982c017}{vkf\+::rendering\+::\+Gui\+Substage}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_render_substage_8h}{Render\+Substage.\+h}}\item 
-C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_render_substage_8cpp}{Render\+Substage.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_render_substage_8h}{Render\+Substage.\+h}}\end{DoxyCompactItemize}

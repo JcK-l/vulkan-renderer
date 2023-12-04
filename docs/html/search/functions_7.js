@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['initlogger_0',['initLogger',['../classvkf_1_1platform_1_1_application.html#a1d0875ced160ef56438ce83fbca3cd17',1,'vkf::platform::Application']]],
-  ['instance_1',['Instance',['../classvkf_1_1core_1_1_instance.html#a9e9963ecb7c7db9e50dcca153cad8c32',1,'vkf::core::Instance']]]
+  ['hasqueue_0',['hasQueue',['../classvkf_1_1core_1_1_device.html#aa12591690c383665dd83a0d3468fef24',1,'vkf::core::Device']]],
+  ['hasqueuewithflags_1',['hasQueueWithFlags',['../classvkf_1_1core_1_1_device.html#afd824265b6bca19e05269b9bddbdcd57',1,'vkf::core::Device']]],
+  ['hasqueuewithpresent_2',['hasQueueWithPresent',['../classvkf_1_1core_1_1_device.html#a1ac7e25a61832062fd70d9d0564c9f4f',1,'vkf::core::Device']]]
 ];

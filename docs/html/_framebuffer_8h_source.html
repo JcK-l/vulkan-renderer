@@ -86,48 +86,40 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifndef VULKANRENDERER_FRAMEBUFFER_H</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define VULKANRENDERER_FRAMEBUFFER_H</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacevkf_1_1rendering.html">   18</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1rendering.html">vkf::rendering</a> <span class="comment">// Forward declarations</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1core.html">vkf::core</a></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">class </span><a class="code hl_struct" href="structvkf_1_1rendering_1_1_render_target.html">RenderTarget</a>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>} <span class="comment">// namespace vkf::rendering</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">// Forward declarations</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">class </span>Device;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">class </span>RenderPass;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classvkf_1_1core_1_1_framebuffer.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;device, <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_render_pass.html">RenderPass</a> &amp;renderPass, <span class="keyword">const</span> std::vector&lt;vk::ImageView&gt; &amp;attachments,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <span class="keyword">const</span> vk::Extent2D &amp;extent);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;) = <span class="keyword">delete</span>;            <span class="comment">// Deleted copy constructor</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a>(<a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;       <span class="comment">// Default move constructor</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;operator=(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;) = <span class="keyword">delete</span>; <span class="comment">// Deleted copy assignment operator</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;operator=(<a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;&amp;) = <span class="keyword">delete</span>;      <span class="comment">// Deleted move assignment operator</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">~Framebuffer</a>() = <span class="keywordflow">default</span>;                             <span class="comment">// Default destructor</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    [[nodiscard]] <span class="keyword">const</span> vk::raii::Framebuffer &amp;getHandle() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    vk::raii::Framebuffer handle{VK_NULL_HANDLE};</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1core.html">vkf::core</a></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">// Forward declarations</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">class </span>Device;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">class </span>RenderPass;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classvkf_1_1core_1_1_framebuffer.html">   37</a></span><span class="keyword">class </span><a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;device, <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_render_pass.html">RenderPass</a> &amp;renderPass, <span class="keyword">const</span> <a class="code hl_struct" href="structvkf_1_1rendering_1_1_render_target.html">rendering::RenderTarget</a> &amp;renderTarget);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;) = <span class="keyword">delete</span>;            <span class="comment">// Deleted copy constructor</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a>(<a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;       <span class="comment">// Default move constructor</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;operator=(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;) = <span class="keyword">delete</span>; <span class="comment">// Deleted copy assignment operator</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;operator=(<a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">Framebuffer</a> &amp;&amp;) = <span class="keyword">delete</span>;      <span class="comment">// Deleted move assignment operator</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_framebuffer.html">~Framebuffer</a>() = <span class="keywordflow">default</span>;                             <span class="comment">// Default destructor</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    [[nodiscard]] <span class="keyword">const</span> vk::raii::Framebuffer &amp;getHandle() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    vk::raii::Framebuffer handle{VK_NULL_HANDLE};</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
-</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>} <span class="comment">// namespace vkf::core</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_FRAMEBUFFER_H</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>} <span class="comment">// namespace vkf::core</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_FRAMEBUFFER_H</span></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_device_html"><div class="ttname"><a href="classvkf_1_1core_1_1_device.html">vkf::core::Device</a></div><div class="ttdoc">This class is used to manage Vulkan devices.</div><div class="ttdef"><b>Definition</b> Device.h:35</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_framebuffer_html"><div class="ttname"><a href="classvkf_1_1core_1_1_framebuffer.html">vkf::core::Framebuffer</a></div><div class="ttdoc">This class manages Vulkan framebuffers.</div><div class="ttdef"><b>Definition</b> Framebuffer.h:38</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_render_pass_html"><div class="ttname"><a href="classvkf_1_1core_1_1_render_pass.html">vkf::core::RenderPass</a></div><div class="ttdoc">This class manages Vulkan render passes.</div><div class="ttdef"><b>Definition</b> RenderPass.h:37</div></div>
-<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> CommandPool.cpp:18</div></div>
-<div class="ttc" id="anamespacevkf_1_1rendering_html"><div class="ttname"><a href="namespacevkf_1_1rendering.html">vkf::rendering</a></div><div class="ttdoc">The rendering namespace contains classes and functions for rendering operations.</div><div class="ttdef"><b>Definition</b> Framebuffer.h:19</div></div>
-<div class="ttc" id="astructvkf_1_1rendering_1_1_render_target_html"><div class="ttname"><a href="structvkf_1_1rendering_1_1_render_target.html">vkf::rendering::RenderTarget</a></div><div class="ttdoc">This struct stores information related to a render target.</div><div class="ttdef"><b>Definition</b> Renderer.h:37</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_framebuffer_html"><div class="ttname"><a href="classvkf_1_1core_1_1_framebuffer.html">vkf::core::Framebuffer</a></div><div class="ttdoc">This class manages Vulkan framebuffers.</div><div class="ttdef"><b>Definition</b> Framebuffer.h:33</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_render_pass_html"><div class="ttname"><a href="classvkf_1_1core_1_1_render_pass.html">vkf::core::RenderPass</a></div><div class="ttdoc">This class manages Vulkan render passes.</div><div class="ttdef"><b>Definition</b> RenderPass.h:32</div></div>
+<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> Buffer.cpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

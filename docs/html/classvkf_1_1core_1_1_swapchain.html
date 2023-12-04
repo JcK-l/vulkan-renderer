@@ -87,6 +87,15 @@ $(function() {
  <a href="classvkf_1_1core_1_1_swapchain.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_swapchain_8h_source.html">Swapchain.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for vkf::core::Swapchain:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classvkf_1_1core_1_1_swapchain.png" usemap="#vkf::core::Swapchain_map" alt=""/>
+  <map id="vkf::core::Swapchain_map" name="vkf::core::Swapchain_map">
+<area href="classvkf_1_1rendering_1_1_render_source.html" title="This abstract class provides an interface for managing Vulkan rendering operations." alt="vkf::rendering::RenderSource" shape="rect" coords="0,0,178,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -114,21 +123,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abdd77b32f5a712c6f12563c4c977256a" id="r_abdd77b32f5a712c6f12563c4c977256a"><td class="memItemLeft" align="right" valign="top"><a id="abdd77b32f5a712c6f12563c4c977256a" name="abdd77b32f5a712c6f12563c4c977256a"></a>
 const vk::raii::SwapchainKHR &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getHandle</b> () const</td></tr>
 <tr class="separator:abdd77b32f5a712c6f12563c4c977256a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb4c2d9b89758eb279009c8764756254" id="r_abb4c2d9b89758eb279009c8764756254"><td class="memItemLeft" align="right" valign="top"><a id="abb4c2d9b89758eb279009c8764756254" name="abb4c2d9b89758eb279009c8764756254"></a>
-vk::raii::ImageView&#160;</td><td class="memItemRight" valign="bottom"><b>createImageView</b> (uint32_t index) const</td></tr>
-<tr class="separator:abb4c2d9b89758eb279009c8764756254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11706d634bc9f6358839c4402846c96a" id="r_a11706d634bc9f6358839c4402846c96a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; vk::ImageView &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_swapchain.html#a11706d634bc9f6358839c4402846c96a">getImageViews</a> () const override</td></tr>
+<tr class="memdesc:a11706d634bc9f6358839c4402846c96a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to get the image views.  <br /></td></tr>
+<tr class="separator:a11706d634bc9f6358839c4402846c96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21e68e05c5139066180c1c3481038f6b" id="r_a21e68e05c5139066180c1c3481038f6b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_swapchain.html#a21e68e05c5139066180c1c3481038f6b">getImageCount</a> () const override</td></tr>
+<tr class="memdesc:a21e68e05c5139066180c1c3481038f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to get the image count.  <br /></td></tr>
+<tr class="separator:a21e68e05c5139066180c1c3481038f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a871c746bee950535fa517cf8cc8a9054" id="r_a871c746bee950535fa517cf8cc8a9054"><td class="memItemLeft" align="right" valign="top">vk::Extent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1core_1_1_swapchain.html#a871c746bee950535fa517cf8cc8a9054">getExtent</a> () const override</td></tr>
+<tr class="memdesc:a871c746bee950535fa517cf8cc8a9054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to get the extent.  <br /></td></tr>
+<tr class="separator:a871c746bee950535fa517cf8cc8a9054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaebdfd7faadfa8172a94bf4bb7ddaf72" id="r_aaebdfd7faadfa8172a94bf4bb7ddaf72"><td class="memItemLeft" align="right" valign="top"><a id="aaebdfd7faadfa8172a94bf4bb7ddaf72" name="aaebdfd7faadfa8172a94bf4bb7ddaf72"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getMinImageCount</b> () const</td></tr>
+<tr class="separator:aaebdfd7faadfa8172a94bf4bb7ddaf72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1812eabf4d851038005d4ce6a21e4917" id="r_a1812eabf4d851038005d4ce6a21e4917"><td class="memItemLeft" align="right" valign="top"><a id="a1812eabf4d851038005d4ce6a21e4917" name="a1812eabf4d851038005d4ce6a21e4917"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>recreate</b> ()</td></tr>
 <tr class="separator:a1812eabf4d851038005d4ce6a21e4917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef2897df3da299aceb6c58db1fd9208c" id="r_aef2897df3da299aceb6c58db1fd9208c"><td class="memItemLeft" align="right" valign="top"><a id="aef2897df3da299aceb6c58db1fd9208c" name="aef2897df3da299aceb6c58db1fd9208c"></a>
 std::pair&lt; vk::Result, uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>acquireNextImage</b> (const vk::raii::Semaphore &amp;imageAvailableSemaphore, uint64_t timeout=std::numeric_limits&lt; uint64_t &gt;::max())</td></tr>
 <tr class="separator:aef2897df3da299aceb6c58db1fd9208c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75a7c9c30a8113f26651356a2a006447" id="r_a75a7c9c30a8113f26651356a2a006447"><td class="memItemLeft" align="right" valign="top"><a id="a75a7c9c30a8113f26651356a2a006447" name="a75a7c9c30a8113f26651356a2a006447"></a>
-vk::Extent2D&#160;</td><td class="memItemRight" valign="bottom"><b>getExtent</b> () const</td></tr>
-<tr class="separator:a75a7c9c30a8113f26651356a2a006447"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74e0ea64aace79ff714b187af4b6ebba" id="r_a74e0ea64aace79ff714b187af4b6ebba"><td class="memItemLeft" align="right" valign="top"><a id="a74e0ea64aace79ff714b187af4b6ebba" name="a74e0ea64aace79ff714b187af4b6ebba"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getImageCount</b> () const</td></tr>
-<tr class="separator:a74e0ea64aace79ff714b187af4b6ebba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classvkf_1_1rendering_1_1_render_source"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classvkf_1_1rendering_1_1_render_source')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classvkf_1_1rendering_1_1_render_source.html">vkf::rendering::RenderSource</a></td></tr>
+<tr class="memitem:a623406819493af0cb8a5191f16d1dd49 inherit pub_methods_classvkf_1_1rendering_1_1_render_source" id="r_a623406819493af0cb8a5191f16d1dd49"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_source.html#a623406819493af0cb8a5191f16d1dd49">~RenderSource</a> ()=default</td></tr>
+<tr class="memdesc:a623406819493af0cb8a5191f16d1dd49 inherit pub_methods_classvkf_1_1rendering_1_1_render_source"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classvkf_1_1rendering_1_1_render_source.html" title="This abstract class provides an interface for managing Vulkan rendering operations.">RenderSource</a> class.  <br /></td></tr>
+<tr class="separator:a623406819493af0cb8a5191f16d1dd49 inherit pub_methods_classvkf_1_1rendering_1_1_render_source"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -141,6 +157,9 @@ vk::PresentModeKHR&#160;</td><td class="memItemRight" valign="bottom"><b>selectS
 <tr class="memitem:ab2440c612fd3cf0e77bfb587884f136b" id="r_ab2440c612fd3cf0e77bfb587884f136b"><td class="memItemLeft" align="right" valign="top"><a id="ab2440c612fd3cf0e77bfb587884f136b" name="ab2440c612fd3cf0e77bfb587884f136b"></a>
 vk::Extent2D&#160;</td><td class="memItemRight" valign="bottom"><b>selectSwapExtent</b> () const</td></tr>
 <tr class="separator:ab2440c612fd3cf0e77bfb587884f136b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac62ea03754600491eecb37a5b7177e" id="r_acac62ea03754600491eecb37a5b7177e"><td class="memItemLeft" align="right" valign="top"><a id="acac62ea03754600491eecb37a5b7177e" name="acac62ea03754600491eecb37a5b7177e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createImageViews</b> ()</td></tr>
+<tr class="separator:acac62ea03754600491eecb37a5b7177e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa84824ad0cae81e784ffbb4d50e2eb2" id="r_afa84824ad0cae81e784ffbb4d50e2eb2"><td class="memItemLeft" align="right" valign="top"><a id="afa84824ad0cae81e784ffbb4d50e2eb2" name="afa84824ad0cae81e784ffbb4d50e2eb2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>createSwapchain</b> (vk::SwapchainKHR oldSwapchain=VK_NULL_HANDLE)</td></tr>
 <tr class="separator:afa84824ad0cae81e784ffbb4d50e2eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,13 +187,19 @@ vk::raii::SwapchainKHR&#160;</td><td class="memItemRight" valign="bottom"><b>han
 <tr class="memitem:a175c8521eba04a3166a5c9ffeed07d7d" id="r_a175c8521eba04a3166a5c9ffeed07d7d"><td class="memItemLeft" align="right" valign="top"><a id="a175c8521eba04a3166a5c9ffeed07d7d" name="a175c8521eba04a3166a5c9ffeed07d7d"></a>
 vk::Extent2D&#160;</td><td class="memItemRight" valign="bottom"><b>extent</b></td></tr>
 <tr class="separator:a175c8521eba04a3166a5c9ffeed07d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af780cc227675a6471f292e2d9a514b99" id="r_af780cc227675a6471f292e2d9a514b99"><td class="memItemLeft" align="right" valign="top"><a id="af780cc227675a6471f292e2d9a514b99" name="af780cc227675a6471f292e2d9a514b99"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>minImageCount</b> {0}</td></tr>
+<tr class="separator:af780cc227675a6471f292e2d9a514b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a331dc733608782133eaa953e76ad8014" id="r_a331dc733608782133eaa953e76ad8014"><td class="memItemLeft" align="right" valign="top"><a id="a331dc733608782133eaa953e76ad8014" name="a331dc733608782133eaa953e76ad8014"></a>
 std::vector&lt; vk::Image &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>images</b></td></tr>
 <tr class="separator:a331dc733608782133eaa953e76ad8014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefdd28828b3b62e059a83bcbb9098196" id="r_aefdd28828b3b62e059a83bcbb9098196"><td class="memItemLeft" align="right" valign="top"><a id="aefdd28828b3b62e059a83bcbb9098196" name="aefdd28828b3b62e059a83bcbb9098196"></a>
+std::vector&lt; vk::raii::ImageView &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>imageViews</b></td></tr>
+<tr class="separator:aefdd28828b3b62e059a83bcbb9098196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class manages Vulkan swapchains. </p>
-<p>It provides an interface for interacting with a Vulkan swapchain, including getting the handle to the swapchain, the image views, and acquiring the next image. It also provides a method for recreating the swapchain. </p>
+<p>It provides an interface for interacting with a Vulkan swapchain, including getting the handle to the swapchain, the image views, and acquiring the next image. It also provides a method for recreating the swapchain. <a class="el" href="classvkf_1_1core_1_1_swapchain.html" title="This class manages Vulkan swapchains.">Swapchain</a> is a subclass of RenderSource and therefore provides methods for getting the image views and image count. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acfc22a0e9e09d2d9086ad623cb56987e" name="acfc22a0e9e09d2d9086ad623cb56987e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfc22a0e9e09d2d9086ad623cb56987e">&#9670;&#160;</a></span>Swapchain()</h2>
@@ -218,6 +243,100 @@ std::vector&lt; vk::Image &gt;&#160;</td><td class="memItemRight" valign="bottom
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a871c746bee950535fa517cf8cc8a9054" name="a871c746bee950535fa517cf8cc8a9054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a871c746bee950535fa517cf8cc8a9054">&#9670;&#160;</a></span>getExtent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vk::Extent2D vkf::core::Swapchain::getExtent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pure virtual method to get the extent. </p>
+<p>This method is intended to be overridden by subclasses to return the extent.</p>
+<dl class="section return"><dt>Returns</dt><dd>The extent. </dd></dl>
+
+<p>Implements <a class="el" href="classvkf_1_1rendering_1_1_render_source.html#aa9b1ade53ea2036ee100c0cc6c8b56ca">vkf::rendering::RenderSource</a>.</p>
+
+</div>
+</div>
+<a id="a21e68e05c5139066180c1c3481038f6b" name="a21e68e05c5139066180c1c3481038f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21e68e05c5139066180c1c3481038f6b">&#9670;&#160;</a></span>getImageCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t vkf::core::Swapchain::getImageCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pure virtual method to get the image count. </p>
+<p>This method is intended to be overridden by subclasses to return the image count.</p>
+<dl class="section return"><dt>Returns</dt><dd>The image count. </dd></dl>
+
+<p>Implements <a class="el" href="classvkf_1_1rendering_1_1_render_source.html#aa80a3fc362a63a72597924d5534c41f5">vkf::rendering::RenderSource</a>.</p>
+
+</div>
+</div>
+<a id="a11706d634bc9f6358839c4402846c96a" name="a11706d634bc9f6358839c4402846c96a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11706d634bc9f6358839c4402846c96a">&#9670;&#160;</a></span>getImageViews()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; vk::ImageView &gt; vkf::core::Swapchain::getImageViews </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pure virtual method to get the image views. </p>
+<p>This method is intended to be overridden by subclasses to return a vector of image views.</p>
+<dl class="section return"><dt>Returns</dt><dd>A vector of image views. </dd></dl>
+
+<p>Implements <a class="el" href="classvkf_1_1rendering_1_1_render_source.html#a0bab8473e4fe89b408a33afcd0611d22">vkf::rendering::RenderSource</a>.</p>
 
 </div>
 </div>

@@ -9,6 +9,12 @@ This class manages Vulkan swapchains.
 
 {\ttfamily \#include $<$Swapchain.\+h$>$}
 
+Inheritance diagram for vkf\+::core\+::Swapchain\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvkf_1_1core_1_1_swapchain}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,21 +40,26 @@ struct \mbox{\hyperlink{structvkf_1_1core_1_1_swapchain_1_1_swap_chain_support_d
 \Hypertarget{classvkf_1_1core_1_1_swapchain_abdd77b32f5a712c6f12563c4c977256a}\label{classvkf_1_1core_1_1_swapchain_abdd77b32f5a712c6f12563c4c977256a} 
 const vk\+::raii\+::\+Swapchain\+KHR \& {\bfseries get\+Handle} () const
 \item 
-\Hypertarget{classvkf_1_1core_1_1_swapchain_abb4c2d9b89758eb279009c8764756254}\label{classvkf_1_1core_1_1_swapchain_abb4c2d9b89758eb279009c8764756254} 
-vk\+::raii\+::\+Image\+View {\bfseries create\+Image\+View} (uint32\+\_\+t index) const
+std\+::vector$<$ vk\+::\+Image\+View $>$ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a11706d634bc9f6358839c4402846c96a}{get\+Image\+Views}} () const override
+\begin{DoxyCompactList}\small\item\em Pure virtual method to get the image views. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a21e68e05c5139066180c1c3481038f6b}{get\+Image\+Count}} () const override
+\begin{DoxyCompactList}\small\item\em Pure virtual method to get the image count. \end{DoxyCompactList}\item 
+vk\+::\+Extent2D \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a871c746bee950535fa517cf8cc8a9054}{get\+Extent}} () const override
+\begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_aaebdfd7faadfa8172a94bf4bb7ddaf72}\label{classvkf_1_1core_1_1_swapchain_aaebdfd7faadfa8172a94bf4bb7ddaf72} 
+uint32\+\_\+t {\bfseries get\+Min\+Image\+Count} () const
 \item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a1812eabf4d851038005d4ce6a21e4917}\label{classvkf_1_1core_1_1_swapchain_a1812eabf4d851038005d4ce6a21e4917} 
 void {\bfseries recreate} ()
 \item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_aef2897df3da299aceb6c58db1fd9208c}\label{classvkf_1_1core_1_1_swapchain_aef2897df3da299aceb6c58db1fd9208c} 
 std\+::pair$<$ vk\+::\+Result, uint32\+\_\+t $>$ {\bfseries acquire\+Next\+Image} (const vk\+::raii\+::\+Semaphore \&image\+Available\+Semaphore, uint64\+\_\+t timeout=std\+::numeric\+\_\+limits$<$ uint64\+\_\+t $>$\+::max())
-\item 
-\Hypertarget{classvkf_1_1core_1_1_swapchain_a75a7c9c30a8113f26651356a2a006447}\label{classvkf_1_1core_1_1_swapchain_a75a7c9c30a8113f26651356a2a006447} 
-vk\+::\+Extent2D {\bfseries get\+Extent} () const
-\item 
-\Hypertarget{classvkf_1_1core_1_1_swapchain_a74e0ea64aace79ff714b187af4b6ebba}\label{classvkf_1_1core_1_1_swapchain_a74e0ea64aace79ff714b187af4b6ebba} 
-uint32\+\_\+t {\bfseries get\+Image\+Count} () const
 \end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a623406819493af0cb8a5191f16d1dd49}{\texorpdfstring{$\sim$}{\string~}\+Render\+Source}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classvkf_1_1rendering_1_1_render_source}{Render\+Source} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,6 +71,9 @@ vk\+::\+Present\+Mode\+KHR {\bfseries select\+Swap\+Present\+Mode} () const
 \item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_ab2440c612fd3cf0e77bfb587884f136b}\label{classvkf_1_1core_1_1_swapchain_ab2440c612fd3cf0e77bfb587884f136b} 
 vk\+::\+Extent2D {\bfseries select\+Swap\+Extent} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_acac62ea03754600491eecb37a5b7177e}\label{classvkf_1_1core_1_1_swapchain_acac62ea03754600491eecb37a5b7177e} 
+void {\bfseries create\+Image\+Views} ()
 \item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_afa84824ad0cae81e784ffbb4d50e2eb2}\label{classvkf_1_1core_1_1_swapchain_afa84824ad0cae81e784ffbb4d50e2eb2} 
 void {\bfseries create\+Swapchain} (vk\+::\+Swapchain\+KHR old\+Swapchain=VK\+\_\+\+NULL\+\_\+\+HANDLE)
@@ -88,15 +102,21 @@ vk\+::raii\+::\+Swapchain\+KHR {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a175c8521eba04a3166a5c9ffeed07d7d}\label{classvkf_1_1core_1_1_swapchain_a175c8521eba04a3166a5c9ffeed07d7d} 
 vk\+::\+Extent2D {\bfseries extent}
 \item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_af780cc227675a6471f292e2d9a514b99}\label{classvkf_1_1core_1_1_swapchain_af780cc227675a6471f292e2d9a514b99} 
+uint32\+\_\+t {\bfseries min\+Image\+Count} \{0\}
+\item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a331dc733608782133eaa953e76ad8014}\label{classvkf_1_1core_1_1_swapchain_a331dc733608782133eaa953e76ad8014} 
 std\+::vector$<$ vk\+::\+Image $>$ {\bfseries images}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_aefdd28828b3b62e059a83bcbb9098196}\label{classvkf_1_1core_1_1_swapchain_aefdd28828b3b62e059a83bcbb9098196} 
+std\+::vector$<$ vk\+::raii\+::\+Image\+View $>$ {\bfseries image\+Views}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 This class manages Vulkan swapchains. 
 
-It provides an interface for interacting with a Vulkan swapchain, including getting the handle to the swapchain, the image views, and acquiring the next image. It also provides a method for recreating the swapchain. 
+It provides an interface for interacting with a Vulkan swapchain, including getting the handle to the swapchain, the image views, and acquiring the next image. It also provides a method for recreating the swapchain. \doxylink{classvkf_1_1core_1_1_swapchain}{Swapchain} is a subclass of Render\+Source and therefore provides methods for getting the image views and image count. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classvkf_1_1core_1_1_swapchain_acfc22a0e9e09d2d9086ad623cb56987e}\label{classvkf_1_1core_1_1_swapchain_acfc22a0e9e09d2d9086ad623cb56987e} 
@@ -120,6 +140,66 @@ This constructor creates a Vulkan swapchain using the provided device, surface, 
 {\em window} & The window to use for creating the swapchain. \\
 \hline
 \end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a871c746bee950535fa517cf8cc8a9054}\label{classvkf_1_1core_1_1_swapchain_a871c746bee950535fa517cf8cc8a9054} 
+\index{vkf::core::Swapchain@{vkf::core::Swapchain}!getExtent@{getExtent}}
+\index{getExtent@{getExtent}!vkf::core::Swapchain@{vkf::core::Swapchain}}
+\doxysubsubsection{\texorpdfstring{getExtent()}{getExtent()}}
+{\footnotesize\ttfamily vk\+::\+Extent2D vkf\+::core\+::\+Swapchain\+::get\+Extent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pure virtual method to get the extent. 
+
+This method is intended to be overridden by subclasses to return the extent.
+
+\begin{DoxyReturn}{Returns}
+The extent. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa9b1ade53ea2036ee100c0cc6c8b56ca}{vkf\+::rendering\+::\+Render\+Source}}.
+
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a21e68e05c5139066180c1c3481038f6b}\label{classvkf_1_1core_1_1_swapchain_a21e68e05c5139066180c1c3481038f6b} 
+\index{vkf::core::Swapchain@{vkf::core::Swapchain}!getImageCount@{getImageCount}}
+\index{getImageCount@{getImageCount}!vkf::core::Swapchain@{vkf::core::Swapchain}}
+\doxysubsubsection{\texorpdfstring{getImageCount()}{getImageCount()}}
+{\footnotesize\ttfamily uint32\+\_\+t vkf\+::core\+::\+Swapchain\+::get\+Image\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pure virtual method to get the image count. 
+
+This method is intended to be overridden by subclasses to return the image count.
+
+\begin{DoxyReturn}{Returns}
+The image count. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa80a3fc362a63a72597924d5534c41f5}{vkf\+::rendering\+::\+Render\+Source}}.
+
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a11706d634bc9f6358839c4402846c96a}\label{classvkf_1_1core_1_1_swapchain_a11706d634bc9f6358839c4402846c96a} 
+\index{vkf::core::Swapchain@{vkf::core::Swapchain}!getImageViews@{getImageViews}}
+\index{getImageViews@{getImageViews}!vkf::core::Swapchain@{vkf::core::Swapchain}}
+\doxysubsubsection{\texorpdfstring{getImageViews()}{getImageViews()}}
+{\footnotesize\ttfamily std\+::vector$<$ vk\+::\+Image\+View $>$ vkf\+::core\+::\+Swapchain\+::get\+Image\+Views (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pure virtual method to get the image views. 
+
+This method is intended to be overridden by subclasses to return a vector of image views.
+
+\begin{DoxyReturn}{Returns}
+A vector of image views. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a0bab8473e4fe89b408a33afcd0611d22}{vkf\+::rendering\+::\+Render\+Source}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

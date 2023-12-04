@@ -15,11 +15,6 @@
 #ifndef VULKANRENDERER_RENDERPASS_H
 #define VULKANRENDERER_RENDERPASS_H
 
-namespace vkf::rendering // Forward declarations
-{
-struct RenderTarget;
-} // namespace vkf::rendering
-
 namespace vkf::core
 {
 
@@ -39,15 +34,15 @@ class RenderPass
     ///
     /// \brief Constructs a RenderPass object.
     ///
-    /// This constructor creates a Vulkan render pass using the provided device, render target, subpass information, and
-    /// dependencies.
+    /// This constructor creates a Vulkan render pass using the provided device, attachment descriptions,
+    /// subpass information and dependencies.
     ///
     /// \param device The Vulkan device to use for creating the render pass.
-    /// \param renderTarget The render target to use for creating the render pass.
+    /// \param attachments The attachment descriptions to use for creating the render pass.
     /// \param subpassDescriptions The subpass information to use for creating the render pass.
     /// \param subpassDependencies The dependencies to use for creating the render pass.
     ///
-    RenderPass(const core::Device &device, const rendering::RenderTarget &renderTarget,
+    RenderPass(const core::Device &device, const std::vector<vk::AttachmentDescription> &attachments,
                const std::vector<vk::SubpassDescription> &subpassDescriptions,
                const std::vector<vk::SubpassDependency> &subpassDependencies);
 

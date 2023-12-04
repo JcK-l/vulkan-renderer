@@ -1,0 +1,79 @@
+\doxysection{Gui.\+h}
+\hypertarget{_gui_8h_source}{}\label{_gui_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/platform/Gui.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/platform/Gui.h}}
+\mbox{\hyperlink{_gui_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_GUI\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_GUI\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../core/Image.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../rendering/RenderSource.h"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}imgui.h"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }Instance;}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }RenderPass;}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }Swapchain;}
+\DoxyCodeLine{00027\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }Renderer;}
+\DoxyCodeLine{00032\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1scene}{vkf::scene}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }Scene;}
+\DoxyCodeLine{00037\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1platform}{vkf::platform}}}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }Window;}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{Gui}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{rendering::RenderSource}}}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{Gui}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}}\ \&window,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core::Instance}}\ \&instance,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core::RenderPass}}\ \&renderPass,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core::Swapchain}}\ \&swapchain,\ \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene::Scene}}\ \&scene);}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{\string~Gui}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_aaf8ce5449afc61fe3df3d687bda51a2c}{preRender}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{rendering::Renderer}}\ \&renderer,\ uint32\_t\ frameIndex);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ draw(vk::raii::CommandBuffer\ *cmd);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ [[nodiscard]]\ std::vector<vk::ImageView>\ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a196cf80a8c1411ff1c53824ab5847210}{getImageViews}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00078\ \ \ \ \ [[nodiscard]]\ uint32\_t\ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_afbb146ad89919d6f62e88ecf7395e613}{getImageCount}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00079\ \ \ \ \ [[nodiscard]]\ vk::Extent2D\ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a8f2b0f035d9f21a99fa77a00026e7bf0}{getExtent}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a6c0e7975b6a4cc4d78c618b11801391d}{recreate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core::Swapchain}}\ \&swapchain);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ createImages(uint32\_t\ numImages);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ createImageViews();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device;}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene::Scene}}\ \&scene;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ vk::Extent2D\ sceneViewportExtent\{\};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ std::vector<core::Image>\ images;}
+\DoxyCodeLine{00098\ \ \ \ \ std::vector<vk::raii::ImageView>\ imageViews;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ vk::raii::Sampler\ textureSampler\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00101\ \ \ \ \ vk::raii::DescriptorPool\ imguiPool\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ VkDescriptorSet\ dset\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{bool}\ firstTime\{\textcolor{keyword}{true}\};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{bool}\ buttonPressed\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ uint32\_t\ minImageCount\{0\};}
+\DoxyCodeLine{00109\ \ \ \ \ uint32\_t\ imageCount\{0\};}
+\DoxyCodeLine{00110\ \};}
+\DoxyCodeLine{00111\ \}\ \textcolor{comment}{//\ namespace\ vkf::platform}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_GUI\_H}}
+
+\end{DoxyCode}

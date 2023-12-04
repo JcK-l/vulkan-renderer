@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['keyboard_0',['Keyboard',['../structvkf_1_1_event_1_1_keyboard.html',1,'vkf::Event']]]
+  ['gui_0',['Gui',['../classvkf_1_1platform_1_1_gui.html',1,'vkf::platform']]],
+  ['guisubstage_1',['GuiSubstage',['../classvkf_1_1rendering_1_1_gui_substage.html',1,'vkf::rendering']]]
 ];

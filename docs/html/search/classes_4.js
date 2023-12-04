@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['framebuffer_0',['Framebuffer',['../classvkf_1_1core_1_1_framebuffer.html',1,'vkf::core']]],
-  ['framedata_1',['FrameData',['../classvkf_1_1rendering_1_1_frame_data.html',1,'vkf::rendering']]]
+  ['event_0',['Event',['../structvkf_1_1_event.html',1,'vkf']]],
+  ['extent_1',['Extent',['../structvkf_1_1platform_1_1_window_1_1_extent.html',1,'vkf::platform::Window']]]
 ];

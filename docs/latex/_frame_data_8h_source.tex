@@ -20,7 +20,7 @@
 \DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{FrameData}}}
 \DoxyCodeLine{00034\ \{}
 \DoxyCodeLine{00035\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{FrameData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device);}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{FrameData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device,\ uint32\_t\ numRenderPasses);}
 \DoxyCodeLine{00044\ }
 \DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{FrameData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{FrameData}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
 \DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{FrameData}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{FrameData}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
@@ -28,23 +28,24 @@
 \DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{FrameData}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{FrameData}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
 \DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{\string~FrameData}}();\ \textcolor{comment}{//\ Implementation\ in\ FrameData.cpp\ because\ of\ std::unique\_ptr\ forward\ declaration}}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ vk::raii::CommandBuffer\ *getCommandBuffer();}
+\DoxyCodeLine{00051\ \ \ \ \ vk::raii::CommandBuffers\ *getCommandBuffers();}
 \DoxyCodeLine{00052\ }
 \DoxyCodeLine{00053\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Semaphore\ \&getSemaphore(uint32\_t\ index)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00054\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Fence\ \&getFence()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device;}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ std::unique\_ptr<core::CommandPool>\ commandPool;}
-\DoxyCodeLine{00060\ \ \ \ \ std::unordered\_map<uint32\_t,\ vk::raii::CommandBuffers\ *>\ commandBuffersMap;}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ std::array<vk::raii::Semaphore,\ 2>\ semaphore\{VK\_NULL\_HANDLE,\ VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00063\ \ \ \ \ vk::raii::Fence\ fence\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00064\ \};}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_FRAMEDATA\_H}}
+\DoxyCodeLine{00054\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Semaphore\ \&getLastSemaphore()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \ \ [[nodiscard]]\ std::vector<vk::Fence>\ getFences()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ std::unique\_ptr<core::CommandPool>\ commandPool;}
+\DoxyCodeLine{00061\ \ \ \ \ std::unordered\_map<uint32\_t,\ vk::raii::CommandBuffers\ *>\ commandBuffersMap;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ std::vector<vk::raii::Semaphore>\ semaphore;}
+\DoxyCodeLine{00064\ \ \ \ \ std::vector<vk::raii::Fence>\ fences;}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_FRAMEDATA\_H}}
 
 \end{DoxyCode}

@@ -1,0 +1,49 @@
+\doxysection{Forward\+Substage.\+h}
+\hypertarget{_forward_substage_8h_source}{}\label{_forward_substage_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/rendering/ForwardSubstage.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/rendering/ForwardSubstage.h}}
+\mbox{\hyperlink{_forward_substage_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_FORWARDSUBSTAGE\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_FORWARDSUBSTAGE\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_render_substage_8h}{RenderSubstage.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Forward\ declarations\ for\ classes\ in\ the\ vkf::core\ namespace}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }Pipeline;}
+\DoxyCodeLine{00023\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Forward\ declarations\ for\ classes\ in\ the\ vkf::platform\ namespace}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1platform}{vkf::platform}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }Gui;}
+\DoxyCodeLine{00029\ \}\ \textcolor{comment}{//\ namespace\ vkf::platform}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{RenderSubstage}}}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core::Pipeline}}\ \&inputPipeline,\ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform::Gui}}\ *inputGui);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{\string~ForwardSubstage}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ destructor}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage_a5e20ad8a40a76830037fe2e47d834b2d}{draw}}(vk::raii::CommandBuffer\ *cmd)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core::Pipeline}}\ \&pipeline;}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform::Gui}}\ *gui;}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_FORWARDSUBSTAGE\_H}}
+
+\end{DoxyCode}

@@ -21,26 +21,17 @@ namespace vkf::core
 {
 
 Framebuffer::Framebuffer(const Device &device, const RenderPass &renderPass,
-                         const rendering::RenderTarget &renderTarget)
+                         const std::vector<vk::ImageView> &attachments, const vk::Extent2D &extent)
 {
-    std::vector<vk::ImageView> imageViews;
-    imageViews.reserve(renderTarget.imageViews.size());
-
-    for (const auto &imageView : renderTarget.imageViews)
-    {
-        imageViews.emplace_back(*imageView);
-    }
-
-    handle = vk::raii::Framebuffer{device.getHandle(),
-                                   vk::FramebufferCreateInfo{
-                                       .flags = vk::FramebufferCreateFlags{},
-                                       .renderPass = *renderPass.getHandle(),
-                                       .attachmentCount = static_cast<uint32_t>(renderTarget.imageViews.size()),
-                                       .pAttachments = imageViews.data(),
-                                       .width = renderTarget.extent.width,
-                                       .height = renderTarget.extent.height,
-                                       .layers = 1,
-                                   }};
+    handle = vk::raii::Framebuffer{device.getHandle(), vk::FramebufferCreateInfo{
+                                                           .flags = vk::FramebufferCreateFlags{},
+                                                           .renderPass = *renderPass.getHandle(),
+                                                           .attachmentCount = static_cast<uint32_t>(attachments.size()),
+                                                           .pAttachments = attachments.data(),
+                                                           .width = extent.width,
+                                                           .height = extent.height,
+                                                           .layers = 1,
+                                                       }};
 }
 
 const vk::raii::Framebuffer &Framebuffer::getHandle() const

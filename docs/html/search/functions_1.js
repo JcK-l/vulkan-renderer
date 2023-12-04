@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['commandpool_0',['CommandPool',['../classvkf_1_1core_1_1_command_pool.html#a4755df1676fe7686e5375d709ae3a96c',1,'vkf::core::CommandPool']]]
+  ['buffer_0',['Buffer',['../classvkf_1_1core_1_1_buffer.html#ad6409aeb39c3d235e596bd792eb4bf7a',1,'vkf::core::Buffer']]]
 ];

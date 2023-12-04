@@ -20,19 +20,20 @@
 namespace vkf::core
 {
 
-RenderPass::RenderPass(const core::Device &device, const rendering::RenderTarget &renderTarget,
+RenderPass::RenderPass(const core::Device &device, const std::vector<vk::AttachmentDescription> &attachments,
                        const std::vector<vk::SubpassDescription> &subpassDescriptions,
                        const std::vector<vk::SubpassDependency> &subpassDependencies)
     : device{device}
 {
-    auto createInfo =
-        vk::RenderPassCreateInfo{.flags = vk::RenderPassCreateFlags{},
-                                 .attachmentCount = static_cast<uint32_t>(renderTarget.attachments.size()),
-                                 .pAttachments = renderTarget.attachments.data(),
-                                 .subpassCount = static_cast<uint32_t>(subpassDescriptions.size()),
-                                 .pSubpasses = subpassDescriptions.data(),
-                                 .dependencyCount = static_cast<uint32_t>(subpassDependencies.size()),
-                                 .pDependencies = subpassDependencies.data()};
+
+    LOG_INFO("dependencies: {}", subpassDependencies.size())
+    auto createInfo = vk::RenderPassCreateInfo{.flags = vk::RenderPassCreateFlags{},
+                                               .attachmentCount = static_cast<uint32_t>(attachments.size()),
+                                               .pAttachments = attachments.data(),
+                                               .subpassCount = static_cast<uint32_t>(subpassDescriptions.size()),
+                                               .pSubpasses = subpassDescriptions.data(),
+                                               .dependencyCount = static_cast<uint32_t>(subpassDependencies.size()),
+                                               .pDependencies = subpassDependencies.data()};
 
     handle = vk::raii::RenderPass{device.getHandle(), createInfo};
     LOG_INFO("Created RenderPass")

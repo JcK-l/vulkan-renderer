@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['swapchain_2ecpp_0',['Swapchain.cpp',['../_swapchain_8cpp.html',1,'']]],
-  ['swapchain_2eh_1',['Swapchain.h',['../_swapchain_8h.html',1,'']]]
+  ['queue_2ecpp_0',['Queue.cpp',['../_queue_8cpp.html',1,'']]],
+  ['queue_2eh_1',['Queue.h',['../_queue_8h.html',1,'']]]
 ];

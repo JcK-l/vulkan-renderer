@@ -15,6 +15,8 @@
 #ifndef VULKANRENDERER_SWAPCHAIN_H
 #define VULKANRENDERER_SWAPCHAIN_H
 
+#include "../rendering/RenderSource.h"
+
 namespace vkf::platform // Forward declarations
 {
 class Window;
@@ -33,8 +35,9 @@ class PhysicalDevice;
 ///
 /// It provides an interface for interacting with a Vulkan swapchain, including getting the handle to the swapchain, the
 /// image views, and acquiring the next image. It also provides a method for recreating the swapchain.
+/// Swapchain is a subclass of RenderSource and therefore provides methods for getting the image views and image count.
 ///
-class Swapchain
+class Swapchain : public rendering::RenderSource
 {
   public:
     ///
@@ -63,25 +66,26 @@ class Swapchain
     Swapchain(Swapchain &&) noexcept = default;       // Default move constructor
     Swapchain &operator=(const Swapchain &) = delete; // Deleted copy assignment operator
     Swapchain &operator=(Swapchain &&) = delete;      // Deleted move assignment operator
-    ~Swapchain() = default;                           // Default destructor
+    ~Swapchain() override = default;                  // Default destructor
 
     [[nodiscard]] const vk::raii::SwapchainKHR &getHandle() const;
 
-    [[nodiscard]] vk::raii::ImageView createImageView(uint32_t index) const;
+    [[nodiscard]] std::vector<vk::ImageView> getImageViews() const override;
+    [[nodiscard]] uint32_t getImageCount() const override;
+    [[nodiscard]] vk::Extent2D getExtent() const override;
+    [[nodiscard]] uint32_t getMinImageCount() const;
 
     void recreate();
 
     std::pair<vk::Result, uint32_t> acquireNextImage(const vk::raii::Semaphore &imageAvailableSemaphore,
                                                      uint64_t timeout = std::numeric_limits<uint64_t>::max());
 
-    [[nodiscard]] vk::Extent2D getExtent() const;
-
-    [[nodiscard]] uint32_t getImageCount() const;
-
   private:
     [[nodiscard]] vk::SurfaceFormatKHR selectSwapSurfaceFormat() const;
     [[nodiscard]] vk::PresentModeKHR selectSwapPresentMode() const;
     [[nodiscard]] vk::Extent2D selectSwapExtent() const;
+
+    void createImageViews();
 
     void createSwapchain(vk::SwapchainKHR oldSwapchain = VK_NULL_HANDLE);
 
@@ -93,8 +97,10 @@ class Swapchain
 
     SwapChainSupportDetails supportDetails;
     vk::Extent2D extent;
+    uint32_t minImageCount{0};
 
     std::vector<vk::Image> images;
+    std::vector<vk::raii::ImageView> imageViews;
 };
 } // namespace vkf::core
 

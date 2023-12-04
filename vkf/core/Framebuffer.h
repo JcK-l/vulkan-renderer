@@ -15,11 +15,6 @@
 #ifndef VULKANRENDERER_FRAMEBUFFER_H
 #define VULKANRENDERER_FRAMEBUFFER_H
 
-namespace vkf::rendering // Forward declarations
-{
-class RenderTarget;
-} // namespace vkf::rendering
-
 namespace vkf::core
 {
 
@@ -40,13 +35,15 @@ class Framebuffer
     ///
     /// \brief Constructs a Framebuffer object.
     ///
-    /// This constructor creates a Vulkan framebuffer using the provided device, render pass, and render target.
+    /// This constructor creates a Vulkan framebuffer using the provided device, render pass, attachments and extent.
     ///
     /// \param device The Vulkan device to use for creating the framebuffer.
     /// \param renderPass The render pass to use for creating the framebuffer.
-    /// \param renderTarget The render target that contains the images to use as attachments.
+    /// \param attachments The attachments to use for creating the framebuffer.
+    /// \param extent The extent of the framebuffer.
     ///
-    Framebuffer(const Device &device, const RenderPass &renderPass, const rendering::RenderTarget &renderTarget);
+    Framebuffer(const Device &device, const RenderPass &renderPass, const std::vector<vk::ImageView> &attachments,
+                const vk::Extent2D &extent);
 
     Framebuffer(const Framebuffer &) = delete;            // Deleted copy constructor
     Framebuffer(Framebuffer &&) noexcept = default;       // Default move constructor

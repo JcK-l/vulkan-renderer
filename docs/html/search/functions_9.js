@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['querygpus_0',['queryGpus',['../classvkf_1_1core_1_1_instance.html#aa18431ab955ea538705d10a5e4812bc8',1,'vkf::core::Instance']]],
-  ['queue_1',['Queue',['../classvkf_1_1core_1_1_queue.html#add8f0c856c0e167074a55c74fd7b6976',1,'vkf::core::Queue']]]
+  ['mapmemory_0',['mapmemory',['../classvkf_1_1core_1_1_buffer.html#a6ebee15f4ce776d1b13e1b73018a9442',1,'vkf::core::Buffer::mapMemory()'],['../classvkf_1_1core_1_1_image.html#a67a35e2eaf66c4d3f8d6d1ff02e7cff6',1,'vkf::core::Image::mapMemory()']]]
 ];

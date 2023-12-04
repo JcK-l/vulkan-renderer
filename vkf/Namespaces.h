@@ -20,7 +20,7 @@
 ///
 namespace vkf
 {
-}
+} // namespace vkf
 
 ///
 /// \namespace vkf::core
@@ -28,7 +28,7 @@ namespace vkf
 ///
 namespace vkf::core
 {
-}
+} // namespace vkf::core
 
 ///
 /// \namespace vkf::platform
@@ -36,7 +36,7 @@ namespace vkf::core
 ///
 namespace vkf::platform
 {
-}
+} // namespace vkf::platform
 
 ///
 /// \namespace vkf::rendering
@@ -44,6 +44,14 @@ namespace vkf::platform
 ///
 namespace vkf::rendering
 {
-}
+} // namespace vkf::rendering
+
+///
+/// \namespace vkf::scene
+/// \brief The scene namespace contains classes and functions for scene management.
+///
+namespace vkf::scene
+{
+} // namespace vkf::scene
 
 #endif // VULKANRENDERER_NAMESPACES_H

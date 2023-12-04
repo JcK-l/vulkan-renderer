@@ -18,6 +18,7 @@
 #include "../core/Framebuffer.h"
 #include "../core/RenderPass.h"
 #include "../core/Swapchain.h"
+#include "../platform/Gui.h"
 #include "../platform/Window.h"
 #include "FrameData.h"
 #include "RenderSubstage.h"
@@ -27,12 +28,12 @@ namespace vkf::rendering
 {
 
 RenderManager::RenderManager(const core::Device &device, platform::Window &window,
-                             std::unique_ptr<core::Swapchain> inputSwapchain, std::unique_ptr<Renderer> inputRenderer)
-    : device{device}, window{window}, renderer{std::move(inputRenderer)}, renderPass{renderer->getRenderPass()},
-      swapchain{std::move(inputSwapchain)}
+                             std::shared_ptr<core::Swapchain> inputSwapchain, std::shared_ptr<platform::Gui> inputGui,
+                             std::vector<std::unique_ptr<Renderer>> inputRenderers)
+    : device{device}, window{window}, renderers{std::move(inputRenderers)}, swapchain{std::move(inputSwapchain)},
+      gui{std::move(inputGui)}
 {
     createFrameData();
-    createFramebuffers();
     LOG_INFO("Created RenderManager")
 }
 
@@ -40,7 +41,8 @@ RenderManager::~RenderManager() = default;
 
 void RenderManager::beginFrame()
 {
-    device.getHandle().waitForFences(*frameData[activeFrame]->getFence(), VK_TRUE,
+
+    device.getHandle().waitForFences(frameData[activeFrame]->getFences(), VK_TRUE,
                                      std::numeric_limits<uint64_t>::max());
 
     auto [result, value] = swapchain->acquireNextImage(frameData[activeFrame]->getSemaphore(0));
@@ -60,11 +62,13 @@ void RenderManager::beginFrame()
         throw std::runtime_error{"Failed to acquire next image"};
     }
 
+    gui->preRender(*renderers[0], value);
+
     imageIndex = value;
-    activeCommandBuffer = frameData[activeFrame]->getCommandBuffer();
+    activeCommandBuffers = frameData[activeFrame]->getCommandBuffers();
 
     frameActive = true;
-    device.getHandle().resetFences(*frameData[activeFrame]->getFence());
+    device.getHandle().resetFences(frameData[activeFrame]->getFences());
 }
 
 void RenderManager::endFrame()
@@ -72,19 +76,10 @@ void RenderManager::endFrame()
     assert(frameActive && "Frame not active");
 
     auto presentQueue = device.getQueueWithFlags(0, vk::QueueFlagBits::eGraphics).getHandle();
-    vk::PipelineStageFlags waitStages[] = {vk::PipelineStageFlagBits::eColorAttachmentOutput};
-    presentQueue.submit(vk::SubmitInfo{.waitSemaphoreCount = 1,
-                                       .pWaitSemaphores = &*frameData[activeFrame]->getSemaphore(0),
-                                       .pWaitDstStageMask = waitStages,
-                                       .commandBufferCount = 1,
-                                       .pCommandBuffers = &*(*activeCommandBuffer), // What the hell
-                                       .signalSemaphoreCount = 1,
-                                       .pSignalSemaphores = &*frameData[activeFrame]->getSemaphore(1)},
-                        *frameData[activeFrame]->getFence());
 
     auto result =
         presentQueue.presentKHR(vk::PresentInfoKHR{.waitSemaphoreCount = 1,
-                                                   .pWaitSemaphores = &*frameData[activeFrame]->getSemaphore(1),
+                                                   .pWaitSemaphores = &*frameData[activeFrame]->getLastSemaphore(),
                                                    .swapchainCount = 1,
                                                    .pSwapchains = &*swapchain->getHandle(),
                                                    .pImageIndices = &imageIndex,
@@ -92,6 +87,7 @@ void RenderManager::endFrame()
 
     if (window.isResized())
     {
+        LOG_DEBUG("hahahahah")
         recreateSwapchain();
     }
     else
@@ -116,63 +112,72 @@ void RenderManager::endFrame()
     }
 
     frameActive = false;
-    activeFrame = activeFrame++ % framesInFlight;
+    activeFrame = ++activeFrame % framesInFlight;
 }
 
-void RenderManager::beginRenderPass()
+void RenderManager::beginRenderPass(Renderer &renderer, uint32_t currentRenderPass)
 {
     assert(frameActive && "Frame not active");
-    activeCommandBuffer->reset(vk::CommandBufferResetFlagBits::eReleaseResources);
-    activeCommandBuffer->begin(vk::CommandBufferBeginInfo{.flags = vk::CommandBufferUsageFlagBits::eOneTimeSubmit});
-    vk::RenderPassBeginInfo renderPassBeginInfo{.renderPass = *renderPass->getHandle(),
-                                                .framebuffer = *framebuffers[imageIndex]->getHandle(),
-                                                .renderArea = vk::Rect2D{{0, 0}, swapchain->getExtent()},
-                                                .clearValueCount = 1,
-                                                .pClearValues = renderer->getClearValue()};
-
-    activeCommandBuffer->beginRenderPass(renderPassBeginInfo, vk::SubpassContents::eInline);
+    activeCommandBuffers->at(currentRenderPass).reset(vk::CommandBufferResetFlagBits::eReleaseResources);
+    activeCommandBuffers->at(currentRenderPass)
+        .begin(vk::CommandBufferBeginInfo{.flags = vk::CommandBufferUsageFlagBits::eOneTimeSubmit});
+    activeCommandBuffers->at(currentRenderPass)
+        .beginRenderPass(renderer.getRenderPassBeginInfo(imageIndex), vk::SubpassContents::eInline);
 }
 
-void RenderManager::endRenderPass()
+void RenderManager::endRenderPass(uint32_t currentRenderPass)
 {
     assert(frameActive && "Frame not active");
-    activeCommandBuffer->endRenderPass();
-    activeCommandBuffer->end();
+    activeCommandBuffers->at(currentRenderPass).endRenderPass();
+    activeCommandBuffers->at(currentRenderPass).end();
+
+    auto presentQueue = device.getQueueWithFlags(0, vk::QueueFlagBits::eGraphics).getHandle();
+    vk::PipelineStageFlags waitStages[] = {vk::PipelineStageFlagBits::eColorAttachmentOutput};
+    presentQueue.submit(
+        vk::SubmitInfo{.waitSemaphoreCount = 1,
+                       .pWaitSemaphores = &*frameData[activeFrame]->getSemaphore(currentRenderPass),
+                       .pWaitDstStageMask = waitStages,
+                       .commandBufferCount = 1,
+                       .pCommandBuffers = &(*activeCommandBuffers->at(currentRenderPass)), // What the hell
+                       .signalSemaphoreCount = 1,
+                       .pSignalSemaphores = &*frameData[activeFrame]->getSemaphore(currentRenderPass + 1)},
+        frameData[activeFrame]->getFences().at(currentRenderPass));
 }
 
-void RenderManager::draw()
+void RenderManager::render()
 {
-    assert(frameActive && "Frame not active");
-}
-
-void RenderManager::createFramebuffers()
-{
-    framebuffers.clear();
-    framebuffers.reserve(swapchain->getImageCount());
-    for (auto i = 0; i < swapchain->getImageCount(); ++i)
+    for (size_t i = 0; i < renderers.size(); ++i)
     {
-        framebuffers.emplace_back(
-            std::make_unique<core::Framebuffer>(device, *renderPass, renderer->getRenderTarget(i)));
+        beginRenderPass(*renderers[i], i);
+        renderers[i]->draw(&activeCommandBuffers->at(i)); // Pass the index to the draw function
+        endRenderPass(i);
     }
-    LOG_INFO("Created Framebuffer x{}", framesInFlight)
 }
 
 void RenderManager::createFrameData()
 {
+    std::vector<FrameData *> renderFrameData;
     for (auto i = 0; i < framesInFlight; ++i)
     {
-        frameData.emplace_back(std::make_unique<FrameData>(device));
+        frameData.emplace_back(std::make_unique<FrameData>(device, renderers.size()));
+        renderFrameData.emplace_back(frameData.back().get());
     }
+    std::for_each(renderers.begin(), renderers.end(), [&](auto &renderer) { renderer->setFrameData(renderFrameData); });
     LOG_INFO("Created FrameData x{}", framesInFlight)
 }
 
 bool RenderManager::recreateSwapchain()
 {
     swapchain->recreate();
+    gui->recreate(*swapchain);
 
-    renderer->updateRenderTargets();
+    renderers[1]->syncFrameData();
+    renderers[1]->updateFramebuffers();
+    //    for (auto &renderer : renderers)
+    //    {
+    //        renderer->updateFramebuffers();
+    //    }
 
-    createFramebuffers();
     window.setResized(false);
 
     return true;

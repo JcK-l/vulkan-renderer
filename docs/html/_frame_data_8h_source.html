@@ -100,7 +100,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classvkf_1_1rendering_1_1_frame_data.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classvkf_1_1rendering_1_1_frame_data.html">FrameData</a></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classvkf_1_1rendering_1_1_frame_data.html">FrameData</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classvkf_1_1rendering_1_1_frame_data.html">FrameData</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device, uint32_t numRenderPasses);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classvkf_1_1rendering_1_1_frame_data.html">FrameData</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1rendering_1_1_frame_data.html">FrameData</a> &amp;) = <span class="keyword">delete</span>;            <span class="comment">// Deleted copy constructor</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_class" href="classvkf_1_1rendering_1_1_frame_data.html">FrameData</a>(<a class="code hl_class" href="classvkf_1_1rendering_1_1_frame_data.html">FrameData</a> &amp;&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;       <span class="comment">// Default move constructor</span></div>
@@ -108,29 +108,30 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_class" href="classvkf_1_1rendering_1_1_frame_data.html">FrameData</a> &amp;operator=(<a class="code hl_class" href="classvkf_1_1rendering_1_1_frame_data.html">FrameData</a> &amp;&amp;) = <span class="keyword">delete</span>;      <span class="comment">// Deleted move assignment operator</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classvkf_1_1rendering_1_1_frame_data.html">~FrameData</a>(); <span class="comment">// Implementation in FrameData.cpp because of std::unique_ptr forward declaration</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    vk::raii::CommandBuffer *getCommandBuffer();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    vk::raii::CommandBuffers *getCommandBuffers();</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    [[nodiscard]] <span class="keyword">const</span> vk::raii::Semaphore &amp;getSemaphore(uint32_t index) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    [[nodiscard]] <span class="keyword">const</span> vk::raii::Fence &amp;getFence() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::unique_ptr&lt;core::CommandPool&gt; commandPool;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::unordered_map&lt;uint32_t, vk::raii::CommandBuffers *&gt; commandBuffersMap;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::array&lt;vk::raii::Semaphore, 2&gt; semaphore{VK_NULL_HANDLE, VK_NULL_HANDLE};</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    vk::raii::Fence fence{VK_NULL_HANDLE};</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    [[nodiscard]] <span class="keyword">const</span> vk::raii::Semaphore &amp;getLastSemaphore() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    [[nodiscard]] std::vector&lt;vk::Fence&gt; getFences() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::unique_ptr&lt;core::CommandPool&gt; commandPool;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    std::unordered_map&lt;uint32_t, vk::raii::CommandBuffers *&gt; commandBuffersMap;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    std::vector&lt;vk::raii::Semaphore&gt; semaphore;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::vector&lt;vk::raii::Fence&gt; fences;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
 </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>} <span class="comment">// namespace vkf::rendering</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_FRAMEDATA_H</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>} <span class="comment">// namespace vkf::rendering</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_FRAMEDATA_H</span></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_device_html"><div class="ttname"><a href="classvkf_1_1core_1_1_device.html">vkf::core::Device</a></div><div class="ttdoc">This class is used to manage Vulkan devices.</div><div class="ttdef"><b>Definition</b> Device.h:35</div></div>
 <div class="ttc" id="aclassvkf_1_1rendering_1_1_frame_data_html"><div class="ttname"><a href="classvkf_1_1rendering_1_1_frame_data.html">vkf::rendering::FrameData</a></div><div class="ttdoc">This class manages per frame data.</div><div class="ttdef"><b>Definition</b> FrameData.h:34</div></div>
-<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> CommandPool.cpp:18</div></div>
-<div class="ttc" id="anamespacevkf_1_1rendering_html"><div class="ttname"><a href="namespacevkf_1_1rendering.html">vkf::rendering</a></div><div class="ttdoc">The rendering namespace contains classes and functions for rendering operations.</div><div class="ttdef"><b>Definition</b> Framebuffer.h:19</div></div>
+<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> Buffer.cpp:18</div></div>
+<div class="ttc" id="anamespacevkf_1_1rendering_html"><div class="ttname"><a href="namespacevkf_1_1rendering.html">vkf::rendering</a></div><div class="ttdoc">The rendering namespace contains classes and functions for rendering operations.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

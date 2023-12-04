@@ -1,0 +1,59 @@
+\doxysection{vkf\+::core\+::Pipeline Class Reference}
+\hypertarget{classvkf_1_1core_1_1_pipeline}{}\label{classvkf_1_1core_1_1_pipeline}\index{vkf::core::Pipeline@{vkf::core::Pipeline}}
+
+
+This class manages Vulkan pipelines.  
+
+
+
+
+{\ttfamily \#include $<$Pipeline.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline_aeed4fecd0ca3e7ffde8c89a059ac71cf}{Pipeline}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&render\+Pass)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1core_1_1_pipeline}{Pipeline} class. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_pipeline_a4d8b886f1d5eb431fee44beb714d5e11}\label{classvkf_1_1core_1_1_pipeline_a4d8b886f1d5eb431fee44beb714d5e11} 
+const vk\+::raii\+::\+Pipeline \& {\bfseries get\+Handle} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_pipeline_a89d6aa00613a0b3fd26103e0ba04af39}\label{classvkf_1_1core_1_1_pipeline_a89d6aa00613a0b3fd26103e0ba04af39} 
+vk\+::raii\+::\+Pipeline\+Layout {\bfseries pipeline\+Layout} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_pipeline_ac241fcf991743c3e423b42e9216aa953}\label{classvkf_1_1core_1_1_pipeline_ac241fcf991743c3e423b42e9216aa953} 
+vk\+::raii\+::\+Pipeline {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages Vulkan pipelines. 
+
+Currently, this class only creates a trivial pipeline, but it is planned to be expanded in the future. It provides functionality to get the handle to the pipeline. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1core_1_1_pipeline_aeed4fecd0ca3e7ffde8c89a059ac71cf}\label{classvkf_1_1core_1_1_pipeline_aeed4fecd0ca3e7ffde8c89a059ac71cf} 
+\index{vkf::core::Pipeline@{vkf::core::Pipeline}!Pipeline@{Pipeline}}
+\index{Pipeline@{Pipeline}!vkf::core::Pipeline@{vkf::core::Pipeline}}
+\doxysubsubsection{\texorpdfstring{Pipeline()}{Pipeline()}}
+{\footnotesize\ttfamily vkf\+::core\+::\+Pipeline\+::\+Pipeline (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{device,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{Render\+Pass}} \&}]{render\+Pass }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{classvkf_1_1core_1_1_pipeline}{Pipeline} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The Vulkan device. \\
+\hline
+{\em render\+Pass} & The render pass. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_pipeline_8h}{Pipeline.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_pipeline_8cpp}{Pipeline.\+cpp}}\end{DoxyCompactItemize}
