@@ -61,6 +61,15 @@ class RenderSource
     /// \return The extent.
     ///
     virtual vk::Extent2D getExtent() const = 0;
+
+    ///
+    /// \brief Pure virtual method to get the extent.
+    ///
+    /// This method is intended to be overridden by subclasses to return the extent.
+    ///
+    /// \return The extent.
+    ///
+    virtual bool resetChanged() = 0;
 };
 
 } // namespace vkf::rendering

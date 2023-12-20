@@ -15,21 +15,29 @@
 #include "Application.h"
 
 #include "../common/Log.h"
+#include "../core/Buffer.h"
 #include "../core/Device.h"
 #include "../core/Framebuffer.h"
 #include "../core/Instance.h"
 #include "../core/PhysicalDevice.h"
 #include "../core/Pipeline.h"
 #include "../core/RenderPass.h"
+#include "../core/Shader.h"
 #include "../core/Swapchain.h"
+#include "../rendering/BindlessManager.h"
 #include "../rendering/ForwardSubstage.h"
 #include "../rendering/FrameData.h"
 #include "../rendering/GuiSubstage.h"
+#include "../rendering/PipelineBuilder.h"
 #include "../rendering/RenderManager.h"
 #include "../rendering/Renderer.h"
+#include "../scene/Camera.h"
+#include "../scene/Entity.h"
 #include "../scene/Scene.h"
+#include "Gui.h"
 #include "Window.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+#include <glm/gtc/type_ptr.hpp>
 #include <utility>
 
 namespace vkf::platform
@@ -43,7 +51,7 @@ Application::Application(std::string appName) : appName{std::move(appName)}
         createInstance();
         createSurface();
         createDevice();
-        createScene();
+        createBindlessManager();
         createRenderManager();
     }
     catch (vk::SystemError &err)
@@ -113,7 +121,12 @@ void Application::onEvent(Event &event)
 
 void Application::onUpdate()
 {
-    renderManager->beginFrame();
+    auto frame = renderManager->beginFrame();
+    gui->preRender(frame, *scene);
+
+    bindlessManager->updateDescriptorSet();
+    scene->getCamera()->updateCameraBuffer();
+
     renderManager->render();
     renderManager->endFrame();
 }
@@ -185,18 +198,31 @@ void Application::createDevice()
     device = std::make_unique<core::Device>(*instance, *surface, deviceExtensions);
 }
 
-void Application::createScene()
+void Application::createScene(const core::RenderPass &renderPass)
 {
-    scene = std::make_unique<scene::Scene>();
-    scene->createEntity("Invisible Cube");
-    scene->createEntity("Invisible Sphere");
-    scene->createEntity("Invisible Pyramid");
+
+    vk::BufferCreateInfo bufferModelCreateInfo{.size = 64, .usage = vk::BufferUsageFlagBits::eUniformBuffer};
+    core::Buffer buffer{*device, bufferModelCreateInfo,
+                        VMA_ALLOCATION_CREATE_MAPPED_BIT | VMA_ALLOCATION_CREATE_HOST_ACCESS_SEQUENTIAL_WRITE_BIT};
+    auto cameraHandle = bindlessManager->storeBuffer(buffer, vk::BufferUsageFlagBits::eUniformBuffer);
+
+    auto camera = scene::Camera{*bindlessManager, cameraHandle, 45, 800, 0.1, 100};
+
+    auto viewProjection = camera.getViewProjectionMatrix();
+
+    //    bindlessManager->updateBuffer(cameraHandle, glm::value_ptr(viewProjection), sizeof(glm::mat4), 0);
+
+    scene = std::make_unique<scene::Scene>(*device, *bindlessManager, renderPass, camera);
+}
+
+void Application::createBindlessManager()
+{
+    bindlessManager = std::make_unique<rendering::BindlessManager>(*device);
 }
 
 void Application::createRenderManager()
 {
-
-    auto swapchain = std::make_shared<core::Swapchain>(*device, *surface, *window);
+    swapchain = std::make_shared<core::Swapchain>(*device, *surface, *window);
 
     std::vector<vk::AttachmentDescription> guiAttachments;
     guiAttachments.emplace_back(vk::AttachmentDescription{
@@ -210,13 +236,17 @@ void Application::createRenderManager()
         .finalLayout = vk::ImageLayout::ePresentSrcKHR         // Image will be used as source for presentation
     });
 
+    std::vector<vk::ClearValue> guiClearValues{vk::ClearValue{}};
+    guiClearValues[0].color =
+        vk::ClearColorValue(std::array<float, 4>{0.0f, 0.0f, 0.0f, 1.0f}); // Color attachment clear value
+
     rendering::RenderOptions guiRenderOptions{
-        .clearValue = {std::array<float, 4>{0.0f, 0.0f, 0.0f, 1.0f}}, .numSubpasses = 1, .attachments = guiAttachments};
+        .clearValues = guiClearValues, .numSubpasses = 1, .attachments = guiAttachments, .useDepth = false};
 
     auto guiRenderer = std::make_unique<rendering::Renderer>(*device, std::move(guiRenderOptions), swapchain);
-    auto gui = std::make_shared<Gui>(*window, *instance, *device, *guiRenderer->getRenderPass(), *swapchain, *scene);
+    gui =
+        std::make_shared<Gui>(*window, *instance, *device, *guiRenderer->getRenderPass(), *swapchain, *bindlessManager);
     guiRenderer->addRenderSubstage(std::make_unique<rendering::GuiSubstage>(gui.get()));
-    guiRenderer->updateFramebuffers();
 
     std::vector<vk::AttachmentDescription> sceneAttachments;
     sceneAttachments.emplace_back(vk::AttachmentDescription{
@@ -229,20 +259,34 @@ void Application::createRenderManager()
         .initialLayout = vk::ImageLayout::eUndefined,          // We don't care about the initial layout
         .finalLayout = vk::ImageLayout::eShaderReadOnlyOptimal // Image will be used as source for ImGui
     });
+    sceneAttachments.emplace_back(vk::AttachmentDescription{
+        .format = vk::Format::eD32Sfloat,                   // Assuming the image format is D32 sfloat
+        .samples = vk::SampleCountFlagBits::e1,             // Single sample, as multi-sampling is not used
+        .loadOp = vk::AttachmentLoadOp::eClear,             // Clear the image at the start
+        .storeOp = vk::AttachmentStoreOp::eDontCare,        // Don't store the image to memory after rendering
+        .stencilLoadOp = vk::AttachmentLoadOp::eDontCare,   // We don't care about stencil
+        .stencilStoreOp = vk::AttachmentStoreOp::eDontCare, // We don't care about stencil
+        .initialLayout = vk::ImageLayout::eUndefined,       // We don't care about the initial layout
+        .finalLayout = vk::ImageLayout::eDepthStencilAttachmentOptimal // Image will be used as source for ImGui
+    });
 
-    rendering::RenderOptions sceneRenderOptions{.clearValue = {std::array<float, 4>{0.05f, 0.05f, 0.05f, 1.0f}},
-                                                .numSubpasses = 1,
-                                                .attachments = sceneAttachments};
+    std::vector<vk::ClearValue> sceneClearValues{vk::ClearValue{}, vk::ClearValue{}};
+    sceneClearValues[0].color =
+        vk::ClearColorValue(std::array<float, 4>{0.05f, 0.05f, 0.05f, 1.0f}); // Color attachment clear value
+    sceneClearValues[1].depthStencil = vk::ClearDepthStencilValue(1.0f, 0);   // Depth attachment clear value
+
+    rendering::RenderOptions sceneRenderOptions{
+        .clearValues = sceneClearValues, .numSubpasses = 1, .attachments = sceneAttachments, .useDepth = true};
 
     auto sceneRenderer = std::make_unique<rendering::Renderer>(*device, std::move(sceneRenderOptions), gui);
-    pipeline = std::make_unique<core::Pipeline>(*device, *sceneRenderer->getRenderPass());
-    sceneRenderer->addRenderSubstage(std::make_unique<rendering::ForwardSubstage>(*pipeline, gui.get()));
+    createScene(*sceneRenderer->getRenderPass());
+    sceneRenderer->addRenderSubstage(std::make_unique<rendering::ForwardSubstage>(*scene, gui.get(), *bindlessManager));
 
     std::vector<std::unique_ptr<rendering::Renderer>> renderers;
     renderers.push_back(std::move(sceneRenderer));
     renderers.push_back(std::move(guiRenderer));
 
-    renderManager = std::make_unique<rendering::RenderManager>(*device, *window, swapchain, gui, std::move(renderers));
+    renderManager = std::make_unique<rendering::RenderManager>(*device, *window, swapchain, std::move(renderers));
 }
 
 void Application::enableInstanceExtension(const char *extensionName)
@@ -259,4 +303,5 @@ void Application::enableInstanceLayer(const char *layerName)
 {
     instanceLayers.push_back(layerName);
 }
+
 } // namespace vkf::platform

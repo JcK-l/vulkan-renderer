@@ -18,12 +18,16 @@
 #include "../core/PhysicalDevice.h"
 #include "../core/RenderPass.h"
 #include "../core/Swapchain.h"
-#include "../rendering/Renderer.h"
+#include "../rendering/BindlessManager.h"
+#include "../scene/Camera.h"
+#include "../scene/Entity.h"
 #include "../scene/Scene.h"
 #include "Window.h"
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_vulkan.h"
 #include "imgui_internal.h"
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace vkf::platform
 {
@@ -38,8 +42,9 @@ static void check_vk_result(VkResult err)
 }
 
 Gui::Gui(const Window &window, const core::Instance &instance, const core::Device &device,
-         const core::RenderPass &renderPass, const core::Swapchain &swapchain, scene::Scene &scene)
-    : device{device}, scene{scene}
+         const core::RenderPass &renderPass, const core::Swapchain &swapchain,
+         rendering::BindlessManager &bindlessManager)
+    : device{device}, swapchain{swapchain}, bindlessManager{bindlessManager}
 {
     vk::SamplerCreateInfo samplerInfo{.magFilter = vk::Filter::eLinear,
                                       .minFilter = vk::Filter::eLinear,
@@ -87,9 +92,6 @@ Gui::Gui(const Window &window, const core::Instance &instance, const core::Devic
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;     // Enable Docking
     //    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;   // Enable Multi-Viewport / Platform Windows
 
-    imageCount = swapchain.getImageCount();
-    minImageCount = swapchain.getMinImageCount();
-
     // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular
     // ones.
     ImGuiStyle &style = ImGui::GetStyle();
@@ -99,6 +101,7 @@ Gui::Gui(const Window &window, const core::Instance &instance, const core::Devic
         style.Colors[ImGuiCol_WindowBg].w = 1.0f;
     }
 
+    //    ImGui_ImplVulkan_SetMinImageCount(minImageCount);
     ImGui_ImplGlfw_InitForVulkan(window.getHandle(), true);
     ImGui_ImplVulkan_InitInfo init_info = {};
     init_info.Instance = *instance.getHandle();
@@ -108,8 +111,8 @@ Gui::Gui(const Window &window, const core::Instance &instance, const core::Devic
     init_info.Queue = *device.getQueue(0, 0).getHandle();
     init_info.DescriptorPool = *imguiPool;
     init_info.Subpass = 0;
-    init_info.MinImageCount = minImageCount;
-    init_info.ImageCount = imageCount;
+    init_info.MinImageCount = swapchain.getMinImageCount();
+    init_info.ImageCount = swapchain.getImageCount();
     init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
     init_info.CheckVkResultFn = check_vk_result;
     ImGui_ImplVulkan_Init(&init_info, *renderPass.getHandle());
@@ -122,7 +125,7 @@ Gui::~Gui()
     ImGui::DestroyContext();
 }
 
-void Gui::preRender(rendering::Renderer &renderer, uint32_t frameIndex)
+void Gui::preRender(uint32_t frameIndex, scene::Scene &scene)
 {
     ImGui_ImplVulkan_NewFrame();
     ImGui_ImplGlfw_NewFrame();
@@ -183,6 +186,7 @@ void Gui::preRender(rendering::Renderer &renderer, uint32_t frameIndex)
         if (firstTime)
         {
             firstTime = false;
+            activeEntity = std::make_unique<scene::Entity>(scene.getRegistry());
 
             ImGui::DockBuilderRemoveNode(dockspaceId);
             ImGui::DockBuilderAddNode(dockspaceId, dockspaceFlags | ImGuiDockNodeFlags_DockSpace);
@@ -248,8 +252,33 @@ void Gui::preRender(rendering::Renderer &renderer, uint32_t frameIndex)
         ImGui::EndMenuBar();
     }
 
+    createScenePanel(scene, frameIndex);
+    createHierarchyPanel(scene);
+    createPropertiesPanel(scene);
+
+    ImGui::End();
+
+    ImGui::Render();
+}
+
+void Gui::createScenePanel(scene::Scene &scene, uint32_t frameIndex)
+{
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
     ImGui::Begin("Scene");
+
+    if (ImGui::IsWindowHovered())
+    {
+        ImGuiIO &io = ImGui::GetIO();
+        if (io.MouseWheel != 0.0f)
+        {
+            scene.getCamera()->zoom(-io.MouseWheel);
+        }
+
+        if (ImGui::IsMouseDragging(ImGuiMouseButton_Middle, 0.0f))
+        {
+            scene.getCamera()->orbit(io.MouseDelta.x, io.MouseDelta.y);
+        }
+    }
 
     uint32_t viewportPanelSizeX = static_cast<uint32_t>(ImGui::GetContentRegionAvail().x);
     uint32_t viewportPanelSizeY = static_cast<uint32_t>(ImGui::GetContentRegionAvail().y);
@@ -259,19 +288,191 @@ void Gui::preRender(rendering::Renderer &renderer, uint32_t frameIndex)
         LOG_DEBUG("Resizing viewport to {}x{}", viewportPanelSizeX, viewportPanelSizeY)
         sceneViewportExtent.width = viewportPanelSizeX;
         sceneViewportExtent.height = viewportPanelSizeY;
-        renderer.syncFrameData();
-        createImages(imageCount);
+        device.getHandle().waitIdle();
+        createImages(swapchain.getImageCount());
         createImageViews();
-        renderer.updateFramebuffers();
         ImGui_ImplVulkan_RemoveTexture(dset);
         dset = ImGui_ImplVulkan_AddTexture(*textureSampler, *imageViews[frameIndex],
                                            VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+        changed = true;
+        scene.getCamera()->updateAspectRatio(static_cast<float>(sceneViewportExtent.width) /
+                                             static_cast<float>(sceneViewportExtent.height));
     }
     ImGui::Image(dset,
                  ImVec2{static_cast<float>(sceneViewportExtent.width), static_cast<float>(sceneViewportExtent.height)});
-    ImGui::End();
+
     ImGui::PopStyleVar();
 
+    // Right-click context menu
+    if (ImGui::BeginPopupContextWindow())
+    {
+        if (ImGui::MenuItem("Create Cube"))
+        {
+            isCreateDialog = true;
+        }
+
+        ImGui::EndPopup();
+    }
+    if (isCreateDialog)
+        ImGui::OpenPopup("Enter Name");
+
+    static char buffer[32] = ""; // Buffer to hold the input text.
+
+    if (ImGui::BeginPopupModal("Enter Name", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::Text("Enter a name:\n");
+        ImGui::Separator();
+
+        // Creates a text input field with the label "Name"
+        ImGui::InputText("Name", buffer, IM_ARRAYSIZE(buffer));
+
+        if (ImGui::Button("OK", ImVec2(120, 0)))
+        {
+            // When the OK button is clicked, create the triangle with the name from the input field
+            activeEntity->setHandle(scene.createCube(buffer, glm::vec3{0.0f, 0.0f, 0.0f}, glm::vec3{0.0f, 0.0f, 0.0f},
+                                                     glm::vec3{1.0f, 1.0f, 1.0f}, glm::vec4{1.0f, 0.0f, 0.0f, 1.0f}));
+            ImGui::CloseCurrentPopup();
+            isCreateDialog = false;
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel", ImVec2(120, 0)))
+        {
+            ImGui::CloseCurrentPopup();
+            isCreateDialog = false;
+        }
+        ImGui::EndPopup();
+    }
+
+    ImGui::End();
+}
+
+void Gui::createPropertiesPanel(scene::Scene &scene)
+{
+    ImGui::Begin("Properties");
+
+    if (activeEntity && activeEntity->getHandle() != entt::null)
+    {
+        auto &tag = scene.getRegistry().get<scene::TagComponent>(activeEntity->getHandle());
+        ImGui::Text("Selected Entity: %s", tag.tag.c_str());
+
+        if (scene.getRegistry().all_of<scene::TransformComponent, scene::MaterialComponent>(activeEntity->getHandle()))
+        {
+            auto &tc = scene.getRegistry().get<scene::TransformComponent>(activeEntity->getHandle());
+            auto &mc = scene.getRegistry().get<scene::MaterialComponent>(activeEntity->getHandle());
+
+            // Display position
+            ImGui::DragFloat3("Position", glm::value_ptr(tc.position), 0.01f);
+
+            // Display rotation
+            ImGui::DragFloat3("Rotation", glm::value_ptr(tc.rotation), 0.01f);
+
+            // Display scale
+            static bool linkValues = false;
+            glm::vec3 newScale = tc.scale; // Capture the state of tc.scale
+
+            if (ImGui::DragFloat3("Scale", glm::value_ptr(newScale), 0.01f))
+            {
+                if (linkValues)
+                {
+                    for (int i = 0; i < 3; ++i)
+                    {
+                        if (newScale[i] != tc.scale[i]) // Compare newScale with tc.scale
+                        {
+                            for (int j = 0; j < 3; ++j)
+                            {
+                                if (i != j)
+                                {
+                                    newScale[j] = newScale[i]; // Set the other two values to the changed value
+                                }
+                            }
+                            break; // No need to check the other values once we found the changed one
+                        }
+                    }
+                }
+                tc.scale = newScale; // Update tc.scale with the new values
+            }
+
+            auto model = glm::mat4(1.0f);
+
+            model = glm::translate(model, tc.position);
+
+            model = glm::rotate(model, tc.rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
+            model = glm::rotate(model, tc.rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
+            model = glm::rotate(model, tc.rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+
+            model = glm::scale(model, tc.scale);
+
+            bindlessManager.updateBuffer(mc.getBufferIndex("model"), glm::value_ptr(model), sizeof(model), 0);
+
+            ImGui::SameLine();
+
+            if (linkValues)
+            {
+                // Change the button color to highlight it when linking is active
+                ImGui::PushStyleColor(ImGuiCol_Button, IM_COL32(0, 120, 215, 255)); // Blue color
+
+                if (ImGui::Button("Link"))
+                {
+                    linkValues = !linkValues;
+                }
+
+                // Reset the button color back to default when done
+                ImGui::PopStyleColor();
+            }
+            else
+            {
+                if (ImGui::Button("Link"))
+                {
+                    linkValues = !linkValues;
+                }
+            }
+        }
+
+        if (scene.getRegistry().all_of<scene::ColorComponent, scene::MaterialComponent>(activeEntity->getHandle()))
+        {
+            auto &c = scene.getRegistry().get<scene::ColorComponent>(activeEntity->getHandle());
+            auto &mc = scene.getRegistry().get<scene::MaterialComponent>(activeEntity->getHandle());
+
+            ImGui::ColorEdit4("Color Picker", glm::value_ptr(c.color));
+            bindlessManager.updateBuffer(mc.getBufferIndex("color"), glm::value_ptr(c.color), sizeof(c.color), 0);
+        }
+    }
+
+    //    // Text
+    //    ImGui::Text("This is some useful text.");
+    //
+    //    // Buttons
+    //    if (ImGui::Button("Button"))
+    //        buttonPressed = true;
+    //    if (buttonPressed)
+    //        ImGui::Text("Button was pressed!");
+    //
+    //    // Checkbox
+    //    static bool checkbox = false;
+    //    ImGui::Checkbox("Checkbox", &checkbox);
+    //
+    //    // Slider
+    //    static float sliderValue = 0.5f;
+    //    ImGui::SliderFloat("Slider", &sliderValue, 0.0f, 1.0f);
+
+    //    // Color picker
+    //    static float color[4] = {1.0f, 0.0f, 0.0f, 1.0f};
+    //    ImGui::ColorEdit4("Color Picker", color);
+    //    bindlessManager.updateBuffer(0, color, sizeof(color), 0);
+
+    //    // Input text
+    //    static char text[32] = "";
+    //    ImGui::InputText("Input Text", text, IM_ARRAYSIZE(text));
+    //
+    //    // Drag float
+    //    static float dragFloat = 0.5f;
+    //    ImGui::DragFloat("Drag Float", &dragFloat);
+
+    ImGui::End();
+}
+
+void Gui::createHierarchyPanel(scene::Scene &scene)
+{
     ImGui::Begin("Scene Hierarchy");
 
     auto view = scene.getRegistry().view<scene::TagComponent>();
@@ -279,57 +480,29 @@ void Gui::preRender(rendering::Renderer &renderer, uint32_t frameIndex)
     {
         auto &tag = view.get<scene::TagComponent>(entity);
 
-        if (ImGui::TreeNode(tag.tag.c_str()))
+        // If the user clicks on the entity name, select this entity
+        if (ImGui::Selectable(tag.tag.c_str(), entity == activeEntity->getHandle()))
         {
-            if (ImGui::TreeNode("Child Node"))
-            {
-                // Add widgets for the child node here
-
-                ImGui::TreePop();
-            }
-
-            ImGui::TreePop();
+            activeEntity->setHandle(entity);
         }
     }
 
-    ImGui::End();
+    // Right-click context menu
+    if (ImGui::BeginPopupContextWindow())
+    {
+        if (ImGui::MenuItem("Destory") && activeEntity->getHandle() != entt::null)
+        {
+            device.getHandle().waitIdle();
+            auto &mc = activeEntity->getComponent<scene::MaterialComponent>();
+            bindlessManager.removeBuffer(mc.getBufferIndex("color"));
+            bindlessManager.removeBuffer(mc.getBufferIndex("model"));
+            activeEntity->destroy();
+        }
 
-    ImGui::Begin("Properties");
-
-    // Text
-    ImGui::Text("This is some useful text.");
-
-    // Buttons
-    if (ImGui::Button("Button"))
-        buttonPressed = true;
-    if (buttonPressed)
-        ImGui::Text("Button was pressed!");
-
-    // Checkbox
-    static bool checkbox = false;
-    ImGui::Checkbox("Checkbox", &checkbox);
-
-    // Slider
-    static float sliderValue = 0.5f;
-    ImGui::SliderFloat("Slider", &sliderValue, 0.0f, 1.0f);
-
-    // Color picker
-    static float color[4] = {1.0f, 0.0f, 0.0f, 1.0f};
-    ImGui::ColorEdit4("Color Picker", color);
-
-    // Input text
-    static char text[32] = "";
-    ImGui::InputText("Input Text", text, IM_ARRAYSIZE(text));
-
-    // Drag float
-    static float dragFloat = 0.5f;
-    ImGui::DragFloat("Drag Float", &dragFloat);
+        ImGui::EndPopup();
+    }
 
     ImGui::End();
-
-    ImGui::End();
-
-    ImGui::Render();
 }
 
 void Gui::draw(vk::raii::CommandBuffer *cmd)
@@ -368,11 +541,11 @@ void Gui::createImages(uint32_t numImages)
     }
 }
 
-void Gui::recreate(const core::Swapchain &swapchain)
+bool Gui::resetChanged()
 {
-    imageCount = swapchain.getImageCount();
-    minImageCount = swapchain.getMinImageCount();
-    ImGui_ImplVulkan_SetMinImageCount(minImageCount);
+    bool currentChanged = changed;
+    changed = false;
+    return currentChanged;
 }
 
 vk::Extent2D Gui::getExtent() const
@@ -393,7 +566,7 @@ std::vector<vk::ImageView> Gui::getImageViews() const
 
 uint32_t Gui::getImageCount() const
 {
-    return imageCount;
+    return swapchain.getImageCount();
 }
 
 void Gui::createImageViews()
@@ -402,7 +575,7 @@ void Gui::createImageViews()
     imageViews.reserve(images.size());
     for (const auto &image : images)
     {
-        imageViews.emplace_back(image.createImageView());
+        imageViews.emplace_back(image.createImageView(vk::ImageAspectFlagBits::eColor));
     }
 }
 

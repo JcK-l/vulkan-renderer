@@ -16,20 +16,20 @@
 
 #include "RenderSubstage.h"
 
-// Forward declarations for classes in the vkf::core namespace
-namespace vkf::core
+namespace vkf::scene // Forward declarations
 {
-class Pipeline;
-} // namespace vkf::core
+class Scene;
+} // namespace vkf::scene
 
-// Forward declarations for classes in the vkf::platform namespace
-namespace vkf::platform
+namespace vkf::platform // Forward declarations
 {
 class Gui;
 } // namespace vkf::platform
 
 namespace vkf::rendering
 {
+
+class BindlessManager;
 
 ///
 /// \class ForwardSubstage
@@ -48,7 +48,7 @@ class ForwardSubstage : public RenderSubstage
     /// \param inputPipeline The Vulkan pipeline.
     /// \param inputGui The GUI.
     ///
-    ForwardSubstage(const core::Pipeline &inputPipeline, platform::Gui *inputGui);
+    ForwardSubstage(scene::Scene &scene, platform::Gui *inputGui, const rendering::BindlessManager &bindlessManager);
 
     ForwardSubstage(const ForwardSubstage &) = delete;            // Deleted copy constructor
     ForwardSubstage(ForwardSubstage &&) noexcept = default;       // Default move constructor
@@ -59,8 +59,9 @@ class ForwardSubstage : public RenderSubstage
     void draw(vk::raii::CommandBuffer *cmd) override;
 
   private:
-    const core::Pipeline &pipeline;
+    scene::Scene &scene;
     platform::Gui *gui;
+    const rendering::BindlessManager &bindlessManager;
 };
 
 } // namespace vkf::rendering

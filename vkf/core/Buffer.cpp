@@ -17,44 +17,101 @@
 namespace vkf::core
 {
 
-Buffer::Buffer(const Device &device, vk::BufferCreateInfo createInfo, VmaMemoryUsage memoryUsage) : device{device}
+Buffer::Buffer(const Device &device, vk::BufferCreateInfo createInfo, VmaAllocationCreateFlags allocationFlags)
+    : device{device}
 {
     VmaAllocationCreateInfo allocationCreateInfo{};
-    allocationCreateInfo.usage = memoryUsage;
+    allocationCreateInfo.usage = VMA_MEMORY_USAGE_AUTO;
+    allocationCreateInfo.flags = allocationFlags;
 
+    persistentMapped = (allocationFlags & VMA_ALLOCATION_CREATE_MAPPED_BIT) != 0;
+
+    VmaAllocationInfo allocationInfo{};
     auto result = vmaCreateBuffer(device.getVmaAllocator(), reinterpret_cast<const VkBufferCreateInfo *>(&createInfo),
-                                  &allocationCreateInfo, reinterpret_cast<VkBuffer *>(&handle), &allocation, nullptr);
+                                  &allocationCreateInfo, &handle, &allocation, &allocationInfo);
     if (result != VK_SUCCESS)
     {
         throw std::runtime_error{"Failed to create buffer"};
     }
+
+    if (persistentMapped)
+    {
+        mappedData = allocationInfo.pMappedData;
+    }
+}
+
+Buffer::Buffer(Buffer &&other) noexcept
+    : device{other.device}, handle{other.handle}, allocation{other.allocation},
+      persistentMapped{other.persistentMapped}, mapped{other.mapped}, mappedData{other.mappedData}, size{other.size}
+{
+    // Invalidate the source object
+    other.handle = VK_NULL_HANDLE;
+    other.allocation = nullptr;
+    other.mappedData = nullptr;
+    other.mapped = false;
+    other.size = 0;
 }
 
 Buffer::~Buffer()
 {
-    if (allocation)
+    if (allocation && handle)
     {
-        vmaDestroyBuffer(device.getVmaAllocator(), *handle, allocation);
+        if (mapped)
+        {
+            unmapMemory();
+        }
+        vmaDestroyBuffer(device.getVmaAllocator(), handle, allocation);
+        handle = VK_NULL_HANDLE;
     }
 }
 
-const vk::raii::Buffer &Buffer::getHandle() const
+void Buffer::mapMemory()
 {
-    return handle;
-}
-
-void Buffer::mapMemory(void **data)
-{
-    VkResult result = vmaMapMemory(device.getVmaAllocator(), allocation, data);
+    assert(!persistentMapped && "Cannot map persistent mapped memory");
+    assert(!mapped && "Memory is already mapped");
+    VkResult result = vmaMapMemory(device.getVmaAllocator(), allocation, &mappedData);
     if (result != VK_SUCCESS)
     {
         throw std::runtime_error("Failed to map memory");
     }
+    mapped = true;
 }
 
 void Buffer::unmapMemory()
 {
+    assert(!persistentMapped && "Cannot unmap persistent mapped memory");
+    assert(mapped && "Memory is not mapped");
     vmaUnmapMemory(device.getVmaAllocator(), allocation);
+}
+
+void Buffer::updateData(const void *data, const uint32_t size, const uint32_t offset)
+{
+    this->size = size;
+    const auto *srcData = static_cast<const uint8_t *>(data);
+    auto *dstData = static_cast<uint8_t *>(mappedData) + offset;
+
+    if (!persistentMapped)
+    {
+        mapMemory();
+        dstData = static_cast<uint8_t *>(mappedData) + offset;
+    }
+
+    std::copy(srcData, srcData + size, dstData);
+
+    if (!persistentMapped)
+    {
+        unmapMemory();
+    }
+}
+
+vk::Buffer Buffer::getBuffer() const
+{
+    return {handle};
+}
+
+uint32_t Buffer::getSize() const
+{
+    return size;
 }
 
 } // namespace vkf::core

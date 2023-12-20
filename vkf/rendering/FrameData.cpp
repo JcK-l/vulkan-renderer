@@ -52,6 +52,11 @@ const vk::raii::Semaphore &FrameData::getSemaphore(uint32_t index) const
     return semaphore[index];
 }
 
+void FrameData::refreshSemaphore(uint32_t index)
+{
+    semaphore[index] = vk::raii::Semaphore{device.getHandle(), vk::SemaphoreCreateInfo{}};
+}
+
 const vk::raii::Semaphore &FrameData::getLastSemaphore() const
 {
     return semaphore[semaphore.size() - 1];

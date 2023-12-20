@@ -39,7 +39,7 @@ class Image
     /// \param createInfo The information for creating an image.
     /// \param allocationFlags The flags for memory allocation.
     ///
-    Image(const Device &device, vk::ImageCreateInfo createInfo, VmaAllocationCreateFlagBits allocationFlags);
+    Image(const Device &device, vk::ImageCreateInfo createInfo, VmaAllocationCreateFlags allocationFlags);
 
     Image(const Image &) = delete;            // Deleted copy constructor
     Image(Image &&) noexcept = default;       // Default move constructor
@@ -47,14 +47,14 @@ class Image
     Image &operator=(Image &&) = delete;      // Deleted move assignment operator
     ~Image();                                 // Destructor
 
-    [[nodiscard]] vk::raii::ImageView createImageView() const;
+    [[nodiscard]] vk::raii::ImageView createImageView(vk::ImageAspectFlags aspectFlags) const;
 
     ///
     /// \brief Map memory to the image.
     ///
     /// \param data A pointer to the data to be mapped.
     ///
-    void mapMemory(void **data);
+    void mapMemory();
 
     ///
     /// \brief Unmap memory from the image.
@@ -63,6 +63,9 @@ class Image
 
   private:
     const Device &device;
+
+    bool mapped{false};
+    void *mappedData{nullptr};
 
     vk::ImageCreateInfo createInfo;
 

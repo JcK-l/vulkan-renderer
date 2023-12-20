@@ -34,6 +34,20 @@ Device::Device(Instance &instance, vk::raii::SurfaceKHR &surface, const std::vec
     validateExtensions(requiredExtensions);
     enableExtension("VK_KHR_portability_subset"); // only necessary for macOS and MoltenVK
 
+    auto feature = gpu.requestExtensionFeatures<vk::PhysicalDeviceDescriptorIndexingFeatures>();
+    assert(feature.shaderSampledImageArrayNonUniformIndexing &&
+           "Device does not support shaderSampledImageArrayNonUniformIndexing");
+    assert(feature.descriptorBindingSampledImageUpdateAfterBind &&
+           "Device does not support descriptorBindingSampledImageUpdateAfterBind");
+    assert(feature.shaderUniformBufferArrayNonUniformIndexing &&
+           "Device does not support shaderUniformBufferArrayNonUniformIndexing");
+    assert(feature.descriptorBindingUniformBufferUpdateAfterBind &&
+           "Device does not support descriptorBindingUniformBufferUpdateAfterBind");
+    assert(feature.shaderStorageBufferArrayNonUniformIndexing &&
+           "Device does not support shaderStorageBufferArrayNonUniformIndexing");
+    assert(feature.descriptorBindingStorageBufferUpdateAfterBind &&
+           "Device does not support descriptorBindingStorageBufferUpdateAfterBind");
+
     auto queueCreateInfos = createQueuesInfos();
     vk::DeviceCreateInfo createInfo{.pNext = gpu.getExtensionFeaturesHead(),
                                     .queueCreateInfoCount = static_cast<uint32_t>(queueCreateInfos.size()),
@@ -49,6 +63,14 @@ Device::Device(Instance &instance, vk::raii::SurfaceKHR &surface, const std::vec
     createQueues();
 
     createVmaAllocator(instance, gpu);
+}
+
+Device::~Device()
+{
+    if (vmaAllocator)
+    {
+        vmaDestroyAllocator(vmaAllocator);
+    }
 }
 
 void Device::validateExtensions(const std::vector<const char *> &requiredExtensions)

@@ -40,33 +40,42 @@ class Buffer
     /// \param createInfo The information for creating a buffer.
     /// \param memoryUsage The intended usage of the memory.
     ///
-    Buffer(const Device &device, vk::BufferCreateInfo createInfo, VmaMemoryUsage memoryUsage);
+    Buffer(const Device &device, vk::BufferCreateInfo createInfo, VmaAllocationCreateFlags allocationFlags);
 
     Buffer(const Buffer &) = delete;            // Deleted copy constructor
-    Buffer(Buffer &&) noexcept = default;       // Default move constructor
+    Buffer(Buffer &&) noexcept;                 // Move constructor
     Buffer &operator=(const Buffer &) = delete; // Deleted copy assignment operator
     Buffer &operator=(Buffer &&) = delete;      // Deleted move assignment operator
     ~Buffer();                                  // Destructor
-
-    [[nodiscard]] const vk::raii::Buffer &getHandle() const;
 
     ///
     /// \brief Map memory to the buffer.
     ///
     /// \param data A pointer to the data to be mapped.
     ///
-    void mapMemory(void **data);
+    void mapMemory();
 
     ///
     /// \brief Unmap memory from the buffer.
     ///
     void unmapMemory();
 
+    void updateData(const void *data, const uint32_t size, const uint32_t offset);
+
+    [[nodiscard]] vk::Buffer getBuffer() const;
+    [[nodiscard]] uint32_t getSize() const;
+
   private:
     const Device &device;
 
-    VmaAllocation allocation{VK_NULL_HANDLE};
-    vk::raii::Buffer handle{VK_NULL_HANDLE};
+    bool persistentMapped{false};
+    bool mapped{false};
+    void *mappedData{nullptr};
+
+    uint32_t size{0};
+
+    VmaAllocation allocation;
+    VkBuffer handle;
 };
 
 } // namespace vkf::core

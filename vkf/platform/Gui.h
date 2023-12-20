@@ -29,11 +29,13 @@ class Swapchain;
 namespace vkf::rendering // Forward declarations
 {
 class Renderer;
+class BindlessManager;
 } // namespace vkf::rendering
 
 namespace vkf::scene // Forward declarations
 {
 class Scene;
+class Entity;
 } // namespace vkf::scene
 
 namespace vkf::platform
@@ -61,7 +63,8 @@ class Gui : public rendering::RenderSource
     /// \param scene The scene.
     ///
     Gui(const Window &window, const core::Instance &instance, const core::Device &device,
-        const core::RenderPass &renderPass, const core::Swapchain &swapchain, scene::Scene &scene);
+        const core::RenderPass &renderPass, const core::Swapchain &swapchain,
+        rendering::BindlessManager &bindlessManager);
     ~Gui() override;
 
     ///
@@ -70,27 +73,28 @@ class Gui : public rendering::RenderSource
     /// \param renderer The renderer.
     /// \param frameIndex The index of the frame to be rendered.
     ///
-    void preRender(rendering::Renderer &renderer, uint32_t frameIndex);
+    void preRender(uint32_t frameIndex, scene::Scene &scene);
 
     void draw(vk::raii::CommandBuffer *cmd);
 
     [[nodiscard]] std::vector<vk::ImageView> getImageViews() const override;
     [[nodiscard]] uint32_t getImageCount() const override;
     [[nodiscard]] vk::Extent2D getExtent() const override;
-
-    ///
-    /// \brief Update minImageCount and imageCount.
-    ///
-    /// \param swapchain The new swapchain.
-    ///
-    void recreate(const core::Swapchain &swapchain);
+    [[nodiscard]] bool resetChanged() override;
 
   private:
     void createImages(uint32_t numImages);
     void createImageViews();
 
+    void createScenePanel(scene::Scene &scene, uint32_t frameIndex);
+    void createPropertiesPanel(scene::Scene &scene);
+    void createHierarchyPanel(scene::Scene &scene);
+
     const core::Device &device;
-    scene::Scene &scene;
+    const core::Swapchain &swapchain;
+    rendering::BindlessManager &bindlessManager;
+
+    std::unique_ptr<scene::Entity> activeEntity;
 
     vk::Extent2D sceneViewportExtent{};
 
@@ -103,10 +107,8 @@ class Gui : public rendering::RenderSource
     VkDescriptorSet dset{VK_NULL_HANDLE};
 
     bool firstTime{true};
-    bool buttonPressed{false};
-
-    uint32_t minImageCount{0};
-    uint32_t imageCount{0};
+    bool changed{false};
+    bool isCreateDialog{false};
 };
 } // namespace vkf::platform
 

@@ -14,27 +14,29 @@
 #ifndef VULKANRENDERER_SCENE_H
 #define VULKANRENDERER_SCENE_H
 
-#include <utility>
+#include "components/ColorComponent.h"
+#include "components/MaterialComponent.h"
+#include "components/TagComponent.h"
+#include "components/TransformComponent.h"
+#include <entt/entt.hpp>
 
-#include "entt/entt.hpp"
+namespace vkf::core // Forward declarations
+{
+class Device;
+class RenderPass;
+} // namespace vkf::core
+
+namespace vkf::rendering // Forward declarations
+{
+class PipelineBuilder;
+class BindlessManager;
+} // namespace vkf::rendering
 
 namespace vkf::scene
 {
 
-///
-/// \struct TagComponent
-/// \brief This struct stores a tag for an entity.
-///
-/// It includes a string tag.
-///
-struct TagComponent
-{
-    std::string tag;
-
-    TagComponent(std::string tag) : tag{std::move(tag)}
-    {
-    }
-};
+class Entity;
+class Camera;
 
 ///
 /// \class Scene
@@ -51,22 +53,29 @@ class Scene
     ///
     /// This constructor creates a Scene.
     ///
-    Scene();
-    ~Scene() = default;
+    explicit Scene(const core::Device &device, rendering::BindlessManager &bindlessManager,
+                   const core::RenderPass &renderPass, Camera &camera);
+    ~Scene();
 
-    ///
-    /// \brief Method to create an entity.
-    ///
-    /// This method creates an entity with the provided name.
-    ///
-    /// \param name The name for the entity.
-    /// \return The created entity.
-    ///
-    entt::entity createEntity(const std::string &name);
+    Entity createCube(const std::string &name, const glm::vec3 &position, const glm::vec3 &rotation,
+                      const glm::vec3 &scale, const glm::vec4 &color);
 
     entt::registry &getRegistry();
+    [[nodiscard]] Camera *getCamera() const;
 
   private:
+    Entity createObject(const std::string &name, const glm::vec3 &position, const glm::vec3 &rotation,
+                        const glm::vec3 &scale, const glm::vec4 &color, const std::string &shader);
+
+    Entity createEntity(const std::string &name);
+    core::Pipeline createPipeline(const std::string &shader);
+
+    const core::Device &device;
+    rendering::BindlessManager &bindlessManager;
+    const core::RenderPass &renderPass;
+
+    std::unique_ptr<Camera> sceneCamera;
+
     entt::registry registry;
 };
 

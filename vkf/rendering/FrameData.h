@@ -50,6 +50,7 @@ class FrameData
 
     vk::raii::CommandBuffers *getCommandBuffers();
 
+    void refreshSemaphore(uint32_t index);
     [[nodiscard]] const vk::raii::Semaphore &getSemaphore(uint32_t index) const;
     [[nodiscard]] const vk::raii::Semaphore &getLastSemaphore() const;
     [[nodiscard]] std::vector<vk::Fence> getFences() const;

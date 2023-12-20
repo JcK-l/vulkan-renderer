@@ -14,6 +14,7 @@
 #ifndef VULKANRENDERER_RENDERER_H
 #define VULKANRENDERER_RENDERER_H
 
+#include "../core/Image.h"
 #include "RenderSource.h"
 #include "RenderSubstage.h"
 
@@ -40,9 +41,10 @@ class FrameData;
 ///
 struct RenderOptions
 {
-    vk::ClearValue clearValue;                          // The clear value for the render
+    std::vector<vk::ClearValue> clearValues;            // The clear value for the render
     uint32_t numSubpasses;                              // The number of subpasses for the render
     std::vector<vk::AttachmentDescription> attachments; // The attachment descriptions for the render
+    bool useDepth;                                      // Whether or not to use depth
 };
 
 ///
@@ -78,16 +80,15 @@ class Renderer
 
     void addRenderSubstage(std::unique_ptr<RenderSubstage> renderSubstage);
 
-    void syncFrameData();
-
     void updateFramebuffers();
-
-    void setFrameData(std::vector<FrameData *> frameData);
 
     void draw(vk::raii::CommandBuffer *cmd);
 
   private:
     void createFramebuffers(std::vector<vk::ImageView> imageViews);
+    void createDepthImages();
+    void createDepthImageViews();
+    vk::ImageView getDepthImageView(uint32_t index);
 
     const core::Device &device;
 
@@ -96,9 +97,11 @@ class Renderer
 
     std::vector<std::unique_ptr<core::Framebuffer>> framebuffers;
     std::vector<std::unique_ptr<RenderSubstage>> renderSubstages{};
-    std::vector<FrameData *> frameData{};
 
     vk::Extent2D framebufferExtent;
+
+    std::vector<core::Image> depthImages;
+    std::vector<vk::raii::ImageView> depthImageViews;
 
     std::shared_ptr<RenderSource> renderSource;
 };

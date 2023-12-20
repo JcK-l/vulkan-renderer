@@ -58,7 +58,7 @@ class RenderManager
     /// \param inputRenderers The renderers to use for creating the RenderManager.
     ///
     RenderManager(const core::Device &device, platform::Window &window, std::shared_ptr<core::Swapchain> inputSwapchain,
-                  std::shared_ptr<platform::Gui> inputGui, std::vector<std::unique_ptr<Renderer>> inputRenderers);
+                  std::vector<std::unique_ptr<Renderer>> inputRenderers);
 
     RenderManager(const RenderManager &) = delete;            // Deleted copy constructor
     RenderManager(RenderManager &&) noexcept = default;       // Default move constructor
@@ -66,16 +66,19 @@ class RenderManager
     RenderManager &operator=(RenderManager &&) = delete;      // Deleted move assignment operator
     ~RenderManager(); // Implementation in RenderManager.cpp because of std::unique_ptr forward declaration
 
-    void beginFrame();
+    uint32_t beginFrame();
     void endFrame();
 
     void render();
+
+    void syncFrameData();
 
     static constexpr uint32_t framesInFlight{3};
 
   private:
     void beginRenderPass(Renderer &renderer, uint32_t currentRenderPass);
     void endRenderPass(uint32_t currentRenderPass);
+    void updateFrameBuffers();
 
     void createFrameData();
 
@@ -87,7 +90,6 @@ class RenderManager
     std::vector<std::unique_ptr<Renderer>> renderers;
 
     std::shared_ptr<core::Swapchain> swapchain;
-    std::shared_ptr<platform::Gui> gui;
 
     std::vector<std::unique_ptr<FrameData>> frameData;
     vk::raii::CommandBuffers *activeCommandBuffers{nullptr};

@@ -18,7 +18,7 @@
 namespace vkf::core
 {
 
-Image::Image(const Device &device, vk::ImageCreateInfo createInfo, VmaAllocationCreateFlagBits allocationFlags)
+Image::Image(const Device &device, vk::ImageCreateInfo createInfo, VmaAllocationCreateFlags allocationFlags)
     : device{device}, createInfo{createInfo}
 {
     VmaAllocationCreateInfo allocationCreateInfo{};
@@ -37,12 +37,16 @@ Image::~Image()
 {
     if (allocation && handle)
     {
+        if (mapped)
+        {
+            unmapMemory();
+        }
         vmaDestroyImage(device.getVmaAllocator(), handle, allocation);
         handle = VK_NULL_HANDLE;
     }
 }
 
-vk::raii::ImageView Image::createImageView() const
+vk::raii::ImageView Image::createImageView(vk::ImageAspectFlags aspectFlags) const
 {
     vk::ImageViewType viewType;
     switch (createInfo.imageType)
@@ -63,7 +67,7 @@ vk::raii::ImageView Image::createImageView() const
     vk::ImageViewCreateInfo imageViewCreateInfo{.image = handle,
                                                 .viewType = viewType,
                                                 .format = createInfo.format,
-                                                .subresourceRange = {.aspectMask = vk::ImageAspectFlagBits::eColor,
+                                                .subresourceRange = {.aspectMask = aspectFlags,
                                                                      .baseMipLevel = 0,
                                                                      .levelCount = createInfo.mipLevels,
                                                                      .baseArrayLayer = 0,
@@ -72,17 +76,20 @@ vk::raii::ImageView Image::createImageView() const
     return vk::raii::ImageView{device.getHandle(), imageViewCreateInfo};
 }
 
-void Image::mapMemory(void **data)
+void Image::mapMemory()
 {
-    VkResult result = vmaMapMemory(device.getVmaAllocator(), allocation, data);
+    assert(!mapped && "Memory is already mapped");
+    VkResult result = vmaMapMemory(device.getVmaAllocator(), allocation, &mappedData);
     if (result != VK_SUCCESS)
     {
         throw std::runtime_error("Failed to map memory");
     }
+    mapped = true;
 }
 
 void Image::unmapMemory()
 {
+    assert(mapped && "Memory is not mapped");
     vmaUnmapMemory(device.getVmaAllocator(), allocation);
 }
 

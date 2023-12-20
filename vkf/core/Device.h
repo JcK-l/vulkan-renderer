@@ -49,7 +49,7 @@ class Device
     Device(Device &&) noexcept = default;       // Default move constructor
     Device &operator=(const Device &) = delete; // Deleted copy assignment operator
     Device &operator=(Device &&) = delete;      // Deleted move assignment operator
-    ~Device() = default;                        // Default destructor
+    ~Device();                                  // destructor
 
     ///
     /// \brief Getter for a queue.

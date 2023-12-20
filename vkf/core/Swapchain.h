@@ -73,6 +73,7 @@ class Swapchain : public rendering::RenderSource
     [[nodiscard]] std::vector<vk::ImageView> getImageViews() const override;
     [[nodiscard]] uint32_t getImageCount() const override;
     [[nodiscard]] vk::Extent2D getExtent() const override;
+    [[nodiscard]] bool resetChanged() override;
     [[nodiscard]] uint32_t getMinImageCount() const;
 
     void recreate();
@@ -99,6 +100,7 @@ class Swapchain : public rendering::RenderSource
     SwapChainSupportDetails supportDetails;
     vk::Extent2D extent;
     uint32_t minImageCount{0};
+    bool changed{false};
 
     std::vector<vk::Image> images;
     std::vector<vk::raii::ImageView> imageViews;

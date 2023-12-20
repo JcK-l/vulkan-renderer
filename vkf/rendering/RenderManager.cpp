@@ -28,10 +28,10 @@ namespace vkf::rendering
 {
 
 RenderManager::RenderManager(const core::Device &device, platform::Window &window,
-                             std::shared_ptr<core::Swapchain> inputSwapchain, std::shared_ptr<platform::Gui> inputGui,
+                             std::shared_ptr<core::Swapchain> inputSwapchain,
                              std::vector<std::unique_ptr<Renderer>> inputRenderers)
-    : device{device}, window{window}, renderers{std::move(inputRenderers)}, swapchain{std::move(inputSwapchain)},
-      gui{std::move(inputGui)}
+    : device{device}, window{window}, renderers{std::move(inputRenderers)}, swapchain{std::move(inputSwapchain)}
+
 {
     createFrameData();
     LOG_INFO("Created RenderManager")
@@ -39,7 +39,7 @@ RenderManager::RenderManager(const core::Device &device, platform::Window &windo
 
 RenderManager::~RenderManager() = default;
 
-void RenderManager::beginFrame()
+uint32_t RenderManager::beginFrame()
 {
 
     device.getHandle().waitForFences(frameData[activeFrame]->getFences(), VK_TRUE,
@@ -53,22 +53,22 @@ void RenderManager::beginFrame()
         break;
     case vk::Result::eSuboptimalKHR:
         LOG_DEBUG("Acquired next image: {} (suboptimal)", value)
+        frameData[activeFrame]->refreshSemaphore(0);
         if (recreateSwapchain())
-            value =
-                swapchain->acquireNextImage(vk::raii::Semaphore{device.getHandle(), vk::SemaphoreCreateInfo{}}).second;
+            value = swapchain->acquireNextImage(frameData[activeFrame]->getSemaphore(0)).second;
         break;
     default:
         LOG_ERROR("Acquired next image: {} (error)", value)
         throw std::runtime_error{"Failed to acquire next image"};
     }
 
-    gui->preRender(*renderers[0], value);
-
     imageIndex = value;
     activeCommandBuffers = frameData[activeFrame]->getCommandBuffers();
 
     frameActive = true;
     device.getHandle().resetFences(frameData[activeFrame]->getFences());
+
+    return value;
 }
 
 void RenderManager::endFrame()
@@ -87,7 +87,6 @@ void RenderManager::endFrame()
 
     if (window.isResized())
     {
-        LOG_DEBUG("hahahahah")
         recreateSwapchain();
     }
     else
@@ -146,6 +145,7 @@ void RenderManager::endRenderPass(uint32_t currentRenderPass)
 
 void RenderManager::render()
 {
+    updateFrameBuffers();
     for (size_t i = 0; i < renderers.size(); ++i)
     {
         beginRenderPass(*renderers[i], i);
@@ -162,21 +162,30 @@ void RenderManager::createFrameData()
         frameData.emplace_back(std::make_unique<FrameData>(device, renderers.size()));
         renderFrameData.emplace_back(frameData.back().get());
     }
-    std::for_each(renderers.begin(), renderers.end(), [&](auto &renderer) { renderer->setFrameData(renderFrameData); });
     LOG_INFO("Created FrameData x{}", framesInFlight)
+}
+
+void RenderManager::updateFrameBuffers()
+{
+    for (auto &renderer : renderers)
+    {
+        renderer->updateFramebuffers();
+    }
+}
+
+void RenderManager::syncFrameData()
+{
+    for (const auto &frame : frameData)
+    {
+        device.getHandle().waitForFences(frame->getFences(), VK_TRUE, std::numeric_limits<uint64_t>::max());
+    }
 }
 
 bool RenderManager::recreateSwapchain()
 {
-    swapchain->recreate();
-    gui->recreate(*swapchain);
+    syncFrameData();
 
-    renderers[1]->syncFrameData();
-    renderers[1]->updateFramebuffers();
-    //    for (auto &renderer : renderers)
-    //    {
-    //        renderer->updateFramebuffers();
-    //    }
+    swapchain->recreate();
 
     window.setResized(false);
 

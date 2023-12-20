@@ -103,6 +103,7 @@ void Swapchain::createSwapchain(vk::SwapchainKHR oldSwapchain)
     handle = vk::raii::SwapchainKHR{device.getHandle(), createInfo};
     images = handle.getImages();
     createImageViews();
+    changed = true;
 }
 
 std::vector<vk::ImageView> Swapchain::getImageViews() const
@@ -193,10 +194,18 @@ vk::Extent2D Swapchain::getExtent() const
     return extent;
 }
 
+bool Swapchain::resetChanged()
+{
+    bool currentChanged = changed;
+    changed = false;
+    return currentChanged;
+}
+
 uint32_t Swapchain::getImageCount() const
 {
     return images.size();
 }
+
 uint32_t Swapchain::getMinImageCount() const
 {
     return minImageCount;

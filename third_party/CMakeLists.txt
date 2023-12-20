@@ -4,12 +4,26 @@ set(CMAKE_CXX_STANDARD 20)
 add_library(vkf_dependencies INTERFACE)
 
 # khronos utilities
-set(SPIRV_WERROR OFF)
+#set(SPIRV_WERROR OFF)
 ##set(ALLOW_EXTERNAL_SPIRV_TOOLS ON)
 set(ENABLE_OPT 0)
+#set(SPIRV_CROSS_SHARED ON CACHE BOOL "Build the C API as a single shared library.")
+#set(SPIRV_CROSS_STATIC OFF CACHE BOOL "Build the C and C++ API as static libraries.")
+#set(BUILD_SHARED_LIBS ON CACHE BOOL "Build Shared Libraries")
+#set(SPIRV_TOOLS_BUILD_STATIC OFF CACHE BOOL "Build static libraries")
 add_subdirectory(glslang)
-add_subdirectory(SPIRV-Headers)
+#add_subdirectory(SPIRV-Headers)
 add_subdirectory(SPIRV-Tools)
+#add_subdirectory(SPIRV-Cross)
+
+# shaderc
+set(SHADERC_SKIP_TESTS ON)
+set(SHADERC_SKIP_EXAMPLES ON)
+set(SHADERC_ENABLE_TESTS OFF)
+
+add_subdirectory(shaderc)
+target_link_libraries(vkf_dependencies INTERFACE shaderc glslang SPIRV-Tools)
+
 
 # VulkanMemoryAllocator
 find_package(Vulkan REQUIRED)
@@ -58,11 +72,3 @@ target_include_directories(vkf_dependencies INTERFACE imgui/backends imgui/ imgu
 add_subdirectory(entt)
 target_link_libraries(vkf_dependencies INTERFACE EnTT)
 target_include_directories(vkf_dependencies INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/entt/single_include/)
-
-# shaderc
-set(SHADERC_SKIP_TESTS ON)
-set(SHADERC_SKIP_EXAMPLES ON)
-set(SHADERC_ENABLE_TESTS OFF)
-
-add_subdirectory(shaderc)
-target_link_libraries(vkf_dependencies INTERFACE shaderc)

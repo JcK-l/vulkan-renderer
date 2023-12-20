@@ -21,6 +21,21 @@ namespace vkf::core
 class Device;
 class RenderPass;
 
+struct PipelineState
+{
+    std::vector<vk::PipelineShaderStageCreateInfo> shaderStageCreateInfos;
+    vk::PipelineVertexInputStateCreateInfo vertexInputCreateInfo;
+    vk::PipelineInputAssemblyStateCreateInfo inputAssemblyCreateInfo;
+    vk::PipelineViewportStateCreateInfo pipelineViewportStateCreateInfo;
+    vk::PipelineRasterizationStateCreateInfo rasterizerCreateInfo;
+    vk::PipelineMultisampleStateCreateInfo multisamplingCreateInfo;
+    vk::PipelineDepthStencilStateCreateInfo depthStencilCreateInfo;
+    vk::PipelineColorBlendStateCreateInfo colorBlendingCreateInfo;
+    vk::PipelineDynamicStateCreateInfo dynamicStateCreateInfo;
+    vk::PipelineLayout pipelineLayout;
+    vk::RenderPass renderPass;
+};
+
 ///
 /// \class Pipeline
 /// \brief This class manages Vulkan pipelines.
@@ -37,12 +52,17 @@ class Pipeline
     /// \param device The Vulkan device.
     /// \param renderPass The render pass.
     ///
-    Pipeline(const Device &device, const RenderPass &renderPass);
+    Pipeline(const Device &device, const PipelineState &state);
+
+    Pipeline(const Pipeline &) = delete;            // Deleted copy constructor
+    Pipeline(Pipeline &&) noexcept = default;       // Default move constructor
+    Pipeline &operator=(const Pipeline &) = delete; // Deleted copy assignment operator
+    Pipeline &operator=(Pipeline &&) = delete;      // Deleted move assignment operator
+    ~Pipeline() = default;                          // Default destructor
 
     [[nodiscard]] const vk::raii::Pipeline &getHandle() const;
 
   private:
-    vk::raii::PipelineLayout pipelineLayout{VK_NULL_HANDLE};
     vk::raii::Pipeline handle{VK_NULL_HANDLE};
 };
 
