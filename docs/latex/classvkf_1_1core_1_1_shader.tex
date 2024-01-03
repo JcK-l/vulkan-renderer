@@ -1,0 +1,180 @@
+\doxysection{vkf\+::core\+::Shader Class Reference}
+\hypertarget{classvkf_1_1core_1_1_shader}{}\label{classvkf_1_1core_1_1_shader}\index{vkf::core::Shader@{vkf::core::Shader}}
+
+
+Class for managing Vulkan shaders.  
+
+
+
+
+{\ttfamily \#include $<$Shader.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}} \{ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60ab22b929ba52471a02d18bb3a4e4472e6}{Vertex}}
+, \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60a37d01b98065725fe3a1d30acf3a0064a}{Fragment}}
+, \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60ad9c6333623e6357515fcbf17be806273}{Geometry}}
+, \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60a88183b946cc5f0e8c96b2e66e1c74a7e}{Unknown}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for shader types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1core_1_1_shader_abf5378501bc8ddf8fb74d3207bc2df0c}{Shader}} (const std\+::string \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor that takes a file path as parameter. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_a0e2c4893fe354b9258e727634e0bcee7}\label{classvkf_1_1core_1_1_shader_a0e2c4893fe354b9258e727634e0bcee7} 
+{\bfseries Shader} (const \mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_af9a5384dd14e47b80b1c3fa76a192183}\label{classvkf_1_1core_1_1_shader_af9a5384dd14e47b80b1c3fa76a192183} 
+{\bfseries Shader} (\mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_a8362e453d49691ebe1a09e6552bfe5dc}\label{classvkf_1_1core_1_1_shader_a8362e453d49691ebe1a09e6552bfe5dc} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_a4684ac9178ed6ccc1fdee2dff77133c4}\label{classvkf_1_1core_1_1_shader_a4684ac9178ed6ccc1fdee2dff77133c4} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_aa11ebd5a4e9893bb9162b0d1d37f2b2e}\label{classvkf_1_1core_1_1_shader_aa11ebd5a4e9893bb9162b0d1d37f2b2e} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Shader} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+const std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}}, std\+::string $>$ \& \mbox{\hyperlink{classvkf_1_1core_1_1_shader_ae737e8e251313c0cd93c86f649b3f062}{get\+Codes}} () const
+\begin{DoxyCompactList}\small\item\em Method to get shader codes. \end{DoxyCompactList}\item 
+std\+::vector$<$ vk\+::\+Pipeline\+Shader\+Stage\+Create\+Info $>$ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a998f51ab2e5c516f0976b95c13a2dab9}{create\+Shader\+Stages}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device)
+\begin{DoxyCompactList}\small\item\em Method to create shader stages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_ab497d0f8432c6fb1d07ecea7795c7069}\label{classvkf_1_1core_1_1_shader_ab497d0f8432c6fb1d07ecea7795c7069} 
+vk\+::raii\+::\+Shader\+Module {\bfseries compile\+Shader} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device, \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}} type)
+\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_a705eef06127137c6fafac4827ec61813}\label{classvkf_1_1core_1_1_shader_a705eef06127137c6fafac4827ec61813} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}} {\bfseries string\+To\+Type} (const std\+::string \&type\+String) const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_ab85feec45ee2579093d7e1131f1822e2}\label{classvkf_1_1core_1_1_shader_ab85feec45ee2579093d7e1131f1822e2} 
+shaderc\+\_\+shader\+\_\+kind {\bfseries type\+To\+Shaderc\+Kind} (\mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}} type) const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_a6874080aeaadbea80cb0abf5f9713938}\label{classvkf_1_1core_1_1_shader_a6874080aeaadbea80cb0abf5f9713938} 
+std\+::string {\bfseries read\+File} (const std\+::string \&file\+Path) const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_afa37fcc42010faefd8cd978d30e85db0}\label{classvkf_1_1core_1_1_shader_afa37fcc42010faefd8cd978d30e85db0} 
+void {\bfseries parse\+Shader} (std\+::string \&shader\+String)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_a0b50d52ac5078e4f199ed61dcfc21304}\label{classvkf_1_1core_1_1_shader_a0b50d52ac5078e4f199ed61dcfc21304} 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}}, std\+::string $>$ {\bfseries codes}
+\begin{DoxyCompactList}\small\item\em Map of shader types and their corresponding codes. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_shader_a547748a163086c949dfb5912f98e3fea}\label{classvkf_1_1core_1_1_shader_a547748a163086c949dfb5912f98e3fea} 
+std\+::vector$<$ vk\+::raii\+::\+Shader\+Module $>$ {\bfseries shader\+Modules}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}} $>$ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a0e594f062278001b07b2b0ef4a7a2ec6}{type\+Map}}
+\begin{DoxyCompactList}\small\item\em Map of string representations of shader types and their corresponding enum values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for managing Vulkan shaders. 
+
+This class provides functionality to compile shaders. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}\label{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60} 
+\index{vkf::core::Shader@{vkf::core::Shader}!Type@{Type}}
+\index{Type@{Type}!vkf::core::Shader@{vkf::core::Shader}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{vkf\+::core\+::\+Shader\+::\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum for shader types. 
+
+This enum is used to specify the type of a shader. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Vertex@{Vertex}!vkf::core::Shader@{vkf::core::Shader}}\index{vkf::core::Shader@{vkf::core::Shader}!Vertex@{Vertex}}}\Hypertarget{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60ab22b929ba52471a02d18bb3a4e4472e6}\label{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60ab22b929ba52471a02d18bb3a4e4472e6} 
+Vertex&Vertex shader. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Fragment@{Fragment}!vkf::core::Shader@{vkf::core::Shader}}\index{vkf::core::Shader@{vkf::core::Shader}!Fragment@{Fragment}}}\Hypertarget{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60a37d01b98065725fe3a1d30acf3a0064a}\label{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60a37d01b98065725fe3a1d30acf3a0064a} 
+Fragment&Fragment shader. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Geometry@{Geometry}!vkf::core::Shader@{vkf::core::Shader}}\index{vkf::core::Shader@{vkf::core::Shader}!Geometry@{Geometry}}}\Hypertarget{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60ad9c6333623e6357515fcbf17be806273}\label{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60ad9c6333623e6357515fcbf17be806273} 
+Geometry&Geometry shader. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Unknown@{Unknown}!vkf::core::Shader@{vkf::core::Shader}}\index{vkf::core::Shader@{vkf::core::Shader}!Unknown@{Unknown}}}\Hypertarget{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60a88183b946cc5f0e8c96b2e66e1c74a7e}\label{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60a88183b946cc5f0e8c96b2e66e1c74a7e} 
+Unknown&Unknown shader type. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1core_1_1_shader_abf5378501bc8ddf8fb74d3207bc2df0c}\label{classvkf_1_1core_1_1_shader_abf5378501bc8ddf8fb74d3207bc2df0c} 
+\index{vkf::core::Shader@{vkf::core::Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!vkf::core::Shader@{vkf::core::Shader}}
+\doxysubsubsection{\texorpdfstring{Shader()}{Shader()}}
+{\footnotesize\ttfamily vkf\+::core\+::\+Shader\+::\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor that takes a file path as parameter. 
+
+This constructor takes a file path as parameter and compiles the shader.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & The file path of the shader. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1core_1_1_shader_a998f51ab2e5c516f0976b95c13a2dab9}\label{classvkf_1_1core_1_1_shader_a998f51ab2e5c516f0976b95c13a2dab9} 
+\index{vkf::core::Shader@{vkf::core::Shader}!createShaderStages@{createShaderStages}}
+\index{createShaderStages@{createShaderStages}!vkf::core::Shader@{vkf::core::Shader}}
+\doxysubsubsection{\texorpdfstring{createShaderStages()}{createShaderStages()}}
+{\footnotesize\ttfamily std\+::vector$<$ vk\+::\+Pipeline\+Shader\+Stage\+Create\+Info $>$ vkf\+::core\+::\+Shader\+::create\+Shader\+Stages (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{device }\end{DoxyParamCaption})}
+
+
+
+Method to create shader stages. 
+
+This method creates and returns a vector of pipeline shader stage create info objects. \Hypertarget{classvkf_1_1core_1_1_shader_ae737e8e251313c0cd93c86f649b3f062}\label{classvkf_1_1core_1_1_shader_ae737e8e251313c0cd93c86f649b3f062} 
+\index{vkf::core::Shader@{vkf::core::Shader}!getCodes@{getCodes}}
+\index{getCodes@{getCodes}!vkf::core::Shader@{vkf::core::Shader}}
+\doxysubsubsection{\texorpdfstring{getCodes()}{getCodes()}}
+{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Shader\+::\+Type}}, std\+::string $>$ \& vkf\+::core\+::\+Shader\+::get\+Codes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get shader codes. 
+
+This method returns a map of shader types and their corresponding codes. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classvkf_1_1core_1_1_shader_a0e594f062278001b07b2b0ef4a7a2ec6}\label{classvkf_1_1core_1_1_shader_a0e594f062278001b07b2b0ef4a7a2ec6} 
+\index{vkf::core::Shader@{vkf::core::Shader}!typeMap@{typeMap}}
+\index{typeMap@{typeMap}!vkf::core::Shader@{vkf::core::Shader}}
+\doxysubsubsection{\texorpdfstring{typeMap}{typeMap}}
+{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Shader\+::\+Type}} $>$ vkf\+::core\+::\+Shader\+::type\+Map\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}vertex"{}},\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60ab22b929ba52471a02d18bb3a4e4472e6}{Type::Vertex}}\},\ \{\textcolor{stringliteral}{"{}fragment"{}},\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60a37d01b98065725fe3a1d30acf3a0064a}{Type::Fragment}}\},\ \{\textcolor{stringliteral}{"{}geometry"{}},\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60ad9c6333623e6357515fcbf17be806273}{Type::Geometry}}\}\}}
+
+\end{DoxyCode}
+
+
+Map of string representations of shader types and their corresponding enum values. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_shader_8h}{Shader.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/core/\mbox{\hyperlink{_shader_8cpp}{Shader.\+cpp}}\end{DoxyCompactItemize}

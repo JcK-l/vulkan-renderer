@@ -68,11 +68,11 @@ class Renderer
     ///
     Renderer(const core::Device &device, RenderOptions inputRenderOptions, std::shared_ptr<RenderSource> renderSource);
 
-    Renderer(const Renderer &) = delete;            // Deleted copy constructor
-    Renderer(Renderer &&) noexcept = default;       // Default move constructor
-    Renderer &operator=(const Renderer &) = delete; // Deleted copy assignment operator
-    Renderer &operator=(Renderer &&) = delete;      // Deleted move assignment operator
-    ~Renderer();                                    // Destructor for the Renderer class
+    Renderer(const Renderer &) = delete;            ///< Deleted copy constructor
+    Renderer(Renderer &&) noexcept = default;       ///< Default move constructor
+    Renderer &operator=(const Renderer &) = delete; ///< Deleted copy assignment operator
+    Renderer &operator=(Renderer &&) = delete;      ///< Deleted move assignment operator
+    ~Renderer();                                    ///< Destructor for the Renderer class
 
     [[nodiscard]] core::RenderPass *getRenderPass() const;
     [[nodiscard]] vk::RenderPassBeginInfo getRenderPassBeginInfo(uint32_t imageIndex) const;

@@ -18,22 +18,22 @@
 \DoxyCodeLine{00031\ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ vk::CommandPoolCreateInfo\ createInfo);}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
-\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}(\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
-\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{\string~CommandPool}}()\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ destructor}}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool_a0fc12afc4213c47e5d68b8d99c59cf03}{CommandPool}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool_a3234edf590612008c62b6c2b4f13e12c}{CommandPool}}(\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::CommandPool\ \&getHandle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ \ \ \ \ [[nodiscard]]\ const\ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ \&getHandle()\ const;}
 \DoxyCodeLine{00047\ }
 \DoxyCodeLine{00059\ \ \ \ \ std::pair<uint32\_t,\ vk::raii::CommandBuffers\ *>\ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool_a56aec497f74ac33bdc030fb9fc4e047b}{requestCommandBuffers}}(vk::CommandBufferLevel\ level,\ uint32\_t\ count);}
 \DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ std::optional<vk::raii::CommandBuffers\ *>\ getCommandBuffers(uint32\_t\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ \ \ \ \ std::optional<vk::raii::CommandBuffers\ *>\ getCommandBuffers(uint32\_t\ key)\ const;}
 \DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
+\DoxyCodeLine{00063\ \ \ private:}
+\DoxyCodeLine{00064\ \ \ \ \ const\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ vk::raii::CommandPool\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00066\ \ \ \ \ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{CommandPool}}\ handle\{VK\_NULL\_HANDLE\};}
 \DoxyCodeLine{00067\ \ \ \ \ uint32\_t\ allocations\{0\};}
 \DoxyCodeLine{00068\ \ \ \ \ std::unordered\_map<uint32\_t,\ std::unique\_ptr<vk::raii::CommandBuffers>>\ commandBuffersMap;}
 \DoxyCodeLine{00069\ \};}

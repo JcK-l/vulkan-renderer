@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_0',['type',['../structvkf_1_1_event.html#a3a9260026f5181813e8cb931e1574b23',1,'vkf::Event']]]
+  ['keycode_0',['keycode',['../structvkf_1_1_event_1_1_keyboard.html#acd49104f7b047905b8acbb9da9c5146f',1,'vkf::Event::Keyboard']]]
 ];

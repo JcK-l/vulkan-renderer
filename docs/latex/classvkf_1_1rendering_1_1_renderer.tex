@@ -16,16 +16,19 @@ This class manages Vulkan rendering operations.
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1rendering_1_1_renderer}{Renderer} class. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_a72cf080b8ee38aeecaf87ae883d6a155}\label{classvkf_1_1rendering_1_1_renderer_a72cf080b8ee38aeecaf87ae883d6a155} 
 {\bfseries Renderer} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_aa4f1745e07770ad05e0b74caff97daa7}\label{classvkf_1_1rendering_1_1_renderer_aa4f1745e07770ad05e0b74caff97daa7} 
 {\bfseries Renderer} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \&\&) noexcept=default
-\item 
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_a6f0ff1494c815755d467cd3af94c4b6e}\label{classvkf_1_1rendering_1_1_renderer_a6f0ff1494c815755d467cd3af94c4b6e} 
 \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_a0edc9a0d6fb025e74204cd23b9ae530a}\label{classvkf_1_1rendering_1_1_renderer_a0edc9a0d6fb025e74204cd23b9ae530a} 
 \mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}} \&\&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_aefc7ec9eb539c6b622f4e3ad5f6223c6}\label{classvkf_1_1rendering_1_1_renderer_aefc7ec9eb539c6b622f4e3ad5f6223c6} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Renderer} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classvkf_1_1rendering_1_1_renderer}{Renderer} class. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_a7552108728683d8ef1a6d1c4308fd106}\label{classvkf_1_1rendering_1_1_renderer_a7552108728683d8ef1a6d1c4308fd106} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Render\+Pass} () const
 \item 
@@ -38,14 +41,8 @@ vk\+::\+Extent2D {\bfseries get\+Framebuffer\+Extent} () const
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_af8fc84d1e587a8db2f4c4bf48d6aa3bd}\label{classvkf_1_1rendering_1_1_renderer_af8fc84d1e587a8db2f4c4bf48d6aa3bd} 
 void {\bfseries add\+Render\+Substage} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} $>$ render\+Substage)
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_a9ac0fd1bb6341a181d44e5d14ece03b5}\label{classvkf_1_1rendering_1_1_renderer_a9ac0fd1bb6341a181d44e5d14ece03b5} 
-void {\bfseries sync\+Frame\+Data} ()
-\item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_af5602189c23dd887729a15da18b2061e}\label{classvkf_1_1rendering_1_1_renderer_af5602189c23dd887729a15da18b2061e} 
 void {\bfseries update\+Framebuffers} ()
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_a36fe0b511c67cbc72cbb29dc76edc9e1}\label{classvkf_1_1rendering_1_1_renderer_a36fe0b511c67cbc72cbb29dc76edc9e1} 
-void {\bfseries set\+Frame\+Data} (std\+::vector$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \texorpdfstring{$\ast$}{*} $>$ frame\+Data)
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_a4bc88dd96a899f906519f617f85f517d}\label{classvkf_1_1rendering_1_1_renderer_a4bc88dd96a899f906519f617f85f517d} 
 void {\bfseries draw} (vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}cmd)
@@ -55,6 +52,15 @@ void {\bfseries draw} (vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_a30ac562e0c18816bade1ee0018247471}\label{classvkf_1_1rendering_1_1_renderer_a30ac562e0c18816bade1ee0018247471} 
 void {\bfseries create\+Framebuffers} (std\+::vector$<$ vk\+::\+Image\+View $>$ image\+Views)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_add858a60d46b0574eed73d942325b0cb}\label{classvkf_1_1rendering_1_1_renderer_add858a60d46b0574eed73d942325b0cb} 
+void {\bfseries create\+Depth\+Images} ()
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a63f59428b6a0486a922d492940ac473f}\label{classvkf_1_1rendering_1_1_renderer_a63f59428b6a0486a922d492940ac473f} 
+void {\bfseries create\+Depth\+Image\+Views} ()
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a483cfbe246618d5b2a40805d0aca98cb}\label{classvkf_1_1rendering_1_1_renderer_a483cfbe246618d5b2a40805d0aca98cb} 
+vk\+::\+Image\+View {\bfseries get\+Depth\+Image\+View} (uint32\+\_\+t index)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -74,11 +80,14 @@ std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_a07976c4fcc13bd4c1892fcee5450c161}\label{classvkf_1_1rendering_1_1_renderer_a07976c4fcc13bd4c1892fcee5450c161} 
 std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{Render\+Substage}} $>$ $>$ {\bfseries render\+Substages} \{\}
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_renderer_a54f760d0a68df31e104f78edae154ebe}\label{classvkf_1_1rendering_1_1_renderer_a54f760d0a68df31e104f78edae154ebe} 
-std\+::vector$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries frame\+Data} \{\}
-\item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_aa8df22b7bf46bbfc4b53319e31dfaf19}\label{classvkf_1_1rendering_1_1_renderer_aa8df22b7bf46bbfc4b53319e31dfaf19} 
 vk\+::\+Extent2D {\bfseries framebuffer\+Extent}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_af6cd308809ab84db2ae32f5cb36a9076}\label{classvkf_1_1rendering_1_1_renderer_af6cd308809ab84db2ae32f5cb36a9076} 
+std\+::vector$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{core\+::\+Image}} $>$ {\bfseries depth\+Images}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_renderer_a861f06efaad56c7fa9892ba0ea63ea12}\label{classvkf_1_1rendering_1_1_renderer_a861f06efaad56c7fa9892ba0ea63ea12} 
+std\+::vector$<$ vk\+::raii\+::\+Image\+View $>$ {\bfseries depth\+Image\+Views}
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_renderer_ab402b0936b20edf0627864df6538bef7}\label{classvkf_1_1rendering_1_1_renderer_ab402b0936b20edf0627864df6538bef7} 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{Render\+Source}} $>$ {\bfseries render\+Source}

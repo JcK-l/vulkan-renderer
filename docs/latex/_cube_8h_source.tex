@@ -1,0 +1,41 @@
+\doxysection{Cube.\+h}
+\hypertarget{_cube_8h_source}{}\label{_cube_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/prefabs/Cube.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/prefabs/Cube.h}}
+\mbox{\hyperlink{_cube_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_CUBE\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_CUBE\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../Entity.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }Pipeline;}
+\DoxyCodeLine{00023\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1scene}{vkf::scene}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }Camera;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1scene_1_1_cube}{Cube}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_ae42be40919ca2909107bb19647aa7752}{Cube}}(entt::registry\ \&registry)\ :\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}(registry)\{\};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_a6fd98be07d61e52969fb1559b39bbece}{create}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device,\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering::BindlessManager}}\ \&bindlessManager,\ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core::Pipeline}}\ *pipeline,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}\ *camera,\ std::string\ tag);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_ac034f8cbafd650a05b4abe45b8fbfc88}{displayGui}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_a28057deb41adcb00430d274edb1ebf3b}{updateComponents}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering::BindlessManager}}\ \&bindlessManager)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_CUBE\_H}}
+
+\end{DoxyCode}

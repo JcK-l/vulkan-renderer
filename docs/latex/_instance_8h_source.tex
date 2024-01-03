@@ -19,33 +19,33 @@
 \DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}(\textcolor{keyword}{const}\ std::string\ \&appName,\ \textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredExtensions\ =\ \{\},}
 \DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredLayers\ =\ \{\});}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}(\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{\string~Instance}}();\ \textcolor{comment}{//\ Implementation\ in\ Instance.cpp\ because\ of\ std::unique\_ptr\ forward\ declaration}}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a196b25a6a106ab51e502be0687d01d9f}{Instance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a1fc83e38b7c710f5150945179d549405}{Instance}}(\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}();\ }
 \DoxyCodeLine{00051\ }
 \DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{PhysicalDevice}}\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_instance_a1afca95927feacae9bc8197226c2ea84}{getSuitableGpu}}(vk::raii::SurfaceKHR\ \&surface);}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Instance\ \&getHandle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ [[nodiscard]]\ const\ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_instance}{Instance}}\ \&getHandle()\ const;}
 \DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Context\ \&getContext()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ \ \ \ \ [[nodiscard]]\ const\ vk::raii::Context\ \&getContext()\ const;}
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validateExtensions}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredExtensions);}
+\DoxyCodeLine{00066\ \ \ private:}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a7b00c7968b62d552f6b0750829f09448}{validateExtensions}}(const\ std::vector<const\ \textcolor{keywordtype}{char}\ *>\ \&requiredExtensions);}
 \DoxyCodeLine{00075\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validateLayers}}(\textcolor{keyword}{const}\ std::vector<const\ char\ *>\ \&requiredLayers);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_a98512794aa941862cc068480e5ba7c49}{validateLayers}}(const\ std::vector<const\ \textcolor{keywordtype}{char}\ *>\ \&requiredLayers);}
 \DoxyCodeLine{00084\ }
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}{enableExtension}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredExtensionName);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_ab7de51356c4c1393e38429298357fbd4}{enableExtension}}(const\ \textcolor{keywordtype}{char}\ *requiredExtensionName);}
 \DoxyCodeLine{00092\ }
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}{enableLayer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *requiredLayerName);}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_acf646e9e7b701233a6bbf5304a64e5b1}{enableLayer}}(const\ \textcolor{keywordtype}{char}\ *requiredLayerName);}
 \DoxyCodeLine{00100\ }
 \DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_instance_aa18431ab955ea538705d10a5e4812bc8}{queryGpus}}();}
 \DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ std::vector<const\ char\ *>\ enabledExtensions;}
+\DoxyCodeLine{00108\ \ \ \ \ std::vector<const\ \textcolor{keywordtype}{char}\ *>\ enabledExtensions;}
 \DoxyCodeLine{00109\ \ \ \ \ std::vector<vk::ExtensionProperties>\ availableExtensions;}
 \DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \ \ \ \ std::vector<const\ char\ *>\ enabledLayers;}
+\DoxyCodeLine{00111\ \ \ \ \ std::vector<const\ \textcolor{keywordtype}{char}\ *>\ enabledLayers;}
 \DoxyCodeLine{00112\ \ \ \ \ std::vector<vk::LayerProperties>\ availableLayers;}
 \DoxyCodeLine{00113\ }
 \DoxyCodeLine{00114\ \ \ \ \ vk::raii::Context\ context\{\};}

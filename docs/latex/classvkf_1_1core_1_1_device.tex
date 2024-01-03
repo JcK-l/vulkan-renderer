@@ -16,16 +16,19 @@ This class is used to manage Vulkan devices.
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1core_1_1_device}{Device} class. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_device_af043b8bb36f544cb5baa188cabaff817}\label{classvkf_1_1core_1_1_device_af043b8bb36f544cb5baa188cabaff817} 
 {\bfseries Device} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_device_af8579dcfb263e4bc537dad7d99c2fa94}\label{classvkf_1_1core_1_1_device_af8579dcfb263e4bc537dad7d99c2fa94} 
 {\bfseries Device} (\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&\&) noexcept=default
-\item 
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_device_a0099596233b38a7c642bdba0f31e4093}\label{classvkf_1_1core_1_1_device_a0099596233b38a7c642bdba0f31e4093} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_device_aef8d2837c208dd7d0694457adf615d94}\label{classvkf_1_1core_1_1_device_aef8d2837c208dd7d0694457adf615d94} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&\&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_device_a368b478f4239190b58ab7806a6b3580d}\label{classvkf_1_1core_1_1_device_a368b478f4239190b58ab7806a6b3580d} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Device} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_device_a7028758f532e426ae8543a1262c446a6}{get\+Queue}} (uint32\+\_\+t queue\+Index, uint32\+\_\+t family\+Index) const
 \begin{DoxyCompactList}\small\item\em Getter for a queue. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} \& \mbox{\hyperlink{classvkf_1_1core_1_1_device_a24b379de691e7662da4870df2cff0133}{get\+Queue\+With\+Flags}} (uint32\+\_\+t queue\+Index, vk\+::\+Queue\+Flags include\+Flags, vk\+::\+Queue\+Flags exclude\+Flags=vk\+::\+Queue\+Flags()) const

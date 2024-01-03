@@ -35,6 +35,9 @@ target_sources(vkf
         scene/Scene.cpp
         scene/Camera.cpp
         scene/Entity.cpp
+        scene/prefabs/PrefabFactory.cpp
+        scene/prefabs/Cube.cpp
+        scene/prefabs/Triangle.cpp
 )
 
 

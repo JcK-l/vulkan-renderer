@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['xpos_0',['xPos',['../structvkf_1_1_event_1_1_mouse_move.html#adcbe046f519adb7300579c470e82be90',1,'vkf::Event::MouseMove']]],
-  ['xscroll_1',['xScroll',['../structvkf_1_1_event_1_1_mouse_scroll.html#a1e7f7472848dc597840411d0eeb1833b',1,'vkf::Event::MouseScroll']]]
+  ['newheight_0',['newHeight',['../structvkf_1_1_event_1_1_resize.html#ae4491a9af4fb145f41bb7311b8e4d01b',1,'vkf::Event::Resize']]],
+  ['newwidth_1',['newWidth',['../structvkf_1_1_event_1_1_resize.html#afb7b924d269283817faad8e5a4811999',1,'vkf::Event::Resize']]]
 ];

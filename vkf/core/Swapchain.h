@@ -62,11 +62,11 @@ class Swapchain : public rendering::RenderSource
     ///
     Swapchain(const Device &device, const vk::raii::SurfaceKHR &surface, const platform::Window &window);
 
-    Swapchain(const Swapchain &) = delete;            // Deleted copy constructor
-    Swapchain(Swapchain &&) noexcept = default;       // Default move constructor
-    Swapchain &operator=(const Swapchain &) = delete; // Deleted copy assignment operator
-    Swapchain &operator=(Swapchain &&) = delete;      // Deleted move assignment operator
-    ~Swapchain() override = default;                  // Default destructor
+    Swapchain(const Swapchain &) = delete;            ///< Deleted copy constructor
+    Swapchain(Swapchain &&) noexcept = default;       ///< Default move constructor
+    Swapchain &operator=(const Swapchain &) = delete; ///< Deleted copy assignment operator
+    Swapchain &operator=(Swapchain &&) = delete;      ///< Deleted move assignment operator
+    ~Swapchain() override = default;                  ///< Default destructor
 
     [[nodiscard]] const vk::raii::SwapchainKHR &getHandle() const;
 

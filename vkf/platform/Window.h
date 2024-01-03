@@ -94,11 +94,11 @@ class Window
     ///
     explicit Window(Properties properties);
 
-    Window(const Window &) = delete;            // Deleted copy constructor
-    Window(Window &&) noexcept = default;       // Default move constructor
-    Window &operator=(const Window &) = delete; // Deleted copy assignment operator
-    Window &operator=(Window &&) = delete;      // Deleted move assignment operator
-    ~Window();                                  // Implementation in Window.cpp
+    Window(const Window &) = delete;            ///< Deleted copy constructor
+    Window(Window &&) noexcept = default;       ///< Default move constructor
+    Window &operator=(const Window &) = delete; ///< Deleted copy assignment operator
+    Window &operator=(Window &&) = delete;      ///< Deleted move assignment operator
+    ~Window();                                  ///< Implementation in Window.cpp
 
     void onUpdate();
 

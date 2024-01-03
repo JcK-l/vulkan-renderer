@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['validateextensions_0',['validateextensions',['../classvkf_1_1core_1_1_device.html#acf116fb0c80b39c53405d3a066cb1313',1,'vkf::core::Device::validateExtensions()'],['../classvkf_1_1core_1_1_instance.html#a7b00c7968b62d552f6b0750829f09448',1,'vkf::core::Instance::validateExtensions(const std::vector&lt; const char * &gt; &amp;requiredExtensions)']]],
-  ['validatelayers_1',['validateLayers',['../classvkf_1_1core_1_1_instance.html#a98512794aa941862cc068480e5ba7c49',1,'vkf::core::Instance']]]
+  ['tagcomponent_0',['TagComponent',['../structvkf_1_1scene_1_1_tag_component.html#a7f3d9d955738d2cb46450c33c5792d01',1,'vkf::scene::TagComponent']]],
+  ['transformcomponent_1',['TransformComponent',['../structvkf_1_1scene_1_1_transform_component.html#a4ac098b6af3b476986d892c39347520b',1,'vkf::scene::TransformComponent']]],
+  ['triangle_2',['Triangle',['../classvkf_1_1scene_1_1_triangle.html#afcf5939733f6c53440db068523931093',1,'vkf::scene::Triangle']]]
 ];

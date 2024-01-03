@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['buffer_0',['Buffer',['../classvkf_1_1core_1_1_buffer.html#ad6409aeb39c3d235e596bd792eb4bf7a',1,'vkf::core::Buffer']]]
+  ['bindlessmanager_0',['bindlessmanager',['../classvkf_1_1rendering_1_1_bindless_manager.html#aba5b649d499bf1cb0774c5e637ea6aa4',1,'vkf::rendering::BindlessManager::BindlessManager(const core::Device &amp;device)'],['../classvkf_1_1rendering_1_1_bindless_manager.html#a57c25dcfedb08d47802c8107f426b50e',1,'vkf::rendering::BindlessManager::BindlessManager(const BindlessManager &amp;)=delete'],['../classvkf_1_1rendering_1_1_bindless_manager.html#a6a6cc487e13197d55104149cdbe710be',1,'vkf::rendering::BindlessManager::BindlessManager(BindlessManager &amp;&amp;) noexcept=default']]],
+  ['buffer_1',['buffer',['../classvkf_1_1core_1_1_buffer.html#afaf710de9c644fe614c4d387f256f8d3',1,'vkf::core::Buffer::Buffer(const Device &amp;device, vk::BufferCreateInfo createInfo, VmaAllocationCreateFlags allocationFlags)'],['../classvkf_1_1core_1_1_buffer.html#a944483f6fccaad2467f2e98e6d8d8306',1,'vkf::core::Buffer::Buffer(const Buffer &amp;)=delete'],['../classvkf_1_1core_1_1_buffer.html#a18ca3d65a9fe754f55ac205fe2e89071',1,'vkf::core::Buffer::Buffer(Buffer &amp;&amp;) noexcept']]]
 ];

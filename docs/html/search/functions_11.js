@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7erendersource_0',['~RenderSource',['../classvkf_1_1rendering_1_1_render_source.html#a623406819493af0cb8a5191f16d1dd49',1,'vkf::rendering::RenderSource']]],
-  ['_7erendersubstage_1',['~RenderSubstage',['../classvkf_1_1rendering_1_1_render_substage.html#a8f8f442689c543461c50c47c7e07ed03',1,'vkf::rendering::RenderSubstage']]]
+  ['validateextensions_0',['validateextensions',['../classvkf_1_1core_1_1_device.html#acf116fb0c80b39c53405d3a066cb1313',1,'vkf::core::Device::validateExtensions()'],['../classvkf_1_1core_1_1_instance.html#a7b00c7968b62d552f6b0750829f09448',1,'vkf::core::Instance::validateExtensions(const std::vector&lt; const char * &gt; &amp;requiredExtensions)']]],
+  ['validatelayers_1',['validateLayers',['../classvkf_1_1core_1_1_instance.html#a98512794aa941862cc068480e5ba7c49',1,'vkf::core::Instance']]]
 ];

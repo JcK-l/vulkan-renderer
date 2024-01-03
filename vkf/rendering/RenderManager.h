@@ -60,11 +60,11 @@ class RenderManager
     RenderManager(const core::Device &device, platform::Window &window, std::shared_ptr<core::Swapchain> inputSwapchain,
                   std::vector<std::unique_ptr<Renderer>> inputRenderers);
 
-    RenderManager(const RenderManager &) = delete;            // Deleted copy constructor
-    RenderManager(RenderManager &&) noexcept = default;       // Default move constructor
-    RenderManager &operator=(const RenderManager &) = delete; // Deleted copy assignment operator
-    RenderManager &operator=(RenderManager &&) = delete;      // Deleted move assignment operator
-    ~RenderManager(); // Implementation in RenderManager.cpp because of std::unique_ptr forward declaration
+    RenderManager(const RenderManager &) = delete;            ///< Deleted copy constructor
+    RenderManager(RenderManager &&) noexcept = default;       ///< Default move constructor
+    RenderManager &operator=(const RenderManager &) = delete; ///< Deleted copy assignment operator
+    RenderManager &operator=(RenderManager &&) = delete;      ///< Deleted move assignment operator
+    ~RenderManager(); ///< Implementation in RenderManager.cpp because of std::unique_ptr forward declaration
 
     uint32_t beginFrame();
     void endFrame();

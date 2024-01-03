@@ -3,31 +3,51 @@
 \mbox{\hyperlink{_pipeline_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_PIPELINE\_H}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_PIPELINE\_H}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}}
-\DoxyCodeLine{00018\ \{}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{comment}{//\ Forward\ declarations}}
-\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }Device;}
-\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }RenderPass;}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}}
-\DoxyCodeLine{00032\ \{}
-\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&renderPass);}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Pipeline\ \&getHandle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_PIPELINE\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_PIPELINE\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }RenderPass;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1core_1_1_pipeline_state}{PipelineState}}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<vk::PipelineShaderStageCreateInfo>\ shaderStageCreateInfos;}
+\DoxyCodeLine{00032\ \ \ \ \ vk::PipelineVertexInputStateCreateInfo\ vertexInputCreateInfo;}
+\DoxyCodeLine{00033\ \ \ \ \ vk::PipelineInputAssemblyStateCreateInfo\ inputAssemblyCreateInfo;}
+\DoxyCodeLine{00034\ \ \ \ \ vk::PipelineViewportStateCreateInfo\ pipelineViewportStateCreateInfo;}
+\DoxyCodeLine{00035\ \ \ \ \ vk::PipelineRasterizationStateCreateInfo\ rasterizerCreateInfo;}
+\DoxyCodeLine{00036\ \ \ \ \ vk::PipelineMultisampleStateCreateInfo\ multisamplingCreateInfo;}
+\DoxyCodeLine{00037\ \ \ \ \ vk::PipelineDepthStencilStateCreateInfo\ depthStencilCreateInfo;}
+\DoxyCodeLine{00038\ \ \ \ \ vk::PipelineColorBlendStateCreateInfo\ colorBlendingCreateInfo;}
+\DoxyCodeLine{00039\ \ \ \ \ vk::PipelineDynamicStateCreateInfo\ dynamicStateCreateInfo;}
+\DoxyCodeLine{00040\ \ \ \ \ vk::PipelineLayout\ pipelineLayout;}
+\DoxyCodeLine{00041\ \ \ \ \ vk::RenderPass\ renderPass;}
+\DoxyCodeLine{00042\ \};}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00045\ \ \ \ \ vk::raii::PipelineLayout\ pipelineLayout\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00046\ \ \ \ \ vk::raii::Pipeline\ handle\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00047\ \};}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_PIPELINE\_H}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structvkf_1_1core_1_1_pipeline_state}{PipelineState}}\ \&state);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline_a07c92c94bb93234c26181d09bf002aac}{Pipeline}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline_aad36c7626a9ef504b47e207c33c02e1e}{Pipeline}}(\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ [[nodiscard]]\ const\ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}\ \&getHandle()\ const;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ private:}
+\DoxyCodeLine{00071\ \ \ \ \ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{Pipeline}}\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_PIPELINE\_H}}
 
 \end{DoxyCode}

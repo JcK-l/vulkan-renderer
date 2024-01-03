@@ -43,11 +43,11 @@ class Queue
     Queue(vk::raii::Queue queue, uint32_t familyIndex, vk::QueueFamilyProperties properties, vk::Bool32 canPresent,
           uint32_t queueIndex);
 
-    Queue(const Queue &) = delete;            // Deleted copy constructor
-    Queue(Queue &&) noexcept = default;       // Default move constructor
-    Queue &operator=(const Queue &) = delete; // Deleted copy assignment operator
-    Queue &operator=(Queue &&) = delete;      // Deleted move assignment operator
-    ~Queue() = default;                       // Default destructor
+    Queue(const Queue &) = delete;            ///< Deleted copy constructor
+    Queue(Queue &&) noexcept = default;       ///< Default move constructor
+    Queue &operator=(const Queue &) = delete; ///< Deleted copy assignment operator
+    Queue &operator=(Queue &&) = delete;      ///< Deleted move assignment operator
+    ~Queue() = default;                       ///< Default destructor
 
     [[nodiscard]] const vk::raii::Queue &getHandle() const;
 

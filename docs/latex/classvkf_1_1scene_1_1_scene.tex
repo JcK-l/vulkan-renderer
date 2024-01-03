@@ -12,15 +12,49 @@ This class manages a scene.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1scene_1_1_scene_ad8bb5707a0bd29cc469c27188ae14c28}{Scene}} ()
+\mbox{\hyperlink{classvkf_1_1scene_1_1_scene_a83bf7df32e335079a025aa2652543efd}{Scene}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&render\+Pass, \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \&camera)
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1scene_1_1_scene}{Scene} class. \end{DoxyCompactList}\item 
-entt\+::entity \mbox{\hyperlink{classvkf_1_1scene_1_1_scene_a09cba27f35a39aa1d6c9667c9ff7bdcd}{create\+Entity}} (const std\+::string \&name)
-\begin{DoxyCompactList}\small\item\em Method to create an entity. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_af1eccd806e9576b409e6f05972972861}\label{classvkf_1_1scene_1_1_scene_af1eccd806e9576b409e6f05972972861} 
+{\bfseries Scene} (const \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{Scene}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a6f0d819ea1e4876f6c0ced6764afdcf9}\label{classvkf_1_1scene_1_1_scene_a6f0d819ea1e4876f6c0ced6764afdcf9} 
+{\bfseries Scene} (\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{Scene}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a129943355929c1865fa1dfaae3d81c1b}\label{classvkf_1_1scene_1_1_scene_a129943355929c1865fa1dfaae3d81c1b} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{Scene}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{Scene}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a639703cd8aee87bb952ec89f08edd175}\label{classvkf_1_1scene_1_1_scene_a639703cd8aee87bb952ec89f08edd175} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{Scene}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{Scene}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_abbfafe95ed72a51235012aaa80ca4376}\label{classvkf_1_1scene_1_1_scene_abbfafe95ed72a51235012aaa80ca4376} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Scene} ()
+\begin{DoxyCompactList}\small\item\em Implemented in \doxylink{_scene_8cpp}{Scene.\+cpp}. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a2217d17b8c9d7aaad1ea0276fdb660e3}\label{classvkf_1_1scene_1_1_scene_a2217d17b8c9d7aaad1ea0276fdb660e3} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ {\bfseries create\+Entity} (\mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{Prefab\+Type}} type, std\+::string tag)
+\item 
 \Hypertarget{classvkf_1_1scene_1_1_scene_ace065f175fbdc5a854a299f0be413001}\label{classvkf_1_1scene_1_1_scene_ace065f175fbdc5a854a299f0be413001} 
 entt\+::registry \& {\bfseries get\+Registry} ()
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_aee5c05db1d6b325479aa72be2011114e}\label{classvkf_1_1scene_1_1_scene_aee5c05db1d6b325479aa72be2011114e} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Camera} () const
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a39768c1619011ee7ca4e9bbccf691945}\label{classvkf_1_1scene_1_1_scene_a39768c1619011ee7ca4e9bbccf691945} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \& {\bfseries device}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a1593b552c8017e0fd670057b5f7e6a70}\label{classvkf_1_1scene_1_1_scene_a1593b552c8017e0fd670057b5f7e6a70} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \& {\bfseries bindless\+Manager}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a3413238f5d150977e095e87710232e27}\label{classvkf_1_1scene_1_1_scene_a3413238f5d150977e095e87710232e27} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \& {\bfseries render\+Pass}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_adbba884ff5a3ca1fb3c8387cb8068d89}\label{classvkf_1_1scene_1_1_scene_adbba884ff5a3ca1fb3c8387cb8068d89} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} $>$ {\bfseries scene\+Camera}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a63fa0756011483c53be0e4f96ac2af55}\label{classvkf_1_1scene_1_1_scene_a63fa0756011483c53be0e4f96ac2af55} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory}} $>$ {\bfseries prefab\+Factory}
 \item 
 \Hypertarget{classvkf_1_1scene_1_1_scene_a74ae63e3d472bdb86ac8ccec6e1f05ad}\label{classvkf_1_1scene_1_1_scene_a74ae63e3d472bdb86ac8ccec6e1f05ad} 
 entt\+::registry {\bfseries registry}
@@ -33,39 +67,29 @@ This class manages a scene.
 It provides an interface for interacting with with a scene. It includes methods for creating an entity and getting the registry. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1scene_1_1_scene_ad8bb5707a0bd29cc469c27188ae14c28}\label{classvkf_1_1scene_1_1_scene_ad8bb5707a0bd29cc469c27188ae14c28} 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a83bf7df32e335079a025aa2652543efd}\label{classvkf_1_1scene_1_1_scene_a83bf7df32e335079a025aa2652543efd} 
 \index{vkf::scene::Scene@{vkf::scene::Scene}!Scene@{Scene}}
 \index{Scene@{Scene}!vkf::scene::Scene@{vkf::scene::Scene}}
 \doxysubsubsection{\texorpdfstring{Scene()}{Scene()}}
-{\footnotesize\ttfamily vkf\+::scene\+::\+Scene\+::\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vkf\+::scene\+::\+Scene\+::\+Scene (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&}]{bindless\+Manager,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&}]{render\+Pass,  }\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \&}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
 Constructor for the \doxylink{classvkf_1_1scene_1_1_scene}{Scene} class. 
 
-This constructor creates a \doxylink{classvkf_1_1scene_1_1_scene}{Scene}. 
-
-\doxysubsection{Member Function Documentation}
-\Hypertarget{classvkf_1_1scene_1_1_scene_a09cba27f35a39aa1d6c9667c9ff7bdcd}\label{classvkf_1_1scene_1_1_scene_a09cba27f35a39aa1d6c9667c9ff7bdcd} 
-\index{vkf::scene::Scene@{vkf::scene::Scene}!createEntity@{createEntity}}
-\index{createEntity@{createEntity}!vkf::scene::Scene@{vkf::scene::Scene}}
-\doxysubsubsection{\texorpdfstring{createEntity()}{createEntity()}}
-{\footnotesize\ttfamily entt\+::entity vkf\+::scene\+::\+Scene\+::create\+Entity (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
-
-
-
-Method to create an entity. 
-
-This method creates an entity with the provided name.
+This constructor creates a \doxylink{classvkf_1_1scene_1_1_scene}{Scene}.
 
 
 \begin{DoxyParams}{Parameters}
-{\em name} & The name for the entity. \\
+{\em device} & The device to use. \\
+\hline
+{\em bindless\+Manager} & The bindless manager to use. \\
+\hline
+{\em render\+Pass} & The render pass to use. \\
+\hline
+{\em camera} & The camera to use. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The created entity. 
-\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

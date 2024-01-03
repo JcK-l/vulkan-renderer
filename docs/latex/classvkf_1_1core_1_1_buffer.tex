@@ -12,39 +12,60 @@ This class manages Vulkan buffers.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1core_1_1_buffer_ad6409aeb39c3d235e596bd792eb4bf7a}{Buffer}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device, vk\+::\+Buffer\+Create\+Info create\+Info, Vma\+Memory\+Usage memory\+Usage)
+\mbox{\hyperlink{classvkf_1_1core_1_1_buffer_afaf710de9c644fe614c4d387f256f8d3}{Buffer}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&device, vk\+::\+Buffer\+Create\+Info create\+Info, Vma\+Allocation\+Create\+Flags allocation\+Flags)
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1core_1_1_buffer}{Buffer} class. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_buffer_a944483f6fccaad2467f2e98e6d8d8306}\label{classvkf_1_1core_1_1_buffer_a944483f6fccaad2467f2e98e6d8d8306} 
 {\bfseries Buffer} (const \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&)=delete
-\item 
-\Hypertarget{classvkf_1_1core_1_1_buffer_aa43edbe69eef1737b3c6c0c4dee8da9a}\label{classvkf_1_1core_1_1_buffer_aa43edbe69eef1737b3c6c0c4dee8da9a} 
-{\bfseries Buffer} (\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&\&) noexcept=default
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a18ca3d65a9fe754f55ac205fe2e89071}\label{classvkf_1_1core_1_1_buffer_a18ca3d65a9fe754f55ac205fe2e89071} 
+{\bfseries Buffer} (\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&\&) noexcept
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_buffer_ad794ebd2badb5a50ebb971b9a5c3bbfb}\label{classvkf_1_1core_1_1_buffer_ad794ebd2badb5a50ebb971b9a5c3bbfb} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_buffer_a7bded0b1776c770ace79da5f6044f3ce}\label{classvkf_1_1core_1_1_buffer_a7bded0b1776c770ace79da5f6044f3ce} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&\&)=delete
-\item 
-\Hypertarget{classvkf_1_1core_1_1_buffer_a902852d743b3b1359ed5d7ca1e4c3435}\label{classvkf_1_1core_1_1_buffer_a902852d743b3b1359ed5d7ca1e4c3435} 
-const vk\+::raii\+::\+Buffer \& {\bfseries get\+Handle} () const
-\item 
-void \mbox{\hyperlink{classvkf_1_1core_1_1_buffer_a6ebee15f4ce776d1b13e1b73018a9442}{map\+Memory}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_aec405302d18e286c459d1ab81b114c69}\label{classvkf_1_1core_1_1_buffer_aec405302d18e286c459d1ab81b114c69} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Buffer} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1core_1_1_buffer_aea4c9889a32b9dda5772198f62c9710f}{map\+Memory}} ()
 \begin{DoxyCompactList}\small\item\em Map memory to the buffer. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_buffer_ac690743dd11156280b1328a5565c968b}\label{classvkf_1_1core_1_1_buffer_ac690743dd11156280b1328a5565c968b} 
 void {\bfseries unmap\+Memory} ()
-\begin{DoxyCompactList}\small\item\em Unmap memory from the buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Unmap memory from the buffer. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a3fbb3dbfd153a22dfe4d5e0e2f674b25}\label{classvkf_1_1core_1_1_buffer_a3fbb3dbfd153a22dfe4d5e0e2f674b25} 
+void {\bfseries update\+Data} (const void \texorpdfstring{$\ast$}{*}data, const uint32\+\_\+t size, const uint32\+\_\+t offset)
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a1e513ca467fdf89585deb995f32f070a}\label{classvkf_1_1core_1_1_buffer_a1e513ca467fdf89585deb995f32f070a} 
+vk\+::\+Buffer {\bfseries get\+Buffer} () const
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a183256fe3f0a2adabf6090c689ea0ccd}\label{classvkf_1_1core_1_1_buffer_a183256fe3f0a2adabf6090c689ea0ccd} 
+uint32\+\_\+t {\bfseries get\+Size} () const
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classvkf_1_1core_1_1_buffer_af28562d8bd794bb1d10bde937b302532}\label{classvkf_1_1core_1_1_buffer_af28562d8bd794bb1d10bde937b302532} 
 const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \& {\bfseries device}
 \item 
-\Hypertarget{classvkf_1_1core_1_1_buffer_a8332be0bb030722ed6fb0db26c60aa00}\label{classvkf_1_1core_1_1_buffer_a8332be0bb030722ed6fb0db26c60aa00} 
-Vma\+Allocation {\bfseries allocation} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\Hypertarget{classvkf_1_1core_1_1_buffer_a1ed091f4e5239514f2dc9e58b7d2c04d}\label{classvkf_1_1core_1_1_buffer_a1ed091f4e5239514f2dc9e58b7d2c04d} 
+bool {\bfseries persistent\+Mapped} \{false\}
 \item 
-\Hypertarget{classvkf_1_1core_1_1_buffer_a081ea9496331f6ae36c403407b79c550}\label{classvkf_1_1core_1_1_buffer_a081ea9496331f6ae36c403407b79c550} 
-vk\+::raii\+::\+Buffer {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\Hypertarget{classvkf_1_1core_1_1_buffer_a566bb98400e2fb033daff9691b98f010}\label{classvkf_1_1core_1_1_buffer_a566bb98400e2fb033daff9691b98f010} 
+bool {\bfseries mapped} \{false\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_ab97d8e80fe4e8824352fec1b7a452c23}\label{classvkf_1_1core_1_1_buffer_ab97d8e80fe4e8824352fec1b7a452c23} 
+void \texorpdfstring{$\ast$}{*} {\bfseries mapped\+Data} \{nullptr\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_ad75c9a432e29d72ff0c54fefe86a6606}\label{classvkf_1_1core_1_1_buffer_ad75c9a432e29d72ff0c54fefe86a6606} 
+uint32\+\_\+t {\bfseries size} \{0\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a8332be0bb030722ed6fb0db26c60aa00}\label{classvkf_1_1core_1_1_buffer_a8332be0bb030722ed6fb0db26c60aa00} 
+Vma\+Allocation {\bfseries allocation}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_buffer_a0d58352bfb9925069e5598ab24a25f3a}\label{classvkf_1_1core_1_1_buffer_a0d58352bfb9925069e5598ab24a25f3a} 
+Vk\+Buffer {\bfseries handle}
 \end{DoxyCompactItemize}
 
 
@@ -54,11 +75,11 @@ This class manages Vulkan buffers.
 It provides functionality to get the handle to the buffer, map memory to the buffer, and unmap memory from the buffer. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1core_1_1_buffer_ad6409aeb39c3d235e596bd792eb4bf7a}\label{classvkf_1_1core_1_1_buffer_ad6409aeb39c3d235e596bd792eb4bf7a} 
+\Hypertarget{classvkf_1_1core_1_1_buffer_afaf710de9c644fe614c4d387f256f8d3}\label{classvkf_1_1core_1_1_buffer_afaf710de9c644fe614c4d387f256f8d3} 
 \index{vkf::core::Buffer@{vkf::core::Buffer}!Buffer@{Buffer}}
 \index{Buffer@{Buffer}!vkf::core::Buffer@{vkf::core::Buffer}}
 \doxysubsubsection{\texorpdfstring{Buffer()}{Buffer()}}
-{\footnotesize\ttfamily vkf\+::core\+::\+Buffer\+::\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{device,  }\item[{vk\+::\+Buffer\+Create\+Info}]{create\+Info,  }\item[{Vma\+Memory\+Usage}]{memory\+Usage }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vkf\+::core\+::\+Buffer\+::\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}} \&}]{device,  }\item[{vk\+::\+Buffer\+Create\+Info}]{create\+Info,  }\item[{Vma\+Allocation\+Create\+Flags}]{allocation\+Flags }\end{DoxyParamCaption})}
 
 
 
@@ -76,11 +97,11 @@ Constructor for the \doxylink{classvkf_1_1core_1_1_buffer}{Buffer} class.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classvkf_1_1core_1_1_buffer_a6ebee15f4ce776d1b13e1b73018a9442}\label{classvkf_1_1core_1_1_buffer_a6ebee15f4ce776d1b13e1b73018a9442} 
+\Hypertarget{classvkf_1_1core_1_1_buffer_aea4c9889a32b9dda5772198f62c9710f}\label{classvkf_1_1core_1_1_buffer_aea4c9889a32b9dda5772198f62c9710f} 
 \index{vkf::core::Buffer@{vkf::core::Buffer}!mapMemory@{mapMemory}}
 \index{mapMemory@{mapMemory}!vkf::core::Buffer@{vkf::core::Buffer}}
 \doxysubsubsection{\texorpdfstring{mapMemory()}{mapMemory()}}
-{\footnotesize\ttfamily void vkf\+::core\+::\+Buffer\+::map\+Memory (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Buffer\+::map\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 

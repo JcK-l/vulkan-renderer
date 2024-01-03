@@ -1,0 +1,162 @@
+\doxysection{vkf\+::rendering\+::Bindless\+Manager Class Reference}
+\hypertarget{classvkf_1_1rendering_1_1_bindless_manager}{}\label{classvkf_1_1rendering_1_1_bindless_manager}\index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
+
+
+Class for managing bindless resources in Vulkan.  
+
+
+
+
+{\ttfamily \#include $<$Bindless\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_aba5b649d499bf1cb0774c5e637ea6aa4}{Bindless\+Manager}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device)
+\begin{DoxyCompactList}\small\item\em Constructor that takes a device as parameter. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a57c25dcfedb08d47802c8107f426b50e}\label{classvkf_1_1rendering_1_1_bindless_manager_a57c25dcfedb08d47802c8107f426b50e} 
+{\bfseries Bindless\+Manager} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{Bindless\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a6a6cc487e13197d55104149cdbe710be}\label{classvkf_1_1rendering_1_1_bindless_manager_a6a6cc487e13197d55104149cdbe710be} 
+{\bfseries Bindless\+Manager} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{Bindless\+Manager}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a9cc37df79cf076e1094588333f42b36a}\label{classvkf_1_1rendering_1_1_bindless_manager_a9cc37df79cf076e1094588333f42b36a} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{Bindless\+Manager}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{Bindless\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_aaaa6dd30113e9b81dd319b4686facf35}\label{classvkf_1_1rendering_1_1_bindless_manager_aaaa6dd30113e9b81dd319b4686facf35} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{Bindless\+Manager}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{Bindless\+Manager}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_ab1aa1c5fabcd823bcaae2e6d25a8e68a}\label{classvkf_1_1rendering_1_1_bindless_manager_ab1aa1c5fabcd823bcaae2e6d25a8e68a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Bindless\+Manager} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a4ae748b62dc989288bbd3156fed53e46}{store\+Buffer}} (\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{core\+::\+Buffer}} \&buffer, vk\+::\+Buffer\+Usage\+Flags usage)
+\begin{DoxyCompactList}\small\item\em Method to store a buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a6ffab2b51e1961137c482a6877aaf4ed}{update\+Buffer}} (uint32\+\_\+t handle, const void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t size, uint32\+\_\+t offset)
+\begin{DoxyCompactList}\small\item\em Method to update a buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_ac747f3fc736c5d04d30dba7948f7a87a}{remove\+Buffer}} (uint32\+\_\+t handle)
+\begin{DoxyCompactList}\small\item\em Method to remove a buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a0b174f73071a8b847282fdb4dcdc6f5d}{update\+Descriptor\+Set}} ()
+\begin{DoxyCompactList}\small\item\em Method to update descriptor set. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a6d17da6f751be457f9de11b385a30ad8}\label{classvkf_1_1rendering_1_1_bindless_manager_a6d17da6f751be457f9de11b385a30ad8} 
+vk\+::\+Pipeline\+Layout {\bfseries get\+Pipeline\+Layout} () const
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a33964e56150093dff5787b844fc0041a}\label{classvkf_1_1rendering_1_1_bindless_manager_a33964e56150093dff5787b844fc0041a} 
+vk\+::\+Descriptor\+Set {\bfseries get\+Descriptor\+Set} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a63867aa5c2aaa8bbcd7f3bcd848d88df}\label{classvkf_1_1rendering_1_1_bindless_manager_a63867aa5c2aaa8bbcd7f3bcd848d88df} 
+static constexpr uint32\+\_\+t {\bfseries Uniform\+Binding} = 0
+\begin{DoxyCompactList}\small\item\em Uniform binding index. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a7ad4862141b0701a9cde1d858e46867e}\label{classvkf_1_1rendering_1_1_bindless_manager_a7ad4862141b0701a9cde1d858e46867e} 
+static constexpr uint32\+\_\+t {\bfseries Storage\+Binding} = 1
+\begin{DoxyCompactList}\small\item\em Storage binding index. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a8e54c7d6bc304f6531b661f756c2e72a}\label{classvkf_1_1rendering_1_1_bindless_manager_a8e54c7d6bc304f6531b661f756c2e72a} 
+static constexpr uint32\+\_\+t {\bfseries Uniform\+Count} = 65536
+\begin{DoxyCompactList}\small\item\em Maximum number of uniform buffers. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a5fe41033aa647d0c6add913c52e7f6ac}\label{classvkf_1_1rendering_1_1_bindless_manager_a5fe41033aa647d0c6add913c52e7f6ac} 
+static constexpr uint32\+\_\+t {\bfseries Storage\+Count} = 65536
+\begin{DoxyCompactList}\small\item\em Maximum number of storage buffers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_abbe7628f8ac8cfb68e75be35549bc5dc}\label{classvkf_1_1rendering_1_1_bindless_manager_abbe7628f8ac8cfb68e75be35549bc5dc} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \& {\bfseries device}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a779f439d5a747fc5d198ad7fa7325647}\label{classvkf_1_1rendering_1_1_bindless_manager_a779f439d5a747fc5d198ad7fa7325647} 
+vk\+::raii\+::\+Descriptor\+Pool {\bfseries descriptor\+Pool} = VK\+\_\+\+NULL\+\_\+\+HANDLE
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a7e3e61ba90c310c3454c78568e008242}\label{classvkf_1_1rendering_1_1_bindless_manager_a7e3e61ba90c310c3454c78568e008242} 
+vk\+::raii\+::\+Descriptor\+Set {\bfseries descriptor\+Set} = VK\+\_\+\+NULL\+\_\+\+HANDLE
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_af0c67e9d3ff7cc2e6c72e692a0c01475}\label{classvkf_1_1rendering_1_1_bindless_manager_af0c67e9d3ff7cc2e6c72e692a0c01475} 
+std\+::vector$<$ vk\+::raii\+::\+Descriptor\+Set\+Layout $>$ {\bfseries descriptor\+Set\+Layouts}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_ab5b0758a28d1ea3fb3520045ed60d74a}\label{classvkf_1_1rendering_1_1_bindless_manager_ab5b0758a28d1ea3fb3520045ed60d74a} 
+vk\+::raii\+::\+Pipeline\+Layout {\bfseries pipeline\+Layout} = VK\+\_\+\+NULL\+\_\+\+HANDLE
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a5ca9703f997625e47aa8086aac0d4ec5}\label{classvkf_1_1rendering_1_1_bindless_manager_a5ca9703f997625e47aa8086aac0d4ec5} 
+std\+::vector$<$ vk\+::\+Write\+Descriptor\+Set $>$ {\bfseries write\+Descriptor\+Sets}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a5c1028ce52303ac031231467b0753f95}\label{classvkf_1_1rendering_1_1_bindless_manager_a5c1028ce52303ac031231467b0753f95} 
+std\+::vector$<$ vk\+::\+Descriptor\+Buffer\+Info $>$ {\bfseries descriptor\+Buffer\+Infos}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_aa675f6b75a779ffb5d3bb24b84b74ddf}\label{classvkf_1_1rendering_1_1_bindless_manager_aa675f6b75a779ffb5d3bb24b84b74ddf} 
+std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{core\+::\+Buffer}} $>$ {\bfseries buffers}
+\begin{DoxyCompactList}\small\item\em Map of handles and their corresponding buffers. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a61a9b7713e89eac574fd0a27183d72ab}\label{classvkf_1_1rendering_1_1_bindless_manager_a61a9b7713e89eac574fd0a27183d72ab} 
+std\+::vector$<$ uint32\+\_\+t $>$ {\bfseries free\+Handles}
+\begin{DoxyCompactList}\small\item\em Vector of free handles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for managing bindless resources in Vulkan. 
+
+This class provides functionality to store, update, and remove buffers. It also provides methods to update descriptor sets and get pipeline layout and descriptor set. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_aba5b649d499bf1cb0774c5e637ea6aa4}\label{classvkf_1_1rendering_1_1_bindless_manager_aba5b649d499bf1cb0774c5e637ea6aa4} 
+\index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!BindlessManager@{BindlessManager}}
+\index{BindlessManager@{BindlessManager}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
+\doxysubsubsection{\texorpdfstring{BindlessManager()}{BindlessManager()}}
+{\footnotesize\ttfamily vkf\+::rendering\+::\+Bindless\+Manager\+::\+Bindless\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor that takes a device as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The device to use for creating the \doxylink{classvkf_1_1rendering_1_1_bindless_manager}{Bindless\+Manager}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_ac747f3fc736c5d04d30dba7948f7a87a}\label{classvkf_1_1rendering_1_1_bindless_manager_ac747f3fc736c5d04d30dba7948f7a87a} 
+\index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!removeBuffer@{removeBuffer}}
+\index{removeBuffer@{removeBuffer}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
+\doxysubsubsection{\texorpdfstring{removeBuffer()}{removeBuffer()}}
+{\footnotesize\ttfamily void vkf\+::rendering\+::\+Bindless\+Manager\+::remove\+Buffer (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{handle }\end{DoxyParamCaption})}
+
+
+
+Method to remove a buffer. 
+
+This method takes a handle to a buffer and removes the buffer. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a4ae748b62dc989288bbd3156fed53e46}\label{classvkf_1_1rendering_1_1_bindless_manager_a4ae748b62dc989288bbd3156fed53e46} 
+\index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!storeBuffer@{storeBuffer}}
+\index{storeBuffer@{storeBuffer}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
+\doxysubsubsection{\texorpdfstring{storeBuffer()}{storeBuffer()}}
+{\footnotesize\ttfamily uint32\+\_\+t vkf\+::rendering\+::\+Bindless\+Manager\+::store\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{core\+::\+Buffer}} \&}]{buffer,  }\item[{vk\+::\+Buffer\+Usage\+Flags}]{usage }\end{DoxyParamCaption})}
+
+
+
+Method to store a buffer. 
+
+This method takes a buffer and its usage, and returns a handle to the stored buffer. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a6ffab2b51e1961137c482a6877aaf4ed}\label{classvkf_1_1rendering_1_1_bindless_manager_a6ffab2b51e1961137c482a6877aaf4ed} 
+\index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!updateBuffer@{updateBuffer}}
+\index{updateBuffer@{updateBuffer}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
+\doxysubsubsection{\texorpdfstring{updateBuffer()}{updateBuffer()}}
+{\footnotesize\ttfamily void vkf\+::rendering\+::\+Bindless\+Manager\+::update\+Buffer (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{handle,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{uint32\+\_\+t}]{offset }\end{DoxyParamCaption})}
+
+
+
+Method to update a buffer. 
+
+This method takes a handle to a buffer, data to update, size of the data, and offset in the buffer, and updates the buffer. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a0b174f73071a8b847282fdb4dcdc6f5d}\label{classvkf_1_1rendering_1_1_bindless_manager_a0b174f73071a8b847282fdb4dcdc6f5d} 
+\index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!updateDescriptorSet@{updateDescriptorSet}}
+\index{updateDescriptorSet@{updateDescriptorSet}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
+\doxysubsubsection{\texorpdfstring{updateDescriptorSet()}{updateDescriptorSet()}}
+{\footnotesize\ttfamily void vkf\+::rendering\+::\+Bindless\+Manager\+::update\+Descriptor\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method to update descriptor set. 
+
+This method updates the descriptor set. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_bindless_manager_8h}{Bindless\+Manager.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_bindless_manager_8cpp}{Bindless\+Manager.\+cpp}}\end{DoxyCompactItemize}

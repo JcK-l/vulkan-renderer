@@ -1,0 +1,181 @@
+\doxysection{vkf\+::scene\+::Entity Class Reference}
+\hypertarget{classvkf_1_1scene_1_1_entity}{}\label{classvkf_1_1scene_1_1_entity}\index{vkf::scene::Entity@{vkf::scene::Entity}}
+
+
+Class for managing entities in a scene.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
+Inheritance diagram for vkf\+::scene\+::Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvkf_1_1scene_1_1_entity}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_entity_afdfe95ccc0085a516167a5aca40296a2}{Entity}} (entt\+::registry \&registry)
+\begin{DoxyCompactList}\small\item\em Constructor that takes an entt\+::registry reference as parameter. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_entity_a4aaf40123d0fac85d3c66bcb326355ed}\label{classvkf_1_1scene_1_1_entity_a4aaf40123d0fac85d3c66bcb326355ed} 
+{\bfseries Entity} (const \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_entity_a69439e29cb278ef396fce02b0f8fa2d0}\label{classvkf_1_1scene_1_1_entity_a69439e29cb278ef396fce02b0f8fa2d0} 
+{\bfseries Entity} (\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_entity_aee202b70786e78091b4d603822f11e48}\label{classvkf_1_1scene_1_1_entity_aee202b70786e78091b4d603822f11e48} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_entity_a876f5e293b603ad2c1048bc1a23da8e1}\label{classvkf_1_1scene_1_1_entity_a876f5e293b603ad2c1048bc1a23da8e1} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_entity_adc00bc3a4b7a6e90280e649572884bb8}\label{classvkf_1_1scene_1_1_entity_adc00bc3a4b7a6e90280e649572884bb8} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\void \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a1bc0a85c543f15929a7bfe8844fb8523}{add\+Component}} (Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Method to add a component to an entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \& \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a6da33b79e3aeea347d0218224fb9ea7c}{get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Method to get a component from an entity. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_entity_a829723c9ecec6e9f6ce1f5fec927790e}\label{classvkf_1_1scene_1_1_entity_a829723c9ecec6e9f6ce1f5fec927790e} 
+void {\bfseries create} (std\+::string tag)
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_entity_aedcad49043b3ee40cc45984e3973f514}\label{classvkf_1_1scene_1_1_entity_aedcad49043b3ee40cc45984e3973f514} 
+void {\bfseries destroy} ()
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_entity_a1d8f2b34ec2650711fb60a4ba5f5be22}\label{classvkf_1_1scene_1_1_entity_a1d8f2b34ec2650711fb60a4ba5f5be22} 
+entt\+::entity {\bfseries get\+Handle} () const
+\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_aa1872a0b038c309707c2b46cbf6e3b49}{set\+Handle}} (entt\+::entity handle)
+\begin{DoxyCompactList}\small\item\em Method to set the handle of an entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a9969ca3593e4aab0fc5d5a156b68941d}{set\+Handle}} (\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} entity)
+\begin{DoxyCompactList}\small\item\em Method to set the handle of an entity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a4d69f1d7d0e91f0146f75647633889ff}{display\+Gui}} ()
+\begin{DoxyCompactList}\small\item\em Method to display the GUI for an entity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a0baf81c1eae39d17621e92b45f17fb01}{update\+Components}} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager)
+\begin{DoxyCompactList}\small\item\em Method to update the components of an entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_entity_a82c1fbf3eee3ecb9b89d5e70e2e0441b}\label{classvkf_1_1scene_1_1_entity_a82c1fbf3eee3ecb9b89d5e70e2e0441b} 
+entt\+::registry \& {\bfseries registry}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_entity_a78e5e6c1e9ba58e8dac1ce739e1e7857}\label{classvkf_1_1scene_1_1_entity_a78e5e6c1e9ba58e8dac1ce739e1e7857} 
+entt\+::entity {\bfseries handle} \{entt\+::null\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for managing entities in a scene. 
+
+This class provides functionality to create, destroy, and manage entities. It contains a reference to an entt\+::registry and an entt\+::entity handle. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_entity_afdfe95ccc0085a516167a5aca40296a2}\label{classvkf_1_1scene_1_1_entity_afdfe95ccc0085a516167a5aca40296a2} 
+\index{vkf::scene::Entity@{vkf::scene::Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!vkf::scene::Entity@{vkf::scene::Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
+{\footnotesize\ttfamily vkf\+::scene\+::\+Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{entt\+::registry \&}]{registry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor that takes an entt\+::registry reference as parameter. 
+
+This constructor initializes the registry reference with the provided registry.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registry} & Reference to the entt\+::registry \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_entity_a1bc0a85c543f15929a7bfe8844fb8523}\label{classvkf_1_1scene_1_1_entity_a1bc0a85c543f15929a7bfe8844fb8523} 
+\index{vkf::scene::Entity@{vkf::scene::Entity}!addComponent@{addComponent}}
+\index{addComponent@{addComponent}!vkf::scene::Entity@{vkf::scene::Entity}}
+\doxysubsubsection{\texorpdfstring{addComponent()}{addComponent()}}
+{\footnotesize\ttfamily template$<$typename T , typename... Args$>$ \\
+void vkf\+::scene\+::\+Entity\+::add\+Component (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to add a component to an entity. 
+
+This method takes the type of the component and its arguments, and adds the component to the entity. \Hypertarget{classvkf_1_1scene_1_1_entity_a4d69f1d7d0e91f0146f75647633889ff}\label{classvkf_1_1scene_1_1_entity_a4d69f1d7d0e91f0146f75647633889ff} 
+\index{vkf::scene::Entity@{vkf::scene::Entity}!displayGui@{displayGui}}
+\index{displayGui@{displayGui}!vkf::scene::Entity@{vkf::scene::Entity}}
+\doxysubsubsection{\texorpdfstring{displayGui()}{displayGui()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Entity\+::display\+Gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method to display the GUI for an entity. 
+
+This method is intended to be overridden by subclasses to display the GUI for an entity. It is only used if the Gui Class is used. 
+
+Reimplemented in \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_ac034f8cbafd650a05b4abe45b8fbfc88}{vkf\+::scene\+::\+Cube}}, and \mbox{\hyperlink{classvkf_1_1scene_1_1_triangle_a6eae0d0d3af4f2a6281146acecc9ffb7}{vkf\+::scene\+::\+Triangle}}.
+
+\Hypertarget{classvkf_1_1scene_1_1_entity_a6da33b79e3aeea347d0218224fb9ea7c}\label{classvkf_1_1scene_1_1_entity_a6da33b79e3aeea347d0218224fb9ea7c} 
+\index{vkf::scene::Entity@{vkf::scene::Entity}!getComponent@{getComponent}}
+\index{getComponent@{getComponent}!vkf::scene::Entity@{vkf::scene::Entity}}
+\doxysubsubsection{\texorpdfstring{getComponent()}{getComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \& vkf\+::scene\+::\+Entity\+::get\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to get a component from an entity. 
+
+This method takes the type of the component and returns the component from the entity. \Hypertarget{classvkf_1_1scene_1_1_entity_a9969ca3593e4aab0fc5d5a156b68941d}\label{classvkf_1_1scene_1_1_entity_a9969ca3593e4aab0fc5d5a156b68941d} 
+\index{vkf::scene::Entity@{vkf::scene::Entity}!setHandle@{setHandle}}
+\index{setHandle@{setHandle}!vkf::scene::Entity@{vkf::scene::Entity}}
+\doxysubsubsection{\texorpdfstring{setHandle()}{setHandle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Entity\+::set\+Handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}}]{entity }\end{DoxyParamCaption})}
+
+
+
+Method to set the handle of an entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity to use for setting the handle of the entity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvkf_1_1scene_1_1_entity_aa1872a0b038c309707c2b46cbf6e3b49}\label{classvkf_1_1scene_1_1_entity_aa1872a0b038c309707c2b46cbf6e3b49} 
+\index{vkf::scene::Entity@{vkf::scene::Entity}!setHandle@{setHandle}}
+\index{setHandle@{setHandle}!vkf::scene::Entity@{vkf::scene::Entity}}
+\doxysubsubsection{\texorpdfstring{setHandle()}{setHandle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Entity\+::set\+Handle (\begin{DoxyParamCaption}\item[{entt\+::entity}]{handle }\end{DoxyParamCaption})}
+
+
+
+Method to set the handle of an entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & The handle to use for setting the handle of the entity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvkf_1_1scene_1_1_entity_a0baf81c1eae39d17621e92b45f17fb01}\label{classvkf_1_1scene_1_1_entity_a0baf81c1eae39d17621e92b45f17fb01} 
+\index{vkf::scene::Entity@{vkf::scene::Entity}!updateComponents@{updateComponents}}
+\index{updateComponents@{updateComponents}!vkf::scene::Entity@{vkf::scene::Entity}}
+\doxysubsubsection{\texorpdfstring{updateComponents()}{updateComponents()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Entity\+::update\+Components (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&}]{bindless\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method to update the components of an entity. 
+
+This method is intended to be overridden by subclasses to update the components of an entity. It is only used if the Gui Class is used. 
+
+Reimplemented in \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_a28057deb41adcb00430d274edb1ebf3b}{vkf\+::scene\+::\+Cube}}, and \mbox{\hyperlink{classvkf_1_1scene_1_1_triangle_a06bb0b83ea3185a4e60531609fd90d3b}{vkf\+::scene\+::\+Triangle}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/\mbox{\hyperlink{_entity_8h}{Entity.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/Entity.\+cpp\end{DoxyCompactItemize}

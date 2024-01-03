@@ -88,7 +88,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;../core/Image.h&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;../rendering/RenderSource.h&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;imgui.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;../scene/prefabs/PrefabFactory.h&quot;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1core.html">vkf::core</a> <span class="comment">// Forward declarations</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
@@ -101,79 +101,94 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1rendering.html">vkf::rendering</a> <span class="comment">// Forward declarations</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">class </span>Renderer;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>} <span class="comment">// namespace vkf::rendering</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1scene.html">vkf::scene</a> <span class="comment">// Forward declarations</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">class </span>Scene;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>} <span class="comment">// namespace vkf::scene</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1platform.html">vkf::platform</a></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">class </span>Window;</div>
-<div class="foldopen" id="foldopen00050" data-start="{" data-end="};">
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classvkf_1_1platform_1_1_gui.html">   50</a></span><span class="keyword">class </span><a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a> : <span class="keyword">public</span> <a class="code hl_class" href="classvkf_1_1rendering_1_1_render_source.html">rendering::RenderSource</a></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1platform_1_1_window.html">Window</a> &amp;window, <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_instance.html">core::Instance</a> &amp;instance, <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device,</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_render_pass.html">core::RenderPass</a> &amp;renderPass, <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_swapchain.html">core::Swapchain</a> &amp;swapchain, <a class="code hl_class" href="classvkf_1_1scene_1_1_scene.html">scene::Scene</a> &amp;scene);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">~Gui</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#aaf8ce5449afc61fe3df3d687bda51a2c">preRender</a>(<a class="code hl_class" href="classvkf_1_1rendering_1_1_renderer.html">rendering::Renderer</a> &amp;renderer, uint32_t frameIndex);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">class </span>BindlessManager;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>} <span class="comment">// namespace vkf::rendering</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1scene.html">vkf::scene</a> <span class="comment">// Forward declarations</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">class </span>Scene;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">class </span>Entity;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>} <span class="comment">// namespace vkf::scene</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1platform.html">vkf::platform</a></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">class </span>Window;</div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classvkf_1_1platform_1_1_gui.html">   52</a></span><span class="keyword">class </span><a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a> : <span class="keyword">public</span> <a class="code hl_class" href="classvkf_1_1rendering_1_1_render_source.html">rendering::RenderSource</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1platform_1_1_window.html">Window</a> &amp;window, <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_instance.html">core::Instance</a> &amp;instance, <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_render_pass.html">core::RenderPass</a> &amp;renderPass, <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_swapchain.html">core::Swapchain</a> &amp;swapchain,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <a class="code hl_class" href="classvkf_1_1rendering_1_1_bindless_manager.html">rendering::BindlessManager</a> &amp;bindlessManager);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classvkf_1_1platform_1_1_gui.html#ac86da825d9c8581510380767330b0046">   69</a></span>    <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#ac86da825d9c8581510380767330b0046">Gui</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a> &amp;) = <span class="keyword">delete</span>;            </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classvkf_1_1platform_1_1_gui.html#a13a3d67e404ea6baf6ebd4a531063495">   70</a></span>    <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#a13a3d67e404ea6baf6ebd4a531063495">Gui</a>(<a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a> &amp;&amp;) noexcept = default;       </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classvkf_1_1platform_1_1_gui.html#ab6293d377282831cab242f937510f3ff">   71</a></span>    <a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a> &amp;operator=(const <a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a> &amp;) = delete; </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classvkf_1_1platform_1_1_gui.html#a784051a86b25a98e2e1c44cea561d8d2">   72</a></span>    <a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a> &amp;operator=(<a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a> &amp;&amp;) = delete;      </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    ~<a class="code hl_class" href="classvkf_1_1platform_1_1_gui.html">Gui</a>() override;                      </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> draw(vk::raii::CommandBuffer *cmd);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    [[nodiscard]] std::vector&lt;vk::ImageView&gt; <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#a196cf80a8c1411ff1c53824ab5847210">getImageViews</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    [[nodiscard]] uint32_t <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#afbb146ad89919d6f62e88ecf7395e613">getImageCount</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    [[nodiscard]] vk::Extent2D <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#a8f2b0f035d9f21a99fa77a00026e7bf0">getExtent</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#a6c0e7975b6a4cc4d78c618b11801391d">recreate</a>(<span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_swapchain.html">core::Swapchain</a> &amp;swapchain);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> createImages(uint32_t numImages);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> createImageViews();</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">const</span> <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_class" href="classvkf_1_1scene_1_1_scene.html">scene::Scene</a> &amp;scene;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    vk::Extent2D sceneViewportExtent{};</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    std::vector&lt;core::Image&gt; images;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    std::vector&lt;vk::raii::ImageView&gt; imageViews;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    vk::raii::Sampler textureSampler{VK_NULL_HANDLE};</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    vk::raii::DescriptorPool imguiPool{VK_NULL_HANDLE};</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    VkDescriptorSet dset{VK_NULL_HANDLE};</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">bool</span> firstTime{<span class="keyword">true</span>};</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">bool</span> buttonPressed{<span class="keyword">false</span>};</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    uint32_t minImageCount{0};</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    uint32_t imageCount{0};</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>};</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#a643278212cedb7c79151b2dee3968c0b">preRender</a>(uint32_t frameIndex, scene::Scene &amp;scene);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> draw(vk::raii::CommandBuffer *cmd);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    [[nodiscard]] std::vector&lt;vk::ImageView&gt; <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#a196cf80a8c1411ff1c53824ab5847210">getImageViews</a>() const override;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    [[nodiscard]] uint32_t <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#afbb146ad89919d6f62e88ecf7395e613">getImageCount</a>() const override;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    [[nodiscard]] vk::Extent2D <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#a8f2b0f035d9f21a99fa77a00026e7bf0">getExtent</a>() const override;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classvkf_1_1platform_1_1_gui.html#a396ec808f104928426657b39f9ac46e7">resetChanged</a>() override;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  private:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> createImages(uint32_t numImages);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> createImageViews();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> createScenePanel(scene::Scene &amp;scene, uint32_t frameIndex);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">void</span> createPropertiesPanel();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> createHierarchyPanel(scene::Scene &amp;scene);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    const core::Device &amp;device;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    const core::Swapchain &amp;swapchain;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    rendering::BindlessManager &amp;bindlessManager;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    std::unique_ptr&lt;scene::Entity&gt; activeEntity;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    vk::Extent2D sceneViewportExtent{};</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    std::vector&lt;core::Image&gt; images;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    std::vector&lt;vk::raii::ImageView&gt; imageViews;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    vk::raii::Sampler textureSampler{VK_NULL_HANDLE};</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    vk::raii::DescriptorPool imguiPool{VK_NULL_HANDLE};</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    VkDescriptorSet dset{VK_NULL_HANDLE};</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">bool</span> firstTime{<span class="keyword">true</span>};</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">bool</span> changed{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">bool</span> isCreateDialog{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <a class="code hl_enumeration" href="namespacevkf_1_1scene.html#aad28be4afad6b68d31e518b312349cb5">scene::PrefabType</a> selectedType{scene::PrefabType::Custom};</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>};</div>
 </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>} <span class="comment">// namespace vkf::platform</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_GUI_H</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>} <span class="comment">// namespace vkf::platform</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_GUI_H</span></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_device_html"><div class="ttname"><a href="classvkf_1_1core_1_1_device.html">vkf::core::Device</a></div><div class="ttdoc">This class is used to manage Vulkan devices.</div><div class="ttdef"><b>Definition</b> Device.h:35</div></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_instance_html"><div class="ttname"><a href="classvkf_1_1core_1_1_instance.html">vkf::core::Instance</a></div><div class="ttdoc">This class manages Vulkan instances.</div><div class="ttdef"><b>Definition</b> Instance.h:31</div></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_render_pass_html"><div class="ttname"><a href="classvkf_1_1core_1_1_render_pass.html">vkf::core::RenderPass</a></div><div class="ttdoc">This class manages Vulkan render passes.</div><div class="ttdef"><b>Definition</b> RenderPass.h:32</div></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_swapchain_html"><div class="ttname"><a href="classvkf_1_1core_1_1_swapchain.html">vkf::core::Swapchain</a></div><div class="ttdoc">This class manages Vulkan swapchains.</div><div class="ttdef"><b>Definition</b> Swapchain.h:41</div></div>
-<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html">vkf::platform::Gui</a></div><div class="ttdoc">This class manages ImGui interfaces.</div><div class="ttdef"><b>Definition</b> Gui.h:51</div></div>
-<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_a196cf80a8c1411ff1c53824ab5847210"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#a196cf80a8c1411ff1c53824ab5847210">vkf::platform::Gui::getImageViews</a></div><div class="ttdeci">std::vector&lt; vk::ImageView &gt; getImageViews() const override</div><div class="ttdoc">Pure virtual method to get the image views.</div><div class="ttdef"><b>Definition</b> Gui.cpp:383</div></div>
-<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_a6c0e7975b6a4cc4d78c618b11801391d"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#a6c0e7975b6a4cc4d78c618b11801391d">vkf::platform::Gui::recreate</a></div><div class="ttdeci">void recreate(const core::Swapchain &amp;swapchain)</div><div class="ttdoc">Update minImageCount and imageCount.</div><div class="ttdef"><b>Definition</b> Gui.cpp:371</div></div>
-<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_a8f2b0f035d9f21a99fa77a00026e7bf0"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#a8f2b0f035d9f21a99fa77a00026e7bf0">vkf::platform::Gui::getExtent</a></div><div class="ttdeci">vk::Extent2D getExtent() const override</div><div class="ttdoc">Pure virtual method to get the extent.</div><div class="ttdef"><b>Definition</b> Gui.cpp:378</div></div>
-<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_aaf8ce5449afc61fe3df3d687bda51a2c"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#aaf8ce5449afc61fe3df3d687bda51a2c">vkf::platform::Gui::preRender</a></div><div class="ttdeci">void preRender(rendering::Renderer &amp;renderer, uint32_t frameIndex)</div><div class="ttdoc">Pre-render operations for the Gui.</div><div class="ttdef"><b>Definition</b> Gui.cpp:125</div></div>
-<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_afbb146ad89919d6f62e88ecf7395e613"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#afbb146ad89919d6f62e88ecf7395e613">vkf::platform::Gui::getImageCount</a></div><div class="ttdeci">uint32_t getImageCount() const override</div><div class="ttdoc">Pure virtual method to get the image count.</div><div class="ttdef"><b>Definition</b> Gui.cpp:394</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html">vkf::platform::Gui</a></div><div class="ttdoc">This class manages ImGui interfaces.</div><div class="ttdef"><b>Definition</b> Gui.h:53</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_a13a3d67e404ea6baf6ebd4a531063495"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#a13a3d67e404ea6baf6ebd4a531063495">vkf::platform::Gui::Gui</a></div><div class="ttdeci">Gui(Gui &amp;&amp;) noexcept=default</div><div class="ttdoc">Default move constructor.</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_a196cf80a8c1411ff1c53824ab5847210"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#a196cf80a8c1411ff1c53824ab5847210">vkf::platform::Gui::getImageViews</a></div><div class="ttdeci">std::vector&lt; vk::ImageView &gt; getImageViews() const override</div><div class="ttdoc">Pure virtual method to get the image views.</div><div class="ttdef"><b>Definition</b> Gui.cpp:449</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_a396ec808f104928426657b39f9ac46e7"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#a396ec808f104928426657b39f9ac46e7">vkf::platform::Gui::resetChanged</a></div><div class="ttdeci">bool resetChanged() override</div><div class="ttdoc">Pure virtual method to get the extent.</div><div class="ttdef"><b>Definition</b> Gui.cpp:437</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_a643278212cedb7c79151b2dee3968c0b"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#a643278212cedb7c79151b2dee3968c0b">vkf::platform::Gui::preRender</a></div><div class="ttdeci">void preRender(uint32_t frameIndex, scene::Scene &amp;scene)</div><div class="ttdoc">Pre-render operations for the Gui.</div><div class="ttdef"><b>Definition</b> Gui.cpp:127</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_a8f2b0f035d9f21a99fa77a00026e7bf0"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#a8f2b0f035d9f21a99fa77a00026e7bf0">vkf::platform::Gui::getExtent</a></div><div class="ttdeci">vk::Extent2D getExtent() const override</div><div class="ttdoc">Pure virtual method to get the extent.</div><div class="ttdef"><b>Definition</b> Gui.cpp:444</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_ac86da825d9c8581510380767330b0046"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#ac86da825d9c8581510380767330b0046">vkf::platform::Gui::Gui</a></div><div class="ttdeci">Gui(const Gui &amp;)=delete</div><div class="ttdoc">Deleted copy constructor.</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html_afbb146ad89919d6f62e88ecf7395e613"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html#afbb146ad89919d6f62e88ecf7395e613">vkf::platform::Gui::getImageCount</a></div><div class="ttdeci">uint32_t getImageCount() const override</div><div class="ttdoc">Pure virtual method to get the image count.</div><div class="ttdef"><b>Definition</b> Gui.cpp:460</div></div>
 <div class="ttc" id="aclassvkf_1_1platform_1_1_window_html"><div class="ttname"><a href="classvkf_1_1platform_1_1_window.html">vkf::platform::Window</a></div><div class="ttdoc">This class manages GLFW windows.</div><div class="ttdef"><b>Definition</b> Window.h:39</div></div>
+<div class="ttc" id="aclassvkf_1_1rendering_1_1_bindless_manager_html"><div class="ttname"><a href="classvkf_1_1rendering_1_1_bindless_manager.html">vkf::rendering::BindlessManager</a></div><div class="ttdoc">Class for managing bindless resources in Vulkan.</div><div class="ttdef"><b>Definition</b> BindlessManager.h:35</div></div>
 <div class="ttc" id="aclassvkf_1_1rendering_1_1_render_source_html"><div class="ttname"><a href="classvkf_1_1rendering_1_1_render_source.html">vkf::rendering::RenderSource</a></div><div class="ttdoc">This abstract class provides an interface for managing Vulkan rendering operations.</div><div class="ttdef"><b>Definition</b> RenderSource.h:29</div></div>
-<div class="ttc" id="aclassvkf_1_1rendering_1_1_renderer_html"><div class="ttname"><a href="classvkf_1_1rendering_1_1_renderer.html">vkf::rendering::Renderer</a></div><div class="ttdoc">This class manages Vulkan rendering operations.</div><div class="ttdef"><b>Definition</b> Renderer.h:56</div></div>
-<div class="ttc" id="aclassvkf_1_1scene_1_1_scene_html"><div class="ttname"><a href="classvkf_1_1scene_1_1_scene.html">vkf::scene::Scene</a></div><div class="ttdoc">This class manages a scene.</div><div class="ttdef"><b>Definition</b> Scene.h:47</div></div>
 <div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> Buffer.cpp:18</div></div>
 <div class="ttc" id="anamespacevkf_1_1platform_html"><div class="ttname"><a href="namespacevkf_1_1platform.html">vkf::platform</a></div><div class="ttdoc">The platform namespace includes platform-specific classes and functions.</div><div class="ttdef"><b>Definition</b> Swapchain.h:21</div></div>
 <div class="ttc" id="anamespacevkf_1_1rendering_html"><div class="ttname"><a href="namespacevkf_1_1rendering.html">vkf::rendering</a></div><div class="ttdoc">The rendering namespace contains classes and functions for rendering operations.</div></div>
 <div class="ttc" id="anamespacevkf_1_1scene_html"><div class="ttname"><a href="namespacevkf_1_1scene.html">vkf::scene</a></div><div class="ttdoc">The scene namespace contains classes and functions for scene management.</div></div>
+<div class="ttc" id="anamespacevkf_1_1scene_html_aad28be4afad6b68d31e518b312349cb5"><div class="ttname"><a href="namespacevkf_1_1scene.html#aad28be4afad6b68d31e518b312349cb5">vkf::scene::PrefabType</a></div><div class="ttdeci">PrefabType</div><div class="ttdoc">Enumerates the types of prefabricated entities that can be created.</div><div class="ttdef"><b>Definition</b> PrefabFactory.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

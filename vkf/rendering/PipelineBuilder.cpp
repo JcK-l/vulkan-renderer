@@ -1,10 +1,15 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 12/15/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file PipelineBuilder.h
+/// \brief This file implements the PipelineBuilder class which is used for building Vulkan pipelines.
+///
+/// The PipelineBuilder class is part of the vkf::rendering namespace. It provides functionality to set various states
+/// of the pipeline and build a new Pipeline using these states.
+///
+/// \author Joshua Lowe
+/// \date 12/15/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "PipelineBuilder.h"
 #include "../core/Device.h"

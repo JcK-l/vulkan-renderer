@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rendering_20met_203d_20actors_20with_20vulkan_0',['Bachelor&apos;s Thesis Project: Rendering Met.3D Actors with Vulkan',['../index.html',1,'']]],
-  ['rendermanger_1',['November 25 - RenderManger',['../md_updates_22__11__25.html',1,'']]]
+  ['s_20thesis_20project_3a_20rendering_20met_203d_20actors_20with_20vulkan_0',['Bachelor&apos;s Thesis Project: Rendering Met.3D Actors with Vulkan',['../index.html',1,'']]],
+  ['setup_1',['November 12 - Vulkan Setup',['../md_updates_23__11__12.html',1,'']]]
 ];

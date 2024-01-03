@@ -82,6 +82,8 @@ void Renderer::draw(vk::raii::CommandBuffer *cmd)
 
 void Renderer::addRenderSubstage(std::unique_ptr<RenderSubstage> renderSubstage)
 {
+    auto substageType = renderSubstage->getType();
+    LOG_INFO("Added {} RenderSubstage", substageType)
     renderSubstages.emplace_back(std::move(renderSubstage));
 }
 
@@ -133,8 +135,8 @@ void Renderer::createFramebuffers(std::vector<vk::ImageView> imageViews)
         framebuffers.emplace_back(
             std::make_unique<core::Framebuffer>(device, *renderPass, attachments, framebufferExtent));
     }
-    LOG_INFO("Created Framebuffer x{}", renderSource->getImageCount())
 }
+
 void Renderer::createDepthImages()
 {
     uint32_t numImages = renderSource->getImageCount();

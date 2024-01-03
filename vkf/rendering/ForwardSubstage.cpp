@@ -47,15 +47,19 @@ void ForwardSubstage::draw(vk::raii::CommandBuffer *cmd)
     for (auto entity : view)
     {
         auto &materialComponent = view.get<scene::MaterialComponent>(entity);
-        core::Pipeline &pipeline = materialComponent.pipeline;
+        core::Pipeline *pipeline = materialComponent.pipeline;
 
-        cmd->bindPipeline(vk::PipelineBindPoint::eGraphics, *pipeline.getHandle());
+        cmd->bindPipeline(vk::PipelineBindPoint::eGraphics, *pipeline->getHandle());
 
         cmd->pushConstants<uint32_t>(bindlessManager.getPipelineLayout(), vk::ShaderStageFlagBits::eAll, 0,
                                      materialComponent.indices);
 
         cmd->draw(36, 1, 0, 0);
     }
+}
+std::string ForwardSubstage::getType()
+{
+    return "Forward";
 }
 
 } // namespace vkf::rendering

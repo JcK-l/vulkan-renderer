@@ -1,0 +1,65 @@
+\doxysection{Bindless\+Manager.\+h}
+\hypertarget{_bindless_manager_8h_source}{}\label{_bindless_manager_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/rendering/BindlessManager.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/rendering/BindlessManager.h}}
+\mbox{\hyperlink{_bindless_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_BINDLESSMANAGER\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_BINDLESSMANAGER\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../core/Buffer.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \textcolor{comment}{//\ Forward\ declaration}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00022\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a57c25dcfedb08d47802c8107f426b50e}{BindlessManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a6a6cc487e13197d55104149cdbe710be}{BindlessManager}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a4ae748b62dc989288bbd3156fed53e46}{storeBuffer}}(core::Buffer\ \&buffer,\ vk::BufferUsageFlags\ usage);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a6ffab2b51e1961137c482a6877aaf4ed}{updateBuffer}}(uint32\_t\ handle,\ const\ \textcolor{keywordtype}{void}\ *data,\ uint32\_t\ size,\ uint32\_t\ offset);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_ac747f3fc736c5d04d30dba7948f7a87a}{removeBuffer}}(uint32\_t\ handle);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a0b174f73071a8b847282fdb4dcdc6f5d}{updateDescriptorSet}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ [[nodiscard]]\ vk::PipelineLayout\ getPipelineLayout()\ const;}
+\DoxyCodeLine{00080\ \ \ \ \ [[nodiscard]]\ vk::DescriptorSet\ getDescriptorSet()\ const;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ static\ constexpr\ uint32\_t\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a63867aa5c2aaa8bbcd7f3bcd848d88df}{UniformBinding}}\ =\ 0;\ \ \ }
+\DoxyCodeLine{00083\ \ \ \ \ static\ constexpr\ uint32\_t\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a7ad4862141b0701a9cde1d858e46867e}{StorageBinding}}\ =\ 1;\ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ static\ constexpr\ uint32\_t\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a8e54c7d6bc304f6531b661f756c2e72a}{UniformCount}}\ =\ 65536;\ }
+\DoxyCodeLine{00085\ \ \ \ \ static\ constexpr\ uint32\_t\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a5fe41033aa647d0c6add913c52e7f6ac}{StorageCount}}\ =\ 65536;\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ private:}
+\DoxyCodeLine{00088\ \ \ \ \ const\ core::Device\ \&device;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ vk::raii::\mbox{\hyperlink{class_descriptor_pool}{DescriptorPool}}\ descriptorPool\ =\ VK\_NULL\_HANDLE;}
+\DoxyCodeLine{00091\ \ \ \ \ vk::raii::DescriptorSet\ descriptorSet\ =\ VK\_NULL\_HANDLE;}
+\DoxyCodeLine{00092\ \ \ \ \ std::vector<vk::raii::DescriptorSetLayout>\ descriptorSetLayouts;}
+\DoxyCodeLine{00093\ \ \ \ \ vk::raii::PipelineLayout\ pipelineLayout\ =\ VK\_NULL\_HANDLE;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ std::vector<vk::WriteDescriptorSet>\ writeDescriptorSets;}
+\DoxyCodeLine{00096\ \ \ \ \ std::vector<vk::DescriptorBufferInfo>\ descriptorBufferInfos;}
+\DoxyCodeLine{00097\ \ \ \ \ std::unordered\_map<uint32\_t,\ core::Buffer>\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_aa675f6b75a779ffb5d3bb24b84b74ddf}{buffers}};\ }
+\DoxyCodeLine{00098\ \ \ \ \ std::vector<uint32\_t>\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a61a9b7713e89eac574fd0a27183d72ab}{freeHandles}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_BINDLESSMANAGER\_H}}
+
+\end{DoxyCode}

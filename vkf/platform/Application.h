@@ -65,11 +65,11 @@ class Application
     ///
     explicit Application(std::string appName);
 
-    Application(const Application &) = delete;            // Deleted copy constructor
-    Application(Application &&) noexcept = default;       // Default move constructor
-    Application &operator=(const Application &) = delete; // Deleted copy assignment operator
-    Application &operator=(Application &&) = delete;      // Deleted move assignment operator
-    ~Application(); // Implementation in Application.cpp because of std::unique_ptr forward declaration
+    Application(const Application &) = delete;            ///< Deleted copy constructor
+    Application(Application &&) noexcept = default;       ///< Default move constructor
+    Application &operator=(const Application &) = delete; ///< Deleted copy assignment operator
+    Application &operator=(Application &&) = delete;      ///< Deleted move assignment operator
+    ~Application(); ///< Implementation in Application.cpp because of std::unique_ptr forward declaration
 
     ///
     /// \brief Runs the main loop of the application.

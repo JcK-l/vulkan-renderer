@@ -45,11 +45,11 @@ class Framebuffer
     Framebuffer(const Device &device, const RenderPass &renderPass, const std::vector<vk::ImageView> &attachments,
                 const vk::Extent2D &extent);
 
-    Framebuffer(const Framebuffer &) = delete;            // Deleted copy constructor
-    Framebuffer(Framebuffer &&) noexcept = default;       // Default move constructor
-    Framebuffer &operator=(const Framebuffer &) = delete; // Deleted copy assignment operator
-    Framebuffer &operator=(Framebuffer &&) = delete;      // Deleted move assignment operator
-    ~Framebuffer() = default;                             // Default destructor
+    Framebuffer(const Framebuffer &) = delete;            ///< Deleted copy constructor
+    Framebuffer(Framebuffer &&) noexcept = default;       ///< Default move constructor
+    Framebuffer &operator=(const Framebuffer &) = delete; ///< Deleted copy assignment operator
+    Framebuffer &operator=(Framebuffer &&) = delete;      ///< Deleted move assignment operator
+    ~Framebuffer() = default;                             ///< Default destructor
 
     [[nodiscard]] const vk::raii::Framebuffer &getHandle() const;
 

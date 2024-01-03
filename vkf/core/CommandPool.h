@@ -37,11 +37,11 @@ class CommandPool
     ///
     explicit CommandPool(const Device &device, vk::CommandPoolCreateInfo createInfo);
 
-    CommandPool(const CommandPool &) = delete;            // Deleted copy constructor
-    CommandPool(CommandPool &&) noexcept = default;       // Default move constructor
-    CommandPool &operator=(const CommandPool &) = delete; // Deleted copy assignment operator
-    CommandPool &operator=(CommandPool &&) = delete;      // Deleted move assignment operator
-    ~CommandPool() = default;                             // Default destructor
+    CommandPool(const CommandPool &) = delete;            ///< Deleted copy constructor
+    CommandPool(CommandPool &&) noexcept = default;       ///< Default move constructor
+    CommandPool &operator=(const CommandPool &) = delete; ///< Deleted copy assignment operator
+    CommandPool &operator=(CommandPool &&) = delete;      ///< Deleted move assignment operator
+    ~CommandPool() = default;                             ///< Default destructor
 
     [[nodiscard]] const vk::raii::CommandPool &getHandle() const;
 

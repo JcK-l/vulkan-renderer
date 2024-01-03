@@ -248,7 +248,6 @@ Every Frame the {\ttfamily Render\+Manager} will call the methods {\ttfamily beg
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{switch}\ (result)}
 \DoxyCodeLine{\ \ \ \ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{case}\ vk::Result::eSuccess:}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ LOG\_DEBUG("{}Acquired\ next\ image:\ \{\}"{},\ value)}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{case}\ vk::Result::eSuboptimalKHR:}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ LOG\_DEBUG(\textcolor{stringliteral}{"{}Acquired\ next\ image:\ \{\}\ (suboptimal)"{}},\ value)}
@@ -285,7 +284,7 @@ Every Frame the {\ttfamily Render\+Manager} will call the methods {\ttfamily beg
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pWaitSemaphores\ =\ \&*frameData[activeFrame]-\/>getSemaphore(0),}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pWaitDstStageMask\ =\ waitStages,}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .commandBufferCount\ =\ 1,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pCommandBuffers\ =\ \&*(*activeCommandBuffer),\ \textcolor{comment}{//\ What\ the\ hell}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pCommandBuffers\ =\ \&*(*activeCommandBuffer),\ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .signalSemaphoreCount\ =\ 1,}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .pSignalSemaphores\ =\ \&*frameData[activeFrame]-\/>getSemaphore(1)\},}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *frameData[activeFrame]-\/>getFence());}
@@ -307,7 +306,6 @@ Every Frame the {\ttfamily Render\+Manager} will call the methods {\ttfamily beg
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (result)}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ vk::Result::eSuccess:}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ LOG\_DEBUG("{}Presented\ image:\ \{\}"{},\ value)}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ vk::Result::eSuboptimalKHR:}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LOG\_DEBUG(\textcolor{stringliteral}{"{}Presented\ image:\ \{\}\ (suboptimal)"{}},\ activeFrame)}

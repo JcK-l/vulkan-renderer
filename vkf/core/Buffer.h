@@ -42,11 +42,11 @@ class Buffer
     ///
     Buffer(const Device &device, vk::BufferCreateInfo createInfo, VmaAllocationCreateFlags allocationFlags);
 
-    Buffer(const Buffer &) = delete;            // Deleted copy constructor
-    Buffer(Buffer &&) noexcept;                 // Move constructor
-    Buffer &operator=(const Buffer &) = delete; // Deleted copy assignment operator
-    Buffer &operator=(Buffer &&) = delete;      // Deleted move assignment operator
-    ~Buffer();                                  // Destructor
+    Buffer(const Buffer &) = delete;            ///< Deleted copy constructor
+    Buffer(Buffer &&) noexcept;                 ///< Move constructor
+    Buffer &operator=(const Buffer &) = delete; ///< Deleted copy assignment operator
+    Buffer &operator=(Buffer &&) = delete;      ///< Deleted move assignment operator
+    ~Buffer();                                  ///< Destructor
 
     ///
     /// \brief Map memory to the buffer.

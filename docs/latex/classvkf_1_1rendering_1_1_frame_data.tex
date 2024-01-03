@@ -16,18 +16,24 @@ This class manages per frame data.
 \begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data} object. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_frame_data_a4ec2ad1a49d2855045bd21772f71432a}\label{classvkf_1_1rendering_1_1_frame_data_a4ec2ad1a49d2855045bd21772f71432a} 
 {\bfseries Frame\+Data} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_frame_data_add3d98e6c01e0c50c4b85f9c094dcb32}\label{classvkf_1_1rendering_1_1_frame_data_add3d98e6c01e0c50c4b85f9c094dcb32} 
 {\bfseries Frame\+Data} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \&\&) noexcept=default
-\item 
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_frame_data_a8dcf33ed4e67f9f81357518740bc2e67}\label{classvkf_1_1rendering_1_1_frame_data_a8dcf33ed4e67f9f81357518740bc2e67} 
 \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_frame_data_a48fcec17300660415f032652ed564a2d}\label{classvkf_1_1rendering_1_1_frame_data_a48fcec17300660415f032652ed564a2d} 
 \mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_frame_data}{Frame\+Data}} \&\&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_frame_data_a8d990a0a8533a4c3a4994a84c73a6803}\label{classvkf_1_1rendering_1_1_frame_data_a8d990a0a8533a4c3a4994a84c73a6803} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Frame\+Data} ()
+\begin{DoxyCompactList}\small\item\em Implementation in \doxylink{_frame_data_8cpp}{Frame\+Data.\+cpp} because of std\+::unique\+\_\+ptr forward declaration. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_frame_data_a1ebb6df2f2eb80fa30171afdee88f38a}\label{classvkf_1_1rendering_1_1_frame_data_a1ebb6df2f2eb80fa30171afdee88f38a} 
 vk\+::raii\+::\+Command\+Buffers \texorpdfstring{$\ast$}{*} {\bfseries get\+Command\+Buffers} ()
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_frame_data_a66057dcf7bc3ad535f59110a60a1509b}\label{classvkf_1_1rendering_1_1_frame_data_a66057dcf7bc3ad535f59110a60a1509b} 
+void {\bfseries refresh\+Semaphore} (uint32\+\_\+t index)
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_frame_data_a1459fe10b41368c8f306ac24d887a10c}\label{classvkf_1_1rendering_1_1_frame_data_a1459fe10b41368c8f306ac24d887a10c} 
 const vk\+::raii\+::\+Semaphore \& {\bfseries get\+Semaphore} (uint32\+\_\+t index) const

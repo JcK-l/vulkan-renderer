@@ -41,11 +41,11 @@ class Image
     ///
     Image(const Device &device, vk::ImageCreateInfo createInfo, VmaAllocationCreateFlags allocationFlags);
 
-    Image(const Image &) = delete;            // Deleted copy constructor
-    Image(Image &&) noexcept = default;       // Default move constructor
-    Image &operator=(const Image &) = delete; // Deleted copy assignment operator
-    Image &operator=(Image &&) = delete;      // Deleted move assignment operator
-    ~Image();                                 // Destructor
+    Image(const Image &) = delete;            ///< Deleted copy constructor
+    Image(Image &&) noexcept = default;       ///< Default move constructor
+    Image &operator=(const Image &) = delete; ///< Deleted copy assignment operator
+    Image &operator=(Image &&) = delete;      ///< Deleted move assignment operator
+    ~Image();                                 ///< Destructor
 
     [[nodiscard]] vk::raii::ImageView createImageView(vk::ImageAspectFlags aspectFlags) const;
 

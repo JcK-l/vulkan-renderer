@@ -3,7 +3,6 @@
 /// \brief This file declares the Pipeline class which is used for managing Vulkan pipelines.
 ///
 /// The Pipeline class is part of the vkf::core namespace. It provides functionality to get the handle to the pipeline.
-/// Currently, this class only creates a trivial pipeline, but it is planned to be expanded in the future.
 ///
 /// \author Joshua Lowe
 /// \date 12/3/2023
@@ -21,6 +20,12 @@ namespace vkf::core
 class Device;
 class RenderPass;
 
+///
+/// \struct PipelineState
+/// \brief This struct holds the state of a pipeline.
+///
+/// It contains all the necessary information to create a Vulkan pipeline.
+///
 struct PipelineState
 {
     std::vector<vk::PipelineShaderStageCreateInfo> shaderStageCreateInfos;
@@ -54,11 +59,11 @@ class Pipeline
     ///
     Pipeline(const Device &device, const PipelineState &state);
 
-    Pipeline(const Pipeline &) = delete;            // Deleted copy constructor
-    Pipeline(Pipeline &&) noexcept = default;       // Default move constructor
-    Pipeline &operator=(const Pipeline &) = delete; // Deleted copy assignment operator
-    Pipeline &operator=(Pipeline &&) = delete;      // Deleted move assignment operator
-    ~Pipeline() = default;                          // Default destructor
+    Pipeline(const Pipeline &) = delete;            ///< Deleted copy constructor
+    Pipeline(Pipeline &&) noexcept = default;       ///< Default move constructor
+    Pipeline &operator=(const Pipeline &) = delete; ///< Deleted copy assignment operator
+    Pipeline &operator=(Pipeline &&) = delete;      ///< Deleted move assignment operator
+    ~Pipeline() = default;                          ///< Default destructor
 
     [[nodiscard]] const vk::raii::Pipeline &getHandle() const;
 

@@ -1,12 +1,19 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 12/18/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Camera.cpp
+/// \brief This file implements the Camera class which is used for managing camera data in a scene.
+///
+/// The Camera class is part of the vkf::scene namespace. It provides functionality to store and manage camera data.
+/// It also provides methods to get view and projection matrices, orbit, zoom, update aspect ratio, and update camera
+/// buffer.
+///
+/// \author Joshua Lowe
+/// \date 12/18/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Camera.h"
+#include "../common/Log.h"
 #include "../rendering/BindlessManager.h"
 #include <cmath>
 #include <glm/gtc/matrix_transform.hpp>
@@ -22,6 +29,7 @@ Camera::Camera(vkf::rendering::BindlessManager &bindlessManager, uint32_t handle
 {
     view = glm::lookAt(position, target, up);
     projection = glm::perspective(glm::radians(fov), aspect, near, far);
+    LOG_INFO("Camera created")
 }
 
 const glm::mat4 &Camera::getViewMatrix() const

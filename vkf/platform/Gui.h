@@ -16,7 +16,7 @@
 
 #include "../core/Image.h"
 #include "../rendering/RenderSource.h"
-#include "imgui.h"
+#include "../scene/prefabs/PrefabFactory.h"
 
 namespace vkf::core // Forward declarations
 {
@@ -65,7 +65,12 @@ class Gui : public rendering::RenderSource
     Gui(const Window &window, const core::Instance &instance, const core::Device &device,
         const core::RenderPass &renderPass, const core::Swapchain &swapchain,
         rendering::BindlessManager &bindlessManager);
-    ~Gui() override;
+
+    Gui(const Gui &) = delete;            ///< Deleted copy constructor
+    Gui(Gui &&) noexcept = default;       ///< Default move constructor
+    Gui &operator=(const Gui &) = delete; ///< Deleted copy assignment operator
+    Gui &operator=(Gui &&) = delete;      ///< Deleted move assignment operator
+    ~Gui() override;                      ///< Override destructor
 
     ///
     /// \brief Pre-render operations for the Gui.
@@ -87,7 +92,7 @@ class Gui : public rendering::RenderSource
     void createImageViews();
 
     void createScenePanel(scene::Scene &scene, uint32_t frameIndex);
-    void createPropertiesPanel(scene::Scene &scene);
+    void createPropertiesPanel();
     void createHierarchyPanel(scene::Scene &scene);
 
     const core::Device &device;
@@ -109,6 +114,7 @@ class Gui : public rendering::RenderSource
     bool firstTime{true};
     bool changed{false};
     bool isCreateDialog{false};
+    scene::PrefabType selectedType{scene::PrefabType::Custom};
 };
 } // namespace vkf::platform
 

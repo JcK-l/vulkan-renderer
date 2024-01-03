@@ -1,16 +1,16 @@
 var searchData=
 [
-  ['validateextensions_0',['validateextensions',['../classvkf_1_1core_1_1_device.html#acf116fb0c80b39c53405d3a066cb1313',1,'vkf::core::Device::validateExtensions()'],['../classvkf_1_1core_1_1_instance.html#a7b00c7968b62d552f6b0750829f09448',1,'vkf::core::Instance::validateExtensions(const std::vector&lt; const char * &gt; &amp;requiredExtensions)']]],
-  ['validatelayers_1',['validateLayers',['../classvkf_1_1core_1_1_instance.html#a98512794aa941862cc068480e5ba7c49',1,'vkf::core::Instance']]],
-  ['vkf_2',['vkf',['../namespacevkf.html',1,'']]],
-  ['vkf_3a_3acore_3',['core',['../namespacevkf_1_1core.html',1,'vkf']]],
-  ['vkf_3a_3aplatform_4',['platform',['../namespacevkf_1_1platform.html',1,'vkf']]],
-  ['vkf_3a_3arendering_5',['rendering',['../namespacevkf_1_1rendering.html',1,'vkf']]],
-  ['vkf_3a_3ascene_6',['scene',['../namespacevkf_1_1scene.html',1,'vkf']]],
-  ['vmaallocator_7',['VmaAllocator',['../md_updates_23__11__12.html#autotoc_md19',1,'']]],
-  ['vsync_8',['Vsync',['../classvkf_1_1platform_1_1_window.html#aab0d1d3c8da9699bdbe700415889802f',1,'vkf::platform::Window']]],
-  ['vulkan_9',['Bachelor&apos;s Thesis Project: Rendering Met.3D Actors with Vulkan',['../index.html',1,'']]],
-  ['vulkan_20hpp_10',['Vulkan Hpp',['../md_updates_24__11__06.html#autotoc_md26',1,'']]],
-  ['vulkan_20instance_11',['Vulkan Instance',['../md_updates_24__11__06.html#autotoc_md29',1,'']]],
-  ['vulkan_20setup_12',['November 12 - Vulkan Setup',['../md_updates_23__11__12.html',1,'']]]
+  ['uniformbinding_0',['UniformBinding',['../classvkf_1_1rendering_1_1_bindless_manager.html#a63867aa5c2aaa8bbcd7f3bcd848d88df',1,'vkf::rendering::BindlessManager']]],
+  ['uniformcount_1',['UniformCount',['../classvkf_1_1rendering_1_1_bindless_manager.html#a8e54c7d6bc304f6531b661f756c2e72a',1,'vkf::rendering::BindlessManager']]],
+  ['unknown_2',['Unknown',['../classvkf_1_1core_1_1_shader.html#a31912848fc45289dc1d4b9d8bd98df60a88183b946cc5f0e8c96b2e66e1c74a7e',1,'vkf::core::Shader']]],
+  ['unmapmemory_3',['unmapmemory',['../classvkf_1_1core_1_1_buffer.html#ac690743dd11156280b1328a5565c968b',1,'vkf::core::Buffer::unmapMemory()'],['../classvkf_1_1core_1_1_image.html#a7f00ed62e8fb50d2b2306a9cf86a041f',1,'vkf::core::Image::unmapMemory()']]],
+  ['updateaspectratio_4',['updateAspectRatio',['../classvkf_1_1scene_1_1_camera.html#a4b91a6791647ed973d0775875d094b01',1,'vkf::scene::Camera']]],
+  ['updatebuffer_5',['updateBuffer',['../classvkf_1_1rendering_1_1_bindless_manager.html#a6ffab2b51e1961137c482a6877aaf4ed',1,'vkf::rendering::BindlessManager']]],
+  ['updatecamerabuffer_6',['updateCameraBuffer',['../classvkf_1_1scene_1_1_camera.html#ad634f16101646217c4835dc641562172',1,'vkf::scene::Camera']]],
+  ['updatecomponents_7',['updatecomponents',['../classvkf_1_1scene_1_1_entity.html#a0baf81c1eae39d17621e92b45f17fb01',1,'vkf::scene::Entity::updateComponents()'],['../classvkf_1_1scene_1_1_cube.html#a28057deb41adcb00430d274edb1ebf3b',1,'vkf::scene::Cube::updateComponents()'],['../classvkf_1_1scene_1_1_triangle.html#a06bb0b83ea3185a4e60531609fd90d3b',1,'vkf::scene::Triangle::updateComponents()']]],
+  ['updatedescriptorset_8',['updateDescriptorSet',['../classvkf_1_1rendering_1_1_bindless_manager.html#a0b174f73071a8b847282fdb4dcdc6f5d',1,'vkf::rendering::BindlessManager']]],
+  ['updates_9',['Documentation and Progress Updates',['../index.html#autotoc_md0',1,'']]],
+  ['updates_20postponed_10',['December 3 - Updates Postponed',['../md_updates_21__12__03.html',1,'']]],
+  ['utility_2ecpp_11',['Utility.cpp',['../_utility_8cpp.html',1,'']]],
+  ['utility_2eh_12',['Utility.h',['../_utility_8h.html',1,'']]]
 ];

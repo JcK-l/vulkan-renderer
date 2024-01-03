@@ -27,16 +27,19 @@ struct \mbox{\hyperlink{structvkf_1_1core_1_1_swapchain_1_1_swap_chain_support_d
 \begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1core_1_1_swapchain}{Swapchain} object. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a764484c722611cb8fd9985e4c014aa10}\label{classvkf_1_1core_1_1_swapchain_a764484c722611cb8fd9985e4c014aa10} 
 {\bfseries Swapchain} (const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a2d60829b2cf44d922789d601022aaaac}\label{classvkf_1_1core_1_1_swapchain_a2d60829b2cf44d922789d601022aaaac} 
 {\bfseries Swapchain} (\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \&\&) noexcept=default
-\item 
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a7759f393d0de5e666792e4f812084aad}\label{classvkf_1_1core_1_1_swapchain_a7759f393d0de5e666792e4f812084aad} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_abb5c951b559ad2d6243f7031e08ed4e2}\label{classvkf_1_1core_1_1_swapchain_abb5c951b559ad2d6243f7031e08ed4e2} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{Swapchain}} \&\&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a3895df52d32aa3292fc99165c1a56024}\label{classvkf_1_1core_1_1_swapchain_a3895df52d32aa3292fc99165c1a56024} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Swapchain} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_abdd77b32f5a712c6f12563c4c977256a}\label{classvkf_1_1core_1_1_swapchain_abdd77b32f5a712c6f12563c4c977256a} 
 const vk\+::raii\+::\+Swapchain\+KHR \& {\bfseries get\+Handle} () const
 \item 
@@ -46,6 +49,8 @@ uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a21e68e05c51390661
 \begin{DoxyCompactList}\small\item\em Pure virtual method to get the image count. \end{DoxyCompactList}\item 
 vk\+::\+Extent2D \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a871c746bee950535fa517cf8cc8a9054}{get\+Extent}} () const override
 \begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a9b4659de2d3f5f68b9ca4afbc3d7082c}{reset\+Changed}} () override
+\begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_aaebdfd7faadfa8172a94bf4bb7ddaf72}\label{classvkf_1_1core_1_1_swapchain_aaebdfd7faadfa8172a94bf4bb7ddaf72} 
 uint32\+\_\+t {\bfseries get\+Min\+Image\+Count} () const
 \item 
@@ -54,6 +59,9 @@ void {\bfseries recreate} ()
 \item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_aef2897df3da299aceb6c58db1fd9208c}\label{classvkf_1_1core_1_1_swapchain_aef2897df3da299aceb6c58db1fd9208c} 
 std\+::pair$<$ vk\+::\+Result, uint32\+\_\+t $>$ {\bfseries acquire\+Next\+Image} (const vk\+::raii\+::\+Semaphore \&image\+Available\+Semaphore, uint64\+\_\+t timeout=std\+::numeric\+\_\+limits$<$ uint64\+\_\+t $>$\+::max())
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a2e174dab860446d05820a2b5714b635f}\label{classvkf_1_1core_1_1_swapchain_a2e174dab860446d05820a2b5714b635f} 
+vk\+::\+Surface\+Format\+KHR {\bfseries select\+Swap\+Surface\+Format} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}}
 \begin{DoxyCompactItemize}
@@ -62,9 +70,6 @@ virtual \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a623406819493af
 \begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classvkf_1_1rendering_1_1_render_source}{Render\+Source} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
-\item 
-\Hypertarget{classvkf_1_1core_1_1_swapchain_a2e174dab860446d05820a2b5714b635f}\label{classvkf_1_1core_1_1_swapchain_a2e174dab860446d05820a2b5714b635f} 
-vk\+::\+Surface\+Format\+KHR {\bfseries select\+Swap\+Surface\+Format} () const
 \item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a2236343088539f9fb29e2bb087197613}\label{classvkf_1_1core_1_1_swapchain_a2236343088539f9fb29e2bb087197613} 
 vk\+::\+Present\+Mode\+KHR {\bfseries select\+Swap\+Present\+Mode} () const
@@ -104,6 +109,9 @@ vk\+::\+Extent2D {\bfseries extent}
 \item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_af780cc227675a6471f292e2d9a514b99}\label{classvkf_1_1core_1_1_swapchain_af780cc227675a6471f292e2d9a514b99} 
 uint32\+\_\+t {\bfseries min\+Image\+Count} \{0\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_aeb4b33258dcbe59ee57f39c719304212}\label{classvkf_1_1core_1_1_swapchain_aeb4b33258dcbe59ee57f39c719304212} 
+bool {\bfseries changed} \{false\}
 \item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a331dc733608782133eaa953e76ad8014}\label{classvkf_1_1core_1_1_swapchain_a331dc733608782133eaa953e76ad8014} 
 std\+::vector$<$ vk\+::\+Image $>$ {\bfseries images}
@@ -199,6 +207,25 @@ A vector of image views.
 
 
 Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a0bab8473e4fe89b408a33afcd0611d22}{vkf\+::rendering\+::\+Render\+Source}}.
+
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a9b4659de2d3f5f68b9ca4afbc3d7082c}\label{classvkf_1_1core_1_1_swapchain_a9b4659de2d3f5f68b9ca4afbc3d7082c} 
+\index{vkf::core::Swapchain@{vkf::core::Swapchain}!resetChanged@{resetChanged}}
+\index{resetChanged@{resetChanged}!vkf::core::Swapchain@{vkf::core::Swapchain}}
+\doxysubsubsection{\texorpdfstring{resetChanged()}{resetChanged()}}
+{\footnotesize\ttfamily bool vkf\+::core\+::\+Swapchain\+::reset\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pure virtual method to get the extent. 
+
+This method is intended to be overridden by subclasses to return the extent.
+
+\begin{DoxyReturn}{Returns}
+The extent. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a12bcc5c2e991feadfa469faa44a0f2ea}{vkf\+::rendering\+::\+Render\+Source}}.
 
 
 

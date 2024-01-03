@@ -73,15 +73,15 @@ layout(set = 0, binding = 0) uniform ViewMatrix {
     mat4 viewMatrix;
 } view[];
 
-uint modelIndex = push.indices[2];
-uint viewIndex = push.indices[0];
+mat4 modelMatrix = model[push.indices[2]].modelMatrix;
+mat4 viewMatrix = view[push.indices[0]].viewMatrix;
 
 void main() {
-    mat3 normalMatrix = transpose(inverse(mat3(model[modelIndex].modelMatrix)));
+    mat3 normalMatrix = transpose(inverse(mat3(modelMatrix)));
     vec3 norm = normalize(normalMatrix * normals[gl_VertexIndex]);
 
-    gl_Position = view[viewIndex].viewMatrix * model[modelIndex].modelMatrix * vec4(positions[gl_VertexIndex], 1.0);
-    fragPos = vec3(model[modelIndex].modelMatrix * vec4(positions[gl_VertexIndex], 1.0));
+    gl_Position = viewMatrix * modelMatrix * vec4(positions[gl_VertexIndex], 1.0);
+    fragPos = vec3(modelMatrix * vec4(positions[gl_VertexIndex], 1.0));
     normal = norm;
 }
 
@@ -99,16 +99,16 @@ layout(push_constant) uniform PushConstants {
     uint indices[MAX_SIZE];
 } push;
 
-uint colorIndex = push.indices[1];
-uint viewIndex = push.indices[0];
-
-layout(set = 0, binding = 0) uniform UniformBufferObject {
+layout(set = 0, binding = 0) uniform Color {
     vec4 color;
-} ubo[];
+} colors[];
 
 layout(set = 0, binding = 0) uniform ViewMatrix {
     mat4 viewMatrix;
 } view[];
+
+vec4 color = colors[push.indices[1]].color;
+mat4 viewMatrix = view[push.indices[0]].viewMatrix;
 
 layout(location = 0) out vec4 outColor;
 
@@ -124,17 +124,13 @@ void main() {
     vec3 diffuse = diff * 1 * vec3(1.0, 1.0, 1.0);
 
     // Specular
-    mat4 viewMatrixInv = inverse(view[viewIndex].viewMatrix);
+    mat4 viewMatrixInv = inverse(viewMatrix);
     vec3 viewDir = normalize(vec3(viewMatrixInv * vec4(0.0, 0.0, 0.0, 1.0)) - fragPos);
 
     vec3 reflectDir = reflect(-lightDir, normal);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), 64.0);
     vec3 specular = spec * 0.5 * vec3(1.0, 1.0, 1.0);
 
-    //    // Attenuation
-    //    float distance = distance(vec3(0.0, 0.0, 0.1), fragPos);
-    //    float attenuation = min(1.0, 1.0 / (c1 + c2 * distance + c3 * distance * distance));
-
-    result = ((diffuse + ambient + specular) * ubo[colorIndex].color.rgb);//* attenuation;
-    outColor = vec4(result, 1.0);
+    result = ((diffuse + ambient + specular) * color.rgb);
+    outColor = vec4(result, color.a);
 }

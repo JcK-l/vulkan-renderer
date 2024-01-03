@@ -50,13 +50,15 @@ class ForwardSubstage : public RenderSubstage
     ///
     ForwardSubstage(scene::Scene &scene, platform::Gui *inputGui, const rendering::BindlessManager &bindlessManager);
 
-    ForwardSubstage(const ForwardSubstage &) = delete;            // Deleted copy constructor
-    ForwardSubstage(ForwardSubstage &&) noexcept = default;       // Default move constructor
-    ForwardSubstage &operator=(const ForwardSubstage &) = delete; // Deleted copy assignment operator
-    ForwardSubstage &operator=(ForwardSubstage &&) = delete;      // Deleted move assignment operator
-    ~ForwardSubstage() override = default;                        // Default destructor
+    ForwardSubstage(const ForwardSubstage &) = delete;            ///< Deleted copy constructor
+    ForwardSubstage(ForwardSubstage &&) noexcept = default;       ///< Default move constructor
+    ForwardSubstage &operator=(const ForwardSubstage &) = delete; ///< Deleted copy assignment operator
+    ForwardSubstage &operator=(ForwardSubstage &&) = delete;      ///< Deleted move assignment operator
+    ~ForwardSubstage() override = default;                        ///< Default destructor
 
     void draw(vk::raii::CommandBuffer *cmd) override;
+
+    std::string getType() override;
 
   private:
     scene::Scene &scene;

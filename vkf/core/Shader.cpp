@@ -1,10 +1,14 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 12/10/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file Shader.cpp
+/// \brief This file implements the Shader class which is used for managing Vulkan shaders.
+///
+/// The Shader class is part of the vkf::core namespace. It provides functionality to compile shaders.
+///
+/// \author Joshua Lowe
+/// \date 12/10/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Shader.h"
 #include "../common/Log.h"
@@ -81,29 +85,11 @@ vk::raii::ShaderModule Shader::compileShader(const Device &device, Type shaderTy
     }
 
     auto shaderCode = std::vector<uint32_t>{shaderModule.cbegin(), shaderModule.cend()};
-    //    printTest(shaderCode);
     auto shaderSize = std::distance(shaderCode.begin(), shaderCode.end());
     auto shaderCreateInfo =
         vk::ShaderModuleCreateInfo{.codeSize = shaderSize * sizeof(uint32_t), .pCode = shaderCode.data()};
 
     return {device.getHandle(), shaderCreateInfo};
-}
-
-void Shader::printTest(std::vector<uint32_t> code)
-{
-    //    compiler = std::make_unique<spirv_cross::Compiler>(std::move(code));
-    //    spirv_cross::ShaderResources resources = compiler->get_shader_resources();
-
-    //    // Iterate over the push constant buffers
-    //    for (const spirv_cross::Resource &resource : resources.push_constant_buffers)
-    //    {
-    //        // Get the range of the push constant buffer
-    //        spirv_cross::SPIRType::BaseType baseType = reflection.get_type(resource.base_type_id).basetype;
-    //        spirv_cross::SPIRType::BaseType type = reflection.get_type(resource.type_id).basetype;
-    //
-    //        // Print the push constant range
-    //        std::cout << "Push constant range: " << baseType << ", " << type << std::endl;
-    //    }
 }
 
 std::string Shader::readFile(const std::string &filePath) const

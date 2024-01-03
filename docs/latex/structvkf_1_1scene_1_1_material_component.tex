@@ -1,0 +1,87 @@
+\doxysection{vkf\+::scene\+::Material\+Component Struct Reference}
+\hypertarget{structvkf_1_1scene_1_1_material_component}{}\label{structvkf_1_1scene_1_1_material_component}\index{vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}}
+
+
+Struct for managing material data in a scene.  
+
+
+
+
+{\ttfamily \#include $<$Material\+Component.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a1219c9d7221488bc37572bda910aba5a}{Material\+Component}} (\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*}pipeline)
+\begin{DoxyCompactList}\small\item\em Constructor that takes a \doxylink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline} as parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a149c0b5e8ea28ba2da701fb635654225}{add\+Buffer}} (const std\+::string \&buffer\+Name, uint32\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Method to add a buffer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a60ad09d2c18a4bc5a9167c31e986f3ab}{get\+Buffer\+Index}} (const std\+::string \&buffer\+Name)
+\begin{DoxyCompactList}\small\item\em Method to get a buffer index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_material_component_a1f52d1ca11edcee1cd34e4f60d484ed1}\label{structvkf_1_1scene_1_1_material_component_a1f52d1ca11edcee1cd34e4f60d484ed1} 
+uint32\+\_\+t {\bfseries indices} \mbox{[}max\+Size\mbox{]}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_material_component_acb46c8907aa965295bbc321d2ebd2c38}\label{structvkf_1_1scene_1_1_material_component_acb46c8907aa965295bbc321d2ebd2c38} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*} {\bfseries pipeline}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_material_component_a27369187ff732b512336e810e7c0423c}\label{structvkf_1_1scene_1_1_material_component_a27369187ff732b512336e810e7c0423c} 
+std\+::unordered\+\_\+map$<$ std\+::string, uint32\+\_\+t $>$ {\bfseries buffer\+Map}
+\begin{DoxyCompactList}\small\item\em Map to store buffer names and their indices. \end{DoxyCompactList}\item 
+\Hypertarget{structvkf_1_1scene_1_1_material_component_a512de7b583d5a581b60d4df24120e254}\label{structvkf_1_1scene_1_1_material_component_a512de7b583d5a581b60d4df24120e254} 
+uint32\+\_\+t {\bfseries current\+Buffer\+Count} \{0\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_material_component_a312d5a3d95b2b9a7eecc0b3203e9ca43}\label{structvkf_1_1scene_1_1_material_component_a312d5a3d95b2b9a7eecc0b3203e9ca43} 
+static constexpr uint32\+\_\+t {\bfseries max\+Size} \{32\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct for managing material data in a scene. 
+
+This struct provides functionality to store and manage material data. It contains a \doxylink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline} member to store the pipeline data, a map to store buffer names and their indices, and an array to store indices. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structvkf_1_1scene_1_1_material_component_a1219c9d7221488bc37572bda910aba5a}\label{structvkf_1_1scene_1_1_material_component_a1219c9d7221488bc37572bda910aba5a} 
+\index{vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}!MaterialComponent@{MaterialComponent}}
+\index{MaterialComponent@{MaterialComponent}!vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}}
+\doxysubsubsection{\texorpdfstring{MaterialComponent()}{MaterialComponent()}}
+{\footnotesize\ttfamily vkf\+::scene\+::\+Material\+Component\+::\+Material\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*}}]{pipeline }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor that takes a \doxylink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline} as parameter. 
+
+This constructor initializes the pipeline member with the provided pipeline. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structvkf_1_1scene_1_1_material_component_a149c0b5e8ea28ba2da701fb635654225}\label{structvkf_1_1scene_1_1_material_component_a149c0b5e8ea28ba2da701fb635654225} 
+\index{vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}!addBuffer@{addBuffer}}
+\index{addBuffer@{addBuffer}!vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}}
+\doxysubsubsection{\texorpdfstring{addBuffer()}{addBuffer()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Material\+Component\+::add\+Buffer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name,  }\item[{uint32\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to add a buffer. 
+
+This method takes a buffer name and an index, and adds them to the buffer map. If the index is within the maximum size, it also adds the index to the indices array and increments the current buffer count. \Hypertarget{structvkf_1_1scene_1_1_material_component_a60ad09d2c18a4bc5a9167c31e986f3ab}\label{structvkf_1_1scene_1_1_material_component_a60ad09d2c18a4bc5a9167c31e986f3ab} 
+\index{vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}!getBufferIndex@{getBufferIndex}}
+\index{getBufferIndex@{getBufferIndex}!vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}}
+\doxysubsubsection{\texorpdfstring{getBufferIndex()}{getBufferIndex()}}
+{\footnotesize\ttfamily uint32\+\_\+t vkf\+::scene\+::\+Material\+Component\+::get\+Buffer\+Index (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to get a buffer index. 
+
+This method takes a buffer name and returns its index from the buffer map. If the buffer name is not found in the map, it handles the error and returns -\/1. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/components/\mbox{\hyperlink{_material_component_8h}{Material\+Component.\+h}}\end{DoxyCompactItemize}

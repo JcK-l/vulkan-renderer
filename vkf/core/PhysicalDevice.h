@@ -37,11 +37,11 @@ class PhysicalDevice
     ///
     explicit PhysicalDevice(vk::raii::PhysicalDevice physicalDevice);
 
-    PhysicalDevice(const PhysicalDevice &) = delete;            // Deleted copy constructor
-    PhysicalDevice(PhysicalDevice &&) noexcept = default;       // Default move constructor
-    PhysicalDevice &operator=(const PhysicalDevice &) = delete; // Deleted copy assignment operator
-    PhysicalDevice &operator=(PhysicalDevice &&) = delete;      // Deleted move assignment operator
-    ~PhysicalDevice() = default;                                // Default destructor
+    PhysicalDevice(const PhysicalDevice &) = delete;            ///< Deleted copy constructor
+    PhysicalDevice(PhysicalDevice &&) noexcept = default;       ///< Default move constructor
+    PhysicalDevice &operator=(const PhysicalDevice &) = delete; ///< Deleted copy assignment operator
+    PhysicalDevice &operator=(PhysicalDevice &&) = delete;      ///< Deleted move assignment operator
+    ~PhysicalDevice() = default;                                ///< Default destructor
 
     [[nodiscard]] const vk::PhysicalDeviceFeatures &getPhysicalDeviceFeatures() const;
 

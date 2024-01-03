@@ -271,7 +271,6 @@ Render loop</h2>
 <div class="line">    <span class="keywordflow">switch</span> (result)</div>
 <div class="line">    {</div>
 <div class="line">    <span class="keywordflow">case</span> vk::Result::eSuccess:</div>
-<div class="line">        <span class="comment">//        LOG_DEBUG(&quot;Acquired next image: {}&quot;, value)</span></div>
 <div class="line">        <span class="keywordflow">break</span>;</div>
 <div class="line">    <span class="keywordflow">case</span> vk::Result::eSuboptimalKHR:</div>
 <div class="line">        LOG_DEBUG(<span class="stringliteral">&quot;Acquired next image: {} (suboptimal)&quot;</span>, value)</div>
@@ -301,7 +300,7 @@ Render loop</h2>
 <div class="line">                                       .pWaitSemaphores = &amp;*frameData[activeFrame]-&gt;getSemaphore(0),</div>
 <div class="line">                                       .pWaitDstStageMask = waitStages,</div>
 <div class="line">                                       .commandBufferCount = 1,</div>
-<div class="line">                                       .pCommandBuffers = &amp;*(*activeCommandBuffer), <span class="comment">// What the hell</span></div>
+<div class="line">                                       .pCommandBuffers = &amp;*(*activeCommandBuffer), </div>
 <div class="line">                                       .signalSemaphoreCount = 1,</div>
 <div class="line">                                       .pSignalSemaphores = &amp;*frameData[activeFrame]-&gt;getSemaphore(1)},</div>
 <div class="line">                        *frameData[activeFrame]-&gt;getFence());</div>
@@ -323,7 +322,6 @@ Render loop</h2>
 <div class="line">        <span class="keywordflow">switch</span> (result)</div>
 <div class="line">        {</div>
 <div class="line">        <span class="keywordflow">case</span> vk::Result::eSuccess:</div>
-<div class="line">            <span class="comment">//        LOG_DEBUG(&quot;Presented image: {}&quot;, value)</span></div>
 <div class="line">            <span class="keywordflow">break</span>;</div>
 <div class="line">        <span class="keywordflow">case</span> vk::Result::eSuboptimalKHR:</div>
 <div class="line">            LOG_DEBUG(<span class="stringliteral">&quot;Presented image: {} (suboptimal)&quot;</span>, activeFrame)</div>

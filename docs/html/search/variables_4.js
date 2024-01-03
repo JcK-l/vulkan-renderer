@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['newheight_0',['newHeight',['../structvkf_1_1_event_1_1_resize.html#ae4491a9af4fb145f41bb7311b8e4d01b',1,'vkf::Event::Resize']]],
-  ['newwidth_1',['newWidth',['../structvkf_1_1_event_1_1_resize.html#afb7b924d269283817faad8e5a4811999',1,'vkf::Event::Resize']]]
+  ['freehandles_0',['freeHandles',['../classvkf_1_1rendering_1_1_bindless_manager.html#a61a9b7713e89eac574fd0a27183d72ab',1,'vkf::rendering::BindlessManager']]]
 ];

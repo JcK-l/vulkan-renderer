@@ -45,11 +45,11 @@ class Device
     ///
     Device(Instance &instance, vk::raii::SurfaceKHR &surface, const std::vector<const char *> &requiredExtensions = {});
 
-    Device(const Device &) = delete;            // Deleted copy constructor
-    Device(Device &&) noexcept = default;       // Default move constructor
-    Device &operator=(const Device &) = delete; // Deleted copy assignment operator
-    Device &operator=(Device &&) = delete;      // Deleted move assignment operator
-    ~Device();                                  // destructor
+    Device(const Device &) = delete;            ///< Deleted copy constructor
+    Device(Device &&) noexcept = default;       ///< Default move constructor
+    Device &operator=(const Device &) = delete; ///< Deleted copy assignment operator
+    Device &operator=(Device &&) = delete;      ///< Deleted move assignment operator
+    ~Device();                                  ///< destructor
 
     ///
     /// \brief Getter for a queue.

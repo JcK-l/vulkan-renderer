@@ -5,13 +5,12 @@
 This file declares the Scene class and the Tag\+Component struct which are used for managing a scene.  
 
 
-{\ttfamily \#include $<$utility$>$}\newline
-{\ttfamily \#include "{}entt/entt.\+hpp"{}}\newline
+{\ttfamily \#include "{}components/\+Components.\+h"{}}\newline
+{\ttfamily \#include "{}prefabs/\+Prefab\+Factory.\+h"{}}\newline
+{\ttfamily \#include $<$entt/entt.\+hpp$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structvkf_1_1scene_1_1_tag_component}{vkf\+::scene\+::\+Tag\+Component}}
-\begin{DoxyCompactList}\small\item\em This struct stores a tag for an entity. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{vkf\+::scene\+::\+Scene}}
 \begin{DoxyCompactList}\small\item\em This class manages a scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
@@ -19,6 +18,10 @@ class \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{vkf\+::scene\+::\+Scene}}
 \item 
 namespace \mbox{\hyperlink{namespacevkf}{vkf}}
 \begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacevkf_1_1core}{vkf\+::core}}
+\begin{DoxyCompactList}\small\item\em The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacevkf_1_1rendering}{vkf\+::rendering}}
+\begin{DoxyCompactList}\small\item\em The rendering namespace contains classes and functions for rendering operations. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespacevkf_1_1scene}{vkf\+::scene}}
 \begin{DoxyCompactList}\small\item\em The scene namespace contains classes and functions for scene management. \end{DoxyCompactList}\end{DoxyCompactItemize}
 

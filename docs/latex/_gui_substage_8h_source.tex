@@ -18,16 +18,16 @@
 \DoxyCodeLine{00031\ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}(\mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform::Gui}}\ *inputGui);}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
-\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{\string~GuiSubstage}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ destructor}}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage_ac99ce184b7dc1dfcd6b1e30f4109740a}{GuiSubstage}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage_a2b2c4a9c553fe9ca4c1333f639c45c34}{GuiSubstage}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage}{GuiSubstage}}()\ override\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage_a4f4ae9019d9c5cd57b3ffe166982c017}{draw}}(vk::raii::CommandBuffer\ *cmd)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_gui_substage_a4f4ae9019d9c5cd57b3ffe166982c017}{draw}}(vk::raii::CommandBuffer\ *cmd)\ override;}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform::Gui}}\ *gui;\ \textcolor{comment}{//\ The\ GUI}}
+\DoxyCodeLine{00049\ \ \ private:}
+\DoxyCodeLine{00050\ \ \ \ \ platform::Gui\ *gui;\ \textcolor{comment}{//\ The\ GUI}}
 \DoxyCodeLine{00051\ \};}
 \DoxyCodeLine{00052\ }
 \DoxyCodeLine{00053\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}

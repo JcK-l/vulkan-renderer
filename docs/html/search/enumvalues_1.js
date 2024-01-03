@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keyboard_0',['Keyboard',['../structvkf_1_1_event.html#afa9ad9a597587c5835c44d526d32a5f6a6ce4d85a628a88bbdb3ac24a8e5a9c2e',1,'vkf::Event']]]
+  ['fragment_0',['Fragment',['../classvkf_1_1core_1_1_shader.html#a31912848fc45289dc1d4b9d8bd98df60a37d01b98065725fe3a1d30acf3a0064a',1,'vkf::core::Shader']]]
 ];

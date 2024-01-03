@@ -20,16 +20,16 @@
 \DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&renderPass,\ \textcolor{keyword}{const}\ std::vector<vk::ImageView>\ \&attachments,}
 \DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ vk::Extent2D\ \&extent);}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}(\mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
-\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
-\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{\string~Framebuffer}}()\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ destructor}}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer_a9deb3de9df7464429e52993d4be9bcc7}{Framebuffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer_a240bcaaa6ec85f5b1b25a191eee49cd9}{Framebuffer}}(\mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Framebuffer\ \&getHandle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ \ \ [[nodiscard]]\ const\ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ \&getHandle()\ const;}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00057\ \ \ \ \ vk::raii::Framebuffer\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00056\ \ \ private:}
+\DoxyCodeLine{00057\ \ \ \ \ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_framebuffer}{Framebuffer}}\ handle\{VK\_NULL\_HANDLE\};}
 \DoxyCodeLine{00058\ \};}
 \DoxyCodeLine{00059\ }
 \DoxyCodeLine{00060\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}

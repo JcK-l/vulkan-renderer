@@ -1,0 +1,62 @@
+\doxysection{Shader.\+h}
+\hypertarget{_shader_8h_source}{}\label{_shader_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Shader.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/core/Shader.h}}
+\mbox{\hyperlink{_shader_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_SHADER\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_SHADER\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <shaderc/shaderc.hpp>}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \#include\ <spirv\_cross/spirv\_cross.hpp>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}}}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60ab22b929ba52471a02d18bb3a4e4472e6}{Vertex}},\ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60a37d01b98065725fe3a1d30acf3a0064a}{Fragment}},\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60ad9c6333623e6357515fcbf17be806273}{Geometry}},\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60a88183b946cc5f0e8c96b2e66e1c74a7e}{Unknown}}\ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ more\ shader\ types\ as\ needed}}
+\DoxyCodeLine{00045\ \ \ \ \ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}}(\textcolor{keyword}{const}\ std::string\ \&filePath);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a0e2c4893fe354b9258e727634e0bcee7}{Shader}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_af9a5384dd14e47b80b1c3fa76a192183}{Shader}}(\mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_shader}{Shader}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \ \ [[nodiscard]]\ const\ std::unordered\_map<\mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}},\ std::\textcolor{keywordtype}{string}>\ \&\mbox{\hyperlink{classvkf_1_1core_1_1_shader_ae737e8e251313c0cd93c86f649b3f062}{getCodes}}()\ const;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ std::vector<vk::PipelineShaderStageCreateInfo>\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a998f51ab2e5c516f0976b95c13a2dab9}{createShaderStages}}(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ private:}
+\DoxyCodeLine{00073\ \ \ \ \ vk::raii::ShaderModule\ compileShader(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}}\ type);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}}\ stringToType(const\ std::\textcolor{keywordtype}{string}\ \&typeString)\ const;}
+\DoxyCodeLine{00076\ \ \ \ \ shaderc\_shader\_kind\ typeToShadercKind(\mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}}\ type)\ const;}
+\DoxyCodeLine{00077\ \ \ \ \ std::\textcolor{keywordtype}{string}\ readFile(const\ std::\textcolor{keywordtype}{string}\ \&filePath)\ const;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ parseShader(std::\textcolor{keywordtype}{string}\ \&shaderString);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ std::unordered\_map<\mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}},\ std::\textcolor{keywordtype}{string}>\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a0b50d52ac5078e4f199ed61dcfc21304}{codes}};\ }
+\DoxyCodeLine{00081\ \ \ \ \ std::vector<vk::raii::ShaderModule>\ shaderModules;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ static\ const\ std::unordered\_map<std::\textcolor{keywordtype}{string},\ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a31912848fc45289dc1d4b9d8bd98df60}{Type}}>}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_shader_a0e594f062278001b07b2b0ef4a7a2ec6}{typeMap}};\ }
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_SHADER\_H}}
+
+\end{DoxyCode}

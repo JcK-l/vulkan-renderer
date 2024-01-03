@@ -1,0 +1,165 @@
+\doxysection{vkf\+::scene\+::Camera Class Reference}
+\hypertarget{classvkf_1_1scene_1_1_camera}{}\label{classvkf_1_1scene_1_1_camera}\index{vkf::scene::Camera@{vkf::scene::Camera}}
+
+
+Class for managing camera data in a scene.  
+
+
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_camera_a6b0bd0b6808097d82fab66b5c90b8cb1}{Camera}} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager, uint32\+\_\+t handle, float fov, float aspect, float near, float far)
+\begin{DoxyCompactList}\small\item\em Constructor that takes a Bindless\+Manager reference, handle, field of view, aspect ratio, near and far plane distances as parameters. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a69e67ee920fb94d50ca0813e2033b782}\label{classvkf_1_1scene_1_1_camera_a69e67ee920fb94d50ca0813e2033b782} 
+{\bfseries Camera} (const \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a546961967232d71300aeea512fbab7fc}\label{classvkf_1_1scene_1_1_camera_a546961967232d71300aeea512fbab7fc} 
+{\bfseries Camera} (\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a47b04c53d3ae0f5dec5260364b98fabd}\label{classvkf_1_1scene_1_1_camera_a47b04c53d3ae0f5dec5260364b98fabd} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a31461edc37955b42d599e85c102cd5fe}\label{classvkf_1_1scene_1_1_camera_a31461edc37955b42d599e85c102cd5fe} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a07d6c818860b8ea4f4ddf3493e95e607}\label{classvkf_1_1scene_1_1_camera_a07d6c818860b8ea4f4ddf3493e95e607} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Camera} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a6a8c2414bd7258ae6cca9a08f028be68}\label{classvkf_1_1scene_1_1_camera_a6a8c2414bd7258ae6cca9a08f028be68} 
+const glm\+::mat4 \& {\bfseries get\+View\+Matrix} () const
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_adee710d5705352c80911267a06c443a2}\label{classvkf_1_1scene_1_1_camera_adee710d5705352c80911267a06c443a2} 
+const glm\+::mat4 \& {\bfseries get\+Projection\+Matrix} () const
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_ae17d63b6f02dc37e7cf7f1e7eecaa3c0}\label{classvkf_1_1scene_1_1_camera_ae17d63b6f02dc37e7cf7f1e7eecaa3c0} 
+glm\+::mat4 {\bfseries get\+View\+Projection\+Matrix} () const
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a74c450df79086b4a48dc6e90fd155b21}\label{classvkf_1_1scene_1_1_camera_a74c450df79086b4a48dc6e90fd155b21} 
+uint32\+\_\+t {\bfseries get\+Handle} () const
+\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_camera_a9d29f939c4b51be2f4fd6730bd728fdb}{orbit}} (float dx, float dy)
+\begin{DoxyCompactList}\small\item\em Method to orbit the camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_camera_aa274162c6a7f1ea45b99e52a3655f0a9}{zoom}} (float distance)
+\begin{DoxyCompactList}\small\item\em Method to zoom the camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_camera_a4b91a6791647ed973d0775875d094b01}{update\+Aspect\+Ratio}} (float aspect)
+\begin{DoxyCompactList}\small\item\em Method to update the aspect ratio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_camera_ad634f16101646217c4835dc641562172}{update\+Camera\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Method to update the camera buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a2fab65fcd87ecc1a9fe2a7b49bdb310d}\label{classvkf_1_1scene_1_1_camera_a2fab65fcd87ecc1a9fe2a7b49bdb310d} 
+void {\bfseries update\+View\+Matrix} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a64673c696a67808d9a62d08c87d14807}\label{classvkf_1_1scene_1_1_camera_a64673c696a67808d9a62d08c87d14807} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \& {\bfseries bindless\+Manager}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a3e518bd67406ff1293a0df127cc7a4c5}\label{classvkf_1_1scene_1_1_camera_a3e518bd67406ff1293a0df127cc7a4c5} 
+uint32\+\_\+t {\bfseries handle}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a73d10c2fb61ed609aca04bf9a93cd5ba}\label{classvkf_1_1scene_1_1_camera_a73d10c2fb61ed609aca04bf9a93cd5ba} 
+glm\+::vec3 {\bfseries position}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_af1a856f7e873dae47a7b73e0c4eda4c8}\label{classvkf_1_1scene_1_1_camera_af1a856f7e873dae47a7b73e0c4eda4c8} 
+glm\+::vec3 {\bfseries target}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a3d71fb028a727ccf10568ca7c06aa18f}\label{classvkf_1_1scene_1_1_camera_a3d71fb028a727ccf10568ca7c06aa18f} 
+glm\+::vec3 {\bfseries up}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a1b516174fe97d79884849a2620b7249e}\label{classvkf_1_1scene_1_1_camera_a1b516174fe97d79884849a2620b7249e} 
+glm\+::mat4 {\bfseries view}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_camera_a5720594c2b178b93d0e646372c2b044b}\label{classvkf_1_1scene_1_1_camera_a5720594c2b178b93d0e646372c2b044b} 
+glm\+::mat4 {\bfseries projection}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for managing camera data in a scene. 
+
+This class provides functionality to store and manage camera data. It contains a Bindless\+Manager reference and a handle to manage bindless resources, glm\+::vec3 members to store the position, target, and up vector data, and glm\+::mat4 members to store the view and projection matrices. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_camera_a6b0bd0b6808097d82fab66b5c90b8cb1}\label{classvkf_1_1scene_1_1_camera_a6b0bd0b6808097d82fab66b5c90b8cb1} 
+\index{vkf::scene::Camera@{vkf::scene::Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!vkf::scene::Camera@{vkf::scene::Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}}
+{\footnotesize\ttfamily vkf\+::scene\+::\+Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&}]{bindless\+Manager,  }\item[{uint32\+\_\+t}]{handle,  }\item[{float}]{fov,  }\item[{float}]{aspect,  }\item[{float}]{near,  }\item[{float}]{far }\end{DoxyParamCaption})}
+
+
+
+Constructor that takes a Bindless\+Manager reference, handle, field of view, aspect ratio, near and far plane distances as parameters. 
+
+This constructor initializes the bindless\+Manager reference, handle, and camera parameters with the provided values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bindless\+Manager} & The Bindless\+Manager reference to use for creating the \doxylink{classvkf_1_1scene_1_1_camera}{Camera}. \\
+\hline
+{\em handle} & The handle to use for creating the \doxylink{classvkf_1_1scene_1_1_camera}{Camera}. \\
+\hline
+{\em fov} & The field of view to use for creating the \doxylink{classvkf_1_1scene_1_1_camera}{Camera}. \\
+\hline
+{\em aspect} & The aspect ratio to use for creating the \doxylink{classvkf_1_1scene_1_1_camera}{Camera}. \\
+\hline
+{\em near} & The near plane distance to use for creating the \doxylink{classvkf_1_1scene_1_1_camera}{Camera}. \\
+\hline
+{\em far} & The far plane distance to use for creating the \doxylink{classvkf_1_1scene_1_1_camera}{Camera}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_camera_a9d29f939c4b51be2f4fd6730bd728fdb}\label{classvkf_1_1scene_1_1_camera_a9d29f939c4b51be2f4fd6730bd728fdb} 
+\index{vkf::scene::Camera@{vkf::scene::Camera}!orbit@{orbit}}
+\index{orbit@{orbit}!vkf::scene::Camera@{vkf::scene::Camera}}
+\doxysubsubsection{\texorpdfstring{orbit()}{orbit()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Camera\+::orbit (\begin{DoxyParamCaption}\item[{float}]{dx,  }\item[{float}]{dy }\end{DoxyParamCaption})}
+
+
+
+Method to orbit the camera. 
+
+This method takes the change in x and y directions and orbits the camera. \Hypertarget{classvkf_1_1scene_1_1_camera_a4b91a6791647ed973d0775875d094b01}\label{classvkf_1_1scene_1_1_camera_a4b91a6791647ed973d0775875d094b01} 
+\index{vkf::scene::Camera@{vkf::scene::Camera}!updateAspectRatio@{updateAspectRatio}}
+\index{updateAspectRatio@{updateAspectRatio}!vkf::scene::Camera@{vkf::scene::Camera}}
+\doxysubsubsection{\texorpdfstring{updateAspectRatio()}{updateAspectRatio()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Camera\+::update\+Aspect\+Ratio (\begin{DoxyParamCaption}\item[{float}]{aspect }\end{DoxyParamCaption})}
+
+
+
+Method to update the aspect ratio. 
+
+This method takes the aspect ratio and updates the camera\textquotesingle{}s aspect ratio. \Hypertarget{classvkf_1_1scene_1_1_camera_ad634f16101646217c4835dc641562172}\label{classvkf_1_1scene_1_1_camera_ad634f16101646217c4835dc641562172} 
+\index{vkf::scene::Camera@{vkf::scene::Camera}!updateCameraBuffer@{updateCameraBuffer}}
+\index{updateCameraBuffer@{updateCameraBuffer}!vkf::scene::Camera@{vkf::scene::Camera}}
+\doxysubsubsection{\texorpdfstring{updateCameraBuffer()}{updateCameraBuffer()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Camera\+::update\+Camera\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method to update the camera buffer. 
+
+This method updates the camera buffer. \Hypertarget{classvkf_1_1scene_1_1_camera_aa274162c6a7f1ea45b99e52a3655f0a9}\label{classvkf_1_1scene_1_1_camera_aa274162c6a7f1ea45b99e52a3655f0a9} 
+\index{vkf::scene::Camera@{vkf::scene::Camera}!zoom@{zoom}}
+\index{zoom@{zoom}!vkf::scene::Camera@{vkf::scene::Camera}}
+\doxysubsubsection{\texorpdfstring{zoom()}{zoom()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Camera\+::zoom (\begin{DoxyParamCaption}\item[{float}]{distance }\end{DoxyParamCaption})}
+
+
+
+Method to zoom the camera. 
+
+This method takes the distance and zooms the camera. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/\mbox{\hyperlink{_camera_8h}{Camera.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/\mbox{\hyperlink{_camera_8cpp}{Camera.\+cpp}}\end{DoxyCompactItemize}

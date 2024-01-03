@@ -25,6 +25,8 @@ virtual std\+::vector$<$ vk\+::\+Image\+View $>$ \mbox{\hyperlink{classvkf_1_1re
 virtual uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa80a3fc362a63a72597924d5534c41f5}{get\+Image\+Count}} () const =0
 \begin{DoxyCompactList}\small\item\em Pure virtual method to get the image count. \end{DoxyCompactList}\item 
 virtual vk\+::\+Extent2D \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa9b1ade53ea2036ee100c0cc6c8b56ca}{get\+Extent}} () const =0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a12bcc5c2e991feadfa469faa44a0f2ea}{reset\+Changed}} ()=0
 \begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -103,6 +105,25 @@ A vector of image views.
 
 
 Implemented in \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a11706d634bc9f6358839c4402846c96a}{vkf\+::core\+::\+Swapchain}}, and \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a196cf80a8c1411ff1c53824ab5847210}{vkf\+::platform\+::\+Gui}}.
+
+\Hypertarget{classvkf_1_1rendering_1_1_render_source_a12bcc5c2e991feadfa469faa44a0f2ea}\label{classvkf_1_1rendering_1_1_render_source_a12bcc5c2e991feadfa469faa44a0f2ea} 
+\index{vkf::rendering::RenderSource@{vkf::rendering::RenderSource}!resetChanged@{resetChanged}}
+\index{resetChanged@{resetChanged}!vkf::rendering::RenderSource@{vkf::rendering::RenderSource}}
+\doxysubsubsection{\texorpdfstring{resetChanged()}{resetChanged()}}
+{\footnotesize\ttfamily virtual bool vkf\+::rendering\+::\+Render\+Source\+::reset\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to get the extent. 
+
+This method is intended to be overridden by subclasses to return the extent.
+
+\begin{DoxyReturn}{Returns}
+The extent. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a9b4659de2d3f5f68b9ca4afbc3d7082c}{vkf\+::core\+::\+Swapchain}}, and \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a396ec808f104928426657b39f9ac46e7}{vkf\+::platform\+::\+Gui}}.
 
 
 

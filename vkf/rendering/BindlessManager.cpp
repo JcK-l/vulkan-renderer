@@ -1,12 +1,18 @@
-/// \file
-/// \brief
-
-//
-// Created by Joshua Lowe on 12/15/2023.
-// The license and distribution terms for this file may be found in the file LICENSE in this distribution
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \file BindlessManager.cpp
+/// \brief This file implements the BindlessManager class which is used for managing bindless resources in Vulkan.
+///
+/// The BindlessManager class is part of the vkf::rendering namespace. It provides functionality to store, update, and
+/// remove buffers. It also provides methods to update descriptor sets and get pipeline layout and descriptor set.
+///
+/// \author Joshua Lowe
+/// \date 12/15/2023
+///
+/// The license and distribution terms for this file may be found in the file LICENSE in this distribution
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "BindlessManager.h"
+#include "../common/Log.h"
 #include "../core/Device.h"
 
 namespace vkf::rendering
@@ -81,6 +87,7 @@ BindlessManager::BindlessManager(const core::Device &device) : device{device}
         .pPushConstantRanges = pushConstantRanges.data(),
     };
     pipelineLayout = vk::raii::PipelineLayout{device.getHandle(), pipelineLayoutCreateInfo};
+    LOG_INFO("BindlessManager created")
 }
 
 uint32_t BindlessManager::storeBuffer(core::Buffer &buffer, vk::BufferUsageFlags usage)

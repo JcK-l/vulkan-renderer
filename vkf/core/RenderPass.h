@@ -46,11 +46,11 @@ class RenderPass
                const std::vector<vk::SubpassDescription> &subpassDescriptions,
                const std::vector<vk::SubpassDependency> &subpassDependencies);
 
-    RenderPass(const RenderPass &) = delete;            // Deleted copy constructor
-    RenderPass(RenderPass &&) noexcept = default;       // Default move constructor
-    RenderPass &operator=(const RenderPass &) = delete; // Deleted copy assignment operator
-    RenderPass &operator=(RenderPass &&) = delete;      // Default move assignment operator
-    ~RenderPass() = default;                            // Default destructor
+    RenderPass(const RenderPass &) = delete;            ///< Deleted copy constructor
+    RenderPass(RenderPass &&) noexcept = default;       ///< Default move constructor
+    RenderPass &operator=(const RenderPass &) = delete; ///< Deleted copy assignment operator
+    RenderPass &operator=(RenderPass &&) = delete;      ///< Default move assignment operator
+    ~RenderPass() = default;                            ///< Default destructor
 
     [[nodiscard]] const vk::raii::RenderPass &getHandle() const;
 

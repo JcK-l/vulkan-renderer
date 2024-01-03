@@ -43,11 +43,11 @@ class Instance
     explicit Instance(const std::string &appName, const std::vector<const char *> &requiredExtensions = {},
                       const std::vector<const char *> &requiredLayers = {});
 
-    Instance(const Instance &) = delete;            // Deleted copy constructor
-    Instance(Instance &&) noexcept = default;       // Default move constructor
-    Instance &operator=(const Instance &) = delete; // Deleted copy assignment operator
-    Instance &operator=(Instance &&) = delete;      // Deleted move assignment operator
-    ~Instance(); // Implementation in Instance.cpp because of std::unique_ptr forward declaration
+    Instance(const Instance &) = delete;            ///< Deleted copy constructor
+    Instance(Instance &&) noexcept = default;       ///< Default move constructor
+    Instance &operator=(const Instance &) = delete; ///< Deleted copy assignment operator
+    Instance &operator=(Instance &&) = delete;      ///< Deleted move assignment operator
+    ~Instance(); ///< Implementation in Instance.cpp because of std::unique_ptr forward declaration
 
     ///
     /// \brief Retrieves the first suitable GPU.

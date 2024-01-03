@@ -16,16 +16,19 @@ This class manages the main application.
 \begin{DoxyCompactList}\small\item\em Constructs an \doxylink{classvkf_1_1platform_1_1_application}{Application} object with a specified application name. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1platform_1_1_application_aa3a849e45abe81581934f4ac79a16d8f}\label{classvkf_1_1platform_1_1_application_aa3a849e45abe81581934f4ac79a16d8f} 
 {\bfseries Application} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1platform_1_1_application_a1264b73df41cffb5bcec3cc68154f659}\label{classvkf_1_1platform_1_1_application_a1264b73df41cffb5bcec3cc68154f659} 
 {\bfseries Application} (\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&\&) noexcept=default
-\item 
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1platform_1_1_application_a0bb15b5a054bc51d3270b8650100beee}\label{classvkf_1_1platform_1_1_application_a0bb15b5a054bc51d3270b8650100beee} 
 \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1platform_1_1_application_a157628aba9e57305dbf3986682b0053e}\label{classvkf_1_1platform_1_1_application_a157628aba9e57305dbf3986682b0053e} 
 \mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1platform_1_1_application}{Application}} \&\&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_a059e24702c90b08200ed62b6f2cdb691}\label{classvkf_1_1platform_1_1_application_a059e24702c90b08200ed62b6f2cdb691} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Application} ()
+\begin{DoxyCompactList}\small\item\em Implementation in \doxylink{_application_8cpp}{Application.\+cpp} because of std\+::unique\+\_\+ptr forward declaration. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1platform_1_1_application_af4b98411febf1469fe42b075d878c562}\label{classvkf_1_1platform_1_1_application_af4b98411febf1469fe42b075d878c562} 
 void {\bfseries run} ()
 \begin{DoxyCompactList}\small\item\em Runs the main loop of the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -56,11 +59,14 @@ void {\bfseries create\+Surface} ()
 \Hypertarget{classvkf_1_1platform_1_1_application_ad5bafdc2950143fd3c9b8826691b0c1e}\label{classvkf_1_1platform_1_1_application_ad5bafdc2950143fd3c9b8826691b0c1e} 
 void {\bfseries create\+Device} ()
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_ac5073cb8bdca0be79b1190fe37474a69}\label{classvkf_1_1platform_1_1_application_ac5073cb8bdca0be79b1190fe37474a69} 
-void {\bfseries create\+Scene} ()
+\Hypertarget{classvkf_1_1platform_1_1_application_a64145339c7681f6ab76e26b9e90c4109}\label{classvkf_1_1platform_1_1_application_a64145339c7681f6ab76e26b9e90c4109} 
+void {\bfseries create\+Scene} (const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&render\+Pass)
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_application_a26e2410b6841ccfd15f53e8ad14da981}\label{classvkf_1_1platform_1_1_application_a26e2410b6841ccfd15f53e8ad14da981} 
 void {\bfseries create\+Render\+Manager} ()
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_a44ec617fed49de12d21bb1f32f70ae5f}\label{classvkf_1_1platform_1_1_application_a44ec617fed49de12d21bb1f32f70ae5f} 
+void {\bfseries create\+Bindless\+Manager} ()
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_application_a8b6106fae856a6fc544fb73aaf2bbf54}\label{classvkf_1_1platform_1_1_application_a8b6106fae856a6fc544fb73aaf2bbf54} 
 void {\bfseries enable\+Instance\+Extension} (const char \texorpdfstring{$\ast$}{*}extension\+Name)
@@ -89,11 +95,17 @@ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::
 \Hypertarget{classvkf_1_1platform_1_1_application_aed8d93b78db4678a7c981424c71c2e85}\label{classvkf_1_1platform_1_1_application_aed8d93b78db4678a7c981424c71c2e85} 
 std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} $>$ {\bfseries scene}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_application_ab4de0562315c9ec4343b0b60bd6b203a}\label{classvkf_1_1platform_1_1_application_ab4de0562315c9ec4343b0b60bd6b203a} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} $>$ {\bfseries pipeline}
+\Hypertarget{classvkf_1_1platform_1_1_application_a65df9cf2f62992cd973d3a0a8f2a006d}\label{classvkf_1_1platform_1_1_application_a65df9cf2f62992cd973d3a0a8f2a006d} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} $>$ {\bfseries bindless\+Manager}
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_application_a0b2407a5e94193aebf80c099bf5c31a5}\label{classvkf_1_1platform_1_1_application_a0b2407a5e94193aebf80c099bf5c31a5} 
 std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_manager}{rendering\+::\+Render\+Manager}} $>$ {\bfseries render\+Manager}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_ad91c1710cd103bcfb99d376ba8a36a15}\label{classvkf_1_1platform_1_1_application_ad91c1710cd103bcfb99d376ba8a36a15} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{Gui}} $>$ {\bfseries gui}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_application_a02d48df77c0b8f7a838b5cb2601e3943}\label{classvkf_1_1platform_1_1_application_a02d48df77c0b8f7a838b5cb2601e3943} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} $>$ {\bfseries swapchain}
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_application_a6ee5f4eefbb96fa32f417c18b34fcc86}\label{classvkf_1_1platform_1_1_application_a6ee5f4eefbb96fa32f417c18b34fcc86} 
 std\+::vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ {\bfseries instance\+Extensions}

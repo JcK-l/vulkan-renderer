@@ -1,0 +1,85 @@
+\doxysection{vkf\+::rendering\+::Pipeline\+Builder Class Reference}
+\hypertarget{classvkf_1_1rendering_1_1_pipeline_builder}{}\label{classvkf_1_1rendering_1_1_pipeline_builder}\index{vkf::rendering::PipelineBuilder@{vkf::rendering::PipelineBuilder}}
+
+
+Class for building Vulkan pipelines.  
+
+
+
+
+{\ttfamily \#include $<$Pipeline\+Builder.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a104b05f2693f85ebbaf9448da568ad1d}\label{classvkf_1_1rendering_1_1_pipeline_builder_a104b05f2693f85ebbaf9448da568ad1d} 
+{\bfseries Pipeline\+Builder} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a5cd95fb9296846b1ba5eb363d4ee7a11}\label{classvkf_1_1rendering_1_1_pipeline_builder_a5cd95fb9296846b1ba5eb363d4ee7a11} 
+{\bfseries Pipeline\+Builder} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \&)=default
+\begin{DoxyCompactList}\small\item\em Default copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a5207316a4c2549bcd9c9130b2a147609}\label{classvkf_1_1rendering_1_1_pipeline_builder_a5207316a4c2549bcd9c9130b2a147609} 
+{\bfseries Pipeline\+Builder} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_af6b9c456b7777da75118fffc5206acaf}\label{classvkf_1_1rendering_1_1_pipeline_builder_af6b9c456b7777da75118fffc5206acaf} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \&)=default
+\begin{DoxyCompactList}\small\item\em Default copy assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_aaad3ef762df7ec7205139ad5734c5cec}\label{classvkf_1_1rendering_1_1_pipeline_builder_aaad3ef762df7ec7205139ad5734c5cec} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Default move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_ada091754edf8d24fe60a0117298b191d}\label{classvkf_1_1rendering_1_1_pipeline_builder_ada091754edf8d24fe60a0117298b191d} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Pipeline\+Builder} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_ada5b1102cdf31ac7941b637405a058de}\label{classvkf_1_1rendering_1_1_pipeline_builder_ada5b1102cdf31ac7941b637405a058de} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Shader\+Stage\+Create\+Infos} (const std\+::vector$<$ vk\+::\+Pipeline\+Shader\+Stage\+Create\+Info $>$ \&infos)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a23201c01399f572258ed5d8ae86f097b}\label{classvkf_1_1rendering_1_1_pipeline_builder_a23201c01399f572258ed5d8ae86f097b} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Vertex\+Input\+Create\+Info} (const vk\+::\+Pipeline\+Vertex\+Input\+State\+Create\+Info \&info)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_ab60a3ee58bc6991dbba7ca5b2efad768}\label{classvkf_1_1rendering_1_1_pipeline_builder_ab60a3ee58bc6991dbba7ca5b2efad768} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Input\+Assembly\+Create\+Info} (const vk\+::\+Pipeline\+Input\+Assembly\+State\+Create\+Info \&info)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_ac925a4eafc564d07daa0c80c33a8ab76}\label{classvkf_1_1rendering_1_1_pipeline_builder_ac925a4eafc564d07daa0c80c33a8ab76} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Pipeline\+Viewport\+State\+Create\+Info} (const vk\+::\+Pipeline\+Viewport\+State\+Create\+Info \&info)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_af27bc132d236065a399b920ab29d5910}\label{classvkf_1_1rendering_1_1_pipeline_builder_af27bc132d236065a399b920ab29d5910} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Rasterizer\+Create\+Info} (const vk\+::\+Pipeline\+Rasterization\+State\+Create\+Info \&info)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a27c2adc7232580065ce3dd9b0243ba93}\label{classvkf_1_1rendering_1_1_pipeline_builder_a27c2adc7232580065ce3dd9b0243ba93} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Multisampling\+Create\+Info} (const vk\+::\+Pipeline\+Multisample\+State\+Create\+Info \&info)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a2aa796f0da919a18f46a7c4597068da6}\label{classvkf_1_1rendering_1_1_pipeline_builder_a2aa796f0da919a18f46a7c4597068da6} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Depth\+Stencil\+Create\+Info} (const vk\+::\+Pipeline\+Depth\+Stencil\+State\+Create\+Info \&info)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_ae5a4f588f908ba6006d1b3abb41332e8}\label{classvkf_1_1rendering_1_1_pipeline_builder_ae5a4f588f908ba6006d1b3abb41332e8} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Color\+Blending\+Create\+Info} (const vk\+::\+Pipeline\+Color\+Blend\+State\+Create\+Info \&info)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a473a21c56afbb3e08f70b8d41b28b6fc}\label{classvkf_1_1rendering_1_1_pipeline_builder_a473a21c56afbb3e08f70b8d41b28b6fc} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Dynamic\+State\+Create\+Info} (const vk\+::\+Pipeline\+Dynamic\+State\+Create\+Info \&info)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a3c3d40713f3843dcc65326343c25b1cb}\label{classvkf_1_1rendering_1_1_pipeline_builder_a3c3d40713f3843dcc65326343c25b1cb} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Pipeline\+Layout} (const vk\+::\+Pipeline\+Layout \&layout)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a8446986ff8350a1bfb8e58d437212229}\label{classvkf_1_1rendering_1_1_pipeline_builder_a8446986ff8350a1bfb8e58d437212229} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Render\+Pass} (const vk\+::\+Render\+Pass \&pass)
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a0cb11e114099225bbb3f073afbb81fbb}\label{classvkf_1_1rendering_1_1_pipeline_builder_a0cb11e114099225bbb3f073afbb81fbb} 
+\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} {\bfseries build} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a6d959b90670f984700d7bdd9d57688c8}\label{classvkf_1_1rendering_1_1_pipeline_builder_a6d959b90670f984700d7bdd9d57688c8} 
+\mbox{\hyperlink{structvkf_1_1core_1_1_pipeline_state}{core\+::\+Pipeline\+State}} {\bfseries state}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for building Vulkan pipelines. 
+
+This class provides functionality to set various states of the pipeline and build a new Pipeline using these states. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/\mbox{\hyperlink{_pipeline_builder_8h}{Pipeline\+Builder.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/rendering/Pipeline\+Builder.\+cpp\end{DoxyCompactItemize}

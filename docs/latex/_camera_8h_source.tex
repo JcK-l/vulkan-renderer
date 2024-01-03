@@ -1,0 +1,63 @@
+\doxysection{Camera.\+h}
+\hypertarget{_camera_8h_source}{}\label{_camera_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/Camera.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/Camera.h}}
+\mbox{\hyperlink{_camera_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_CAMERA\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_CAMERA\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }BindlessManager;}
+\DoxyCodeLine{00023\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1scene}{vkf::scene}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering::BindlessManager}}\ \&bindlessManager,\ uint32\_t\ handle,\ \textcolor{keywordtype}{float}\ fov,\ \textcolor{keywordtype}{float}\ aspect,\ \textcolor{keywordtype}{float}\ near,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ far);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera_a69e67ee920fb94d50ca0813e2033b782}{Camera}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera_a546961967232d71300aeea512fbab7fc}{Camera}}(\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ [[nodiscard]]\ const\ glm::mat4\ \&getViewMatrix()\ const;}
+\DoxyCodeLine{00063\ \ \ \ \ [[nodiscard]]\ const\ glm::mat4\ \&getProjectionMatrix()\ const;}
+\DoxyCodeLine{00064\ \ \ \ \ [[nodiscard]]\ glm::mat4\ getViewProjectionMatrix()\ const;}
+\DoxyCodeLine{00065\ \ \ \ \ [[nodiscard]]\ uint32\_t\ getHandle()\ const;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera_a9d29f939c4b51be2f4fd6730bd728fdb}{orbit}}(\textcolor{keywordtype}{float}\ dx,\ \textcolor{keywordtype}{float}\ dy);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera_aa274162c6a7f1ea45b99e52a3655f0a9}{zoom}}(\textcolor{keywordtype}{float}\ distance);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera_a4b91a6791647ed973d0775875d094b01}{updateAspectRatio}}(\textcolor{keywordtype}{float}\ aspect);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera_ad634f16101646217c4835dc641562172}{updateCameraBuffer}}();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ private:}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ updateViewMatrix();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ rendering::BindlessManager\ \&bindlessManager;}
+\DoxyCodeLine{00091\ \ \ \ \ uint32\_t\ handle;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ glm::vec3\ position;}
+\DoxyCodeLine{00094\ \ \ \ \ glm::vec3\ target;}
+\DoxyCodeLine{00095\ \ \ \ \ glm::vec3\ up;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ glm::mat4\ view;}
+\DoxyCodeLine{00098\ \ \ \ \ glm::mat4\ projection;}
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_CAMERA\_H}}
+
+\end{DoxyCode}

@@ -3,7 +3,6 @@
 /// \brief This file implements the Pipeline class which is used for managing Vulkan pipelines.
 ///
 /// The Pipeline class is part of the vkf::core namespace. It provides functionality to get the handle to the pipeline.
-/// Currently, this class only creates a trivial pipeline, but it is planned to be expanded in the future.
 ///
 /// \author Joshua Lowe
 /// \date 12/3/2023

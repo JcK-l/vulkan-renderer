@@ -25,4 +25,9 @@ void GuiSubstage::draw(vk::raii::CommandBuffer *cmd)
     gui->draw(cmd);
 }
 
+std::string GuiSubstage::getType()
+{
+    return "GUI";
+}
+
 } // namespace vkf::rendering

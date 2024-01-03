@@ -1,0 +1,147 @@
+\doxysection{vkf\+::scene\+::Prefab\+Factory Class Reference}
+\hypertarget{classvkf_1_1scene_1_1_prefab_factory}{}\label{classvkf_1_1scene_1_1_prefab_factory}\index{vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}}
+
+
+This class is used to create prefabricated entities.  
+
+
+
+
+{\ttfamily \#include $<$Prefab\+Factory.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory_a86416ee9704d7e96c1688e6ed86794ca}{Prefab\+Factory}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&render\+Pass, \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*}camera)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory} object. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a6aa703aa58b1e81905b36a06fc595899}\label{classvkf_1_1scene_1_1_prefab_factory_a6aa703aa58b1e81905b36a06fc595899} 
+{\bfseries Prefab\+Factory} (const \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a34dfbf1f5882f17c5a93596cb4f10732}\label{classvkf_1_1scene_1_1_prefab_factory_a34dfbf1f5882f17c5a93596cb4f10732} 
+{\bfseries Prefab\+Factory} (\mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_af307a8c93915c0c80bd41352ef1addf5}\label{classvkf_1_1scene_1_1_prefab_factory_af307a8c93915c0c80bd41352ef1addf5} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a16dc2d72433017188633526852cb2621}\label{classvkf_1_1scene_1_1_prefab_factory_a16dc2d72433017188633526852cb2621} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a3022863b360aa036f191be2459083d30}\label{classvkf_1_1scene_1_1_prefab_factory_a3022863b360aa036f191be2459083d30} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Prefab\+Factory} ()
+\begin{DoxyCompactList}\small\item\em Implementation in \doxylink{_prefab_factory_8cpp}{Prefabfactory.\+cpp} because of std\+::unique\+\_\+ptr forward declaration. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory_a36081c0092bdf40d5f12a476e8aeb759}{create\+Prefab}} (entt\+::registry \&registry, std\+::string tag)
+\begin{DoxyCompactList}\small\item\em Creates a prefabricated entity of type T. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory_ad2444f5c66767252293a8bc3ae9065ad}{create\+Custom}} (entt\+::registry \&registry, std\+::string tag)
+\begin{DoxyCompactList}\small\item\em Creates an empty entity that can be customised. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory_a50e7bbc19d43d0c08d0d0e82c338b637}{create\+Pipelines}} ()
+\begin{DoxyCompactList}\small\item\em Creates the pipelines for the prefabricated entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a6b8817b8f48fe9644c3fc74f7247dafb}\label{classvkf_1_1scene_1_1_prefab_factory_a6b8817b8f48fe9644c3fc74f7247dafb} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \& {\bfseries device}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a9c88a49724ca74ce2e00b6721f822198}\label{classvkf_1_1scene_1_1_prefab_factory_a9c88a49724ca74ce2e00b6721f822198} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \& {\bfseries bindless\+Manager}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a3f59ce1151144b18ec25e2d1d0490393}\label{classvkf_1_1scene_1_1_prefab_factory_a3f59ce1151144b18ec25e2d1d0490393} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \& {\bfseries render\+Pass}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_aed3e698f4fa25f3e33e098a82230a0c4}\label{classvkf_1_1scene_1_1_prefab_factory_aed3e698f4fa25f3e33e098a82230a0c4} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*} {\bfseries camera}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a9e2d3997b5fbc4af711e5b5a6aadce21}\label{classvkf_1_1scene_1_1_prefab_factory_a9e2d3997b5fbc4af711e5b5a6aadce21} 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{Prefab\+Type}}, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} $>$ $>$ {\bfseries pipelines}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to create prefabricated entities. 
+
+This class provides an interface for creating prefabricated entities, such as Cubes and Triangles. These entities are used in a 3D scene. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a86416ee9704d7e96c1688e6ed86794ca}\label{classvkf_1_1scene_1_1_prefab_factory_a86416ee9704d7e96c1688e6ed86794ca} 
+\index{vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}!PrefabFactory@{PrefabFactory}}
+\index{PrefabFactory@{PrefabFactory}!vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}}
+\doxysubsubsection{\texorpdfstring{PrefabFactory()}{PrefabFactory()}}
+{\footnotesize\ttfamily vkf\+::scene\+::\+Prefab\+Factory\+::\+Prefab\+Factory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&}]{bindless\+Manager,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&}]{render\+Pass,  }\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory} object. 
+
+This constructor initializes the \doxylink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory} with the provided device, bindless\+Manager, render\+Pass, and camera.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The Vulkan device to use for creating the prefabricated entities. \\
+\hline
+{\em bindless\+Manager} & The Bindless\+Manager to use for creating the prefabricated entities. \\
+\hline
+{\em render\+Pass} & The Render\+Pass to use for creating the prefabricated entities. \\
+\hline
+{\em camera} & The \doxylink{classvkf_1_1scene_1_1_camera}{Camera} to use for creating the prefabricated entities. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_ad2444f5c66767252293a8bc3ae9065ad}\label{classvkf_1_1scene_1_1_prefab_factory_ad2444f5c66767252293a8bc3ae9065ad} 
+\index{vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}!createCustom@{createCustom}}
+\index{createCustom@{createCustom}!vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}}
+\doxysubsubsection{\texorpdfstring{createCustom()}{createCustom()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ vkf\+::scene\+::\+Prefab\+Factory\+::create\+Custom (\begin{DoxyParamCaption}\item[{entt\+::registry \&}]{registry,  }\item[{std\+::string}]{tag }\end{DoxyParamCaption})}
+
+
+
+Creates an empty entity that can be customised. 
+
+This method creates an empty entity using the provided registry and tag.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registry} & The entt\+::registry to use for creating the custom prefabricated entity. \\
+\hline
+{\em tag} & The tag to use for creating the custom prefabricated entity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a50e7bbc19d43d0c08d0d0e82c338b637}\label{classvkf_1_1scene_1_1_prefab_factory_a50e7bbc19d43d0c08d0d0e82c338b637} 
+\index{vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}!createPipelines@{createPipelines}}
+\index{createPipelines@{createPipelines}!vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}}
+\doxysubsubsection{\texorpdfstring{createPipelines()}{createPipelines()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Prefab\+Factory\+::create\+Pipelines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates the pipelines for the prefabricated entities. 
+
+This method is used to create the pipelines for the prefabricated entities. \Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a36081c0092bdf40d5f12a476e8aeb759}\label{classvkf_1_1scene_1_1_prefab_factory_a36081c0092bdf40d5f12a476e8aeb759} 
+\index{vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}!createPrefab@{createPrefab}}
+\index{createPrefab@{createPrefab}!vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}}
+\doxysubsubsection{\texorpdfstring{createPrefab()}{createPrefab()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ vkf\+::scene\+::\+Prefab\+Factory\+::create\+Prefab (\begin{DoxyParamCaption}\item[{entt\+::registry \&}]{registry,  }\item[{std\+::string}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a prefabricated entity of type T. 
+
+This method creates a prefabricated entity of type T using the provided registry and tag.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registry} & The entt\+::registry to use for creating the prefabricated entity. \\
+\hline
+{\em tag} & The tag to use for creating the prefabricated entity. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/prefabs/\mbox{\hyperlink{_prefab_factory_8h}{Prefab\+Factory.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/prefabs/\mbox{\hyperlink{_prefab_factory_8cpp}{Prefab\+Factory.\+cpp}}\end{DoxyCompactItemize}

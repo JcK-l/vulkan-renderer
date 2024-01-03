@@ -1,0 +1,151 @@
+\doxysection{vkf\+::scene\+::Cube Class Reference}
+\hypertarget{classvkf_1_1scene_1_1_cube}{}\label{classvkf_1_1scene_1_1_cube}\index{vkf::scene::Cube@{vkf::scene::Cube}}
+
+
+This class manages \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entities.  
+
+
+
+
+{\ttfamily \#include $<$Cube.\+h$>$}
+
+Inheritance diagram for vkf\+::scene\+::Cube\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvkf_1_1scene_1_1_cube}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_cube_ae42be40919ca2909107bb19647aa7752}{Cube}} (entt\+::registry \&registry)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1scene_1_1_cube}{Cube} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_a6fd98be07d61e52969fb1559b39bbece}{create}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager, \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*}pipeline, \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*}camera, std\+::string tag)
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_ac034f8cbafd650a05b4abe45b8fbfc88}{display\+Gui}} () override
+\begin{DoxyCompactList}\small\item\em Displays the GUI for the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_a28057deb41adcb00430d274edb1ebf3b}{update\+Components}} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager) override
+\begin{DoxyCompactList}\small\item\em Updates the components of the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{vkf\+::scene\+::\+Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_entity_afdfe95ccc0085a516167a5aca40296a2}{Entity}} (entt\+::registry \&registry)
+\begin{DoxyCompactList}\small\item\em Constructor that takes an entt\+::registry reference as parameter. \end{DoxyCompactList}\item 
+{\bfseries Entity} (const \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+{\bfseries Entity} (\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\void \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a1bc0a85c543f15929a7bfe8844fb8523}{add\+Component}} (Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Method to add a component to an entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \& \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a6da33b79e3aeea347d0218224fb9ea7c}{get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Method to get a component from an entity. \end{DoxyCompactList}\item 
+void {\bfseries create} (std\+::string tag)
+\item 
+void {\bfseries destroy} ()
+\item 
+entt\+::entity {\bfseries get\+Handle} () const
+\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_aa1872a0b038c309707c2b46cbf6e3b49}{set\+Handle}} (entt\+::entity handle)
+\begin{DoxyCompactList}\small\item\em Method to set the handle of an entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a9969ca3593e4aab0fc5d5a156b68941d}{set\+Handle}} (\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} entity)
+\begin{DoxyCompactList}\small\item\em Method to set the handle of an entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entities. 
+
+This class provides an interface for creating and managing a \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. A \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity in this context is a specific type of \doxylink{classvkf_1_1scene_1_1_entity}{Entity} that can be used in a 3D scene. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_cube_ae42be40919ca2909107bb19647aa7752}\label{classvkf_1_1scene_1_1_cube_ae42be40919ca2909107bb19647aa7752} 
+\index{vkf::scene::Cube@{vkf::scene::Cube}!Cube@{Cube}}
+\index{Cube@{Cube}!vkf::scene::Cube@{vkf::scene::Cube}}
+\doxysubsubsection{\texorpdfstring{Cube()}{Cube()}}
+{\footnotesize\ttfamily vkf\+::scene\+::\+Cube\+::\+Cube (\begin{DoxyParamCaption}\item[{entt\+::registry \&}]{registry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{classvkf_1_1scene_1_1_cube}{Cube} object. 
+
+This constructor initializes the registry reference with the provided registry, by passing it to the Base class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registry} & Reference to the entt\+::registry \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_cube_a6fd98be07d61e52969fb1559b39bbece}\label{classvkf_1_1scene_1_1_cube_a6fd98be07d61e52969fb1559b39bbece} 
+\index{vkf::scene::Cube@{vkf::scene::Cube}!create@{create}}
+\index{create@{create}!vkf::scene::Cube@{vkf::scene::Cube}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Cube\+::create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&}]{bindless\+Manager,  }\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*}}]{pipeline,  }\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera,  }\item[{std\+::string}]{tag }\end{DoxyParamCaption})}
+
+
+
+Creates a \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. 
+
+This method creates a \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity using the provided device, bindless\+Manager, pipeline, camera, and tag.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The Vulkan device to use for creating the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. \\
+\hline
+{\em bindless\+Manager} & The Bindless\+Manager to use for creating the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. \\
+\hline
+{\em pipeline} & The Pipeline to use for creating the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. \\
+\hline
+{\em camera} & The \doxylink{classvkf_1_1scene_1_1_camera}{Camera} to use for creating the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. \\
+\hline
+{\em tag} & The tag to use for creating the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvkf_1_1scene_1_1_cube_ac034f8cbafd650a05b4abe45b8fbfc88}\label{classvkf_1_1scene_1_1_cube_ac034f8cbafd650a05b4abe45b8fbfc88} 
+\index{vkf::scene::Cube@{vkf::scene::Cube}!displayGui@{displayGui}}
+\index{displayGui@{displayGui}!vkf::scene::Cube@{vkf::scene::Cube}}
+\doxysubsubsection{\texorpdfstring{displayGui()}{displayGui()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Cube\+::display\+Gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Displays the GUI for the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. 
+
+This method is overridden from the \doxylink{classvkf_1_1scene_1_1_entity}{Entity} base class and is used to display the GUI for the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. 
+
+Reimplemented from \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a4d69f1d7d0e91f0146f75647633889ff}{vkf\+::scene\+::\+Entity}}.
+
+\Hypertarget{classvkf_1_1scene_1_1_cube_a28057deb41adcb00430d274edb1ebf3b}\label{classvkf_1_1scene_1_1_cube_a28057deb41adcb00430d274edb1ebf3b} 
+\index{vkf::scene::Cube@{vkf::scene::Cube}!updateComponents@{updateComponents}}
+\index{updateComponents@{updateComponents}!vkf::scene::Cube@{vkf::scene::Cube}}
+\doxysubsubsection{\texorpdfstring{updateComponents()}{updateComponents()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Cube\+::update\+Components (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&}]{bindless\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the components of the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. 
+
+This method is overridden from the \doxylink{classvkf_1_1scene_1_1_entity}{Entity} base class and is used to update the components of the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bindless\+Manager} & The Bindless\+Manager to use for updating the components of the \doxylink{classvkf_1_1scene_1_1_cube}{Cube} entity. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a0baf81c1eae39d17621e92b45f17fb01}{vkf\+::scene\+::\+Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/prefabs/\mbox{\hyperlink{_cube_8h}{Cube.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/prefabs/\mbox{\hyperlink{_cube_8cpp}{Cube.\+cpp}}\end{DoxyCompactItemize}

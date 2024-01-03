@@ -109,6 +109,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa9b1ade53ea2036ee100c0cc6c8b56ca" id="r_aa9b1ade53ea2036ee100c0cc6c8b56ca"><td class="memItemLeft" align="right" valign="top">virtual vk::Extent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_source.html#aa9b1ade53ea2036ee100c0cc6c8b56ca">getExtent</a> () const =0</td></tr>
 <tr class="memdesc:aa9b1ade53ea2036ee100c0cc6c8b56ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to get the extent.  <br /></td></tr>
 <tr class="separator:aa9b1ade53ea2036ee100c0cc6c8b56ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12bcc5c2e991feadfa469faa44a0f2ea" id="r_a12bcc5c2e991feadfa469faa44a0f2ea"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_source.html#a12bcc5c2e991feadfa469faa44a0f2ea">resetChanged</a> ()=0</td></tr>
+<tr class="memdesc:a12bcc5c2e991feadfa469faa44a0f2ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to get the extent.  <br /></td></tr>
+<tr class="separator:a12bcc5c2e991feadfa469faa44a0f2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This abstract class provides an interface for managing Vulkan rendering operations. </p>
@@ -233,6 +236,37 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A vector of image views. </dd></dl>
 
 <p>Implemented in <a class="el" href="classvkf_1_1core_1_1_swapchain.html#a11706d634bc9f6358839c4402846c96a">vkf::core::Swapchain</a>, and <a class="el" href="classvkf_1_1platform_1_1_gui.html#a196cf80a8c1411ff1c53824ab5847210">vkf::platform::Gui</a>.</p>
+
+</div>
+</div>
+<a id="a12bcc5c2e991feadfa469faa44a0f2ea" name="a12bcc5c2e991feadfa469faa44a0f2ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12bcc5c2e991feadfa469faa44a0f2ea">&#9670;&#160;</a></span>resetChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool vkf::rendering::RenderSource::resetChanged </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pure virtual method to get the extent. </p>
+<p>This method is intended to be overridden by subclasses to return the extent.</p>
+<dl class="section return"><dt>Returns</dt><dd>The extent. </dd></dl>
+
+<p>Implemented in <a class="el" href="classvkf_1_1core_1_1_swapchain.html#a9b4659de2d3f5f68b9ca4afbc3d7082c">vkf::core::Swapchain</a>, and <a class="el" href="classvkf_1_1platform_1_1_gui.html#a396ec808f104928426657b39f9ac46e7">vkf::platform::Gui</a>.</p>
 
 </div>
 </div>

@@ -18,9 +18,24 @@ Inheritance diagram for vkf\+::platform\+::Gui\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a4d9e41d4be8a9251bf2156e7a4e797a5}{Gui}} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} \&window, const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} \&instance, const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&render\+Pass, const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \&swapchain, \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene)
+\mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a4fe0d257ed59c92d18d6e98de1d0758a}{Gui}} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} \&window, const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} \&instance, const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&render\+Pass, const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \&swapchain, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager)
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classvkf_1_1platform_1_1_gui}{Gui} class. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_aaf8ce5449afc61fe3df3d687bda51a2c}{pre\+Render}} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{rendering\+::\+Renderer}} \&renderer, uint32\+\_\+t frame\+Index)
+\Hypertarget{classvkf_1_1platform_1_1_gui_ac86da825d9c8581510380767330b0046}\label{classvkf_1_1platform_1_1_gui_ac86da825d9c8581510380767330b0046} 
+{\bfseries Gui} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{Gui}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a13a3d67e404ea6baf6ebd4a531063495}\label{classvkf_1_1platform_1_1_gui_a13a3d67e404ea6baf6ebd4a531063495} 
+{\bfseries Gui} (\mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{Gui}} \&\&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_ab6293d377282831cab242f937510f3ff}\label{classvkf_1_1platform_1_1_gui_ab6293d377282831cab242f937510f3ff} 
+\mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{Gui}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{Gui}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a784051a86b25a98e2e1c44cea561d8d2}\label{classvkf_1_1platform_1_1_gui_a784051a86b25a98e2e1c44cea561d8d2} 
+\mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{Gui}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{Gui}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a852b2f2745db6c76b967fdd3c368abde}\label{classvkf_1_1platform_1_1_gui_a852b2f2745db6c76b967fdd3c368abde} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Gui} () override
+\begin{DoxyCompactList}\small\item\em Override destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a643278212cedb7c79151b2dee3968c0b}{pre\+Render}} (uint32\+\_\+t frame\+Index, \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene)
 \begin{DoxyCompactList}\small\item\em Pre-\/render operations for the \doxylink{classvkf_1_1platform_1_1_gui}{Gui}. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_ae19f59e8ece626c0cc6d26f22e017907}\label{classvkf_1_1platform_1_1_gui_ae19f59e8ece626c0cc6d26f22e017907} 
 void {\bfseries draw} (vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}cmd)
@@ -31,8 +46,8 @@ uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_afbb146ad89919d6f62e
 \begin{DoxyCompactList}\small\item\em Pure virtual method to get the image count. \end{DoxyCompactList}\item 
 vk\+::\+Extent2D \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a8f2b0f035d9f21a99fa77a00026e7bf0}{get\+Extent}} () const override
 \begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a6c0e7975b6a4cc4d78c618b11801391d}{recreate}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \&swapchain)
-\begin{DoxyCompactList}\small\item\em Update min\+Image\+Count and image\+Count. \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a396ec808f104928426657b39f9ac46e7}{reset\+Changed}} () override
+\begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,6 +61,15 @@ void {\bfseries create\+Images} (uint32\+\_\+t num\+Images)
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_af04652d279dd68f4ca91e7c1887cea29}\label{classvkf_1_1platform_1_1_gui_af04652d279dd68f4ca91e7c1887cea29} 
 void {\bfseries create\+Image\+Views} ()
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_ab3ab2d6882845523280d4adafe47df10}\label{classvkf_1_1platform_1_1_gui_ab3ab2d6882845523280d4adafe47df10} 
+void {\bfseries create\+Scene\+Panel} (\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene, uint32\+\_\+t frame\+Index)
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_aa958340d9c555a0d75d507054099b47e}\label{classvkf_1_1platform_1_1_gui_aa958340d9c555a0d75d507054099b47e} 
+void {\bfseries create\+Properties\+Panel} ()
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a6ac512afb28a1fb4c10eb7fcacfc28ed}\label{classvkf_1_1platform_1_1_gui_a6ac512afb28a1fb4c10eb7fcacfc28ed} 
+void {\bfseries create\+Hierarchy\+Panel} (\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -53,8 +77,14 @@ void {\bfseries create\+Image\+Views} ()
 \Hypertarget{classvkf_1_1platform_1_1_gui_ad9c06780e3f1a10435b5dca6ee3969ea}\label{classvkf_1_1platform_1_1_gui_ad9c06780e3f1a10435b5dca6ee3969ea} 
 const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \& {\bfseries device}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_gui_a84988bd35d009a8df71627a12aae73f4}\label{classvkf_1_1platform_1_1_gui_a84988bd35d009a8df71627a12aae73f4} 
-\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \& {\bfseries scene}
+\Hypertarget{classvkf_1_1platform_1_1_gui_aca6c7a2ad4178c221b00eda99e67dbca}\label{classvkf_1_1platform_1_1_gui_aca6c7a2ad4178c221b00eda99e67dbca} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \& {\bfseries swapchain}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a7793a306c6ab60ccd7dea2aa38a4ed40}\label{classvkf_1_1platform_1_1_gui_a7793a306c6ab60ccd7dea2aa38a4ed40} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \& {\bfseries bindless\+Manager}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a67c7689d7620901014b45a01cacc1ed4}\label{classvkf_1_1platform_1_1_gui_a67c7689d7620901014b45a01cacc1ed4} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{scene\+::\+Entity}} $>$ {\bfseries active\+Entity}
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_a461a3c97fa9539c28cffc93161e26632}\label{classvkf_1_1platform_1_1_gui_a461a3c97fa9539c28cffc93161e26632} 
 vk\+::\+Extent2D {\bfseries scene\+Viewport\+Extent} \{\}
@@ -77,14 +107,14 @@ Vk\+Descriptor\+Set {\bfseries dset} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
 \Hypertarget{classvkf_1_1platform_1_1_gui_a22078816f15e43f2c9963627afc56ffd}\label{classvkf_1_1platform_1_1_gui_a22078816f15e43f2c9963627afc56ffd} 
 bool {\bfseries first\+Time} \{true\}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_gui_aa8ba069d799e7ea4d03a3af8ec2dc56b}\label{classvkf_1_1platform_1_1_gui_aa8ba069d799e7ea4d03a3af8ec2dc56b} 
-bool {\bfseries button\+Pressed} \{false\}
+\Hypertarget{classvkf_1_1platform_1_1_gui_a8f625117a69abd881d8d245c75a8bbc5}\label{classvkf_1_1platform_1_1_gui_a8f625117a69abd881d8d245c75a8bbc5} 
+bool {\bfseries changed} \{false\}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_gui_a2a43eed22571f1054380812af7de89e3}\label{classvkf_1_1platform_1_1_gui_a2a43eed22571f1054380812af7de89e3} 
-uint32\+\_\+t {\bfseries min\+Image\+Count} \{0\}
+\Hypertarget{classvkf_1_1platform_1_1_gui_aff07c6c701d8c03ef5a2e5c323fffa3e}\label{classvkf_1_1platform_1_1_gui_aff07c6c701d8c03ef5a2e5c323fffa3e} 
+bool {\bfseries is\+Create\+Dialog} \{false\}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_gui_a77990de1804c9949d40835d9239d456b}\label{classvkf_1_1platform_1_1_gui_a77990de1804c9949d40835d9239d456b} 
-uint32\+\_\+t {\bfseries image\+Count} \{0\}
+\Hypertarget{classvkf_1_1platform_1_1_gui_a5227a7fb12c2d59dfb3674079fa21563}\label{classvkf_1_1platform_1_1_gui_a5227a7fb12c2d59dfb3674079fa21563} 
+\mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{scene\+::\+Prefab\+Type}} {\bfseries selected\+Type} \{scene\+::\+Prefab\+Type\+::\+Custom\}
 \end{DoxyCompactItemize}
 
 
@@ -94,11 +124,11 @@ This class manages Im\+Gui interfaces.
 It provides functionality to manage Im\+Gui interfaces, including creating images, image views, and handling Im\+Gui rendering. \doxylink{classvkf_1_1platform_1_1_gui}{Gui} is a subclass of Render\+Source and therefore provides methods for getting the image views and image count. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classvkf_1_1platform_1_1_gui_a4d9e41d4be8a9251bf2156e7a4e797a5}\label{classvkf_1_1platform_1_1_gui_a4d9e41d4be8a9251bf2156e7a4e797a5} 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a4fe0d257ed59c92d18d6e98de1d0758a}\label{classvkf_1_1platform_1_1_gui_a4fe0d257ed59c92d18d6e98de1d0758a} 
 \index{vkf::platform::Gui@{vkf::platform::Gui}!Gui@{Gui}}
 \index{Gui@{Gui}!vkf::platform::Gui@{vkf::platform::Gui}}
 \doxysubsubsection{\texorpdfstring{Gui()}{Gui()}}
-{\footnotesize\ttfamily vkf\+::platform\+::\+Gui\+::\+Gui (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} \&}]{window,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} \&}]{instance,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&}]{render\+Pass,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \&}]{swapchain,  }\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&}]{scene }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vkf\+::platform\+::\+Gui\+::\+Gui (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{Window}} \&}]{window,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_instance}{core\+::\+Instance}} \&}]{instance,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&}]{render\+Pass,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \&}]{swapchain,  }\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&}]{bindless\+Manager }\end{DoxyParamCaption})}
 
 
 
@@ -179,11 +209,11 @@ A vector of image views.
 
 Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a0bab8473e4fe89b408a33afcd0611d22}{vkf\+::rendering\+::\+Render\+Source}}.
 
-\Hypertarget{classvkf_1_1platform_1_1_gui_aaf8ce5449afc61fe3df3d687bda51a2c}\label{classvkf_1_1platform_1_1_gui_aaf8ce5449afc61fe3df3d687bda51a2c} 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a643278212cedb7c79151b2dee3968c0b}\label{classvkf_1_1platform_1_1_gui_a643278212cedb7c79151b2dee3968c0b} 
 \index{vkf::platform::Gui@{vkf::platform::Gui}!preRender@{preRender}}
 \index{preRender@{preRender}!vkf::platform::Gui@{vkf::platform::Gui}}
 \doxysubsubsection{\texorpdfstring{preRender()}{preRender()}}
-{\footnotesize\ttfamily void vkf\+::platform\+::\+Gui\+::pre\+Render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{rendering\+::\+Renderer}} \&}]{renderer,  }\item[{uint32\+\_\+t}]{frame\+Index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void vkf\+::platform\+::\+Gui\+::pre\+Render (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{frame\+Index,  }\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&}]{scene }\end{DoxyParamCaption})}
 
 
 
@@ -196,21 +226,25 @@ Pre-\/render operations for the \doxylink{classvkf_1_1platform_1_1_gui}{Gui}.
 {\em frame\+Index} & The index of the frame to be rendered. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classvkf_1_1platform_1_1_gui_a6c0e7975b6a4cc4d78c618b11801391d}\label{classvkf_1_1platform_1_1_gui_a6c0e7975b6a4cc4d78c618b11801391d} 
-\index{vkf::platform::Gui@{vkf::platform::Gui}!recreate@{recreate}}
-\index{recreate@{recreate}!vkf::platform::Gui@{vkf::platform::Gui}}
-\doxysubsubsection{\texorpdfstring{recreate()}{recreate()}}
-{\footnotesize\ttfamily void vkf\+::platform\+::\+Gui\+::recreate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \&}]{swapchain }\end{DoxyParamCaption})}
+\Hypertarget{classvkf_1_1platform_1_1_gui_a396ec808f104928426657b39f9ac46e7}\label{classvkf_1_1platform_1_1_gui_a396ec808f104928426657b39f9ac46e7} 
+\index{vkf::platform::Gui@{vkf::platform::Gui}!resetChanged@{resetChanged}}
+\index{resetChanged@{resetChanged}!vkf::platform::Gui@{vkf::platform::Gui}}
+\doxysubsubsection{\texorpdfstring{resetChanged()}{resetChanged()}}
+{\footnotesize\ttfamily bool vkf\+::platform\+::\+Gui\+::reset\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Update min\+Image\+Count and image\+Count. 
+Pure virtual method to get the extent. 
+
+This method is intended to be overridden by subclasses to return the extent.
+
+\begin{DoxyReturn}{Returns}
+The extent. 
+\end{DoxyReturn}
 
 
-\begin{DoxyParams}{Parameters}
-{\em swapchain} & The new swapchain. \\
-\hline
-\end{DoxyParams}
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a12bcc5c2e991feadfa469faa44a0f2ea}{vkf\+::rendering\+::\+Render\+Source}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -16,24 +16,24 @@
 \DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}(vk::raii::Queue\ queue,\ uint32\_t\ familyIndex,\ vk::QueueFamilyProperties\ properties,\ vk::Bool32\ canPresent,}
 \DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ uint32\_t\ queueIndex);}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}(\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{\string~Queue}}()\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ destructor}}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a1bdb3790ea1589d1feba13696848e4b9}{Queue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue_a2a01d0c8e496f52e6588c075b4640a20}{Queue}}(\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Queue\ \&getHandle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ [[nodiscard]]\ const\ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ \&getHandle()\ const;}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ [[nodiscard]]\ uint32\_t\ getFamilyIndex()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ \ \ [[nodiscard]]\ uint32\_t\ getFamilyIndex()\ const;}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::QueueFamilyProperties\ \&getProperties()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ \ \ \ \ [[nodiscard]]\ const\ vk::QueueFamilyProperties\ \&getProperties()\ const;}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ [[nodiscard]]\ vk::Bool32\ canPresent()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \ \ [[nodiscard]]\ vk::Bool32\ canPresent()\ const;}
 \DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ [[nodiscard]]\ uint32\_t\ getQueueIndex()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \ \ \ \ [[nodiscard]]\ uint32\_t\ getQueueIndex()\ const;}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00063\ \ \ \ \ vk::raii::Queue\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00062\ \ \ private:}
+\DoxyCodeLine{00063\ \ \ \ \ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}}\ handle\{VK\_NULL\_HANDLE\};}
 \DoxyCodeLine{00064\ \ \ \ \ uint32\_t\ familyIndex;}
 \DoxyCodeLine{00065\ \ \ \ \ vk::QueueFamilyProperties\ properties;}
 \DoxyCodeLine{00066\ \ \ \ \ vk::Bool32\ supportsPresent;}

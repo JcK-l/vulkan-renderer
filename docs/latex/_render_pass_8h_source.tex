@@ -20,17 +20,17 @@
 \DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<vk::SubpassDescription>\ \&subpassDescriptions,}
 \DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<vk::SubpassDependency>\ \&subpassDependencies);}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}(\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
-\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
-\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ assignment\ operator}}
-\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{\string~RenderPass}}()\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ destructor}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass_a837d9e9738a60b787c2158a55ca09057}{RenderPass}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass_a561a7a880d7f9eba5ea009c9e47a6490}{RenderPass}}(\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::RenderPass\ \&getHandle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \ \ [[nodiscard]]\ const\ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ \&getHandle()\ const;}
 \DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device;}
-\DoxyCodeLine{00059\ \ \ \ \ vk::raii::RenderPass\ handle\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00057\ \ \ private:}
+\DoxyCodeLine{00058\ \ \ \ \ const\ core::\mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
+\DoxyCodeLine{00059\ \ \ \ \ vk::raii::\mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{RenderPass}}\ handle\{VK\_NULL\_HANDLE\};}
 \DoxyCodeLine{00060\ }
 \DoxyCodeLine{00061\ \ \ \ \ std::vector<vk::AttachmentDescription>\ attachmentDescriptions\{\};}
 \DoxyCodeLine{00062\ \ \ \ \ std::vector<vk::SubpassDescription>\ subpassDescriptions\{\};}

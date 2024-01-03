@@ -45,6 +45,8 @@ class RenderSubstage
     ///
     virtual void draw(vk::raii::CommandBuffer *cmd) = 0;
 
+    virtual std::string getType() = 0;
+
   private:
 };
 

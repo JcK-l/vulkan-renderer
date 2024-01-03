@@ -38,13 +38,15 @@ class GuiSubstage : public RenderSubstage
     ///
     GuiSubstage(platform::Gui *inputGui);
 
-    GuiSubstage(const GuiSubstage &) = delete;            // Deleted copy constructor
-    GuiSubstage(GuiSubstage &&) noexcept = default;       // Default move constructor
-    GuiSubstage &operator=(const GuiSubstage &) = delete; // Deleted copy assignment operator
-    GuiSubstage &operator=(GuiSubstage &&) = delete;      // Deleted move assignment operator
-    ~GuiSubstage() override = default;                    // Default destructor
+    GuiSubstage(const GuiSubstage &) = delete;            ///< Deleted copy constructor
+    GuiSubstage(GuiSubstage &&) noexcept = default;       ///< Default move constructor
+    GuiSubstage &operator=(const GuiSubstage &) = delete; ///< Deleted copy assignment operator
+    GuiSubstage &operator=(GuiSubstage &&) = delete;      ///< Deleted move assignment operator
+    ~GuiSubstage() override = default;                    ///< Default destructor
 
     void draw(vk::raii::CommandBuffer *cmd) override;
+
+    std::string getType() override;
 
   private:
     platform::Gui *gui; // The GUI

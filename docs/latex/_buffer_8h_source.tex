@@ -19,29 +19,38 @@
 \DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}}
 \DoxyCodeLine{00034\ \{}
 \DoxyCodeLine{00035\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ vk::BufferCreateInfo\ createInfo,\ VmaMemoryUsage\ memoryUsage);}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ vk::BufferCreateInfo\ createInfo,\ VmaAllocationCreateFlags\ allocationFlags);}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ copy\ constructor}}
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}(\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ move\ constructor}}
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&)\ =\ \textcolor{keyword}{delete};\ \textcolor{comment}{//\ Deleted\ copy\ assignment\ operator}}
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&\&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \textcolor{comment}{//\ Deleted\ move\ assignment\ operator}}
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{\string~Buffer}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer_a944483f6fccaad2467f2e98e6d8d8306}{Buffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}(\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&\&)\ noexcept;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ vk::raii::Buffer\ \&getHandle()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer_a6ebee15f4ce776d1b13e1b73018a9442}{mapMemory}}(\textcolor{keywordtype}{void}\ **data);}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer_ac690743dd11156280b1328a5565c968b}{unmapMemory}}();}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer_aea4c9889a32b9dda5772198f62c9710f}{mapMemory}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer_ac690743dd11156280b1328a5565c968b}{unmapMemory}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ updateData(const\ \textcolor{keywordtype}{void}\ *data,\ const\ uint32\_t\ size,\ const\ uint32\_t\ offset);}
 \DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
+\DoxyCodeLine{00065\ \ \ \ \ [[nodiscard]]\ vk::\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ getBuffer()\ const;}
+\DoxyCodeLine{00066\ \ \ \ \ [[nodiscard]]\ uint32\_t\ getSize()\ const;}
 \DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \ \ \ \ VmaAllocation\ allocation\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00069\ \ \ \ \ vk::raii::Buffer\ handle\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00070\ \};}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_BUFFER\_H}}
+\DoxyCodeLine{00068\ \ \ private:}
+\DoxyCodeLine{00069\ \ \ \ \ const\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ persistentMapped\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ mapped\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ *mappedData\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ uint32\_t\ size\{0\};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ VmaAllocation\ allocation;}
+\DoxyCodeLine{00078\ \ \ \ \ VkBuffer\ handle;}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_BUFFER\_H}}
 
 \end{DoxyCode}

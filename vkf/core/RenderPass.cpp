@@ -26,7 +26,6 @@ RenderPass::RenderPass(const core::Device &device, const std::vector<vk::Attachm
     : device{device}
 {
 
-    LOG_INFO("dependencies: {}", subpassDependencies.size())
     auto createInfo = vk::RenderPassCreateInfo{.flags = vk::RenderPassCreateFlags{},
                                                .attachmentCount = static_cast<uint32_t>(attachments.size()),
                                                .pAttachments = attachments.data(),

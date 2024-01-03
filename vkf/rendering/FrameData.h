@@ -42,11 +42,11 @@ class FrameData
     ///
     FrameData(const core::Device &device, uint32_t numRenderPasses);
 
-    FrameData(const FrameData &) = delete;            // Deleted copy constructor
-    FrameData(FrameData &&) noexcept = default;       // Default move constructor
-    FrameData &operator=(const FrameData &) = delete; // Deleted copy assignment operator
-    FrameData &operator=(FrameData &&) = delete;      // Deleted move assignment operator
-    ~FrameData(); // Implementation in FrameData.cpp because of std::unique_ptr forward declaration
+    FrameData(const FrameData &) = delete;            ///< Deleted copy constructor
+    FrameData(FrameData &&) noexcept = default;       ///< Default move constructor
+    FrameData &operator=(const FrameData &) = delete; ///< Deleted copy assignment operator
+    FrameData &operator=(FrameData &&) = delete;      ///< Deleted move assignment operator
+    ~FrameData(); ///< Implementation in FrameData.cpp because of std::unique_ptr forward declaration
 
     vk::raii::CommandBuffers *getCommandBuffers();
 

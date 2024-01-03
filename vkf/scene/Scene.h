@@ -14,21 +14,19 @@
 #ifndef VULKANRENDERER_SCENE_H
 #define VULKANRENDERER_SCENE_H
 
-#include "components/ColorComponent.h"
-#include "components/MaterialComponent.h"
-#include "components/TagComponent.h"
-#include "components/TransformComponent.h"
+#include "components/Components.h"
+#include "prefabs/PrefabFactory.h"
 #include <entt/entt.hpp>
 
 namespace vkf::core // Forward declarations
 {
 class Device;
 class RenderPass;
+class Pipeline;
 } // namespace vkf::core
 
 namespace vkf::rendering // Forward declarations
 {
-class PipelineBuilder;
 class BindlessManager;
 } // namespace vkf::rendering
 
@@ -53,28 +51,32 @@ class Scene
     ///
     /// This constructor creates a Scene.
     ///
+    /// \param device The device to use.
+    /// \param bindlessManager The bindless manager to use.
+    /// \param renderPass The render pass to use.
+    /// \param camera The camera to use.
+    ///
     explicit Scene(const core::Device &device, rendering::BindlessManager &bindlessManager,
                    const core::RenderPass &renderPass, Camera &camera);
-    ~Scene();
 
-    Entity createCube(const std::string &name, const glm::vec3 &position, const glm::vec3 &rotation,
-                      const glm::vec3 &scale, const glm::vec4 &color);
+    Scene(const Scene &) = delete;            ///< Deleted copy constructor
+    Scene(Scene &&) noexcept = default;       ///< Default move constructor
+    Scene &operator=(const Scene &) = delete; ///< Deleted copy assignment operator
+    Scene &operator=(Scene &&) = delete;      ///< Deleted move assignment operator
+    ~Scene();                                 ///< Implemented in Scene.cpp
+
+    std::unique_ptr<Entity> createEntity(PrefabType type, std::string tag);
 
     entt::registry &getRegistry();
     [[nodiscard]] Camera *getCamera() const;
 
   private:
-    Entity createObject(const std::string &name, const glm::vec3 &position, const glm::vec3 &rotation,
-                        const glm::vec3 &scale, const glm::vec4 &color, const std::string &shader);
-
-    Entity createEntity(const std::string &name);
-    core::Pipeline createPipeline(const std::string &shader);
-
     const core::Device &device;
     rendering::BindlessManager &bindlessManager;
     const core::RenderPass &renderPass;
 
     std::unique_ptr<Camera> sceneCamera;
+    std::unique_ptr<PrefabFactory> prefabFactory;
 
     entt::registry registry;
 };

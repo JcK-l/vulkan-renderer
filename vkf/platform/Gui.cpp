@@ -25,9 +25,8 @@
 #include "Window.h"
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_vulkan.h"
+#include "imgui.h"
 #include "imgui_internal.h"
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 namespace vkf::platform
 {
@@ -116,6 +115,7 @@ Gui::Gui(const Window &window, const core::Instance &instance, const core::Devic
     init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
     init_info.CheckVkResultFn = check_vk_result;
     ImGui_ImplVulkan_Init(&init_info, *renderPass.getHandle());
+    LOG_INFO("Created Gui")
 }
 
 Gui::~Gui()
@@ -186,7 +186,7 @@ void Gui::preRender(uint32_t frameIndex, scene::Scene &scene)
         if (firstTime)
         {
             firstTime = false;
-            activeEntity = std::make_unique<scene::Entity>(scene.getRegistry());
+            activeEntity = std::make_unique<scene::Entity>(scene.getRegistry(), bindlessManager);
 
             ImGui::DockBuilderRemoveNode(dockspaceId);
             ImGui::DockBuilderAddNode(dockspaceId, dockspaceFlags | ImGuiDockNodeFlags_DockSpace);
@@ -254,7 +254,7 @@ void Gui::preRender(uint32_t frameIndex, scene::Scene &scene)
 
     createScenePanel(scene, frameIndex);
     createHierarchyPanel(scene);
-    createPropertiesPanel(scene);
+    createPropertiesPanel();
 
     ImGui::End();
 
@@ -309,6 +309,13 @@ void Gui::createScenePanel(scene::Scene &scene, uint32_t frameIndex)
         if (ImGui::MenuItem("Create Cube"))
         {
             isCreateDialog = true;
+            selectedType = scene::PrefabType::Cube;
+        }
+
+        if (ImGui::MenuItem("Create Triangle"))
+        {
+            isCreateDialog = true;
+            selectedType = scene::PrefabType::Triangle;
         }
 
         ImGui::EndPopup();
@@ -316,7 +323,7 @@ void Gui::createScenePanel(scene::Scene &scene, uint32_t frameIndex)
     if (isCreateDialog)
         ImGui::OpenPopup("Enter Name");
 
-    static char buffer[32] = ""; // Buffer to hold the input text.
+    static char tag[32] = ""; // Buffer to hold the input text.
 
     if (ImGui::BeginPopupModal("Enter Name", NULL, ImGuiWindowFlags_AlwaysAutoResize))
     {
@@ -324,13 +331,12 @@ void Gui::createScenePanel(scene::Scene &scene, uint32_t frameIndex)
         ImGui::Separator();
 
         // Creates a text input field with the label "Name"
-        ImGui::InputText("Name", buffer, IM_ARRAYSIZE(buffer));
+        ImGui::InputText("Name", tag, IM_ARRAYSIZE(tag));
 
         if (ImGui::Button("OK", ImVec2(120, 0)))
         {
             // When the OK button is clicked, create the triangle with the name from the input field
-            activeEntity->setHandle(scene.createCube(buffer, glm::vec3{0.0f, 0.0f, 0.0f}, glm::vec3{0.0f, 0.0f, 0.0f},
-                                                     glm::vec3{1.0f, 1.0f, 1.0f}, glm::vec4{1.0f, 0.0f, 0.0f, 1.0f}));
+            activeEntity = std::move(scene.createEntity(selectedType, tag));
             ImGui::CloseCurrentPopup();
             isCreateDialog = false;
         }
@@ -346,127 +352,15 @@ void Gui::createScenePanel(scene::Scene &scene, uint32_t frameIndex)
     ImGui::End();
 }
 
-void Gui::createPropertiesPanel(scene::Scene &scene)
+void Gui::createPropertiesPanel()
 {
     ImGui::Begin("Properties");
 
     if (activeEntity && activeEntity->getHandle() != entt::null)
     {
-        auto &tag = scene.getRegistry().get<scene::TagComponent>(activeEntity->getHandle());
-        ImGui::Text("Selected Entity: %s", tag.tag.c_str());
-
-        if (scene.getRegistry().all_of<scene::TransformComponent, scene::MaterialComponent>(activeEntity->getHandle()))
-        {
-            auto &tc = scene.getRegistry().get<scene::TransformComponent>(activeEntity->getHandle());
-            auto &mc = scene.getRegistry().get<scene::MaterialComponent>(activeEntity->getHandle());
-
-            // Display position
-            ImGui::DragFloat3("Position", glm::value_ptr(tc.position), 0.01f);
-
-            // Display rotation
-            ImGui::DragFloat3("Rotation", glm::value_ptr(tc.rotation), 0.01f);
-
-            // Display scale
-            static bool linkValues = false;
-            glm::vec3 newScale = tc.scale; // Capture the state of tc.scale
-
-            if (ImGui::DragFloat3("Scale", glm::value_ptr(newScale), 0.01f))
-            {
-                if (linkValues)
-                {
-                    for (int i = 0; i < 3; ++i)
-                    {
-                        if (newScale[i] != tc.scale[i]) // Compare newScale with tc.scale
-                        {
-                            for (int j = 0; j < 3; ++j)
-                            {
-                                if (i != j)
-                                {
-                                    newScale[j] = newScale[i]; // Set the other two values to the changed value
-                                }
-                            }
-                            break; // No need to check the other values once we found the changed one
-                        }
-                    }
-                }
-                tc.scale = newScale; // Update tc.scale with the new values
-            }
-
-            auto model = glm::mat4(1.0f);
-
-            model = glm::translate(model, tc.position);
-
-            model = glm::rotate(model, tc.rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
-            model = glm::rotate(model, tc.rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
-            model = glm::rotate(model, tc.rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-
-            model = glm::scale(model, tc.scale);
-
-            bindlessManager.updateBuffer(mc.getBufferIndex("model"), glm::value_ptr(model), sizeof(model), 0);
-
-            ImGui::SameLine();
-
-            if (linkValues)
-            {
-                // Change the button color to highlight it when linking is active
-                ImGui::PushStyleColor(ImGuiCol_Button, IM_COL32(0, 120, 215, 255)); // Blue color
-
-                if (ImGui::Button("Link"))
-                {
-                    linkValues = !linkValues;
-                }
-
-                // Reset the button color back to default when done
-                ImGui::PopStyleColor();
-            }
-            else
-            {
-                if (ImGui::Button("Link"))
-                {
-                    linkValues = !linkValues;
-                }
-            }
-        }
-
-        if (scene.getRegistry().all_of<scene::ColorComponent, scene::MaterialComponent>(activeEntity->getHandle()))
-        {
-            auto &c = scene.getRegistry().get<scene::ColorComponent>(activeEntity->getHandle());
-            auto &mc = scene.getRegistry().get<scene::MaterialComponent>(activeEntity->getHandle());
-
-            ImGui::ColorEdit4("Color Picker", glm::value_ptr(c.color));
-            bindlessManager.updateBuffer(mc.getBufferIndex("color"), glm::value_ptr(c.color), sizeof(c.color), 0);
-        }
+        activeEntity->displayGui();
+        activeEntity->updateComponents();
     }
-
-    //    // Text
-    //    ImGui::Text("This is some useful text.");
-    //
-    //    // Buttons
-    //    if (ImGui::Button("Button"))
-    //        buttonPressed = true;
-    //    if (buttonPressed)
-    //        ImGui::Text("Button was pressed!");
-    //
-    //    // Checkbox
-    //    static bool checkbox = false;
-    //    ImGui::Checkbox("Checkbox", &checkbox);
-    //
-    //    // Slider
-    //    static float sliderValue = 0.5f;
-    //    ImGui::SliderFloat("Slider", &sliderValue, 0.0f, 1.0f);
-
-    //    // Color picker
-    //    static float color[4] = {1.0f, 0.0f, 0.0f, 1.0f};
-    //    ImGui::ColorEdit4("Color Picker", color);
-    //    bindlessManager.updateBuffer(0, color, sizeof(color), 0);
-
-    //    // Input text
-    //    static char text[32] = "";
-    //    ImGui::InputText("Input Text", text, IM_ARRAYSIZE(text));
-    //
-    //    // Drag float
-    //    static float dragFloat = 0.5f;
-    //    ImGui::DragFloat("Drag Float", &dragFloat);
 
     ImGui::End();
 }
@@ -493,9 +387,6 @@ void Gui::createHierarchyPanel(scene::Scene &scene)
         if (ImGui::MenuItem("Destory") && activeEntity->getHandle() != entt::null)
         {
             device.getHandle().waitIdle();
-            auto &mc = activeEntity->getComponent<scene::MaterialComponent>();
-            bindlessManager.removeBuffer(mc.getBufferIndex("color"));
-            bindlessManager.removeBuffer(mc.getBufferIndex("model"));
             activeEntity->destroy();
         }
 
