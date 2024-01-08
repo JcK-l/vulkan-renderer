@@ -37,6 +37,8 @@ void {\bfseries unmap\+Memory} ()
 \Hypertarget{classvkf_1_1core_1_1_buffer_a3fbb3dbfd153a22dfe4d5e0e2f674b25}\label{classvkf_1_1core_1_1_buffer_a3fbb3dbfd153a22dfe4d5e0e2f674b25} 
 void {\bfseries update\+Data} (const void \texorpdfstring{$\ast$}{*}data, const uint32\+\_\+t size, const uint32\+\_\+t offset)
 \item 
+void \mbox{\hyperlink{classvkf_1_1core_1_1_buffer_a6629f2ec5e8c4932e110c6d70785efd5}{copy\+Buffer}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&src\+Buffer)
+\begin{DoxyCompactList}\small\item\em Copies the contents of the src\+Buffer to this buffer. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_buffer_a1e513ca467fdf89585deb995f32f070a}\label{classvkf_1_1core_1_1_buffer_a1e513ca467fdf89585deb995f32f070a} 
 vk\+::\+Buffer {\bfseries get\+Buffer} () const
 \item 
@@ -97,6 +99,23 @@ Constructor for the \doxylink{classvkf_1_1core_1_1_buffer}{Buffer} class.
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1core_1_1_buffer_a6629f2ec5e8c4932e110c6d70785efd5}\label{classvkf_1_1core_1_1_buffer_a6629f2ec5e8c4932e110c6d70785efd5} 
+\index{vkf::core::Buffer@{vkf::core::Buffer}!copyBuffer@{copyBuffer}}
+\index{copyBuffer@{copyBuffer}!vkf::core::Buffer@{vkf::core::Buffer}}
+\doxysubsubsection{\texorpdfstring{copyBuffer()}{copyBuffer()}}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Buffer\+::copy\+Buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&}]{src\+Buffer }\end{DoxyParamCaption})}
+
+
+
+Copies the contents of the src\+Buffer to this buffer. 
+
+This method copies the contents of the src\+Buffer to this buffer. The src\+Buffer must be the same size as this buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src\+Buffer} & The buffer to copy from. Inteded to be a staging buffer. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classvkf_1_1core_1_1_buffer_aea4c9889a32b9dda5772198f62c9710f}\label{classvkf_1_1core_1_1_buffer_aea4c9889a32b9dda5772198f62c9710f} 
 \index{vkf::core::Buffer@{vkf::core::Buffer}!mapMemory@{mapMemory}}
 \index{mapMemory@{mapMemory}!vkf::core::Buffer@{vkf::core::Buffer}}

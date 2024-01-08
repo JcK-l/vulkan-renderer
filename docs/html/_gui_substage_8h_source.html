@@ -106,16 +106,18 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classvkf_1_1rendering_1_1_gui_substage.html#a4f4ae9019d9c5cd57b3ffe166982c017">draw</a>(vk::raii::CommandBuffer *cmd) override;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  private:</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    platform::Gui *gui; <span class="comment">// The GUI</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    std::<span class="keywordtype">string</span> getType() override;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  private:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    platform::Gui *gui; <span class="comment">// The GUI</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
 </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>} <span class="comment">// namespace vkf::rendering</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_GUISUBSTAGE_H</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>} <span class="comment">// namespace vkf::rendering</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_GUISUBSTAGE_H</span></div>
 <div class="ttc" id="a_render_substage_8h_html"><div class="ttname"><a href="_render_substage_8h.html">RenderSubstage.h</a></div><div class="ttdoc">This file declares the abstract RenderSubstage class which is used for managing Vulkan rendering sub-...</div></div>
-<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html">vkf::platform::Gui</a></div><div class="ttdoc">This class manages ImGui interfaces.</div><div class="ttdef"><b>Definition</b> Gui.h:53</div></div>
+<div class="ttc" id="aclassvkf_1_1platform_1_1_gui_html"><div class="ttname"><a href="classvkf_1_1platform_1_1_gui.html">vkf::platform::Gui</a></div><div class="ttdoc">This class manages ImGui interfaces.</div><div class="ttdef"><b>Definition</b> Gui.h:56</div></div>
 <div class="ttc" id="aclassvkf_1_1rendering_1_1_gui_substage_html"><div class="ttname"><a href="classvkf_1_1rendering_1_1_gui_substage.html">vkf::rendering::GuiSubstage</a></div><div class="ttdoc">This class manages Vulkan rendering operations.</div><div class="ttdef"><b>Definition</b> GuiSubstage.h:30</div></div>
 <div class="ttc" id="aclassvkf_1_1rendering_1_1_gui_substage_html_a2b2c4a9c553fe9ca4c1333f639c45c34"><div class="ttname"><a href="classvkf_1_1rendering_1_1_gui_substage.html#a2b2c4a9c553fe9ca4c1333f639c45c34">vkf::rendering::GuiSubstage::GuiSubstage</a></div><div class="ttdeci">GuiSubstage(GuiSubstage &amp;&amp;) noexcept=default</div><div class="ttdoc">Default move constructor.</div></div>
 <div class="ttc" id="aclassvkf_1_1rendering_1_1_gui_substage_html_a4f4ae9019d9c5cd57b3ffe166982c017"><div class="ttname"><a href="classvkf_1_1rendering_1_1_gui_substage.html#a4f4ae9019d9c5cd57b3ffe166982c017">vkf::rendering::GuiSubstage::draw</a></div><div class="ttdeci">void draw(vk::raii::CommandBuffer *cmd) override</div><div class="ttdoc">Pure virtual method to draw.</div><div class="ttdef"><b>Definition</b> GuiSubstage.cpp:23</div></div>

@@ -16,7 +16,8 @@
 #define VULKANRENDERER_PREFABFACTORY_H
 
 #include "Cube.h"
-#include "Triangle.h"
+#include "PrefabType.h"
+#include "Texture2D.h"
 #include <entt/entt.hpp>
 
 namespace vkf::core // Forward declarations
@@ -29,6 +30,7 @@ class RenderPass;
 namespace vkf::rendering // Forward declarations
 {
 class BindlessManager;
+class PipelineBuilder;
 } // namespace vkf::rendering
 
 namespace vkf::scene
@@ -37,39 +39,6 @@ namespace vkf::scene
 // Forward declarations
 class Entity;
 class Camera;
-
-///
-/// \enum PrefabType
-/// \brief Enumerates the types of prefabricated entities that can be created.
-///
-enum class PrefabType
-{
-    Cube,
-    Triangle,
-    Custom
-};
-
-///
-/// \struct PrefabTraits
-/// \brief Provides traits for prefabricated entities.
-///
-template <typename T> struct PrefabTraits;
-
-template <> struct PrefabTraits<Cube>
-{
-    static PrefabType getPrefabType()
-    {
-        return PrefabType::Cube;
-    }
-};
-
-template <> struct PrefabTraits<Triangle>
-{
-    static PrefabType getPrefabType()
-    {
-        return PrefabType::Triangle;
-    }
-};
 
 ///
 /// \class PrefabFactory
@@ -109,25 +78,15 @@ class PrefabFactory
     /// \param registry The entt::registry to use for creating the prefabricated entity.
     /// \param tag The tag to use for creating the prefabricated entity.
     ///
-    template <typename T> std::unique_ptr<Entity> createPrefab(entt::registry &registry, std::string tag)
+    template <typename T> std::unique_ptr<Prefab> createPrefab(entt::registry &registry, std::string tag)
     {
-        static_assert(std::is_base_of_v<Entity, T>, "T must be a subclass of Entity");
+        static_assert(std::is_base_of_v<Prefab, T>, "T must be a subclass of Entity");
 
-        auto entity = std::make_unique<T>(registry, bindlessManager);
-        entity->create(device, pipelines.at(PrefabTraits<T>::getPrefabType()).get(), camera, std::move(tag));
+        auto prefab = std::make_unique<T>(registry, bindlessManager, Entity{registry});
+        prefab->create(device, pipelines.at(PrefabTraits<T>::getPrefabType()).get(), camera, std::move(tag));
 
-        return entity;
+        return prefab;
     }
-
-    ///
-    /// \brief Creates an empty entity that can be customised.
-    ///
-    /// This method creates an empty entity using the provided registry and tag.
-    ///
-    /// \param registry The entt::registry to use for creating the custom prefabricated entity.
-    /// \param tag The tag to use for creating the custom prefabricated entity.
-    ///
-    std::unique_ptr<Entity> createCustom(entt::registry &registry, std::string tag);
 
   private:
     ///
@@ -144,6 +103,10 @@ class PrefabFactory
     Camera *camera;
 
     std::unordered_map<PrefabType, std::unique_ptr<core::Pipeline>> pipelines;
+    std::unordered_map<PrefabType,
+                       rendering::PipelineBuilder (*)(const core::Device &device, const core::RenderPass &renderPass,
+                                                      rendering::BindlessManager &bindlessManager)>
+        pipelineBuilderFunctionMap;
 };
 
 } // namespace vkf::scene

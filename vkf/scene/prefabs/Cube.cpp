@@ -13,65 +13,172 @@
 
 #include "Cube.h"
 #include "../../common/Log.h"
+#include "../../core/Shader.h"
 #include "../../rendering/BindlessManager.h"
+#include "../../rendering/PipelineBuilder.h"
 #include "../Camera.h"
 #include "../components/Components.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <imgui.h>
 
 namespace vkf::scene
 {
 
+Cube::Cube(entt::registry &registry, rendering::BindlessManager &bindlessManager, Entity entity)
+    : Prefab(registry, bindlessManager, std::move(entity))
+{
+}
+
 void Cube::create(const core::Device &device, core::Pipeline *pipeline, Camera *camera, std::string tag)
 {
-    Entity::create(std::move(tag));
+    entity.create();
+    entity.addComponent<scene::TagComponent>(std::move(tag));
+    entity.addComponent<scene::TransformComponent>(glm::vec3{0.0f}, glm::vec3{0.0f}, glm::vec3{1.0f});
+    entity.addComponent<scene::ColorComponent>(glm::vec4{1.0f});
+    entity.addComponent<scene::PrefabComponent>(PrefabType::Cube);
+    entity.addComponent<scene::ParentComponent>();
 
-    this->addComponent<scene::TransformComponent>(glm::vec3{0.0f}, glm::vec3{0.0f}, glm::vec3{1.0f});
-    this->addComponent<scene::ColorComponent>(glm::vec4{1.0f});
-
-    struct alignas(16) Data
+    // clang-format off
+    std::vector<std::vector<float>> mesh = {{
+        // Front face
+        -0.25, -0.25, 0.25, 0.0, 0.0, 1.0,
+        0.25, -0.25, 0.25, 0.0, 0.0, 1.0,
+        0.25, 0.25, 0.25, 0.0, 0.0, 1.0,
+        -0.25, -0.25, 0.25, 0.0, 0.0, 1.0,
+        0.25, 0.25, 0.25, 0.0, 0.0, 1.0,
+        -0.25, 0.25, 0.25, 0.0, 0.0, 1.0,
+    },
     {
-        float data[4] = {1.0f, 0.0f, 0.0f, 1.0f};
-    } data;
+        // Back face
+        -0.25, -0.25, -0.25, 0.0, 0.0, -1.0,
+        0.25, -0.25, -0.25, 0.0, 0.0, -1.0,
+        0.25, 0.25, -0.25, 0.0, 0.0, -1.0,
+        -0.25, -0.25, -0.25, 0.0, 0.0, -1.0,
+        0.25, 0.25, -0.25, 0.0, 0.0, -1.0,
+        -0.25, 0.25, -0.25, 0.0, 0.0, -1.0,
+    },
+    {
+        // Top face
+        -0.25, 0.25, -0.25, 0.0, 1.0, 0.0,
+        0.25, 0.25, -0.25, 0.0, 1.0, 0.0,
+        0.25, 0.25, 0.25, 0.0, 1.0, 0.0,
+        -0.25, 0.25, -0.25, 0.0, 1.0, 0.0,
+        0.25, 0.25, 0.25, 0.0, 1.0, 0.0,
+        -0.25, 0.25, 0.25, 0.0, 1.0, 0.0,
+    },
+    {
+        // Bottom face
+        -0.25, -0.25, -0.25, 0.0, -1.0, 0.0,
+        0.25, -0.25, -0.25, 0.0, -1.0, 0.0,
+        0.25, -0.25, 0.25, 0.0, -1.0, 0.0,
+        -0.25, -0.25, -0.25, 0.0, -1.0, 0.0,
+        0.25, -0.25, 0.25, 0.0, -1.0, 0.0,
+        -0.25, -0.25, 0.25, 0.0, -1.0, 0.0,
+    },
+    {
+        // Right face
+        0.25, -0.25, -0.25, 1.0, 0.0, 0.0,
+        0.25, -0.25, 0.25, 1.0, 0.0, 0.0,
+        0.25, 0.25, 0.25, 1.0, 0.0, 0.0,
+        0.25, -0.25, -0.25, 1.0, 0.0, 0.0,
+        0.25, 0.25, 0.25, 1.0, 0.0, 0.0,
+        0.25, 0.25, -0.25, 1.0, 0.0, 0.0,
+    },
+    {
+        // Left face
+        -0.25, -0.25, -0.25, -1.0, 0.0, 0.0,
+        -0.25, -0.25, 0.25, -1.0, 0.0, 0.0,
+        -0.25, 0.25, 0.25, -1.0, 0.0, 0.0,
+        -0.25, -0.25, -0.25, -1.0, 0.0, 0.0,
+        -0.25, 0.25, 0.25, -1.0, 0.0, 0.0,
+        -0.25, 0.25, -0.25, -1.0, 0.0, 0.0,
+    }};
+    // clang-format on
 
-    vk::BufferCreateInfo bufferCreateInfo{.size = sizeof(data), .usage = vk::BufferUsageFlagBits::eUniformBuffer};
-    core::Buffer buffer{device, bufferCreateInfo,
-                        VMA_ALLOCATION_CREATE_MAPPED_BIT | VMA_ALLOCATION_CREATE_HOST_ACCESS_SEQUENTIAL_WRITE_BIT};
+    auto &parent = entity.getComponent<scene::ParentComponent>();
+    for (auto &subMesh : mesh)
+    {
+        auto child = Entity(registry);
+        child.create();
 
-    vk::BufferCreateInfo bufferModelCreateInfo{.size = 64, .usage = vk::BufferUsageFlagBits::eUniformBuffer};
-    core::Buffer bufferModel{device, bufferModelCreateInfo,
-                             VMA_ALLOCATION_CREATE_MAPPED_BIT | VMA_ALLOCATION_CREATE_HOST_ACCESS_SEQUENTIAL_WRITE_BIT};
+        child.addComponent<MeshComponent>(device, subMesh);
+        child.addComponent<scene::TransformComponent>(glm::vec3{0.0f}, glm::vec3{0.0f}, glm::vec3{1.0f});
+        child.addComponent<scene::ColorComponent>(glm::vec4{1.0f});
+        child.addComponent<scene::SelectComponent>();
 
-    this->addComponent<scene::MaterialComponent>(pipeline);
-    auto &entityMaterialComponent = this->getComponent<scene::MaterialComponent>();
-    entityMaterialComponent.addBuffer("camera", camera->getHandle());
+        auto &material = child.addComponent<MaterialComponent>(pipeline);
 
-    auto entityBufferHandle = bindlessManager.storeBuffer(buffer, vk::BufferUsageFlagBits::eUniformBuffer);
-    entityMaterialComponent.addBuffer("color", entityBufferHandle);
+        material.addUniform("camera", camera->getHandle());
 
-    auto entityBufferModelHandle = bindlessManager.storeBuffer(bufferModel, vk::BufferUsageFlagBits::eUniformBuffer);
-    entityMaterialComponent.addBuffer("model", entityBufferModelHandle);
+        vk::BufferCreateInfo bufferCreateInfo{.size = 16, .usage = vk::BufferUsageFlagBits::eUniformBuffer};
+        core::Buffer bufferColor{device, bufferCreateInfo,
+                                 VMA_ALLOCATION_CREATE_MAPPED_BIT |
+                                     VMA_ALLOCATION_CREATE_HOST_ACCESS_SEQUENTIAL_WRITE_BIT};
+
+        vk::BufferCreateInfo bufferModelCreateInfo{.size = 64, .usage = vk::BufferUsageFlagBits::eUniformBuffer};
+        core::Buffer bufferModel{device, bufferModelCreateInfo,
+                                 VMA_ALLOCATION_CREATE_MAPPED_BIT |
+                                     VMA_ALLOCATION_CREATE_HOST_ACCESS_SEQUENTIAL_WRITE_BIT};
+
+        auto entityBufferHandle = bindlessManager.storeBuffer(bufferColor, vk::BufferUsageFlagBits::eUniformBuffer);
+        material.addUniform("color", entityBufferHandle);
+
+        auto entityBufferModelHandle =
+            bindlessManager.storeBuffer(bufferModel, vk::BufferUsageFlagBits::eUniformBuffer);
+        material.addUniform("model", entityBufferModelHandle);
+        parent.addChild(std::move(child));
+    }
+
     LOG_INFO("Prefab Cube created")
 }
 
 void Cube::displayGui()
 {
-    Entity::displayGui();
+    auto &tag = entity.getComponent<scene::TagComponent>();
+    auto &transform = entity.getComponent<scene::TransformComponent>();
+    auto &color = entity.getComponent<scene::ColorComponent>();
 
-    auto &transform = this->getComponent<scene::TransformComponent>();
-    auto &color = this->getComponent<scene::ColorComponent>();
-
+    tag.displayGui();
     transform.displayGui();
     color.displayGui();
+
+    ImGui::Spacing();
+    ImGui::Separator();
+    ImGui::Text("Selected Submeshes:");
+    ImGui::Separator();
+    ImGui::Spacing();
+
+    auto &parent = entity.getComponent<scene::ParentComponent>();
+    for (auto child : parent.children)
+    {
+        auto &select = child->getComponent<scene::SelectComponent>();
+        if (!select.selected)
+        {
+            continue;
+        }
+        auto &childColor = child->getComponent<scene::ColorComponent>();
+        auto &childTransform = child->getComponent<scene::TransformComponent>();
+        auto &meshComponent = child->getComponent<MeshComponent>();
+
+        childTransform.displayGui();
+        childColor.displayGui();
+        meshComponent.displayGui();
+
+        ImGui::Spacing();
+        ImGui::Separator();
+        ImGui::Spacing();
+    }
 }
 
 void Cube::updateComponents()
 {
-    Entity::updateComponents();
+    auto &transform = entity.getComponent<scene::TransformComponent>();
+    auto &color = entity.getComponent<scene::ColorComponent>();
 
-    auto &transform = this->getComponent<scene::TransformComponent>();
-    auto &material = this->getComponent<scene::MaterialComponent>();
-    auto &color = this->getComponent<scene::ColorComponent>();
+    bool changed = (this->prevColor != color.color);
+
+    this->prevColor = color.color;
 
     auto model = glm::mat4(1.0f);
 
@@ -83,17 +190,88 @@ void Cube::updateComponents()
 
     model = glm::scale(model, transform.scale);
 
-    bindlessManager.updateBuffer(material.getBufferIndex("model"), glm::value_ptr(model), sizeof(model), 0);
-    bindlessManager.updateBuffer(material.getBufferIndex("color"), glm::value_ptr(color.color), sizeof(color.color), 0);
+    auto &parent = entity.getComponent<scene::ParentComponent>();
+    for (auto child : parent.children)
+    {
+        auto &childTransform = child->getComponent<scene::TransformComponent>();
+        auto &childColor = child->getComponent<scene::ColorComponent>();
+
+        if (changed)
+        {
+            childColor.setColor(color.color);
+        }
+
+        auto childModel = glm::mat4(1.0f);
+
+        childModel = glm::translate(childModel, childTransform.position);
+
+        childModel = glm::rotate(childModel, childTransform.rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
+        childModel = glm::rotate(childModel, childTransform.rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
+        childModel = glm::rotate(childModel, childTransform.rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+
+        childModel = glm::scale(childModel, childTransform.scale);
+
+        // Combine the parent and child transformations
+        auto combinedModel = model * childModel;
+
+        auto &material = child->getComponent<MaterialComponent>();
+        bindlessManager.updateBuffer(material.getUniformIndex("model"), glm::value_ptr(combinedModel),
+                                     sizeof(combinedModel), 0);
+        bindlessManager.updateBuffer(material.getUniformIndex("color"), glm::value_ptr(childColor.color),
+                                     sizeof(childColor.color), 0);
+    }
 }
 
 void Cube::destroy()
 {
-    auto &material = this->getComponent<scene::MaterialComponent>();
-    bindlessManager.removeBuffer(material.getBufferIndex("color"));
-    bindlessManager.removeBuffer(material.getBufferIndex("model"));
+    auto &parent = entity.getComponent<scene::ParentComponent>();
+    for (auto &child : parent.children)
+    {
+        auto &material = child->getComponent<MaterialComponent>();
+        bindlessManager.removeBuffer(material.getUniformIndex("color"));
+        bindlessManager.removeBuffer(material.getUniformIndex("model"));
+        child->destroy();
+    }
 
-    Entity::destroy();
+    entity.destroy();
+}
+
+Entity &Cube::getEntity()
+{
+    return entity;
+}
+
+void Cube::setEntity(entt::entity ent)
+{
+    entity.setHandle(ent);
+}
+
+rendering::PipelineBuilder Cube::getPipelineBuilder(const core::Device &device, const core::RenderPass &renderPass,
+                                                    rendering::BindlessManager &bindlessManager)
+{
+    auto pipelineBuilder = Prefab::getPipelineBuilder(device, renderPass, bindlessManager);
+    core::Shader shader{"../../shaders/cube.glsl"};
+    pipelineBuilder.setShaderStageCreateInfos(device, shader);
+
+    auto bindingDescription = vk::VertexInputBindingDescription{
+        .binding = 0, .stride = 2 * sizeof(glm::vec3), .inputRate = vk::VertexInputRate::eVertex};
+
+    std::vector<vk::VertexInputAttributeDescription> attributeDescriptions = {
+        vk::VertexInputAttributeDescription{
+            .location = 0, .binding = 0, .format = vk::Format::eR32G32B32Sfloat, .offset = 0},
+        vk::VertexInputAttributeDescription{
+            .location = 1, .binding = 0, .format = vk::Format::eR32G32B32Sfloat, .offset = sizeof(glm::vec3)}};
+
+    auto vertexInfo = vk::PipelineVertexInputStateCreateInfo{.vertexBindingDescriptionCount = 1};
+
+    pipelineBuilder.setVertexInputCreateInfo(vertexInfo, bindingDescription, attributeDescriptions);
+
+    return pipelineBuilder;
+}
+
+PrefabType Cube::getPrefabType()
+{
+    return PrefabType::Cube;
 }
 
 } // namespace vkf::scene

@@ -14,6 +14,11 @@
 #ifndef VULKANRENDERER_UTILITY_H
 #define VULKANRENDERER_UTILITY_H
 
+namespace vkf::scene // Forward declarations
+{
+enum class PrefabType;
+} // namespace vkf::scene
+
 namespace vkf
 {
 
@@ -27,6 +32,14 @@ namespace vkf
 /// \return A string representation of the Vulkan queue flags.
 ///
 std::string getQueueFlagsString(vk::QueueFlags flags);
+
+///
+/// \brief Converts a PrefabType to a string.
+///
+/// \param type The PrefabType to convert to a string.
+/// \return  A string representation of the PrefabType.
+///
+std::string getPrefabTypeString(scene::PrefabType type);
 
 } // namespace vkf
 

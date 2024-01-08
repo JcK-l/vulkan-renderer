@@ -35,41 +35,22 @@ class RenderSource
     ///
     virtual ~RenderSource() = default;
 
-    ///
-    /// \brief Pure virtual method to get the image views.
-    ///
-    /// This method is intended to be overridden by subclasses to return a vector of image views.
-    ///
-    /// \return A vector of image views.
-    ///
     virtual std::vector<vk::ImageView> getImageViews() const = 0;
 
-    ///
-    /// \brief Pure virtual method to get the image count.
-    ///
-    /// This method is intended to be overridden by subclasses to return the image count.
-    ///
-    /// \return The image count.
-    ///
     virtual uint32_t getImageCount() const = 0;
 
-    ///
-    /// \brief Pure virtual method to get the extent.
-    ///
-    /// This method is intended to be overridden by subclasses to return the extent.
-    ///
-    /// \return The extent.
-    ///
     virtual vk::Extent2D getExtent() const = 0;
 
     ///
-    /// \brief Pure virtual method to get the extent.
+    /// \brief Method to check if the render source has changed.
     ///
-    /// This method is intended to be overridden by subclasses to return the extent.
+    /// This method returns true if the render source has changed.
+    /// It toggles the changed flag to false.
     ///
-    /// \return The extent.
-    ///
+    /// \return A boolean indicating whether or not the render source has changed.
     virtual bool resetChanged() = 0;
+
+    virtual uint32_t getFrameIndex() = 0;
 };
 
 } // namespace vkf::rendering

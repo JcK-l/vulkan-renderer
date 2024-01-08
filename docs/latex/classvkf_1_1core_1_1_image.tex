@@ -17,8 +17,8 @@ This class manages Vulkan images.
 \Hypertarget{classvkf_1_1core_1_1_image_a30a69b118bc705885580614c80b1acdb}\label{classvkf_1_1core_1_1_image_a30a69b118bc705885580614c80b1acdb} 
 {\bfseries Image} (const \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \&)=delete
 \begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
-\Hypertarget{classvkf_1_1core_1_1_image_a97a3d4ed24b39efdb5999ea96d41c2aa}\label{classvkf_1_1core_1_1_image_a97a3d4ed24b39efdb5999ea96d41c2aa} 
-{\bfseries Image} (\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \&\&) noexcept=default
+\Hypertarget{classvkf_1_1core_1_1_image_a4c3604f6d6d14e0e7fe383b791b9f2e8}\label{classvkf_1_1core_1_1_image_a4c3604f6d6d14e0e7fe383b791b9f2e8} 
+{\bfseries Image} (\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \&\&) noexcept
 \begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_image_af2627cda18c036c15a9a98e8cb90ec6a}\label{classvkf_1_1core_1_1_image_af2627cda18c036c15a9a98e8cb90ec6a} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \& {\bfseries operator=} (const \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}} \&)=delete
@@ -29,14 +29,30 @@ This class manages Vulkan images.
 \Hypertarget{classvkf_1_1core_1_1_image_aed9d73ab7663d6161a6090f62e50a4db}\label{classvkf_1_1core_1_1_image_aed9d73ab7663d6161a6090f62e50a4db} 
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Image} ()
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
-\Hypertarget{classvkf_1_1core_1_1_image_a3a2a0fff5c7e4d95a1c07d778e4555b2}\label{classvkf_1_1core_1_1_image_a3a2a0fff5c7e4d95a1c07d778e4555b2} 
-vk\+::raii\+::\+Image\+View {\bfseries create\+Image\+View} (vk\+::\+Image\+Aspect\+Flags aspect\+Flags) const
+\Hypertarget{classvkf_1_1core_1_1_image_a8ceb30feb3d30b6d97611a1d56f762b9}\label{classvkf_1_1core_1_1_image_a8ceb30feb3d30b6d97611a1d56f762b9} 
+vk\+::\+Image\+View {\bfseries get\+Image\+View} (vk\+::\+Image\+Aspect\+Flags aspect\+Flags)
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a7401893a615dca9ef6b0aff09fa69f0d}\label{classvkf_1_1core_1_1_image_a7401893a615dca9ef6b0aff09fa69f0d} 
+vk\+::\+Sampler {\bfseries get\+Sampler} ()
 \item 
 void \mbox{\hyperlink{classvkf_1_1core_1_1_image_a18e1feda3e8512eca7359d6ef0532a3f}{map\+Memory}} ()
 \begin{DoxyCompactList}\small\item\em Map memory to the image. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1core_1_1_image_a7f00ed62e8fb50d2b2306a9cf86a041f}\label{classvkf_1_1core_1_1_image_a7f00ed62e8fb50d2b2306a9cf86a041f} 
 void {\bfseries unmap\+Memory} ()
-\begin{DoxyCompactList}\small\item\em Unmap memory from the image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Unmap memory from the image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1core_1_1_image_aee1bc66ced1b13e4e448f7a9a185545d}{transition\+Image\+Layout}} (vk\+::\+Image\+Layout new\+Layout)
+\begin{DoxyCompactList}\small\item\em Transition the image layout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1core_1_1_image_a4315a1b080ea3260d49ba595fc66287c}{copy\+Buffer\+To\+Image}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&src\+Buffer)
+\begin{DoxyCompactList}\small\item\em Copies the contents of the src\+Buffer to this image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_ac4799d4dc73b040ce6f6a08dd755bf0d}\label{classvkf_1_1core_1_1_image_ac4799d4dc73b040ce6f6a08dd755bf0d} 
+void {\bfseries create\+Image\+View} (vk\+::\+Image\+Aspect\+Flags aspect\+Flags)
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_aade0185de2128a1f4c5b7c4f0e79f814}\label{classvkf_1_1core_1_1_image_aade0185de2128a1f4c5b7c4f0e79f814} 
+void {\bfseries create\+Sampler} ()
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -52,11 +68,23 @@ void \texorpdfstring{$\ast$}{*} {\bfseries mapped\+Data} \{nullptr\}
 \Hypertarget{classvkf_1_1core_1_1_image_a718099cb2b7d755f728814b0e5e488f6}\label{classvkf_1_1core_1_1_image_a718099cb2b7d755f728814b0e5e488f6} 
 vk\+::\+Image\+Create\+Info {\bfseries create\+Info}
 \item 
+\Hypertarget{classvkf_1_1core_1_1_image_a15682be54fde725c779a1a9ffdeba1e2}\label{classvkf_1_1core_1_1_image_a15682be54fde725c779a1a9ffdeba1e2} 
+vk\+::\+Image\+Layout {\bfseries current\+Layout} \{vk\+::\+Image\+Layout\+::e\+Undefined\}
+\item 
 \Hypertarget{classvkf_1_1core_1_1_image_a92bb126cabf02c1ff6c934e147b74d9e}\label{classvkf_1_1core_1_1_image_a92bb126cabf02c1ff6c934e147b74d9e} 
 Vma\+Allocation {\bfseries allocation} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
 \item 
 \Hypertarget{classvkf_1_1core_1_1_image_a0ae5a13df7b64613f86de1318044a9e1}\label{classvkf_1_1core_1_1_image_a0ae5a13df7b64613f86de1318044a9e1} 
 Vk\+Image {\bfseries handle}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a62ac5e1b3ee5bfb10c83cc8a2bbfbb38}\label{classvkf_1_1core_1_1_image_a62ac5e1b3ee5bfb10c83cc8a2bbfbb38} 
+vk\+::raii\+::\+Image\+View {\bfseries image\+View} = VK\+\_\+\+NULL\+\_\+\+HANDLE
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_a7571f39225c613861ea56243ca3e1dda}\label{classvkf_1_1core_1_1_image_a7571f39225c613861ea56243ca3e1dda} 
+vk\+::\+Image\+Aspect\+Flags {\bfseries current\+Aspect\+Flags} \{\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_image_ab47d880d17f200c972cdc5fdbca629cd}\label{classvkf_1_1core_1_1_image_ab47d880d17f200c972cdc5fdbca629cd} 
+vk\+::raii\+::\+Sampler {\bfseries sampler} = VK\+\_\+\+NULL\+\_\+\+HANDLE
 \end{DoxyCompactItemize}
 
 
@@ -88,6 +116,21 @@ Constructor for the \doxylink{classvkf_1_1core_1_1_image}{Image} class.
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1core_1_1_image_a4315a1b080ea3260d49ba595fc66287c}\label{classvkf_1_1core_1_1_image_a4315a1b080ea3260d49ba595fc66287c} 
+\index{vkf::core::Image@{vkf::core::Image}!copyBufferToImage@{copyBufferToImage}}
+\index{copyBufferToImage@{copyBufferToImage}!vkf::core::Image@{vkf::core::Image}}
+\doxysubsubsection{\texorpdfstring{copyBufferToImage()}{copyBufferToImage()}}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Image\+::copy\+Buffer\+To\+Image (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}} \&}]{src\+Buffer }\end{DoxyParamCaption})}
+
+
+
+Copies the contents of the src\+Buffer to this image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src\+Buffer} & The buffer to copy from. Inteded to be a staging buffer. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classvkf_1_1core_1_1_image_a18e1feda3e8512eca7359d6ef0532a3f}\label{classvkf_1_1core_1_1_image_a18e1feda3e8512eca7359d6ef0532a3f} 
 \index{vkf::core::Image@{vkf::core::Image}!mapMemory@{mapMemory}}
 \index{mapMemory@{mapMemory}!vkf::core::Image@{vkf::core::Image}}
@@ -101,6 +144,21 @@ Map memory to the image.
 
 \begin{DoxyParams}{Parameters}
 {\em data} & A pointer to the data to be mapped. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classvkf_1_1core_1_1_image_aee1bc66ced1b13e4e448f7a9a185545d}\label{classvkf_1_1core_1_1_image_aee1bc66ced1b13e4e448f7a9a185545d} 
+\index{vkf::core::Image@{vkf::core::Image}!transitionImageLayout@{transitionImageLayout}}
+\index{transitionImageLayout@{transitionImageLayout}!vkf::core::Image@{vkf::core::Image}}
+\doxysubsubsection{\texorpdfstring{transitionImageLayout()}{transitionImageLayout()}}
+{\footnotesize\ttfamily void vkf\+::core\+::\+Image\+::transition\+Image\+Layout (\begin{DoxyParamCaption}\item[{vk\+::\+Image\+Layout}]{new\+Layout }\end{DoxyParamCaption})}
+
+
+
+Transition the image layout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Layout} & The new layout for the image. \\
 \hline
 \end{DoxyParams}
 

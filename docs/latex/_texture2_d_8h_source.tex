@@ -1,0 +1,43 @@
+\doxysection{Texture2\+D.\+h}
+\hypertarget{_texture2_d_8h_source}{}\label{_texture2_d_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/prefabs/Texture2D.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/prefabs/Texture2D.h}}
+\mbox{\hyperlink{_texture2_d_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_TEXTURE2D\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_TEXTURE2D\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prefab_8h}{Prefab.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prefab_type_8h}{PrefabType.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <entt/entt.hpp>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1scene}{vkf::scene}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d}{Texture2D}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{Prefab}}}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d}{Texture2D}}(entt::registry\ \&registry,\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering::BindlessManager}}\ \&bindlessManager,\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ entity);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_a41f6eede4623afb05021c24382d4318f}{create}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device,\ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core::Pipeline}}\ *pipeline,\ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}}\ *camera,\ std::string\ tag)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ destroy()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_a7cb88574335951567874dec61bb80d11}{displayGui}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_afcc635cf429175f7d36f6afacd159ab0}{updateComponents}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&getEntity()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ setEntity(entt::entity\ ent)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{PrefabType}}\ getPrefabType();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{rendering::PipelineBuilder}}\ getPipelineBuilder(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core::Device}}\ \&device,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core::RenderPass}}\ \&renderPass,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering::BindlessManager}}\ \&bindlessManager);}
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_TEXTURE2D\_H}}
+
+\end{DoxyCode}

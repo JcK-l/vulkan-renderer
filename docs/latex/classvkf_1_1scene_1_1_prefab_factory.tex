@@ -29,10 +29,8 @@ This class is used to create prefabricated entities.
 \Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a3022863b360aa036f191be2459083d30}\label{classvkf_1_1scene_1_1_prefab_factory_a3022863b360aa036f191be2459083d30} 
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Prefab\+Factory} ()
 \begin{DoxyCompactList}\small\item\em Implementation in \doxylink{_prefab_factory_8cpp}{Prefabfactory.\+cpp} because of std\+::unique\+\_\+ptr forward declaration. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory_a36081c0092bdf40d5f12a476e8aeb759}{create\+Prefab}} (entt\+::registry \&registry, std\+::string tag)
-\begin{DoxyCompactList}\small\item\em Creates a prefabricated entity of type T. \end{DoxyCompactList}\item 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory_ad2444f5c66767252293a8bc3ae9065ad}{create\+Custom}} (entt\+::registry \&registry, std\+::string tag)
-\begin{DoxyCompactList}\small\item\em Creates an empty entity that can be customised. \end{DoxyCompactList}\end{DoxyCompactItemize}
+{\footnotesize template$<$typename T $>$ }\\std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{Prefab}} $>$ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory_a9a8b762c3138da474ccddaa22caa5599}{create\+Prefab}} (entt\+::registry \&registry, std\+::string tag)
+\begin{DoxyCompactList}\small\item\em Creates a prefabricated entity of type T. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -55,6 +53,9 @@ const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}
 \item 
 \Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a9e2d3997b5fbc4af711e5b5a6aadce21}\label{classvkf_1_1scene_1_1_prefab_factory_a9e2d3997b5fbc4af711e5b5a6aadce21} 
 std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{Prefab\+Type}}, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} $>$ $>$ {\bfseries pipelines}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a3ace267097aa8ceb2181831bfdaa102a}\label{classvkf_1_1scene_1_1_prefab_factory_a3ace267097aa8ceb2181831bfdaa102a} 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{Prefab\+Type}}, \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{rendering\+::\+Pipeline\+Builder}}(\texorpdfstring{$\ast$}{*})(const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&render\+Pass, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager)$>$ {\bfseries pipeline\+Builder\+Function\+Map}
 \end{DoxyCompactItemize}
 
 
@@ -90,25 +91,6 @@ This constructor initializes the \doxylink{classvkf_1_1scene_1_1_prefab_factory}
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classvkf_1_1scene_1_1_prefab_factory_ad2444f5c66767252293a8bc3ae9065ad}\label{classvkf_1_1scene_1_1_prefab_factory_ad2444f5c66767252293a8bc3ae9065ad} 
-\index{vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}!createCustom@{createCustom}}
-\index{createCustom@{createCustom}!vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}}
-\doxysubsubsection{\texorpdfstring{createCustom()}{createCustom()}}
-{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ vkf\+::scene\+::\+Prefab\+Factory\+::create\+Custom (\begin{DoxyParamCaption}\item[{entt\+::registry \&}]{registry,  }\item[{std\+::string}]{tag }\end{DoxyParamCaption})}
-
-
-
-Creates an empty entity that can be customised. 
-
-This method creates an empty entity using the provided registry and tag.
-
-
-\begin{DoxyParams}{Parameters}
-{\em registry} & The entt\+::registry to use for creating the custom prefabricated entity. \\
-\hline
-{\em tag} & The tag to use for creating the custom prefabricated entity. \\
-\hline
-\end{DoxyParams}
 \Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a50e7bbc19d43d0c08d0d0e82c338b637}\label{classvkf_1_1scene_1_1_prefab_factory_a50e7bbc19d43d0c08d0d0e82c338b637} 
 \index{vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}!createPipelines@{createPipelines}}
 \index{createPipelines@{createPipelines}!vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}}
@@ -119,12 +101,12 @@ This method creates an empty entity using the provided registry and tag.
 
 Creates the pipelines for the prefabricated entities. 
 
-This method is used to create the pipelines for the prefabricated entities. \Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a36081c0092bdf40d5f12a476e8aeb759}\label{classvkf_1_1scene_1_1_prefab_factory_a36081c0092bdf40d5f12a476e8aeb759} 
+This method is used to create the pipelines for the prefabricated entities. \Hypertarget{classvkf_1_1scene_1_1_prefab_factory_a9a8b762c3138da474ccddaa22caa5599}\label{classvkf_1_1scene_1_1_prefab_factory_a9a8b762c3138da474ccddaa22caa5599} 
 \index{vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}!createPrefab@{createPrefab}}
 \index{createPrefab@{createPrefab}!vkf::scene::PrefabFactory@{vkf::scene::PrefabFactory}}
 \doxysubsubsection{\texorpdfstring{createPrefab()}{createPrefab()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ vkf\+::scene\+::\+Prefab\+Factory\+::create\+Prefab (\begin{DoxyParamCaption}\item[{entt\+::registry \&}]{registry,  }\item[{std\+::string}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{Prefab}} $>$ vkf\+::scene\+::\+Prefab\+Factory\+::create\+Prefab (\begin{DoxyParamCaption}\item[{entt\+::registry \&}]{registry,  }\item[{std\+::string}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 

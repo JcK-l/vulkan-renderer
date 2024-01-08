@@ -15,7 +15,6 @@
 #define VULKANRENDERER_SCENE_H
 
 #include "components/Components.h"
-#include "prefabs/PrefabFactory.h"
 #include <entt/entt.hpp>
 
 namespace vkf::core // Forward declarations
@@ -33,8 +32,12 @@ class BindlessManager;
 namespace vkf::scene
 {
 
+// Forward declarations
 class Entity;
 class Camera;
+class PrefabFactory;
+class Prefab;
+enum class PrefabType;
 
 ///
 /// \class Scene
@@ -65,7 +68,15 @@ class Scene
     Scene &operator=(Scene &&) = delete;      ///< Deleted move assignment operator
     ~Scene();                                 ///< Implemented in Scene.cpp
 
-    std::unique_ptr<Entity> createEntity(PrefabType type, std::string tag);
+    void createPrefab(PrefabType type, std::string tag);
+
+    void setActiveEntity(entt::entity entity);
+    entt::entity getActiveEntity();
+
+    void changeSelectedPrefabType(PrefabType type);
+    void displaySelectedPrefabGui();
+    void updateSelectedPrefabComponents();
+    void destroySelectedPrefab();
 
     entt::registry &getRegistry();
     [[nodiscard]] Camera *getCamera() const;
@@ -77,6 +88,7 @@ class Scene
 
     std::unique_ptr<Camera> sceneCamera;
     std::unique_ptr<PrefabFactory> prefabFactory;
+    std::unique_ptr<Prefab> selectedPrefab;
 
     entt::registry registry;
 };

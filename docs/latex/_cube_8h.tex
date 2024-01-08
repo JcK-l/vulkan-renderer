@@ -2,10 +2,13 @@
 \hypertarget{_cube_8h}{}\label{_cube_8h}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/prefabs/Cube.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/prefabs/Cube.h}}
 
 
-This file declares the Cube class, which is a type of Entity in the \doxylink{namespacevkf_1_1scene}{vkf\+::scene} namespace.  
+This file declares the Cube class, which is a type of Prefab in the \doxylink{namespacevkf_1_1scene}{vkf\+::scene} namespace.  
 
 
-{\ttfamily \#include "{}../\+Entity.\+h"{}}\newline
+{\ttfamily \#include "{}Prefab.\+h"{}}\newline
+{\ttfamily \#include "{}Prefab\+Type.\+h"{}}\newline
+{\ttfamily \#include "{}glm/vec4.\+hpp"{}}\newline
+{\ttfamily \#include $<$entt/entt.\+hpp$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,16 +19,14 @@ class \mbox{\hyperlink{classvkf_1_1scene_1_1_cube}{vkf\+::scene\+::\+Cube}}
 \item 
 namespace \mbox{\hyperlink{namespacevkf}{vkf}}
 \begin{DoxyCompactList}\small\item\em The top-\/level namespace for the Vulkan Framework (vkf). \end{DoxyCompactList}\item 
-namespace \mbox{\hyperlink{namespacevkf_1_1core}{vkf\+::core}}
-\begin{DoxyCompactList}\small\item\em The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framework. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespacevkf_1_1scene}{vkf\+::scene}}
 \begin{DoxyCompactList}\small\item\em The scene namespace contains classes and functions for scene management. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This file declares the Cube class, which is a type of Entity in the \doxylink{namespacevkf_1_1scene}{vkf\+::scene} namespace. 
+This file declares the Cube class, which is a type of Prefab in the \doxylink{namespacevkf_1_1scene}{vkf\+::scene} namespace. 
 
-The Cube class is part of the \doxylink{namespacevkf_1_1scene}{vkf\+::scene} namespace. It provides an interface for creating and managing a Cube entity. A Cube entity in this context is a specific type of Entity that can be used in a 3D scene.
+The Cube class is part of the \doxylink{namespacevkf_1_1scene}{vkf\+::scene} namespace. It provides an interface for creating and managing a Cube Prefab. A Cube Prefab in this context is a specific type of Prefab that can be used in a 3D scene.
 
 \begin{DoxyAuthor}{Author}
 Joshua Lowe 

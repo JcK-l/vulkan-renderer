@@ -44,13 +44,15 @@ struct \mbox{\hyperlink{structvkf_1_1core_1_1_swapchain_1_1_swap_chain_support_d
 const vk\+::raii\+::\+Swapchain\+KHR \& {\bfseries get\+Handle} () const
 \item 
 std\+::vector$<$ vk\+::\+Image\+View $>$ \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a11706d634bc9f6358839c4402846c96a}{get\+Image\+Views}} () const override
-\begin{DoxyCompactList}\small\item\em Pure virtual method to get the image views. \end{DoxyCompactList}\item 
+\item 
 uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a21e68e05c5139066180c1c3481038f6b}{get\+Image\+Count}} () const override
-\begin{DoxyCompactList}\small\item\em Pure virtual method to get the image count. \end{DoxyCompactList}\item 
+\item 
 vk\+::\+Extent2D \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a871c746bee950535fa517cf8cc8a9054}{get\+Extent}} () const override
-\begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\item 
+\item 
 bool \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a9b4659de2d3f5f68b9ca4afbc3d7082c}{reset\+Changed}} () override
-\begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Method to check if the render source has changed. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain_a44232e16a64e4cefe536778c149dd442}{get\+Frame\+Index}} () override
+\item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_aaebdfd7faadfa8172a94bf4bb7ddaf72}\label{classvkf_1_1core_1_1_swapchain_aaebdfd7faadfa8172a94bf4bb7ddaf72} 
 uint32\+\_\+t {\bfseries get\+Min\+Image\+Count} () const
 \item 
@@ -80,8 +82,8 @@ vk\+::\+Extent2D {\bfseries select\+Swap\+Extent} () const
 \Hypertarget{classvkf_1_1core_1_1_swapchain_acac62ea03754600491eecb37a5b7177e}\label{classvkf_1_1core_1_1_swapchain_acac62ea03754600491eecb37a5b7177e} 
 void {\bfseries create\+Image\+Views} ()
 \item 
-\Hypertarget{classvkf_1_1core_1_1_swapchain_afa84824ad0cae81e784ffbb4d50e2eb2}\label{classvkf_1_1core_1_1_swapchain_afa84824ad0cae81e784ffbb4d50e2eb2} 
-void {\bfseries create\+Swapchain} (vk\+::\+Swapchain\+KHR old\+Swapchain=VK\+\_\+\+NULL\+\_\+\+HANDLE)
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a9afc14abbc97756fd743b38290439d00}\label{classvkf_1_1core_1_1_swapchain_a9afc14abbc97756fd743b38290439d00} 
+void {\bfseries create\+Swapchain} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -101,14 +103,26 @@ const \mbox{\hyperlink{classvkf_1_1platform_1_1_window}{platform\+::\+Window}} \
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a5838e05082ad4ece38d0e398638e4bc1}\label{classvkf_1_1core_1_1_swapchain_a5838e05082ad4ece38d0e398638e4bc1} 
 vk\+::raii\+::\+Swapchain\+KHR {\bfseries handle} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
 \item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a7bc06965191c1b9eb808a6cf1397f535}\label{classvkf_1_1core_1_1_swapchain_a7bc06965191c1b9eb808a6cf1397f535} 
+vk\+::raii\+::\+Swapchain\+KHR {\bfseries old\+Swapchain} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a3ea7f4fcc49f719bd27a7e3e80d00dd3}\label{classvkf_1_1core_1_1_swapchain_a3ea7f4fcc49f719bd27a7e3e80d00dd3} 
 \mbox{\hyperlink{structvkf_1_1core_1_1_swapchain_1_1_swap_chain_support_details}{Swap\+Chain\+Support\+Details}} {\bfseries support\+Details}
 \item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a175c8521eba04a3166a5c9ffeed07d7d}\label{classvkf_1_1core_1_1_swapchain_a175c8521eba04a3166a5c9ffeed07d7d} 
 vk\+::\+Extent2D {\bfseries extent}
 \item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a917b21c4f87b7ae39473c427edf04235}\label{classvkf_1_1core_1_1_swapchain_a917b21c4f87b7ae39473c427edf04235} 
+vk\+::\+Surface\+Format\+KHR {\bfseries surface\+Format}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_abd44bd839a6ce34546697e5520395033}\label{classvkf_1_1core_1_1_swapchain_abd44bd839a6ce34546697e5520395033} 
+vk\+::\+Present\+Mode\+KHR {\bfseries present\+Mode}
+\item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_af780cc227675a6471f292e2d9a514b99}\label{classvkf_1_1core_1_1_swapchain_af780cc227675a6471f292e2d9a514b99} 
 uint32\+\_\+t {\bfseries min\+Image\+Count} \{0\}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a11570f02a79f571d064d906e923aec31}\label{classvkf_1_1core_1_1_swapchain_a11570f02a79f571d064d906e923aec31} 
+uint32\+\_\+t {\bfseries frame\+Index}
 \item 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_aeb4b33258dcbe59ee57f39c719304212}\label{classvkf_1_1core_1_1_swapchain_aeb4b33258dcbe59ee57f39c719304212} 
 bool {\bfseries changed} \{false\}
@@ -159,16 +173,17 @@ This constructor creates a Vulkan swapchain using the provided device, surface, 
 
 
 
-Pure virtual method to get the extent. 
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}.
 
-This method is intended to be overridden by subclasses to return the extent.
+\Hypertarget{classvkf_1_1core_1_1_swapchain_a44232e16a64e4cefe536778c149dd442}\label{classvkf_1_1core_1_1_swapchain_a44232e16a64e4cefe536778c149dd442} 
+\index{vkf::core::Swapchain@{vkf::core::Swapchain}!getFrameIndex@{getFrameIndex}}
+\index{getFrameIndex@{getFrameIndex}!vkf::core::Swapchain@{vkf::core::Swapchain}}
+\doxysubsubsection{\texorpdfstring{getFrameIndex()}{getFrameIndex()}}
+{\footnotesize\ttfamily uint32\+\_\+t vkf\+::core\+::\+Swapchain\+::get\+Frame\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-\begin{DoxyReturn}{Returns}
-The extent. 
-\end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa9b1ade53ea2036ee100c0cc6c8b56ca}{vkf\+::rendering\+::\+Render\+Source}}.
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}.
 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a21e68e05c5139066180c1c3481038f6b}\label{classvkf_1_1core_1_1_swapchain_a21e68e05c5139066180c1c3481038f6b} 
 \index{vkf::core::Swapchain@{vkf::core::Swapchain}!getImageCount@{getImageCount}}
@@ -178,16 +193,7 @@ Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa9b1ade53ea
 
 
 
-Pure virtual method to get the image count. 
-
-This method is intended to be overridden by subclasses to return the image count.
-
-\begin{DoxyReturn}{Returns}
-The image count. 
-\end{DoxyReturn}
-
-
-Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa80a3fc362a63a72597924d5534c41f5}{vkf\+::rendering\+::\+Render\+Source}}.
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}.
 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a11706d634bc9f6358839c4402846c96a}\label{classvkf_1_1core_1_1_swapchain_a11706d634bc9f6358839c4402846c96a} 
 \index{vkf::core::Swapchain@{vkf::core::Swapchain}!getImageViews@{getImageViews}}
@@ -197,16 +203,7 @@ Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa80a3fc362a
 
 
 
-Pure virtual method to get the image views. 
-
-This method is intended to be overridden by subclasses to return a vector of image views.
-
-\begin{DoxyReturn}{Returns}
-A vector of image views. 
-\end{DoxyReturn}
-
-
-Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a0bab8473e4fe89b408a33afcd0611d22}{vkf\+::rendering\+::\+Render\+Source}}.
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}.
 
 \Hypertarget{classvkf_1_1core_1_1_swapchain_a9b4659de2d3f5f68b9ca4afbc3d7082c}\label{classvkf_1_1core_1_1_swapchain_a9b4659de2d3f5f68b9ca4afbc3d7082c} 
 \index{vkf::core::Swapchain@{vkf::core::Swapchain}!resetChanged@{resetChanged}}
@@ -216,12 +213,12 @@ Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a0bab8473e4f
 
 
 
-Pure virtual method to get the extent. 
+Method to check if the render source has changed. 
 
-This method is intended to be overridden by subclasses to return the extent.
+This method returns true if the render source has changed. It toggles the changed flag to false.
 
 \begin{DoxyReturn}{Returns}
-The extent. 
+A boolean indicating whether or not the render source has changed. 
 \end{DoxyReturn}
 
 

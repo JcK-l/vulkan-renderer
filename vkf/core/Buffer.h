@@ -62,6 +62,16 @@ class Buffer
 
     void updateData(const void *data, const uint32_t size, const uint32_t offset);
 
+    ///
+    /// \brief Copies the contents of the srcBuffer to this buffer.
+    ///
+    /// This method copies the contents of the srcBuffer to this buffer. The srcBuffer must be the same size as this
+    /// buffer.
+    ///
+    /// \param srcBuffer The buffer to copy from. Inteded to be a staging buffer.
+    ///
+    void copyBuffer(const Buffer &srcBuffer);
+
     [[nodiscard]] vk::Buffer getBuffer() const;
     [[nodiscard]] uint32_t getSize() const;
 

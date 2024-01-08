@@ -24,7 +24,9 @@ BindlessManager::BindlessManager(const core::Device &device) : device{device}
 
     // Pool Sizes
     std::vector<vk::DescriptorPoolSize> poolSizes = {{vk::DescriptorType::eUniformBuffer, UniformCount},
-                                                     {vk::DescriptorType::eStorageBuffer, StorageCount}};
+                                                     {vk::DescriptorType::eStorageBuffer, StorageCount},
+                                                     {vk::DescriptorType::eCombinedImageSampler, ImageSamplerCount}};
+
     // Create descriptor pool
     auto createInfo = vk::DescriptorPoolCreateInfo{
         .flags =
@@ -48,18 +50,25 @@ BindlessManager::BindlessManager(const core::Device &device) : device{device}
             .descriptorCount = StorageCount,
             .stageFlags = vk::ShaderStageFlagBits::eAll,
         },
+        vk::DescriptorSetLayoutBinding{
+            .binding = ImageSamplerBinding,
+            .descriptorType = vk::DescriptorType::eCombinedImageSampler,
+            .descriptorCount = ImageSamplerCount,
+            .stageFlags = vk::ShaderStageFlagBits::eAll,
+        },
     };
 
     std::vector<vk::DescriptorBindingFlags> bindingFlags = {
         vk::DescriptorBindingFlagBits::ePartiallyBound | vk::DescriptorBindingFlagBits::eUpdateAfterBind,
         vk::DescriptorBindingFlagBits::ePartiallyBound | vk::DescriptorBindingFlagBits::eUpdateAfterBind,
+        vk::DescriptorBindingFlagBits::ePartiallyBound | vk::DescriptorBindingFlagBits::eUpdateAfterBind,
     };
-    vk::DescriptorSetLayoutBindingFlagsCreateInfo setLayoutBindlingFlagsCreateInfo{
+    vk::DescriptorSetLayoutBindingFlagsCreateInfo setLayoutBindingFlagsCreateInfo{
         .bindingCount = static_cast<uint32_t>(bindingFlags.size()),
         .pBindingFlags = bindingFlags.data(),
     };
     auto descriptorSetLayoutCreateInfo = vk::DescriptorSetLayoutCreateInfo{
-        .pNext = &setLayoutBindlingFlagsCreateInfo,
+        .pNext = &setLayoutBindingFlagsCreateInfo,
         .flags = vk::DescriptorSetLayoutCreateFlagBits::eUpdateAfterBindPool,
         .bindingCount = static_cast<uint32_t>(bindings.size()),
         .pBindings = bindings.data(),
@@ -92,8 +101,7 @@ BindlessManager::BindlessManager(const core::Device &device) : device{device}
 
 uint32_t BindlessManager::storeBuffer(core::Buffer &buffer, vk::BufferUsageFlags usage)
 {
-    uint32_t newHandle = buffers.size();
-
+    uint32_t newHandle;
     if (!freeHandles.empty())
     {
         newHandle = freeHandles.back();
@@ -101,7 +109,7 @@ uint32_t BindlessManager::storeBuffer(core::Buffer &buffer, vk::BufferUsageFlags
     }
     else
     {
-        newHandle = buffers.size();
+        newHandle = images.size() + buffers.size();
     }
     buffers.emplace(newHandle, std::move(buffer));
 
@@ -110,13 +118,12 @@ uint32_t BindlessManager::storeBuffer(core::Buffer &buffer, vk::BufferUsageFlags
         .offset = 0,
         .range = VK_WHOLE_SIZE,
     };
-    descriptorBufferInfos.emplace_back(bufferInfo);
 
     vk::WriteDescriptorSet write{
         .dstSet = *descriptorSet,
         .dstArrayElement = newHandle,
         .descriptorCount = 1,
-        .pBufferInfo = &descriptorBufferInfos.back(),
+        .pBufferInfo = &bufferInfo,
     };
 
     if ((usage & vk::BufferUsageFlagBits::eUniformBuffer) == vk::BufferUsageFlagBits::eUniformBuffer)
@@ -131,9 +138,7 @@ uint32_t BindlessManager::storeBuffer(core::Buffer &buffer, vk::BufferUsageFlags
         write.setDescriptorType(vk::DescriptorType::eStorageBuffer);
     }
 
-    writeDescriptorSets.emplace_back(write);
-    device.getHandle().updateDescriptorSets(writeDescriptorSets, nullptr);
-    writeDescriptorSets.clear();
+    device.getHandle().updateDescriptorSets(write, nullptr);
     return newHandle;
 }
 
@@ -148,18 +153,52 @@ void BindlessManager::removeBuffer(uint32_t handle)
     freeHandles.emplace_back(handle);
 }
 
-void BindlessManager::updateDescriptorSet()
+uint32_t BindlessManager::storeImage(core::Image &image)
 {
-    //    return;
-    if (writeDescriptorSets.empty())
+    uint32_t newHandle;
+    if (!freeHandles.empty())
     {
-        return;
+        newHandle = freeHandles.back();
+        freeHandles.pop_back();
     }
-    device.getHandle().updateDescriptorSets(writeDescriptorSets, nullptr);
-    writeDescriptorSets.clear();
+    else
+    {
+        newHandle = images.size() + buffers.size();
+    }
+    images.emplace(newHandle, std::move(image));
+
+    vk::DescriptorImageInfo imageInfo{
+        .sampler = images.at(newHandle).getSampler(),
+        .imageView = images.at(newHandle).getImageView(vk::ImageAspectFlagBits::eColor),
+        .imageLayout = vk::ImageLayout::eShaderReadOnlyOptimal,
+    };
+
+    vk::WriteDescriptorSet write{
+        .dstSet = *descriptorSet,
+        .dstBinding = ImageSamplerBinding,
+        .dstArrayElement = newHandle,
+        .descriptorCount = 1,
+        .descriptorType = vk::DescriptorType::eCombinedImageSampler,
+        .pImageInfo = &imageInfo,
+    };
+
+    device.getHandle().updateDescriptorSets(write, nullptr);
+    return newHandle;
 }
 
-vk::PipelineLayout BindlessManager::getPipelineLayout() const
+void BindlessManager::updateImage(uint32_t handle, core::Image &newImage)
+{
+    removeImage(handle);
+    storeImage(newImage);
+}
+
+void BindlessManager::removeImage(uint32_t handle)
+{
+    images.erase(handle);
+    freeHandles.emplace_back(handle);
+}
+
+const vk::PipelineLayout &BindlessManager::getPipelineLayout() const
 {
 
     return *pipelineLayout;

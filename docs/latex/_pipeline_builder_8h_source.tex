@@ -12,42 +12,54 @@
 \DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \textcolor{comment}{//\ Forward\ declaration}}
 \DoxyCodeLine{00020\ \{}
 \DoxyCodeLine{00021\ \textcolor{keyword}{class\ }Device;}
-\DoxyCodeLine{00022\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}}
-\DoxyCodeLine{00025\ \{}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}}
-\DoxyCodeLine{00034\ \{}
-\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder_a104b05f2693f85ebbaf9448da568ad1d}{PipelineBuilder}}()\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder_a5cd95fb9296846b1ba5eb363d4ee7a11}{PipelineBuilder}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&)\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder_a5207316a4c2549bcd9c9130b2a147609}{PipelineBuilder}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&)\ =\ default;\ }
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&\&)\ =\ default;\ \ \ \ \ \ }
-\DoxyCodeLine{00041\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ Setters\ for\ each\ state\ of\ the\ pipeline}}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setShaderStageCreateInfos(const\ std::vector<vk::PipelineShaderStageCreateInfo>\ \&infos);}
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setVertexInputCreateInfo(const\ vk::PipelineVertexInputStateCreateInfo\ \&info);}
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setInputAssemblyCreateInfo(const\ vk::PipelineInputAssemblyStateCreateInfo\ \&info);}
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setPipelineViewportStateCreateInfo(const\ vk::PipelineViewportStateCreateInfo\ \&info);}
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setRasterizerCreateInfo(const\ vk::PipelineRasterizationStateCreateInfo\ \&info);}
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setMultisamplingCreateInfo(const\ vk::PipelineMultisampleStateCreateInfo\ \&info);}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setDepthStencilCreateInfo(const\ vk::PipelineDepthStencilStateCreateInfo\ \&info);}
-\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setColorBlendingCreateInfo(const\ vk::PipelineColorBlendStateCreateInfo\ \&info);}
-\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setDynamicStateCreateInfo(const\ vk::PipelineDynamicStateCreateInfo\ \&info);}
-\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setPipelineLayout(const\ vk::PipelineLayout\ \&layout);}
-\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setRenderPass(const\ vk::RenderPass\ \&pass);}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ core::Pipeline\ build(const\ core::Device\ \&device);}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ private:}
-\DoxyCodeLine{00059\ \ \ \ \ core::PipelineState\ state;}
-\DoxyCodeLine{00060\ \};}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_PIPELINEBUILDER\_H}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }Shader;}
+\DoxyCodeLine{00023\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder_a104b05f2693f85ebbaf9448da568ad1d}{PipelineBuilder}}()\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder_a5cd95fb9296846b1ba5eb363d4ee7a11}{PipelineBuilder}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&)\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder_a5207316a4c2549bcd9c9130b2a147609}{PipelineBuilder}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&)\ =\ default;\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&\&)\ =\ default;\ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}();\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Setters\ for\ each\ state\ of\ the\ pipeline}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setShaderStageCreateInfos(const\ core::Device\ \&device,\ core::Shader\ \&shader);}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setVertexInputCreateInfo(const\ vk::PipelineVertexInputStateCreateInfo\ \&info,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vk::VertexInputBindingDescription\ \&bindingDescription,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<vk::VertexInputAttributeDescription>\ \&attributeDescriptions);}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setInputAssemblyCreateInfo(const\ vk::PipelineInputAssemblyStateCreateInfo\ \&info);}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setPipelineViewportStateCreateInfo(const\ vk::PipelineViewportStateCreateInfo\ \&info);}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setRasterizerCreateInfo(const\ vk::PipelineRasterizationStateCreateInfo\ \&info);}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setMultisamplingCreateInfo(const\ vk::PipelineMultisampleStateCreateInfo\ \&info);}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setDepthStencilCreateInfo(const\ vk::PipelineDepthStencilStateCreateInfo\ \&info);}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setColorBlendingCreateInfo(const\ vk::PipelineColorBlendStateCreateInfo\ \&info,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vk::PipelineColorBlendAttachmentState\ \&attachment);}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setDynamicStateCreateInfo(const\ vk::PipelineDynamicStateCreateInfo\ \&info,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<vk::DynamicState>\ \&states);}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setPipelineLayout(const\ vk::PipelineLayout\ \&layout);}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{PipelineBuilder}}\ \&setRenderPass(const\ vk::RenderPass\ \&pass);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ core::Pipeline\ build(const\ core::Device\ \&device);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ private:}
+\DoxyCodeLine{00064\ \ \ \ \ core::PipelineState\ state;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ hold\ state\ for\ later\ Pipeline\ construction}}
+\DoxyCodeLine{00067\ \ \ \ \ std::shared\_ptr<core::Shader>\ pipelineShader;}
+\DoxyCodeLine{00068\ \ \ \ \ vk::PipelineColorBlendAttachmentState\ colorBlendAttachment;}
+\DoxyCodeLine{00069\ \ \ \ \ std::vector<vk::DynamicState>\ dynamicStates;}
+\DoxyCodeLine{00070\ \ \ \ \ vk::VertexInputBindingDescription\ vertexInputBindingDescription;}
+\DoxyCodeLine{00071\ \ \ \ \ std::vector<vk::VertexInputAttributeDescription>\ vertexInputAttributeDescriptions;}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_PIPELINEBUILDER\_H}}
 
 \end{DoxyCode}

@@ -9,57 +9,59 @@
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <entt/entt.hpp>}}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1core}{vkf::core}}\ \textcolor{comment}{//\ Forward\ declarations}}
 \DoxyCodeLine{00021\ \{}
-\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }BindlessManager;}
-\DoxyCodeLine{00023\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1scene}{vkf::scene}}}
-\DoxyCodeLine{00026\ \{}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}}
-\DoxyCodeLine{00036\ \{}
-\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}(entt::registry\ \&registry);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a4aaf40123d0fac85d3c66bcb326355ed}{Entity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a69439e29cb278ef396fce02b0f8fa2d0}{Entity}}(\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&)\ =\ delete;\ }
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
-\DoxyCodeLine{00051\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00058\ \ \ \ \ template\ <typename\ T,\ typename...\ Args>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a1bc0a85c543f15929a7bfe8844fb8523}{addComponent}}(Args\ \&\&...args)}
-\DoxyCodeLine{00059\ \ \ \ \ \{}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ assert(handle\ !=\ entt::null\ \&\&\ \textcolor{stringliteral}{"{}Entity\ is\ not\ valid"{}});}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ registry.emplace<T>(handle,\ std::forward<Args>(args)...);}
-\DoxyCodeLine{00062\ \ \ \ \ \}}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ T\ \&\mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a6da33b79e3aeea347d0218224fb9ea7c}{getComponent}}()}
-\DoxyCodeLine{00070\ \ \ \ \ \{}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ assert(handle\ !=\ entt::null\ \&\&\ \textcolor{stringliteral}{"{}Entity\ is\ not\ valid"{}});}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ registry.get<T>(handle);}
-\DoxyCodeLine{00073\ \ \ \ \ \}}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ create(std::string\ tag);}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ destroy();}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ [[nodiscard]]\ entt::entity\ getHandle()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_aa1872a0b038c309707c2b46cbf6e3b49}{setHandle}}(entt::entity\ handle);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_aa1872a0b038c309707c2b46cbf6e3b49}{setHandle}}(\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ entity);}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a4d69f1d7d0e91f0146f75647633889ff}{displayGui}}();}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }Device;}
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }RenderPass;}
+\DoxyCodeLine{00024\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }BindlessManager;}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }PipelineBuilder;}
+\DoxyCodeLine{00030\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1scene}{vkf::scene}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}(entt::registry\ \&registry);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a4aaf40123d0fac85d3c66bcb326355ed}{Entity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a69439e29cb278ef396fce02b0f8fa2d0}{Entity}}(\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}\ \&\&)\ noexcept;\ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}()\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ template\ <typename\ T,\ typename...\ Args>\ T\ \&\mbox{\hyperlink{classvkf_1_1scene_1_1_entity_ab573b8c086221633d578a624824f58f6}{addComponent}}(Args\ \&\&...args)}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ assert(handle\ !=\ entt::null\ \&\&\ \textcolor{stringliteral}{"{}Entity\ is\ not\ valid"{}});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ registry.emplace<T>(handle,\ std::forward<Args>(args)...);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ registry.get<T>(handle);}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ T\ \&\mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a6da33b79e3aeea347d0218224fb9ea7c}{getComponent}}()}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ assert(handle\ !=\ entt::null\ \&\&\ \textcolor{stringliteral}{"{}Entity\ is\ not\ valid"{}});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ registry.get<T>(handle);}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ [[nodiscard]]\ entt::entity\ getHandle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_aa1872a0b038c309707c2b46cbf6e3b49}{setHandle}}(entt::entity\ handle);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ create();}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ destroy();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00096\ \ \ \ \ entt::registry\ \&registry;}
+\DoxyCodeLine{00097\ \ \ \ \ entt::entity\ handle\{entt::null\};}
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
 \DoxyCodeLine{00101\ }
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity_a0baf81c1eae39d17621e92b45f17fb01}{updateComponents}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering::BindlessManager}}\ \&bindlessManager);}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00111\ \ \ \ \ entt::registry\ \&registry;}
-\DoxyCodeLine{00112\ \ \ \ \ entt::entity\ handle\{entt::null\};}
-\DoxyCodeLine{00113\ \};}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_ENTITY\_H}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_ENTITY\_H}}
 
 \end{DoxyCode}

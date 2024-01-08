@@ -85,16 +85,6 @@ $(function() {
  <a href="classvkf_1_1scene_1_1_entity.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_entity_8h_source.html">Entity.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for vkf::scene::Entity:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="classvkf_1_1scene_1_1_entity.png" usemap="#vkf::scene::Entity_map" alt=""/>
-  <map id="vkf::scene::Entity_map" name="vkf::scene::Entity_map">
-<area href="classvkf_1_1scene_1_1_cube.html" title="This class manages Cube entities." alt="vkf::scene::Cube" shape="rect" coords="0,56,121,80"/>
-<area href="classvkf_1_1scene_1_1_triangle.html" title="This class manages Triangle entities." alt="vkf::scene::Triangle" shape="rect" coords="131,56,252,80"/>
-  </map>
-</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -113,43 +103,34 @@ Public Member Functions</h2></td></tr>
 <a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &amp;)=delete</td></tr>
 <tr class="memdesc:aee202b70786e78091b4d603822f11e48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator. <br /></td></tr>
 <tr class="separator:aee202b70786e78091b4d603822f11e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a876f5e293b603ad2c1048bc1a23da8e1" id="r_a876f5e293b603ad2c1048bc1a23da8e1"><td class="memItemLeft" align="right" valign="top"><a id="a876f5e293b603ad2c1048bc1a23da8e1" name="a876f5e293b603ad2c1048bc1a23da8e1"></a>
-<a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a876f5e293b603ad2c1048bc1a23da8e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted move assignment operator. <br /></td></tr>
-<tr class="separator:a876f5e293b603ad2c1048bc1a23da8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8b6345077a9a5149adbbc3a05c2233e" id="r_ab8b6345077a9a5149adbbc3a05c2233e"><td class="memItemLeft" align="right" valign="top"><a id="ab8b6345077a9a5149adbbc3a05c2233e" name="ab8b6345077a9a5149adbbc3a05c2233e"></a>
+<a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &amp;&amp;) noexcept</td></tr>
+<tr class="memdesc:ab8b6345077a9a5149adbbc3a05c2233e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted move assignment operator. <br /></td></tr>
+<tr class="separator:ab8b6345077a9a5149adbbc3a05c2233e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc00bc3a4b7a6e90280e649572884bb8" id="r_adc00bc3a4b7a6e90280e649572884bb8"><td class="memItemLeft" align="right" valign="top"><a id="adc00bc3a4b7a6e90280e649572884bb8" name="adc00bc3a4b7a6e90280e649572884bb8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~Entity</b> ()=default</td></tr>
 <tr class="memdesc:adc00bc3a4b7a6e90280e649572884bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
 <tr class="separator:adc00bc3a4b7a6e90280e649572884bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bc0a85c543f15929a7bfe8844fb8523" id="r_a1bc0a85c543f15929a7bfe8844fb8523"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
-<tr class="memitem:a1bc0a85c543f15929a7bfe8844fb8523"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvkf_1_1scene_1_1_entity.html#a1bc0a85c543f15929a7bfe8844fb8523">addComponent</a> (Args &amp;&amp;...args)</td></tr>
-<tr class="memdesc:a1bc0a85c543f15929a7bfe8844fb8523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to add a component to an entity.  <br /></td></tr>
-<tr class="separator:a1bc0a85c543f15929a7bfe8844fb8523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab573b8c086221633d578a624824f58f6" id="r_ab573b8c086221633d578a624824f58f6"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
+<tr class="memitem:ab573b8c086221633d578a624824f58f6"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvkf_1_1scene_1_1_entity.html#ab573b8c086221633d578a624824f58f6">addComponent</a> (Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:ab573b8c086221633d578a624824f58f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to add a component to an entity.  <br /></td></tr>
+<tr class="separator:ab573b8c086221633d578a624824f58f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6da33b79e3aeea347d0218224fb9ea7c" id="r_a6da33b79e3aeea347d0218224fb9ea7c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a6da33b79e3aeea347d0218224fb9ea7c"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvkf_1_1scene_1_1_entity.html#a6da33b79e3aeea347d0218224fb9ea7c">getComponent</a> ()</td></tr>
 <tr class="memdesc:a6da33b79e3aeea347d0218224fb9ea7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to get a component from an entity.  <br /></td></tr>
 <tr class="separator:a6da33b79e3aeea347d0218224fb9ea7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a829723c9ecec6e9f6ce1f5fec927790e" id="r_a829723c9ecec6e9f6ce1f5fec927790e"><td class="memItemLeft" align="right" valign="top"><a id="a829723c9ecec6e9f6ce1f5fec927790e" name="a829723c9ecec6e9f6ce1f5fec927790e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (std::string tag)</td></tr>
-<tr class="separator:a829723c9ecec6e9f6ce1f5fec927790e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedcad49043b3ee40cc45984e3973f514" id="r_aedcad49043b3ee40cc45984e3973f514"><td class="memItemLeft" align="right" valign="top"><a id="aedcad49043b3ee40cc45984e3973f514" name="aedcad49043b3ee40cc45984e3973f514"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></tr>
-<tr class="separator:aedcad49043b3ee40cc45984e3973f514"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d8f2b34ec2650711fb60a4ba5f5be22" id="r_a1d8f2b34ec2650711fb60a4ba5f5be22"><td class="memItemLeft" align="right" valign="top"><a id="a1d8f2b34ec2650711fb60a4ba5f5be22" name="a1d8f2b34ec2650711fb60a4ba5f5be22"></a>
 entt::entity&#160;</td><td class="memItemRight" valign="bottom"><b>getHandle</b> () const</td></tr>
 <tr class="separator:a1d8f2b34ec2650711fb60a4ba5f5be22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1872a0b038c309707c2b46cbf6e3b49" id="r_aa1872a0b038c309707c2b46cbf6e3b49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1scene_1_1_entity.html#aa1872a0b038c309707c2b46cbf6e3b49">setHandle</a> (entt::entity handle)</td></tr>
 <tr class="memdesc:aa1872a0b038c309707c2b46cbf6e3b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set the handle of an entity.  <br /></td></tr>
 <tr class="separator:aa1872a0b038c309707c2b46cbf6e3b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9969ca3593e4aab0fc5d5a156b68941d" id="r_a9969ca3593e4aab0fc5d5a156b68941d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1scene_1_1_entity.html#a9969ca3593e4aab0fc5d5a156b68941d">setHandle</a> (<a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> entity)</td></tr>
-<tr class="memdesc:a9969ca3593e4aab0fc5d5a156b68941d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set the handle of an entity.  <br /></td></tr>
-<tr class="separator:a9969ca3593e4aab0fc5d5a156b68941d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d69f1d7d0e91f0146f75647633889ff" id="r_a4d69f1d7d0e91f0146f75647633889ff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1scene_1_1_entity.html#a4d69f1d7d0e91f0146f75647633889ff">displayGui</a> ()</td></tr>
-<tr class="memdesc:a4d69f1d7d0e91f0146f75647633889ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to display the GUI for an entity.  <br /></td></tr>
-<tr class="separator:a4d69f1d7d0e91f0146f75647633889ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0baf81c1eae39d17621e92b45f17fb01" id="r_a0baf81c1eae39d17621e92b45f17fb01"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1scene_1_1_entity.html#a0baf81c1eae39d17621e92b45f17fb01">updateComponents</a> (<a class="el" href="classvkf_1_1rendering_1_1_bindless_manager.html">rendering::BindlessManager</a> &amp;bindlessManager)</td></tr>
-<tr class="memdesc:a0baf81c1eae39d17621e92b45f17fb01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to update the components of an entity.  <br /></td></tr>
-<tr class="separator:a0baf81c1eae39d17621e92b45f17fb01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83f5336f538f371021cb1dc79876ea1c" id="r_a83f5336f538f371021cb1dc79876ea1c"><td class="memItemLeft" align="right" valign="top"><a id="a83f5336f538f371021cb1dc79876ea1c" name="a83f5336f538f371021cb1dc79876ea1c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> ()</td></tr>
+<tr class="separator:a83f5336f538f371021cb1dc79876ea1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedcad49043b3ee40cc45984e3973f514" id="r_aedcad49043b3ee40cc45984e3973f514"><td class="memItemLeft" align="right" valign="top"><a id="aedcad49043b3ee40cc45984e3973f514" name="aedcad49043b3ee40cc45984e3973f514"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></tr>
+<tr class="separator:aedcad49043b3ee40cc45984e3973f514"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -200,8 +181,8 @@ entt::entity&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b> {e
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1bc0a85c543f15929a7bfe8844fb8523" name="a1bc0a85c543f15929a7bfe8844fb8523"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bc0a85c543f15929a7bfe8844fb8523">&#9670;&#160;</a></span>addComponent()</h2>
+<a id="ab573b8c086221633d578a624824f58f6" name="ab573b8c086221633d578a624824f58f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab573b8c086221633d578a624824f58f6">&#9670;&#160;</a></span>addComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,7 +193,7 @@ template&lt;typename T , typename... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void vkf::scene::Entity::addComponent </td>
+          <td class="memname">T &amp; vkf::scene::Entity::addComponent </td>
           <td>(</td>
           <td class="paramtype">Args &amp;&amp;...&#160;</td>
           <td class="paramname"><em>args</em></td><td>)</td>
@@ -228,36 +209,6 @@ template&lt;typename T , typename... Args&gt; </div>
 
 <p>Method to add a component to an entity. </p>
 <p>This method takes the type of the component and its arguments, and adds the component to the entity. </p>
-
-</div>
-</div>
-<a id="a4d69f1d7d0e91f0146f75647633889ff" name="a4d69f1d7d0e91f0146f75647633889ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d69f1d7d0e91f0146f75647633889ff">&#9670;&#160;</a></span>displayGui()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vkf::scene::Entity::displayGui </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Method to display the GUI for an entity. </p>
-<p>This method is intended to be overridden by subclasses to display the GUI for an entity. It is only used if the Gui Class is used. </p>
-
-<p>Reimplemented in <a class="el" href="classvkf_1_1scene_1_1_cube.html#ac034f8cbafd650a05b4abe45b8fbfc88">vkf::scene::Cube</a>, and <a class="el" href="classvkf_1_1scene_1_1_triangle.html#a6eae0d0d3af4f2a6281146acecc9ffb7">vkf::scene::Triangle</a>.</p>
 
 </div>
 </div>
@@ -291,34 +242,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a9969ca3593e4aab0fc5d5a156b68941d" name="a9969ca3593e4aab0fc5d5a156b68941d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9969ca3593e4aab0fc5d5a156b68941d">&#9670;&#160;</a></span>setHandle() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vkf::scene::Entity::setHandle </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a>&#160;</td>
-          <td class="paramname"><em>entity</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Method to set the handle of an entity. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">entity</td><td>The entity to use for setting the handle of the entity. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="aa1872a0b038c309707c2b46cbf6e3b49" name="aa1872a0b038c309707c2b46cbf6e3b49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1872a0b038c309707c2b46cbf6e3b49">&#9670;&#160;</a></span>setHandle() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1872a0b038c309707c2b46cbf6e3b49">&#9670;&#160;</a></span>setHandle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,37 +265,6 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a0baf81c1eae39d17621e92b45f17fb01" name="a0baf81c1eae39d17621e92b45f17fb01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0baf81c1eae39d17621e92b45f17fb01">&#9670;&#160;</a></span>updateComponents()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void vkf::scene::Entity::updateComponents </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classvkf_1_1rendering_1_1_bindless_manager.html">rendering::BindlessManager</a> &amp;&#160;</td>
-          <td class="paramname"><em>bindlessManager</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Method to update the components of an entity. </p>
-<p>This method is intended to be overridden by subclasses to update the components of an entity. It is only used if the Gui Class is used. </p>
-
-<p>Reimplemented in <a class="el" href="classvkf_1_1scene_1_1_cube.html#a28057deb41adcb00430d274edb1ebf3b">vkf::scene::Cube</a>, and <a class="el" href="classvkf_1_1scene_1_1_triangle.html#a06bb0b83ea3185a4e60531609fd90d3b">vkf::scene::Triangle</a>.</p>
 
 </div>
 </div>

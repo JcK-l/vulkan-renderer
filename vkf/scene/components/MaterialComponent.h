@@ -41,50 +41,27 @@ struct MaterialComponent
     }
 
     ///
-    /// \brief Method to add a buffer.
+    /// \brief Method to add a uniform.
     ///
-    /// This method takes a buffer name and an index, and adds them to the buffer map. If the index is within the
-    /// maximum size, it also adds the index to the indices array and increments the current buffer count.
+    /// This method takes a uniform name and an index, and adds them to the uniform map.
+    /// It also adds the index to the indices array and increments the current uniform count.
     ///
-    void addBuffer(const std::string &bufferName, uint32_t index)
-    {
-        bufferMap[bufferName] = index;
-        if (index < maxSize)
-        {
-            indices[currentBufferCount] = index;
-            currentBufferCount++;
-        }
-        else
-        {
-            // Handle error: index is out of bounds
-        }
-    }
+    void addUniform(const std::string &uniformName, uint32_t index);
 
     ///
-    /// \brief Method to get a buffer index.
+    /// \brief Method to get a uniform index.
     ///
-    /// This method takes a buffer name and returns its index from the buffer map. If the buffer name is not found in
+    /// This method takes a uniform name and returns its index from the uniform map. If the uniform name is not found in
     /// the map, it handles the error and returns -1.
     ///
-    uint32_t getBufferIndex(const std::string &bufferName)
-    {
-        auto it = bufferMap.find(bufferName);
-        if (it != bufferMap.end())
-        {
-            return it->second;
-        }
-        else
-        {
-            // Handle error: bufferName not found in the map
-            return -1;
-        }
-    }
+    uint32_t getUniformIndex(const std::string &uniformName);
 
     static constexpr uint32_t maxSize{32};
-    uint32_t indices[maxSize];
+    std::array<uint32_t, maxSize> indices;
     core::Pipeline *pipeline;
-    std::unordered_map<std::string, uint32_t> bufferMap; ///< Map to store buffer names and their indices
-    uint32_t currentBufferCount{0};
+    std::unordered_map<std::string, uint32_t> uniformMap; ///< Map to store buffer names and their indices
+
+    uint32_t currentUniformCount{0};
 };
 
 } // namespace vkf::scene

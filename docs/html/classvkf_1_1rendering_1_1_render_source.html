@@ -100,18 +100,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a623406819493af0cb8a5191f16d1dd49" id="r_a623406819493af0cb8a5191f16d1dd49"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_source.html#a623406819493af0cb8a5191f16d1dd49">~RenderSource</a> ()=default</td></tr>
 <tr class="memdesc:a623406819493af0cb8a5191f16d1dd49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classvkf_1_1rendering_1_1_render_source.html" title="This abstract class provides an interface for managing Vulkan rendering operations.">RenderSource</a> class.  <br /></td></tr>
 <tr class="separator:a623406819493af0cb8a5191f16d1dd49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bab8473e4fe89b408a33afcd0611d22" id="r_a0bab8473e4fe89b408a33afcd0611d22"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; vk::ImageView &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_source.html#a0bab8473e4fe89b408a33afcd0611d22">getImageViews</a> () const =0</td></tr>
-<tr class="memdesc:a0bab8473e4fe89b408a33afcd0611d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to get the image views.  <br /></td></tr>
+<tr class="memitem:a0bab8473e4fe89b408a33afcd0611d22" id="r_a0bab8473e4fe89b408a33afcd0611d22"><td class="memItemLeft" align="right" valign="top"><a id="a0bab8473e4fe89b408a33afcd0611d22" name="a0bab8473e4fe89b408a33afcd0611d22"></a>
+virtual std::vector&lt; vk::ImageView &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getImageViews</b> () const =0</td></tr>
 <tr class="separator:a0bab8473e4fe89b408a33afcd0611d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa80a3fc362a63a72597924d5534c41f5" id="r_aa80a3fc362a63a72597924d5534c41f5"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_source.html#aa80a3fc362a63a72597924d5534c41f5">getImageCount</a> () const =0</td></tr>
-<tr class="memdesc:aa80a3fc362a63a72597924d5534c41f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to get the image count.  <br /></td></tr>
+<tr class="memitem:aa80a3fc362a63a72597924d5534c41f5" id="r_aa80a3fc362a63a72597924d5534c41f5"><td class="memItemLeft" align="right" valign="top"><a id="aa80a3fc362a63a72597924d5534c41f5" name="aa80a3fc362a63a72597924d5534c41f5"></a>
+virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getImageCount</b> () const =0</td></tr>
 <tr class="separator:aa80a3fc362a63a72597924d5534c41f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9b1ade53ea2036ee100c0cc6c8b56ca" id="r_aa9b1ade53ea2036ee100c0cc6c8b56ca"><td class="memItemLeft" align="right" valign="top">virtual vk::Extent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_source.html#aa9b1ade53ea2036ee100c0cc6c8b56ca">getExtent</a> () const =0</td></tr>
-<tr class="memdesc:aa9b1ade53ea2036ee100c0cc6c8b56ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to get the extent.  <br /></td></tr>
+<tr class="memitem:aa9b1ade53ea2036ee100c0cc6c8b56ca" id="r_aa9b1ade53ea2036ee100c0cc6c8b56ca"><td class="memItemLeft" align="right" valign="top"><a id="aa9b1ade53ea2036ee100c0cc6c8b56ca" name="aa9b1ade53ea2036ee100c0cc6c8b56ca"></a>
+virtual vk::Extent2D&#160;</td><td class="memItemRight" valign="bottom"><b>getExtent</b> () const =0</td></tr>
 <tr class="separator:aa9b1ade53ea2036ee100c0cc6c8b56ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12bcc5c2e991feadfa469faa44a0f2ea" id="r_a12bcc5c2e991feadfa469faa44a0f2ea"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1rendering_1_1_render_source.html#a12bcc5c2e991feadfa469faa44a0f2ea">resetChanged</a> ()=0</td></tr>
-<tr class="memdesc:a12bcc5c2e991feadfa469faa44a0f2ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to get the extent.  <br /></td></tr>
+<tr class="memdesc:a12bcc5c2e991feadfa469faa44a0f2ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to check if the render source has changed.  <br /></td></tr>
 <tr class="separator:a12bcc5c2e991feadfa469faa44a0f2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f051ba4b4600e764d83542033f8026" id="r_a23f051ba4b4600e764d83542033f8026"><td class="memItemLeft" align="right" valign="top"><a id="a23f051ba4b4600e764d83542033f8026" name="a23f051ba4b4600e764d83542033f8026"></a>
+virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getFrameIndex</b> ()=0</td></tr>
+<tr class="separator:a23f051ba4b4600e764d83542033f8026"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This abstract class provides an interface for managing Vulkan rendering operations. </p>
@@ -146,99 +149,6 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa9b1ade53ea2036ee100c0cc6c8b56ca" name="aa9b1ade53ea2036ee100c0cc6c8b56ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9b1ade53ea2036ee100c0cc6c8b56ca">&#9670;&#160;</a></span>getExtent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual vk::Extent2D vkf::rendering::RenderSource::getExtent </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pure virtual method to get the extent. </p>
-<p>This method is intended to be overridden by subclasses to return the extent.</p>
-<dl class="section return"><dt>Returns</dt><dd>The extent. </dd></dl>
-
-<p>Implemented in <a class="el" href="classvkf_1_1core_1_1_swapchain.html#a871c746bee950535fa517cf8cc8a9054">vkf::core::Swapchain</a>, and <a class="el" href="classvkf_1_1platform_1_1_gui.html#a8f2b0f035d9f21a99fa77a00026e7bf0">vkf::platform::Gui</a>.</p>
-
-</div>
-</div>
-<a id="aa80a3fc362a63a72597924d5534c41f5" name="aa80a3fc362a63a72597924d5534c41f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa80a3fc362a63a72597924d5534c41f5">&#9670;&#160;</a></span>getImageCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual uint32_t vkf::rendering::RenderSource::getImageCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pure virtual method to get the image count. </p>
-<p>This method is intended to be overridden by subclasses to return the image count.</p>
-<dl class="section return"><dt>Returns</dt><dd>The image count. </dd></dl>
-
-<p>Implemented in <a class="el" href="classvkf_1_1core_1_1_swapchain.html#a21e68e05c5139066180c1c3481038f6b">vkf::core::Swapchain</a>, and <a class="el" href="classvkf_1_1platform_1_1_gui.html#afbb146ad89919d6f62e88ecf7395e613">vkf::platform::Gui</a>.</p>
-
-</div>
-</div>
-<a id="a0bab8473e4fe89b408a33afcd0611d22" name="a0bab8473e4fe89b408a33afcd0611d22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bab8473e4fe89b408a33afcd0611d22">&#9670;&#160;</a></span>getImageViews()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual std::vector&lt; vk::ImageView &gt; vkf::rendering::RenderSource::getImageViews </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pure virtual method to get the image views. </p>
-<p>This method is intended to be overridden by subclasses to return a vector of image views.</p>
-<dl class="section return"><dt>Returns</dt><dd>A vector of image views. </dd></dl>
-
-<p>Implemented in <a class="el" href="classvkf_1_1core_1_1_swapchain.html#a11706d634bc9f6358839c4402846c96a">vkf::core::Swapchain</a>, and <a class="el" href="classvkf_1_1platform_1_1_gui.html#a196cf80a8c1411ff1c53824ab5847210">vkf::platform::Gui</a>.</p>
-
-</div>
-</div>
 <a id="a12bcc5c2e991feadfa469faa44a0f2ea" name="a12bcc5c2e991feadfa469faa44a0f2ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12bcc5c2e991feadfa469faa44a0f2ea">&#9670;&#160;</a></span>resetChanged()</h2>
 
@@ -262,9 +172,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Pure virtual method to get the extent. </p>
-<p>This method is intended to be overridden by subclasses to return the extent.</p>
-<dl class="section return"><dt>Returns</dt><dd>The extent. </dd></dl>
+<p>Method to check if the render source has changed. </p>
+<p>This method returns true if the render source has changed. It toggles the changed flag to false.</p>
+<dl class="section return"><dt>Returns</dt><dd>A boolean indicating whether or not the render source has changed. </dd></dl>
 
 <p>Implemented in <a class="el" href="classvkf_1_1core_1_1_swapchain.html#a9b4659de2d3f5f68b9ca4afbc3d7082c">vkf::core::Swapchain</a>, and <a class="el" href="classvkf_1_1platform_1_1_gui.html#a396ec808f104928426657b39f9ac46e7">vkf::platform::Gui</a>.</p>
 

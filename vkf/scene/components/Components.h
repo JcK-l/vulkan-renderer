@@ -17,7 +17,12 @@
 
 #include "ColorComponent.h"
 #include "MaterialComponent.h"
+#include "MeshComponent.h"
+#include "ParentComponent.h"
+#include "PrefabComponent.h"
+#include "SelectComponent.h"
 #include "TagComponent.h"
+#include "TextureComponent.h"
 #include "TransformComponent.h"
 
 #endif // VULKANRENDERER_COMPONENTS_H

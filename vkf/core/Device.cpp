@@ -13,6 +13,7 @@
 
 #include "Device.h"
 #include "../common/Log.h"
+#include "CommandPool.h"
 #include "Instance.h"
 #include "PhysicalDevice.h"
 
@@ -63,6 +64,15 @@ Device::Device(Instance &instance, vk::raii::SurfaceKHR &surface, const std::vec
     createQueues();
 
     createVmaAllocator(instance, gpu);
+
+    // This commandPool could use an exclusive transfer queue instead. But that would require queue ownership transfer
+    commandPool = std::make_unique<CommandPool>(
+        *this,
+        vk::CommandPoolCreateInfo{
+            .flags = vk::CommandPoolCreateFlags{vk::CommandPoolCreateFlagBits::eResetCommandBuffer},
+            .queueFamilyIndex = getQueueWithFlags(0, vk::QueueFlagBits::eGraphics, vk::QueueFlags()).getFamilyIndex()});
+
+    commandBuffers = commandPool->requestCommandBuffers(vk::CommandBufferLevel::ePrimary, 1).second;
 }
 
 Device::~Device()
@@ -222,6 +232,11 @@ const vk::raii::Device &Device::getHandle() const
 const PhysicalDevice &Device::getPhysicalDevice() const
 {
     return gpu;
+}
+
+vk::raii::CommandBuffers *Device::getCommandBuffers() const
+{
+    return commandBuffers;
 }
 
 Queue const &Device::getQueue(uint32_t queueIndex, uint32_t familyIndex) const

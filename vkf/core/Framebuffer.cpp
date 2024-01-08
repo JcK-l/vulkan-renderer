@@ -24,7 +24,6 @@ Framebuffer::Framebuffer(const Device &device, const RenderPass &renderPass,
                          const std::vector<vk::ImageView> &attachments, const vk::Extent2D &extent)
 {
     handle = vk::raii::Framebuffer{device.getHandle(), vk::FramebufferCreateInfo{
-                                                           .flags = vk::FramebufferCreateFlags{},
                                                            .renderPass = *renderPass.getHandle(),
                                                            .attachmentCount = static_cast<uint32_t>(attachments.size()),
                                                            .pAttachments = attachments.data(),

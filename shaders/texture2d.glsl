@@ -3,16 +3,10 @@
 #extension GL_ARB_separate_shader_objects : enable
 #extension GL_EXT_nonuniform_qualifier : enable
 
-out gl_PerVertex {
-    vec4 gl_Position;
-};
+layout(location = 0) in vec2 positions;
+layout(location = 1) in vec2 texCoords;
 
-
-vec2 positions[3] = vec2[](
-vec2(0.0, -0.5),
-vec2(0.5, 0.5),
-vec2(-0.5, 0.5)
-);
+layout (location = 0) out vec2 outTexCoords;
 
 const int MAX_SIZE = 32;
 
@@ -28,11 +22,12 @@ layout(set = 0, binding = 0) uniform ViewMatrix {
     mat4 viewMatrix;
 } view[];
 
-uint modelIndex = push.indices[2];
-uint viewIndex = push.indices[0];
+mat4 modelMatrix = model[push.indices[1]].modelMatrix;
+mat4 viewMatrix = view[push.indices[0]].viewMatrix;
 
 void main() {
-    gl_Position = view[viewIndex].viewMatrix * model[modelIndex].modelMatrix * vec4(positions[gl_VertexIndex], 0.0, 1.0);
+    gl_Position = viewMatrix * modelMatrix * vec4(positions, 0.0, 1.0);
+    outTexCoords = texCoords;
 }
 
 // shader:fragment
@@ -46,14 +41,12 @@ layout(push_constant) uniform PushConstants {
     uint indices[MAX_SIZE];
 } push;
 
-uint colorIndex = push.indices[1];
+layout(set = 0, binding = 2) uniform sampler2D textures[];
 
-layout(set = 0, binding = 0) uniform UniformBufferObject {
-    vec4 color;
-} ubo[];
+layout(location = 0) in vec2 inTexCoords;
 
 layout(location = 0) out vec4 outColor;
 
 void main() {
-    outColor = ubo[colorIndex].color;
+    outColor = texture(textures[push.indices[2]], inTexCoords);
 }

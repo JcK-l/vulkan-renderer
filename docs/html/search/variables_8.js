@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['type_0',['type',['../structvkf_1_1_event.html#a3a9260026f5181813e8cb931e1574b23',1,'vkf::Event']]],
-  ['typemap_1',['typeMap',['../classvkf_1_1core_1_1_shader.html#a0e594f062278001b07b2b0ef4a7a2ec6',1,'vkf::core::Shader']]]
+  ['storagebinding_0',['StorageBinding',['../classvkf_1_1rendering_1_1_bindless_manager.html#a7ad4862141b0701a9cde1d858e46867e',1,'vkf::rendering::BindlessManager']]],
+  ['storagecount_1',['StorageCount',['../classvkf_1_1rendering_1_1_bindless_manager.html#a5fe41033aa647d0c6add913c52e7f6ac',1,'vkf::rendering::BindlessManager']]]
 ];

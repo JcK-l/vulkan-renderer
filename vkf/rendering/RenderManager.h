@@ -66,7 +66,7 @@ class RenderManager
     RenderManager &operator=(RenderManager &&) = delete;      ///< Deleted move assignment operator
     ~RenderManager(); ///< Implementation in RenderManager.cpp because of std::unique_ptr forward declaration
 
-    uint32_t beginFrame();
+    void beginFrame();
     void endFrame();
 
     void render();

@@ -6,14 +6,11 @@ This file declares the Prefab\+Factory class, which is used to create prefabrica
 
 
 {\ttfamily \#include "{}Cube.\+h"{}}\newline
-{\ttfamily \#include "{}Triangle.\+h"{}}\newline
+{\ttfamily \#include "{}Prefab\+Type.\+h"{}}\newline
+{\ttfamily \#include "{}Texture2\+D.\+h"{}}\newline
 {\ttfamily \#include $<$entt/entt.\+hpp$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits_3_01_cube_01_4}{vkf\+::scene\+::\+Prefab\+Traits$<$ Cube $>$}}
-\item 
-struct \mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits_3_01_triangle_01_4}{vkf\+::scene\+::\+Prefab\+Traits$<$ Triangle $>$}}
 \item 
 class \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory}{vkf\+::scene\+::\+Prefab\+Factory}}
 \begin{DoxyCompactList}\small\item\em This class is used to create prefabricated entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -28,15 +25,6 @@ namespace \mbox{\hyperlink{namespacevkf_1_1rendering}{vkf\+::rendering}}
 \begin{DoxyCompactList}\small\item\em The rendering namespace contains classes and functions for rendering operations. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespacevkf_1_1scene}{vkf\+::scene}}
 \begin{DoxyCompactList}\small\item\em The scene namespace contains classes and functions for scene management. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Enumerations}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}\label{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5} 
-enum class \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{vkf\+::scene\+::\+Prefab\+Type}} \{ {\bfseries Cube}
-, {\bfseries Triangle}
-, {\bfseries Custom}
- \}
-\begin{DoxyCompactList}\small\item\em Enumerates the types of prefabricated entities that can be created. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

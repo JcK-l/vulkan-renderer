@@ -14,9 +14,7 @@
 #ifndef VULKANRENDERER_COLORCOMPONENT_H
 #define VULKANRENDERER_COLORCOMPONENT_H
 
-#include "imgui.h"
-#include <glm/glm.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include <glm/vec4.hpp>
 
 namespace vkf::scene
 {
@@ -39,11 +37,9 @@ struct ColorComponent
     {
     }
 
-    void displayGui()
-    {
-        // Display color
-        ImGui::ColorEdit4("Color Picker", glm::value_ptr(color));
-    }
+    void displayGui();
+
+    void setColor(glm::vec4 color);
 
     glm::vec4 color;
 };

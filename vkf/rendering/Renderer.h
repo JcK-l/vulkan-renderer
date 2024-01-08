@@ -75,7 +75,7 @@ class Renderer
     ~Renderer();                                    ///< Destructor for the Renderer class
 
     [[nodiscard]] core::RenderPass *getRenderPass() const;
-    [[nodiscard]] vk::RenderPassBeginInfo getRenderPassBeginInfo(uint32_t imageIndex) const;
+    [[nodiscard]] vk::RenderPassBeginInfo getRenderPassBeginInfo() const;
     [[nodiscard]] vk::Extent2D getFramebufferExtent() const;
 
     void addRenderSubstage(std::unique_ptr<RenderSubstage> renderSubstage);
@@ -101,7 +101,7 @@ class Renderer
     vk::Extent2D framebufferExtent;
 
     std::vector<core::Image> depthImages;
-    std::vector<vk::raii::ImageView> depthImageViews;
+    std::vector<vk::ImageView> depthImageViews;
 
     std::shared_ptr<RenderSource> renderSource;
 };

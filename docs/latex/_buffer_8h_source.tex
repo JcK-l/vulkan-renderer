@@ -33,24 +33,26 @@
 \DoxyCodeLine{00062\ }
 \DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ updateData(const\ \textcolor{keywordtype}{void}\ *data,\ const\ uint32\_t\ size,\ const\ uint32\_t\ offset);}
 \DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ [[nodiscard]]\ vk::\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ getBuffer()\ const;}
-\DoxyCodeLine{00066\ \ \ \ \ [[nodiscard]]\ uint32\_t\ getSize()\ const;}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \ \ private:}
-\DoxyCodeLine{00069\ \ \ \ \ const\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ persistentMapped\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ mapped\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ *mappedData\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer_a6629f2ec5e8c4932e110c6d70785efd5}{copyBuffer}}(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&srcBuffer);}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ uint32\_t\ size\{0\};}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \ \ VmaAllocation\ allocation;}
-\DoxyCodeLine{00078\ \ \ \ \ VkBuffer\ handle;}
-\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00075\ \ \ \ \ [[nodiscard]]\ vk::\mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ getBuffer()\ const;}
+\DoxyCodeLine{00076\ \ \ \ \ [[nodiscard]]\ uint32\_t\ getSize()\ const;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ private:}
+\DoxyCodeLine{00079\ \ \ \ \ const\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
 \DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_BUFFER\_H}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ persistentMapped\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ mapped\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ *mappedData\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ uint32\_t\ size\{0\};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ VmaAllocation\ allocation;}
+\DoxyCodeLine{00088\ \ \ \ \ VkBuffer\ handle;}
+\DoxyCodeLine{00089\ \};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_BUFFER\_H}}
 
 \end{DoxyCode}

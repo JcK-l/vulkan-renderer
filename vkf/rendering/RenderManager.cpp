@@ -39,13 +39,19 @@ RenderManager::RenderManager(const core::Device &device, platform::Window &windo
 
 RenderManager::~RenderManager() = default;
 
-uint32_t RenderManager::beginFrame()
+void RenderManager::beginFrame()
 {
 
     device.getHandle().waitForFences(frameData[activeFrame]->getFences(), VK_TRUE,
                                      std::numeric_limits<uint64_t>::max());
 
+    if (window.isResized())
+    {
+        recreateSwapchain();
+    }
+
     auto [result, value] = swapchain->acquireNextImage(frameData[activeFrame]->getSemaphore(0));
+
     switch (result)
     {
     case vk::Result::eSuccess:
@@ -53,9 +59,19 @@ uint32_t RenderManager::beginFrame()
         break;
     case vk::Result::eSuboptimalKHR:
         LOG_DEBUG("Acquired next image: {} (suboptimal)", value)
-        frameData[activeFrame]->refreshSemaphore(0);
         if (recreateSwapchain())
+        {
+            frameData[activeFrame]->refreshSemaphore(0);
             value = swapchain->acquireNextImage(frameData[activeFrame]->getSemaphore(0)).second;
+        }
+        break;
+    case vk::Result::eErrorOutOfDateKHR:
+        LOG_DEBUG("Acquired next image: {} (out of date)", value)
+        if (recreateSwapchain())
+        {
+            frameData[activeFrame]->refreshSemaphore(0);
+            value = swapchain->acquireNextImage(frameData[activeFrame]->getSemaphore(0)).second;
+        }
         break;
     default:
         LOG_ERROR("Acquired next image: {} (error)", value)
@@ -67,8 +83,6 @@ uint32_t RenderManager::beginFrame()
 
     frameActive = true;
     device.getHandle().resetFences(frameData[activeFrame]->getFences());
-
-    return value;
 }
 
 void RenderManager::endFrame()
@@ -85,29 +99,22 @@ void RenderManager::endFrame()
                                                    .pImageIndices = &imageIndex,
                                                    .pResults = nullptr});
 
-    if (window.isResized())
+    switch (result)
     {
+    case vk::Result::eSuccess:
+        //        LOG_DEBUG("Presented image: {}", value)
+        break;
+    case vk::Result::eSuboptimalKHR:
+        //            LOG_DEBUG("Presented image: {} (suboptimal)", activeFrame)
         recreateSwapchain();
-    }
-    else
-    {
-        switch (result)
-        {
-        case vk::Result::eSuccess:
-            //        LOG_DEBUG("Presented image: {}", value)
-            break;
-        case vk::Result::eSuboptimalKHR:
-            LOG_DEBUG("Presented image: {} (suboptimal)", activeFrame)
-            recreateSwapchain();
-            break;
-        case vk::Result::eErrorOutOfDateKHR:
-            LOG_DEBUG("Presented image: {} (out of date)", activeFrame)
-            recreateSwapchain();
-            break;
-        default:
-            LOG_ERROR("Presented image: {} (error)", activeFrame)
-            throw std::runtime_error{"Failed to present image"};
-        }
+        break;
+    case vk::Result::eErrorOutOfDateKHR:
+        //            LOG_DEBUG("Presented image: {} (out of date)", activeFrame)
+        recreateSwapchain();
+        break;
+    default:
+        LOG_ERROR("Presented image: {} (error)", activeFrame)
+        throw std::runtime_error{"Failed to present image"};
     }
 
     frameActive = false;
@@ -121,7 +128,7 @@ void RenderManager::beginRenderPass(Renderer &renderer, uint32_t currentRenderPa
     activeCommandBuffers->at(currentRenderPass)
         .begin(vk::CommandBufferBeginInfo{.flags = vk::CommandBufferUsageFlagBits::eOneTimeSubmit});
     activeCommandBuffers->at(currentRenderPass)
-        .beginRenderPass(renderer.getRenderPassBeginInfo(imageIndex), vk::SubpassContents::eInline);
+        .beginRenderPass(renderer.getRenderPassBeginInfo(), vk::SubpassContents::eInline);
 }
 
 void RenderManager::endRenderPass(uint32_t currentRenderPass)

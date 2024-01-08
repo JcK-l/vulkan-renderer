@@ -35,10 +35,14 @@ void \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a6ffab2b51e1961
 \begin{DoxyCompactList}\small\item\em Method to update a buffer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_ac747f3fc736c5d04d30dba7948f7a87a}{remove\+Buffer}} (uint32\+\_\+t handle)
 \begin{DoxyCompactList}\small\item\em Method to remove a buffer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a0b174f73071a8b847282fdb4dcdc6f5d}{update\+Descriptor\+Set}} ()
-\begin{DoxyCompactList}\small\item\em Method to update descriptor set. \end{DoxyCompactList}\item 
-\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a6d17da6f751be457f9de11b385a30ad8}\label{classvkf_1_1rendering_1_1_bindless_manager_a6d17da6f751be457f9de11b385a30ad8} 
-vk\+::\+Pipeline\+Layout {\bfseries get\+Pipeline\+Layout} () const
+uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a02ed7f7ed1a009bd59209b80d28b8aff}{store\+Image}} (\mbox{\hyperlink{classvkf_1_1core_1_1_image}{core\+::\+Image}} \&image)
+\begin{DoxyCompactList}\small\item\em Method to store an image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_ac3cf0a36ec56a6b4295440bb63d6f441}{update\+Image}} (uint32\+\_\+t handle, \mbox{\hyperlink{classvkf_1_1core_1_1_image}{core\+::\+Image}} \&new\+Image)
+\begin{DoxyCompactList}\small\item\em Method to update an image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager_a44c82f4aef793e506c9884ce5e82bf2d}{remove\+Image}} (uint32\+\_\+t handle)
+\begin{DoxyCompactList}\small\item\em Method to remove an image. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_add4016745a41ed3132ca8f33c48f051a}\label{classvkf_1_1rendering_1_1_bindless_manager_add4016745a41ed3132ca8f33c48f051a} 
+const vk\+::\+Pipeline\+Layout \& {\bfseries get\+Pipeline\+Layout} () const
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a33964e56150093dff5787b844fc0041a}\label{classvkf_1_1rendering_1_1_bindless_manager_a33964e56150093dff5787b844fc0041a} 
 vk\+::\+Descriptor\+Set {\bfseries get\+Descriptor\+Set} () const
@@ -52,9 +56,15 @@ static constexpr uint32\+\_\+t {\bfseries Uniform\+Binding} = 0
 \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a7ad4862141b0701a9cde1d858e46867e}\label{classvkf_1_1rendering_1_1_bindless_manager_a7ad4862141b0701a9cde1d858e46867e} 
 static constexpr uint32\+\_\+t {\bfseries Storage\+Binding} = 1
 \begin{DoxyCompactList}\small\item\em Storage binding index. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a0880a3986b6947e385f0bb2edb4f4c8c}\label{classvkf_1_1rendering_1_1_bindless_manager_a0880a3986b6947e385f0bb2edb4f4c8c} 
+static constexpr uint32\+\_\+t {\bfseries Image\+Sampler\+Binding} = 2
+\begin{DoxyCompactList}\small\item\em image\+Sampler binding index \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a8e54c7d6bc304f6531b661f756c2e72a}\label{classvkf_1_1rendering_1_1_bindless_manager_a8e54c7d6bc304f6531b661f756c2e72a} 
 static constexpr uint32\+\_\+t {\bfseries Uniform\+Count} = 65536
 \begin{DoxyCompactList}\small\item\em Maximum number of uniform buffers. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a53b169c2d9551440bf4f14b44ad84dac}\label{classvkf_1_1rendering_1_1_bindless_manager_a53b169c2d9551440bf4f14b44ad84dac} 
+static constexpr uint32\+\_\+t {\bfseries Image\+Sampler\+Count} = 65536
+\begin{DoxyCompactList}\small\item\em Maximum number of image\+Samplers. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a5fe41033aa647d0c6add913c52e7f6ac}\label{classvkf_1_1rendering_1_1_bindless_manager_a5fe41033aa647d0c6add913c52e7f6ac} 
 static constexpr uint32\+\_\+t {\bfseries Storage\+Count} = 65536
 \begin{DoxyCompactList}\small\item\em Maximum number of storage buffers. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -76,15 +86,12 @@ std\+::vector$<$ vk\+::raii\+::\+Descriptor\+Set\+Layout $>$ {\bfseries descript
 \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_ab5b0758a28d1ea3fb3520045ed60d74a}\label{classvkf_1_1rendering_1_1_bindless_manager_ab5b0758a28d1ea3fb3520045ed60d74a} 
 vk\+::raii\+::\+Pipeline\+Layout {\bfseries pipeline\+Layout} = VK\+\_\+\+NULL\+\_\+\+HANDLE
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a5ca9703f997625e47aa8086aac0d4ec5}\label{classvkf_1_1rendering_1_1_bindless_manager_a5ca9703f997625e47aa8086aac0d4ec5} 
-std\+::vector$<$ vk\+::\+Write\+Descriptor\+Set $>$ {\bfseries write\+Descriptor\+Sets}
-\item 
-\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a5c1028ce52303ac031231467b0753f95}\label{classvkf_1_1rendering_1_1_bindless_manager_a5c1028ce52303ac031231467b0753f95} 
-std\+::vector$<$ vk\+::\+Descriptor\+Buffer\+Info $>$ {\bfseries descriptor\+Buffer\+Infos}
-\item 
 \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_aa675f6b75a779ffb5d3bb24b84b74ddf}\label{classvkf_1_1rendering_1_1_bindless_manager_aa675f6b75a779ffb5d3bb24b84b74ddf} 
 std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{core\+::\+Buffer}} $>$ {\bfseries buffers}
 \begin{DoxyCompactList}\small\item\em Map of handles and their corresponding buffers. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a59ab02d3a6891206c7d755d035ca88eb}\label{classvkf_1_1rendering_1_1_bindless_manager_a59ab02d3a6891206c7d755d035ca88eb} 
+std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \mbox{\hyperlink{classvkf_1_1core_1_1_image}{core\+::\+Image}} $>$ {\bfseries images}
+\begin{DoxyCompactList}\small\item\em Map of handles and their corresponding images. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a61a9b7713e89eac574fd0a27183d72ab}\label{classvkf_1_1rendering_1_1_bindless_manager_a61a9b7713e89eac574fd0a27183d72ab} 
 std\+::vector$<$ uint32\+\_\+t $>$ {\bfseries free\+Handles}
 \begin{DoxyCompactList}\small\item\em Vector of free handles. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -124,7 +131,17 @@ Constructor that takes a device as parameter.
 
 Method to remove a buffer. 
 
-This method takes a handle to a buffer and removes the buffer. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a4ae748b62dc989288bbd3156fed53e46}\label{classvkf_1_1rendering_1_1_bindless_manager_a4ae748b62dc989288bbd3156fed53e46} 
+This method takes a handle to a buffer and removes the buffer. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a44c82f4aef793e506c9884ce5e82bf2d}\label{classvkf_1_1rendering_1_1_bindless_manager_a44c82f4aef793e506c9884ce5e82bf2d} 
+\index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!removeImage@{removeImage}}
+\index{removeImage@{removeImage}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
+\doxysubsubsection{\texorpdfstring{removeImage()}{removeImage()}}
+{\footnotesize\ttfamily void vkf\+::rendering\+::\+Bindless\+Manager\+::remove\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{handle }\end{DoxyParamCaption})}
+
+
+
+Method to remove an image. 
+
+This method takes a handle to an image and removes the image. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a4ae748b62dc989288bbd3156fed53e46}\label{classvkf_1_1rendering_1_1_bindless_manager_a4ae748b62dc989288bbd3156fed53e46} 
 \index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!storeBuffer@{storeBuffer}}
 \index{storeBuffer@{storeBuffer}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
 \doxysubsubsection{\texorpdfstring{storeBuffer()}{storeBuffer()}}
@@ -134,7 +151,17 @@ This method takes a handle to a buffer and removes the buffer. \Hypertarget{clas
 
 Method to store a buffer. 
 
-This method takes a buffer and its usage, and returns a handle to the stored buffer. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a6ffab2b51e1961137c482a6877aaf4ed}\label{classvkf_1_1rendering_1_1_bindless_manager_a6ffab2b51e1961137c482a6877aaf4ed} 
+This method takes a buffer and its usage, and returns a handle to the stored buffer. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a02ed7f7ed1a009bd59209b80d28b8aff}\label{classvkf_1_1rendering_1_1_bindless_manager_a02ed7f7ed1a009bd59209b80d28b8aff} 
+\index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!storeImage@{storeImage}}
+\index{storeImage@{storeImage}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
+\doxysubsubsection{\texorpdfstring{storeImage()}{storeImage()}}
+{\footnotesize\ttfamily uint32\+\_\+t vkf\+::rendering\+::\+Bindless\+Manager\+::store\+Image (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_image}{core\+::\+Image}} \&}]{image }\end{DoxyParamCaption})}
+
+
+
+Method to store an image. 
+
+This method takes an image, and returns a handle to the stored image. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a6ffab2b51e1961137c482a6877aaf4ed}\label{classvkf_1_1rendering_1_1_bindless_manager_a6ffab2b51e1961137c482a6877aaf4ed} 
 \index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!updateBuffer@{updateBuffer}}
 \index{updateBuffer@{updateBuffer}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
 \doxysubsubsection{\texorpdfstring{updateBuffer()}{updateBuffer()}}
@@ -144,17 +171,17 @@ This method takes a buffer and its usage, and returns a handle to the stored buf
 
 Method to update a buffer. 
 
-This method takes a handle to a buffer, data to update, size of the data, and offset in the buffer, and updates the buffer. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_a0b174f73071a8b847282fdb4dcdc6f5d}\label{classvkf_1_1rendering_1_1_bindless_manager_a0b174f73071a8b847282fdb4dcdc6f5d} 
-\index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!updateDescriptorSet@{updateDescriptorSet}}
-\index{updateDescriptorSet@{updateDescriptorSet}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
-\doxysubsubsection{\texorpdfstring{updateDescriptorSet()}{updateDescriptorSet()}}
-{\footnotesize\ttfamily void vkf\+::rendering\+::\+Bindless\+Manager\+::update\+Descriptor\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+This method takes a handle to a buffer, data to update, size of the data, and offset in the buffer, and updates the buffer. \Hypertarget{classvkf_1_1rendering_1_1_bindless_manager_ac3cf0a36ec56a6b4295440bb63d6f441}\label{classvkf_1_1rendering_1_1_bindless_manager_ac3cf0a36ec56a6b4295440bb63d6f441} 
+\index{vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}!updateImage@{updateImage}}
+\index{updateImage@{updateImage}!vkf::rendering::BindlessManager@{vkf::rendering::BindlessManager}}
+\doxysubsubsection{\texorpdfstring{updateImage()}{updateImage()}}
+{\footnotesize\ttfamily void vkf\+::rendering\+::\+Bindless\+Manager\+::update\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{handle,  }\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_image}{core\+::\+Image}} \&}]{new\+Image }\end{DoxyParamCaption})}
 
 
 
-Method to update descriptor set. 
+Method to update an image. 
 
-This method updates the descriptor set. 
+This method takes a handle to an image and a new image. It updates the image by removing the old image and storing the new image. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

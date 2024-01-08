@@ -49,7 +49,9 @@ const vk\+::raii\+::\+Device \& {\bfseries get\+Handle} () const
 \item 
 \Hypertarget{classvkf_1_1core_1_1_device_a2e1fde76820c95c522797a3cbf44e919}\label{classvkf_1_1core_1_1_device_a2e1fde76820c95c522797a3cbf44e919} 
 const \mbox{\hyperlink{classvkf_1_1core_1_1_physical_device}{Physical\+Device}} \& {\bfseries get\+Physical\+Device} () const
-\end{DoxyCompactItemize}
+\item 
+vk\+::raii\+::\+Command\+Buffers \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classvkf_1_1core_1_1_device_a1f720f62ef1dc4d91d94983b74cf5e3e}{get\+Command\+Buffers}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the Command\+Buffers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -89,6 +91,12 @@ Vma\+Allocator {\bfseries vma\+Allocator} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
 \item 
 \Hypertarget{classvkf_1_1core_1_1_device_a3f991e4b0286eee113c63b6e018f1773}\label{classvkf_1_1core_1_1_device_a3f991e4b0286eee113c63b6e018f1773} 
 std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_queue}{Queue}} $>$ $>$ {\bfseries queues}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_device_a1c6c92539784ce372fb065ec6fb86b96}\label{classvkf_1_1core_1_1_device_a1c6c92539784ce372fb065ec6fb86b96} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_command_pool}{Command\+Pool}} $>$ {\bfseries command\+Pool}
+\item 
+\Hypertarget{classvkf_1_1core_1_1_device_aba582c8bac246e1f1cbc09b061cf7e5d}\label{classvkf_1_1core_1_1_device_aba582c8bac246e1f1cbc09b061cf7e5d} 
+vk\+::raii\+::\+Command\+Buffers \texorpdfstring{$\ast$}{*} {\bfseries command\+Buffers}
 \end{DoxyCompactItemize}
 
 
@@ -141,6 +149,21 @@ This function enables an extension by adding it to the enabled\+Extensions vecto
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True if the extension was enabled, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classvkf_1_1core_1_1_device_a1f720f62ef1dc4d91d94983b74cf5e3e}\label{classvkf_1_1core_1_1_device_a1f720f62ef1dc4d91d94983b74cf5e3e} 
+\index{vkf::core::Device@{vkf::core::Device}!getCommandBuffers@{getCommandBuffers}}
+\index{getCommandBuffers@{getCommandBuffers}!vkf::core::Device@{vkf::core::Device}}
+\doxysubsubsection{\texorpdfstring{getCommandBuffers()}{getCommandBuffers()}}
+{\footnotesize\ttfamily vk\+::raii\+::\+Command\+Buffers \texorpdfstring{$\ast$}{*} vkf\+::core\+::\+Device\+::get\+Command\+Buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the Command\+Buffers. 
+
+Command\+Buffers are used for one-\/time commands such as copying data to a buffer or transitioning an image. There is only one Command\+Buffer in Command\+Buffers.
+
+\begin{DoxyReturn}{Returns}
+A pointer to the Command\+Buffers. 
 \end{DoxyReturn}
 \Hypertarget{classvkf_1_1core_1_1_device_a7028758f532e426ae8543a1262c446a6}\label{classvkf_1_1core_1_1_device_a7028758f532e426ae8543a1262c446a6} 
 \index{vkf::core::Device@{vkf::core::Device}!getQueue@{getQueue}}

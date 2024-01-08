@@ -15,38 +15,51 @@
 \DoxyCodeLine{00022\ \textcolor{comment}{//\ Forward\ declarations}}
 \DoxyCodeLine{00023\ \textcolor{keyword}{class\ }Queue;}
 \DoxyCodeLine{00024\ \textcolor{keyword}{class\ }Device;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}}
-\DoxyCodeLine{00033\ \{}
-\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ vk::ImageCreateInfo\ createInfo,\ VmaAllocationCreateFlags\ allocationFlags);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image_a30a69b118bc705885580614c80b1acdb}{Image}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image_a97a3d4ed24b39efdb5999ea96d41c2aa}{Image}}(\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&)\ =\ delete;\ }
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
-\DoxyCodeLine{00048\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ [[nodiscard]]\ vk::raii::ImageView\ createImageView(vk::ImageAspectFlags\ aspectFlags)\ const;}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image_a18e1feda3e8512eca7359d6ef0532a3f}{mapMemory}}();}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image_a7f00ed62e8fb50d2b2306a9cf86a041f}{unmapMemory}}();}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ private:}
-\DoxyCodeLine{00065\ \ \ \ \ const\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ mapped\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ *mappedData\{\textcolor{keyword}{nullptr}\};}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ vk::ImageCreateInfo\ createInfo;}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ VmaAllocation\ allocation\{VK\_NULL\_HANDLE\};}
-\DoxyCodeLine{00073\ \ \ \ \ VkImage\ handle;}
-\DoxyCodeLine{00074\ \};}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_IMAGE\_H}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }Buffer;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device,\ vk::ImageCreateInfo\ createInfo,\ VmaAllocationCreateFlags\ allocationFlags);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image_a30a69b118bc705885580614c80b1acdb}{Image}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}(\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&\&)\ noexcept;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1core_1_1_image}{Image}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ [[nodiscard]]\ vk::ImageView\ getImageView(vk::ImageAspectFlags\ aspectFlags);}
+\DoxyCodeLine{00052\ \ \ \ \ [[nodiscard]]\ vk::Sampler\ getSampler();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image_a18e1feda3e8512eca7359d6ef0532a3f}{mapMemory}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image_a7f00ed62e8fb50d2b2306a9cf86a041f}{unmapMemory}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image_aee1bc66ced1b13e4e448f7a9a185545d}{transitionImageLayout}}(vk::ImageLayout\ newLayout);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1core_1_1_image_a4315a1b080ea3260d49ba595fc66287c}{copyBufferToImage}}(const\ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{Buffer}}\ \&srcBuffer);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ private:}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ createImageView(vk::ImageAspectFlags\ aspectFlags);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ createSampler();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ const\ \mbox{\hyperlink{classvkf_1_1core_1_1_device}{Device}}\ \&device;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ mapped\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ *mappedData\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ vk::ImageCreateInfo\ createInfo;}
+\DoxyCodeLine{00090\ \ \ \ \ vk::ImageLayout\ currentLayout\{vk::ImageLayout::eUndefined\};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ VmaAllocation\ allocation\{VK\_NULL\_HANDLE\};}
+\DoxyCodeLine{00093\ \ \ \ \ VkImage\ handle;}
+\DoxyCodeLine{00094\ \ \ \ \ vk::raii::ImageView\ imageView\ =\ VK\_NULL\_HANDLE;}
+\DoxyCodeLine{00095\ \ \ \ \ vk::ImageAspectFlags\ currentAspectFlags\{\};}
+\DoxyCodeLine{00096\ \ \ \ \ vk::raii::Sampler\ sampler\ =\ VK\_NULL\_HANDLE;}
+\DoxyCodeLine{00097\ \};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \}\ \textcolor{comment}{//\ namespace\ vkf::core}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_IMAGE\_H}}
 
 \end{DoxyCode}

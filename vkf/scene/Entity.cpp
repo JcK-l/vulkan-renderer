@@ -14,29 +14,33 @@
 
 #include "Entity.h"
 #include "../common/Log.h"
+#include "../core/RenderPass.h"
+#include "../core/Shader.h"
+#include "../rendering/BindlessManager.h"
+#include "../rendering/PipelineBuilder.h"
 #include "components/Components.h"
 #include "imgui.h"
 
 namespace vkf::scene
 {
 
-Entity::Entity(entt::registry &registry, rendering::BindlessManager &bindlessManager)
-    : bindlessManager{bindlessManager}, registry{registry}
+Entity::Entity(entt::registry &registry) : registry{registry}
 {
 }
 
-void Entity::create(std::string tag)
+Entity &Entity::operator=(Entity &&other) noexcept
 {
-    handle = registry.create();
-    this->addComponent<scene::TagComponent>(std::move(tag));
-    LOG_INFO("Entity created")
-}
+    if (this != &other)
+    {
 
-void Entity::destroy()
-{
-    registry.destroy(handle);
-    handle = entt::null;
-    LOG_INFO("Entity destroyed")
+        // Transfer the ownership of other's resources to *this
+        registry = std::move(other.registry);
+        handle = std::move(other.handle);
+
+        // Leave other in a safely destructible state
+        other.handle = entt::null;
+    }
+    return *this;
 }
 
 entt::entity Entity::getHandle() const
@@ -49,19 +53,17 @@ void Entity::setHandle(entt::entity handle)
     this->handle = handle;
 }
 
-void Entity::setHandle(Entity entity)
+void Entity::create()
 {
-    this->handle = entity.getHandle();
+    handle = registry.create();
+    LOG_INFO("Entity created")
 }
 
-void Entity::displayGui()
+void Entity::destroy()
 {
-    auto &tag = this->getComponent<scene::TagComponent>();
-    ImGui::Text("Selected Entity: %s", tag.tag.c_str());
-}
-
-void Entity::updateComponents()
-{
+    registry.destroy(handle);
+    handle = entt::null;
+    LOG_INFO("Entity destroyed")
 }
 
 } // namespace vkf::scene

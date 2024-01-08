@@ -33,6 +33,8 @@ struct TagComponent
     {
     }
 
+    void displayGui();
+
     std::string tag;
 };
 

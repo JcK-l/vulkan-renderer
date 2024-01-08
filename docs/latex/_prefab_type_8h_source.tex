@@ -1,0 +1,45 @@
+\doxysection{Prefab\+Type.\+h}
+\hypertarget{_prefab_type_8h_source}{}\label{_prefab_type_8h_source}\index{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/prefabs/PrefabType.h@{C:/Users/Joshu/CLionProjects/vulkan-\/renderer/vkf/scene/prefabs/PrefabType.h}}
+\mbox{\hyperlink{_prefab_type_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_PREFABTYPE\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_PREFABTYPE\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1scene}{vkf::scene}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }Cube;}
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }Texture2D;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{PrefabType}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_cube}{Cube}},}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d}{Texture2D}}}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits}{PrefabTraits}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits}{PrefabTraits}}<\mbox{\hyperlink{classvkf_1_1scene_1_1_cube}{Cube}}>}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{PrefabType}}\ \mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits_3_01_cube_01_4_a7fb4b2209ead23cdc30810c903ca95a6}{getPrefabType}}()}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PrefabType::Cube;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits}{PrefabTraits}}<\mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d}{Texture2D}}>}
+\DoxyCodeLine{00061\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{PrefabType}}\ \mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits_3_01_texture2_d_01_4_a19b38e660392da54371a8761cae3d977}{getPrefabType}}()}
+\DoxyCodeLine{00068\ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PrefabType::Texture2D;}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_PREFABTYPE\_H}}
+
+\end{DoxyCode}

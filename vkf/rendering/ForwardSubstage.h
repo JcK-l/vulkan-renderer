@@ -29,7 +29,9 @@ class Gui;
 namespace vkf::rendering
 {
 
+// Forward declarations
 class BindlessManager;
+class RenderSource;
 
 ///
 /// \class ForwardSubstage
@@ -48,7 +50,7 @@ class ForwardSubstage : public RenderSubstage
     /// \param inputPipeline The Vulkan pipeline.
     /// \param inputGui The GUI.
     ///
-    ForwardSubstage(scene::Scene &scene, platform::Gui *inputGui, const rendering::BindlessManager &bindlessManager);
+    ForwardSubstage(scene::Scene &scene, RenderSource *source, const rendering::BindlessManager &bindlessManager);
 
     ForwardSubstage(const ForwardSubstage &) = delete;            ///< Deleted copy constructor
     ForwardSubstage(ForwardSubstage &&) noexcept = default;       ///< Default move constructor
@@ -62,7 +64,7 @@ class ForwardSubstage : public RenderSubstage
 
   private:
     scene::Scene &scene;
-    platform::Gui *gui;
+    RenderSource *source;
     const rendering::BindlessManager &bindlessManager;
 };
 

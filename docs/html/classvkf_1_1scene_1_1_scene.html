@@ -111,9 +111,27 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~Scene</b> ()</td></tr>
 <tr class="memdesc:abbfafe95ed72a51235012aaa80ca4376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implemented in <a class="el" href="_scene_8cpp.html" title="This file defines the Scene class which is used for managing a scene.">Scene.cpp</a>. <br /></td></tr>
 <tr class="separator:abbfafe95ed72a51235012aaa80ca4376"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2217d17b8c9d7aaad1ea0276fdb660e3" id="r_a2217d17b8c9d7aaad1ea0276fdb660e3"><td class="memItemLeft" align="right" valign="top"><a id="a2217d17b8c9d7aaad1ea0276fdb660e3" name="a2217d17b8c9d7aaad1ea0276fdb660e3"></a>
-std::unique_ptr&lt; <a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>createEntity</b> (<a class="el" href="namespacevkf_1_1scene.html#aad28be4afad6b68d31e518b312349cb5">PrefabType</a> type, std::string tag)</td></tr>
-<tr class="separator:a2217d17b8c9d7aaad1ea0276fdb660e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a768e6a4eac32ec9becc5d4dc5dd9a640" id="r_a768e6a4eac32ec9becc5d4dc5dd9a640"><td class="memItemLeft" align="right" valign="top"><a id="a768e6a4eac32ec9becc5d4dc5dd9a640" name="a768e6a4eac32ec9becc5d4dc5dd9a640"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createPrefab</b> (<a class="el" href="namespacevkf_1_1scene.html#aad28be4afad6b68d31e518b312349cb5">PrefabType</a> type, std::string tag)</td></tr>
+<tr class="separator:a768e6a4eac32ec9becc5d4dc5dd9a640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77828e091681910f13dd18541d0307af" id="r_a77828e091681910f13dd18541d0307af"><td class="memItemLeft" align="right" valign="top"><a id="a77828e091681910f13dd18541d0307af" name="a77828e091681910f13dd18541d0307af"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setActiveEntity</b> (entt::entity entity)</td></tr>
+<tr class="separator:a77828e091681910f13dd18541d0307af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0bbc3074d4d29798be4a968fd5b44ad" id="r_aa0bbc3074d4d29798be4a968fd5b44ad"><td class="memItemLeft" align="right" valign="top"><a id="aa0bbc3074d4d29798be4a968fd5b44ad" name="aa0bbc3074d4d29798be4a968fd5b44ad"></a>
+entt::entity&#160;</td><td class="memItemRight" valign="bottom"><b>getActiveEntity</b> ()</td></tr>
+<tr class="separator:aa0bbc3074d4d29798be4a968fd5b44ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab79945e7f6162dd80e4dd31b1eca1a93" id="r_ab79945e7f6162dd80e4dd31b1eca1a93"><td class="memItemLeft" align="right" valign="top"><a id="ab79945e7f6162dd80e4dd31b1eca1a93" name="ab79945e7f6162dd80e4dd31b1eca1a93"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>changeSelectedPrefabType</b> (<a class="el" href="namespacevkf_1_1scene.html#aad28be4afad6b68d31e518b312349cb5">PrefabType</a> type)</td></tr>
+<tr class="separator:ab79945e7f6162dd80e4dd31b1eca1a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a466eb60503323a2a8c18339d697a8daa" id="r_a466eb60503323a2a8c18339d697a8daa"><td class="memItemLeft" align="right" valign="top"><a id="a466eb60503323a2a8c18339d697a8daa" name="a466eb60503323a2a8c18339d697a8daa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>displaySelectedPrefabGui</b> ()</td></tr>
+<tr class="separator:a466eb60503323a2a8c18339d697a8daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1978583abd8ce0003ca30be88684ae1" id="r_ac1978583abd8ce0003ca30be88684ae1"><td class="memItemLeft" align="right" valign="top"><a id="ac1978583abd8ce0003ca30be88684ae1" name="ac1978583abd8ce0003ca30be88684ae1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateSelectedPrefabComponents</b> ()</td></tr>
+<tr class="separator:ac1978583abd8ce0003ca30be88684ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aead51542879a1dec368733768ee4db40" id="r_aead51542879a1dec368733768ee4db40"><td class="memItemLeft" align="right" valign="top"><a id="aead51542879a1dec368733768ee4db40" name="aead51542879a1dec368733768ee4db40"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>destroySelectedPrefab</b> ()</td></tr>
+<tr class="separator:aead51542879a1dec368733768ee4db40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace065f175fbdc5a854a299f0be413001" id="r_ace065f175fbdc5a854a299f0be413001"><td class="memItemLeft" align="right" valign="top"><a id="ace065f175fbdc5a854a299f0be413001" name="ace065f175fbdc5a854a299f0be413001"></a>
 entt::registry &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getRegistry</b> ()</td></tr>
 <tr class="separator:ace065f175fbdc5a854a299f0be413001"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,6 +156,9 @@ std::unique_ptr&lt; <a class="el" href="classvkf_1_1scene_1_1_camera.html">Camer
 <tr class="memitem:a63fa0756011483c53be0e4f96ac2af55" id="r_a63fa0756011483c53be0e4f96ac2af55"><td class="memItemLeft" align="right" valign="top"><a id="a63fa0756011483c53be0e4f96ac2af55" name="a63fa0756011483c53be0e4f96ac2af55"></a>
 std::unique_ptr&lt; <a class="el" href="classvkf_1_1scene_1_1_prefab_factory.html">PrefabFactory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>prefabFactory</b></td></tr>
 <tr class="separator:a63fa0756011483c53be0e4f96ac2af55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9db5bd1f60790643453852287e931f12" id="r_a9db5bd1f60790643453852287e931f12"><td class="memItemLeft" align="right" valign="top"><a id="a9db5bd1f60790643453852287e931f12" name="a9db5bd1f60790643453852287e931f12"></a>
+std::unique_ptr&lt; <a class="el" href="classvkf_1_1scene_1_1_prefab.html">Prefab</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>selectedPrefab</b></td></tr>
+<tr class="separator:a9db5bd1f60790643453852287e931f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74ae63e3d472bdb86ac8ccec6e1f05ad" id="r_a74ae63e3d472bdb86ac8ccec6e1f05ad"><td class="memItemLeft" align="right" valign="top"><a id="a74ae63e3d472bdb86ac8ccec6e1f05ad" name="a74ae63e3d472bdb86ac8ccec6e1f05ad"></a>
 entt::registry&#160;</td><td class="memItemRight" valign="bottom"><b>registry</b></td></tr>
 <tr class="separator:a74ae63e3d472bdb86ac8ccec6e1f05ad"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -12,12 +12,13 @@
 
 #include "Scene.h"
 #include "../common/Log.h"
-#include "../core/Buffer.h"
 #include "../core/Pipeline.h"
 #include "../core/RenderPass.h"
 #include "../rendering/BindlessManager.h"
 #include "Camera.h"
 #include "Entity.h"
+#include "prefabs/Prefab.h"
+#include "prefabs/PrefabFactory.h"
 
 namespace vkf::scene
 {
@@ -27,21 +28,64 @@ Scene::Scene(const core::Device &device, rendering::BindlessManager &bindlessMan
     : device{device}, bindlessManager{bindlessManager}, renderPass{renderPass},
       sceneCamera{std::make_unique<Camera>(std::move(camera))},
       prefabFactory{std::make_unique<PrefabFactory>(device, bindlessManager, renderPass, sceneCamera.get())} {
-          LOG_INFO("Scene created")}
+          LOG_INFO("Scene created")};
 
-      Scene::~Scene() = default;
+Scene::~Scene() = default;
 
-std::unique_ptr<Entity> Scene::createEntity(PrefabType type, std::string tag)
+void Scene::createPrefab(PrefabType type, std::string tag)
 {
     switch (type)
     {
     case PrefabType::Cube:
-        return prefabFactory->createPrefab<Cube>(registry, std::move(tag));
-    case PrefabType::Triangle:
-        return prefabFactory->createPrefab<Triangle>(registry, std::move(tag));
-    case PrefabType::Custom:
-        return prefabFactory->createCustom(registry, std::move(tag));
+        selectedPrefab = prefabFactory->createPrefab<Cube>(registry, std::move(tag));
+        break;
+    case PrefabType::Texture2D:
+        selectedPrefab = prefabFactory->createPrefab<Texture2D>(registry, std::move(tag));
+        break;
     }
+}
+
+void Scene::setActiveEntity(entt::entity entity)
+{
+    selectedPrefab->setEntity(entity);
+}
+
+entt::entity Scene::getActiveEntity()
+{
+    if (selectedPrefab == nullptr)
+    {
+        return entt::null;
+    }
+
+    return selectedPrefab->getEntity().getHandle();
+}
+
+void Scene::changeSelectedPrefabType(PrefabType type)
+{
+    switch (type)
+    {
+    case PrefabType::Cube:
+        selectedPrefab = std::make_unique<Cube>(registry, bindlessManager, std::move(selectedPrefab->getEntity()));
+        break;
+    case PrefabType::Texture2D:
+        selectedPrefab = std::make_unique<Texture2D>(registry, bindlessManager, std::move(selectedPrefab->getEntity()));
+        break;
+    }
+}
+
+void Scene::displaySelectedPrefabGui()
+{
+    selectedPrefab->displayGui();
+}
+
+void Scene::updateSelectedPrefabComponents()
+{
+    selectedPrefab->updateComponents();
+}
+
+void Scene::destroySelectedPrefab()
+{
+    selectedPrefab->destroy();
 }
 
 entt::registry &Scene::getRegistry()

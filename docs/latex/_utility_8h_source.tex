@@ -7,13 +7,20 @@
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ VULKANRENDERER\_UTILITY\_H}}
 \DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ VULKANRENDERER\_UTILITY\_H}}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf}{vkf}}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1scene}{vkf::scene}}\ \textcolor{comment}{//\ Forward\ declarations}}
 \DoxyCodeLine{00018\ \{}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00029\ std::string\ \mbox{\hyperlink{namespacevkf_ad3089ed0c5c9b54b7716ceaead798d58}{getQueueFlagsString}}(vk::QueueFlags\ flags);}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \}\ \textcolor{comment}{//\ namespace\ vkf}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_UTILITY\_H}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{PrefabType}};}
+\DoxyCodeLine{00020\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf}{vkf}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00034\ std::string\ \mbox{\hyperlink{namespacevkf_ad3089ed0c5c9b54b7716ceaead798d58}{getQueueFlagsString}}(vk::QueueFlags\ flags);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ std::string\ \mbox{\hyperlink{namespacevkf_ac700033f026593d6109c7f04a61f0604}{getPrefabTypeString}}(\mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{scene::PrefabType}}\ type);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \}\ \textcolor{comment}{//\ namespace\ vkf}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_UTILITY\_H}}
 
 \end{DoxyCode}

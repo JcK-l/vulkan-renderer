@@ -74,6 +74,7 @@ class Swapchain : public rendering::RenderSource
     [[nodiscard]] uint32_t getImageCount() const override;
     [[nodiscard]] vk::Extent2D getExtent() const override;
     [[nodiscard]] bool resetChanged() override;
+    [[nodiscard]] uint32_t getFrameIndex() override;
     [[nodiscard]] uint32_t getMinImageCount() const;
 
     void recreate();
@@ -89,17 +90,22 @@ class Swapchain : public rendering::RenderSource
 
     void createImageViews();
 
-    void createSwapchain(vk::SwapchainKHR oldSwapchain = VK_NULL_HANDLE);
+    void createSwapchain();
 
     const Device &device;
     const PhysicalDevice &gpu;
     const vk::raii::SurfaceKHR &surface;
     const platform::Window &window;
     vk::raii::SwapchainKHR handle{VK_NULL_HANDLE};
+    vk::raii::SwapchainKHR oldSwapchain{VK_NULL_HANDLE};
 
     SwapChainSupportDetails supportDetails;
     vk::Extent2D extent;
+    vk::SurfaceFormatKHR surfaceFormat;
+    vk::PresentModeKHR presentMode;
+
     uint32_t minImageCount{0};
+    uint32_t frameIndex;
     bool changed{false};
 
     std::vector<vk::Image> images;

@@ -22,29 +22,33 @@
 \DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevkf_1_1rendering}{vkf::rendering}}}
 \DoxyCodeLine{00030\ \{}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }BindlessManager;}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{RenderSubstage}}}
-\DoxyCodeLine{00041\ \{}
-\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}(\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene::Scene}}\ \&scene,\ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui}{platform::Gui}}\ *inputGui,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering::BindlessManager}}\ \&bindlessManager);}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage_ad72a95ed3d0725ba4eba385b31b675fd}{ForwardSubstage}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage_a657d01fd85d77e69fe6d1f149ba503bf}{ForwardSubstage}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
-\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&)\ =\ delete;\ }
-\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
-\DoxyCodeLine{00057\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}()\ override\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage_a5e20ad8a40a76830037fe2e47d834b2d}{draw}}(vk::raii::CommandBuffer\ *cmd)\ override;}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }BindlessManager;}
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }RenderSource;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{RenderSubstage}}}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}(\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene::Scene}}\ \&scene,\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{RenderSource}}\ *source,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering::BindlessManager}}\ \&bindlessManager);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage_ad72a95ed3d0725ba4eba385b31b675fd}{ForwardSubstage}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&)\ =\ \textcolor{keyword}{delete};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage_a657d01fd85d77e69fe6d1f149ba503bf}{ForwardSubstage}}(\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&\&)\ noexcept\ =\ default;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&operator=(const\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&)\ =\ delete;\ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&operator=(\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}\ \&\&)\ =\ delete;\ \ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage}{ForwardSubstage}}()\ override\ =\ default;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ private:}
-\DoxyCodeLine{00062\ \ \ \ \ scene::Scene\ \&scene;}
-\DoxyCodeLine{00063\ \ \ \ \ platform::Gui\ *gui;}
-\DoxyCodeLine{00064\ \ \ \ \ const\ rendering::\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}\ \&bindlessManager;}
-\DoxyCodeLine{00065\ \};}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_FORWARDSUBSTAGE\_H}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvkf_1_1rendering_1_1_forward_substage_a5e20ad8a40a76830037fe2e47d834b2d}{draw}}(vk::raii::CommandBuffer\ *cmd)\ override;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ std::\textcolor{keywordtype}{string}\ getType()\ override;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ private:}
+\DoxyCodeLine{00066\ \ \ \ \ scene::Scene\ \&scene;}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{RenderSource}}\ *source;}
+\DoxyCodeLine{00068\ \ \ \ \ const\ rendering::\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{BindlessManager}}\ \&bindlessManager;}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \}\ \textcolor{comment}{//\ namespace\ vkf::rendering}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_FORWARDSUBSTAGE\_H}}
 
 \end{DoxyCode}

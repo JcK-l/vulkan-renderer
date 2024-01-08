@@ -121,10 +121,9 @@ void Application::onEvent(Event &event)
 
 void Application::onUpdate()
 {
-    auto frame = renderManager->beginFrame();
-    gui->preRender(frame, *scene);
+    renderManager->beginFrame();
+    gui->preRender(*scene);
 
-    bindlessManager->updateDescriptorSet();
     scene->getCamera()->updateCameraBuffer();
 
     renderManager->render();
@@ -171,7 +170,7 @@ void Application::createInstance()
     enableInstanceExtension(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
 
     // For macOS
-    enableInstanceExtension(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME);
+    //    enableInstanceExtension(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME);
 
 #if !defined(NDEBUG)
     enableInstanceExtension(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
@@ -206,11 +205,11 @@ void Application::createScene(const core::RenderPass &renderPass)
                         VMA_ALLOCATION_CREATE_MAPPED_BIT | VMA_ALLOCATION_CREATE_HOST_ACCESS_SEQUENTIAL_WRITE_BIT};
     auto cameraHandle = bindlessManager->storeBuffer(buffer, vk::BufferUsageFlagBits::eUniformBuffer);
 
-    auto camera = scene::Camera{*bindlessManager, cameraHandle, 45, 800, 0.1, 100};
+    auto camera = scene::Camera{*bindlessManager, cameraHandle, 45, 1, 0.1, 100};
 
     auto viewProjection = camera.getViewProjectionMatrix();
 
-    //    bindlessManager->updateBuffer(cameraHandle, glm::value_ptr(viewProjection), sizeof(glm::mat4), 0);
+    bindlessManager->updateBuffer(cameraHandle, glm::value_ptr(viewProjection), sizeof(glm::mat4), 0);
 
     scene = std::make_unique<scene::Scene>(*device, *bindlessManager, renderPass, camera);
 }
@@ -236,9 +235,10 @@ void Application::createRenderManager()
         .finalLayout = vk::ImageLayout::ePresentSrcKHR         // Image will be used as source for presentation
     });
 
-    std::vector<vk::ClearValue> guiClearValues{vk::ClearValue{}};
-    guiClearValues[0].color =
-        vk::ClearColorValue(std::array<float, 4>{0.0f, 0.0f, 0.0f, 1.0f}); // Color attachment clear value
+    std::vector<vk::ClearValue> guiClearValues{vk::ClearValue{}, vk::ClearValue{}};
+    float colorvalue = std::pow(((69.0f / 255.0f) + 0.055f) / 1.055f, 2.4f);
+    guiClearValues[0].color = vk::ClearColorValue(
+        std::array<float, 4>{colorvalue, colorvalue, colorvalue, 1.0f}); // Color attachment clear value
 
     rendering::RenderOptions guiRenderOptions{
         .clearValues = guiClearValues, .numSubpasses = 1, .attachments = guiAttachments, .useDepth = false};
@@ -271,9 +271,9 @@ void Application::createRenderManager()
     });
 
     std::vector<vk::ClearValue> sceneClearValues{vk::ClearValue{}, vk::ClearValue{}};
-    sceneClearValues[0].color =
-        vk::ClearColorValue(std::array<float, 4>{0.05f, 0.05f, 0.05f, 1.0f}); // Color attachment clear value
-    sceneClearValues[1].depthStencil = vk::ClearDepthStencilValue(1.0f, 0);   // Depth attachment clear value
+    sceneClearValues[0].color = vk::ClearColorValue(
+        std::array<float, 4>{colorvalue, colorvalue, colorvalue, 1.0f});    // Color attachment clear value
+    sceneClearValues[1].depthStencil = vk::ClearDepthStencilValue(1.0f, 0); // Depth attachment clear value
 
     rendering::RenderOptions sceneRenderOptions{
         .clearValues = sceneClearValues, .numSubpasses = 1, .attachments = sceneAttachments, .useDepth = true};

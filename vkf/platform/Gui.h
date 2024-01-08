@@ -18,6 +18,9 @@
 #include "../rendering/RenderSource.h"
 #include "../scene/prefabs/PrefabFactory.h"
 
+// Forward declarations
+class ImDrawData;
+
 namespace vkf::core // Forward declarations
 {
 class Device;
@@ -78,7 +81,7 @@ class Gui : public rendering::RenderSource
     /// \param renderer The renderer.
     /// \param frameIndex The index of the frame to be rendered.
     ///
-    void preRender(uint32_t frameIndex, scene::Scene &scene);
+    void preRender(scene::Scene &scene);
 
     void draw(vk::raii::CommandBuffer *cmd);
 
@@ -86,35 +89,40 @@ class Gui : public rendering::RenderSource
     [[nodiscard]] uint32_t getImageCount() const override;
     [[nodiscard]] vk::Extent2D getExtent() const override;
     [[nodiscard]] bool resetChanged() override;
+    [[nodiscard]] uint32_t getFrameIndex() override;
 
   private:
     void createImages(uint32_t numImages);
     void createImageViews();
 
-    void createScenePanel(scene::Scene &scene, uint32_t frameIndex);
-    void createPropertiesPanel();
+    void createScenePanel(scene::Scene &scene);
     void createHierarchyPanel(scene::Scene &scene);
+    void createPropertiesPanel(scene::Scene &scene);
+
+    void createPrefabButtons(scene::Scene &scene);
 
     const core::Device &device;
     const core::Swapchain &swapchain;
     rendering::BindlessManager &bindlessManager;
 
-    std::unique_ptr<scene::Entity> activeEntity;
-
     vk::Extent2D sceneViewportExtent{};
 
     std::vector<core::Image> images;
-    std::vector<vk::raii::ImageView> imageViews;
+    std::vector<vk::ImageView> imageViews;
 
     vk::raii::Sampler textureSampler{VK_NULL_HANDLE};
     vk::raii::DescriptorPool imguiPool{VK_NULL_HANDLE};
 
+    ImDrawData *drawData;
+
     VkDescriptorSet dset{VK_NULL_HANDLE};
 
+    std::vector<std::pair<scene::PrefabType, std::string>> prefabTypes = {{scene::PrefabType::Cube, "Cube"},
+                                                                          {scene::PrefabType::Texture2D, "Texture2D"}};
+    uint32_t frameIndex{0};
     bool firstTime{true};
     bool changed{false};
     bool isCreateDialog{false};
-    scene::PrefabType selectedType{scene::PrefabType::Custom};
 };
 } // namespace vkf::platform
 

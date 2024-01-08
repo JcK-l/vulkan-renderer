@@ -113,32 +113,35 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> updateData(const <span class="keywordtype">void</span> *data, const uint32_t size, const uint32_t offset);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    [[nodiscard]] vk::<a class="code hl_class" href="classvkf_1_1core_1_1_buffer.html">Buffer</a> getBuffer() const;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    [[nodiscard]] uint32_t getSize() const;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  private:</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    const <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;device;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> persistentMapped{<span class="keyword">false</span>};</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">bool</span> mapped{<span class="keyword">false</span>};</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> *mappedData{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classvkf_1_1core_1_1_buffer.html#a6629f2ec5e8c4932e110c6d70785efd5">copyBuffer</a>(const <a class="code hl_class" href="classvkf_1_1core_1_1_buffer.html">Buffer</a> &amp;srcBuffer);</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    uint32_t size{0};</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    VmaAllocation allocation;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    VkBuffer handle;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
-</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    [[nodiscard]] vk::<a class="code hl_class" href="classvkf_1_1core_1_1_buffer.html">Buffer</a> getBuffer() const;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    [[nodiscard]] uint32_t getSize() const;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  private:</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    const <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;device;</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>} <span class="comment">// namespace vkf::core</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_BUFFER_H</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">bool</span> persistentMapped{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">bool</span> mapped{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> *mappedData{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    uint32_t size{0};</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    VmaAllocation allocation;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    VkBuffer handle;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>} <span class="comment">// namespace vkf::core</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_BUFFER_H</span></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_buffer_html"><div class="ttname"><a href="classvkf_1_1core_1_1_buffer.html">vkf::core::Buffer</a></div><div class="ttdoc">This class manages Vulkan buffers.</div><div class="ttdef"><b>Definition</b> Buffer.h:34</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_buffer_html_a6629f2ec5e8c4932e110c6d70785efd5"><div class="ttname"><a href="classvkf_1_1core_1_1_buffer.html#a6629f2ec5e8c4932e110c6d70785efd5">vkf::core::Buffer::copyBuffer</a></div><div class="ttdeci">void copyBuffer(const Buffer &amp;srcBuffer)</div><div class="ttdoc">Copies the contents of the srcBuffer to this buffer.</div><div class="ttdef"><b>Definition</b> Buffer.cpp:108</div></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_buffer_html_a944483f6fccaad2467f2e98e6d8d8306"><div class="ttname"><a href="classvkf_1_1core_1_1_buffer.html#a944483f6fccaad2467f2e98e6d8d8306">vkf::core::Buffer::Buffer</a></div><div class="ttdeci">Buffer(const Buffer &amp;)=delete</div><div class="ttdoc">Deleted copy constructor.</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_buffer_html_ac690743dd11156280b1328a5565c968b"><div class="ttname"><a href="classvkf_1_1core_1_1_buffer.html#ac690743dd11156280b1328a5565c968b">vkf::core::Buffer::unmapMemory</a></div><div class="ttdeci">void unmapMemory()</div><div class="ttdoc">Unmap memory from the buffer.</div><div class="ttdef"><b>Definition</b> Buffer.cpp:80</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_buffer_html_aea4c9889a32b9dda5772198f62c9710f"><div class="ttname"><a href="classvkf_1_1core_1_1_buffer.html#aea4c9889a32b9dda5772198f62c9710f">vkf::core::Buffer::mapMemory</a></div><div class="ttdeci">void mapMemory()</div><div class="ttdoc">Map memory to the buffer.</div><div class="ttdef"><b>Definition</b> Buffer.cpp:68</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_device_html"><div class="ttname"><a href="classvkf_1_1core_1_1_device.html">vkf::core::Device</a></div><div class="ttdoc">This class is used to manage Vulkan devices.</div><div class="ttdef"><b>Definition</b> Device.h:35</div></div>
-<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> Buffer.cpp:18</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_buffer_html_ac690743dd11156280b1328a5565c968b"><div class="ttname"><a href="classvkf_1_1core_1_1_buffer.html#ac690743dd11156280b1328a5565c968b">vkf::core::Buffer::unmapMemory</a></div><div class="ttdeci">void unmapMemory()</div><div class="ttdoc">Unmap memory from the buffer.</div><div class="ttdef"><b>Definition</b> Buffer.cpp:81</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_buffer_html_aea4c9889a32b9dda5772198f62c9710f"><div class="ttname"><a href="classvkf_1_1core_1_1_buffer.html#aea4c9889a32b9dda5772198f62c9710f">vkf::core::Buffer::mapMemory</a></div><div class="ttdeci">void mapMemory()</div><div class="ttdoc">Map memory to the buffer.</div><div class="ttdef"><b>Definition</b> Buffer.cpp:69</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_device_html"><div class="ttname"><a href="classvkf_1_1core_1_1_device.html">vkf::core::Device</a></div><div class="ttdoc">This class is used to manage Vulkan devices.</div><div class="ttdef"><b>Definition</b> Device.h:36</div></div>
+<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> Buffer.cpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

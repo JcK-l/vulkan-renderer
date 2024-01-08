@@ -125,57 +125,60 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    [[nodiscard]] const vk::raii::SwapchainKHR &amp;getHandle() const;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    [[nodiscard]] std::vector&lt;vk::ImageView&gt; <a class="code hl_function" href="classvkf_1_1core_1_1_swapchain.html#a11706d634bc9f6358839c4402846c96a">getImageViews</a>() const override;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    [[nodiscard]] uint32_t <a class="code hl_function" href="classvkf_1_1core_1_1_swapchain.html#a21e68e05c5139066180c1c3481038f6b">getImageCount</a>() const override;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    [[nodiscard]] vk::Extent2D <a class="code hl_function" href="classvkf_1_1core_1_1_swapchain.html#a871c746bee950535fa517cf8cc8a9054">getExtent</a>() const override;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    [[nodiscard]] std::vector&lt;vk::ImageView&gt; getImageViews() const override;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    [[nodiscard]] uint32_t getImageCount() const override;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    [[nodiscard]] vk::Extent2D getExtent() const override;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classvkf_1_1core_1_1_swapchain.html#a9b4659de2d3f5f68b9ca4afbc3d7082c">resetChanged</a>() override;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    [[nodiscard]] uint32_t getMinImageCount() const;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> recreate();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    std::pair&lt;vk::Result, uint32_t&gt; acquireNextImage(const vk::raii::Semaphore &amp;imageAvailableSemaphore,</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                                                     uint64_t timeout = std::numeric_limits&lt;uint64_t&gt;::max());</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    [[nodiscard]] vk::SurfaceFormatKHR selectSwapSurfaceFormat() const;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  private:</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    [[nodiscard]] vk::PresentModeKHR selectSwapPresentMode() const;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    [[nodiscard]] vk::Extent2D selectSwapExtent() const;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">void</span> createImageViews();</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> createSwapchain(vk::SwapchainKHR oldSwapchain = VK_NULL_HANDLE);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    const <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;device;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    const <a class="code hl_class" href="classvkf_1_1core_1_1_physical_device.html">PhysicalDevice</a> &amp;gpu;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    const vk::raii::SurfaceKHR &amp;surface;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    const platform::Window &amp;window;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    vk::raii::SwapchainKHR handle{VK_NULL_HANDLE};</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    SwapChainSupportDetails supportDetails;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    vk::Extent2D extent;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    uint32_t minImageCount{0};</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">bool</span> changed{<span class="keyword">false</span>};</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    std::vector&lt;vk::Image&gt; images;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    std::vector&lt;vk::raii::ImageView&gt; imageViews;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>};</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    [[nodiscard]] uint32_t getFrameIndex() override;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    [[nodiscard]] uint32_t getMinImageCount() const;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> recreate();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    std::pair&lt;vk::Result, uint32_t&gt; acquireNextImage(const vk::raii::Semaphore &amp;imageAvailableSemaphore,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                                                     uint64_t timeout = std::numeric_limits&lt;uint64_t&gt;::max());</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    [[nodiscard]] vk::SurfaceFormatKHR selectSwapSurfaceFormat() const;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  private:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    [[nodiscard]] vk::PresentModeKHR selectSwapPresentMode() const;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    [[nodiscard]] vk::Extent2D selectSwapExtent() const;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> createImageViews();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> createSwapchain();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    const <a class="code hl_class" href="classvkf_1_1core_1_1_device.html">Device</a> &amp;device;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    const <a class="code hl_class" href="classvkf_1_1core_1_1_physical_device.html">PhysicalDevice</a> &amp;gpu;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    const vk::raii::SurfaceKHR &amp;surface;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    const platform::Window &amp;window;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    vk::raii::SwapchainKHR handle{VK_NULL_HANDLE};</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    vk::raii::SwapchainKHR oldSwapchain{VK_NULL_HANDLE};</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    SwapChainSupportDetails supportDetails;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    vk::Extent2D extent;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    vk::SurfaceFormatKHR surfaceFormat;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    vk::PresentModeKHR presentMode;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    uint32_t minImageCount{0};</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    uint32_t frameIndex;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">bool</span> changed{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    std::vector&lt;vk::Image&gt; images;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    std::vector&lt;vk::raii::ImageView&gt; imageViews;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>};</div>
 </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>} <span class="comment">// namespace vkf::core</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_SWAPCHAIN_H</span></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_device_html"><div class="ttname"><a href="classvkf_1_1core_1_1_device.html">vkf::core::Device</a></div><div class="ttdoc">This class is used to manage Vulkan devices.</div><div class="ttdef"><b>Definition</b> Device.h:35</div></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>} <span class="comment">// namespace vkf::core</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_SWAPCHAIN_H</span></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_device_html"><div class="ttname"><a href="classvkf_1_1core_1_1_device.html">vkf::core::Device</a></div><div class="ttdoc">This class is used to manage Vulkan devices.</div><div class="ttdef"><b>Definition</b> Device.h:36</div></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_physical_device_html"><div class="ttname"><a href="classvkf_1_1core_1_1_physical_device.html">vkf::core::PhysicalDevice</a></div><div class="ttdoc">This class manages Vulkan physical devices.</div><div class="ttdef"><b>Definition</b> PhysicalDevice.h:29</div></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_swapchain_html"><div class="ttname"><a href="classvkf_1_1core_1_1_swapchain.html">vkf::core::Swapchain</a></div><div class="ttdoc">This class manages Vulkan swapchains.</div><div class="ttdef"><b>Definition</b> Swapchain.h:41</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_swapchain_html_a11706d634bc9f6358839c4402846c96a"><div class="ttname"><a href="classvkf_1_1core_1_1_swapchain.html#a11706d634bc9f6358839c4402846c96a">vkf::core::Swapchain::getImageViews</a></div><div class="ttdeci">std::vector&lt; vk::ImageView &gt; getImageViews() const override</div><div class="ttdoc">Pure virtual method to get the image views.</div><div class="ttdef"><b>Definition</b> Swapchain.cpp:109</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_swapchain_html_a21e68e05c5139066180c1c3481038f6b"><div class="ttname"><a href="classvkf_1_1core_1_1_swapchain.html#a21e68e05c5139066180c1c3481038f6b">vkf::core::Swapchain::getImageCount</a></div><div class="ttdeci">uint32_t getImageCount() const override</div><div class="ttdoc">Pure virtual method to get the image count.</div><div class="ttdef"><b>Definition</b> Swapchain.cpp:204</div></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_swapchain_html_a2d60829b2cf44d922789d601022aaaac"><div class="ttname"><a href="classvkf_1_1core_1_1_swapchain.html#a2d60829b2cf44d922789d601022aaaac">vkf::core::Swapchain::Swapchain</a></div><div class="ttdeci">Swapchain(Swapchain &amp;&amp;) noexcept=default</div><div class="ttdoc">Default move constructor.</div></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_swapchain_html_a764484c722611cb8fd9985e4c014aa10"><div class="ttname"><a href="classvkf_1_1core_1_1_swapchain.html#a764484c722611cb8fd9985e4c014aa10">vkf::core::Swapchain::Swapchain</a></div><div class="ttdeci">Swapchain(const Swapchain &amp;)=delete</div><div class="ttdoc">Deleted copy constructor.</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_swapchain_html_a871c746bee950535fa517cf8cc8a9054"><div class="ttname"><a href="classvkf_1_1core_1_1_swapchain.html#a871c746bee950535fa517cf8cc8a9054">vkf::core::Swapchain::getExtent</a></div><div class="ttdeci">vk::Extent2D getExtent() const override</div><div class="ttdoc">Pure virtual method to get the extent.</div><div class="ttdef"><b>Definition</b> Swapchain.cpp:192</div></div>
-<div class="ttc" id="aclassvkf_1_1core_1_1_swapchain_html_a9b4659de2d3f5f68b9ca4afbc3d7082c"><div class="ttname"><a href="classvkf_1_1core_1_1_swapchain.html#a9b4659de2d3f5f68b9ca4afbc3d7082c">vkf::core::Swapchain::resetChanged</a></div><div class="ttdeci">bool resetChanged() override</div><div class="ttdoc">Pure virtual method to get the extent.</div><div class="ttdef"><b>Definition</b> Swapchain.cpp:197</div></div>
+<div class="ttc" id="aclassvkf_1_1core_1_1_swapchain_html_a9b4659de2d3f5f68b9ca4afbc3d7082c"><div class="ttname"><a href="classvkf_1_1core_1_1_swapchain.html#a9b4659de2d3f5f68b9ca4afbc3d7082c">vkf::core::Swapchain::resetChanged</a></div><div class="ttdeci">bool resetChanged() override</div><div class="ttdoc">Method to check if the render source has changed.</div><div class="ttdef"><b>Definition</b> Swapchain.cpp:203</div></div>
 <div class="ttc" id="aclassvkf_1_1platform_1_1_window_html"><div class="ttname"><a href="classvkf_1_1platform_1_1_window.html">vkf::platform::Window</a></div><div class="ttdoc">This class manages GLFW windows.</div><div class="ttdef"><b>Definition</b> Window.h:39</div></div>
 <div class="ttc" id="aclassvkf_1_1rendering_1_1_render_source_html"><div class="ttname"><a href="classvkf_1_1rendering_1_1_render_source.html">vkf::rendering::RenderSource</a></div><div class="ttdoc">This abstract class provides an interface for managing Vulkan rendering operations.</div><div class="ttdef"><b>Definition</b> RenderSource.h:29</div></div>
-<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> Buffer.cpp:18</div></div>
+<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> Buffer.cpp:19</div></div>
 <div class="ttc" id="anamespacevkf_1_1platform_html"><div class="ttname"><a href="namespacevkf_1_1platform.html">vkf::platform</a></div><div class="ttdoc">The platform namespace includes platform-specific classes and functions.</div><div class="ttdef"><b>Definition</b> Swapchain.h:21</div></div>
 <div class="ttc" id="astructvkf_1_1core_1_1_swapchain_1_1_swap_chain_support_details_html"><div class="ttname"><a href="structvkf_1_1core_1_1_swapchain_1_1_swap_chain_support_details.html">vkf::core::Swapchain::SwapChainSupportDetails</a></div><div class="ttdoc">This struct stores the capabilities, formats, and present modes of the swapchain.</div><div class="ttdef"><b>Definition</b> Swapchain.h:48</div></div>
 </div><!-- fragment --></div><!-- contents -->

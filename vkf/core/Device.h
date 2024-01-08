@@ -23,6 +23,7 @@ namespace vkf::core
 // Forward declarations
 class Instance;
 class PhysicalDevice;
+class CommandPool;
 
 ///
 /// \class Device
@@ -130,6 +131,16 @@ class Device
     [[nodiscard]] const vk::raii::Device &getHandle() const;
     [[nodiscard]] const PhysicalDevice &getPhysicalDevice() const;
 
+    ///
+    /// \brief Getter for the CommandBuffers.
+    ///
+    /// CommandBuffers are used for one-time commands such as copying data to a buffer or transitioning an image.
+    /// There is only one CommandBuffer in CommandBuffers.
+    ///
+    /// \return A pointer to the CommandBuffers.
+    ///
+    [[nodiscard]] vk::raii::CommandBuffers *getCommandBuffers() const;
+
   private:
     std::vector<vk::DeviceQueueCreateInfo> createQueuesInfos();
     void createQueues();
@@ -166,6 +177,9 @@ class Device
     PhysicalDevice &gpu;
     VmaAllocator vmaAllocator{VK_NULL_HANDLE};
     std::vector<std::vector<Queue>> queues;
+
+    std::unique_ptr<CommandPool> commandPool;
+    vk::raii::CommandBuffers *commandBuffers;
 };
 } // namespace vkf::core
 

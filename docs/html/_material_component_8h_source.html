@@ -103,57 +103,30 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
 </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structvkf_1_1scene_1_1_material_component.html#a149c0b5e8ea28ba2da701fb635654225">   49</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structvkf_1_1scene_1_1_material_component.html#a149c0b5e8ea28ba2da701fb635654225">addBuffer</a>(<span class="keyword">const</span> std::string &amp;bufferName, uint32_t index)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_variable" href="structvkf_1_1scene_1_1_material_component.html#a27369187ff732b512336e810e7c0423c">bufferMap</a>[bufferName] = index;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">if</span> (index &lt; maxSize)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            indices[currentBufferCount] = index;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            currentBufferCount++;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        }</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="comment">// Handle error: index is out of bounds</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structvkf_1_1scene_1_1_material_component.html#aeeba95be088e11e93720dbefac9a3515">addUniform</a>(<span class="keyword">const</span> std::string &amp;uniformName, uint32_t index);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    uint32_t <a class="code hl_function" href="structvkf_1_1scene_1_1_material_component.html#a89ba27e74f08819558492d815da3a600">getUniformIndex</a>(<span class="keyword">const</span> std::string &amp;uniformName);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t maxSize{32};</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::array&lt;uint32_t, maxSize&gt; indices;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_pipeline.html">core::Pipeline</a> *pipeline;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structvkf_1_1scene_1_1_material_component.html#a136b47b28effb697ac831a5c3f864882">   62</a></span>    std::unordered_map&lt;std::string, uint32_t&gt; <a class="code hl_variable" href="structvkf_1_1scene_1_1_material_component.html#a136b47b28effb697ac831a5c3f864882">uniformMap</a>; </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    uint32_t currentUniformCount{0};</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
 </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structvkf_1_1scene_1_1_material_component.html#a60ad09d2c18a4bc5a9167c31e986f3ab">   69</a></span>    uint32_t <a class="code hl_function" href="structvkf_1_1scene_1_1_material_component.html#a60ad09d2c18a4bc5a9167c31e986f3ab">getBufferIndex</a>(<span class="keyword">const</span> std::string &amp;bufferName)</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">auto</span> it = <a class="code hl_variable" href="structvkf_1_1scene_1_1_material_component.html#a27369187ff732b512336e810e7c0423c">bufferMap</a>.find(bufferName);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">if</span> (it != <a class="code hl_variable" href="structvkf_1_1scene_1_1_material_component.html#a27369187ff732b512336e810e7c0423c">bufferMap</a>.end())</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keywordflow">return</span> it-&gt;second;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="comment">// Handle error: bufferName not found in the map</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        }</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
-</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t maxSize{32};</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    uint32_t indices[maxSize];</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_class" href="classvkf_1_1core_1_1_pipeline.html">core::Pipeline</a> *pipeline;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="structvkf_1_1scene_1_1_material_component.html#a27369187ff732b512336e810e7c0423c">   86</a></span>    std::unordered_map&lt;std::string, uint32_t&gt; <a class="code hl_variable" href="structvkf_1_1scene_1_1_material_component.html#a27369187ff732b512336e810e7c0423c">bufferMap</a>; </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    uint32_t currentBufferCount{0};</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
-</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>} <span class="comment">// namespace vkf::scene</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_MATERIALCOMPONENT_H</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>} <span class="comment">// namespace vkf::scene</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_MATERIALCOMPONENT_H</span></div>
 <div class="ttc" id="aclassvkf_1_1core_1_1_pipeline_html"><div class="ttname"><a href="classvkf_1_1core_1_1_pipeline.html">vkf::core::Pipeline</a></div><div class="ttdoc">This class manages Vulkan pipelines.</div><div class="ttdef"><b>Definition</b> Pipeline.h:52</div></div>
-<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> Buffer.cpp:18</div></div>
-<div class="ttc" id="anamespacevkf_1_1scene_html"><div class="ttname"><a href="namespacevkf_1_1scene.html">vkf::scene</a></div><div class="ttdoc">The scene namespace contains classes and functions for scene management.</div></div>
+<div class="ttc" id="anamespacevkf_1_1core_html"><div class="ttname"><a href="namespacevkf_1_1core.html">vkf::core</a></div><div class="ttdoc">The core namespace incorporates fundamental classes and functions used throughout the Vulkan Framewor...</div><div class="ttdef"><b>Definition</b> Buffer.cpp:19</div></div>
+<div class="ttc" id="anamespacevkf_1_1scene_html"><div class="ttname"><a href="namespacevkf_1_1scene.html">vkf::scene</a></div><div class="ttdoc">The scene namespace contains classes and functions for scene management.</div><div class="ttdef"><b>Definition</b> Utility.h:18</div></div>
 <div class="ttc" id="astructvkf_1_1scene_1_1_material_component_html"><div class="ttname"><a href="structvkf_1_1scene_1_1_material_component.html">vkf::scene::MaterialComponent</a></div><div class="ttdoc">Struct for managing material data in a scene.</div><div class="ttdef"><b>Definition</b> MaterialComponent.h:33</div></div>
 <div class="ttc" id="astructvkf_1_1scene_1_1_material_component_html_a1219c9d7221488bc37572bda910aba5a"><div class="ttname"><a href="structvkf_1_1scene_1_1_material_component.html#a1219c9d7221488bc37572bda910aba5a">vkf::scene::MaterialComponent::MaterialComponent</a></div><div class="ttdeci">MaterialComponent(core::Pipeline *pipeline)</div><div class="ttdoc">Constructor that takes a core::Pipeline as parameter.</div><div class="ttdef"><b>Definition</b> MaterialComponent.h:39</div></div>
-<div class="ttc" id="astructvkf_1_1scene_1_1_material_component_html_a149c0b5e8ea28ba2da701fb635654225"><div class="ttname"><a href="structvkf_1_1scene_1_1_material_component.html#a149c0b5e8ea28ba2da701fb635654225">vkf::scene::MaterialComponent::addBuffer</a></div><div class="ttdeci">void addBuffer(const std::string &amp;bufferName, uint32_t index)</div><div class="ttdoc">Method to add a buffer.</div><div class="ttdef"><b>Definition</b> MaterialComponent.h:49</div></div>
-<div class="ttc" id="astructvkf_1_1scene_1_1_material_component_html_a27369187ff732b512336e810e7c0423c"><div class="ttname"><a href="structvkf_1_1scene_1_1_material_component.html#a27369187ff732b512336e810e7c0423c">vkf::scene::MaterialComponent::bufferMap</a></div><div class="ttdeci">std::unordered_map&lt; std::string, uint32_t &gt; bufferMap</div><div class="ttdoc">Map to store buffer names and their indices.</div><div class="ttdef"><b>Definition</b> MaterialComponent.h:86</div></div>
-<div class="ttc" id="astructvkf_1_1scene_1_1_material_component_html_a60ad09d2c18a4bc5a9167c31e986f3ab"><div class="ttname"><a href="structvkf_1_1scene_1_1_material_component.html#a60ad09d2c18a4bc5a9167c31e986f3ab">vkf::scene::MaterialComponent::getBufferIndex</a></div><div class="ttdeci">uint32_t getBufferIndex(const std::string &amp;bufferName)</div><div class="ttdoc">Method to get a buffer index.</div><div class="ttdef"><b>Definition</b> MaterialComponent.h:69</div></div>
+<div class="ttc" id="astructvkf_1_1scene_1_1_material_component_html_a136b47b28effb697ac831a5c3f864882"><div class="ttname"><a href="structvkf_1_1scene_1_1_material_component.html#a136b47b28effb697ac831a5c3f864882">vkf::scene::MaterialComponent::uniformMap</a></div><div class="ttdeci">std::unordered_map&lt; std::string, uint32_t &gt; uniformMap</div><div class="ttdoc">Map to store buffer names and their indices.</div><div class="ttdef"><b>Definition</b> MaterialComponent.h:62</div></div>
+<div class="ttc" id="astructvkf_1_1scene_1_1_material_component_html_a89ba27e74f08819558492d815da3a600"><div class="ttname"><a href="structvkf_1_1scene_1_1_material_component.html#a89ba27e74f08819558492d815da3a600">vkf::scene::MaterialComponent::getUniformIndex</a></div><div class="ttdeci">uint32_t getUniformIndex(const std::string &amp;uniformName)</div><div class="ttdoc">Method to get a uniform index.</div><div class="ttdef"><b>Definition</b> MaterialComponent.cpp:26</div></div>
+<div class="ttc" id="astructvkf_1_1scene_1_1_material_component_html_aeeba95be088e11e93720dbefac9a3515"><div class="ttname"><a href="structvkf_1_1scene_1_1_material_component.html#aeeba95be088e11e93720dbefac9a3515">vkf::scene::MaterialComponent::addUniform</a></div><div class="ttdeci">void addUniform(const std::string &amp;uniformName, uint32_t index)</div><div class="ttdoc">Method to add a uniform.</div><div class="ttdef"><b>Definition</b> MaterialComponent.cpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

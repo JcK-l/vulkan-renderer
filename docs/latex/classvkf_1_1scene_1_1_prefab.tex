@@ -1,0 +1,135 @@
+\doxysection{vkf\+::scene\+::Prefab Class Reference}
+\hypertarget{classvkf_1_1scene_1_1_prefab}{}\label{classvkf_1_1scene_1_1_prefab}\index{vkf::scene::Prefab@{vkf::scene::Prefab}}
+
+
+Abstract class for managing prefabricated entities in a scene.  
+
+
+
+
+{\ttfamily \#include $<$Prefab.\+h$>$}
+
+Inheritance diagram for vkf\+::scene\+::Prefab\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvkf_1_1scene_1_1_prefab}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_aa8a297dd67b98e7cb421cec0966a7a54}\label{classvkf_1_1scene_1_1_prefab_aa8a297dd67b98e7cb421cec0966a7a54} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Prefab} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_a1cee6719d44174f1dcc29e6a7357e52d}{create}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*}pipeline, \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*}camera, std\+::string tag)=0
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_a88c8065be516fe4bb8b9ce4dc5c80173}\label{classvkf_1_1scene_1_1_prefab_a88c8065be516fe4bb8b9ce4dc5c80173} 
+virtual void {\bfseries destroy} ()=0
+\item 
+virtual void \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_a28c7dcfb2cb63fb53534deacd6f08c3f}{display\+Gui}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to display GUI for a prefab. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_a29f0573388628e8eced3d213824123b9}{update\+Components}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to update components of a prefab. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_af0ae2afdc40bc41ff969812f3e93e804}\label{classvkf_1_1scene_1_1_prefab_af0ae2afdc40bc41ff969812f3e93e804} 
+virtual \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \& {\bfseries get\+Entity} ()=0
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_a006fcf907cf66cec51c1e663c9c150a2}\label{classvkf_1_1scene_1_1_prefab_a006fcf907cf66cec51c1e663c9c150a2} 
+virtual void {\bfseries set\+Entity} (entt\+::entity ent)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{rendering\+::\+Pipeline\+Builder}} \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_a10b4ec37dc2aa09cdd8e7fe5ab5c14ae}{get\+Pipeline\+Builder}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&render\+Pass, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager)
+\begin{DoxyCompactList}\small\item\em Static method to get a Pipeline\+Builder for a prefab. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_ac7dc9072cc0384df9373fe8342f7dbf5}{Prefab}} (entt\+::registry \&registry, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager, \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} entity)
+\begin{DoxyCompactList}\small\item\em Constructor that takes a registry, a Bindless\+Manager object and an \doxylink{classvkf_1_1scene_1_1_entity}{Entity} object as parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_a54c2a152589de60a8ac7243828bf65b6}\label{classvkf_1_1scene_1_1_prefab_a54c2a152589de60a8ac7243828bf65b6} 
+entt\+::registry \& {\bfseries registry}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_a99c9e15d8d75b1bd1bd97632d631741e}\label{classvkf_1_1scene_1_1_prefab_a99c9e15d8d75b1bd1bd97632d631741e} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \& {\bfseries bindless\+Manager}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_prefab_ace89377b91ea5d106793542e92675c87}\label{classvkf_1_1scene_1_1_prefab_ace89377b91ea5d106793542e92675c87} 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} {\bfseries entity}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class for managing prefabricated entities in a scene. 
+
+This abstract class provides an interface for creating and managing prefabricated entities. It contains pure virtual methods that must be implemented by any concrete subclass. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_prefab_ac7dc9072cc0384df9373fe8342f7dbf5}\label{classvkf_1_1scene_1_1_prefab_ac7dc9072cc0384df9373fe8342f7dbf5} 
+\index{vkf::scene::Prefab@{vkf::scene::Prefab}!Prefab@{Prefab}}
+\index{Prefab@{Prefab}!vkf::scene::Prefab@{vkf::scene::Prefab}}
+\doxysubsubsection{\texorpdfstring{Prefab()}{Prefab()}}
+{\footnotesize\ttfamily vkf\+::scene\+::\+Prefab\+::\+Prefab (\begin{DoxyParamCaption}\item[{entt\+::registry \&}]{registry,  }\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&}]{bindless\+Manager,  }\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+Constructor that takes a registry, a Bindless\+Manager object and an \doxylink{classvkf_1_1scene_1_1_entity}{Entity} object as parameters. 
+
+This constructor initializes the registry, bindless\+Manager and entity members with the provided parameters. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_prefab_a1cee6719d44174f1dcc29e6a7357e52d}\label{classvkf_1_1scene_1_1_prefab_a1cee6719d44174f1dcc29e6a7357e52d} 
+\index{vkf::scene::Prefab@{vkf::scene::Prefab}!create@{create}}
+\index{create@{create}!vkf::scene::Prefab@{vkf::scene::Prefab}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily virtual void vkf\+::scene\+::\+Prefab\+::create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*}}]{pipeline,  }\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera,  }\item[{std\+::string}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_acaed2133edce3f3dc9bec14c48156dd7}{vkf\+::scene\+::\+Cube}}, and \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_a41f6eede4623afb05021c24382d4318f}{vkf\+::scene\+::\+Texture2D}}.
+
+\Hypertarget{classvkf_1_1scene_1_1_prefab_a28c7dcfb2cb63fb53534deacd6f08c3f}\label{classvkf_1_1scene_1_1_prefab_a28c7dcfb2cb63fb53534deacd6f08c3f} 
+\index{vkf::scene::Prefab@{vkf::scene::Prefab}!displayGui@{displayGui}}
+\index{displayGui@{displayGui}!vkf::scene::Prefab@{vkf::scene::Prefab}}
+\doxysubsubsection{\texorpdfstring{displayGui()}{displayGui()}}
+{\footnotesize\ttfamily virtual void vkf\+::scene\+::\+Prefab\+::display\+Gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to display GUI for a prefab. 
+
+This method displays the GUI for a prefab. It must be implemented in any concrete subclass. 
+
+Implemented in \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_ac034f8cbafd650a05b4abe45b8fbfc88}{vkf\+::scene\+::\+Cube}}, and \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_a7cb88574335951567874dec61bb80d11}{vkf\+::scene\+::\+Texture2D}}.
+
+\Hypertarget{classvkf_1_1scene_1_1_prefab_a10b4ec37dc2aa09cdd8e7fe5ab5c14ae}\label{classvkf_1_1scene_1_1_prefab_a10b4ec37dc2aa09cdd8e7fe5ab5c14ae} 
+\index{vkf::scene::Prefab@{vkf::scene::Prefab}!getPipelineBuilder@{getPipelineBuilder}}
+\index{getPipelineBuilder@{getPipelineBuilder}!vkf::scene::Prefab@{vkf::scene::Prefab}}
+\doxysubsubsection{\texorpdfstring{getPipelineBuilder()}{getPipelineBuilder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{rendering\+::\+Pipeline\+Builder}} vkf\+::scene\+::\+Prefab\+::get\+Pipeline\+Builder (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&}]{render\+Pass,  }\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&}]{bindless\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Static method to get a Pipeline\+Builder for a prefab. 
+
+This method takes a Device object, a Render\+Pass object and a Bindless\+Manager object as parameters and returns a Pipeline\+Builder for a prefab. \Hypertarget{classvkf_1_1scene_1_1_prefab_a29f0573388628e8eced3d213824123b9}\label{classvkf_1_1scene_1_1_prefab_a29f0573388628e8eced3d213824123b9} 
+\index{vkf::scene::Prefab@{vkf::scene::Prefab}!updateComponents@{updateComponents}}
+\index{updateComponents@{updateComponents}!vkf::scene::Prefab@{vkf::scene::Prefab}}
+\doxysubsubsection{\texorpdfstring{updateComponents()}{updateComponents()}}
+{\footnotesize\ttfamily virtual void vkf\+::scene\+::\+Prefab\+::update\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to update components of a prefab. 
+
+This method updates the components of a prefab. It must be implemented in any concrete subclass. 
+
+Implemented in \mbox{\hyperlink{classvkf_1_1scene_1_1_cube_a2cf8d0deb8e6ca50725d67100a8ba7bd}{vkf\+::scene\+::\+Cube}}, and \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_afcc635cf429175f7d36f6afacd159ab0}{vkf\+::scene\+::\+Texture2D}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/prefabs/\mbox{\hyperlink{_prefab_8h}{Prefab.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/prefabs/\mbox{\hyperlink{_prefab_8cpp}{Prefab.\+cpp}}\end{DoxyCompactItemize}

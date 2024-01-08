@@ -12,6 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Utility.h"
+#include "../scene/prefabs/PrefabFactory.h"
 
 namespace vkf
 {
@@ -52,6 +53,17 @@ std::string getQueueFlagsString(vk::QueueFlags flags)
     }
 
     return capabilities;
+}
+
+std::string getPrefabTypeString(scene::PrefabType type)
+{
+    switch (type)
+    {
+    case scene::PrefabType::Cube:
+        return "Cube";
+    case scene::PrefabType::Texture2D:
+        return "Texture2D";
+    }
 }
 
 } // namespace vkf

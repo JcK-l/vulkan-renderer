@@ -1,0 +1,55 @@
+\doxysection{vkf\+::scene\+::Mesh\+Component Struct Reference}
+\hypertarget{structvkf_1_1scene_1_1_mesh_component}{}\label{structvkf_1_1scene_1_1_mesh_component}\index{vkf::scene::MeshComponent@{vkf::scene::MeshComponent}}
+
+
+Struct for managing mesh data for an entity in a scene.  
+
+
+
+
+{\ttfamily \#include $<$Mesh\+Component.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structvkf_1_1scene_1_1_mesh_component_a1b421a414ad9677fb6a15f3d8003400e}{Mesh\+Component}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, std\+::vector$<$ float $>$ mesh)
+\begin{DoxyCompactList}\small\item\em Constructor that takes a Device object and a vector of floats representing the mesh as parameters. \end{DoxyCompactList}\item 
+\Hypertarget{structvkf_1_1scene_1_1_mesh_component_a593a8041788a47b9f5f505c330ca8b02}\label{structvkf_1_1scene_1_1_mesh_component_a593a8041788a47b9f5f505c330ca8b02} 
+void {\bfseries display\+Gui} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_mesh_component_aa8fc2e4f38804ee5b9846c8344243d53}\label{structvkf_1_1scene_1_1_mesh_component_aa8fc2e4f38804ee5b9846c8344243d53} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_buffer}{core\+::\+Buffer}} $>$ {\bfseries vertex\+Buffer}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_mesh_component_a27e97518236d414be09113f2e6886b11}\label{structvkf_1_1scene_1_1_mesh_component_a27e97518236d414be09113f2e6886b11} 
+uint32\+\_\+t {\bfseries num\+Vertices}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_mesh_component_a3e0591eb9214a0ae76c582190d5dfcbe}\label{structvkf_1_1scene_1_1_mesh_component_a3e0591eb9214a0ae76c582190d5dfcbe} 
+bool {\bfseries should\+Draw} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct for managing mesh data for an entity in a scene. 
+
+This struct provides functionality to store and manage mesh data. It contains a shared pointer to a Buffer object to store the mesh data, a uint32\+\_\+t to store the number of vertices and a boolean to determine if the mesh should be drawn. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structvkf_1_1scene_1_1_mesh_component_a1b421a414ad9677fb6a15f3d8003400e}\label{structvkf_1_1scene_1_1_mesh_component_a1b421a414ad9677fb6a15f3d8003400e} 
+\index{vkf::scene::MeshComponent@{vkf::scene::MeshComponent}!MeshComponent@{MeshComponent}}
+\index{MeshComponent@{MeshComponent}!vkf::scene::MeshComponent@{vkf::scene::MeshComponent}}
+\doxysubsubsection{\texorpdfstring{MeshComponent()}{MeshComponent()}}
+{\footnotesize\ttfamily vkf\+::scene\+::\+Mesh\+Component\+::\+Mesh\+Component (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{std\+::vector$<$ float $>$}]{mesh }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor that takes a Device object and a vector of floats representing the mesh as parameters. 
+
+This constructor initializes the vertex\+Buffer member with a Buffer object created with the provided Device object and mesh data. It also initializes the num\+Vertices member with the size of the provided mesh data. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/components/\mbox{\hyperlink{_mesh_component_8h}{Mesh\+Component.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/components/\mbox{\hyperlink{_mesh_component_8cpp}{Mesh\+Component.\+cpp}}\end{DoxyCompactItemize}

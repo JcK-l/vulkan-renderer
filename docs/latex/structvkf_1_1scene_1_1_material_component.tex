@@ -14,24 +14,24 @@ Struct for managing material data in a scene.
 \item 
 \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a1219c9d7221488bc37572bda910aba5a}{Material\+Component}} (\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*}pipeline)
 \begin{DoxyCompactList}\small\item\em Constructor that takes a \doxylink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline} as parameter. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a149c0b5e8ea28ba2da701fb635654225}{add\+Buffer}} (const std\+::string \&buffer\+Name, uint32\+\_\+t index)
-\begin{DoxyCompactList}\small\item\em Method to add a buffer. \end{DoxyCompactList}\item 
-uint32\+\_\+t \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a60ad09d2c18a4bc5a9167c31e986f3ab}{get\+Buffer\+Index}} (const std\+::string \&buffer\+Name)
-\begin{DoxyCompactList}\small\item\em Method to get a buffer index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_aeeba95be088e11e93720dbefac9a3515}{add\+Uniform}} (const std\+::string \&uniform\+Name, uint32\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Method to add a uniform. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a89ba27e74f08819558492d815da3a600}{get\+Uniform\+Index}} (const std\+::string \&uniform\+Name)
+\begin{DoxyCompactList}\small\item\em Method to get a uniform index. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{structvkf_1_1scene_1_1_material_component_a1f52d1ca11edcee1cd34e4f60d484ed1}\label{structvkf_1_1scene_1_1_material_component_a1f52d1ca11edcee1cd34e4f60d484ed1} 
-uint32\+\_\+t {\bfseries indices} \mbox{[}max\+Size\mbox{]}
+\Hypertarget{structvkf_1_1scene_1_1_material_component_abd95dc49306f2783d57bafb127154bed}\label{structvkf_1_1scene_1_1_material_component_abd95dc49306f2783d57bafb127154bed} 
+std\+::array$<$ uint32\+\_\+t, max\+Size $>$ {\bfseries indices}
 \item 
 \Hypertarget{structvkf_1_1scene_1_1_material_component_acb46c8907aa965295bbc321d2ebd2c38}\label{structvkf_1_1scene_1_1_material_component_acb46c8907aa965295bbc321d2ebd2c38} 
 \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*} {\bfseries pipeline}
 \item 
-\Hypertarget{structvkf_1_1scene_1_1_material_component_a27369187ff732b512336e810e7c0423c}\label{structvkf_1_1scene_1_1_material_component_a27369187ff732b512336e810e7c0423c} 
-std\+::unordered\+\_\+map$<$ std\+::string, uint32\+\_\+t $>$ {\bfseries buffer\+Map}
+\Hypertarget{structvkf_1_1scene_1_1_material_component_a136b47b28effb697ac831a5c3f864882}\label{structvkf_1_1scene_1_1_material_component_a136b47b28effb697ac831a5c3f864882} 
+std\+::unordered\+\_\+map$<$ std\+::string, uint32\+\_\+t $>$ {\bfseries uniform\+Map}
 \begin{DoxyCompactList}\small\item\em Map to store buffer names and their indices. \end{DoxyCompactList}\item 
-\Hypertarget{structvkf_1_1scene_1_1_material_component_a512de7b583d5a581b60d4df24120e254}\label{structvkf_1_1scene_1_1_material_component_a512de7b583d5a581b60d4df24120e254} 
-uint32\+\_\+t {\bfseries current\+Buffer\+Count} \{0\}
+\Hypertarget{structvkf_1_1scene_1_1_material_component_a709df801b3dfd2ace3862f80b20ee205}\label{structvkf_1_1scene_1_1_material_component_a709df801b3dfd2ace3862f80b20ee205} 
+uint32\+\_\+t {\bfseries current\+Uniform\+Count} \{0\}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -60,28 +60,29 @@ Constructor that takes a \doxylink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipe
 This constructor initializes the pipeline member with the provided pipeline. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{structvkf_1_1scene_1_1_material_component_a149c0b5e8ea28ba2da701fb635654225}\label{structvkf_1_1scene_1_1_material_component_a149c0b5e8ea28ba2da701fb635654225} 
-\index{vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}!addBuffer@{addBuffer}}
-\index{addBuffer@{addBuffer}!vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}}
-\doxysubsubsection{\texorpdfstring{addBuffer()}{addBuffer()}}
-{\footnotesize\ttfamily void vkf\+::scene\+::\+Material\+Component\+::add\+Buffer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name,  }\item[{uint32\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\Hypertarget{structvkf_1_1scene_1_1_material_component_aeeba95be088e11e93720dbefac9a3515}\label{structvkf_1_1scene_1_1_material_component_aeeba95be088e11e93720dbefac9a3515} 
+\index{vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}!addUniform@{addUniform}}
+\index{addUniform@{addUniform}!vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}}
+\doxysubsubsection{\texorpdfstring{addUniform()}{addUniform()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Material\+Component\+::add\+Uniform (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uniform\+Name,  }\item[{uint32\+\_\+t}]{index }\end{DoxyParamCaption})}
 
 
 
-Method to add a buffer. 
+Method to add a uniform. 
 
-This method takes a buffer name and an index, and adds them to the buffer map. If the index is within the maximum size, it also adds the index to the indices array and increments the current buffer count. \Hypertarget{structvkf_1_1scene_1_1_material_component_a60ad09d2c18a4bc5a9167c31e986f3ab}\label{structvkf_1_1scene_1_1_material_component_a60ad09d2c18a4bc5a9167c31e986f3ab} 
-\index{vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}!getBufferIndex@{getBufferIndex}}
-\index{getBufferIndex@{getBufferIndex}!vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}}
-\doxysubsubsection{\texorpdfstring{getBufferIndex()}{getBufferIndex()}}
-{\footnotesize\ttfamily uint32\+\_\+t vkf\+::scene\+::\+Material\+Component\+::get\+Buffer\+Index (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{buffer\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+This method takes a uniform name and an index, and adds them to the uniform map. It also adds the index to the indices array and increments the current uniform count. \Hypertarget{structvkf_1_1scene_1_1_material_component_a89ba27e74f08819558492d815da3a600}\label{structvkf_1_1scene_1_1_material_component_a89ba27e74f08819558492d815da3a600} 
+\index{vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}!getUniformIndex@{getUniformIndex}}
+\index{getUniformIndex@{getUniformIndex}!vkf::scene::MaterialComponent@{vkf::scene::MaterialComponent}}
+\doxysubsubsection{\texorpdfstring{getUniformIndex()}{getUniformIndex()}}
+{\footnotesize\ttfamily uint32\+\_\+t vkf\+::scene\+::\+Material\+Component\+::get\+Uniform\+Index (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uniform\+Name }\end{DoxyParamCaption})}
 
 
 
-Method to get a buffer index. 
+Method to get a uniform index. 
 
-This method takes a buffer name and returns its index from the buffer map. If the buffer name is not found in the map, it handles the error and returns -\/1. 
+This method takes a uniform name and returns its index from the uniform map. If the uniform name is not found in the map, it handles the error and returns -\/1. 
 
-The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/components/\mbox{\hyperlink{_material_component_8h}{Material\+Component.\+h}}\end{DoxyCompactItemize}
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/components/\mbox{\hyperlink{_material_component_8h}{Material\+Component.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/components/\mbox{\hyperlink{_material_component_8cpp}{Material\+Component.\+cpp}}\end{DoxyCompactItemize}

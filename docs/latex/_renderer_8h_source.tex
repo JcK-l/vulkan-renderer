@@ -45,7 +45,7 @@
 \DoxyCodeLine{00075\ \ \ \ \ \string~\mbox{\hyperlink{classvkf_1_1rendering_1_1_renderer}{Renderer}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00076\ }
 \DoxyCodeLine{00077\ \ \ \ \ [[nodiscard]]\ core::RenderPass\ *getRenderPass()\ const;}
-\DoxyCodeLine{00078\ \ \ \ \ [[nodiscard]]\ vk::RenderPassBeginInfo\ getRenderPassBeginInfo(uint32\_t\ imageIndex)\ const;}
+\DoxyCodeLine{00078\ \ \ \ \ [[nodiscard]]\ vk::RenderPassBeginInfo\ getRenderPassBeginInfo()\ const;}
 \DoxyCodeLine{00079\ \ \ \ \ [[nodiscard]]\ vk::Extent2D\ getFramebufferExtent()\ const;}
 \DoxyCodeLine{00080\ }
 \DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ addRenderSubstage(std::unique\_ptr<\mbox{\hyperlink{classvkf_1_1rendering_1_1_render_substage}{RenderSubstage}}>\ renderSubstage);}
@@ -71,7 +71,7 @@
 \DoxyCodeLine{00101\ \ \ \ \ vk::Extent2D\ framebufferExtent;}
 \DoxyCodeLine{00102\ }
 \DoxyCodeLine{00103\ \ \ \ \ std::vector<core::Image>\ depthImages;}
-\DoxyCodeLine{00104\ \ \ \ \ std::vector<vk::raii::ImageView>\ depthImageViews;}
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<vk::ImageView>\ depthImageViews;}
 \DoxyCodeLine{00105\ }
 \DoxyCodeLine{00106\ \ \ \ \ std::shared\_ptr<RenderSource>\ renderSource;}
 \DoxyCodeLine{00107\ \};}

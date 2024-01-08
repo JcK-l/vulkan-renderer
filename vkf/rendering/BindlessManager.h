@@ -15,6 +15,7 @@
 #define VULKANRENDERER_BINDLESSMANAGER_H
 
 #include "../core/Buffer.h"
+#include "../core/Image.h"
 
 namespace vkf::core // Forward declaration
 {
@@ -70,19 +71,36 @@ class BindlessManager
     void removeBuffer(uint32_t handle);
 
     ///
-    /// \brief Method to update descriptor set.
+    /// \brief Method to store an image.
     ///
-    /// This method updates the descriptor set.
+    /// This method takes an image, and returns a handle to the stored image.
     ///
-    void updateDescriptorSet();
+    uint32_t storeImage(core::Image &image);
 
-    [[nodiscard]] vk::PipelineLayout getPipelineLayout() const;
+    ///
+    /// \brief Method to update an image.
+    ///
+    /// This method takes a handle to an image and a new image. It updates the image by removing the old image and
+    /// storing the new image.
+    ///
+    void updateImage(uint32_t handle, core::Image &newImage);
+
+    ///
+    /// \brief Method to remove an image.
+    ///
+    /// This method takes a handle to an image and removes the image.
+    ///
+    void removeImage(uint32_t handle);
+
+    [[nodiscard]] const vk::PipelineLayout &getPipelineLayout() const;
     [[nodiscard]] vk::DescriptorSet getDescriptorSet() const;
 
-    static constexpr uint32_t UniformBinding = 0;   ///< Uniform binding index
-    static constexpr uint32_t StorageBinding = 1;   ///< Storage binding index
-    static constexpr uint32_t UniformCount = 65536; ///< Maximum number of uniform buffers
-    static constexpr uint32_t StorageCount = 65536; ///< Maximum number of storage buffers
+    static constexpr uint32_t UniformBinding = 0;        ///< Uniform binding index
+    static constexpr uint32_t StorageBinding = 1;        ///< Storage binding index
+    static constexpr uint32_t ImageSamplerBinding = 2;   ///< imageSampler binding index
+    static constexpr uint32_t UniformCount = 65536;      ///< Maximum number of uniform buffers
+    static constexpr uint32_t ImageSamplerCount = 65536; ///< Maximum number of imageSamplers
+    static constexpr uint32_t StorageCount = 65536;      ///< Maximum number of storage buffers
 
   private:
     const core::Device &device;
@@ -92,10 +110,10 @@ class BindlessManager
     std::vector<vk::raii::DescriptorSetLayout> descriptorSetLayouts;
     vk::raii::PipelineLayout pipelineLayout = VK_NULL_HANDLE;
 
-    std::vector<vk::WriteDescriptorSet> writeDescriptorSets;
-    std::vector<vk::DescriptorBufferInfo> descriptorBufferInfos;
     std::unordered_map<uint32_t, core::Buffer> buffers; ///< Map of handles and their corresponding buffers
-    std::vector<uint32_t> freeHandles;                  ///< Vector of free handles
+    std::unordered_map<uint32_t, core::Image> images;   ///< Map of handles and their corresponding images
+
+    std::vector<uint32_t> freeHandles; ///< Vector of free handles
 };
 
 } // namespace vkf::rendering

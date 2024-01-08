@@ -43,19 +43,20 @@ void Swapchain::recreate()
     }
     device.getHandle().waitIdle();
 
-    createSwapchain(*handle);
+    oldSwapchain = std::move(handle);
+    createSwapchain();
     LOG_INFO("Recreated Swapchain")
 }
 
-void Swapchain::createSwapchain(vk::SwapchainKHR oldSwapchain)
+void Swapchain::createSwapchain()
 {
 
     supportDetails.formats = gpu.getHandle().getSurfaceFormatsKHR(*surface);
     supportDetails.presentModes = gpu.getHandle().getSurfacePresentModesKHR(*surface);
     supportDetails.capabilities = gpu.getHandle().getSurfaceCapabilitiesKHR(*surface);
 
-    auto surfaceFormat = selectSwapSurfaceFormat();
-    auto presentMode = selectSwapPresentMode();
+    surfaceFormat = selectSwapSurfaceFormat();
+    presentMode = selectSwapPresentMode();
     extent = selectSwapExtent();
 
     auto preTransform = (supportDetails.capabilities.supportedTransforms & vk::SurfaceTransformFlagBitsKHR::eIdentity)
@@ -97,7 +98,7 @@ void Swapchain::createSwapchain(vk::SwapchainKHR oldSwapchain)
         .compositeAlpha = compositeAlpha,
         .presentMode = presentMode,
         .clipped = VK_TRUE,
-        .oldSwapchain = oldSwapchain,
+        .oldSwapchain = *oldSwapchain,
     };
 
     handle = vk::raii::SwapchainKHR{device.getHandle(), createInfo};
@@ -123,10 +124,13 @@ void Swapchain::createImageViews()
     imageViews.reserve(images.size());
     for (auto &image : images)
     {
-        auto surfaceFormat = selectSwapSurfaceFormat();
         vk::ImageViewCreateInfo createInfo{.image = image,
                                            .viewType = vk::ImageViewType::e2D,
                                            .format = surfaceFormat.format,
+                                           .components = {.r = vk::ComponentSwizzle::eIdentity,
+                                                          .g = vk::ComponentSwizzle::eIdentity,
+                                                          .b = vk::ComponentSwizzle::eIdentity,
+                                                          .a = vk::ComponentSwizzle::eIdentity},
                                            .subresourceRange = {
                                                .aspectMask = vk::ImageAspectFlagBits::eColor,
                                                .baseMipLevel = 0,
@@ -156,7 +160,7 @@ vk::PresentModeKHR Swapchain::selectSwapPresentMode() const
 {
     for (const auto &availablePresentMode : supportDetails.presentModes)
     {
-        if (availablePresentMode == vk::PresentModeKHR::eMailbox)
+        if (availablePresentMode == vk::PresentModeKHR::eFifo)
         {
             return availablePresentMode;
         }
@@ -186,7 +190,9 @@ vk::Extent2D Swapchain::selectSwapExtent() const
 std::pair<vk::Result, uint32_t> Swapchain::acquireNextImage(const vk::raii::Semaphore &imageAvailableSemaphore,
                                                             uint64_t timeout)
 {
-    return handle.acquireNextImage(timeout, *imageAvailableSemaphore);
+    auto [result, value] = handle.acquireNextImage(timeout, *imageAvailableSemaphore);
+    frameIndex = value;
+    return {result, value};
 }
 
 vk::Extent2D Swapchain::getExtent() const
@@ -204,6 +210,11 @@ bool Swapchain::resetChanged()
 uint32_t Swapchain::getImageCount() const
 {
     return images.size();
+}
+
+uint32_t Swapchain::getFrameIndex()
+{
+    return frameIndex;
 }
 
 uint32_t Swapchain::getMinImageCount() const

@@ -27,14 +27,14 @@ Class for building Vulkan pipelines.
 \Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_aaad3ef762df7ec7205139ad5734c5cec}\label{classvkf_1_1rendering_1_1_pipeline_builder_aaad3ef762df7ec7205139ad5734c5cec} 
 \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries operator=} (\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \&\&)=default
 \begin{DoxyCompactList}\small\item\em Default move assignment operator. \end{DoxyCompactList}\item 
-\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_ada091754edf8d24fe60a0117298b191d}\label{classvkf_1_1rendering_1_1_pipeline_builder_ada091754edf8d24fe60a0117298b191d} 
-{\bfseries \texorpdfstring{$\sim$}{\string~}\+Pipeline\+Builder} ()=default
-\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
-\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_ada5b1102cdf31ac7941b637405a058de}\label{classvkf_1_1rendering_1_1_pipeline_builder_ada5b1102cdf31ac7941b637405a058de} 
-\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Shader\+Stage\+Create\+Infos} (const std\+::vector$<$ vk\+::\+Pipeline\+Shader\+Stage\+Create\+Info $>$ \&infos)
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_afebf7ee1b26254496bb96d4e9c3db33a}\label{classvkf_1_1rendering_1_1_pipeline_builder_afebf7ee1b26254496bb96d4e9c3db33a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Pipeline\+Builder} ()
+\begin{DoxyCompactList}\small\item\em Implementation in Pipeline\+Builder.\+cpp because of std\+::shared\+\_\+ptr forward declaration. \end{DoxyCompactList}\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a8b2687228f68b132f3bb8e85b5f6b094}\label{classvkf_1_1rendering_1_1_pipeline_builder_a8b2687228f68b132f3bb8e85b5f6b094} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Shader\+Stage\+Create\+Infos} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{classvkf_1_1core_1_1_shader}{core\+::\+Shader}} \&shader)
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a23201c01399f572258ed5d8ae86f097b}\label{classvkf_1_1rendering_1_1_pipeline_builder_a23201c01399f572258ed5d8ae86f097b} 
-\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Vertex\+Input\+Create\+Info} (const vk\+::\+Pipeline\+Vertex\+Input\+State\+Create\+Info \&info)
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a50e09fe24efe018da074708121e3ddc0}\label{classvkf_1_1rendering_1_1_pipeline_builder_a50e09fe24efe018da074708121e3ddc0} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Vertex\+Input\+Create\+Info} (const vk\+::\+Pipeline\+Vertex\+Input\+State\+Create\+Info \&info, vk\+::\+Vertex\+Input\+Binding\+Description \&binding\+Description, std\+::vector$<$ vk\+::\+Vertex\+Input\+Attribute\+Description $>$ \&attribute\+Descriptions)
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_ab60a3ee58bc6991dbba7ca5b2efad768}\label{classvkf_1_1rendering_1_1_pipeline_builder_ab60a3ee58bc6991dbba7ca5b2efad768} 
 \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Input\+Assembly\+Create\+Info} (const vk\+::\+Pipeline\+Input\+Assembly\+State\+Create\+Info \&info)
@@ -51,11 +51,11 @@ Class for building Vulkan pipelines.
 \Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a2aa796f0da919a18f46a7c4597068da6}\label{classvkf_1_1rendering_1_1_pipeline_builder_a2aa796f0da919a18f46a7c4597068da6} 
 \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Depth\+Stencil\+Create\+Info} (const vk\+::\+Pipeline\+Depth\+Stencil\+State\+Create\+Info \&info)
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_ae5a4f588f908ba6006d1b3abb41332e8}\label{classvkf_1_1rendering_1_1_pipeline_builder_ae5a4f588f908ba6006d1b3abb41332e8} 
-\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Color\+Blending\+Create\+Info} (const vk\+::\+Pipeline\+Color\+Blend\+State\+Create\+Info \&info)
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a7bcec505031b74decfba4255ecd364b3}\label{classvkf_1_1rendering_1_1_pipeline_builder_a7bcec505031b74decfba4255ecd364b3} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Color\+Blending\+Create\+Info} (const vk\+::\+Pipeline\+Color\+Blend\+State\+Create\+Info \&info, vk\+::\+Pipeline\+Color\+Blend\+Attachment\+State \&attachment)
 \item 
-\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a473a21c56afbb3e08f70b8d41b28b6fc}\label{classvkf_1_1rendering_1_1_pipeline_builder_a473a21c56afbb3e08f70b8d41b28b6fc} 
-\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Dynamic\+State\+Create\+Info} (const vk\+::\+Pipeline\+Dynamic\+State\+Create\+Info \&info)
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_aadd40e9f464ee8faa660ac1b53fdf0ec}\label{classvkf_1_1rendering_1_1_pipeline_builder_aadd40e9f464ee8faa660ac1b53fdf0ec} 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Dynamic\+State\+Create\+Info} (const vk\+::\+Pipeline\+Dynamic\+State\+Create\+Info \&info, std\+::vector$<$ vk\+::\+Dynamic\+State $>$ \&states)
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a3c3d40713f3843dcc65326343c25b1cb}\label{classvkf_1_1rendering_1_1_pipeline_builder_a3c3d40713f3843dcc65326343c25b1cb} 
 \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{Pipeline\+Builder}} \& {\bfseries set\+Pipeline\+Layout} (const vk\+::\+Pipeline\+Layout \&layout)
@@ -71,6 +71,21 @@ Class for building Vulkan pipelines.
 \item 
 \Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a6d959b90670f984700d7bdd9d57688c8}\label{classvkf_1_1rendering_1_1_pipeline_builder_a6d959b90670f984700d7bdd9d57688c8} 
 \mbox{\hyperlink{structvkf_1_1core_1_1_pipeline_state}{core\+::\+Pipeline\+State}} {\bfseries state}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_adfabe3e4fab29cb7c292162b5c7e7417}\label{classvkf_1_1rendering_1_1_pipeline_builder_adfabe3e4fab29cb7c292162b5c7e7417} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_shader}{core\+::\+Shader}} $>$ {\bfseries pipeline\+Shader}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a06625c821a61f28918366b9c3f580a9f}\label{classvkf_1_1rendering_1_1_pipeline_builder_a06625c821a61f28918366b9c3f580a9f} 
+vk\+::\+Pipeline\+Color\+Blend\+Attachment\+State {\bfseries color\+Blend\+Attachment}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a7847d5727dd7761d3639c28ebbe453c5}\label{classvkf_1_1rendering_1_1_pipeline_builder_a7847d5727dd7761d3639c28ebbe453c5} 
+std\+::vector$<$ vk\+::\+Dynamic\+State $>$ {\bfseries dynamic\+States}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_a6e8120eb3838a85602f2b06155e2748b}\label{classvkf_1_1rendering_1_1_pipeline_builder_a6e8120eb3838a85602f2b06155e2748b} 
+vk\+::\+Vertex\+Input\+Binding\+Description {\bfseries vertex\+Input\+Binding\+Description}
+\item 
+\Hypertarget{classvkf_1_1rendering_1_1_pipeline_builder_aeccf254c7a774e573e54bb13912e1850}\label{classvkf_1_1rendering_1_1_pipeline_builder_aeccf254c7a774e573e54bb13912e1850} 
+std\+::vector$<$ vk\+::\+Vertex\+Input\+Attribute\+Description $>$ {\bfseries vertex\+Input\+Attribute\+Descriptions}
 \end{DoxyCompactItemize}
 
 

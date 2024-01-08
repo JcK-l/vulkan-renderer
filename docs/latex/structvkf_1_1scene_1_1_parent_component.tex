@@ -1,0 +1,49 @@
+\doxysection{vkf\+::scene\+::Parent\+Component Struct Reference}
+\hypertarget{structvkf_1_1scene_1_1_parent_component}{}\label{structvkf_1_1scene_1_1_parent_component}\index{vkf::scene::ParentComponent@{vkf::scene::ParentComponent}}
+
+
+Struct for managing parent-\/child relationships for entities in a scene.  
+
+
+
+
+{\ttfamily \#include $<$Parent\+Component.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_parent_component_acb8dc517781442fa1c2222b90781a347}\label{structvkf_1_1scene_1_1_parent_component_acb8dc517781442fa1c2222b90781a347} 
+{\bfseries Parent\+Component} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structvkf_1_1scene_1_1_parent_component_a91dc49c1990b7234150a817eedd54d5c}{add\+Child}} (\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} child)
+\begin{DoxyCompactList}\small\item\em Method to add a child entity to the parent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_parent_component_a8a5f53e4fa2d5e14fce3b23b425215c6}\label{structvkf_1_1scene_1_1_parent_component_a8a5f53e4fa2d5e14fce3b23b425215c6} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ $>$ {\bfseries children}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct for managing parent-\/child relationships for entities in a scene. 
+
+This struct provides functionality to store and manage child entities of a parent entity. It contains a vector of shared pointers to \doxylink{classvkf_1_1scene_1_1_entity}{Entity} objects to store the child entities. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structvkf_1_1scene_1_1_parent_component_a91dc49c1990b7234150a817eedd54d5c}\label{structvkf_1_1scene_1_1_parent_component_a91dc49c1990b7234150a817eedd54d5c} 
+\index{vkf::scene::ParentComponent@{vkf::scene::ParentComponent}!addChild@{addChild}}
+\index{addChild@{addChild}!vkf::scene::ParentComponent@{vkf::scene::ParentComponent}}
+\doxysubsubsection{\texorpdfstring{addChild()}{addChild()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Parent\+Component\+::add\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}}]{child }\end{DoxyParamCaption})}
+
+
+
+Method to add a child entity to the parent. 
+
+This method takes an \doxylink{classvkf_1_1scene_1_1_entity}{Entity} object as parameter and adds it to the vector of child entities. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/components/\mbox{\hyperlink{_parent_component_8h}{Parent\+Component.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/components/\mbox{\hyperlink{_parent_component_8cpp}{Parent\+Component.\+cpp}}\end{DoxyCompactItemize}

@@ -86,16 +86,28 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef VULKANRENDERER_UTILITY_H</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define VULKANRENDERER_UTILITY_H</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf.html">vkf</a></div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacevkf_1_1scene.html">   17</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf_1_1scene.html">vkf::scene</a> <span class="comment">// Forward declarations</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>std::string <a class="code hl_function" href="namespacevkf.html#ad3089ed0c5c9b54b7716ceaead798d58">getQueueFlagsString</a>(vk::QueueFlags flags);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>} <span class="comment">// namespace vkf</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_UTILITY_H</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacevkf_1_1scene.html#aad28be4afad6b68d31e518b312349cb5">PrefabType</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>} <span class="comment">// namespace vkf::scene</span></div>
+</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacevkf.html">vkf</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>std::string <a class="code hl_function" href="namespacevkf.html#ad3089ed0c5c9b54b7716ceaead798d58">getQueueFlagsString</a>(vk::QueueFlags flags);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>std::string <a class="code hl_function" href="namespacevkf.html#ac700033f026593d6109c7f04a61f0604">getPrefabTypeString</a>(<a class="code hl_enumeration" href="namespacevkf_1_1scene.html#aad28be4afad6b68d31e518b312349cb5">scene::PrefabType</a> type);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>} <span class="comment">// namespace vkf</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_UTILITY_H</span></div>
+<div class="ttc" id="anamespacevkf_1_1scene_html"><div class="ttname"><a href="namespacevkf_1_1scene.html">vkf::scene</a></div><div class="ttdoc">The scene namespace contains classes and functions for scene management.</div><div class="ttdef"><b>Definition</b> Utility.h:18</div></div>
+<div class="ttc" id="anamespacevkf_1_1scene_html_aad28be4afad6b68d31e518b312349cb5"><div class="ttname"><a href="namespacevkf_1_1scene.html#aad28be4afad6b68d31e518b312349cb5">vkf::scene::PrefabType</a></div><div class="ttdeci">PrefabType</div><div class="ttdoc">Enumerates the types of prefabricated entities that can be created.</div><div class="ttdef"><b>Definition</b> PrefabType.h:33</div></div>
 <div class="ttc" id="anamespacevkf_html"><div class="ttname"><a href="namespacevkf.html">vkf</a></div><div class="ttdoc">The top-level namespace for the Vulkan Framework (vkf).</div><div class="ttdef"><b>Definition</b> Event.h:19</div></div>
-<div class="ttc" id="anamespacevkf_html_ad3089ed0c5c9b54b7716ceaead798d58"><div class="ttname"><a href="namespacevkf.html#ad3089ed0c5c9b54b7716ceaead798d58">vkf::getQueueFlagsString</a></div><div class="ttdeci">std::string getQueueFlagsString(vk::QueueFlags flags)</div><div class="ttdoc">Converts Vulkan queue flags to a string.</div><div class="ttdef"><b>Definition</b> Utility.cpp:19</div></div>
+<div class="ttc" id="anamespacevkf_html_ac700033f026593d6109c7f04a61f0604"><div class="ttname"><a href="namespacevkf.html#ac700033f026593d6109c7f04a61f0604">vkf::getPrefabTypeString</a></div><div class="ttdeci">std::string getPrefabTypeString(scene::PrefabType type)</div><div class="ttdoc">Converts a PrefabType to a string.</div><div class="ttdef"><b>Definition</b> Utility.cpp:58</div></div>
+<div class="ttc" id="anamespacevkf_html_ad3089ed0c5c9b54b7716ceaead798d58"><div class="ttname"><a href="namespacevkf.html#ad3089ed0c5c9b54b7716ceaead798d58">vkf::getQueueFlagsString</a></div><div class="ttdeci">std::string getQueueFlagsString(vk::QueueFlags flags)</div><div class="ttdoc">Converts Vulkan queue flags to a string.</div><div class="ttdef"><b>Definition</b> Utility.cpp:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

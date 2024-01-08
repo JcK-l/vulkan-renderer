@@ -97,13 +97,15 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classvkf_1_1rendering_1_1_render_substage.html#aa7b92441fdd13e7564571443ad16b815">   46</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classvkf_1_1rendering_1_1_render_substage.html#aa7b92441fdd13e7564571443ad16b815">draw</a>(vk::raii::CommandBuffer *cmd) = 0;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">virtual</span> std::string getType() = 0;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
 </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>} <span class="comment">// namespace vkf::rendering</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_RENDERSUBSTAGE_H</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>} <span class="comment">// namespace vkf::rendering</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif </span><span class="comment">// VULKANRENDERER_RENDERSUBSTAGE_H</span></div>
 <div class="ttc" id="aclassvkf_1_1rendering_1_1_render_substage_html"><div class="ttname"><a href="classvkf_1_1rendering_1_1_render_substage.html">vkf::rendering::RenderSubstage</a></div><div class="ttdoc">This abstract class provides an interface for managing Vulkan rendering sub-stages.</div><div class="ttdef"><b>Definition</b> RenderSubstage.h:29</div></div>
 <div class="ttc" id="aclassvkf_1_1rendering_1_1_render_substage_html_a8f8f442689c543461c50c47c7e07ed03"><div class="ttname"><a href="classvkf_1_1rendering_1_1_render_substage.html#a8f8f442689c543461c50c47c7e07ed03">vkf::rendering::RenderSubstage::~RenderSubstage</a></div><div class="ttdeci">virtual ~RenderSubstage()=default</div><div class="ttdoc">Destructor for the RenderSubstage class.</div></div>
 <div class="ttc" id="aclassvkf_1_1rendering_1_1_render_substage_html_aa7b92441fdd13e7564571443ad16b815"><div class="ttname"><a href="classvkf_1_1rendering_1_1_render_substage.html#aa7b92441fdd13e7564571443ad16b815">vkf::rendering::RenderSubstage::draw</a></div><div class="ttdeci">virtual void draw(vk::raii::CommandBuffer *cmd)=0</div><div class="ttdoc">Pure virtual method to draw.</div></div>

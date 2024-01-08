@@ -22,6 +22,7 @@ namespace vkf::core
 // Forward declarations
 class Queue;
 class Device;
+class Buffer;
 
 ///
 /// \class Image
@@ -42,12 +43,13 @@ class Image
     Image(const Device &device, vk::ImageCreateInfo createInfo, VmaAllocationCreateFlags allocationFlags);
 
     Image(const Image &) = delete;            ///< Deleted copy constructor
-    Image(Image &&) noexcept = default;       ///< Default move constructor
+    Image(Image &&) noexcept;                 ///< Default move constructor
     Image &operator=(const Image &) = delete; ///< Deleted copy assignment operator
     Image &operator=(Image &&) = delete;      ///< Deleted move assignment operator
     ~Image();                                 ///< Destructor
 
-    [[nodiscard]] vk::raii::ImageView createImageView(vk::ImageAspectFlags aspectFlags) const;
+    [[nodiscard]] vk::ImageView getImageView(vk::ImageAspectFlags aspectFlags);
+    [[nodiscard]] vk::Sampler getSampler();
 
     ///
     /// \brief Map memory to the image.
@@ -61,16 +63,37 @@ class Image
     ///
     void unmapMemory();
 
+    ///
+    /// \brief Transition the image layout.
+    ///
+    /// \param newLayout The new layout for the image.
+    ///
+    void transitionImageLayout(vk::ImageLayout newLayout);
+
+    ///
+    /// \brief Copies the contents of the srcBuffer to this image.
+    ///
+    /// \param srcBuffer The buffer to copy from. Inteded to be a staging buffer.
+    ///
+    void copyBufferToImage(const Buffer &srcBuffer);
+
   private:
+    void createImageView(vk::ImageAspectFlags aspectFlags);
+    void createSampler();
+
     const Device &device;
 
     bool mapped{false};
     void *mappedData{nullptr};
 
     vk::ImageCreateInfo createInfo;
+    vk::ImageLayout currentLayout{vk::ImageLayout::eUndefined};
 
     VmaAllocation allocation{VK_NULL_HANDLE};
     VkImage handle;
+    vk::raii::ImageView imageView = VK_NULL_HANDLE;
+    vk::ImageAspectFlags currentAspectFlags{};
+    vk::raii::Sampler sampler = VK_NULL_HANDLE;
 };
 
 } // namespace vkf::core

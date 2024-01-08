@@ -1,0 +1,60 @@
+\doxysection{vkf\+::scene\+::Texture\+Component Struct Reference}
+\hypertarget{structvkf_1_1scene_1_1_texture_component}{}\label{structvkf_1_1scene_1_1_texture_component}\index{vkf::scene::TextureComponent@{vkf::scene::TextureComponent}}
+
+
+Struct for managing texture data for an entity in a scene.  
+
+
+
+
+{\ttfamily \#include $<$Texture\+Component.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_texture_component_ada58eddfe23d6c755b092217bc4e4297}\label{structvkf_1_1scene_1_1_texture_component_ada58eddfe23d6c755b092217bc4e4297} 
+{\bfseries Texture\+Component} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device)
+\item 
+\mbox{\hyperlink{classvkf_1_1core_1_1_image}{core\+::\+Image}} \mbox{\hyperlink{structvkf_1_1scene_1_1_texture_component_ad68760f5ee3b26947576bbfcb05ca79e}{create\+Image}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{structvkf_1_1scene_1_1_texture_component_a47dbf07d77f18d62965d1360e871a023}\label{structvkf_1_1scene_1_1_texture_component_a47dbf07d77f18d62965d1360e871a023} 
+void {\bfseries display\+Gui} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_texture_component_a194c3c974fab75ce24e85c3520a0ee4d}\label{structvkf_1_1scene_1_1_texture_component_a194c3c974fab75ce24e85c3520a0ee4d} 
+const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \& {\bfseries device}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_texture_component_ad8ab6adf09927e28b0ffa955f8f8f2a9}\label{structvkf_1_1scene_1_1_texture_component_ad8ab6adf09927e28b0ffa955f8f8f2a9} 
+std\+::string {\bfseries path}
+\item 
+\Hypertarget{structvkf_1_1scene_1_1_texture_component_a7793adef8ed98d84ccbcc3d2797f540a}\label{structvkf_1_1scene_1_1_texture_component_a7793adef8ed98d84ccbcc3d2797f540a} 
+bool {\bfseries has\+New\+Texture} \{false\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct for managing texture data for an entity in a scene. 
+
+This struct provides functionality to create and manage texture data. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structvkf_1_1scene_1_1_texture_component_ad68760f5ee3b26947576bbfcb05ca79e}\label{structvkf_1_1scene_1_1_texture_component_ad68760f5ee3b26947576bbfcb05ca79e} 
+\index{vkf::scene::TextureComponent@{vkf::scene::TextureComponent}!createImage@{createImage}}
+\index{createImage@{createImage}!vkf::scene::TextureComponent@{vkf::scene::TextureComponent}}
+\doxysubsubsection{\texorpdfstring{createImage()}{createImage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1core_1_1_image}{core\+::\+Image}} vkf\+::scene\+::\+Texture\+Component\+::create\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Method to create an Image object from a texture file.
+
+This method takes a Device object as parameter and creates an Image object from a texture file. The path to the texture file is stored in the path member. It loads the texture file, creates a staging buffer to transfer the texture data to the Image object, and transitions the Image object to the appropriate layout for sampling. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/components/\mbox{\hyperlink{_texture_component_8h}{Texture\+Component.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/components/\mbox{\hyperlink{_texture_component_8cpp}{Texture\+Component.\+cpp}}\end{DoxyCompactItemize}

@@ -3,61 +3,11 @@
 #extension GL_ARB_separate_shader_objects : enable
 #extension GL_EXT_nonuniform_qualifier : enable
 
+layout(location = 0) in vec3 positions;
+layout(location = 1) in vec3 normals;
 
 layout(location = 0) out vec3 fragPos;
 layout(location = 1) out vec3 normal;
-
-vec3 positions[36] = vec3[](
-// Front face
-vec3(-0.25, -0.25, 0.25), vec3(0.25, -0.25, 0.25), vec3(0.25, 0.25, 0.25),
-vec3(-0.25, -0.25, 0.25), vec3(0.25, 0.25, 0.25), vec3(-0.25, 0.25, 0.25),
-
-// Back face
-vec3(-0.25, -0.25, -0.25), vec3(0.25, -0.25, -0.25), vec3(0.25, 0.25, -0.25),
-vec3(-0.25, -0.25, -0.25), vec3(0.25, 0.25, -0.25), vec3(-0.25, 0.25, -0.25),
-
-// Top face
-vec3(-0.25, 0.25, -0.25), vec3(0.25, 0.25, -0.25), vec3(0.25, 0.25, 0.25),
-vec3(-0.25, 0.25, -0.25), vec3(0.25, 0.25, 0.25), vec3(-0.25, 0.25, 0.25),
-
-// Bottom face
-vec3(-0.25, -0.25, -0.25), vec3(0.25, -0.25, -0.25), vec3(0.25, -0.25, 0.25),
-vec3(-0.25, -0.25, -0.25), vec3(0.25, -0.25, 0.25), vec3(-0.25, -0.25, 0.25),
-
-// Right face
-vec3(0.25, -0.25, -0.25), vec3(0.25, -0.25, 0.25), vec3(0.25, 0.25, 0.25),
-vec3(0.25, -0.25, -0.25), vec3(0.25, 0.25, 0.25), vec3(0.25, 0.25, -0.25),
-
-// Left face
-vec3(-0.25, -0.25, -0.25), vec3(-0.25, -0.25, 0.25), vec3(-0.25, 0.25, 0.25),
-vec3(-0.25, -0.25, -0.25), vec3(-0.25, 0.25, 0.25), vec3(-0.25, 0.25, -0.25)
-);
-
-vec3 normals[36] = vec3[](
-// Front face
-vec3(0.0, 0.0, 1.0), vec3(0.0, 0.0, 1.0), vec3(0.0, 0.0, 1.0),
-vec3(0.0, 0.0, 1.0), vec3(0.0, 0.0, 1.0), vec3(0.0, 0.0, 1.0),
-
-// Back face
-vec3(0.0, 0.0, -1.0), vec3(0.0, 0.0, -1.0), vec3(0.0, 0.0, -1.0),
-vec3(0.0, 0.0, -1.0), vec3(0.0, 0.0, -1.0), vec3(0.0, 0.0, -1.0),
-
-// Top face
-vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0),
-vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 0.0),
-
-// Bottom face
-vec3(0.0, -1.0, 0.0), vec3(0.0, -1.0, 0.0), vec3(0.0, -1.0, 0.0),
-vec3(0.0, -1.0, 0.0), vec3(0.0, -1.0, 0.0), vec3(0.0, -1.0, 0.0),
-
-// Right face
-vec3(1.0, 0.0, 0.0), vec3(1.0, 0.0, 0.0), vec3(1.0, 0.0, 0.0),
-vec3(1.0, 0.0, 0.0), vec3(1.0, 0.0, 0.0), vec3(1.0, 0.0, 0.0),
-
-// Left face
-vec3(-1.0, 0.0, 0.0), vec3(-1.0, 0.0, 0.0), vec3(-1.0, 0.0, 0.0),
-vec3(-1.0, 0.0, 0.0), vec3(-1.0, 0.0, 0.0), vec3(-1.0, 0.0, 0.0)
-);
 
 const int MAX_SIZE = 32;
 
@@ -78,10 +28,10 @@ mat4 viewMatrix = view[push.indices[0]].viewMatrix;
 
 void main() {
     mat3 normalMatrix = transpose(inverse(mat3(modelMatrix)));
-    vec3 norm = normalize(normalMatrix * normals[gl_VertexIndex]);
+    vec3 norm = normalize(normalMatrix * normals);
 
-    gl_Position = viewMatrix * modelMatrix * vec4(positions[gl_VertexIndex], 1.0);
-    fragPos = vec3(modelMatrix * vec4(positions[gl_VertexIndex], 1.0));
+    gl_Position = viewMatrix * modelMatrix * vec4(positions, 1.0);
+    fragPos = vec3(modelMatrix * vec4(positions, 1.0));
     normal = norm;
 }
 

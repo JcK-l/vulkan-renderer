@@ -91,6 +91,7 @@ void Renderer::updateFramebuffers()
 {
     if (renderSource->resetChanged())
     {
+        device.getHandle().waitIdle();
         framebufferExtent = renderSource->getExtent();
         createFramebuffers(renderSource->getImageViews());
     }
@@ -101,10 +102,10 @@ core::RenderPass *Renderer::getRenderPass() const
     return renderPass.get();
 }
 
-vk::RenderPassBeginInfo Renderer::getRenderPassBeginInfo(uint32_t imageIndex) const
+vk::RenderPassBeginInfo Renderer::getRenderPassBeginInfo() const
 {
     return vk::RenderPassBeginInfo{.renderPass = *renderPass->getHandle(),
-                                   .framebuffer = *framebuffers[imageIndex]->getHandle(),
+                                   .framebuffer = *framebuffers[renderSource->getFrameIndex()]->getHandle(),
                                    .renderArea = vk::Rect2D{{0, 0}, framebufferExtent},
                                    .clearValueCount = static_cast<uint32_t>(renderOptions.clearValues.size()),
                                    .pClearValues = renderOptions.clearValues.data()};
@@ -166,15 +167,15 @@ void Renderer::createDepthImageViews()
 {
     depthImageViews.clear();
     depthImageViews.reserve(depthImages.size());
-    for (const auto &image : depthImages)
+    for (auto &image : depthImages)
     {
-        depthImageViews.emplace_back(image.createImageView(vk::ImageAspectFlagBits::eDepth));
+        depthImageViews.emplace_back(image.getImageView(vk::ImageAspectFlagBits::eDepth));
     }
 }
 
 vk::ImageView Renderer::getDepthImageView(uint32_t index)
 {
-    return *depthImageViews[index];
+    return depthImageViews[index];
 }
 
 } // namespace vkf::rendering

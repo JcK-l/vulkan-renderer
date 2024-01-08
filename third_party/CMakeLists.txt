@@ -12,7 +12,7 @@ set(ENABLE_OPT 0)
 #set(BUILD_SHARED_LIBS ON CACHE BOOL "Build Shared Libraries")
 #set(SPIRV_TOOLS_BUILD_STATIC OFF CACHE BOOL "Build static libraries")
 add_subdirectory(glslang)
-#add_subdirectory(SPIRV-Headers)
+add_subdirectory(SPIRV-Headers)
 add_subdirectory(SPIRV-Tools)
 #add_subdirectory(SPIRV-Cross)
 
@@ -20,6 +20,9 @@ add_subdirectory(SPIRV-Tools)
 set(SHADERC_SKIP_TESTS ON)
 set(SHADERC_SKIP_EXAMPLES ON)
 set(SHADERC_ENABLE_TESTS OFF)
+if (MSVC)
+    set(SHADERC_ENABLE_SHARED_CRT ON)
+endif ()
 
 add_subdirectory(shaderc)
 target_link_libraries(vkf_dependencies INTERFACE shaderc glslang SPIRV-Tools)
@@ -72,3 +75,6 @@ target_include_directories(vkf_dependencies INTERFACE imgui/backends imgui/ imgu
 add_subdirectory(entt)
 target_link_libraries(vkf_dependencies INTERFACE EnTT)
 target_include_directories(vkf_dependencies INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/entt/single_include/)
+
+# stb
+target_include_directories(vkf_dependencies INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/stb/)

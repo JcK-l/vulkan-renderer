@@ -19,6 +19,7 @@
 namespace vkf::core // Forward declaration
 {
 class Device;
+class Shader;
 } // namespace vkf::core
 
 namespace vkf::rendering
@@ -38,18 +39,22 @@ class PipelineBuilder
     PipelineBuilder(PipelineBuilder &&) noexcept = default;        ///< Default move constructor
     PipelineBuilder &operator=(const PipelineBuilder &) = default; ///< Default copy assignment operator
     PipelineBuilder &operator=(PipelineBuilder &&) = default;      ///< Default move assignment operator
-    ~PipelineBuilder() = default;                                  ///< Default destructor
+    ~PipelineBuilder(); ///< Implementation in PipelineBuilder.cpp because of std::shared_ptr forward declaration
 
     // Setters for each state of the pipeline
-    PipelineBuilder &setShaderStageCreateInfos(const std::vector<vk::PipelineShaderStageCreateInfo> &infos);
-    PipelineBuilder &setVertexInputCreateInfo(const vk::PipelineVertexInputStateCreateInfo &info);
+    PipelineBuilder &setShaderStageCreateInfos(const core::Device &device, core::Shader &shader);
+    PipelineBuilder &setVertexInputCreateInfo(const vk::PipelineVertexInputStateCreateInfo &info,
+                                              vk::VertexInputBindingDescription &bindingDescription,
+                                              std::vector<vk::VertexInputAttributeDescription> &attributeDescriptions);
     PipelineBuilder &setInputAssemblyCreateInfo(const vk::PipelineInputAssemblyStateCreateInfo &info);
     PipelineBuilder &setPipelineViewportStateCreateInfo(const vk::PipelineViewportStateCreateInfo &info);
     PipelineBuilder &setRasterizerCreateInfo(const vk::PipelineRasterizationStateCreateInfo &info);
     PipelineBuilder &setMultisamplingCreateInfo(const vk::PipelineMultisampleStateCreateInfo &info);
     PipelineBuilder &setDepthStencilCreateInfo(const vk::PipelineDepthStencilStateCreateInfo &info);
-    PipelineBuilder &setColorBlendingCreateInfo(const vk::PipelineColorBlendStateCreateInfo &info);
-    PipelineBuilder &setDynamicStateCreateInfo(const vk::PipelineDynamicStateCreateInfo &info);
+    PipelineBuilder &setColorBlendingCreateInfo(const vk::PipelineColorBlendStateCreateInfo &info,
+                                                vk::PipelineColorBlendAttachmentState &attachment);
+    PipelineBuilder &setDynamicStateCreateInfo(const vk::PipelineDynamicStateCreateInfo &info,
+                                               std::vector<vk::DynamicState> &states);
     PipelineBuilder &setPipelineLayout(const vk::PipelineLayout &layout);
     PipelineBuilder &setRenderPass(const vk::RenderPass &pass);
 
@@ -57,6 +62,13 @@ class PipelineBuilder
 
   private:
     core::PipelineState state;
+
+    // hold state for later Pipeline construction
+    std::shared_ptr<core::Shader> pipelineShader;
+    vk::PipelineColorBlendAttachmentState colorBlendAttachment;
+    std::vector<vk::DynamicState> dynamicStates;
+    vk::VertexInputBindingDescription vertexInputBindingDescription;
+    std::vector<vk::VertexInputAttributeDescription> vertexInputAttributeDescriptions;
 };
 
 } // namespace vkf::rendering

@@ -12,6 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Buffer.h"
+#include "CommandPool.h"
 #include "Device.h"
 
 namespace vkf::core
@@ -102,6 +103,21 @@ void Buffer::updateData(const void *data, const uint32_t size, const uint32_t of
     {
         unmapMemory();
     }
+}
+
+void Buffer::copyBuffer(const Buffer &srcBuffer)
+{
+    auto &cmd = device.getCommandBuffers()->at(0);
+
+    cmd.begin(vk::CommandBufferBeginInfo{.flags = vk::CommandBufferUsageFlagBits::eOneTimeSubmit});
+
+    vk::BufferCopy copyRegion{.srcOffset = 0, .dstOffset = 0, .size = srcBuffer.getSize()};
+    cmd.copyBuffer(srcBuffer.getBuffer(), this->getBuffer(), copyRegion);
+    cmd.end();
+
+    auto &queue = device.getQueueWithFlags(0, vk::QueueFlagBits::eGraphics | vk::QueueFlagBits::eTransfer).getHandle();
+    queue.submit(vk::SubmitInfo{.commandBufferCount = 1, .pCommandBuffers = &(*cmd)}, nullptr);
+    queue.waitIdle();
 }
 
 vk::Buffer Buffer::getBuffer() const

@@ -112,13 +112,10 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~PrefabFactory</b> ()</td></tr>
 <tr class="memdesc:a3022863b360aa036f191be2459083d30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation in <a class="el" href="_prefab_factory_8cpp.html" title="This file implements the PrefabFactory class, which is used to create prefabricated entities in the v...">Prefabfactory.cpp</a> because of std::unique_ptr forward declaration. <br /></td></tr>
 <tr class="separator:a3022863b360aa036f191be2459083d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36081c0092bdf40d5f12a476e8aeb759" id="r_a36081c0092bdf40d5f12a476e8aeb759"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a36081c0092bdf40d5f12a476e8aeb759"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvkf_1_1scene_1_1_prefab_factory.html#a36081c0092bdf40d5f12a476e8aeb759">createPrefab</a> (entt::registry &amp;registry, std::string tag)</td></tr>
-<tr class="memdesc:a36081c0092bdf40d5f12a476e8aeb759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a prefabricated entity of type T.  <br /></td></tr>
-<tr class="separator:a36081c0092bdf40d5f12a476e8aeb759"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2444f5c66767252293a8bc3ae9065ad" id="r_ad2444f5c66767252293a8bc3ae9065ad"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvkf_1_1scene_1_1_prefab_factory.html#ad2444f5c66767252293a8bc3ae9065ad">createCustom</a> (entt::registry &amp;registry, std::string tag)</td></tr>
-<tr class="memdesc:ad2444f5c66767252293a8bc3ae9065ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty entity that can be customised.  <br /></td></tr>
-<tr class="separator:ad2444f5c66767252293a8bc3ae9065ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a8b762c3138da474ccddaa22caa5599" id="r_a9a8b762c3138da474ccddaa22caa5599"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9a8b762c3138da474ccddaa22caa5599"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classvkf_1_1scene_1_1_prefab.html">Prefab</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classvkf_1_1scene_1_1_prefab_factory.html#a9a8b762c3138da474ccddaa22caa5599">createPrefab</a> (entt::registry &amp;registry, std::string tag)</td></tr>
+<tr class="memdesc:a9a8b762c3138da474ccddaa22caa5599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a prefabricated entity of type T.  <br /></td></tr>
+<tr class="separator:a9a8b762c3138da474ccddaa22caa5599"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -143,6 +140,9 @@ const <a class="el" href="classvkf_1_1core_1_1_render_pass.html">core::RenderPas
 <tr class="memitem:a9e2d3997b5fbc4af711e5b5a6aadce21" id="r_a9e2d3997b5fbc4af711e5b5a6aadce21"><td class="memItemLeft" align="right" valign="top"><a id="a9e2d3997b5fbc4af711e5b5a6aadce21" name="a9e2d3997b5fbc4af711e5b5a6aadce21"></a>
 std::unordered_map&lt; <a class="el" href="namespacevkf_1_1scene.html#aad28be4afad6b68d31e518b312349cb5">PrefabType</a>, std::unique_ptr&lt; <a class="el" href="classvkf_1_1core_1_1_pipeline.html">core::Pipeline</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pipelines</b></td></tr>
 <tr class="separator:a9e2d3997b5fbc4af711e5b5a6aadce21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ace267097aa8ceb2181831bfdaa102a" id="r_a3ace267097aa8ceb2181831bfdaa102a"><td class="memItemLeft" align="right" valign="top"><a id="a3ace267097aa8ceb2181831bfdaa102a" name="a3ace267097aa8ceb2181831bfdaa102a"></a>
+std::unordered_map&lt; <a class="el" href="namespacevkf_1_1scene.html#aad28be4afad6b68d31e518b312349cb5">PrefabType</a>, <a class="el" href="classvkf_1_1rendering_1_1_pipeline_builder.html">rendering::PipelineBuilder</a>(*)(const <a class="el" href="classvkf_1_1core_1_1_device.html">core::Device</a> &amp;device, const <a class="el" href="classvkf_1_1core_1_1_render_pass.html">core::RenderPass</a> &amp;renderPass, <a class="el" href="classvkf_1_1rendering_1_1_bindless_manager.html">rendering::BindlessManager</a> &amp;bindlessManager)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pipelineBuilderFunctionMap</b></td></tr>
+<tr class="separator:a3ace267097aa8ceb2181831bfdaa102a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is used to create prefabricated entities. </p>
@@ -201,44 +201,6 @@ std::unordered_map&lt; <a class="el" href="namespacevkf_1_1scene.html#aad28be4af
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad2444f5c66767252293a8bc3ae9065ad" name="ad2444f5c66767252293a8bc3ae9065ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2444f5c66767252293a8bc3ae9065ad">&#9670;&#160;</a></span>createCustom()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt; <a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &gt; vkf::scene::PrefabFactory::createCustom </td>
-          <td>(</td>
-          <td class="paramtype">entt::registry &amp;&#160;</td>
-          <td class="paramname"><em>registry</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>tag</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates an empty entity that can be customised. </p>
-<p>This method creates an empty entity using the provided registry and tag.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">registry</td><td>The entt::registry to use for creating the custom prefabricated entity. </td></tr>
-    <tr><td class="paramname">tag</td><td>The tag to use for creating the custom prefabricated entity. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a50e7bbc19d43d0c08d0d0e82c338b637" name="a50e7bbc19d43d0c08d0d0e82c338b637"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a50e7bbc19d43d0c08d0d0e82c338b637">&#9670;&#160;</a></span>createPipelines()</h2>
 
@@ -267,8 +229,8 @@ std::unordered_map&lt; <a class="el" href="namespacevkf_1_1scene.html#aad28be4af
 
 </div>
 </div>
-<a id="a36081c0092bdf40d5f12a476e8aeb759" name="a36081c0092bdf40d5f12a476e8aeb759"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36081c0092bdf40d5f12a476e8aeb759">&#9670;&#160;</a></span>createPrefab()</h2>
+<a id="a9a8b762c3138da474ccddaa22caa5599" name="a9a8b762c3138da474ccddaa22caa5599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a8b762c3138da474ccddaa22caa5599">&#9670;&#160;</a></span>createPrefab()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,7 +241,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt; <a class="el" href="classvkf_1_1scene_1_1_entity.html">Entity</a> &gt; vkf::scene::PrefabFactory::createPrefab </td>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classvkf_1_1scene_1_1_prefab.html">Prefab</a> &gt; vkf::scene::PrefabFactory::createPrefab </td>
           <td>(</td>
           <td class="paramtype">entt::registry &amp;&#160;</td>
           <td class="paramname"><em>registry</em>, </td>

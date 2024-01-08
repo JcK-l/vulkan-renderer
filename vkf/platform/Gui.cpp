@@ -20,7 +20,6 @@
 #include "../core/Swapchain.h"
 #include "../rendering/BindlessManager.h"
 #include "../scene/Camera.h"
-#include "../scene/Entity.h"
 #include "../scene/Scene.h"
 #include "Window.h"
 #include "backends/imgui_impl_glfw.h"
@@ -85,6 +84,7 @@ Gui::Gui(const Window &window, const core::Instance &instance, const core::Devic
     // this initializes the core structures of imgui
     ImGui::CreateContext();
     ImGuiIO &io = ImGui::GetIO();
+    io.Fonts->AddFontFromFileTTF("../../assets/JetBrainsMono/fonts/otf/JetBrainsMono-Regular.otf", 16.0f);
     (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
@@ -106,8 +106,8 @@ Gui::Gui(const Window &window, const core::Instance &instance, const core::Devic
     init_info.Instance = *instance.getHandle();
     init_info.PhysicalDevice = *device.getPhysicalDevice().getHandle();
     init_info.Device = *device.getHandle();
-    init_info.QueueFamily = device.getQueue(0, 0).getFamilyIndex();
-    init_info.Queue = *device.getQueue(0, 0).getHandle();
+    init_info.QueueFamily = device.getQueueWithFlags(0, vk::QueueFlagBits::eGraphics).getFamilyIndex();
+    init_info.Queue = *device.getQueueWithFlags(0, vk::QueueFlagBits::eGraphics).getHandle();
     init_info.DescriptorPool = *imguiPool;
     init_info.Subpass = 0;
     init_info.MinImageCount = swapchain.getMinImageCount();
@@ -125,7 +125,7 @@ Gui::~Gui()
     ImGui::DestroyContext();
 }
 
-void Gui::preRender(uint32_t frameIndex, scene::Scene &scene)
+void Gui::preRender(scene::Scene &scene)
 {
     ImGui_ImplVulkan_NewFrame();
     ImGui_ImplGlfw_NewFrame();
@@ -186,18 +186,17 @@ void Gui::preRender(uint32_t frameIndex, scene::Scene &scene)
         if (firstTime)
         {
             firstTime = false;
-            activeEntity = std::make_unique<scene::Entity>(scene.getRegistry(), bindlessManager);
 
             ImGui::DockBuilderRemoveNode(dockspaceId);
             ImGui::DockBuilderAddNode(dockspaceId, dockspaceFlags | ImGuiDockNodeFlags_DockSpace);
             ImGui::DockBuilderSetNodeSize(dockspaceId, viewport->Size);
 
             ImGuiID dockIdRight;
-            ImGuiID dockIdLeft = ImGui::DockBuilderSplitNode(dockspaceId, ImGuiDir_Left, 0.3f, nullptr, &dockIdRight);
+            ImGuiID dockIdLeft = ImGui::DockBuilderSplitNode(dockspaceId, ImGuiDir_Left, 0.35f, nullptr, &dockIdRight);
 
             ImGuiID dockIdLeftTop;
             ImGuiID dockIdLeftBottom =
-                ImGui::DockBuilderSplitNode(dockIdLeft, ImGuiDir_Down, 0.4f, nullptr, &dockIdLeftTop);
+                ImGui::DockBuilderSplitNode(dockIdLeft, ImGuiDir_Down, 0.5f, nullptr, &dockIdLeftTop);
 
             ImGui::DockBuilderDockWindow("Scene Hierarchy", dockIdLeftTop);
             ImGui::DockBuilderDockWindow("Properties", dockIdLeftBottom);
@@ -252,17 +251,20 @@ void Gui::preRender(uint32_t frameIndex, scene::Scene &scene)
         ImGui::EndMenuBar();
     }
 
-    createScenePanel(scene, frameIndex);
+    createScenePanel(scene);
     createHierarchyPanel(scene);
-    createPropertiesPanel();
+    createPropertiesPanel(scene);
 
     ImGui::End();
 
     ImGui::Render();
+    frameIndex = ++frameIndex % swapchain.getImageCount();
+    drawData = ImGui::GetDrawData();
 }
 
-void Gui::createScenePanel(scene::Scene &scene, uint32_t frameIndex)
+void Gui::createScenePanel(scene::Scene &scene)
 {
+
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
     ImGui::Begin("Scene");
 
@@ -292,7 +294,7 @@ void Gui::createScenePanel(scene::Scene &scene, uint32_t frameIndex)
         createImages(swapchain.getImageCount());
         createImageViews();
         ImGui_ImplVulkan_RemoveTexture(dset);
-        dset = ImGui_ImplVulkan_AddTexture(*textureSampler, *imageViews[frameIndex],
+        dset = ImGui_ImplVulkan_AddTexture(*textureSampler, imageViews[frameIndex],
                                            VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
         changed = true;
         scene.getCamera()->updateAspectRatio(static_cast<float>(sceneViewportExtent.width) /
@@ -303,65 +305,6 @@ void Gui::createScenePanel(scene::Scene &scene, uint32_t frameIndex)
 
     ImGui::PopStyleVar();
 
-    // Right-click context menu
-    if (ImGui::BeginPopupContextWindow())
-    {
-        if (ImGui::MenuItem("Create Cube"))
-        {
-            isCreateDialog = true;
-            selectedType = scene::PrefabType::Cube;
-        }
-
-        if (ImGui::MenuItem("Create Triangle"))
-        {
-            isCreateDialog = true;
-            selectedType = scene::PrefabType::Triangle;
-        }
-
-        ImGui::EndPopup();
-    }
-    if (isCreateDialog)
-        ImGui::OpenPopup("Enter Name");
-
-    static char tag[32] = ""; // Buffer to hold the input text.
-
-    if (ImGui::BeginPopupModal("Enter Name", NULL, ImGuiWindowFlags_AlwaysAutoResize))
-    {
-        ImGui::Text("Enter a name:\n");
-        ImGui::Separator();
-
-        // Creates a text input field with the label "Name"
-        ImGui::InputText("Name", tag, IM_ARRAYSIZE(tag));
-
-        if (ImGui::Button("OK", ImVec2(120, 0)))
-        {
-            // When the OK button is clicked, create the triangle with the name from the input field
-            activeEntity = std::move(scene.createEntity(selectedType, tag));
-            ImGui::CloseCurrentPopup();
-            isCreateDialog = false;
-        }
-        ImGui::SameLine();
-        if (ImGui::Button("Cancel", ImVec2(120, 0)))
-        {
-            ImGui::CloseCurrentPopup();
-            isCreateDialog = false;
-        }
-        ImGui::EndPopup();
-    }
-
-    ImGui::End();
-}
-
-void Gui::createPropertiesPanel()
-{
-    ImGui::Begin("Properties");
-
-    if (activeEntity && activeEntity->getHandle() != entt::null)
-    {
-        activeEntity->displayGui();
-        activeEntity->updateComponents();
-    }
-
     ImGui::End();
 }
 
@@ -369,28 +312,160 @@ void Gui::createHierarchyPanel(scene::Scene &scene)
 {
     ImGui::Begin("Scene Hierarchy");
 
-    auto view = scene.getRegistry().view<scene::TagComponent>();
+    float windowHeight = ImGui::GetContentRegionAvail().y;
+
+    ImGui::BeginChild("EntityList", ImVec2(0, windowHeight - 45));
+
+    auto view = scene.getRegistry().view<scene::TagComponent, scene::ParentComponent, scene::PrefabComponent>();
     for (auto entity : view)
     {
         auto &tag = view.get<scene::TagComponent>(entity);
+        auto &parent = view.get<scene::ParentComponent>(entity);
+        auto &prefab = view.get<scene::PrefabComponent>(entity);
 
-        // If the user clicks on the entity name, select this entity
-        if (ImGui::Selectable(tag.tag.c_str(), entity == activeEntity->getHandle()))
+        std::string uniqueID = tag.tag + "##" + std::to_string(static_cast<uint32_t>(entity));
+
+        if (parent.children.size() > 1)
         {
-            activeEntity->setHandle(entity);
+            ImGuiTreeNodeFlags nodeFlags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_FramePadding;
+            if (entity == scene.getActiveEntity())
+            {
+                nodeFlags |= ImGuiTreeNodeFlags_Selected;
+            }
+
+            bool isTreeOpen = ImGui::TreeNodeEx(uniqueID.c_str(), nodeFlags);
+
+            if (ImGui::IsItemClicked())
+            {
+                scene.changeSelectedPrefabType(prefab.prefabType);
+                scene.setActiveEntity(entity);
+            }
+
+            if (isTreeOpen)
+            {
+                char label[32];
+                for (int i = 0; i < parent.children.size(); ++i)
+                {
+                    ImGuiTreeNodeFlags childnodeFlags = ImGuiTreeNodeFlags_Bullet | ImGuiTreeNodeFlags_FramePadding |
+                                                        ImGuiTreeNodeFlags_NoTreePushOnOpen;
+                    auto &select = parent.children[i]->getComponent<scene::SelectComponent>();
+                    if (select.selected && entity == scene.getActiveEntity())
+                    {
+                        childnodeFlags |= ImGuiTreeNodeFlags_Selected;
+                    }
+                    sprintf(label, "SubMesh##%d", static_cast<uint32_t>(parent.children[i]->getHandle()));
+                    if (ImGui::TreeNodeEx(label, childnodeFlags))
+                    {
+                    }
+                    if (ImGui::IsItemClicked())
+                    {
+                        select.toggleSelect();
+                    }
+                }
+                ImGui::TreePop();
+            }
+        }
+        else
+        {
+            ImGuiTreeNodeFlags nodeFlags =
+                ImGuiTreeNodeFlags_Bullet | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_FramePadding;
+            if (entity == scene.getActiveEntity())
+            {
+                nodeFlags |= ImGuiTreeNodeFlags_Selected;
+            }
+
+            //            ImVec4 color = (mesh.shouldDraw) ? ImVec4(0.8f, 0.8f, 0.8f, 1.0f) : ImVec4(0.3f, 0.3f,
+            //            0.3f, 1.0f);
+            //
+            //            ImGui::PushStyleColor(ImGuiCol_Text, color);
+            ImGui::TreeNodeEx(uniqueID.c_str(), nodeFlags);
+
+            if (ImGui::IsItemClicked())
+            {
+                scene.changeSelectedPrefabType(prefab.prefabType);
+                scene.setActiveEntity(entity);
+            }
+
+            //            ImGui::PopStyleColor();
         }
     }
 
-    // Right-click context menu
-    if (ImGui::BeginPopupContextWindow())
+    ImGui::EndChild();
+
+    ImGui::Separator();
+
+    ImGui::BeginChild("PrefabButtons", ImVec2(0, 35));
+
+    createPrefabButtons(scene);
+
+    ImGui::EndChild();
+
+    ImGui::End();
+}
+
+void Gui::createPrefabButtons(scene::Scene &scene)
+{
+
+    float windowWidth = ImGui::GetContentRegionAvail().x;
+    float windowHeight = ImGui::GetContentRegionAvail().y;
+    float spacing = 10.0f;
+    float buttonWidth = (windowWidth - spacing) / 2;
+    float buttonHeight = 25.0f;
+    float padding = windowHeight - buttonHeight;
+
+    ImGui::Dummy(ImVec2(0.0f, padding / 2));
+
+    // Add buttons for creating and destroying entities
+    if (ImGui::Button("Create Prefab", ImVec2(buttonWidth, 0)))
     {
-        if (ImGui::MenuItem("Destory") && activeEntity->getHandle() != entt::null)
+        isCreateDialog = true;
+    }
+
+    if (isCreateDialog)
+        ImGui::OpenPopup("CreatePrefabPopup");
+
+    if (ImGui::BeginPopupContextWindow("CreatePrefabPopup"))
+    {
+
+        for (const auto &prefabType : prefabTypes)
         {
-            device.getHandle().waitIdle();
-            activeEntity->destroy();
+            if (ImGui::MenuItem(prefabType.second.c_str()))
+            {
+                scene.createPrefab(prefabType.first, prefabType.second);
+                ImGui::CloseCurrentPopup();
+                isCreateDialog = false;
+            }
         }
 
+        // Close the popup when clicking anywhere else
+        if (!ImGui::IsWindowHovered() && !ImGui::IsAnyItemHovered() && ImGui::IsMouseClicked(0))
+        {
+            ImGui::CloseCurrentPopup();
+            isCreateDialog = false;
+        }
         ImGui::EndPopup();
+    }
+
+    ImGui::SameLine(0.0f, spacing);
+
+    if (ImGui::Button("Destroy Prefab", ImVec2(buttonWidth, 0)))
+    {
+        if (scene.getActiveEntity() != entt::null)
+        {
+            device.getHandle().waitIdle();
+            scene.destroySelectedPrefab();
+        }
+    }
+}
+
+void Gui::createPropertiesPanel(scene::Scene &scene)
+{
+    ImGui::Begin("Properties");
+
+    if (scene.getActiveEntity() != entt::null)
+    {
+        scene.displaySelectedPrefabGui();
+        scene.updateSelectedPrefabComponents();
     }
 
     ImGui::End();
@@ -398,15 +473,7 @@ void Gui::createHierarchyPanel(scene::Scene &scene)
 
 void Gui::draw(vk::raii::CommandBuffer *cmd)
 {
-    ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), *(*cmd));
-
-    ImGuiIO &io = ImGui::GetIO();
-    // Update and Render additional Platform Windows
-    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-    {
-        ImGui::UpdatePlatformWindows();
-        ImGui::RenderPlatformWindowsDefault();
-    }
+    ImGui_ImplVulkan_RenderDrawData(drawData, *(*cmd));
 }
 
 void Gui::createImages(uint32_t numImages)
@@ -446,13 +513,7 @@ vk::Extent2D Gui::getExtent() const
 
 std::vector<vk::ImageView> Gui::getImageViews() const
 {
-    std::vector<vk::ImageView> result;
-    result.reserve(imageViews.size());
-    for (auto i = 0u; i < images.size(); ++i)
-    {
-        result.emplace_back(*imageViews[i]);
-    }
-    return result;
+    return imageViews;
 }
 
 uint32_t Gui::getImageCount() const
@@ -460,13 +521,18 @@ uint32_t Gui::getImageCount() const
     return swapchain.getImageCount();
 }
 
+uint32_t Gui::getFrameIndex()
+{
+    return (frameIndex - 1 + swapchain.getImageCount()) % swapchain.getImageCount();
+}
+
 void Gui::createImageViews()
 {
     imageViews.clear();
     imageViews.reserve(images.size());
-    for (const auto &image : images)
+    for (auto &image : images)
     {
-        imageViews.emplace_back(image.createImageView(vk::ImageAspectFlagBits::eColor));
+        imageViews.emplace_back(image.getImageView(vk::ImageAspectFlagBits::eColor));
     }
 }
 

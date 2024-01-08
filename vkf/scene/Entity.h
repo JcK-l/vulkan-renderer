@@ -17,9 +17,16 @@
 
 #include <entt/entt.hpp>
 
+namespace vkf::core // Forward declarations
+{
+class Device;
+class RenderPass;
+} // namespace vkf::core
+
 namespace vkf::rendering // Forward declarations
 {
 class BindlessManager;
+class PipelineBuilder;
 } // namespace vkf::rendering
 
 namespace vkf::scene
@@ -42,12 +49,12 @@ class Entity
     ///
     /// \param registry Reference to the entt::registry
     ///
-    explicit Entity(entt::registry &registry, rendering::BindlessManager &bindlessManager);
+    explicit Entity(entt::registry &registry);
 
     Entity(const Entity &) = delete;            ///< Deleted copy constructor
     Entity(Entity &&) noexcept = default;       ///< Default move constructor
     Entity &operator=(const Entity &) = delete; ///< Deleted copy assignment operator
-    Entity &operator=(Entity &&) = delete;      ///< Deleted move assignment operator
+    Entity &operator=(Entity &&) noexcept;      ///< Deleted move assignment operator
     ~Entity() = default;                        ///< Default destructor
 
     ///
@@ -55,10 +62,11 @@ class Entity
     ///
     /// This method takes the type of the component and its arguments, and adds the component to the entity.
     ///
-    template <typename T, typename... Args> void addComponent(Args &&...args)
+    template <typename T, typename... Args> T &addComponent(Args &&...args)
     {
         assert(handle != entt::null && "Entity is not valid");
         registry.emplace<T>(handle, std::forward<Args>(args)...);
+        return registry.get<T>(handle);
     }
 
     ///
@@ -72,9 +80,6 @@ class Entity
         return registry.get<T>(handle);
     }
 
-    void create(std::string tag);
-    virtual void destroy();
-
     [[nodiscard]] entt::entity getHandle() const;
 
     ///
@@ -84,31 +89,8 @@ class Entity
     ///
     void setHandle(entt::entity handle);
 
-    ///
-    /// \brief Method to set the handle of an entity.
-    ///
-    /// \param entity The entity to use for setting the handle of the entity.
-    ///
-    void setHandle(Entity entity);
-
-    ///
-    /// \brief Method to display the GUI for an entity.
-    ///
-    /// This method is intended to be overridden by subclasses to display the GUI for an entity. It is only used if the
-    /// Gui Class is used.
-    ///
-    virtual void displayGui();
-
-    ///
-    /// \brief Method to update the components of an entity.
-    ///
-    /// This method is intended to be overridden by subclasses to update the components of an entity. It is only used if
-    /// the Gui Class is used.
-    ///
-    virtual void updateComponents();
-
-  protected:
-    rendering::BindlessManager &bindlessManager;
+    void create();
+    void destroy();
 
   private:
     entt::registry &registry;

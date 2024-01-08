@@ -1,0 +1,200 @@
+\doxysection{vkf\+::scene\+::Texture2D Class Reference}
+\hypertarget{classvkf_1_1scene_1_1_texture2_d}{}\label{classvkf_1_1scene_1_1_texture2_d}\index{vkf::scene::Texture2D@{vkf::scene::Texture2D}}
+
+
+This class manages \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entities.  
+
+
+
+
+{\ttfamily \#include $<$Texture2\+D.\+h$>$}
+
+Inheritance diagram for vkf\+::scene\+::Texture2D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvkf_1_1scene_1_1_texture2_d}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_a769241be388bbf40423185f19eefe105}{Texture2D}} (entt\+::registry \&registry, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager, \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} entity)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_a41f6eede4623afb05021c24382d4318f}{create}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*}pipeline, \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*}camera, std\+::string tag) override
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_af9a82b85323f0e8b8ac445b77205a95f}{destroy}} () override
+\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_a7cb88574335951567874dec61bb80d11}{display\+Gui}} () override
+\begin{DoxyCompactList}\small\item\em Displays the GUI for the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_afcc635cf429175f7d36f6afacd159ab0}{update\+Components}} () override
+\begin{DoxyCompactList}\small\item\em Updates the components of the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \& \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_aba46bfdc02b953826597b8534d1c416f}{get\+Entity}} () override
+\item 
+void \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d_a3af62755596be8237779f83f99f7f137}{set\+Entity}} (entt\+::entity ent) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{vkf\+::scene\+::\+Prefab}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Prefab} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_texture2_d_a1e55eb68f2f33789916d05746b693b6e}\label{classvkf_1_1scene_1_1_texture2_d_a1e55eb68f2f33789916d05746b693b6e} 
+static \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{Prefab\+Type}} {\bfseries get\+Prefab\+Type} ()
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_texture2_d_a142f4fece627eca07f28ec72627b0652}\label{classvkf_1_1scene_1_1_texture2_d_a142f4fece627eca07f28ec72627b0652} 
+static \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{rendering\+::\+Pipeline\+Builder}} {\bfseries get\+Pipeline\+Builder} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&render\+Pass, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{vkf\+::scene\+::\+Prefab}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classvkf_1_1rendering_1_1_pipeline_builder}{rendering\+::\+Pipeline\+Builder}} \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_a10b4ec37dc2aa09cdd8e7fe5ab5c14ae}{get\+Pipeline\+Builder}} (const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&device, const \mbox{\hyperlink{classvkf_1_1core_1_1_render_pass}{core\+::\+Render\+Pass}} \&render\+Pass, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager)
+\begin{DoxyCompactList}\small\item\em Static method to get a Pipeline\+Builder for a prefab. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{vkf\+::scene\+::\+Prefab}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_ac7dc9072cc0384df9373fe8342f7dbf5}{Prefab}} (entt\+::registry \&registry, \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&bindless\+Manager, \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} entity)
+\begin{DoxyCompactList}\small\item\em Constructor that takes a registry, a Bindless\+Manager object and an \doxylink{classvkf_1_1scene_1_1_entity}{Entity} object as parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{vkf\+::scene\+::\+Prefab}}}
+\begin{DoxyCompactItemize}
+\item 
+entt\+::registry \& {\bfseries registry}
+\item 
+\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \& {\bfseries bindless\+Manager}
+\item 
+\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} {\bfseries entity}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entities. 
+
+This class provides an interface for creating and managing a \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. A \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity in this context is a specific type of \doxylink{classvkf_1_1scene_1_1_entity}{Entity} that can be used in a 3D scene. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_texture2_d_a769241be388bbf40423185f19eefe105}\label{classvkf_1_1scene_1_1_texture2_d_a769241be388bbf40423185f19eefe105} 
+\index{vkf::scene::Texture2D@{vkf::scene::Texture2D}!Texture2D@{Texture2D}}
+\index{Texture2D@{Texture2D}!vkf::scene::Texture2D@{vkf::scene::Texture2D}}
+\doxysubsubsection{\texorpdfstring{Texture2D()}{Texture2D()}}
+{\footnotesize\ttfamily vkf\+::scene\+::\+Texture2\+D\+::\+Texture2D (\begin{DoxyParamCaption}\item[{entt\+::registry \&}]{registry,  }\item[{\mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \&}]{bindless\+Manager,  }\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} object. 
+
+This constructor initializes the registry reference with the provided registry, by passing it to the Base class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em registry} & Reference to the entt\+::registry \\
+\hline
+{\em bindless\+Manager} & Reference to the Bindless\+Manager \\
+\hline
+{\em entity} & The entity to use for creating the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvkf_1_1scene_1_1_texture2_d_a41f6eede4623afb05021c24382d4318f}\label{classvkf_1_1scene_1_1_texture2_d_a41f6eede4623afb05021c24382d4318f} 
+\index{vkf::scene::Texture2D@{vkf::scene::Texture2D}!create@{create}}
+\index{create@{create}!vkf::scene::Texture2D@{vkf::scene::Texture2D}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Texture2\+D\+::create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvkf_1_1core_1_1_device}{core\+::\+Device}} \&}]{device,  }\item[{\mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core\+::\+Pipeline}} \texorpdfstring{$\ast$}{*}}]{pipeline,  }\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*}}]{camera,  }\item[{std\+::string}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. 
+
+This method creates a \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity using the provided device, bindless\+Manager, pipeline, camera, and tag.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & The Vulkan device to use for creating the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. \\
+\hline
+{\em bindless\+Manager} & The Bindless\+Manager to use for creating the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. \\
+\hline
+{\em pipeline} & The Pipeline to use for creating the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. \\
+\hline
+{\em camera} & The \doxylink{classvkf_1_1scene_1_1_camera}{Camera} to use for creating the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. \\
+\hline
+{\em tag} & The tag to use for creating the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{vkf\+::scene\+::\+Prefab}}.
+
+\Hypertarget{classvkf_1_1scene_1_1_texture2_d_af9a82b85323f0e8b8ac445b77205a95f}\label{classvkf_1_1scene_1_1_texture2_d_af9a82b85323f0e8b8ac445b77205a95f} 
+\index{vkf::scene::Texture2D@{vkf::scene::Texture2D}!destroy@{destroy}}
+\index{destroy@{destroy}!vkf::scene::Texture2D@{vkf::scene::Texture2D}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Texture2\+D\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{vkf\+::scene\+::\+Prefab}}.
+
+\Hypertarget{classvkf_1_1scene_1_1_texture2_d_a7cb88574335951567874dec61bb80d11}\label{classvkf_1_1scene_1_1_texture2_d_a7cb88574335951567874dec61bb80d11} 
+\index{vkf::scene::Texture2D@{vkf::scene::Texture2D}!displayGui@{displayGui}}
+\index{displayGui@{displayGui}!vkf::scene::Texture2D@{vkf::scene::Texture2D}}
+\doxysubsubsection{\texorpdfstring{displayGui()}{displayGui()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Texture2\+D\+::display\+Gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Displays the GUI for the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. 
+
+This method is overridden from the \doxylink{classvkf_1_1scene_1_1_entity}{Entity} base class and is used to display the GUI for the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. 
+
+Implements \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_a28c7dcfb2cb63fb53534deacd6f08c3f}{vkf\+::scene\+::\+Prefab}}.
+
+\Hypertarget{classvkf_1_1scene_1_1_texture2_d_aba46bfdc02b953826597b8534d1c416f}\label{classvkf_1_1scene_1_1_texture2_d_aba46bfdc02b953826597b8534d1c416f} 
+\index{vkf::scene::Texture2D@{vkf::scene::Texture2D}!getEntity@{getEntity}}
+\index{getEntity@{getEntity}!vkf::scene::Texture2D@{vkf::scene::Texture2D}}
+\doxysubsubsection{\texorpdfstring{getEntity()}{getEntity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} \& vkf\+::scene\+::\+Texture2\+D\+::get\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{vkf\+::scene\+::\+Prefab}}.
+
+\Hypertarget{classvkf_1_1scene_1_1_texture2_d_a3af62755596be8237779f83f99f7f137}\label{classvkf_1_1scene_1_1_texture2_d_a3af62755596be8237779f83f99f7f137} 
+\index{vkf::scene::Texture2D@{vkf::scene::Texture2D}!setEntity@{setEntity}}
+\index{setEntity@{setEntity}!vkf::scene::Texture2D@{vkf::scene::Texture2D}}
+\doxysubsubsection{\texorpdfstring{setEntity()}{setEntity()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Texture2\+D\+::set\+Entity (\begin{DoxyParamCaption}\item[{entt\+::entity}]{ent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{vkf\+::scene\+::\+Prefab}}.
+
+\Hypertarget{classvkf_1_1scene_1_1_texture2_d_afcc635cf429175f7d36f6afacd159ab0}\label{classvkf_1_1scene_1_1_texture2_d_afcc635cf429175f7d36f6afacd159ab0} 
+\index{vkf::scene::Texture2D@{vkf::scene::Texture2D}!updateComponents@{updateComponents}}
+\index{updateComponents@{updateComponents}!vkf::scene::Texture2D@{vkf::scene::Texture2D}}
+\doxysubsubsection{\texorpdfstring{updateComponents()}{updateComponents()}}
+{\footnotesize\ttfamily void vkf\+::scene\+::\+Texture2\+D\+::update\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the components of the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. 
+
+This method is overridden from the \doxylink{classvkf_1_1scene_1_1_entity}{Entity} base class and is used to update the components of the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bindless\+Manager} & The Bindless\+Manager to use for updating the components of the \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entity. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_a29f0573388628e8eced3d213824123b9}{vkf\+::scene\+::\+Prefab}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/prefabs/\mbox{\hyperlink{_texture2_d_8h}{Texture2\+D.\+h}}\item 
+C\+:/\+Users/\+Joshu/\+CLion\+Projects/vulkan-\/renderer/vkf/scene/prefabs/\mbox{\hyperlink{_texture2_d_8cpp}{Texture2\+D.\+cpp}}\end{DoxyCompactItemize}

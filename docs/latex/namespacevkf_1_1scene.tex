@@ -18,32 +18,55 @@ class \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}}
 \begin{DoxyCompactList}\small\item\em Class for managing entities in a scene. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component}{Material\+Component}}
 \begin{DoxyCompactList}\small\item\em Struct for managing material data in a scene. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1scene_1_1_mesh_component}{Mesh\+Component}}
+\begin{DoxyCompactList}\small\item\em Struct for managing mesh data for an entity in a scene. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1scene_1_1_parent_component}{Parent\+Component}}
+\begin{DoxyCompactList}\small\item\em Struct for managing parent-\/child relationships for entities in a scene. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{Prefab}}
+\begin{DoxyCompactList}\small\item\em Abstract class for managing prefabricated entities in a scene. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_component}{Prefab\+Component}}
+\begin{DoxyCompactList}\small\item\em Struct for managing prefab data for an entity in a scene. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory}}
 \begin{DoxyCompactList}\small\item\em This class is used to create prefabricated entities. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits}{Prefab\+Traits}}
 \begin{DoxyCompactList}\small\item\em Provides traits for prefabricated entities. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits_3_01_cube_01_4}{Prefab\+Traits$<$ Cube $>$}}
 \item 
-struct \mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits_3_01_triangle_01_4}{Prefab\+Traits$<$ Triangle $>$}}
+struct \mbox{\hyperlink{structvkf_1_1scene_1_1_prefab_traits_3_01_texture2_d_01_4}{Prefab\+Traits$<$ Texture2\+D $>$}}
 \item 
 class \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{Scene}}
 \begin{DoxyCompactList}\small\item\em This class manages a scene. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1scene_1_1_select_component}{Select\+Component}}
+\begin{DoxyCompactList}\small\item\em Struct for managing selection state for an entity in a scene. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1scene_1_1_tag_component}{Tag\+Component}}
 \begin{DoxyCompactList}\small\item\em Struct for managing tag data for an entity in a scene. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classvkf_1_1scene_1_1_texture2_d}{Texture2D}}
+\begin{DoxyCompactList}\small\item\em This class manages \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} entities. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvkf_1_1scene_1_1_texture_component}{Texture\+Component}}
+\begin{DoxyCompactList}\small\item\em Struct for managing texture data for an entity in a scene. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structvkf_1_1scene_1_1_transform_component}{Transform\+Component}}
-\begin{DoxyCompactList}\small\item\em Struct for managing transformation data for an entity in a scene. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classvkf_1_1scene_1_1_triangle}{Triangle}}
-\begin{DoxyCompactList}\small\item\em This class manages \doxylink{classvkf_1_1scene_1_1_triangle}{Triangle} entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Struct for managing transformation data for an entity in a scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}\label{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5} 
 enum class \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{Prefab\+Type}} \{ {\bfseries Cube}
-, {\bfseries Triangle}
-, {\bfseries Custom}
+, {\bfseries Texture2D}
  \}
 \begin{DoxyCompactList}\small\item\em Enumerates the types of prefabricated entities that can be created. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 The scene namespace contains classes and functions for scene management. 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}\label{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5} 
+\index{vkf::scene@{vkf::scene}!PrefabType@{PrefabType}}
+\index{PrefabType@{PrefabType}!vkf::scene@{vkf::scene}}
+\doxysubsubsection{\texorpdfstring{PrefabType}{PrefabType}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{vkf\+::scene\+::\+Prefab\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enumerates the types of prefabricated entities that can be created. 
+
+This enum provides the types of prefabricated entities that can be created. It contains \doxylink{classvkf_1_1scene_1_1_cube}{Cube} and \doxylink{classvkf_1_1scene_1_1_texture2_d}{Texture2D} as the types of prefabricated entities. 

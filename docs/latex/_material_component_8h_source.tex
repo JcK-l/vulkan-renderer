@@ -21,43 +21,20 @@
 \DoxyCodeLine{00040\ \ \ \ \ \{}
 \DoxyCodeLine{00041\ \ \ \ \ \}}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a149c0b5e8ea28ba2da701fb635654225}{addBuffer}}(\textcolor{keyword}{const}\ std::string\ \&bufferName,\ uint32\_t\ index)}
-\DoxyCodeLine{00050\ \ \ \ \ \{}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a27369187ff732b512336e810e7c0423c}{bufferMap}}[bufferName]\ =\ index;}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ <\ maxSize)}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ indices[currentBufferCount]\ =\ index;}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ currentBufferCount++;}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Handle\ error:\ index\ is\ out\ of\ bounds}}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00061\ \ \ \ \ \}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00069\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a60ad09d2c18a4bc5a9167c31e986f3ab}{getBufferIndex}}(\textcolor{keyword}{const}\ std::string\ \&bufferName)}
-\DoxyCodeLine{00070\ \ \ \ \ \{}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a27369187ff732b512336e810e7c0423c}{bufferMap}}.find(bufferName);}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a27369187ff732b512336e810e7c0423c}{bufferMap}}.end())}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it-\/>second;}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Handle\ error:\ bufferName\ not\ found\ in\ the\ map}}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00081\ \ \ \ \ \}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ maxSize\{32\};}
-\DoxyCodeLine{00084\ \ \ \ \ uint32\_t\ indices[maxSize];}
-\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core::Pipeline}}\ *pipeline;}
-\DoxyCodeLine{00086\ \ \ \ \ std::unordered\_map<std::string,\ uint32\_t>\ \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a27369187ff732b512336e810e7c0423c}{bufferMap}};\ }
-\DoxyCodeLine{00087\ \ \ \ \ uint32\_t\ currentBufferCount\{0\};}
-\DoxyCodeLine{00088\ \};}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_MATERIALCOMPONENT\_H}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_aeeba95be088e11e93720dbefac9a3515}{addUniform}}(\textcolor{keyword}{const}\ std::string\ \&uniformName,\ uint32\_t\ index);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00057\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a89ba27e74f08819558492d815da3a600}{getUniformIndex}}(\textcolor{keyword}{const}\ std::string\ \&uniformName);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ maxSize\{32\};}
+\DoxyCodeLine{00060\ \ \ \ \ std::array<uint32\_t,\ maxSize>\ indices;}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classvkf_1_1core_1_1_pipeline}{core::Pipeline}}\ *pipeline;}
+\DoxyCodeLine{00062\ \ \ \ \ std::unordered\_map<std::string,\ uint32\_t>\ \mbox{\hyperlink{structvkf_1_1scene_1_1_material_component_a136b47b28effb697ac831a5c3f864882}{uniformMap}};\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ uint32\_t\ currentUniformCount\{0\};}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \}\ \textcolor{comment}{//\ namespace\ vkf::scene}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VULKANRENDERER\_MATERIALCOMPONENT\_H}}
 
 \end{DoxyCode}

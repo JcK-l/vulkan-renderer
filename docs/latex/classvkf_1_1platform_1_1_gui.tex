@@ -35,19 +35,21 @@ Inheritance diagram for vkf\+::platform\+::Gui\+:\begin{figure}[H]
 \Hypertarget{classvkf_1_1platform_1_1_gui_a852b2f2745db6c76b967fdd3c368abde}\label{classvkf_1_1platform_1_1_gui_a852b2f2745db6c76b967fdd3c368abde} 
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Gui} () override
 \begin{DoxyCompactList}\small\item\em Override destructor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a643278212cedb7c79151b2dee3968c0b}{pre\+Render}} (uint32\+\_\+t frame\+Index, \mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene)
+void \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_afd1015665433b5c314f99ccdaa7b4e47}{pre\+Render}} (\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene)
 \begin{DoxyCompactList}\small\item\em Pre-\/render operations for the \doxylink{classvkf_1_1platform_1_1_gui}{Gui}. \end{DoxyCompactList}\item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_ae19f59e8ece626c0cc6d26f22e017907}\label{classvkf_1_1platform_1_1_gui_ae19f59e8ece626c0cc6d26f22e017907} 
 void {\bfseries draw} (vk\+::raii\+::\+Command\+Buffer \texorpdfstring{$\ast$}{*}cmd)
 \item 
 std\+::vector$<$ vk\+::\+Image\+View $>$ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a196cf80a8c1411ff1c53824ab5847210}{get\+Image\+Views}} () const override
-\begin{DoxyCompactList}\small\item\em Pure virtual method to get the image views. \end{DoxyCompactList}\item 
+\item 
 uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_afbb146ad89919d6f62e88ecf7395e613}{get\+Image\+Count}} () const override
-\begin{DoxyCompactList}\small\item\em Pure virtual method to get the image count. \end{DoxyCompactList}\item 
+\item 
 vk\+::\+Extent2D \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a8f2b0f035d9f21a99fa77a00026e7bf0}{get\+Extent}} () const override
-\begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\item 
+\item 
 bool \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a396ec808f104928426657b39f9ac46e7}{reset\+Changed}} () override
-\begin{DoxyCompactList}\small\item\em Pure virtual method to get the extent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Method to check if the render source has changed. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a9de3066adb8113e23637df4f7ce091fd}{get\+Frame\+Index}} () override
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -62,14 +64,17 @@ void {\bfseries create\+Images} (uint32\+\_\+t num\+Images)
 \Hypertarget{classvkf_1_1platform_1_1_gui_af04652d279dd68f4ca91e7c1887cea29}\label{classvkf_1_1platform_1_1_gui_af04652d279dd68f4ca91e7c1887cea29} 
 void {\bfseries create\+Image\+Views} ()
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_gui_ab3ab2d6882845523280d4adafe47df10}\label{classvkf_1_1platform_1_1_gui_ab3ab2d6882845523280d4adafe47df10} 
-void {\bfseries create\+Scene\+Panel} (\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene, uint32\+\_\+t frame\+Index)
-\item 
-\Hypertarget{classvkf_1_1platform_1_1_gui_aa958340d9c555a0d75d507054099b47e}\label{classvkf_1_1platform_1_1_gui_aa958340d9c555a0d75d507054099b47e} 
-void {\bfseries create\+Properties\+Panel} ()
+\Hypertarget{classvkf_1_1platform_1_1_gui_a112c8a5f476b731461fecac6bede39c2}\label{classvkf_1_1platform_1_1_gui_a112c8a5f476b731461fecac6bede39c2} 
+void {\bfseries create\+Scene\+Panel} (\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene)
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_a6ac512afb28a1fb4c10eb7fcacfc28ed}\label{classvkf_1_1platform_1_1_gui_a6ac512afb28a1fb4c10eb7fcacfc28ed} 
 void {\bfseries create\+Hierarchy\+Panel} (\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene)
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a516c952b16cab8875ee57012be17b4ce}\label{classvkf_1_1platform_1_1_gui_a516c952b16cab8875ee57012be17b4ce} 
+void {\bfseries create\+Properties\+Panel} (\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene)
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a0923505ef9c84724c7a713a1aebc7831}\label{classvkf_1_1platform_1_1_gui_a0923505ef9c84724c7a713a1aebc7831} 
+void {\bfseries create\+Prefab\+Buttons} (\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&scene)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -83,17 +88,14 @@ const \mbox{\hyperlink{classvkf_1_1core_1_1_swapchain}{core\+::\+Swapchain}} \& 
 \Hypertarget{classvkf_1_1platform_1_1_gui_a7793a306c6ab60ccd7dea2aa38a4ed40}\label{classvkf_1_1platform_1_1_gui_a7793a306c6ab60ccd7dea2aa38a4ed40} 
 \mbox{\hyperlink{classvkf_1_1rendering_1_1_bindless_manager}{rendering\+::\+Bindless\+Manager}} \& {\bfseries bindless\+Manager}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_gui_a67c7689d7620901014b45a01cacc1ed4}\label{classvkf_1_1platform_1_1_gui_a67c7689d7620901014b45a01cacc1ed4} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{scene\+::\+Entity}} $>$ {\bfseries active\+Entity}
-\item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_a461a3c97fa9539c28cffc93161e26632}\label{classvkf_1_1platform_1_1_gui_a461a3c97fa9539c28cffc93161e26632} 
 vk\+::\+Extent2D {\bfseries scene\+Viewport\+Extent} \{\}
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_af07ff8954a988cf1875e17045f9ccaee}\label{classvkf_1_1platform_1_1_gui_af07ff8954a988cf1875e17045f9ccaee} 
 std\+::vector$<$ \mbox{\hyperlink{classvkf_1_1core_1_1_image}{core\+::\+Image}} $>$ {\bfseries images}
 \item 
-\Hypertarget{classvkf_1_1platform_1_1_gui_aa7664f6d4f98a8c4edc4eda20bc9ae3b}\label{classvkf_1_1platform_1_1_gui_aa7664f6d4f98a8c4edc4eda20bc9ae3b} 
-std\+::vector$<$ vk\+::raii\+::\+Image\+View $>$ {\bfseries image\+Views}
+\Hypertarget{classvkf_1_1platform_1_1_gui_a3b6a6918882d700cb7b8f11d1fb1be34}\label{classvkf_1_1platform_1_1_gui_a3b6a6918882d700cb7b8f11d1fb1be34} 
+std\+::vector$<$ vk\+::\+Image\+View $>$ {\bfseries image\+Views}
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_ab331dcba4b0bf536df89c93d0da846eb}\label{classvkf_1_1platform_1_1_gui_ab331dcba4b0bf536df89c93d0da846eb} 
 vk\+::raii\+::\+Sampler {\bfseries texture\+Sampler} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
@@ -101,8 +103,16 @@ vk\+::raii\+::\+Sampler {\bfseries texture\+Sampler} \{VK\+\_\+\+NULL\+\_\+\+HAN
 \Hypertarget{classvkf_1_1platform_1_1_gui_a46cac89463d7ee8b77055192c831c954}\label{classvkf_1_1platform_1_1_gui_a46cac89463d7ee8b77055192c831c954} 
 vk\+::raii\+::\+Descriptor\+Pool {\bfseries imgui\+Pool} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
 \item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_ad535d2abfcdb08fc27d517096a5ca366}\label{classvkf_1_1platform_1_1_gui_ad535d2abfcdb08fc27d517096a5ca366} 
+Im\+Draw\+Data \texorpdfstring{$\ast$}{*} {\bfseries draw\+Data}
+\item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_ae9ef6e59c80efda9ad8cad4160793e5a}\label{classvkf_1_1platform_1_1_gui_ae9ef6e59c80efda9ad8cad4160793e5a} 
 Vk\+Descriptor\+Set {\bfseries dset} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
+\item 
+std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{scene\+::\+Prefab\+Type}}, std\+::string $>$ $>$ \mbox{\hyperlink{classvkf_1_1platform_1_1_gui_a9daf8a5eff71b67dd4bdb8143d8f6cf6}{prefab\+Types}}
+\item 
+\Hypertarget{classvkf_1_1platform_1_1_gui_a2f9cfc87b8d0e8dd0e40d6d79f450117}\label{classvkf_1_1platform_1_1_gui_a2f9cfc87b8d0e8dd0e40d6d79f450117} 
+uint32\+\_\+t {\bfseries frame\+Index} \{0\}
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_a22078816f15e43f2c9963627afc56ffd}\label{classvkf_1_1platform_1_1_gui_a22078816f15e43f2c9963627afc56ffd} 
 bool {\bfseries first\+Time} \{true\}
@@ -112,9 +122,6 @@ bool {\bfseries changed} \{false\}
 \item 
 \Hypertarget{classvkf_1_1platform_1_1_gui_aff07c6c701d8c03ef5a2e5c323fffa3e}\label{classvkf_1_1platform_1_1_gui_aff07c6c701d8c03ef5a2e5c323fffa3e} 
 bool {\bfseries is\+Create\+Dialog} \{false\}
-\item 
-\Hypertarget{classvkf_1_1platform_1_1_gui_a5227a7fb12c2d59dfb3674079fa21563}\label{classvkf_1_1platform_1_1_gui_a5227a7fb12c2d59dfb3674079fa21563} 
-\mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{scene\+::\+Prefab\+Type}} {\bfseries selected\+Type} \{scene\+::\+Prefab\+Type\+::\+Custom\}
 \end{DoxyCompactItemize}
 
 
@@ -160,16 +167,17 @@ Constructor for the \doxylink{classvkf_1_1platform_1_1_gui}{Gui} class.
 
 
 
-Pure virtual method to get the extent. 
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}.
 
-This method is intended to be overridden by subclasses to return the extent.
+\Hypertarget{classvkf_1_1platform_1_1_gui_a9de3066adb8113e23637df4f7ce091fd}\label{classvkf_1_1platform_1_1_gui_a9de3066adb8113e23637df4f7ce091fd} 
+\index{vkf::platform::Gui@{vkf::platform::Gui}!getFrameIndex@{getFrameIndex}}
+\index{getFrameIndex@{getFrameIndex}!vkf::platform::Gui@{vkf::platform::Gui}}
+\doxysubsubsection{\texorpdfstring{getFrameIndex()}{getFrameIndex()}}
+{\footnotesize\ttfamily uint32\+\_\+t vkf\+::platform\+::\+Gui\+::get\+Frame\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-\begin{DoxyReturn}{Returns}
-The extent. 
-\end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa9b1ade53ea2036ee100c0cc6c8b56ca}{vkf\+::rendering\+::\+Render\+Source}}.
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}.
 
 \Hypertarget{classvkf_1_1platform_1_1_gui_afbb146ad89919d6f62e88ecf7395e613}\label{classvkf_1_1platform_1_1_gui_afbb146ad89919d6f62e88ecf7395e613} 
 \index{vkf::platform::Gui@{vkf::platform::Gui}!getImageCount@{getImageCount}}
@@ -179,16 +187,7 @@ Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa9b1ade53ea
 
 
 
-Pure virtual method to get the image count. 
-
-This method is intended to be overridden by subclasses to return the image count.
-
-\begin{DoxyReturn}{Returns}
-The image count. 
-\end{DoxyReturn}
-
-
-Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa80a3fc362a63a72597924d5534c41f5}{vkf\+::rendering\+::\+Render\+Source}}.
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}.
 
 \Hypertarget{classvkf_1_1platform_1_1_gui_a196cf80a8c1411ff1c53824ab5847210}\label{classvkf_1_1platform_1_1_gui_a196cf80a8c1411ff1c53824ab5847210} 
 \index{vkf::platform::Gui@{vkf::platform::Gui}!getImageViews@{getImageViews}}
@@ -198,22 +197,13 @@ Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_aa80a3fc362a
 
 
 
-Pure virtual method to get the image views. 
+Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source}{vkf\+::rendering\+::\+Render\+Source}}.
 
-This method is intended to be overridden by subclasses to return a vector of image views.
-
-\begin{DoxyReturn}{Returns}
-A vector of image views. 
-\end{DoxyReturn}
-
-
-Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a0bab8473e4fe89b408a33afcd0611d22}{vkf\+::rendering\+::\+Render\+Source}}.
-
-\Hypertarget{classvkf_1_1platform_1_1_gui_a643278212cedb7c79151b2dee3968c0b}\label{classvkf_1_1platform_1_1_gui_a643278212cedb7c79151b2dee3968c0b} 
+\Hypertarget{classvkf_1_1platform_1_1_gui_afd1015665433b5c314f99ccdaa7b4e47}\label{classvkf_1_1platform_1_1_gui_afd1015665433b5c314f99ccdaa7b4e47} 
 \index{vkf::platform::Gui@{vkf::platform::Gui}!preRender@{preRender}}
 \index{preRender@{preRender}!vkf::platform::Gui@{vkf::platform::Gui}}
 \doxysubsubsection{\texorpdfstring{preRender()}{preRender()}}
-{\footnotesize\ttfamily void vkf\+::platform\+::\+Gui\+::pre\+Render (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{frame\+Index,  }\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&}]{scene }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void vkf\+::platform\+::\+Gui\+::pre\+Render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classvkf_1_1scene_1_1_scene}{scene\+::\+Scene}} \&}]{scene }\end{DoxyParamCaption})}
 
 
 
@@ -234,17 +224,32 @@ Pre-\/render operations for the \doxylink{classvkf_1_1platform_1_1_gui}{Gui}.
 
 
 
-Pure virtual method to get the extent. 
+Method to check if the render source has changed. 
 
-This method is intended to be overridden by subclasses to return the extent.
+This method returns true if the render source has changed. It toggles the changed flag to false.
 
 \begin{DoxyReturn}{Returns}
-The extent. 
+A boolean indicating whether or not the render source has changed. 
 \end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classvkf_1_1rendering_1_1_render_source_a12bcc5c2e991feadfa469faa44a0f2ea}{vkf\+::rendering\+::\+Render\+Source}}.
 
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classvkf_1_1platform_1_1_gui_a9daf8a5eff71b67dd4bdb8143d8f6cf6}\label{classvkf_1_1platform_1_1_gui_a9daf8a5eff71b67dd4bdb8143d8f6cf6} 
+\index{vkf::platform::Gui@{vkf::platform::Gui}!prefabTypes@{prefabTypes}}
+\index{prefabTypes@{prefabTypes}!vkf::platform::Gui@{vkf::platform::Gui}}
+\doxysubsubsection{\texorpdfstring{prefabTypes}{prefabTypes}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::pair$<$\mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{scene\+::\+Prefab\+Type}}, std\+::string$>$ $>$ vkf\+::platform\+::\+Gui\+::prefab\+Types\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{\{scene::PrefabType::Cube,\ \textcolor{stringliteral}{"{}Cube"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{scene::PrefabType::Texture2D,\ \textcolor{stringliteral}{"{}Texture2D"{}}\}\}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

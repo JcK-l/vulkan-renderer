@@ -29,8 +29,26 @@ This class manages a scene.
 \Hypertarget{classvkf_1_1scene_1_1_scene_abbfafe95ed72a51235012aaa80ca4376}\label{classvkf_1_1scene_1_1_scene_abbfafe95ed72a51235012aaa80ca4376} 
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Scene} ()
 \begin{DoxyCompactList}\small\item\em Implemented in \doxylink{_scene_8cpp}{Scene.\+cpp}. \end{DoxyCompactList}\item 
-\Hypertarget{classvkf_1_1scene_1_1_scene_a2217d17b8c9d7aaad1ea0276fdb660e3}\label{classvkf_1_1scene_1_1_scene_a2217d17b8c9d7aaad1ea0276fdb660e3} 
-std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_entity}{Entity}} $>$ {\bfseries create\+Entity} (\mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{Prefab\+Type}} type, std\+::string tag)
+\Hypertarget{classvkf_1_1scene_1_1_scene_a768e6a4eac32ec9becc5d4dc5dd9a640}\label{classvkf_1_1scene_1_1_scene_a768e6a4eac32ec9becc5d4dc5dd9a640} 
+void {\bfseries create\+Prefab} (\mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{Prefab\+Type}} type, std\+::string tag)
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a77828e091681910f13dd18541d0307af}\label{classvkf_1_1scene_1_1_scene_a77828e091681910f13dd18541d0307af} 
+void {\bfseries set\+Active\+Entity} (entt\+::entity entity)
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_aa0bbc3074d4d29798be4a968fd5b44ad}\label{classvkf_1_1scene_1_1_scene_aa0bbc3074d4d29798be4a968fd5b44ad} 
+entt\+::entity {\bfseries get\+Active\+Entity} ()
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_ab79945e7f6162dd80e4dd31b1eca1a93}\label{classvkf_1_1scene_1_1_scene_ab79945e7f6162dd80e4dd31b1eca1a93} 
+void {\bfseries change\+Selected\+Prefab\+Type} (\mbox{\hyperlink{namespacevkf_1_1scene_aad28be4afad6b68d31e518b312349cb5}{Prefab\+Type}} type)
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a466eb60503323a2a8c18339d697a8daa}\label{classvkf_1_1scene_1_1_scene_a466eb60503323a2a8c18339d697a8daa} 
+void {\bfseries display\+Selected\+Prefab\+Gui} ()
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_ac1978583abd8ce0003ca30be88684ae1}\label{classvkf_1_1scene_1_1_scene_ac1978583abd8ce0003ca30be88684ae1} 
+void {\bfseries update\+Selected\+Prefab\+Components} ()
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_aead51542879a1dec368733768ee4db40}\label{classvkf_1_1scene_1_1_scene_aead51542879a1dec368733768ee4db40} 
+void {\bfseries destroy\+Selected\+Prefab} ()
 \item 
 \Hypertarget{classvkf_1_1scene_1_1_scene_ace065f175fbdc5a854a299f0be413001}\label{classvkf_1_1scene_1_1_scene_ace065f175fbdc5a854a299f0be413001} 
 entt\+::registry \& {\bfseries get\+Registry} ()
@@ -55,6 +73,9 @@ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_camera}{Camera}
 \item 
 \Hypertarget{classvkf_1_1scene_1_1_scene_a63fa0756011483c53be0e4f96ac2af55}\label{classvkf_1_1scene_1_1_scene_a63fa0756011483c53be0e4f96ac2af55} 
 std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab_factory}{Prefab\+Factory}} $>$ {\bfseries prefab\+Factory}
+\item 
+\Hypertarget{classvkf_1_1scene_1_1_scene_a9db5bd1f60790643453852287e931f12}\label{classvkf_1_1scene_1_1_scene_a9db5bd1f60790643453852287e931f12} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classvkf_1_1scene_1_1_prefab}{Prefab}} $>$ {\bfseries selected\+Prefab}
 \item 
 \Hypertarget{classvkf_1_1scene_1_1_scene_a74ae63e3d472bdb86ac8ccec6e1f05ad}\label{classvkf_1_1scene_1_1_scene_a74ae63e3d472bdb86ac8ccec6e1f05ad} 
 entt\+::registry {\bfseries registry}

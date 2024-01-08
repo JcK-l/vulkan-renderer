@@ -7,7 +7,6 @@ var searchData=
   ['buffer_4',['buffer',['../classvkf_1_1core_1_1_buffer.html',1,'vkf::core::Buffer'],['../classvkf_1_1core_1_1_buffer.html#afaf710de9c644fe614c4d387f256f8d3',1,'vkf::core::Buffer::Buffer(const Device &amp;device, vk::BufferCreateInfo createInfo, VmaAllocationCreateFlags allocationFlags)'],['../classvkf_1_1core_1_1_buffer.html#a944483f6fccaad2467f2e98e6d8d8306',1,'vkf::core::Buffer::Buffer(const Buffer &amp;)=delete'],['../classvkf_1_1core_1_1_buffer.html#a18ca3d65a9fe754f55ac205fe2e89071',1,'vkf::core::Buffer::Buffer(Buffer &amp;&amp;) noexcept']]],
   ['buffer_2ecpp_5',['Buffer.cpp',['../_buffer_8cpp.html',1,'']]],
   ['buffer_2eh_6',['Buffer.h',['../_buffer_8h.html',1,'']]],
-  ['buffermap_7',['bufferMap',['../structvkf_1_1scene_1_1_material_component.html#a27369187ff732b512336e810e7c0423c',1,'vkf::scene::MaterialComponent']]],
-  ['buffers_8',['buffers',['../classvkf_1_1rendering_1_1_bindless_manager.html#aa675f6b75a779ffb5d3bb24b84b74ddf',1,'vkf::rendering::BindlessManager']]],
-  ['button_9',['button',['../structvkf_1_1_event_1_1_mouse_button.html#ac1d277353f68b036d826d989011033cc',1,'vkf::Event::MouseButton']]]
+  ['buffers_7',['buffers',['../classvkf_1_1rendering_1_1_bindless_manager.html#aa675f6b75a779ffb5d3bb24b84b74ddf',1,'vkf::rendering::BindlessManager']]],
+  ['button_8',['button',['../structvkf_1_1_event_1_1_mouse_button.html#ac1d277353f68b036d826d989011033cc',1,'vkf::Event::MouseButton']]]
 ];

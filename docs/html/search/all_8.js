@@ -11,7 +11,7 @@ var searchData=
   ['device_20selection_8',['Physical Device Selection',['../md_updates_23__11__12.html#autotoc_md15',1,'']]],
   ['device_2ecpp_9',['Device.cpp',['../_device_8cpp.html',1,'']]],
   ['device_2eh_10',['Device.h',['../_device_8h.html',1,'']]],
-  ['displaygui_11',['displaygui',['../classvkf_1_1scene_1_1_entity.html#a4d69f1d7d0e91f0146f75647633889ff',1,'vkf::scene::Entity::displayGui()'],['../classvkf_1_1scene_1_1_cube.html#ac034f8cbafd650a05b4abe45b8fbfc88',1,'vkf::scene::Cube::displayGui()'],['../classvkf_1_1scene_1_1_triangle.html#a6eae0d0d3af4f2a6281146acecc9ffb7',1,'vkf::scene::Triangle::displayGui()']]],
+  ['displaygui_11',['displaygui',['../classvkf_1_1scene_1_1_cube.html#ac034f8cbafd650a05b4abe45b8fbfc88',1,'vkf::scene::Cube::displayGui()'],['../classvkf_1_1scene_1_1_prefab.html#a28c7dcfb2cb63fb53534deacd6f08c3f',1,'vkf::scene::Prefab::displayGui()'],['../classvkf_1_1scene_1_1_texture2_d.html#a7cb88574335951567874dec61bb80d11',1,'vkf::scene::Texture2D::displayGui()']]],
   ['documentation_20and_20progress_20updates_12',['Documentation and Progress Updates',['../index.html#autotoc_md0',1,'']]],
   ['draw_13',['draw',['../classvkf_1_1rendering_1_1_forward_substage.html#a5e20ad8a40a76830037fe2e47d834b2d',1,'vkf::rendering::ForwardSubstage::draw()'],['../classvkf_1_1rendering_1_1_gui_substage.html#a4f4ae9019d9c5cd57b3ffe166982c017',1,'vkf::rendering::GuiSubstage::draw()'],['../classvkf_1_1rendering_1_1_render_substage.html#aa7b92441fdd13e7564571443ad16b815',1,'vkf::rendering::RenderSubstage::draw()']]],
   ['dynamic_20loader_14',['Dynamic Loader',['../md_updates_24__11__06.html#autotoc_md27',1,'']]]
