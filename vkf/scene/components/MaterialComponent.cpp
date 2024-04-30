@@ -16,17 +16,17 @@
 namespace vkf::scene
 {
 
-void MaterialComponent::addUniform(const std::string &uniformName, uint32_t index)
+void MaterialComponent::addResource(const std::string &resourceName, uint32_t index)
 {
-    uniformMap[uniformName] = index;
-    indices[currentUniformCount] = index;
-    currentUniformCount++;
+    resourceMap[resourceName] = index;
+    indices[currentResourceCount] = index;
+    currentResourceCount++;
 }
 
-uint32_t MaterialComponent::getUniformIndex(const std::string &uniformName)
+uint32_t MaterialComponent::getResourceIndex(const std::string &resourceName)
 {
-    auto it = uniformMap.find(uniformName);
-    if (it != uniformMap.end())
+    auto it = resourceMap.find(resourceName);
+    if (it != resourceMap.end())
     {
         return it->second;
     }
@@ -35,6 +35,11 @@ uint32_t MaterialComponent::getUniformIndex(const std::string &uniformName)
         // Handle error: uniformName not found in the map
         return -1;
     }
+}
+
+void MaterialComponent::setPipeline(uint32_t index)
+{
+    currentPipeline = pipelines.at(index);
 }
 
 } // namespace vkf::scene

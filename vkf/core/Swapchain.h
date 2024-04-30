@@ -12,22 +12,16 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_SWAPCHAIN_H
-#define VULKANRENDERER_SWAPCHAIN_H
+#pragma once
 
 #include "../rendering/RenderSource.h"
 
-namespace vkf::platform // Forward declarations
-{
-class Window;
-} // namespace vkf::platform
+// Forward declarations
+#include "../platform/PlatformFwd.h"
+#include "CoreFwd.h"
 
 namespace vkf::core
 {
-
-// Forward declarations
-class Device;
-class PhysicalDevice;
 
 ///
 /// \class Swapchain
@@ -112,5 +106,3 @@ class Swapchain : public rendering::RenderSource
     std::vector<vk::raii::ImageView> imageViews;
 };
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_SWAPCHAIN_H

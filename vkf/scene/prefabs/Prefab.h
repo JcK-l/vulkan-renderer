@@ -11,29 +11,21 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_PREFAB_H
-#define VULKANRENDERER_PREFAB_H
+#pragma once
 
 #include "../Entity.h"
 
-namespace vkf::core // Forward declarations
-{
-class Device;
-class Pipeline;
-class RenderPass;
-} // namespace vkf::core
-
-namespace vkf::rendering // Forward declarations
-{
-class BindlessManager;
-class PipelineBuilder;
-} // namespace vkf::rendering
+// Forward declarations
+#include "../../common/CommonFwd.h"
+#include "../../core/CoreFwd.h"
+#include "../../rendering/RenderingFwd.h"
 
 namespace vkf::scene
 {
 
 // Forward declarations
 class Camera;
+class Scene;
 
 ///
 /// \class Prefab
@@ -47,17 +39,19 @@ class Prefab
   public:
     virtual ~Prefab() = default; ///< Virtual destructor
 
-    virtual void create(const core::Device &device, core::Pipeline *pipeline, Camera *camera, std::string tag) = 0;
+    virtual UUID create(const core::Device &device, std::deque<core::Pipeline *> pipelines, Scene *scene,
+                        std::string tag) = 0;
 
-    ///
     virtual void destroy() = 0;
+
+    virtual entt::entity getEntity();
 
     ///
     /// \brief Pure virtual method to display GUI for a prefab.
     ///
     /// This method displays the GUI for a prefab. It must be implemented in any concrete subclass.
     ///
-    virtual void displayGui() = 0;
+    virtual void updateGui() = 0;
 
     ///
     /// \brief Pure virtual method to update components of a prefab.
@@ -65,10 +59,6 @@ class Prefab
     /// This method updates the components of a prefab. It must be implemented in any concrete subclass.
     ///
     virtual void updateComponents() = 0;
-
-    virtual Entity &getEntity() = 0;
-
-    virtual void setEntity(entt::entity ent) = 0;
 
     ///
     /// \brief Static method to get a PipelineBuilder for a prefab.
@@ -96,5 +86,3 @@ class Prefab
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_PREFAB_H

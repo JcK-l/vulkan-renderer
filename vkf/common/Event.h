@@ -12,8 +12,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_EVENT_H
-#define VULKANRENDERER_EVENT_H
+#pragma once
 
 namespace vkf
 {
@@ -121,5 +120,3 @@ struct Event
     Data data; ///< The data associated with the event.
 };
 } // namespace vkf
-
-#endif // VULKANRENDERER_EVENT_H

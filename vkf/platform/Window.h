@@ -13,16 +13,13 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_WINDOW_H
-#define VULKANRENDERER_WINDOW_H
+#pragma once
 
 #include "../common/Event.h"
 #include "GLFW/glfw3.h"
 
-namespace vkf::core // Forward declarations
-{
-class Instance;
-} // namespace vkf::core
+// Forward declarations
+#include "../core/CoreFwd.h"
 
 namespace vkf::platform
 {
@@ -125,5 +122,3 @@ class Window
     GLFWwindow *handle{nullptr};
 };
 } // namespace vkf::platform
-
-#endif // VULKANRENDERER_WINDOW_H

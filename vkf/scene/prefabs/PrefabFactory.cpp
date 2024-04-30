@@ -14,7 +14,6 @@
 
 #include "PrefabFactory.h"
 #include "../../common/Log.h"
-#include "../../common/Utility.h"
 #include "../../core/Device.h"
 #include "../../core/RenderPass.h"
 #include "../../core/Shader.h"
@@ -26,11 +25,9 @@ namespace vkf::scene
 {
 
 PrefabFactory::PrefabFactory(const core::Device &device, rendering::BindlessManager &bindlessManager,
-                             const core::RenderPass &renderPass, Camera *camera)
-    : device{device}, bindlessManager{bindlessManager}, renderPass{renderPass}, camera{camera}
+                             const core::RenderPass &renderPass)
+    : device{device}, bindlessManager{bindlessManager}, renderPass{renderPass}
 {
-    pipelineBuilderFunctionMap.emplace(PrefabType::Cube, &Cube::getPipelineBuilder);
-    pipelineBuilderFunctionMap.emplace(PrefabType::Texture2D, &Texture2D::getPipelineBuilder);
     createPipelines();
 }
 
@@ -38,14 +35,25 @@ PrefabFactory::~PrefabFactory() = default;
 
 void PrefabFactory::createPipelines()
 {
-    rendering::PipelineBuilder pipelineBuilder;
-
-    for (const auto &pair : pipelineBuilderFunctionMap)
+    for (const auto &pair : PrefabTypeManager::prefabNames)
     {
-        LOG_INFO("Creating pipeline for prefab type: {}", getPrefabTypeString(pair.first))
-        pipelineBuilder = pair.second(device, renderPass, bindlessManager);
-        pipelines.emplace(pair.first, std::make_unique<core::Pipeline>(pipelineBuilder.build(device)));
+        LOG_INFO("Creating pipelines for prefab type: {}", pair.second);
+        auto prefabFunctions = prefabTypeManager.getPrefabFunctions(pair.first);
+        auto pipelineBuilders = prefabFunctions.pipelineBuild(device, renderPass, bindlessManager);
+
+        std::deque<std::unique_ptr<core::Pipeline>> pipelines;
+
+        for (auto &pipelineBuilder : pipelineBuilders)
+        {
+            pipelines.emplace_back(std::make_unique<core::Pipeline>(pipelineBuilder.build(device)));
+        }
+        pipelineMap.emplace(pair.first, std::move(pipelines));
     }
+}
+
+PrefabTypeManager::PrefabFunctions PrefabFactory::getPrefabFunctions(PrefabType type) const
+{
+    return prefabTypeManager.getPrefabFunctions(type);
 }
 
 } // namespace vkf::scene

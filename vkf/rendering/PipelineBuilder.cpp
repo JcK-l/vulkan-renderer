@@ -20,6 +20,21 @@ namespace vkf::rendering
 
 PipelineBuilder::~PipelineBuilder() = default;
 
+PipelineBuilder::PipelineBuilder(const PipelineBuilder &other)
+    : state(other.state), pipelineShader(other.pipelineShader), colorBlendAttachment(other.colorBlendAttachment),
+      dynamicStates(other.dynamicStates), vertexInputBindingDescription(other.vertexInputBindingDescription),
+      vertexInputAttributeDescriptions(other.vertexInputAttributeDescriptions)
+{
+}
+
+PipelineBuilder::PipelineBuilder(PipelineBuilder &&other) noexcept
+    : state(std::move(other.state)), pipelineShader(std::move(other.pipelineShader)),
+      colorBlendAttachment(std::move(other.colorBlendAttachment)), dynamicStates(std::move(other.dynamicStates)),
+      vertexInputBindingDescription(std::move(other.vertexInputBindingDescription)),
+      vertexInputAttributeDescriptions(std::move(other.vertexInputAttributeDescriptions))
+{
+}
+
 PipelineBuilder &PipelineBuilder::setShaderStageCreateInfos(const core::Device &device, core::Shader &shader)
 {
     this->pipelineShader = std::make_shared<core::Shader>(std::move(shader));
@@ -31,13 +46,15 @@ PipelineBuilder &PipelineBuilder::setVertexInputCreateInfo(
     const vk::PipelineVertexInputStateCreateInfo &info, vk::VertexInputBindingDescription &bindingDescription,
     std::vector<vk::VertexInputAttributeDescription> &attributeDescriptions)
 {
-    this->vertexInputBindingDescription = std::move(bindingDescription);
-    this->vertexInputAttributeDescriptions = std::move(attributeDescriptions);
+    this->vertexInputBindingDescription = std::make_shared<vk::VertexInputBindingDescription>(bindingDescription);
+    this->vertexInputAttributeDescriptions =
+        std::make_shared<std::vector<vk::VertexInputAttributeDescription>>(std::move(attributeDescriptions));
+
     state.vertexInputCreateInfo = info;
-    state.vertexInputCreateInfo.pVertexBindingDescriptions = &this->vertexInputBindingDescription;
+    state.vertexInputCreateInfo.pVertexBindingDescriptions = vertexInputBindingDescription.get();
     state.vertexInputCreateInfo.vertexAttributeDescriptionCount =
-        static_cast<uint32_t>(this->vertexInputAttributeDescriptions.size()),
-    state.vertexInputCreateInfo.pVertexAttributeDescriptions = this->vertexInputAttributeDescriptions.data();
+        static_cast<uint32_t>(this->vertexInputAttributeDescriptions->size()),
+    state.vertexInputCreateInfo.pVertexAttributeDescriptions = vertexInputAttributeDescriptions->data();
     return *this;
 }
 
@@ -74,18 +91,18 @@ PipelineBuilder &PipelineBuilder::setDepthStencilCreateInfo(const vk::PipelineDe
 PipelineBuilder &PipelineBuilder::setColorBlendingCreateInfo(const vk::PipelineColorBlendStateCreateInfo &info,
                                                              vk::PipelineColorBlendAttachmentState &attachment)
 {
-    this->colorBlendAttachment = std::move(attachment);
+    this->colorBlendAttachment = std::make_shared<vk::PipelineColorBlendAttachmentState>(attachment);
     state.colorBlendingCreateInfo = info;
-    state.colorBlendingCreateInfo.pAttachments = &this->colorBlendAttachment;
+    state.colorBlendingCreateInfo.pAttachments = colorBlendAttachment.get();
     return *this;
 }
 
 PipelineBuilder &PipelineBuilder::setDynamicStateCreateInfo(const vk::PipelineDynamicStateCreateInfo &info,
                                                             std::vector<vk::DynamicState> &states)
 {
-    this->dynamicStates = std::move(states);
+    this->dynamicStates = std::make_shared<std::vector<vk::DynamicState>>(std::move(states));
     state.dynamicStateCreateInfo = info;
-    state.dynamicStateCreateInfo.pDynamicStates = this->dynamicStates.data();
+    state.dynamicStateCreateInfo.pDynamicStates = dynamicStates->data();
     return *this;
 }
 

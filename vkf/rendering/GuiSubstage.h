@@ -11,8 +11,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_GUISUBSTAGE_H
-#define VULKANRENDERER_GUISUBSTAGE_H
+#pragma once
 
 #include "../platform/Gui.h"
 #include "RenderSubstage.h"
@@ -53,5 +52,3 @@ class GuiSubstage : public RenderSubstage
 };
 
 } // namespace vkf::rendering
-
-#endif // VULKANRENDERER_GUISUBSTAGE_H

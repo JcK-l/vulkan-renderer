@@ -11,19 +11,16 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_DEVICE_H
-#define VULKANRENDERER_DEVICE_H
+#pragma once
 
 #include "Queue.h"
 #include <vk_mem_alloc.h>
 
+// Forward declarations
+#include "CoreFwd.h"
+
 namespace vkf::core
 {
-
-// Forward declarations
-class Instance;
-class PhysicalDevice;
-class CommandPool;
 
 ///
 /// \class Device
@@ -142,7 +139,7 @@ class Device
     [[nodiscard]] vk::raii::CommandBuffers *getCommandBuffers() const;
 
   private:
-    std::vector<vk::DeviceQueueCreateInfo> createQueuesInfos();
+    void createQueuesInfos();
     void createQueues();
 
     void createVmaAllocator(const Instance &instance, const PhysicalDevice &gpu);
@@ -177,10 +174,10 @@ class Device
     PhysicalDevice &gpu;
     VmaAllocator vmaAllocator{VK_NULL_HANDLE};
     std::vector<std::vector<Queue>> queues;
+    std::vector<vk::DeviceQueueCreateInfo> queueCreateInfos;
+    std::vector<std::vector<float>> queuePriorities;
 
     std::unique_ptr<CommandPool> commandPool;
     vk::raii::CommandBuffers *commandBuffers;
 };
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_DEVICE_H

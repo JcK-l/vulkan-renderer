@@ -16,10 +16,10 @@
 namespace vkf::scene
 {
 
-void TagComponent::displayGui()
+void TagComponent::updateGui()
 {
-    ImGui::Separator();
-    ImGui::Text("Selected Entity: %s", tag.c_str());
+    ImGui::Text("%s", tag.c_str());
+    ImGui::Spacing();
     ImGui::Separator();
     ImGui::Spacing();
 }

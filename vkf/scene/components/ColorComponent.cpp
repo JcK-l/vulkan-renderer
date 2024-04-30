@@ -19,7 +19,7 @@
 namespace vkf::scene
 {
 
-void ColorComponent::displayGui()
+void ColorComponent::updateGui()
 {
     ImGui::Text("Color:");
     ImGui::Spacing();

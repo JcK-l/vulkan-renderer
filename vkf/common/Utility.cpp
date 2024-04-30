@@ -12,7 +12,12 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Utility.h"
-#include "../scene/prefabs/PrefabFactory.h"
+#include "../scene/prefabs/PrefabTypeManager.h"
+#include "GeometryHandling.h"
+#include "Log.h"
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/transform.hpp>
+#include <regex>
 
 namespace vkf
 {
@@ -55,15 +60,75 @@ std::string getQueueFlagsString(vk::QueueFlags flags)
     return capabilities;
 }
 
-std::string getPrefabTypeString(scene::PrefabType type)
+glm::mat4 recompose(glm::vec3 translate, glm::quat rotation, glm::vec3 scale)
 {
-    switch (type)
+    auto matrix = glm::mat4(1.0f);
+
+    matrix *= glm::translate(translate);
+    matrix *= glm::mat4_cast(rotation);
+    matrix *= glm::scale(scale);
+
+    return matrix;
+}
+
+glm::vec3 calculateSrgbColor(glm::vec3 linearColor)
+{
+    glm::vec3 srgbColor;
+    for (int i = 0; i < 3; ++i)
     {
-    case scene::PrefabType::Cube:
-        return "Cube";
-    case scene::PrefabType::Texture2D:
-        return "Texture2D";
+        if (linearColor[i] <= 0.0031308f)
+        {
+            srgbColor[i] = linearColor[i] * 12.92f;
+        }
+        else
+        {
+            srgbColor[i] = 1.055f * std::pow(linearColor[i], 1.0f / 2.4f) - 0.055f;
+        }
     }
+    return srgbColor;
+}
+
+glm::vec3 calculateLinearColor(glm::vec3 srgbColor)
+{
+    glm::vec3 linearColor;
+    for (int i = 0; i < 3; ++i)
+    {
+        if (srgbColor[i] <= 0.04045f)
+        {
+            linearColor[i] = srgbColor[i] / 12.92f;
+        }
+        else
+        {
+            linearColor[i] = std::pow((srgbColor[i] + 0.055f) / 1.055f, 2.4f);
+        }
+    }
+    return linearColor;
+}
+
+std::vector<float> createRange(float begin, float end, float step)
+{
+    std::vector<float> range;
+    int rangeLength = end - begin;
+    int numSteps = static_cast<int>(rangeLength / step);
+    for (int i = 0; i <= numSteps; ++i)
+    {
+        float value = begin + i * step;
+        range.emplace_back(value);
+    }
+    return range;
 }
 
 } // namespace vkf
+
+namespace Met3D
+{
+
+void translate(std::vector<Met3D::PointF> &polygon, float dx, float dy)
+{
+    for (Met3D::PointF &point : polygon)
+    {
+        point.x += dx;
+        point.y += dy;
+    }
+}
+} // namespace Met3D

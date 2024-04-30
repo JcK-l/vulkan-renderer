@@ -11,27 +11,17 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_FORWARDSUBSTAGE_H
-#define VULKANRENDERER_FORWARDSUBSTAGE_H
+#pragma once
 
 #include "RenderSubstage.h"
 
-namespace vkf::scene // Forward declarations
-{
-class Scene;
-} // namespace vkf::scene
-
-namespace vkf::platform // Forward declarations
-{
-class Gui;
-} // namespace vkf::platform
+// Forward declarations
+#include "../platform/PlatformFwd.h"
+#include "../rendering/RenderingFwd.h"
+#include "../scene/SceneFwd.h"
 
 namespace vkf::rendering
 {
-
-// Forward declarations
-class BindlessManager;
-class RenderSource;
 
 ///
 /// \class ForwardSubstage
@@ -69,5 +59,3 @@ class ForwardSubstage : public RenderSubstage
 };
 
 } // namespace vkf::rendering
-
-#endif // VULKANRENDERER_FORWARDSUBSTAGE_H

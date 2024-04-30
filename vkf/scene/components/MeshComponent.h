@@ -11,8 +11,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_MESHCOMPONENT_H
-#define VULKANRENDERER_MESHCOMPONENT_H
+#pragma once
 
 #include "../../core/Buffer.h"
 
@@ -35,15 +34,21 @@ struct MeshComponent
     /// This constructor initializes the vertexBuffer member with a Buffer object created with the provided Device
     /// object and mesh data. It also initializes the numVertices member with the size of the provided mesh data.
     ///
-    explicit MeshComponent(const core::Device &device, std::vector<float> mesh);
+    explicit MeshComponent(const core::Device &device);
 
-    void displayGui();
+    void updateGui();
+
+    void uploadGeometry(std::vector<float> mesh, uint32_t vertexSize);
+
+    const core::Device &device;
 
     std::shared_ptr<core::Buffer> vertexBuffer;
     uint32_t numVertices;
     bool shouldDraw = true;
+
+    bool multiDraw = false;
+    std::vector<int> startIndices;
+    std::vector<int> vertexCounts;
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_MESHCOMPONENT_H

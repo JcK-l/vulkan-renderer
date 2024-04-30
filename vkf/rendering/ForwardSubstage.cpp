@@ -46,21 +46,33 @@ void ForwardSubstage::draw(vk::raii::CommandBuffer *cmd)
 
     for (auto entity : view)
     {
-        auto &meshComponent = view.get<scene::MeshComponent>(entity);
-        if (!meshComponent.shouldDraw)
+        auto &meshComp = view.get<scene::MeshComponent>(entity);
+        if (!meshComp.shouldDraw)
         {
             continue;
         }
-        auto &materialComponent = view.get<scene::MaterialComponent>(entity);
+        auto &materialComp = view.get<scene::MaterialComponent>(entity);
 
-        core::Pipeline *pipeline = materialComponent.pipeline;
+        core::Pipeline *pipeline = materialComp.currentPipeline;
 
         cmd->bindPipeline(vk::PipelineBindPoint::eGraphics, *pipeline->getHandle());
 
         cmd->pushConstants<uint32_t>(bindlessManager.getPipelineLayout(), vk::ShaderStageFlagBits::eAll, 0,
-                                     materialComponent.indices);
-        cmd->bindVertexBuffers(0, {meshComponent.vertexBuffer->getBuffer()}, {0});
-        cmd->draw(meshComponent.numVertices, 1, 0, 0);
+                                     materialComp.indices);
+        cmd->bindVertexBuffers(0, {meshComp.vertexBuffer->getBuffer()}, {0});
+
+        if (!meshComp.multiDraw)
+        {
+            cmd->draw(meshComp.numVertices, 1, 0, 0);
+        }
+        else
+        {
+            //        cmd->drawMultiEXT(meshComp.multiDrawInfos, 1, 0);
+            for (int i = 0; i < meshComp.startIndices.size(); ++i)
+            {
+                cmd->draw(meshComp.vertexCounts[i], 1, meshComp.startIndices[i], 0);
+            }
+        }
     }
 }
 std::string ForwardSubstage::getType()

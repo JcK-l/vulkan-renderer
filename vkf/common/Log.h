@@ -12,8 +12,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_LOG_H
-#define VULKANRENDERER_LOG_H
+#pragma once
 
 #ifndef ROOT_PATH_SIZE
 ///
@@ -34,5 +33,3 @@
 #define LOG_WARN(...) spdlog::warn(__VA_ARGS__);
 #define LOG_ERROR(...) spdlog::error("[{}:{}] {}", __FILENAME__, __LINE__, fmt::format(__VA_ARGS__));
 #define LOG_DEBUG(...) spdlog::debug(__VA_ARGS__);
-
-#endif // VULKANRENDERER_LOG_H

@@ -11,11 +11,11 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_CUBE_H
-#define VULKANRENDERER_CUBE_H
+#pragma once
 
 #include "Prefab.h"
-#include "PrefabType.h"
+#include "PrefabTypeManager.h"
+#include "glm/vec3.hpp"
 #include "glm/vec4.hpp"
 #include <entt/entt.hpp>
 
@@ -50,11 +50,12 @@ class Cube : public Prefab
     ///
     /// \param device The Vulkan device to use for creating the Cube entity.
     /// \param bindlessManager The BindlessManager to use for creating the Cube entity.
-    /// \param pipeline The Pipeline to use for creating the Cube entity.
+    /// \param pipelines The Pipelines to use for creating the Cube entity.
     /// \param camera The Camera to use for creating the Cube entity.
     /// \param tag The tag to use for creating the Cube entity.
     ///
-    void create(const core::Device &device, core::Pipeline *pipeline, Camera *camera, std::string tag) override;
+    UUID create(const core::Device &device, std::deque<core::Pipeline *> pipelines, Scene *scene,
+                std::string tag) override;
 
     void destroy() override;
 
@@ -63,7 +64,7 @@ class Cube : public Prefab
     ///
     /// This method is overridden from the Entity base class and is used to display the GUI for the Cube entity.
     ///
-    void displayGui() override;
+    void updateGui() override;
 
     ///
     /// \brief Updates the components of the Cube entity.
@@ -74,18 +75,14 @@ class Cube : public Prefab
     ///
     void updateComponents() override;
 
-    Entity &getEntity() override;
-    void setEntity(entt::entity ent) override;
+    static uint32_t vertexSize;
 
-    static PrefabType getPrefabType();
-
-    static rendering::PipelineBuilder getPipelineBuilder(const core::Device &device, const core::RenderPass &renderPass,
-                                                         rendering::BindlessManager &bindlessManager);
+    static std::deque<rendering::PipelineBuilder> getPipelineBuilders(const core::Device &device,
+                                                                      const core::RenderPass &renderPass,
+                                                                      rendering::BindlessManager &bindlessManager);
 
   private:
     glm::vec4 prevColor;
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_CUBE_H

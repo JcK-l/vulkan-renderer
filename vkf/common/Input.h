@@ -11,8 +11,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_INPUT_H
-#define VULKANRENDERER_INPUT_H
+#pragma once
 
 class GLFWwindow;
 
@@ -28,5 +27,3 @@ double getMouseX(GLFWwindow *window);
 
 double getMouseY(GLFWwindow *window);
 } // namespace vkf
-
-#endif // VULKANRENDERER_INPUT_H

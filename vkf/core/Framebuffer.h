@@ -12,15 +12,13 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_FRAMEBUFFER_H
-#define VULKANRENDERER_FRAMEBUFFER_H
+#pragma once
+
+// Forward declarations
+#include "CoreFwd.h"
 
 namespace vkf::core
 {
-
-// Forward declarations
-class Device;
-class RenderPass;
 
 ///
 /// \class Framebuffer
@@ -58,5 +56,3 @@ class Framebuffer
 };
 
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_FRAMEBUFFER_H

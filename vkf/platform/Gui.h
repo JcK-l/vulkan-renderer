@@ -11,39 +11,22 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_GUI_H
-#define VULKANRENDERER_GUI_H
+#pragma once
 
 #include "../core/Image.h"
 #include "../rendering/RenderSource.h"
 #include "../scene/prefabs/PrefabFactory.h"
 
 // Forward declarations
+#include "../core/CoreFwd.h"
+#include "../rendering/RenderingFwd.h"
+#include "../scene/SceneFwd.h"
+#include "PlatformFwd.h"
 class ImDrawData;
-
-namespace vkf::core // Forward declarations
-{
-class Device;
-class Instance;
-class RenderPass;
-class Swapchain;
-} // namespace vkf::core
-
-namespace vkf::rendering // Forward declarations
-{
-class Renderer;
-class BindlessManager;
-} // namespace vkf::rendering
-
-namespace vkf::scene // Forward declarations
-{
-class Scene;
-class Entity;
-} // namespace vkf::scene
 
 namespace vkf::platform
 {
-class Window;
+
 ///
 /// \class Gui
 /// \brief This class manages ImGui interfaces.
@@ -92,6 +75,8 @@ class Gui : public rendering::RenderSource
     [[nodiscard]] uint32_t getFrameIndex() override;
 
   private:
+    void setGuiColorStyle();
+
     void createImages(uint32_t numImages);
     void createImageViews();
 
@@ -100,6 +85,14 @@ class Gui : public rendering::RenderSource
     void createPropertiesPanel(scene::Scene &scene);
 
     void createPrefabButtons(scene::Scene &scene);
+
+    bool createParentNode(scene::Scene &scene, entt::entity entity, UUID parentUUID);
+    void createChildNode(scene::Scene &scene, entt::entity currentChild, UUID parentUUID);
+    void recursiveHierarchy(scene::Scene &scene, UUID rootUUID, entt::entity entity, bool first = true);
+
+    void createSingleNode(scene::Scene &scene, entt::entity entity, const std::string &label);
+
+    void createGuizmo(scene::Scene &scene, std::pair<float, float> cursorPos);
 
     const core::Device &device;
     const core::Swapchain &swapchain;
@@ -117,13 +110,10 @@ class Gui : public rendering::RenderSource
 
     VkDescriptorSet dset{VK_NULL_HANDLE};
 
-    std::vector<std::pair<scene::PrefabType, std::string>> prefabTypes = {{scene::PrefabType::Cube, "Cube"},
-                                                                          {scene::PrefabType::Texture2D, "Texture2D"}};
     uint32_t frameIndex{0};
     bool firstTime{true};
     bool changed{false};
     bool isCreateDialog{false};
+    bool isGizmoEnabled{true};
 };
 } // namespace vkf::platform
-
-#endif // VULKANRENDERER_GUI_H

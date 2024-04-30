@@ -11,14 +11,13 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_INSTANCE_H
-#define VULKANRENDERER_INSTANCE_H
+#pragma once
+
+// Forward declarations
+#include "CoreFwd.h"
 
 namespace vkf::core
 {
-
-// Forward declarations
-class PhysicalDevice;
 
 ///
 /// \class Instance
@@ -117,5 +116,3 @@ class Instance
     std::vector<std::unique_ptr<PhysicalDevice>> gpus;
 };
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_INSTANCE_H

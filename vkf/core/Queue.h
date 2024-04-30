@@ -12,8 +12,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_QUEUE_H
-#define VULKANRENDERER_QUEUE_H
+#pragma once
 
 namespace vkf::core
 {
@@ -67,5 +66,3 @@ class Queue
     uint32_t queueIndex;
 };
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_QUEUE_H

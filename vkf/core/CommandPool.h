@@ -11,14 +11,13 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_COMMANDPOOL_H
-#define VULKANRENDERER_COMMANDPOOL_H
+#pragma once
+
+// Forward declarations
+#include "../core/CoreFwd.h"
 
 namespace vkf::core
 {
-
-// Forward declarations
-class Device;
 
 ///
 /// \class CommandPool
@@ -69,5 +68,3 @@ class CommandPool
 };
 
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_COMMANDPOOL_H

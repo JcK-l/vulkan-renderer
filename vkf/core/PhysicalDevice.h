@@ -12,8 +12,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_PHYSICALDEVICE_H
-#define VULKANRENDERER_PHYSICALDEVICE_H
+#pragma once
 
 namespace vkf::core
 {
@@ -112,5 +111,3 @@ class PhysicalDevice
     std::vector<vk::QueueFamilyProperties> queueFamilyProperties;
 };
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_PHYSICALDEVICE_H

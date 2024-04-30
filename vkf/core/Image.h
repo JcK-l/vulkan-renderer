@@ -11,18 +11,15 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_IMAGE_H
-#define VULKANRENDERER_IMAGE_H
+#pragma once
 
 #include "vk_mem_alloc.h"
 
+// Forward declarations
+#include "CoreFwd.h"
+
 namespace vkf::core
 {
-
-// Forward declarations
-class Queue;
-class Device;
-class Buffer;
 
 ///
 /// \class Image
@@ -97,5 +94,3 @@ class Image
 };
 
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_IMAGE_H

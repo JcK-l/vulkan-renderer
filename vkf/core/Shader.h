@@ -10,17 +10,16 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_SHADER_H
-#define VULKANRENDERER_SHADER_H
+#pragma once
 
 #include <shaderc/shaderc.hpp>
 // #include <spirv_cross/spirv_cross.hpp>
 
+// Forward declarations
+#include "CoreFwd.h"
+
 namespace vkf::core
 {
-
-// Forward declarations
-class Device;
 
 /// \class Shader
 /// \brief Class for managing Vulkan shaders.
@@ -37,10 +36,11 @@ class Shader
     ///
     enum class Type
     {
+        Unknown,  ///< Unknown shader type
         Vertex,   ///< Vertex shader
         Fragment, ///< Fragment shader
         Geometry, ///< Geometry shader
-        Unknown   ///< Unknown shader type
+        Global    ///< Global data
         // Add more shader types as needed
     };
 
@@ -85,5 +85,3 @@ class Shader
 };
 
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_SHADER_H

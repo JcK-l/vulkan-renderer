@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \file Texture2D.cpp
-/// \brief This file implements the Texture2D class, which is a type of Entity in the vkf::scene namespace.
+/// \brief This file implements the Texture2D class, which is a type of Prefab in the vkf::scene namespace.
 ///
 /// The Texture2D class is part of the vkf::scene namespace. It provides an interface for creating and managing a
-/// Texture2D entity. A Texture2D entity in this context is a specific type of Entity that can be used in a 3D scene.
+/// Texture2D prefab. A Texture2D prefab in this context is a specific type of Prefab that can be used in a 3D scene.
 ///
 /// \author Joshua Lowe
 /// \date 1/2/2024
@@ -17,9 +17,9 @@
 #include "../../rendering/BindlessManager.h"
 #include "../../rendering/PipelineBuilder.h"
 #include "../Camera.h"
-#include "../components/Components.h"
-#include <glm/gtc/matrix_transform.hpp>
+#include "../Scene.h"
 #include <glm/gtc/type_ptr.hpp>
+#include <imgui.h>
 
 namespace vkf::scene
 {
@@ -29,114 +29,106 @@ Texture2D::Texture2D(entt::registry &registry, rendering::BindlessManager &bindl
 {
 }
 
-void Texture2D::create(const core::Device &device, core::Pipeline *pipeline, Camera *camera, std::string tag)
+UUID Texture2D::create(const core::Device &device, std::deque<core::Pipeline *> pipelines, Scene *scene,
+                       std::string tag)
 {
     entity.create();
+    auto prefabUUID = UUID();
+    entity.addComponent<scene::IdComponent>(prefabUUID);
     entity.addComponent<scene::TagComponent>(std::move(tag));
-    entity.addComponent<scene::TransformComponent>(glm::vec3{0.0f}, glm::vec3{0.0f}, glm::vec3{1.0f});
-    entity.addComponent<scene::PrefabComponent>(PrefabType::Texture2D);
-    entity.addComponent<scene::ParentComponent>();
+    entity.addComponent<scene::TransformComponent>(scene->getCamera(), glm::vec3{0.0f}, glm::vec3{0.0f},
+                                                   glm::vec3{1.0f});
+    entity.addComponent<scene::RelationComponent>();
 
     std::vector<float> mesh = {
         // First triangle
-        -0.5f, 0.5f, 1.0f, 1.0f, // Top-left corner
-        0.5f, 0.5f, 0.0f, 1.0f,  // Top-right corner
-        0.5f, -0.5f, 0.0f, 0.0f, // Bottom-right corner
+        -5.f, 5.f, 0.0f, 0.0f, // Top-left corner
+        5.f, 5.f, 1.0f, 0.0f,  // Top-right corner
+        5.f, -5.f, 1.0f, 1.0f, // Bottom-right corner
 
         // Second triangle
-        -0.5f, 0.5f, 1.0f, 1.0f, // Top-left corner
-        0.5f, -0.5f, 0.0f, 0.0f, // Bottom-right corner
-        -0.5f, -0.5f, 1.0f, 0.0f // Bottom-left corner
+        -5.f, 5.f, 0.0f, 0.0f, // Top-left corner
+        5.f, -5.f, 1.0f, 1.0f, // Bottom-right corner
+        -5.f, -5.f, 0.0f, 1.0f // Bottom-left corner
     };
 
-    entity.addComponent<MeshComponent>(device, mesh);
-    auto &material = entity.addComponent<MaterialComponent>(pipeline);
+    auto &meshComp = entity.addComponent<MeshComponent>(device);
+    meshComp.uploadGeometry(mesh, Texture2D::vertexSize);
 
-    material.addUniform("camera", camera->getHandle());
+    auto &materialComp = entity.addComponent<MaterialComponent>(std::move(pipelines));
+
+    materialComp.addResource("camera", scene->getCamera()->getHandle());
 
     vk::BufferCreateInfo bufferModelCreateInfo{.size = 64, .usage = vk::BufferUsageFlagBits::eUniformBuffer};
     core::Buffer bufferModel{device, bufferModelCreateInfo,
                              VMA_ALLOCATION_CREATE_MAPPED_BIT | VMA_ALLOCATION_CREATE_HOST_ACCESS_SEQUENTIAL_WRITE_BIT};
 
     auto entityBufferModelHandle = bindlessManager.storeBuffer(bufferModel, vk::BufferUsageFlagBits::eUniformBuffer);
-    material.addUniform("model", entityBufferModelHandle);
+    materialComp.addResource("model", entityBufferModelHandle);
 
-    entity.addComponent<scene::TextureComponent>(device);
-    auto &texture = entity.getComponent<scene::TextureComponent>();
-
-    auto image = texture.createImage();
+    auto &textureComp = entity.addComponent<scene::TextureComponent>(device);
+    auto image = textureComp.createImage();
 
     auto entityTextureHandle = bindlessManager.storeImage(image);
-    material.addUniform("texture", entityTextureHandle);
+    materialComp.addResource("texture", entityTextureHandle);
 
     LOG_INFO("Prefab Texture2D created")
+    return prefabUUID;
 }
 
-void Texture2D::displayGui()
+void Texture2D::updateGui()
 {
-    auto &tag = entity.getComponent<scene::TagComponent>();
-    auto &transform = entity.getComponent<scene::TransformComponent>();
-    auto &texture = entity.getComponent<scene::TextureComponent>();
-    auto &meshComponent = entity.getComponent<MeshComponent>();
+    auto &tagComp = entity.getComponent<scene::TagComponent>();
+    auto &transformComp = entity.getComponent<scene::TransformComponent>();
+    auto &textureComp = entity.getComponent<scene::TextureComponent>();
+    auto &meshComp = entity.getComponent<MeshComponent>();
 
-    tag.displayGui();
-    transform.displayGui();
-    texture.displayGui();
-    meshComponent.displayGui();
+    ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_CollapsingHeader | ImGuiTreeNodeFlags_DefaultOpen;
+    std::string treeLabel = tagComp.tag + "##" + std::to_string(reinterpret_cast<uintptr_t>(this));
+    if (ImGui::TreeNodeEx(treeLabel.c_str(), flags))
+    {
+        transformComp.updateGui();
+        textureComp.updateGui();
+        meshComp.updateGui();
+    }
 }
 
 void Texture2D::updateComponents()
 {
-    auto &transform = entity.getComponent<scene::TransformComponent>();
-    auto &texture = entity.getComponent<scene::TextureComponent>();
+    auto &transformComp = entity.getComponent<scene::TransformComponent>();
+    auto &textureComp = entity.getComponent<scene::TextureComponent>();
 
-    auto model = glm::mat4(1.0f);
+    auto &materialComp = entity.getComponent<MaterialComponent>();
+    bindlessManager.updateBuffer(materialComp.getResourceIndex("model"), glm::value_ptr(transformComp.modelMatrix),
+                                 sizeof(transformComp.modelMatrix), 0);
 
-    model = glm::translate(model, transform.position);
-
-    model = glm::rotate(model, transform.rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
-    model = glm::rotate(model, transform.rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
-    model = glm::rotate(model, transform.rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
-
-    model = glm::scale(model, transform.scale);
-
-    auto &material = entity.getComponent<MaterialComponent>();
-    bindlessManager.updateBuffer(material.getUniformIndex("model"), glm::value_ptr(model), sizeof(model), 0);
-
-    if (texture.hasNewTexture)
+    if (textureComp.hasNewTexture)
     {
-        auto image = texture.createImage();
-        bindlessManager.updateImage(material.getUniformIndex("texture"), image);
+        auto image = textureComp.createImage();
+        bindlessManager.updateImage(materialComp.getResourceIndex("texture"), image);
     }
 }
 
 void Texture2D::destroy()
 {
-    auto &material = entity.getComponent<MaterialComponent>();
-    bindlessManager.removeBuffer(material.getUniformIndex("model"));
-    bindlessManager.removeImage(material.getUniformIndex("texture"));
+    auto &materialComp = entity.getComponent<MaterialComponent>();
+    bindlessManager.removeBuffer(materialComp.getResourceIndex("model"));
+    bindlessManager.removeImage(materialComp.getResourceIndex("texture"));
     entity.destroy();
 }
 
-Entity &Texture2D::getEntity()
-{
-    return entity;
-}
+uint32_t Texture2D::vertexSize = 2 * sizeof(glm::vec2);
 
-void Texture2D::setEntity(entt::entity ent)
-{
-    entity.setHandle(ent);
-}
-
-rendering::PipelineBuilder Texture2D::getPipelineBuilder(const core::Device &device, const core::RenderPass &renderPass,
-                                                         rendering::BindlessManager &bindlessManager)
+std::deque<rendering::PipelineBuilder> Texture2D::getPipelineBuilders(const core::Device &device,
+                                                                      const core::RenderPass &renderPass,
+                                                                      rendering::BindlessManager &bindlessManager)
 {
     auto pipelineBuilder = Prefab::getPipelineBuilder(device, renderPass, bindlessManager);
     core::Shader shader{"../../shaders/texture2d.glsl"};
     pipelineBuilder.setShaderStageCreateInfos(device, shader);
 
     auto bindingDescription = vk::VertexInputBindingDescription{
-        .binding = 0, .stride = 2 * sizeof(glm::vec2), .inputRate = vk::VertexInputRate::eVertex};
+        .binding = 0, .stride = vertexSize, .inputRate = vk::VertexInputRate::eVertex};
 
     std::vector<vk::VertexInputAttributeDescription> attributeDescriptions = {
         vk::VertexInputAttributeDescription{
@@ -148,12 +140,7 @@ rendering::PipelineBuilder Texture2D::getPipelineBuilder(const core::Device &dev
 
     pipelineBuilder.setVertexInputCreateInfo(vertexInfo, bindingDescription, attributeDescriptions);
 
-    return pipelineBuilder;
-}
-
-PrefabType Texture2D::getPrefabType()
-{
-    return PrefabType::Texture2D;
+    return {pipelineBuilder};
 }
 
 } // namespace vkf::scene

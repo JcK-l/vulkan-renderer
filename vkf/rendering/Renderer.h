@@ -11,26 +11,18 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_RENDERER_H
-#define VULKANRENDERER_RENDERER_H
+#pragma once
 
 #include "../core/Image.h"
 #include "RenderSource.h"
 #include "RenderSubstage.h"
 
-// Forward declarations for classes in the vkf::core namespace
-namespace vkf::core
-{
-class Device;
-class RenderPass;
-class Framebuffer;
-} // namespace vkf::core
+// Forward declarations
+#include "../core/CoreFwd.h"
+#include "RenderingFwd.h"
 
 namespace vkf::rendering
 {
-
-// Forward declarations for classes in the vkf::rendering namespace
-class FrameData;
 
 ///
 /// \struct RenderOptions
@@ -107,5 +99,3 @@ class Renderer
 };
 
 } // namespace vkf::rendering
-
-#endif // VULKANRENDERER_RENDERER_H

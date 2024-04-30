@@ -12,29 +12,15 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_RENDERMANAGER_H
-#define VULKANRENDERER_RENDERMANAGER_H
+#pragma once
 
-namespace vkf::platform // Forward declarations
-{
-class Window;
-class Gui;
-} // namespace vkf::platform
-
-namespace vkf::core // Forward declarations
-{
-class Swapchain;
-class RenderPass;
-class Framebuffer;
-class Device;
-} // namespace vkf::core
+// Forward declarations
+#include "../core/CoreFwd.h"
+#include "../platform/PlatformFwd.h"
+#include "../rendering/RenderingFwd.h"
 
 namespace vkf::rendering
 {
-
-// Forward declarations
-class FrameData;
-class Renderer;
 
 ///
 /// \class RenderManager
@@ -101,5 +87,3 @@ class RenderManager
 };
 
 } // namespace vkf::rendering
-
-#endif // VULKANRENDERER_RENDERMANAGER_H

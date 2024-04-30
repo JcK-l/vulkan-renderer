@@ -4,7 +4,7 @@
 /// in a scene.
 ///
 /// The TransformComponent struct is part of the vkf::scene namespace. It provides functionality to store and manage
-/// transformation data. It contains glm::vec3 members to store the position, rotation, and scale data.
+/// transformation data. It contains glm::vec3 members to store the translation, rotation, and scale data.
 ///
 /// \author Joshua Lowe
 /// \date 12/17/2023
@@ -12,10 +12,11 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_TRANSFORMCOMPONENT_H
-#define VULKANRENDERER_TRANSFORMCOMPONENT_H
-
+#include <glm/mat4x4.hpp>
 #include <glm/vec3.hpp>
+
+// Forward declarations
+#include "../SceneFwd.h"
 
 namespace vkf::scene
 {
@@ -25,27 +26,27 @@ namespace vkf::scene
 /// \brief Struct for managing transformation data for an entity in a scene.
 ///
 /// This struct provides functionality to store and manage transformation data. It contains glm::vec3 members to store
-/// the position, rotation, and scale data.
+/// the translation, rotation, and scale data.
 ///
 struct TransformComponent
 {
     ///
-    /// \brief Constructor that takes glm::vec3 position, rotation, and scale as parameters.
+    /// \brief Constructor that takes glm::vec3 translation, rotation, and scale as parameters.
     ///
     /// This constructor initializes the position, rotation, and scale members with the provided values.
     ///
-    TransformComponent(glm::vec3 position, glm::vec3 rotation, glm::vec3 scale)
-        : position{position}, rotation{rotation}, scale{scale}
-    {
-    }
+    TransformComponent(Camera *camera, glm::vec3 translation, glm::vec3 rotation, glm::vec3 scale);
 
-    void displayGui();
+    void updateGui();
 
-    glm::vec3 position;
+    Camera *camera;
+
+    glm::vec3 translation;
     glm::vec3 rotation;
     glm::vec3 scale;
+    glm::mat4 modelMatrix;
+
+    bool modelHasChanged{false};
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_TRANSFORMCOMPONENT_H

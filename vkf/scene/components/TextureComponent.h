@@ -12,14 +12,10 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_TEXTURECOMPONENT_H
-#define VULKANRENDERER_TEXTURECOMPONENT_H
+#pragma once
 
-namespace vkf::core // Forward declarations
-{
-class Device;
-class Image;
-} // namespace vkf::core
+// Forward declarations
+#include "../../core/CoreFwd.h"
 
 namespace vkf::scene
 {
@@ -45,7 +41,7 @@ struct TextureComponent
     ///
     core::Image createImage();
 
-    void displayGui();
+    void updateGui();
 
     const core::Device &device;
 
@@ -54,5 +50,3 @@ struct TextureComponent
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_TEXTURECOMPONENT_H

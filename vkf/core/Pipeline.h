@@ -10,15 +10,13 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_PIPELINE_H
-#define VULKANRENDERER_PIPELINE_H
+#pragma once
+
+// Forward declarations
+#include "CoreFwd.h"
 
 namespace vkf::core
 {
-
-// Forward declarations
-class Device;
-class RenderPass;
 
 ///
 /// \struct PipelineState
@@ -72,5 +70,3 @@ class Pipeline
 };
 
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_PIPELINE_H

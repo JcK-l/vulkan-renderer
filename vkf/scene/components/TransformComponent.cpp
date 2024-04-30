@@ -13,30 +13,50 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "TransformComponent.h"
+#include "../Camera.h"
+#include "ImGuizmo.h"
 #include "imgui.h"
 #include <glm/gtc/type_ptr.hpp>
 
 namespace vkf::scene
 {
 
-void TransformComponent::displayGui()
+TransformComponent::TransformComponent(Camera *camera, glm::vec3 translation, glm::vec3 rotation, glm::vec3 scale)
+    : camera{camera}, translation{translation}, rotation{rotation}, scale{scale}, modelMatrix{glm::mat4(1.0f)}
+{
+    ImGuizmo::RecomposeMatrixFromComponents(glm::value_ptr(translation), glm::value_ptr(rotation),
+                                            glm::value_ptr(scale), glm::value_ptr(modelMatrix));
+}
+
+void TransformComponent::updateGui()
 {
     ImGui::Text("Transform:");
+    if (ImGui::IsItemHovered())
+    {
+        ImGui::SetTooltip("- Guizmo -\n"
+                          "R to rotate, T to translate, S to scale\n"
+                          "Hold Ctrl to snap");
+    }
     ImGui::Spacing();
 
-    // Display position
-    std::string positionLabel = "Position##" + std::to_string(reinterpret_cast<uintptr_t>(this));
-    ImGui::DragFloat3(positionLabel.c_str(), glm::value_ptr(position), 0.01f);
+    // Display translation
+    std::string translationLabel = "Position##" + std::to_string(reinterpret_cast<uintptr_t>(this));
+    if (ImGui::DragFloat3(translationLabel.c_str(), glm::value_ptr(translation), 1.f))
+    {
+        modelHasChanged = true;
+    }
 
     // Display rotation
     std::string rotationLabel = "Rotation##" + std::to_string(reinterpret_cast<uintptr_t>(this));
-    ImGui::DragFloat3(rotationLabel.c_str(), glm::value_ptr(rotation), 0.01f);
+    if (ImGui::DragFloat3(rotationLabel.c_str(), glm::value_ptr(rotation), 1.f))
+    {
+        modelHasChanged = true;
+    };
 
     // Display scale
     static bool linkValues = false;
-    glm::vec3 newScale = scale; // Capture the state of tc.scale
-
     std::string scaleLabel = "Scale##" + std::to_string(reinterpret_cast<uintptr_t>(this));
+    auto newScale = scale;
     if (ImGui::DragFloat3(scaleLabel.c_str(), glm::value_ptr(newScale), 0.01f))
     {
         if (linkValues)
@@ -56,7 +76,16 @@ void TransformComponent::displayGui()
                 }
             }
         }
-        scale = newScale; // Update tc.scale with the new values
+        scale = newScale;
+        modelHasChanged = true;
+    }
+
+    if (modelHasChanged)
+    {
+        //        modelMatrix = recompose(translation, glm::quat(rotation), scale);
+        ImGuizmo::RecomposeMatrixFromComponents(glm::value_ptr(translation), glm::value_ptr(rotation),
+                                                glm::value_ptr(scale), glm::value_ptr(modelMatrix));
+        modelHasChanged = false;
     }
 
     ImGui::SameLine();

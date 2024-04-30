@@ -27,65 +27,64 @@ Scene::Scene(const core::Device &device, rendering::BindlessManager &bindlessMan
              const core::RenderPass &renderPass, Camera &camera)
     : device{device}, bindlessManager{bindlessManager}, renderPass{renderPass},
       sceneCamera{std::make_unique<Camera>(std::move(camera))},
-      prefabFactory{std::make_unique<PrefabFactory>(device, bindlessManager, renderPass, sceneCamera.get())} {
-          LOG_INFO("Scene created")};
+      prefabFactory{std::make_unique<PrefabFactory>(device, bindlessManager, renderPass)} {LOG_INFO("Scene created")};
 
 Scene::~Scene() = default;
 
 void Scene::createPrefab(PrefabType type, std::string tag)
 {
-    switch (type)
-    {
-    case PrefabType::Cube:
-        selectedPrefab = prefabFactory->createPrefab<Cube>(registry, std::move(tag));
-        break;
-    case PrefabType::Texture2D:
-        selectedPrefab = prefabFactory->createPrefab<Texture2D>(registry, std::move(tag));
-        break;
-    }
-}
-
-void Scene::setActiveEntity(entt::entity entity)
-{
-    selectedPrefab->setEntity(entity);
+    auto prefabFunctions = prefabFactory->getPrefabFunctions(type);
+    auto pair = prefabFunctions.prefabCreate(registry, std::move(tag), this);
+    selectedPrefabUUID = pair.first;
+    prefabs.emplace(selectedPrefabUUID, std::move(pair.second));
 }
 
 entt::entity Scene::getActiveEntity()
 {
-    if (selectedPrefab == nullptr)
+    if (prefabs[selectedPrefabUUID] == nullptr)
     {
         return entt::null;
     }
 
-    return selectedPrefab->getEntity().getHandle();
+    return prefabs[selectedPrefabUUID]->getEntity();
 }
 
-void Scene::changeSelectedPrefabType(PrefabType type)
+entt::entity Scene::getLastSelectedChild()
 {
-    switch (type)
-    {
-    case PrefabType::Cube:
-        selectedPrefab = std::make_unique<Cube>(registry, bindlessManager, std::move(selectedPrefab->getEntity()));
-        break;
-    case PrefabType::Texture2D:
-        selectedPrefab = std::make_unique<Texture2D>(registry, bindlessManager, std::move(selectedPrefab->getEntity()));
-        break;
-    }
+    return lastSelectedChild;
 }
 
-void Scene::displaySelectedPrefabGui()
+void Scene::updateSelectedPrefabGui()
 {
-    selectedPrefab->displayGui();
+    prefabs[selectedPrefabUUID]->updateGui();
 }
 
 void Scene::updateSelectedPrefabComponents()
 {
-    selectedPrefab->updateComponents();
+    prefabs[selectedPrefabUUID]->updateComponents();
+}
+
+void Scene::updateGlobalFunctions()
+{
+    for (auto &pair : globalFunctions)
+    {
+        pair.second();
+    }
+}
+
+void Scene::addGlobalFunction(UUID uuid, std::function<void()> function)
+{
+    globalFunctions.emplace(uuid, std::move(function));
+}
+
+void Scene::removeGlobalFunction(UUID uuid)
+{
+    globalFunctions.erase(uuid);
 }
 
 void Scene::destroySelectedPrefab()
 {
-    selectedPrefab->destroy();
+    prefabs[selectedPrefabUUID]->destroy();
 }
 
 entt::registry &Scene::getRegistry()
@@ -96,6 +95,21 @@ entt::registry &Scene::getRegistry()
 Camera *Scene::getCamera() const
 {
     return sceneCamera.get();
+}
+
+UUID Scene::getSelectedPrefabUUID() const
+{
+    return selectedPrefabUUID;
+}
+
+void Scene::setSeletedPrefab(UUID uuid)
+{
+    selectedPrefabUUID = uuid;
+}
+
+void Scene::setLastSelectedChild(entt::entity entity)
+{
+    lastSelectedChild = entity;
 }
 
 } // namespace vkf::scene

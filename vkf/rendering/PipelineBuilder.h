@@ -11,16 +11,12 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_PIPELINEBUILDER_H
-#define VULKANRENDERER_PIPELINEBUILDER_H
+#pragma once
 
 #include "../core/Pipeline.h"
 
-namespace vkf::core // Forward declaration
-{
-class Device;
-class Shader;
-} // namespace vkf::core
+// Forward declaration
+#include "../core/CoreFwd.h"
 
 namespace vkf::rendering
 {
@@ -35,8 +31,8 @@ class PipelineBuilder
 {
   public:
     explicit PipelineBuilder() = default;                          ///< Default constructor
-    PipelineBuilder(const PipelineBuilder &) = default;            ///< Default copy constructor
-    PipelineBuilder(PipelineBuilder &&) noexcept = default;        ///< Default move constructor
+    PipelineBuilder(const PipelineBuilder &);                      ///<  Copy constructor
+    PipelineBuilder(PipelineBuilder &&) noexcept;                  ///<  Move constructor
     PipelineBuilder &operator=(const PipelineBuilder &) = default; ///< Default copy assignment operator
     PipelineBuilder &operator=(PipelineBuilder &&) = default;      ///< Default move assignment operator
     ~PipelineBuilder(); ///< Implementation in PipelineBuilder.cpp because of std::shared_ptr forward declaration
@@ -65,12 +61,10 @@ class PipelineBuilder
 
     // hold state for later Pipeline construction
     std::shared_ptr<core::Shader> pipelineShader;
-    vk::PipelineColorBlendAttachmentState colorBlendAttachment;
-    std::vector<vk::DynamicState> dynamicStates;
-    vk::VertexInputBindingDescription vertexInputBindingDescription;
-    std::vector<vk::VertexInputAttributeDescription> vertexInputAttributeDescriptions;
+    std::shared_ptr<vk::PipelineColorBlendAttachmentState> colorBlendAttachment;
+    std::shared_ptr<std::vector<vk::DynamicState>> dynamicStates;
+    std::shared_ptr<vk::VertexInputBindingDescription> vertexInputBindingDescription;
+    std::shared_ptr<std::vector<vk::VertexInputAttributeDescription>> vertexInputAttributeDescriptions;
 };
 
 } // namespace vkf::rendering
-
-#endif // VULKANRENDERER_PIPELINEBUILDER_H

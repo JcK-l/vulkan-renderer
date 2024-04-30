@@ -11,8 +11,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_COLORCOMPONENT_H
-#define VULKANRENDERER_COLORCOMPONENT_H
+#pragma once
 
 #include <glm/vec4.hpp>
 
@@ -37,7 +36,7 @@ struct ColorComponent
     {
     }
 
-    void displayGui();
+    void updateGui();
 
     void setColor(glm::vec4 color);
 
@@ -45,5 +44,3 @@ struct ColorComponent
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_COLORCOMPONENT_H

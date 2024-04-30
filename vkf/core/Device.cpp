@@ -49,7 +49,7 @@ Device::Device(Instance &instance, vk::raii::SurfaceKHR &surface, const std::vec
     assert(feature.descriptorBindingStorageBufferUpdateAfterBind &&
            "Device does not support descriptorBindingStorageBufferUpdateAfterBind");
 
-    auto queueCreateInfos = createQueuesInfos();
+    createQueuesInfos();
     vk::DeviceCreateInfo createInfo{.pNext = gpu.getExtensionFeaturesHead(),
                                     .queueCreateInfoCount = static_cast<uint32_t>(queueCreateInfos.size()),
                                     .pQueueCreateInfos = queueCreateInfos.data(),
@@ -133,11 +133,11 @@ bool Device::enableExtension(const char *requiredExtensionName)
     return false;
 }
 
-std::vector<vk::DeviceQueueCreateInfo> Device::createQueuesInfos()
+void Device::createQueuesInfos()
 {
     auto queueFamilyProperties = gpu.getQueueFamilyProperties();
-    std::vector<vk::DeviceQueueCreateInfo> queueCreateInfos(queueFamilyProperties.size());
-    std::vector<std::vector<float>> queuePriorities(queueFamilyProperties.size());
+    queueCreateInfos = std::vector<vk::DeviceQueueCreateInfo>(queueFamilyProperties.size());
+    queuePriorities = std::vector<std::vector<float>>(queueFamilyProperties.size());
 
     queues.resize(queueFamilyProperties.size());
 
@@ -153,7 +153,6 @@ std::vector<vk::DeviceQueueCreateInfo> Device::createQueuesInfos()
 
                       ++familyIndex;
                   });
-    return queueCreateInfos;
 }
 
 void Device::createQueues()

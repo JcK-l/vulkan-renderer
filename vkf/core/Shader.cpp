@@ -41,6 +41,9 @@ std::vector<vk::PipelineShaderStageCreateInfo> Shader::createShaderStages(const 
         case Type::Fragment:
             stage = vk::ShaderStageFlagBits::eFragment;
             break;
+        case Type::Geometry:
+            stage = vk::ShaderStageFlagBits::eGeometry;
+            break;
         // Add more cases as needed
         default:
             throw std::runtime_error("Invalid shader type");
@@ -107,10 +110,12 @@ std::string Shader::readFile(const std::string &filePath) const
 
 void Shader::parseShader(std::string &shaderString)
 {
-    std::string delimiter = "// shader:";
+    std::string delimiter = "// shader::";
     size_t pos = 0;
     size_t start = 0;
     std::string token;
+    std::string globalCode;
+
     while ((pos = shaderString.find(delimiter, start)) != std::string::npos)
     {
         if (start != 0) // Ignore the first token
@@ -125,7 +130,23 @@ void Shader::parseShader(std::string &shaderString)
             {
                 throw std::runtime_error("Invalid shader type: " + typeString);
             }
-            codes[shaderType] = code;
+
+            if (shaderType == Type::Global)
+            {
+                globalCode = code;
+            }
+            else
+            {
+                // Insert the global code after the #version directive
+                size_t versionPos = code.find("#version");
+                if (versionPos != std::string::npos)
+                {
+                    size_t versionEnd = code.find("\n", versionPos);
+                    code.insert(versionEnd + 1, globalCode + "\n");
+                }
+
+                codes[shaderType] = code;
+            }
         }
         start = pos + delimiter.length();
     }
@@ -143,7 +164,19 @@ void Shader::parseShader(std::string &shaderString)
         {
             throw std::runtime_error("Invalid shader type: " + typeString);
         }
-        codes[shaderType] = code;
+
+        if (shaderType != Type::Global)
+        {
+            // Insert the global code after the #version directive
+            size_t versionPos = code.find("#version");
+            if (versionPos != std::string::npos)
+            {
+                size_t versionEnd = code.find("\n", versionPos);
+                code.insert(versionEnd + 1, globalCode + "\n");
+            }
+
+            codes[shaderType] = code;
+        }
     }
 }
 
@@ -186,7 +219,7 @@ shaderc_shader_kind Shader::typeToShadercKind(Type type) const
 }
 
 const std::unordered_map<std::string, Shader::Type> Shader::typeMap = {
-    {"vertex", Type::Vertex}, {"fragment", Type::Fragment}, {"geometry", Type::Geometry}};
+    {"vertex", Type::Vertex}, {"fragment", Type::Fragment}, {"geometry", Type::Geometry}, {"global", Type::Global}};
 // Add more shader types as needed
 
 } // namespace vkf::core

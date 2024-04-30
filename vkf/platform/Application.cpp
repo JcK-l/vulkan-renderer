@@ -15,6 +15,7 @@
 #include "Application.h"
 
 #include "../common/Log.h"
+#include "../common/Utility.h"
 #include "../core/Buffer.h"
 #include "../core/Device.h"
 #include "../core/Framebuffer.h"
@@ -32,7 +33,6 @@
 #include "../rendering/RenderManager.h"
 #include "../rendering/Renderer.h"
 #include "../scene/Camera.h"
-#include "../scene/Entity.h"
 #include "../scene/Scene.h"
 #include "Gui.h"
 #include "Window.h"
@@ -122,9 +122,8 @@ void Application::onEvent(Event &event)
 void Application::onUpdate()
 {
     renderManager->beginFrame();
-    gui->preRender(*scene);
-
     scene->getCamera()->updateCameraBuffer();
+    gui->preRender(*scene);
 
     renderManager->render();
     renderManager->endFrame();
@@ -193,6 +192,7 @@ void Application::createSurface()
 
 void Application::createDevice()
 {
+    //    enableDeviceExtension(VK_EXT_MULTI_DRAW_EXTENSION_NAME); AMD doesn't support this extension
     enableDeviceExtension(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
     device = std::make_unique<core::Device>(*instance, *surface, deviceExtensions);
 }
@@ -205,7 +205,7 @@ void Application::createScene(const core::RenderPass &renderPass)
                         VMA_ALLOCATION_CREATE_MAPPED_BIT | VMA_ALLOCATION_CREATE_HOST_ACCESS_SEQUENTIAL_WRITE_BIT};
     auto cameraHandle = bindlessManager->storeBuffer(buffer, vk::BufferUsageFlagBits::eUniformBuffer);
 
-    auto camera = scene::Camera{*bindlessManager, cameraHandle, 45, 1, 0.1, 100};
+    auto camera = scene::Camera{*bindlessManager, cameraHandle, 45, 1, 0.1, 1000};
 
     auto viewProjection = camera.getViewProjectionMatrix();
 
@@ -225,20 +225,22 @@ void Application::createRenderManager()
 
     std::vector<vk::AttachmentDescription> guiAttachments;
     guiAttachments.emplace_back(vk::AttachmentDescription{
-        .format = swapchain->selectSwapSurfaceFormat().format, // Getting the image format from the swapchain
-        .samples = vk::SampleCountFlagBits::e1,                // Single sample, as multi-sampling is not used
-        .loadOp = vk::AttachmentLoadOp::eClear,                // Clear the image at the start
-        .storeOp = vk::AttachmentStoreOp::eStore,              // Store the image to memory after rendering
-        .stencilLoadOp = vk::AttachmentLoadOp::eDontCare,      // We don't care about stencil
-        .stencilStoreOp = vk::AttachmentStoreOp::eDontCare,    // We don't care about stencil
-        .initialLayout = vk::ImageLayout::eUndefined,          // We don't care about the initial layout
-        .finalLayout = vk::ImageLayout::ePresentSrcKHR         // Image will be used as source for presentation
+        .format = vk::Format::eR8G8B8A8Srgb,                // Assuming the image format is R8G8B8A8 srgb
+        .samples = vk::SampleCountFlagBits::e1,             // Single sample, as multi-sampling is not used
+        .loadOp = vk::AttachmentLoadOp::eClear,             // Clear the image at the start
+        .storeOp = vk::AttachmentStoreOp::eStore,           // Store the image to memory after rendering
+        .stencilLoadOp = vk::AttachmentLoadOp::eDontCare,   // We don't care about stencil
+        .stencilStoreOp = vk::AttachmentStoreOp::eDontCare, // We don't care about stencil
+        .initialLayout = vk::ImageLayout::eUndefined,       // We don't care about the initial layout
+        .finalLayout = vk::ImageLayout::ePresentSrcKHR      // Image will be used as source for presentation
     });
 
     std::vector<vk::ClearValue> guiClearValues{vk::ClearValue{}, vk::ClearValue{}};
-    float colorvalue = std::pow(((69.0f / 255.0f) + 0.055f) / 1.055f, 2.4f);
+
+    //    glm::vec3 colorvalue = calculateLinearColor(glm::vec3(69.0f / 255.0f));
+    glm::vec4 colorvalue = glm::vec4{calculateLinearColor(glm::vec3{0.118, 0.125, 0.133}), 1.f};
     guiClearValues[0].color = vk::ClearColorValue(
-        std::array<float, 4>{colorvalue, colorvalue, colorvalue, 1.0f}); // Color attachment clear value
+        std::array<float, 4>{colorvalue.x, colorvalue.y, colorvalue.z, 1.0f}); // Color attachment clear value
 
     rendering::RenderOptions guiRenderOptions{
         .clearValues = guiClearValues, .numSubpasses = 1, .attachments = guiAttachments, .useDepth = false};
@@ -272,8 +274,8 @@ void Application::createRenderManager()
 
     std::vector<vk::ClearValue> sceneClearValues{vk::ClearValue{}, vk::ClearValue{}};
     sceneClearValues[0].color = vk::ClearColorValue(
-        std::array<float, 4>{colorvalue, colorvalue, colorvalue, 1.0f});    // Color attachment clear value
-    sceneClearValues[1].depthStencil = vk::ClearDepthStencilValue(1.0f, 0); // Depth attachment clear value
+        std::array<float, 4>{colorvalue.x, colorvalue.y, colorvalue.z, 1.0f}); // Color attachment clear value
+    sceneClearValues[1].depthStencil = vk::ClearDepthStencilValue(1.0f, 0);    // Depth attachment clear value
 
     rendering::RenderOptions sceneRenderOptions{
         .clearValues = sceneClearValues, .numSubpasses = 1, .attachments = sceneAttachments, .useDepth = true};

@@ -14,6 +14,7 @@
 
 #include "TextureComponent.h"
 #include "../../core/Buffer.h"
+#include "../../core/Device.h"
 #include "../../core/Image.h"
 #include <imgui.h>
 #include <stb_image.h>
@@ -23,6 +24,7 @@ namespace vkf::scene
 
 core::Image TextureComponent::createImage()
 {
+    device.getHandle().waitIdle();
     this->path = (this->path.empty()) ? PROJECT_ROOT_DIR + std::string("/assets/me.jpg") : this->path;
 
     int texWidth, texHeight, texChannels;
@@ -66,12 +68,13 @@ core::Image TextureComponent::createImage()
     return texture;
 }
 
-void TextureComponent::displayGui()
+void TextureComponent::updateGui()
 {
     // Maybe use tinyfiledialogs to open a file dialog to select a texture file in the future
     ImGui::Text("Texture:");
     ImGui::Spacing();
-    ImGui::InputText("File Path", &path[0], path.size());
+    std::string filepathLabel = "File Path##" + std::to_string(reinterpret_cast<uintptr_t>(this));
+    ImGui::InputText(filepathLabel.c_str(), &path[0], path.size());
     if (ImGui::Button("Load"))
     {
         // Load texture

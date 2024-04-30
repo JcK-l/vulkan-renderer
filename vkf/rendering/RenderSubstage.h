@@ -12,8 +12,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_RENDERSUBSTAGE_H
-#define VULKANRENDERER_RENDERSUBSTAGE_H
+#pragma once
 
 namespace vkf::rendering
 {
@@ -51,5 +50,3 @@ class RenderSubstage
 };
 
 } // namespace vkf::rendering
-
-#endif // VULKANRENDERER_RENDERSUBSTAGE_H

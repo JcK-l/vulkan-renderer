@@ -12,13 +12,28 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "MeshComponent.h"
+#include "../../core/Device.h"
 #include <imgui.h>
 
 namespace vkf::scene
 {
 
-MeshComponent::MeshComponent(const core::Device &device, std::vector<float> mesh)
+MeshComponent::MeshComponent(const core::Device &device) : device{device}
 {
+}
+
+void MeshComponent::updateGui()
+{
+    ImGui::Text("Mesh:");
+    ImGui::Spacing();
+    std::string checkboxLabel = "Drawable##" + std::to_string(reinterpret_cast<uintptr_t>(this));
+    ImGui::Checkbox(checkboxLabel.c_str(), &shouldDraw);
+    ImGui::Spacing();
+}
+
+void MeshComponent::uploadGeometry(std::vector<float> mesh, uint32_t vertexSize)
+{
+    device.getHandle().waitIdle();
     vertexBuffer = std::make_shared<core::Buffer>(
         device,
         vk::BufferCreateInfo{.size = sizeof(float) * mesh.size(),
@@ -34,16 +49,7 @@ MeshComponent::MeshComponent(const core::Device &device, std::vector<float> mesh
     stagingBuffer.updateData(mesh.data(), sizeof(float) * mesh.size(), 0);
 
     vertexBuffer->copyBuffer(stagingBuffer);
-    numVertices = static_cast<uint32_t>(mesh.size());
-}
-
-void MeshComponent::displayGui()
-{
-    ImGui::Text("Mesh:");
-    ImGui::Spacing();
-    std::string checkboxLabel = "Drawable##" + std::to_string(reinterpret_cast<uintptr_t>(this));
-    ImGui::Checkbox(checkboxLabel.c_str(), &shouldDraw);
-    ImGui::Spacing();
+    numVertices = static_cast<uint32_t>(mesh.size()) / (vertexSize / sizeof(float));
 }
 
 } // namespace vkf::scene

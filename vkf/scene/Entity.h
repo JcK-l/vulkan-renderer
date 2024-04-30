@@ -12,22 +12,13 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_ENTITY_H
-#define VULKANRENDERER_ENTITY_H
+#pragma once
 
 #include <entt/entt.hpp>
 
-namespace vkf::core // Forward declarations
-{
-class Device;
-class RenderPass;
-} // namespace vkf::core
-
-namespace vkf::rendering // Forward declarations
-{
-class BindlessManager;
-class PipelineBuilder;
-} // namespace vkf::rendering
+// Forward declarations
+#include "../core/CoreFwd.h"
+#include "../rendering/RenderingFwd.h"
 
 namespace vkf::scene
 {
@@ -82,13 +73,6 @@ class Entity
 
     [[nodiscard]] entt::entity getHandle() const;
 
-    ///
-    /// \brief Method to set the handle of an entity.
-    ///
-    /// \param handle The handle to use for setting the handle of the entity.
-    ///
-    void setHandle(entt::entity handle);
-
     void create();
     void destroy();
 
@@ -98,5 +82,3 @@ class Entity
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_ENTITY_H

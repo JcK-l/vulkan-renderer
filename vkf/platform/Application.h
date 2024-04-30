@@ -12,40 +12,17 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_APPLICATION_H
-#define VULKANRENDERER_APPLICATION_H
+#pragma once
 
-namespace vkf // Forward declarations
-{
-struct Event;
-} // namespace vkf
-
-namespace vkf::core // Forward declarations
-{
-class Instance;
-class Device;
-class Swapchain;
-class Pipeline;
-class RenderPass;
-} // namespace vkf::core
-
-namespace vkf::rendering // Forward declarations
-{
-class RenderManager;
-class BindlessManager;
-} // namespace vkf::rendering
-
-namespace vkf::scene // Forward declarations
-{
-class Scene;
-} // namespace vkf::scene
+// Forward declarations
+#include "../common/CommonFwd.h"
+#include "../core/CoreFwd.h"
+#include "../rendering/RenderingFwd.h"
+#include "../scene/SceneFwd.h"
+#include "PlatformFwd.h"
 
 namespace vkf::platform
 {
-
-// Forward declarations
-class Window;
-class Gui;
 
 ///
 /// \class Application
@@ -116,5 +93,3 @@ class Application
     const std::string appName;
 };
 } // namespace vkf::platform
-
-#endif // VULKANRENDERER_APPLICATION_H

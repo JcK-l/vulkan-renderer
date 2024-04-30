@@ -10,8 +10,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_TAGCOMPONENT_H
-#define VULKANRENDERER_TAGCOMPONENT_H
+#pragma once
 
 namespace vkf::scene
 {
@@ -33,11 +32,9 @@ struct TagComponent
     {
     }
 
-    void displayGui();
+    void updateGui();
 
     std::string tag;
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_TAGCOMPONENT_H

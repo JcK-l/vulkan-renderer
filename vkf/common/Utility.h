@@ -11,13 +11,14 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_UTILITY_H
-#define VULKANRENDERER_UTILITY_H
+#pragma once
 
-namespace vkf::scene // Forward declarations
+// Forward declarations
+#include "glm/fwd.hpp"
+namespace Met3D
 {
-enum class PrefabType;
-} // namespace vkf::scene
+struct PointF;
+}
 
 namespace vkf
 {
@@ -33,14 +34,19 @@ namespace vkf
 ///
 std::string getQueueFlagsString(vk::QueueFlags flags);
 
-///
-/// \brief Converts a PrefabType to a string.
-///
-/// \param type The PrefabType to convert to a string.
-/// \return  A string representation of the PrefabType.
-///
-std::string getPrefabTypeString(scene::PrefabType type);
+glm::mat4 recompose(glm::vec3 translate, glm::quat rotation, glm::vec3 scale);
+
+glm::vec3 calculateSrgbColor(glm::vec3 linearColor);
+
+glm::vec3 calculateLinearColor(glm::vec3 srgbColor);
+
+std::vector<float> createRange(float begin, float end, float step);
 
 } // namespace vkf
 
-#endif // VULKANRENDERER_UTILITY_H
+namespace Met3D
+{
+
+void translate(std::vector<Met3D::PointF> &polygon, float dx, float dy);
+
+} // namespace Met3D

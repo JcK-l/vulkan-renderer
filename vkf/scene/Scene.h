@@ -11,33 +11,18 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_SCENE_H
-#define VULKANRENDERER_SCENE_H
+#pragma once
 
 #include "components/Components.h"
 #include <entt/entt.hpp>
 
-namespace vkf::core // Forward declarations
-{
-class Device;
-class RenderPass;
-class Pipeline;
-} // namespace vkf::core
-
-namespace vkf::rendering // Forward declarations
-{
-class BindlessManager;
-} // namespace vkf::rendering
+// Forward declarations
+#include "../core/CoreFwd.h"
+#include "../rendering/RenderingFwd.h"
+#include "SceneFwd.h"
 
 namespace vkf::scene
 {
-
-// Forward declarations
-class Entity;
-class Camera;
-class PrefabFactory;
-class Prefab;
-enum class PrefabType;
 
 ///
 /// \class Scene
@@ -70,16 +55,23 @@ class Scene
 
     void createPrefab(PrefabType type, std::string tag);
 
-    void setActiveEntity(entt::entity entity);
-    entt::entity getActiveEntity();
+    void setSeletedPrefab(UUID uuid);
+    void setLastSelectedChild(entt::entity entity);
 
-    void changeSelectedPrefabType(PrefabType type);
-    void displaySelectedPrefabGui();
+    entt::entity getActiveEntity();
+    entt::entity getLastSelectedChild();
+
+    void updateSelectedPrefabGui();
     void updateSelectedPrefabComponents();
+    void updateGlobalFunctions();
+    void addGlobalFunction(UUID uuid, std::function<void()> function);
+    void removeGlobalFunction(UUID uuid);
+
     void destroySelectedPrefab();
 
     entt::registry &getRegistry();
     [[nodiscard]] Camera *getCamera() const;
+    [[nodiscard]] UUID getSelectedPrefabUUID() const;
 
   private:
     const core::Device &device;
@@ -88,11 +80,15 @@ class Scene
 
     std::unique_ptr<Camera> sceneCamera;
     std::unique_ptr<PrefabFactory> prefabFactory;
-    std::unique_ptr<Prefab> selectedPrefab;
+    std::unique_ptr<PrefabTypeManager> prefabTypeManager;
+    std::unordered_map<UUID, std::unique_ptr<Prefab>> prefabs;
+    UUID selectedPrefabUUID;
+
+    std::unordered_map<UUID, std::function<void()>> globalFunctions;
+
+    entt::entity lastSelectedChild{entt::null};
 
     entt::registry registry;
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_SCENE_H

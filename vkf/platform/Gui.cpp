@@ -13,6 +13,7 @@
 
 #include "Gui.h"
 #include "../common/Log.h"
+#include "../common/Utility.h"
 #include "../core/Device.h"
 #include "../core/Instance.h"
 #include "../core/PhysicalDevice.h"
@@ -21,11 +22,13 @@
 #include "../rendering/BindlessManager.h"
 #include "../scene/Camera.h"
 #include "../scene/Scene.h"
+#include "ImGuizmo.h"
 #include "Window.h"
-#include "backends/imgui_impl_glfw.h"
-#include "backends/imgui_impl_vulkan.h"
 #include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_vulkan.h"
 #include "imgui_internal.h"
+#include <glm/gtc/type_ptr.hpp>
 
 namespace vkf::platform
 {
@@ -91,14 +94,7 @@ Gui::Gui(const Window &window, const core::Instance &instance, const core::Devic
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;     // Enable Docking
     //    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;   // Enable Multi-Viewport / Platform Windows
 
-    // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular
-    // ones.
-    ImGuiStyle &style = ImGui::GetStyle();
-    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-    {
-        style.WindowRounding = 0.0f;
-        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-    }
+    setGuiColorStyle();
 
     //    ImGui_ImplVulkan_SetMinImageCount(minImageCount);
     ImGui_ImplGlfw_InitForVulkan(window.getHandle(), true);
@@ -125,11 +121,78 @@ Gui::~Gui()
     ImGui::DestroyContext();
 }
 
+void Gui::setGuiColorStyle()
+{
+    ImGui::StyleColorsDark();
+    ImGuiStyle &style = ImGui::GetStyle();
+    glm::vec3 primary = calculateLinearColor(glm::vec3{0.173, 0.455, 0.702});
+    glm::vec3 secondary = calculateLinearColor(glm::vec3{0.125, 0.325, 0.498});
+    glm::vec3 tertiary = calculateLinearColor(glm::vec3{0.549, 0.788, 1.0});
+    glm::vec3 black = calculateLinearColor(glm::vec3{0.118, 0.125, 0.133});
+    glm::vec3 black75 = calculateLinearColor(glm::vec3{0.337, 0.345, 0.349});
+    glm::vec3 black50 = calculateLinearColor(glm::vec3{0.557, 0.561, 0.565});
+    glm::vec3 white = calculateLinearColor(glm::vec3{0.988, 0.996, 1.0});
+    glm::vec3 white2 = calculateLinearColor(glm::vec3{0.863, 0.937, 1.0});
+    glm::vec3 red = calculateLinearColor(glm::vec3{0.702, 0.267, 0.243});
+    glm::vec3 red2 = calculateLinearColor(glm::vec3{1.0, 0.667, 0.651});
+
+    // TODO: fix color opactity doing weird things with clear color
+    style.Colors[ImGuiCol_Button] = ImVec4(primary.x, primary.y, primary.z, 1);
+    style.Colors[ImGuiCol_ButtonHovered] = ImVec4(tertiary.x, tertiary.y, tertiary.z, 1);
+    style.Colors[ImGuiCol_ButtonActive] = ImVec4(secondary.x, secondary.y, secondary.z, 1);
+    style.Colors[ImGuiCol_WindowBg] = ImVec4(black.x, black.y, black.z, 0.f);
+    style.Colors[ImGuiCol_Header] = ImVec4(primary.x, primary.y, primary.z, 1);
+    style.Colors[ImGuiCol_HeaderHovered] = ImVec4(tertiary.x, tertiary.y, tertiary.z, 1);
+    style.Colors[ImGuiCol_HeaderActive] = ImVec4(secondary.x, secondary.y, secondary.z, 1);
+    style.Colors[ImGuiCol_Text] = ImVec4(white.x, white.y, white.z, 1);
+    style.Colors[ImGuiCol_TextDisabled] = ImVec4(black50.x, black50.y, black50.z, 1);
+    style.Colors[ImGuiCol_Border] = ImVec4(black75.x, black75.y, black75.z, 1);
+    style.Colors[ImGuiCol_BorderShadow] = ImVec4(black.x, black.y, black.z, 1);
+    style.Colors[ImGuiCol_CheckMark] = ImVec4(tertiary.x, tertiary.y, tertiary.z, 1);
+    style.Colors[ImGuiCol_SliderGrab] = ImVec4(white.x, white.y, white.z, 1);
+    style.Colors[ImGuiCol_SliderGrabActive] = ImVec4(white2.x, white2.y, white2.z, 1);
+    style.Colors[ImGuiCol_PopupBg] = ImVec4(black.x, black.y, black.z, 1);
+    style.Colors[ImGuiCol_FrameBg] = ImVec4(black75.x, black75.y, black75.z, 1);
+    style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(black50.x, black50.y, black50.z, 1);
+    style.Colors[ImGuiCol_FrameBgActive] = ImVec4(black75.x, black75.y, black75.z, 1);
+    style.Colors[ImGuiCol_TitleBg] = ImVec4(black.x, black.y, black.z, 0);
+    style.Colors[ImGuiCol_TitleBgActive] = ImVec4(secondary.x, secondary.y, secondary.z, 1);
+    style.Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(black75.x, black75.y, black75.z, 1);
+    style.Colors[ImGuiCol_MenuBarBg] = ImVec4(black.x, black.y, black.z, 0);
+    style.Colors[ImGuiCol_ScrollbarBg] = ImVec4(black.x, black.y, black.z, 1);
+    style.Colors[ImGuiCol_ScrollbarGrab] = ImVec4(white.x, white.y, white.z, 1);
+    style.Colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(white2.x, white2.y, white2.z, 1);
+    style.Colors[ImGuiCol_ScrollbarGrabActive] = ImVec4(white2.x, white2.y, white2.z, 1);
+    style.Colors[ImGuiCol_Tab] = ImVec4(primary.x, primary.y, primary.z, 1);
+    style.Colors[ImGuiCol_TabHovered] = ImVec4(tertiary.x, tertiary.y, tertiary.z, 1);
+    style.Colors[ImGuiCol_TabActive] = ImVec4(primary.x, primary.y, primary.z, 1);
+    style.Colors[ImGuiCol_TabUnfocused] = ImVec4(secondary.x, secondary.y, secondary.z, 1);
+    style.Colors[ImGuiCol_TabUnfocusedActive] = ImVec4(secondary.x, secondary.y, secondary.z, 1);
+    style.Colors[ImGuiCol_DockingPreview] = ImVec4(tertiary.x, tertiary.y, tertiary.z, 1);
+    style.Colors[ImGuiCol_DockingEmptyBg] = ImVec4(black.x, black.y, black.z, 1);
+    style.Colors[ImGuiCol_DragDropTarget] = ImVec4(tertiary.x, tertiary.y, tertiary.z, 1);
+    style.Colors[ImGuiCol_PlotLines] = ImVec4(white.x, white.y, white.z, 1);
+    style.Colors[ImGuiCol_PlotLinesHovered] = ImVec4(white2.x, white2.y, white2.z, 1);
+    style.Colors[ImGuiCol_PlotHistogram] = ImVec4(white.x, white.y, white.z, 1);
+    style.Colors[ImGuiCol_PlotHistogramHovered] = ImVec4(white2.x, white2.y, white2.z, 1);
+    style.Colors[ImGuiCol_TextSelectedBg] = ImVec4(white.x, white.y, white.z, 1);
+    style.Colors[ImGuiCol_NavHighlight] = ImVec4(tertiary.x, tertiary.y, tertiary.z, 1);
+    style.Colors[ImGuiCol_NavWindowingHighlight] = ImVec4(tertiary.x, tertiary.y, tertiary.z, 1);
+    style.Colors[ImGuiCol_NavWindowingDimBg] = ImVec4(black.x, black.y, black.z, 1);
+    style.Colors[ImGuiCol_ModalWindowDimBg] = ImVec4(black.x, black.y, black.z, 1);
+    style.Colors[ImGuiCol_ChildBg] = ImVec4(black.x, black.y, black.z, 0);
+    style.Colors[ImGuiCol_Separator] = ImVec4(secondary.x, secondary.y, secondary.z, 1);
+    style.Colors[ImGuiCol_ResizeGrip] = ImVec4(black75.x, black75.y, black75.z, 1);
+    style.Colors[ImGuiCol_ResizeGripHovered] = ImVec4(white2.x, white2.y, white2.z, 1);
+    style.Colors[ImGuiCol_ResizeGripActive] = ImVec4(red2.x, red2.y, red2.z, 1);
+}
+
 void Gui::preRender(scene::Scene &scene)
 {
     ImGui_ImplVulkan_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
+    ImGuizmo::BeginFrame();
 
     static bool optFullscreen = true;
     static bool optPadding = false;
@@ -138,7 +201,7 @@ void Gui::preRender(scene::Scene &scene)
 
     // We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
     // because it would be confusing to have two docking targets within each others.
-    ImGuiWindowFlags windowFlags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
+    ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoDocking; // | ImGuiWindowFlags_MenuBar;
     if (optFullscreen)
     {
         const ImGuiViewport *viewport = ImGui::GetMainViewport();
@@ -205,7 +268,7 @@ void Gui::preRender(scene::Scene &scene)
         }
     }
 
-    if (ImGui::BeginMenuBar())
+    if (false && ImGui::BeginMenuBar()) // disabled for now
     {
         if (ImGui::BeginMenu("Options"))
         {
@@ -282,14 +345,17 @@ void Gui::createScenePanel(scene::Scene &scene)
         }
     }
 
-    uint32_t viewportPanelSizeX = static_cast<uint32_t>(ImGui::GetContentRegionAvail().x);
-    uint32_t viewportPanelSizeY = static_cast<uint32_t>(ImGui::GetContentRegionAvail().y);
+    auto cursorPos = std::make_pair(ImGui::GetCursorPos().x, ImGui::GetCursorPos().y);
 
-    if (viewportPanelSizeX != sceneViewportExtent.width || viewportPanelSizeY != sceneViewportExtent.height)
+    float viewportPanelSizeX = ImGui::GetContentRegionAvail().x;
+    float viewportPanelSizeY = ImGui::GetContentRegionAvail().y;
+
+    if (static_cast<uint32_t>(viewportPanelSizeX) != sceneViewportExtent.width ||
+        static_cast<uint32_t>(viewportPanelSizeY) != sceneViewportExtent.height)
     {
         LOG_DEBUG("Resizing viewport to {}x{}", viewportPanelSizeX, viewportPanelSizeY)
-        sceneViewportExtent.width = viewportPanelSizeX;
-        sceneViewportExtent.height = viewportPanelSizeY;
+        sceneViewportExtent.width = static_cast<uint32_t>(viewportPanelSizeX);
+        sceneViewportExtent.height = static_cast<uint32_t>(viewportPanelSizeY);
         device.getHandle().waitIdle();
         createImages(swapchain.getImageCount());
         createImageViews();
@@ -297,15 +363,112 @@ void Gui::createScenePanel(scene::Scene &scene)
         dset = ImGui_ImplVulkan_AddTexture(*textureSampler, imageViews[frameIndex],
                                            VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
         changed = true;
-        scene.getCamera()->updateAspectRatio(static_cast<float>(sceneViewportExtent.width) /
-                                             static_cast<float>(sceneViewportExtent.height));
+        scene.getCamera()->updateAspectRatio(viewportPanelSizeX / viewportPanelSizeY);
     }
-    ImGui::Image(dset,
-                 ImVec2{static_cast<float>(sceneViewportExtent.width), static_cast<float>(sceneViewportExtent.height)});
+    ImGui::Image(dset, ImVec2{viewportPanelSizeX, viewportPanelSizeY});
 
     ImGui::PopStyleVar();
 
+    createGuizmo(scene, cursorPos);
+
     ImGui::End();
+}
+
+void Gui::createGuizmo(scene::Scene &scene, std::pair<float, float> cursorPos)
+{
+    ImGuiIO &io = ImGui::GetIO();
+    if (ImGui::IsKeyPressed(ImGuiKey_G))
+    {
+        isGizmoEnabled = !isGizmoEnabled;
+    }
+    if (!isGizmoEnabled)
+    {
+        return;
+    }
+
+    entt::entity guizmoEntity = scene.getActiveEntity();
+    if (guizmoEntity == entt::null)
+    {
+        return;
+    }
+
+    auto *relationComp = scene.getRegistry().try_get<scene::RelationComponent>(guizmoEntity);
+
+    if (relationComp != nullptr)
+    {
+        for (const auto &pair : relationComp->children)
+        {
+            auto child = pair.second;
+            if (scene.getLastSelectedChild() == child->getHandle())
+            {
+                guizmoEntity = child->getHandle();
+            }
+        }
+    }
+
+    auto *transformComp = scene.getRegistry().try_get<scene::TransformComponent>(guizmoEntity);
+    if (transformComp != nullptr)
+    {
+        ImGuizmo::SetDrawlist(ImGui::GetWindowDrawList());
+        ImVec2 windowPos = ImGui::GetWindowPos(); // Get the window's position
+
+        // Calculate the position of the content region relative to the screen
+        ImVec2 contentRegionPos = ImVec2(windowPos.x + cursorPos.first, windowPos.y + cursorPos.second);
+
+        //             Now you can use contentRegionPos in the SetRect function
+        ImGuizmo::SetRect(contentRegionPos.x, contentRegionPos.y, sceneViewportExtent.width,
+                          sceneViewportExtent.height);
+
+        static ImGuizmo::OPERATION currentGizmoOperation;
+        if (ImGui::IsWindowFocused() || ImGui::IsWindowHovered())
+        {
+            if (ImGui::IsKeyPressed(ImGuiKey_T))
+            {
+                currentGizmoOperation = ImGuizmo::TRANSLATE;
+            }
+            if (ImGui::IsKeyPressed(ImGuiKey_R))
+            {
+                currentGizmoOperation = ImGuizmo::ROTATE;
+            }
+            if (ImGui::IsKeyPressed(ImGuiKey_S))
+            {
+                currentGizmoOperation = ImGuizmo::SCALE;
+            }
+        }
+
+        bool useSnap = ImGui::IsKeyDown(ImGuiKey_LeftCtrl);
+        float snap = 0.25f;
+        if (currentGizmoOperation == ImGuizmo::ROTATE)
+        {
+            snap = 15.f;
+        }
+        else if (currentGizmoOperation == ImGuizmo::TRANSLATE)
+        {
+            snap = 10.f;
+        }
+
+        float snapValues[3] = {snap, snap, snap};
+
+        ImGuizmo::Manipulate(glm::value_ptr(scene.getCamera()->getViewMatrixFlip()),
+                             glm::value_ptr(scene.getCamera()->getProjectionMatrixFlip()), currentGizmoOperation,
+                             ImGuizmo::LOCAL, glm::value_ptr(transformComp->modelMatrix), nullptr,
+                             useSnap ? snapValues : nullptr);
+
+        if (ImGuizmo::IsUsing())
+        {
+            glm::vec3 scale, translation, rotation;
+
+            ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(transformComp->modelMatrix),
+                                                  glm::value_ptr(translation), glm::value_ptr(rotation),
+                                                  glm::value_ptr(scale));
+
+            transformComp->translation = translation;
+            transformComp->rotation = rotation;
+            transformComp->scale = scale;
+
+            transformComp->modelHasChanged = true;
+        }
+    }
 }
 
 void Gui::createHierarchyPanel(scene::Scene &scene)
@@ -316,77 +479,32 @@ void Gui::createHierarchyPanel(scene::Scene &scene)
 
     ImGui::BeginChild("EntityList", ImVec2(0, windowHeight - 45));
 
-    auto view = scene.getRegistry().view<scene::TagComponent, scene::ParentComponent, scene::PrefabComponent>();
+    auto view = scene.getRegistry().view<scene::TagComponent, scene::RelationComponent, scene::IdComponent>();
     for (auto entity : view)
     {
-        auto &tag = view.get<scene::TagComponent>(entity);
-        auto &parent = view.get<scene::ParentComponent>(entity);
-        auto &prefab = view.get<scene::PrefabComponent>(entity);
-
-        std::string uniqueID = tag.tag + "##" + std::to_string(static_cast<uint32_t>(entity));
-
-        if (parent.children.size() > 1)
+        auto &relationComp = view.get<scene::RelationComponent>(entity);
+        if (relationComp.parent != entt::null)
         {
-            ImGuiTreeNodeFlags nodeFlags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_FramePadding;
-            if (entity == scene.getActiveEntity())
-            {
-                nodeFlags |= ImGuiTreeNodeFlags_Selected;
-            }
+            continue;
+        }
 
-            bool isTreeOpen = ImGui::TreeNodeEx(uniqueID.c_str(), nodeFlags);
+        auto &tagComp = view.get<scene::TagComponent>(entity);
+        auto &uuidComp = view.get<scene::IdComponent>(entity);
 
-            if (ImGui::IsItemClicked())
-            {
-                scene.changeSelectedPrefabType(prefab.prefabType);
-                scene.setActiveEntity(entity);
-            }
+        std::string label = tagComp.tag + "##" + std::to_string(static_cast<uint32_t>(entity));
 
-            if (isTreeOpen)
-            {
-                char label[32];
-                for (int i = 0; i < parent.children.size(); ++i)
-                {
-                    ImGuiTreeNodeFlags childnodeFlags = ImGuiTreeNodeFlags_Bullet | ImGuiTreeNodeFlags_FramePadding |
-                                                        ImGuiTreeNodeFlags_NoTreePushOnOpen;
-                    auto &select = parent.children[i]->getComponent<scene::SelectComponent>();
-                    if (select.selected && entity == scene.getActiveEntity())
-                    {
-                        childnodeFlags |= ImGuiTreeNodeFlags_Selected;
-                    }
-                    sprintf(label, "SubMesh##%d", static_cast<uint32_t>(parent.children[i]->getHandle()));
-                    if (ImGui::TreeNodeEx(label, childnodeFlags))
-                    {
-                    }
-                    if (ImGui::IsItemClicked())
-                    {
-                        select.toggleSelect();
-                    }
-                }
-                ImGui::TreePop();
-            }
+        if (relationComp.hasChildren)
+        {
+            recursiveHierarchy(scene, uuidComp.uuid, entity);
         }
         else
         {
-            ImGuiTreeNodeFlags nodeFlags =
-                ImGuiTreeNodeFlags_Bullet | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_FramePadding;
-            if (entity == scene.getActiveEntity())
-            {
-                nodeFlags |= ImGuiTreeNodeFlags_Selected;
-            }
-
-            //            ImVec4 color = (mesh.shouldDraw) ? ImVec4(0.8f, 0.8f, 0.8f, 1.0f) : ImVec4(0.3f, 0.3f,
-            //            0.3f, 1.0f);
-            //
-            //            ImGui::PushStyleColor(ImGuiCol_Text, color);
-            ImGui::TreeNodeEx(uniqueID.c_str(), nodeFlags);
+            createSingleNode(scene, entity, label);
 
             if (ImGui::IsItemClicked())
             {
-                scene.changeSelectedPrefabType(prefab.prefabType);
-                scene.setActiveEntity(entity);
+                scene.setSeletedPrefab(uuidComp.uuid);
             }
-
-            //            ImGui::PopStyleColor();
         }
     }
 
@@ -403,9 +521,130 @@ void Gui::createHierarchyPanel(scene::Scene &scene)
     ImGui::End();
 }
 
+void Gui::recursiveHierarchy(scene::Scene &scene, UUID rootUUID, entt::entity entity, bool first)
+{
+    auto &relationComp = scene.getRegistry().get<scene::RelationComponent>(entity);
+    bool isTreeOpen = createParentNode(scene, entity, rootUUID);
+
+    if (ImGui::IsItemClicked() && first)
+    {
+        auto &uuidComp = scene.getRegistry().get<scene::IdComponent>(entity);
+        scene.setSeletedPrefab(uuidComp.uuid);
+    }
+    else if (ImGui::IsItemClicked() && !first && scene.getLastSelectedChild() == entity)
+    {
+        scene.setSeletedPrefab(rootUUID);
+        scene.setLastSelectedChild(entt::null);
+    }
+    else if (ImGui::IsItemClicked() && !first)
+    {
+        scene.setSeletedPrefab(rootUUID);
+        scene.setLastSelectedChild(entity);
+    }
+
+    if (isTreeOpen)
+    {
+        for (const auto &pair : relationComp.children)
+        {
+            auto child = pair.second;
+            auto &relationChildComp = child->getComponent<scene::RelationComponent>();
+            if (relationChildComp.hasChildren)
+            {
+                recursiveHierarchy(scene, rootUUID, child->getHandle(), false);
+            }
+            else
+            {
+                createChildNode(scene, child->getHandle(), rootUUID);
+            }
+        }
+        ImGui::TreePop();
+    }
+}
+
+bool Gui::createParentNode(scene::Scene &scene, entt::entity entity, UUID rootUUID)
+{
+    auto *tagComp = scene.getRegistry().try_get<scene::TagComponent>(entity);
+
+    std::string tag = (tagComp) ? tagComp->tag : "SubMesh";
+    std::string label = tag + "##" + std::to_string(static_cast<uint32_t>(entity));
+
+    ImGuiTreeNodeFlags nodeFlags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_FramePadding;
+    if (entity == scene.getActiveEntity() ||
+        (entity == scene.getLastSelectedChild() && rootUUID == scene.getSelectedPrefabUUID()))
+    {
+        nodeFlags |= ImGuiTreeNodeFlags_Selected;
+    }
+
+    bool isTreeOpen = ImGui::TreeNodeEx(label.c_str(), nodeFlags);
+
+    return isTreeOpen;
+}
+
+void Gui::createChildNode(scene::Scene &scene, entt::entity currentChild, UUID parentUUID)
+{
+    auto &relationComp = scene.getRegistry().get<scene::RelationComponent>(currentChild);
+
+    ImGuiTreeNodeFlags childnodeFlags =
+        ImGuiTreeNodeFlags_Bullet | ImGuiTreeNodeFlags_FramePadding | ImGuiTreeNodeFlags_NoTreePushOnOpen;
+    if (scene.getLastSelectedChild() == currentChild && parentUUID == scene.getSelectedPrefabUUID())
+    {
+        childnodeFlags |= ImGuiTreeNodeFlags_Selected;
+    }
+
+    auto *meshComp = scene.getRegistry().try_get<scene::MeshComponent>(currentChild);
+    auto *tagComp = scene.getRegistry().try_get<scene::TagComponent>(currentChild);
+
+    ImGuiStyle &style = ImGui::GetStyle();
+    ImVec4 text = style.Colors[ImGuiCol_Text];
+    ImVec4 textDisabled = style.Colors[ImGuiCol_TextDisabled];
+
+    ImVec4 color = (meshComp && meshComp->shouldDraw) ? text : textDisabled;
+
+    ImGui::PushStyleColor(ImGuiCol_Text, color);
+
+    std::string tag = (tagComp) ? tagComp->tag : "SubMesh";
+    std::string label = tag + "##" + std::to_string(static_cast<uint32_t>(currentChild));
+    ImGui::TreeNodeEx(label.c_str(), childnodeFlags);
+
+    ImGui::PopStyleColor();
+
+    if (ImGui::IsItemClicked() && scene.getLastSelectedChild() == currentChild)
+    {
+        scene.setSeletedPrefab(parentUUID);
+        scene.setLastSelectedChild(entt::null);
+    }
+    else if (ImGui::IsItemClicked())
+    {
+        scene.setSeletedPrefab(parentUUID);
+        scene.setLastSelectedChild(currentChild);
+    }
+}
+
+void Gui::createSingleNode(scene::Scene &scene, entt::entity entity, const std::string &label)
+{
+    ImGuiTreeNodeFlags nodeFlags =
+        ImGuiTreeNodeFlags_Bullet | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_FramePadding;
+    if (entity == scene.getActiveEntity())
+    {
+        nodeFlags |= ImGuiTreeNodeFlags_Selected;
+    }
+
+    auto *meshComp = scene.getRegistry().try_get<scene::MeshComponent>(entity);
+
+    ImGuiStyle &style = ImGui::GetStyle();
+    ImVec4 text = style.Colors[ImGuiCol_Text];
+    ImVec4 textDisabled = style.Colors[ImGuiCol_TextDisabled];
+
+    ImVec4 color = (meshComp && meshComp->shouldDraw) ? text : textDisabled;
+
+    ImGui::PushStyleColor(ImGuiCol_Text, color);
+    ImGui::TreeNodeEx(label.c_str(), nodeFlags);
+
+    ImGui::PopStyleColor();
+}
+
 void Gui::createPrefabButtons(scene::Scene &scene)
 {
-
     float windowWidth = ImGui::GetContentRegionAvail().x;
     float windowHeight = ImGui::GetContentRegionAvail().y;
     float spacing = 10.0f;
@@ -427,11 +666,11 @@ void Gui::createPrefabButtons(scene::Scene &scene)
     if (ImGui::BeginPopupContextWindow("CreatePrefabPopup"))
     {
 
-        for (const auto &prefabType : prefabTypes)
+        for (const auto &pair : scene::PrefabTypeManager::prefabNames)
         {
-            if (ImGui::MenuItem(prefabType.second.c_str()))
+            if (ImGui::MenuItem(pair.second.c_str()))
             {
-                scene.createPrefab(prefabType.first, prefabType.second);
+                scene.createPrefab(pair.first, pair.second);
                 ImGui::CloseCurrentPopup();
                 isCreateDialog = false;
             }
@@ -464,8 +703,9 @@ void Gui::createPropertiesPanel(scene::Scene &scene)
 
     if (scene.getActiveEntity() != entt::null)
     {
-        scene.displaySelectedPrefabGui();
+        scene.updateSelectedPrefabGui();
         scene.updateSelectedPrefabComponents();
+        scene.updateGlobalFunctions();
     }
 
     ImGui::End();

@@ -11,15 +11,10 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_FRAMEDATA_H
-#define VULKANRENDERER_FRAMEDATA_H
+#pragma once
 
-namespace vkf::core // Forward declarations
-{
-class Device;
-class Swapchain;
-class CommandPool;
-} // namespace vkf::core
+// Forward declarations
+#include "../core/CoreFwd.h"
 
 namespace vkf::rendering
 {
@@ -66,5 +61,3 @@ class FrameData
 };
 
 } // namespace vkf::rendering
-
-#endif // VULKANRENDERER_FRAMEDATA_H

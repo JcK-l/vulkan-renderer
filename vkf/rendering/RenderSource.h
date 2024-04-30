@@ -12,8 +12,7 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_RENDERSOURCE_H
-#define VULKANRENDERER_RENDERSOURCE_H
+#pragma once
 
 namespace vkf::rendering
 {
@@ -54,5 +53,3 @@ class RenderSource
 };
 
 } // namespace vkf::rendering
-
-#endif // VULKANRENDERER_RENDERSOURCE_H

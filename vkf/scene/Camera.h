@@ -12,15 +12,12 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_CAMERA_H
-#define VULKANRENDERER_CAMERA_H
+#pragma once
 
 #include <glm/glm.hpp>
 
-namespace vkf::rendering // Forward declarations
-{
-class BindlessManager;
-} // namespace vkf::rendering
+// Forward declarations
+#include "../rendering/RenderingFwd.h"
 
 namespace vkf::scene
 {
@@ -61,7 +58,11 @@ class Camera
 
     [[nodiscard]] const glm::mat4 &getViewMatrix() const;
     [[nodiscard]] const glm::mat4 &getProjectionMatrix() const;
+    [[nodiscard]] const glm::mat4 &getViewMatrixFlip() const;
+    [[nodiscard]] const glm::mat4 &getProjectionMatrixFlip() const;
     [[nodiscard]] glm::mat4 getViewProjectionMatrix() const;
+    [[nodiscard]] glm::vec3 getXAxis() const;
+    [[nodiscard]] glm::vec3 getPosition() const;
     [[nodiscard]] uint32_t getHandle() const;
 
     /// \brief Method to orbit the camera.
@@ -85,7 +86,8 @@ class Camera
     void updateCameraBuffer();
 
   private:
-    void updateViewMatrix();
+    void createProjectionMatrix();
+    void createViewMatrix();
 
     rendering::BindlessManager &bindlessManager;
     uint32_t handle;
@@ -96,8 +98,16 @@ class Camera
 
     glm::mat4 view;
     glm::mat4 projection;
+
+    glm::mat4 viewFlip;
+    glm::mat4 projectionFlip;
+
+    float fov;
+    float aspect;
+    float near;
+    float far;
+
+    float zoomSpeed{50.f};
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_CAMERA_H

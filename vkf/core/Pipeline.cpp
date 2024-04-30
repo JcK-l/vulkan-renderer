@@ -20,18 +20,19 @@ namespace vkf::core
 
 Pipeline::Pipeline(const Device &device, const PipelineState &state)
 {
-    auto pipelineCreateInfo = vk::GraphicsPipelineCreateInfo{.stageCount = 2,
-                                                             .pStages = state.shaderStageCreateInfos.data(),
-                                                             .pVertexInputState = &state.vertexInputCreateInfo,
-                                                             .pInputAssemblyState = &state.inputAssemblyCreateInfo,
-                                                             .pViewportState = &state.pipelineViewportStateCreateInfo,
-                                                             .pRasterizationState = &state.rasterizerCreateInfo,
-                                                             .pMultisampleState = &state.multisamplingCreateInfo,
-                                                             .pDepthStencilState = &state.depthStencilCreateInfo,
-                                                             .pColorBlendState = &state.colorBlendingCreateInfo,
-                                                             .pDynamicState = &state.dynamicStateCreateInfo,
-                                                             .layout = state.pipelineLayout,
-                                                             .renderPass = state.renderPass};
+    auto pipelineCreateInfo =
+        vk::GraphicsPipelineCreateInfo{.stageCount = static_cast<uint32_t>(state.shaderStageCreateInfos.size()),
+                                       .pStages = state.shaderStageCreateInfos.data(),
+                                       .pVertexInputState = &state.vertexInputCreateInfo,
+                                       .pInputAssemblyState = &state.inputAssemblyCreateInfo,
+                                       .pViewportState = &state.pipelineViewportStateCreateInfo,
+                                       .pRasterizationState = &state.rasterizerCreateInfo,
+                                       .pMultisampleState = &state.multisamplingCreateInfo,
+                                       .pDepthStencilState = &state.depthStencilCreateInfo,
+                                       .pColorBlendState = &state.colorBlendingCreateInfo,
+                                       .pDynamicState = &state.dynamicStateCreateInfo,
+                                       .layout = state.pipelineLayout,
+                                       .renderPass = state.renderPass};
 
     handle = vk::raii::Pipeline{device.getHandle(), nullptr, pipelineCreateInfo};
 }

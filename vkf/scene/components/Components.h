@@ -12,17 +12,18 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_COMPONENTS_H
-#define VULKANRENDERER_COMPONENTS_H
+#pragma once
 
+#include "BoundingBoxComponent.h"
 #include "ColorComponent.h"
+#include "GeotiffComponent.h"
+#include "GraticuleComponent.h"
+#include "IdComponent.h"
 #include "MaterialComponent.h"
 #include "MeshComponent.h"
-#include "ParentComponent.h"
-#include "PrefabComponent.h"
-#include "SelectComponent.h"
+#include "PoleComponent.h"
+#include "ProjectionComponent.h"
+#include "RelationComponent.h"
 #include "TagComponent.h"
 #include "TextureComponent.h"
 #include "TransformComponent.h"
-
-#endif // VULKANRENDERER_COMPONENTS_H

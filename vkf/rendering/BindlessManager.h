@@ -11,16 +11,13 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_BINDLESSMANAGER_H
-#define VULKANRENDERER_BINDLESSMANAGER_H
+#pragma once
 
 #include "../core/Buffer.h"
 #include "../core/Image.h"
 
-namespace vkf::core // Forward declaration
-{
-class Device;
-} // namespace vkf::core
+// Forward declarations
+#include "../core/CoreFwd.h"
 
 namespace vkf::rendering
 {
@@ -117,5 +114,3 @@ class BindlessManager
 };
 
 } // namespace vkf::rendering
-
-#endif // VULKANRENDERER_BINDLESSMANAGER_H

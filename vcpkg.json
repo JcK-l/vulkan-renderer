@@ -1,0 +1,25 @@
+{
+  "name": "vulkan-renderer",
+  "version-string": "0.0.1",
+  "dependencies": [
+    "gdal",
+    "proj",
+    "stb",
+    "entt",
+    {
+      "name": "imgui",
+      "features": [
+        "docking-experimental",
+        "glfw-binding",
+        "vulkan-binding"
+      ]
+    },
+    "imguizmo",
+    "glfw3",
+    "spdlog",
+    "glm",
+    "vulkan-memory-allocator",
+    "shaderc",
+    "vulkan"
+  ]
+}

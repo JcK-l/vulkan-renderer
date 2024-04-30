@@ -12,14 +12,13 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_RENDERPASS_H
-#define VULKANRENDERER_RENDERPASS_H
+#pragma once
+
+// Forward declarations
+#include "CoreFwd.h"
 
 namespace vkf::core
 {
-
-// Forward declarations
-class Device;
 
 ///
 /// \class RenderPass
@@ -64,5 +63,3 @@ class RenderPass
 };
 
 } // namespace vkf::core
-
-#endif // VULKANRENDERER_RENDERPASS_H

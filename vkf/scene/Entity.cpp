@@ -48,11 +48,6 @@ entt::entity Entity::getHandle() const
     return handle;
 }
 
-void Entity::setHandle(entt::entity handle)
-{
-    this->handle = handle;
-}
-
 void Entity::create()
 {
     handle = registry.create();

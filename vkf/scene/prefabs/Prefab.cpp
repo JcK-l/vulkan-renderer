@@ -26,6 +26,12 @@ rendering::PipelineBuilder Prefab::getPipelineBuilder(const core::Device &device
 
     pipelineBuilder.setInputAssemblyCreateInfo(
         vk::PipelineInputAssemblyStateCreateInfo{.topology = vk::PrimitiveTopology::eTriangleList});
+
+    auto bindingDescription = vk::VertexInputBindingDescription{};
+    std::vector<vk::VertexInputAttributeDescription> attributeDescriptions = {};
+    auto vertexInfo = vk::PipelineVertexInputStateCreateInfo{};
+
+    pipelineBuilder.setVertexInputCreateInfo(vertexInfo, bindingDescription, attributeDescriptions);
     pipelineBuilder.setPipelineViewportStateCreateInfo(vk::PipelineViewportStateCreateInfo{
         .viewportCount = 1, .pViewports = nullptr, .scissorCount = 1, .pScissors = nullptr});
     pipelineBuilder.setRasterizerCreateInfo(vk::PipelineRasterizationStateCreateInfo{
@@ -56,6 +62,11 @@ rendering::PipelineBuilder Prefab::getPipelineBuilder(const core::Device &device
     pipelineBuilder.setRenderPass(*renderPass.getHandle());
 
     return pipelineBuilder;
+}
+
+entt::entity Prefab::getEntity()
+{
+    return entity.getHandle();
 }
 
 } // namespace vkf::scene

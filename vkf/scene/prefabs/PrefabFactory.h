@@ -12,33 +12,20 @@
 /// The license and distribution terms for this file may be found in the file LICENSE in this distribution
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef VULKANRENDERER_PREFABFACTORY_H
-#define VULKANRENDERER_PREFABFACTORY_H
+#pragma once
 
-#include "Cube.h"
-#include "PrefabType.h"
-#include "Texture2D.h"
+#include "../../common/UUID.h"
+#include "../Entity.h"
+#include "PrefabTypeManager.h"
 #include <entt/entt.hpp>
 
-namespace vkf::core // Forward declarations
-{
-class Device;
-class Pipeline;
-class RenderPass;
-} // namespace vkf::core
-
-namespace vkf::rendering // Forward declarations
-{
-class BindlessManager;
-class PipelineBuilder;
-} // namespace vkf::rendering
+// Forward declarations
+#include "../../core/CoreFwd.h"
+#include "../../rendering/RenderingFwd.h"
+#include "../../scene/SceneFwd.h"
 
 namespace vkf::scene
 {
-
-// Forward declarations
-class Entity;
-class Camera;
 
 ///
 /// \class PrefabFactory
@@ -62,7 +49,7 @@ class PrefabFactory
     /// \param camera The Camera to use for creating the prefabricated entities.
     ///
     PrefabFactory(const core::Device &device, rendering::BindlessManager &bindlessManager,
-                  const core::RenderPass &renderPass, Camera *camera);
+                  const core::RenderPass &renderPass);
 
     PrefabFactory(const PrefabFactory &) = delete;            ///< Deleted copy constructor
     PrefabFactory(PrefabFactory &&) noexcept = default;       ///< Default move constructor
@@ -78,15 +65,25 @@ class PrefabFactory
     /// \param registry The entt::registry to use for creating the prefabricated entity.
     /// \param tag The tag to use for creating the prefabricated entity.
     ///
-    template <typename T> std::unique_ptr<Prefab> createPrefab(entt::registry &registry, std::string tag)
+    template <typename T>
+    std::pair<UUID, std::unique_ptr<Prefab>> createPrefab(entt::registry &registry, std::string tag, Scene *scene)
     {
         static_assert(std::is_base_of_v<Prefab, T>, "T must be a subclass of Entity");
 
         auto prefab = std::make_unique<T>(registry, bindlessManager, Entity{registry});
-        prefab->create(device, pipelines.at(PrefabTraits<T>::getPrefabType()).get(), camera, std::move(tag));
 
-        return prefab;
+        std::deque<core::Pipeline *> pipelineDeque;
+        for (const auto &pipeline : pipelineMap.at(PrefabTypeManager::getPrefabType<T>()))
+        {
+            pipelineDeque.emplace_back(pipeline.get());
+        }
+
+        auto prefabUUID = prefab->create(device, pipelineDeque, scene, std::move(tag));
+
+        return {prefabUUID, std::move(prefab)};
     }
+
+    [[nodiscard]] PrefabTypeManager::PrefabFunctions getPrefabFunctions(PrefabType type) const;
 
   private:
     ///
@@ -100,15 +97,8 @@ class PrefabFactory
     rendering::BindlessManager &bindlessManager;
     const core::RenderPass &renderPass;
 
-    Camera *camera;
-
-    std::unordered_map<PrefabType, std::unique_ptr<core::Pipeline>> pipelines;
-    std::unordered_map<PrefabType,
-                       rendering::PipelineBuilder (*)(const core::Device &device, const core::RenderPass &renderPass,
-                                                      rendering::BindlessManager &bindlessManager)>
-        pipelineBuilderFunctionMap;
+    PrefabTypeManager prefabTypeManager{*this};
+    std::unordered_map<PrefabType, std::deque<std::unique_ptr<core::Pipeline>>> pipelineMap;
 };
 
 } // namespace vkf::scene
-
-#endif // VULKANRENDERER_PREFABFACTORY_H
