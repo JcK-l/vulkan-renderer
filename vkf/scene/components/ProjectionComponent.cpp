@@ -39,7 +39,7 @@ void ProjectionComponent::updateGui()
     case ProjectionType::CYLINDRICAL:
         break;
     case ProjectionType::PROJ_LIBRARY:
-        if (ImGui::InputText("Proj String", projLibraryString.data(), projLibraryString.size()))
+        if (ImGui::InputText("Proj String", projLibraryString.data(), projLibraryString.size() + 50))
         {
         }
         break;

@@ -110,7 +110,8 @@ Gui::Gui(const Window &window, const core::Instance &instance, const core::Devic
     init_info.ImageCount = swapchain.getImageCount();
     init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
     init_info.CheckVkResultFn = check_vk_result;
-    ImGui_ImplVulkan_Init(&init_info, *renderPass.getHandle());
+    init_info.RenderPass = *renderPass.getHandle();
+    ImGui_ImplVulkan_Init(&init_info);
     LOG_INFO("Created Gui")
 }
 
