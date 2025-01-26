@@ -151,7 +151,7 @@ std::deque<rendering::PipelineBuilder> BasemapActor::getPipelineBuilders(const c
     pipelineBuilder.setInputAssemblyCreateInfo(
         vk::PipelineInputAssemblyStateCreateInfo{.topology = vk::PrimitiveTopology::eTriangleStrip});
 
-    core::Shader shader{"../../shaders/basemap.glsl"};
+    core::Shader shader{std::string(PROJECT_ROOT_DIR) + "/shaders/basemap.glsl"};
     pipelineBuilder.setShaderStageCreateInfos(device, shader);
 
     auto bindingDescription = vk::VertexInputBindingDescription{
@@ -166,7 +166,7 @@ std::deque<rendering::PipelineBuilder> BasemapActor::getPipelineBuilders(const c
 
     auto pipelineBuilder2 = rendering::PipelineBuilder(pipelineBuilder);
 
-    core::Shader shader2{"../../shaders/basemap_rotated.glsl"};
+    core::Shader shader2{std::string(PROJECT_ROOT_DIR) + "/shaders/basemap_rotated.glsl"};
     pipelineBuilder2.setShaderStageCreateInfos(device, shader2);
 
     pipelineBuilders.push_back(pipelineBuilder);

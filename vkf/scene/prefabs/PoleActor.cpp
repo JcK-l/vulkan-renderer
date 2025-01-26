@@ -348,13 +348,13 @@ std::deque<rendering::PipelineBuilder> PoleActor::getPipelineBuilders(const core
     pipelineBuilderPoleLines.setRasterizerCreateInfo(vk::PipelineRasterizationStateCreateInfo{
         .polygonMode = vk::PolygonMode::eFill, .frontFace = vk::FrontFace::eCounterClockwise, .lineWidth = 3.0f});
 
-    core::Shader shaderPoleLines{"../../shaders/pole_lines.glsl"};
+    core::Shader shaderPoleLines{std::string(PROJECT_ROOT_DIR) + "/shaders/pole_lines.glsl"};
     pipelineBuilderPoleLines.setShaderStageCreateInfos(device, shaderPoleLines);
 
     // create PipelineBuilder for pole tubes
     auto pipelineBuilderPoleTubes = rendering::PipelineBuilder(pipelineBuilderPoleLines);
 
-    core::Shader shaderPoleTubes{"../../shaders/pole_tubes.glsl"};
+    core::Shader shaderPoleTubes{std::string(PROJECT_ROOT_DIR) + "/shaders/pole_tubes.glsl"};
     pipelineBuilderPoleTubes.setShaderStageCreateInfos(device, shaderPoleTubes);
 
     // create PipelineBuilder for tick lines
@@ -363,13 +363,13 @@ std::deque<rendering::PipelineBuilder> PoleActor::getPipelineBuilders(const core
     pipelineBuilderTickLines.setInputAssemblyCreateInfo(
         vk::PipelineInputAssemblyStateCreateInfo{.topology = vk::PrimitiveTopology::ePointList});
 
-    core::Shader shaderTickLines{"../../shaders/tick_lines.glsl"};
+    core::Shader shaderTickLines{std::string(PROJECT_ROOT_DIR) + "/shaders/tick_lines.glsl"};
     pipelineBuilderTickLines.setShaderStageCreateInfos(device, shaderTickLines);
 
     // create PipelineBuilder for tick tubes
     auto pipelineBuilderTickTubes = rendering::PipelineBuilder(pipelineBuilderTickLines);
 
-    core::Shader shaderTickTubes{"../../shaders/tick_tubes.glsl"};
+    core::Shader shaderTickTubes{std::string(PROJECT_ROOT_DIR) + "/shaders/tick_tubes.glsl"};
     pipelineBuilderTickTubes.setShaderStageCreateInfos(device, shaderTickTubes);
 
     // add all PipelineBuilders to the deque

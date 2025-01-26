@@ -87,7 +87,8 @@ Gui::Gui(const Window &window, const core::Instance &instance, const core::Devic
     // this initializes the core structures of imgui
     ImGui::CreateContext();
     ImGuiIO &io = ImGui::GetIO();
-    io.Fonts->AddFontFromFileTTF("../../assets/JetBrainsMono/fonts/otf/JetBrainsMono-Regular.otf", 16.0f);
+    std::string dir = std::string(PROJECT_ROOT_DIR) + std::string("/assets/JetBrainsMono/fonts/otf/JetBrainsMono-Regular.otf");
+    io.Fonts->AddFontFromFileTTF(dir.c_str(), 16.0f);
     (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls

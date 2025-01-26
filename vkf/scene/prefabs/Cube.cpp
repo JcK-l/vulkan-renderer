@@ -232,7 +232,7 @@ std::deque<rendering::PipelineBuilder> Cube::getPipelineBuilders(const core::Dev
                                                                  rendering::BindlessManager &bindlessManager)
 {
     auto pipelineBuilder = Prefab::getPipelineBuilder(device, renderPass, bindlessManager);
-    core::Shader shader{"../../shaders/cube.glsl"};
+    core::Shader shader{std::string(PROJECT_ROOT_DIR) + "/shaders/cube.glsl"};
     pipelineBuilder.setShaderStageCreateInfos(device, shader);
 
     vertexSize = 2 * sizeof(glm::vec3);

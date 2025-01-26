@@ -350,7 +350,7 @@ std::deque<rendering::PipelineBuilder> GraticuleActor::getPipelineBuilders(const
     pipelineBuilder.setInputAssemblyCreateInfo(
         vk::PipelineInputAssemblyStateCreateInfo{.topology = vk::PrimitiveTopology::eLineStrip});
 
-    core::Shader shader{"../../shaders/simple_geometry.glsl"};
+    core::Shader shader{std::string(PROJECT_ROOT_DIR) + "/shaders/simple_geometry.glsl"};
     pipelineBuilder.setShaderStageCreateInfos(device, shader);
 
     pipelineBuilder.setRasterizerCreateInfo(vk::PipelineRasterizationStateCreateInfo{

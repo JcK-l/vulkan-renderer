@@ -124,7 +124,7 @@ std::deque<rendering::PipelineBuilder> Texture2D::getPipelineBuilders(const core
                                                                       rendering::BindlessManager &bindlessManager)
 {
     auto pipelineBuilder = Prefab::getPipelineBuilder(device, renderPass, bindlessManager);
-    core::Shader shader{"../../shaders/texture2d.glsl"};
+    core::Shader shader{std::string(PROJECT_ROOT_DIR) + "/shaders/texture2d.glsl"};
     pipelineBuilder.setShaderStageCreateInfos(device, shader);
 
     auto bindingDescription = vk::VertexInputBindingDescription{

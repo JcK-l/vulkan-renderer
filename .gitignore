@@ -1,3 +1,7 @@
 cmake-build-debug/
 cmake-build-release/
+out/
+.vs/
 .idea/
+HYP_50M_SR_W/
+CmakeSettings.json
